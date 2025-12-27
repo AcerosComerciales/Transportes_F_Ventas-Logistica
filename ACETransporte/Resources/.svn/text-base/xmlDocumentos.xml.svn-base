@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Documentos" Esquema="dbo" Prefijo="DOCMT">
+  <Nombre>Documentos</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCMT_Id">DOCMT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoDocumento">TIPOS_CodTipoDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Nro">DOCMT_Nro</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Descripcion">DOCMT_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_De">DOCMT_De</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Para">DOCMT_Para</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Fecha">DOCMT_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Contenido">DOCMT_Contenido</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_FecDoc">DOCMT_FecDoc</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_UsrCrea">DOCMT_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_FecCrea">DOCMT_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_UsrMod">DOCMT_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_FecMod">DOCMT_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCMT_Id">DOCMT_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

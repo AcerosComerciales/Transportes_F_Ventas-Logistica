@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_VehiculosInventarioDetalle" Esquema="Transportes" Prefijo="VEHID">
+  <Nombre>TRAN_VehiculosInventarioDetalle</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIN_Id">VEHIN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodObjeto">TIPOS_CodObjeto</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_Id">VEHID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodCategoria">TIPOS_CodCategoria</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_Observacion">VEHID_Observacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_Existe">VEHID_Existe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_Estado">VEHID_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_UsrCrea">VEHID_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_FecCrea">VEHID_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_UsrMod">VEHID_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHID_FecMod">VEHID_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIN_Id">VEHIN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodObjeto">TIPOS_CodObjeto</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIN_Id">VEHIN_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIN_Id">VEHIN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodObjeto">TIPOS_CodObjeto</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

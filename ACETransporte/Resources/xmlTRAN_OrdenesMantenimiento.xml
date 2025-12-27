@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_OrdenesMantenimiento" Esquema="Transportes" Prefijo="ORDMN">
+  <Nombre>TRAN_OrdenesMantenimiento</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDMN_Id">ORDMN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FecAsignacion">ORDMN_FecAsignacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FecTermino">ORDMN_FecTermino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_Glosa">ORDMN_Glosa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_Estado">ORDMN_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_Id">FLETE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ORDTR_Id">ORDTR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_UsrCrea">ORDMN_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FecCrea">ORDMN_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_UsrMod">ORDMN_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FecMod">ORDMN_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDMN_Id">ORDMN_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_Id">FLETE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_Id">ORDTR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

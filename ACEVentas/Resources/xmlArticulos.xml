@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Articulos" Esquema="dbo" Prefijo="ARTIC">
+  <Nombre>Articulos</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="LINEA_Codigo">LINEA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoProducto">TIPOS_CodTipoProducto</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodCategoria">TIPOS_CodCategoria</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodUnidadMedida">TIPOS_CodUnidadMedida</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="COLOR_Id">COLOR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Id">ARTIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Peso">ARTIC_Peso</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Detalle">ARTIC_Detalle</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Descripcion">ARTIC_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Percepcion">ARTIC_Percepcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Descontinuado">ARTIC_Descontinuado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Localizacion">ARTIC_Localizacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Orden">ARTIC_Orden</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_ExistenciaMin">ARTIC_ExistenciaMin</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_ExistenciaMax">ARTIC_ExistenciaMax</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_PuntoReorden">ARTIC_PuntoReorden</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Estado">ARTIC_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_CodigoAnterior">ARTIC_CodigoAnterior</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Numero">ARTIC_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_UsrCrea">ARTIC_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_FecCrea">ARTIC_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_UsrMod">ARTIC_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_FecMod">ARTIC_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_Id">COLOR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="LINEA_Codigo">LINEA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

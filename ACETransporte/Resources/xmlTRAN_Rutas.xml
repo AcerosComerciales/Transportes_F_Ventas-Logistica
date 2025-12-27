@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_Rutas" Esquema="Transportes" Prefijo="RUTAS">
+  <Nombre>TRAN_Rutas</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="RUTAS_Id">RUTAS_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CodOrigen">UBIGO_CodOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CodDestino">UBIGO_CodDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Codigo">RUTAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Nombre">RUTAS_Nombre</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Fecha">RUTAS_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Km">RUTAS_Km</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Tiempo">RUTAS_Tiempo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_Estado">RUTAS_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_ValorReferencial">RUTAS_ValorReferencial</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_UsrCrea">RUTAS_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_FecCrea">RUTAS_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_UsrMod">RUTAS_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_FecMod">RUTAS_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="RUTAS_Id">RUTAS_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

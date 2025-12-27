@@ -1,0 +1,226 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACEVentas
+
+Partial Public Class EABAS_IngresosCompra
+
+#Region " Variables "
+   Private m_listABAS_IngresosCompraDetalle As List(Of EABAS_IngresosCompraDetalle)
+   Private m_entid_razonsocial As String
+   Private m_almac_descripcion As String
+   Private m_tipos_documento As String
+
+   Private m_ordco_serie As String
+   Private m_ordco_numero As String
+
+   Private m_compra As String
+   Private m_comprareg As Boolean
+   Private m_orden As String
+   Private m_doccompra As String
+   Private m_ordcompra As String
+
+   Enum Estado
+      Ingresado
+      Anulado
+      Eliminado
+      Confirmado
+   End Enum
+#End Region
+
+#Region " Propiedades "
+
+   Public Property ListABAS_IngresosCompraDetalle() As List(Of EABAS_IngresosCompraDetalle)
+      Get
+         Return m_listABAS_IngresosCompraDetalle
+      End Get
+      Set(ByVal value As List(Of EABAS_IngresosCompraDetalle))
+         m_listABAS_IngresosCompraDetalle = value
+      End Set
+   End Property
+
+   Public ReadOnly Property INGCO_Estado_Text() As String
+      Get
+         Select Case m_ingco_estado
+            Case getEstado(Estado.Ingresado)
+               Return Estado.Ingresado.ToString()
+            Case getEstado(Estado.Anulado)
+               Return Estado.Anulado.ToString()
+            Case getEstado(Estado.Confirmado)
+               Return Estado.Confirmado.ToString()
+            Case getEstado(Estado.Eliminado)
+               Return Estado.Eliminado.ToString()
+            Case Else
+               Return Estado.Ingresado.ToString()
+         End Select
+      End Get
+   End Property
+
+   Public Property TIPOS_Documento() As String
+      Get
+         Return m_tipos_documento
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_tipos_documento) Then
+            If Not m_tipos_documento.Equals(value) Then
+               m_tipos_documento = value
+            End If
+         Else
+            m_tipos_documento = value
+         End If
+      End Set
+   End Property
+
+   Public Property ENTID_Proveedor() As String
+      Get
+         Return m_entid_razonsocial
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_entid_razonsocial) Then
+            If Not m_entid_razonsocial.Equals(value) Then
+               m_entid_razonsocial = value
+            End If
+         Else
+            m_entid_razonsocial = value
+         End If
+      End Set
+   End Property
+
+   Public Property ALMAC_Descripcion() As String
+      Get
+         Return m_almac_descripcion
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_almac_descripcion) Then
+            If Not m_almac_descripcion.Equals(value) Then
+               m_almac_descripcion = value
+            End If
+         Else
+            m_almac_descripcion = value
+         End If
+      End Set
+   End Property
+
+   Public ReadOnly Property Documento() As String
+      Get
+         If IsNothing(m_ingco_serie) Then
+            Return ""
+         Else
+            If m_tipos_codtipodocumento = ACEVentas.ETipos.getTipoComprobante(ACEVentas.ETipos.TipoComprobanteVenta.Ticket) Then
+               Return String.Format("{0} {1}-{2}", m_tipos_documento, m_ingco_serie.PadLeft(4, "0"), m_ingco_numero.ToString().PadLeft(9, "0"))
+            Else
+               Return String.Format("{0} {1}-{2}", m_tipos_documento, m_ingco_serie.PadLeft(3, "0"), m_ingco_numero.ToString().PadLeft(7, "0"))
+            End If
+         End If
+      End Get
+   End Property
+
+   Public ReadOnly Property DocCompra() As String
+      Get
+         If IsNothing(m_docco_codigo) Then
+            Return ""
+         Else
+            Select Case m_docco_codigo.Substring(0, 2)
+               Case ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.Boleta).Substring(3, 2)
+                  Return String.Format("Bol {0}-{1}", m_docco_codigo.Substring(2, 3), m_docco_codigo.Substring(5, 7))
+               Case ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.Factura).Substring(3, 2)
+                  Return String.Format("Fac {0}-{1}", m_docco_codigo.Substring(2, 3), m_docco_codigo.Substring(5, 7))
+               Case ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.NotaCredito).Substring(3, 2)
+                  Return String.Format("Nota C. {0}-{1}", m_docco_codigo.Substring(2, 3), m_docco_codigo.Substring(5, 7))
+               Case ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.Ticket).Substring(3, 2)
+                  Return String.Format("Ticket {0}-{1}", m_docco_codigo.Substring(2, 4), m_docco_codigo.Substring(6, 9))
+               Case Else
+                  Return "N.N."
+            End Select
+         End If
+      End Get
+   End Property
+
+   Public Property ORDCO_Numero() As String
+      Get
+         Return m_ordco_numero
+      End Get
+      Set(ByVal value As String)
+         m_ordco_numero = value
+      End Set
+   End Property
+
+   Public Property ORDCO_Serie() As String
+      Get
+         Return m_ordco_serie
+      End Get
+      Set(ByVal value As String)
+         m_ordco_serie = value
+      End Set
+   End Property
+
+   Public Property Orden() As String
+      Get
+         Return m_orden
+      End Get
+      Set(ByVal value As String)
+         m_orden = value
+      End Set
+   End Property
+
+   Public Property Compra() As String
+      Get
+         Return m_compra
+      End Get
+      Set(ByVal value As String)
+         m_compra = value
+      End Set
+   End Property
+
+   Public Property CompraReg() As Boolean
+      Get
+         Return m_comprareg
+      End Get
+      Set(ByVal value As Boolean)
+         m_comprareg = value
+      End Set
+   End Property
+
+   Public Property OrdCompra() As String
+      Get
+         Return m_ordcompra
+      End Get
+      Set(ByVal value As String)
+         m_ordcompra = value
+      End Set
+   End Property
+
+   Public ReadOnly Property Codigo() As String
+      Get
+         Return String.Format("IC {0:000}-{1:0000000}", m_almac_id, m_ingco_id)
+      End Get
+   End Property
+   
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Metodos "
+   Public Shared Function getEstado(ByVal x_opcion As Estado)
+
+      Select Case x_opcion
+         Case Estado.Anulado
+            Return "X"
+         Case Estado.Confirmado
+            Return "C"
+         Case Estado.Eliminado
+            Return "E"
+         Case Estado.Ingresado
+            Return "I"
+         Case Else
+            Return "I"
+      End Select
+   End Function
+#End Region
+
+End Class

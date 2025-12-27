@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Entidades" Esquema="dbo" Prefijo="ENTID">
+  <Nombre>Entidades</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoDocumento">TIPOS_CodTipoDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Id">ENTID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_TipoEntidadPDT">ENTID_TipoEntidadPDT</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Nombres">ENTID_Nombres</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_NroDocumento">ENTID_NroDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_RazonSocial">ENTID_RazonSocial</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_NombreComercial">ENTID_NombreComercial</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_FecNacimiento">ENTID_FecNacimiento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PtrApeMaterno">ENTID_PtrApeMaterno</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PtrNombre1">ENTID_PtrNombre1</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PtrNombre2">ENTID_PtrNombre2</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_EMail">ENTID_EMail</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Estado">ENTID_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Direccion">ENTID_Direccion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Telefono1">ENTID_Telefono1</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Telefono2">ENTID_Telefono2</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Fax">ENTID_Fax</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="USUAR_Codigo">USUAR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_UsrCrea">ENTID_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_FecCrea">ENTID_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_UsrMod">ENTID_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_FecMod">ENTID_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

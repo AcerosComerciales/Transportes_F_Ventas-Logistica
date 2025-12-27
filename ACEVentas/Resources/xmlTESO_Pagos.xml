@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TESO_Pagos" Esquema="Tesoreria" Prefijo="PAGOS">
+  <Nombre>TESO_Pagos</Nombre>
+  <Esquema>Tesoreria</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PAGOS_Item">PAGOS_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoPago">TIPOS_CodTipoPago</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda">TIPOS_CodTipoMoneda</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMonedaPago">TIPOS_CodTipoMonedaPago</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMonedaOriginal">TIPOS_CodTipoMonedaOriginal</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_Id">PAGOS_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_Fecha">PAGOS_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_Importe">PAGOS_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_PagoOriginal">PAGOS_PagoOriginal</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_TipoCambio">PAGOS_TipoCambio</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_UsrCrea">PAGOS_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_FecCrea">PAGOS_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_UsrMod">PAGOS_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PAGOS_FecMod">PAGOS_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PAGOS_Item">PAGOS_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

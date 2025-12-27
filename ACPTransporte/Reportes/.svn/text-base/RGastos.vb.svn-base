@@ -1,0 +1,249 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACEVentas
+Imports C1.Win.C1FlexGrid
+
+Public Class RGastos
+#Region " Variables "
+   Private m_badministracioncaja As BAdministracionCaja
+
+   Private bs_egresos As BindingSource
+   Private bs_pendientes As BindingSource
+   Private bs_pagos As BindingSource
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the designer.
+      InitializeComponent()
+
+      ' Add any initialization after the InitializeComponent() call.
+      Try
+         formatearGrilla()
+         m_badministracioncaja = New BAdministracionCaja(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta)
+         btnExcel.Enabled = False
+
+         tctReporte.SelectedTab = tpgGastosViaje
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACReporte_16x16.GetHicon)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), Colecciones.getError("00000"), ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+   ''' <summary>
+   ''' Dar Formato a la grilla de busqueda
+   ''' </summary>
+   ''' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdGastosViaje, 1, 1, 7, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Cod. Viaje", "VIAJE_Id", "VIAJE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Documento", "Documento", "Documento", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Glosa", "VGAST_Descripcion", "VGAST_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Desc. Viaje", "VIAJE_Descripcion", "VIAJE_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Pendiente", "Importe", "Importe", 90, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastosViaje, index, "Fecha", "VGAST_Fecha", "VGAST_Fecha", 90, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+
+         c1grdGastosViaje.AllowEditing = False
+         c1grdGastosViaje.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdGastosViaje.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdGastosViaje.Styles.Highlight.BackColor = Color.Gray
+         c1grdGastosViaje.SelectionMode = SelectionModeEnum.Row
+         c1grdGastosViaje.AutoResize = False
+         c1grdGastosViaje.AllowResizing = AllowResizingEnum.Both
+         c1grdGastosViaje.Cols("VGAST_Descripcion").StyleDisplay.WordWrap = True
+         c1grdGastosViaje.Cols("VIAJE_Descripcion").StyleDisplay.WordWrap = True
+         c1grdGastosViaje.Tree.Column = 3
+
+         Dim t1 As C1.Win.C1FlexGrid.CellStyle = c1grdGastosViaje.Styles.Add("Facturado")
+         t1.BackColor = Color.LightGreen
+         t1.ForeColor = Color.DarkBlue
+         t1.Font = New Font(c1grdGastosViaje.Font, FontStyle.Regular)
+
+         Dim u1 As C1.Win.C1FlexGrid.CellStyle = c1grdGastosViaje.Styles.Add("Facturar")
+         u1.BackColor = Color.Green
+         u1.ForeColor = Color.White
+         u1.Font = New Font(c1grdGastosViaje.Font, FontStyle.Regular)
+
+         Dim j1 As C1.Win.C1FlexGrid.CellStyle = c1grdGastosViaje.Styles.Add("Pagar")
+         j1.BackColor = Color.DarkBlue
+         j1.ForeColor = Color.White
+         j1.Font = New Font(c1grdGastosViaje.Font, FontStyle.Bold)
+
+         Dim d1 As C1.Win.C1FlexGrid.CellStyle = c1grdGastosViaje.Styles.Add("Anulado")
+         d1.BackColor = Color.Red
+         d1.ForeColor = Color.White
+         d1.Font = New Font(c1grdGastosViaje.Font, FontStyle.Bold)
+         c1grdGastosViaje.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdPendientes, 1, 1, 8, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Cod. Viaje", "VIAJE_Id", "VIAJE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Documento", "Documento", "Documento", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Pendiente", "Pendiente", "Pendiente", 90, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Glosa", "VIAJE_Descripcion", "VIAJE_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Conductor", "Conductor", "Conductor", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Salida", "VIAJE_FecSalida", "VIAJE_FecSalida", 90, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientes, index, "Placa", "VEHIC_Placa", "VEHIC_Placa", 80, True, False, "System.String") : index += 1
+
+         c1grdPendientes.AllowEditing = False
+         c1grdPendientes.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdPendientes.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdPendientes.Styles.Highlight.BackColor = Color.Gray
+         c1grdPendientes.SelectionMode = SelectionModeEnum.Row
+         c1grdPendientes.AutoResize = False
+         c1grdPendientes.AllowResizing = AllowResizingEnum.Both
+         c1grdPendientes.Cols("VIAJE_Descripcion").StyleDisplay.WordWrap = True
+         c1grdPendientes.Tree.Column = 1
+
+         Dim t2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientes.Styles.Add("Facturado")
+         t2.BackColor = Color.LightGreen
+         t2.ForeColor = Color.DarkBlue
+         t2.Font = New Font(c1grdPendientes.Font, FontStyle.Regular)
+
+         Dim u2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientes.Styles.Add("Facturar")
+         u2.BackColor = Color.Green
+         u2.ForeColor = Color.White
+         u2.Font = New Font(c1grdPendientes.Font, FontStyle.Regular)
+
+         Dim j2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientes.Styles.Add("Pagar")
+         j2.BackColor = Color.DarkBlue
+         j2.ForeColor = Color.White
+         j2.Font = New Font(c1grdPendientes.Font, FontStyle.Bold)
+
+         Dim d2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientes.Styles.Add("Anulado")
+         d2.BackColor = Color.Red
+         d2.ForeColor = Color.White
+         d2.Font = New Font(c1grdPendientes.Font, FontStyle.Bold)
+         c1grdPendientes.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " + Me.Text, "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Function CalcularSaldo() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         For Each item As ETRAN_Fletes In m_badministracioncaja.ListTRAN_Fletes
+            _saldo += item.FLETE_TotIngreso
+         Next
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function CalcularGastos() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         For Each item As ETRAN_ViajesGastos In m_badministracioncaja.ListTRAN_ViajesGastos
+            _saldo += item.Importe
+         Next
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function CalcularPendientes() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         For Each item As ETRAN_Viajes In m_badministracioncaja.ListTRAN_Viajes
+            _saldo += item.Pendiente
+         Next
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Metodos de Controles"
+
+   Private Sub btnProcesar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnProcesar.Click
+      bs_egresos = New BindingSource
+      bs_pendientes = New BindingSource
+      Try
+         'formatearGrilla()
+         btnExcel.Enabled = True
+         '' Gastos de Viaje
+         If Not m_badministracioncaja.CuadreCajaEgresos(AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date, 0) Then
+            m_badministracioncaja.ListTRAN_ViajesGastos = New List(Of ETRAN_ViajesGastos)
+            btnExcel.Enabled = False
+         End If
+
+         bs_egresos.DataSource = m_badministracioncaja.ListTRAN_ViajesGastos
+         c1grdGastosViaje.DataSource = bs_egresos
+         bnavGastosViaje.BindingSource = bs_egresos
+
+         actxnGastosViaje.Text = CalcularGastos()
+         actxnGastosViaje.Formatear()
+
+         If chkAgruparEfectivo.Checked Then
+            c1grdGastosViaje.Subtotal(AggregateEnum.Sum, 1, 1, 5, "Total Viaje Nro: {0}")
+         End If
+         c1grdGastosViaje.AutoSizeRows()
+         c1grdGastosViaje.AutoSizeCol(1)
+
+         '' Pendientes de Viajes
+         If Not m_badministracioncaja.CuadreCajaPendientes(AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date) Then
+            m_badministracioncaja.ListTESO_Caja = New List(Of ETESO_Caja)
+         End If
+
+         bs_pendientes.DataSource = m_badministracioncaja.ListTRAN_Viajes
+         c1grdPendientes.DataSource = bs_pendientes
+         bnavPendientes.BindingSource = bs_pendientes
+
+         actxnPendientes.Text = CalcularPendientes()
+         actxnPendientes.Formatear()
+
+         c1grdPendientes.AutoSizeRows()
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Cargar el Reporte"), ex)
+      End Try
+   End Sub
+
+   Private Sub AcFecha_ACFecIni_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles AcFecha.ACFecIni_KeyDown
+      If e.KeyData = Keys.Enter Then
+         AcFecha.ACDtpFecha_A.Focus()
+      End If
+   End Sub
+
+   Private Sub AcFecha_ACFecFin_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles AcFecha.ACFecFin_KeyDown
+      If e.KeyData = Keys.Enter Then
+         btnProcesar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub chkAgruparEfectivo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkAgruparEfectivo.CheckedChanged
+      If chkAgruparEfectivo.Checked Then
+         c1grdGastosViaje.Subtotal(AggregateEnum.Sum, 1, 1, 5, "Total Viaje Nro: {0}")
+      Else
+         c1grdGastosViaje.Subtotal(AggregateEnum.Clear)
+      End If
+      c1grdGastosViaje.AutoSizeCol(3)
+   End Sub
+
+   Private Sub btnExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcel.Click
+      Try
+         If tctReporte.SelectedTab Is tpgGastosViaje Then
+            Utilitarios.ExportarXLS(c1grdGastosViaje, "Gastos de Viaje")
+         ElseIf tctReporte.SelectedTab Is tpgGastosPendientes Then
+            Utilitarios.ExportarXLS(c1grdPendientes, "Gastos Pendientes")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso enviar a excel", ex)
+      End Try
+   End Sub
+
+#End Region
+End Class

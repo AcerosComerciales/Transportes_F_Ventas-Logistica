@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 56
+ACPTransportes.vbproj.user
+ACPTransportes.vsdoc
+bin
+obj
+
+END

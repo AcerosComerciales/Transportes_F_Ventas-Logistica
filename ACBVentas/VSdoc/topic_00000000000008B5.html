@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>BGenerarDocsVenta.generarDocumento (String, String, String, Integer, String, TipoDePago, Boolean, Decimal, String) (Método)</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ACBVentas Reference</div>
+  	<h1 class="title">BGenerarDocsVenta.generarDocumento (String, String, String, Integer, String, TipoDePago, Boolean, Decimal, String) (Método)</h1>
+  	<div id="headerLinks">
+
+	<a href="#seeAlsoSection">Vea también</a>
+
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+       
+        Generar documento de venta
+
+
+
+        <br /><strong>Ensamblado:</strong> ACBVentas (in ACBVentas.dll)
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Sintaxis</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="syntaxSection" class="section">	
+	
+	
+	<div id="syntaxCodeBlocks">
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">Public Function generarDocumento( _&nbsp;<br />   ByVal <i>x_usuario</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_pedid_codigo</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_docve_serie</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_docve_numero</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a>, _&nbsp;<br />   ByVal <i>x_estentrega</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_tipopago</i> As <strong>TipoDePago</strong>, _&nbsp;<br />   ByVal <i>x_cancelar</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a>, _&nbsp;<br />   ByVal <i>x_tipocambio</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.decimal.aspx">Decimal</a>, _&nbsp;<br />   ByRef <i>x_msg</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCsharp">
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> generarDocumento(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_pedid_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_docve_serie</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_docve_numero</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_estentrega</i>,&nbsp;<br />   <strong>TipoDePago</strong> <i>x_tipopago</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_cancelar</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.decimal.aspx">decimal</a> <i>x_tipocambio</i>,&nbsp;<br />   ref <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_msg</i>&nbsp;<br />)</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCpp">
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> generarDocumento(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_pedid_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_docve_serie</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_docve_numero</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_estentrega</i>,&nbsp;<br />   <strong>TipoDePago</strong> <i>x_tipopago</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_cancelar</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.decimal.aspx">Decimal</a> <i>x_tipocambio</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^&amp; <i>x_msg</i>&nbsp;<br />) </pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCornerActive">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeJScript">
+					<pre xml:space="preserve" class="brush: js">public function generarDocumento(&nbsp;<br />    <i>x_usuario</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_pedid_codigo</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_docve_serie</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_docve_numero</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>,&nbsp;<br />    <i>x_estentrega</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_tipopago</i> : <strong>TipoDePago</strong>,&nbsp;<br />    <i>x_cancelar</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>,&nbsp;<br />    <i>x_tipocambio</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.decimal.aspx">decimal</a>,&nbsp;<br />    <i>x_msg</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+<h4 class="subHeading">
+	Parámetros</h4><dl paramName="x_usuario">
+	<dt>
+		<span class="parameter">
+			x_usuario
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de usuario 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_pedid_codigo">
+	<dt>
+		<span class="parameter">
+			x_pedid_codigo
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de pedido 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_docve_serie">
+	<dt>
+		<span class="parameter">
+			x_docve_serie
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			serie del documento 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_docve_numero">
+	<dt>
+		<span class="parameter">
+			x_docve_numero
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
+		</p>
+		<p>
+			numero del documento 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_estentrega">
+	<dt>
+		<span class="parameter">
+			x_estentrega
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			estado de entrega del documento de venta 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_tipopago">
+	<dt>
+		<span class="parameter">
+			x_tipopago
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <strong>TipoDePago</strong> 
+		</p>
+		<p>
+			tipo de pago del documento 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_cancelar">
+	<dt>
+		<span class="parameter">
+			x_cancelar
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> 
+		</p>
+		<p>
+			Verdader: se cancelo el documento usando efectivo u otro medio disponible 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_tipocambio">
+	<dt>
+		<span class="parameter">
+			x_tipocambio
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.decimal.aspx">decimal</a> 
+		</p>
+		<p>
+			tipo de cambio 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_msg">
+	<dt>
+		<span class="parameter">
+			x_msg
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			mensaje devuelto si existe algun error 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
+
+	<h4 class="subHeading">
+		Valor devuelto</h4>
+  devuelve el valor verdadero si se carga datos de la consulta ejecutada
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Código fuente</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="sourceCodeSection" class="section">	
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csNaTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">
+Public Function generarDocumento(ByVal x_usuario As String, ByVal x_pedid_codigo As String _
+                                , ByVal x_docve_serie As String, ByVal x_docve_numero As Integer, ByVal x_estentrega As String _
+                                , ByVal x_tipopago As ETipos.TipoDePago, ByVal x_cancelar As Boolean, ByVal x_tipocambio As Decimal, _
+                                  ByRef x_msg As String) As Boolean
+    Try '' Cargar Pedido/Cotizacion y su detalle
+       '' Validar que el numero de documento no este ya creado
+       If validarNumeroDocumento(x_docve_serie, x_docve_numero, m_bvent_pedidos.VENT_Pedidos.TIPOS_CodTipoDocumento) Then
+          x_msg &amp;= String.Format(&quot;- El numero de documento ya fue usado{0}&quot;, vbNewLine)
+          Return False
+       End If
+       '' Iniciar el proceso de creacion del documento de venta
+       DAEnterprise.BeginTransaction()
+       '' Crear las clases de Documento de Venta con los datos del Pedido
+       '' Cargar la cabecera del Documento de Venta
+       m_event_docsventa.DOCVE_Serie = x_docve_serie : m_event_docsventa.DOCVE_Numero = x_docve_numero
+       m_event_docsventa.DOCVE_EstEntrega = x_estentrega
+       '==========&gt; getCabecera(m_bvent_pedidos, m_event_docsventa)
+       '' Generar el codigo del documento de venta
+       m_event_docsventa.DOCVE_Codigo = m_event_docsventa.TIPOS_CodTipoDocumento.Substring(3, 2) &amp; x_docve_serie &amp; x_docve_numero.ToString().PadLeft(7, &quot;0&quot;)
+       '' Grabar cabecera
+       Dim x_bevent_docsventa As New BVENT_DocsVenta(m_pvent_id, m_periodo, m_zonas_codigo, m_sucur_id)
+       m_event_docsventa.DOCVE_Id = x_bevent_docsventa.getCorrelativo(&quot;DOCVE_Id&quot;)
+       x_bevent_docsventa.setVENT_DocsVenta(m_event_docsventa)
+       If x_bevent_docsventa.Guardar(x_usuario) Then
+          '' Cargar el detalle del documento de venta
+          'm_event_docsventa.ListVENT_DocsVentaDetalle = New List(Of EVENT_DocsVentaDetalle)
+          '==============&gt; getDetalle(m_bvent_pedidos.VENT_Pedidos, m_event_docsventa)
+          '' verifica la autorizacion del Stock Negativo
+          Dim x_msgStock As String = &quot;&quot;
+          Dim _bauditoria As New BAuditoria()
+ 
+          Dim _autor As Boolean
+          '' Validacion de Stock Negativo por Parametro General Pre-Configurado
+          If m_parStockNegativo Then
+             _autor = True
+          Else
+             _autor = _bauditoria.VerificarAutorizacion(BConstantes.APLIC_Codigo, BConstantes.ZONAS_Codigo, m_event_docsventa.SUCUR_Id, _
+                                                                    ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.CotizacionVenta), _
+                                                                    x_pedid_codigo, ETipos.getTipo(ETipos.TipoAuditoria.StocksNegativo))
+          End If
+ 
+          '' Grabar el detalle del documento de venta
+          Dim x_bevent_docsventadetalle As New BVENT_DocsVentaDetalle
+          For Each Item As EVENT_DocsVentaDetalle In m_event_docsventa.ListVENT_DocsVentaDetalle
+             Item.Instanciar(ACFramework.ACEInstancia.Nuevo)
+             Item.ZONAS_Codigo = m_event_docsventa.ZONAS_Codigo
+             x_bevent_docsventadetalle.VENT_DocsVentaDetalle = Item
+             x_bevent_docsventadetalle.VENT_DocsVentaDetalle.DOCVE_Codigo = m_event_docsventa.DOCVE_Codigo
+             '' Verificar que hay Stock disponible del Articulo
+             If Not x_bevent_docsventadetalle.Guardar(x_usuario) Then
+                '' Terminar el proceso
+                DAEnterprise.RollBackTransaction()
+                Return False
+                Exit For
+             Else
+                '' Si es una cotización se hace el descuento respectivo
+                Dim m_tipoDocumento As EVENT_Pedidos.TipoPedido = EVENT_Pedidos.TipoCotizacionCodigo(x_pedid_codigo)
+                Select Case m_tipoDocumento
+                   Case EVENT_Pedidos.TipoPedido.CT
+                      '' Descontar Stock del Articulo
+                      Dim m_bmanejarstocks As New BManejarStock()
+                      m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                      m_bmanejarstocks.LOG_Stocks.DOCVE_Codigo = Item.DOCVE_Codigo
+                      m_bmanejarstocks.LOG_Stocks.DOCVD_Item = Item.DOCVD_Item
+                      m_bmanejarstocks.Egreso(m_periodo, Item.ARTIC_Codigo, Item.TIPOS_CodUnidadMedida, Item.ALMAC_Id, Item.DOCVD_Cantidad, _
+                                              x_bevent_docsventa.VENT_DocsVenta.DOCVE_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaVenta), x_usuario)
+                   Case EVENT_Pedidos.TipoPedido.PD, EVENT_Pedidos.TipoPedido.PI
+                      Dim _generarpedido As New BGenerarCotizacion(m_periodo)
+                      If _generarpedido.AnularPedidoStock(m_event_docsventa.PEDID_Codigo, x_usuario, False) Then
+                         Dim m_bmanejarstocks As New BManejarStock()
+                         m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                         m_bmanejarstocks.LOG_Stocks.DOCVE_Codigo = Item.DOCVE_Codigo
+                         m_bmanejarstocks.LOG_Stocks.DOCVD_Item = Item.DOCVD_Item
+                         m_bmanejarstocks.Egreso(m_periodo, Item.ARTIC_Codigo, Item.TIPOS_CodUnidadMedida, Item.ALMAC_Id, Item.DOCVD_Cantidad, _
+                                                 x_bevent_docsventa.VENT_DocsVenta.DOCVE_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaVenta), x_usuario)
+                      End If
+                   Case EVENT_Pedidos.TipoPedido.PS
+                      Dim _generarpedido As New BGenerarCotizacion(m_periodo)
+                      If _generarpedido.AnularPedidoStock(m_event_docsventa.PEDID_Codigo, x_usuario, False) Then
+                         Dim m_bmanejarstocks As New BManejarStock()
+                         m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                         m_bmanejarstocks.LOG_Stocks.DOCVE_Codigo = Item.DOCVE_Codigo
+                         m_bmanejarstocks.LOG_Stocks.DOCVD_Item = Item.DOCVD_Item
+                         m_bmanejarstocks.Egreso(m_periodo, Item.ARTIC_Codigo, Item.TIPOS_CodUnidadMedida, Item.ALMAC_Id, Item.DOCVD_Cantidad, _
+                                                 x_bevent_docsventa.VENT_DocsVenta.DOCVE_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaVenta), x_usuario)
+                      End If
+                   Case Else
+ 
+                End Select
+             End If
+          Next
+ 
+          '' Ingresar Documento de Pago
+          If x_cancelar Then
+ 
+             Dim _caja_numero As Integer = getNroTransaccion(m_pvent_id, m_event_docsventa.TESO_Caja.CAJA_Serie)
+             Dim _caja_codigo As String = String.Format(&quot;{0:00}{1}{2:0000000}&quot;, m_pvent_id, m_event_docsventa.TESO_Caja.CAJA_Serie, _caja_numero)
+ 
+             Select Case x_tipopago
+                Case ETipos.TipoDePago.Efectivo
+                   GrabarDocPago(x_usuario, _caja_codigo, True)
+ 
+                Case ETipos.TipoDePago.Cheque, ETipos.TipoDePago.DepositoBancario, ETipos.TipoDePago.Detraccion, ETipos.TipoDePago.Letra, ETipos.TipoDePago.RecEgreInterno
+                   GrabarDocPago(x_usuario, _caja_codigo, False)
+                   m_event_docsventa.TESO_Caja.BANCO_Id = m_event_docsventa.TESO_DocsPagos.BANCO_Id
+                Case ETipos.TipoDePago.NotaCredito
+                   GrabarDocPagoNC(x_usuario, _caja_codigo, x_msg)
+             End Select
+             GrabarCaja(x_usuario, _caja_numero, _caja_codigo, m_event_docsventa.TESO_Caja.CAJA_Serie, x_docve_numero, x_tipocambio, x_tipopago)
+          Else
+             ''
+ 
+          End If
+          '' Enumerar los articulos que no tienes stock y mostrarlos
+          If x_msg.Length &gt; 0 Then
+             DAEnterprise.RollBackTransaction()
+             Return False
+          Else
+             If Not m_parStockNegativo Then
+                _bauditoria.ConfirmarAutorizacion(_bauditoria.Auditoria.AUDIT_Id, BConstantes.EUsuarioEntidad.ENTID_Codigo, m_event_docsventa.DOCVE_Codigo, ETipos.getTipo(ETipos.TipoAuditoria.StocksNegativo), x_usuario)
+             End If
+             x_msg = x_msgStock
+          End If
+          '' Cambiar de estado a la Cotizacion/Pedido
+          Dim x_bvent_pedidos As New BVENT_Pedidos() With {.VENT_Pedidos = New EVENT_Pedidos()}
+          x_bvent_pedidos.VENT_Pedidos.PEDID_Codigo = m_bvent_pedidos.VENT_Pedidos.PEDID_Codigo
+          x_bvent_pedidos.VENT_Pedidos.PEDID_Estado = EVENT_Pedidos.getEstado(EVENT_Pedidos.Estado.Confirmado)
+          x_bvent_pedidos.VENT_Pedidos.PEDID_DocumentoPercepcion = m_bvent_pedidos.VENT_Pedidos.PEDID_DocumentoPercepcion
+          x_bvent_pedidos.VENT_Pedidos.PEDID_GenerarGuia = m_bvent_pedidos.VENT_Pedidos.PEDID_GenerarGuia
+          x_bvent_pedidos.VENT_Pedidos.PEDID_ParaFacturar = m_bvent_pedidos.VENT_Pedidos.PEDID_ParaFacturar
+          x_bvent_pedidos.VENT_Pedidos.Instanciar(ACEInstancia.Modificado)
+          x_bvent_pedidos.Guardar(x_usuario)
+          '' Ejecutar operaciones anexas
+          Dim _credito As Boolean = _bauditoria.VerificarAutorizacion(BConstantes.APLIC_Codigo, BConstantes.ZONAS_Codigo, BConstantes.SUCUR_Id _
+                                                                               , m_bvent_pedidos.VENT_Pedidos.TIPOS_CodTipoDocumento, x_pedid_codigo _
+                                                                               , ETipos.getTipo(ETipos.TipoAuditoria.FacturarCreditoExcedido))
+          If _credito Then
+             _bauditoria.ConfirmarAutorizacion(_bauditoria.Auditoria.AUDIT_Id, BConstantes.EUsuarioEntidad.ENTID_Codigo, m_event_docsventa.DOCVE_Codigo, ETipos.getTipo(ETipos.TipoAuditoria.FacturarCreditoExcedido), x_usuario)
+          End If
+ 
+          '' Culminar transaccion
+          DAEnterprise.CommitTransaction()
+          Return True
+       Else
+          DAEnterprise.RollBackTransaction()
+          Return False
+       End If
+       'Else
+       'x_msg &amp;= String.Format(&quot;- No cargo el pedido.{0}&quot;, vbNewLine)
+       'Return False
+       'End If
+       DAEnterprise.RollBackTransaction()
+    Catch ex As Exception
+       DAEnterprise.RollBackTransaction()
+       Throw ex
+    End Try
+ End Function
+					</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+	</div>					
+</div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Plataformas</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="platformsSection" class="section">	
+		<p>
+			Windows 8, Windows Server 2012, Windows 7, Windows Vista SP1 or later, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008 (Server Core not supported), Windows Server 2008 R2 (Server Core supported with SP1 or later), Windows Server 2003 SP2
+		</p>
+		<p>
+			.NET Framework no admite todas las versiones de cada plataforma. Para obtener una lista de las versiones admitidas, vea 
+			<a target="_top" href="http://msdn2.microsoft.com/en-us/library/298275e2-da1d-4618-9f74-6a3567832350.aspx">System Requirements</a>.
+		</p>
+	</div>					
+</div>
+
+
+
+  
+
+	
+
+	
+	
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Información de versión</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="frameworksSection" class="section">	
+  <h4 class="subHeading">.NET Framework</h4>Supported in: 4.5, 4, 3.5, 3.0, 2.0, 1.1, 1.0<br />
+
+	<h4 class="subHeading">.NET Compact Framework</h4>Supported in: 3.5, 2.0, 1.0<br />
+
+	<h4 class="subHeading">XNA Framework</h4>Supported in: 3.0, 2.0, 1.0<br />
+	
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Vea también</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Referencia</h4>
+			<a href="topic_000000000000089B.html">BGenerarDocsVenta (Clase)</a><br />
+<a href="topic_000000000000089B_members--.html">BGenerarDocsVenta (Miembros)</a><br />
+
+
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

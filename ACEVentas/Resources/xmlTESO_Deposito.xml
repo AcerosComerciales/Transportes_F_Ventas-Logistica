@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TESO_Deposito" Esquema="Tesoreria" Prefijo="DEPOS">
+  <Nombre>TESO_Deposito</Nombre>
+  <Esquema>Tesoreria</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DEPOS_Id">DEPOS_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_Numero">DEPOS_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="BANCO_Id">BANCO_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda">TIPOS_CodTipoMoneda</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTDocumento">TIPOS_CodTDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_NroOperacion">DEPOS_NroOperacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_CtCte">DEPOS_CtCte</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_FecDeposito">DEPOS_FecDeposito</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_Importe">DEPOS_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_UsrCrea">DEPOS_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_FecCrea">DEPOS_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_UsrMod">DEPOS_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DEPOS_FecMod">DEPOS_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DEPOS_Id">DEPOS_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_Id">BANCO_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

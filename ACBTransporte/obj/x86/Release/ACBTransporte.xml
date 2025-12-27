@@ -1,0 +1,630 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACBTransporte
+</name>
+</assembly>
+<members>
+<member name="M:ACBTransporte.BTRAN_Recibos.getNumero(System.String,System.String)">
+	<summary>
+ Genera el correlativo segun el documento de venta y la serie
+ </summary>
+	<param name="x_docve_serie">Serie del documento</param>
+	<param name="x_tipos_codtipodocumento">Tipo de documento/comprobante de venta</param>
+	<returns>Retorna el numero correspondiente al ultimo generado</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Recibos.CargarRecibos(System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_RecibosTransporte" por el Generador 03/04/2012
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Recibos.TRAN_ObtenerRecibo(ACETransporte.ETRAN_Recibos@,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_ObtenerRecibo
+ </summary>
+	<param name="x_recib_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_GuiasTransportista.TRAN_GUIASS_RepRecCemento(System.DateTime,System.DateTime,System.Int16)">
+	<summary> 
+ Capa de Negocio: TRAN_GUIASS_RepRecCemento
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosRanflas.CargarTodos(System.Int64,System.Boolean,System.Boolean)">
+	<summary>
+ Cargar las ranflas asignadas al vehiculo
+ </summary>
+	<param name="x_vehic_id"></param>
+	<param name="x_opcion"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosRanflas.CargarTodos(System.Boolean)">
+	<summary>
+ Cargar todas las ranflas disponibles y no disponibles, segun el parametro x_opcion
+ </summary>
+	<param name="x_opcion"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.getNumero(System.String,System.String)">
+	<summary>
+ Genera el correlativo segun el documento de venta y la serie
+ </summary>
+	<param name="x_docve_serie">Serie del documento</param>
+	<param name="x_tipos_codtipodocumento">Tipo de documento/comprobante de venta</param>
+	<returns>Retorna el numero correspondiente al ultimo generado</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.generarDocumentoNotaCredito_(System.String,System.DateTime,System.String,System.Int32,System.String@,ACBVentas.BAuditoria,System.String)">
+	<summary>
+ Generar documento  de venta _modificadoalex
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_fecfacturacion">fecha de facturacion</param>
+	<param name="x_serie">serie</param>
+	<param name="x_numero">numero</param>
+	<param name="x_msg">mensaje devuelto en caso de error</param>
+	<param name="x_bauditoria"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.generarDocumentoNotaCredito(System.String,System.DateTime,System.String,System.Int32,System.String@,ACBVentas.BAuditoria)">
+	<summary>
+ Generar documento  de venta
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_fecfacturacion">fecha de facturacion</param>
+	<param name="x_serie">serie</param>
+	<param name="x_numero">numero</param>
+	<param name="x_msg">mensaje devuelto en caso de error</param>
+	<param name="x_bauditoria"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.generarDocumento_transNC(System.String,System.DateTime,System.String,System.Int32,System.String,System.String@,System.Boolean@,System.String)">
+	<summary>
+ Para Transportes Generar documento
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_fecfacturacion"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_estentrega"></param>
+	<param name="x_msg"></param>
+	<param name="x_trans"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.validarNumeroDocumento(System.String,System.Int32,System.String)">
+	<summary>
+ validade el numero del documento de venta, su disponibilidad
+ </summary>
+	<param name="x_serie">numero de serie</param>
+	<param name="x_numero">numero correlativo</param>
+	<param name="x_documento">tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarDocsVentaTrans.DocumentosRelacionados(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Vehiculos.Busqueda(System.Int64,System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: TRAN_VEHISS_BuscarVehiculos
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_campo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Vehiculos.Busqueda(System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_VEHISS_BuscarVehiculo
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Vehiculos.TRAN_ObtenerModelosVehiculos(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_ObtenerModelosVehiculos
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Viajes.Busqueda(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime,System.Boolean,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_VIAJESS_ObtenerViajes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadenas">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<param name="x_campofecha">Parametro 5: </param>
+	<param name="x_liquidados">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Viajes.CuadroComparativoCombustible(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime,System.Boolean,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_VIAJESS_CuadroComparativoCombustible
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadenas">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<param name="x_campofecha">Parametro 5: </param>
+	<param name="x_liquidados">Parametro 6: </param>
+	<param name="x_pvent_id">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Viajes.Reporte_PendientePorViaje(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_PendientePorViaje
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Fletes.TRAN_FLETESS_UnReg(System.String)">
+	<summary> 
+ Procedimiento "TRAN_FLETESS_UnReg" por el Generador 27/02/2012
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Fletes.Reporte_PendienteFletes(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_PendienteFletes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Fletes.TRAN_FLETESS_Ayuda(System.String,System.Int16,System.DateTime,System.DateTime)">
+	<summary> 
+ Procedimiento "TRAN_FLETESS_Ayuda" por el Generador 20/03/2012
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_fecini">Parametro 3: </param>
+	<param name="x_fecfin">Parametro 4: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Fletes.ConsultaFletes(System.String,System.Int16,System.Int16,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_FLETESS_ConsultaFletes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_opfecha">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Fletes.ConsultaFletesDoc(System.String,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_FLETESS_ConsultaFletesDoc
+ </summary>
+	<param name="x_tipos_codtipodocumento">Parametro 1: </param>
+	<param name="x_docve_serie">Parametro 2: </param>
+	<param name="x_docve_numero">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosMantenimiento.ObtenerDocCompraXMantenimiento(System.Collections.Generic.List{ACETransporte.ETRAN_Documentos}@,System.Int64,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_ObtenerDocCompraXMantenimiento
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<param name="x_vman_item">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosMantenimiento.TRAN_VMAN_ObtenerMantenimientos(System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TRAN_VMAN_ObtenerMantenimientos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_ViajesGastos.GastosViajeVerificados(System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_GastosViajeVerificados" por el Generador 02/04/2012
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_ViajesGastos.GenerarRecibos(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_VIAJSS_GenerarRecibos
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_NeumaticosIncidencias.Guardar(System.String,System.Boolean)">
+	<summary>
+ Crea el Documento si lo es requerido y graba la incidencia del neumatico
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_documento"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_NeumaticosIncidencias.GuardarIngreso(System.String,System.Boolean)">
+	<summary>
+ Crea el documento si lo es requerido, graba la incidencia del neumatico y crea un registro de Gasto en las incidencias del viaje
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_documento"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaFacturasPendientes(ACETransporte.ETRAN_Fletes@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaFletesPendientes(ACETransporte.ETRAN_Fletes@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaFletes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.FacturasXCliente(System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaEgresos(System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaEgresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_viaje_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaPendientes(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaPendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.SueldoConductor(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_VIAJSS_SueldoConductor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaEfectivo(ACETransporte.ETRAN_ViajesGastos@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.CuadreCajaPagos(System.Boolean,System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.FletesXFacturas(System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_FletesXFacturas
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.PendientesPagadas(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_PendientesPagadas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.MovimientoSencillo(System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_MovimientoSencillo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.Pendientes(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_Pendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionCaja.GenerarRecibos(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_REPOSS_GenerarRecibos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarGuias.FacturasCemento(System.String,System.Int16,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOGI_DOCSS_FacturasCemento
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGenerarGuias.TRAN_GUIASS_ObtenerGuias(System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_GUIASS_ObtenerGuias
+ </summary>
+	<param name="x_gtran_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosConductores.CargarTodos(System.Boolean,ACEVentas.EEntidades.TipoEntidad)">
+	<summary>
+ Cargar todas las ranflas disponibles y no disponibles, segun el parametro x_opcion
+ </summary>
+	<param name="x_opcion"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.GuardarFlete(System.String,System.String,System.Int64,System.Boolean)">
+	<summary>
+ Guardar fletes
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_ano"></param>
+	<param name="x_viaje_id"></param>
+	<param name="x_detalle"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.GuardarFlete(System.String,System.String,System.Boolean,System.Boolean,System.Int32,System.Int64@,System.Int64@,System.Boolean)">
+	<summary>
+ Grabar Flete y Crear Viaje
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_ano"></param>
+	<param name="x_fleteInd"></param>
+	<param name="x_detalle"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.CargarFletes(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_Fletes
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.eliminarSoloConsCombustible">
+	<summary>
+ 'eliminar solo consumo combustible y de caja tambien
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.cargarGuiaRemision(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_GuiasViajes
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BAdministracionViajes.GastosViajeInicial">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_GastosViajeInicial" por el Generador 01/04/2012
+ </summary>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_Documentos.TRAN_ObtenerDocumentosCompra(System.DateTime,System.DateTime,System.Int64,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TRAN_ObtenerDocumentosCompra
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_cadena">Parametro 5: </param>
+	<param name="x_todos">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_VehiculosInventarioDetalle.TodosObjetosInventario(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_INVSS_TodosObjetosInventario
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACBTransporte.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACBTransporte.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ACBTransporte.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACBTransporte.BGCancelacion.CargarFacturasXCancelar(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGCancelacion.AyudaNC(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary>
+ Cargar la ayuda de busqueda de documentos de pago, todos los pago a favor del cliente
+ </summary>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_entid_codigo"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BGCancelacion.GrabarCajaDocumento(ACEVentas.EVENT_DocsVenta,ACEVentas.ETipos.TipoDePago,System.String,System.Decimal,System.Decimal,System.String,System.String)">
+	<summary>
+ Grabar Registros por Redondeo
+ </summary>
+	<param name="item"></param>
+	<param name="x_codtransaccion"></param>
+	<param name="x_Caja_codigo"></param>
+	<param name="_diferencia"></param>
+	<param name="x_tipocambio"></param>
+	<param name="x_usuario"></param>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.REPOS_NotasCre(System.String)">
+	<summary>
+ para buscar ventas facturacion Electronica Notas_Cre _A
+ </summary>
+	<param name="x_pedid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.REPOS_DocsVenta(System.String)">
+	<summary>
+ para buscar ventas facturacion Electronica_A
+ </summary>
+	<param name="x_pedid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.CuadreCaja(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_REPORSS_CuadreCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.CuadrePendientes(System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.REPORTE_ViajesFletes(System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TRAN_REPOSS_ViajesFletes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.REPOSS_CuentasCorrientes(System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: REPOSS_CuentasCorrientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BReporte.VENT_CAJASS_CobranzaPendiente(System.DateTime,System.DateTime,System.Int64,System.Boolean,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CobranzaPendiente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<param name="x_entid_codigovendedor">Parametro 6: </param>
+	<param name="x_entid_codigocliente">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.GuardarConsumo_mod(System.String)">
+	<summary>
+	</summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.Guardar_doc(System.String,System.Boolean,System.String,System.Collections.Generic.List{ACETransporte.ETRAN_DocumentosDetalle})">
+	<summary>
+ guardar solo documento _a
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_documento"></param>
+	<param name="x_recib_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.Guardar_todo(System.String,System.Boolean,System.String)">
+	<summary>
+ ''
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_documento"></param>
+	<param name="x_recib_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.Guardar(System.String,System.Boolean,System.String)">
+	<summary>
+ '
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_documento"></param>
+	<param name="x_recib_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.ObtConCombustible(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_COMCOSS_ObtConCombustible
+ </summary>
+	<param name="x_comco_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.ConsumoCombustible(System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_ConsumoCombustible" por el Generador 02/04/2012
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.ConsumosXVehiculo(System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_COMCOSS_ConsumosXVehiculo
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.consumo_combustibless(System.String)">
+	<summary>
+ alex consumos
+ </summary>
+	<param name="x_documento"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBTransporte.BTRAN_CombustibleConsumo.Consumos(System.DateTime,System.DateTime,System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: TRAN_COMCOSS_Consumos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

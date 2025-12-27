@@ -1,0 +1,433 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports ACBVentas
+Imports System.Configuration
+Imports ACFramework
+Imports DAConexion
+Imports ACEVentas
+
+Public Class BTRAN_Cotizaciones
+
+#Region " Variables "
+   Private m_tipocambio As ETipoCambio
+   Private m_listTRAN_CotizacionesFletes As List(Of ETRAN_CotizacionesFletes)
+   Private m_listTRAN_CotizacionesFletesliberados As List(Of ETRAN_CotizacionesFletes)
+    Private m_listTRAN_ViajesGuiasRemision As List(Of ETRAN_ViajesGuiasRemision)
+    Private m_listTRAN_Fletes As ETRAN_Fletes
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+   Public Property TipoCambio() As ETipoCambio
+      Get
+         Return m_tipocambio
+      End Get
+      Set(ByVal value As ETipoCambio)
+         m_tipocambio = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_CotizacionesFletes() As List(Of ETRAN_CotizacionesFletes)
+      Get
+         Return m_listTRAN_CotizacionesFletes
+      End Get
+      Set(ByVal value As List(Of ETRAN_CotizacionesFletes))
+         m_listTRAN_CotizacionesFletes = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_CotizacionesFletesLiberados() As List(Of ETRAN_CotizacionesFletes)
+      Get
+         Return m_listTRAN_CotizacionesFletesliberados
+      End Get
+      Set(ByVal value As List(Of ETRAN_CotizacionesFletes))
+         m_listTRAN_CotizacionesFletesliberados = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_ViajesGuiasRemision() As List(Of ETRAN_ViajesGuiasRemision)
+      Get
+         Return m_listtran_viajesguiasremision
+      End Get
+      Set(ByVal value As List(Of ETRAN_ViajesGuiasRemision))
+         m_listtran_viajesguiasremision = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String _
+                            , ByVal x_todos As Boolean, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByVal x_pvent_id As Long) As Boolean
+      Dim d_tran_cotizaciones As New DTRAN_Cotizaciones()
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin("Transportes", "TRAN_Rutas", "Ruta", ACJoin.TipoJoin.Left _
+                            , New ACCampos() {New ACCampos("RUTAS_Id", "RUTAS_Id")} _
+                            , New ACCampos() {New ACCampos("RUTAS_Nombre", "RUTAS_Nombre")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Left _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                            , New ACCampos() {New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         Dim _where As New Hashtable()
+         _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         _where.Add("PVENT_Id", New ACWhere(x_pvent_id, ACWhere.TipoWhere.Igual))
+         _where.Add("COTIZ_FechaFlete", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         If x_todos Then
+                _where.Add("COTIZ_Estado", New ACWhere("'A','R','C'", ACWhere.TipoWhere._In))
+         Else
+            _where.Add("COTIZ_Estado", New ACWhere("A", ACWhere.TipoWhere.Igual))
+         End If
+         _where.Add("TIPOS_CodTipoOrigen", New ACWhere(ETipos.getTipo(ETipos.OrigenCotizacion.CViaje), ACWhere.TipoWhere.Igual))
+         m_listTRAN_Cotizaciones = New List(Of ETRAN_Cotizaciones)()
+         Return d_tran_cotizaciones.TRAN_COTIZSS_Todos(m_listTRAN_Cotizaciones, _join, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_todos As Boolean _
+                           , ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime _
+                           , ByVal x_zonas_codigo As String, ByVal x_sucur_id As Short, ByVal x_pvent_id As Long) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                            , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Cliente") _
+                                              , New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                            , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_TipoDocumento")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TMon", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMoneda")} _
+                            , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoMoneda")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TCond", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodCondicionPago")} _
+                            , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_CondicionPago")}))
+         Dim _where As New Hashtable()
+         If x_campo.Contains("ENTID") Then
+            _where.Add(x_campo, New ACWhere(x_cadena, "Ent", "System.String", ACWhere.TipoWhere._Like))
+         Else
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         End If
+         _where.Add("ZONAS_Codigo", New ACWhere(x_zonas_codigo))
+         _where.Add("SUCUR_Id", New ACWhere(x_sucur_id))
+         _where.Add("PVENT_Id", New ACWhere(x_pvent_id))
+         _where.Add("COTIZ_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         _where.Add("TIPOS_CodTipoOrigen", New ACWhere(ETipos.getTipo(ETipos.OrigenCotizacion.CFacturacion), ACWhere.TipoWhere.Igual))
+         If Not x_todos Then _where.Add("COTIZ_Estado", New ACWhere(ETRAN_Cotizaciones.getEstado(ETRAN_Cotizaciones.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         Return CargarTodos(_join, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Guardar(ByVal x_usuario As String, ByVal x_ano As String, ByVal x_generarCodigo As Boolean) As Boolean
+      Try
+         If x_generarCodigo Then
+            Dim d_tran_cotizaciones As New DTRAN_Cotizaciones()
+            If m_tran_cotizaciones.Nuevo Then
+               DAEnterprise.BeginTransaction()
+               Try
+                  m_tran_cotizaciones.COTIZ_Codigo = getCorrelativo(m_tran_cotizaciones.COTIZ_Numero, ETRAN_Cotizaciones.TipoCotizacion.CT, m_tran_cotizaciones.ZONAS_Codigo, m_tran_cotizaciones.SUCUR_Id)
+                  m_tran_cotizaciones.COTIZ_Estado = BConstantes.getEstado(BConstantes.Estados.Activo)
+                  If Guardar(x_usuario) Then
+                     DAEnterprise.CommitTransaction()
+                     Return True
+                  Else
+                     DAEnterprise.RollBackTransaction()
+                     Return False
+                  End If
+                  'd_tran_cotizaciones.TRAN_COTIZSI_UnReg(m_tran_cotizaciones, x_usuario)
+               Catch ex As Exception
+                  DAEnterprise.RollBackTransaction()
+                  Throw ex
+               End Try
+            ElseIf m_tran_cotizaciones.Modificado Then
+               d_tran_cotizaciones.TRAN_COTIZSU_UnReg(m_tran_cotizaciones, x_usuario)
+            ElseIf m_tran_cotizaciones.Eliminado Then
+               d_tran_cotizaciones.TRAN_COTIZSD_UnReg(m_tran_cotizaciones)
+            End If
+            Return True
+         Else
+            Return Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CargarAyuda(ByVal x_where As Hashtable) As Boolean
+      Dim d_tran_cotizaciones As New DTRAN_Cotizaciones()
+      Try
+         m_dtTRAN_Cotizaciones = New DataTable()
+         Return d_tran_cotizaciones.COTISS_TodosAyuda(m_dtTRAN_Cotizaciones, x_where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function AnularDocumento(ByVal x_cotiz_codigo As String, ByVal x_usuario As String) As Boolean
+      m_tran_cotizaciones = New ETRAN_Cotizaciones
+        Try
+            Dim _flete As New BTRAN_Fletes
+            Dim _where As New Hashtable
+            Dim PRB As String
+
+            _where.Add("COTIZ_Codigo", New ACWhere(x_cotiz_codigo))
+            _where.Add("FLETE_Estado", New ACWhere("X", ACWhere.TipoWhere.Diferente))
+            If _flete.CargarTodos(_where) Then
+
+                '' Actualizar estado del flete
+                'Dim _fletess As New BTRAN_Fletes
+                m_listTRAN_Fletes = New ETRAN_Fletes()
+
+                m_listTRAN_Fletes.listTRAN_Fletes = _flete.ListTRAN_Fletes
+
+                For Each item As ETRAN_Fletes In m_listTRAN_Fletes.listTRAN_Fletes
+                    PRB = item.FLETE_Id
+                Next
+
+                _flete.TRAN_Fletes = New ETRAN_Fletes
+                _flete.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+                _flete.TRAN_Fletes.FLETE_Id = PRB 'm_tran_cotizaciones.FLETE_Id
+                _flete.TRAN_Fletes.FLETE_Estado = ETRAN_Fletes.getEstado(ETRAN_Fletes.Estados.Anulado)
+
+                _flete.Guardar(x_usuario)
+
+                'Throw New Exception("El Documento no puede ser anulado, tiene pagos realizados que deben ser anulados, consulte con su administrador.")
+            End If
+            
+            ''anular cotizacion
+            m_tran_cotizaciones.Instanciar(ACEInstancia.Modificado)
+            m_tran_cotizaciones.COTIZ_Codigo = x_cotiz_codigo
+            m_tran_cotizaciones.COTIZ_Estado = ETRAN_Cotizaciones.getEstado(ETRAN_Cotizaciones.Estado.Anulado)
+            Return Guardar(x_usuario)
+
+            Return False
+        Catch ex As Exception
+
+            Throw ex
+        End Try
+   End Function
+
+   Public Function GenerarCotizacion(ByVal x_usuario As String, ByRef x_msg As String, ByVal x_fletes As Boolean) As Boolean
+      Try
+         DAEnterprise.BeginTransaction()
+         m_tran_cotizaciones.COTIZ_Id = getCorrelativo("COTIZ_Id")
+         m_tran_cotizaciones.COTIZ_Numero = getCorrelativo("COTIZ_Id")
+         m_tran_cotizaciones.COTIZ_Codigo = String.Format("{0}{1}{2}", m_tran_cotizaciones.SUCUR_Id.ToString("00") _
+                                                          , m_tran_cotizaciones.PVENT_Id.ToString("000") _
+                                                          , m_tran_cotizaciones.COTIZ_Id.ToString().PadLeft(7, "0"))
+         m_tran_cotizaciones.TIPOS_CodTipoOrigen = ETipos.getTipo(ETipos.OrigenCotizacion.CFacturacion)
+         If Guardar(x_usuario) Then
+            ActualizarCotizacion(x_usuario, x_fletes)
+         Else
+            DAEnterprise.RollBackTransaction()
+            Return False
+         End If
+         DAEnterprise.CommitTransaction()
+         Return True
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub ActualizarCotizacion(ByVal x_usuario As String, ByVal x_fletes As Boolean)
+      Try
+         Dim i As Integer = 1
+         For Each item As ETRAN_CotizacionesDetalle In m_tran_cotizaciones.ListTRAN_CotizacionesDetalle
+            Dim m_btran_cotizacionesdetalle As New BTRAN_CotizacionesDetalle()
+            m_btran_cotizacionesdetalle.TRAN_CotizacionesDetalle = item
+            m_btran_cotizacionesdetalle.TRAN_CotizacionesDetalle.Instanciar(ACEInstancia.Nuevo)
+            m_btran_cotizacionesdetalle.TRAN_CotizacionesDetalle.COTIZ_Codigo = m_tran_cotizaciones.COTIZ_Codigo
+            m_btran_cotizacionesdetalle.TRAN_CotizacionesDetalle.COTDT_Item = i
+            i += 1
+            If Not m_btran_cotizacionesdetalle.Guardar(x_usuario) Then
+               Throw New Exception("No se puede grabar el detalle de la cotización")
+            End If
+         Next
+         If x_fletes Then
+            If Not IsNothing(m_listTRAN_CotizacionesFletesliberados) Then
+               For Each item As ETRAN_CotizacionesFletes In m_listTRAN_CotizacionesFletesliberados
+                  Dim _flete As New BTRAN_Fletes
+                  _flete.TRAN_Fletes = New ETRAN_Fletes
+                  _flete.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+                  _flete.TRAN_Fletes.FLETE_Id = item.FLETE_Id
+                  _flete.TRAN_Fletes.FLETE_Estado = ETRAN_Fletes.getEstado(ETRAN_Fletes.Estados.Ingresado)
+                  _flete.Guardar(x_usuario)
+               Next
+            End If
+            For Each item As ETRAN_CotizacionesFletes In m_listTRAN_CotizacionesFletes
+               '' Grabar Registro
+               Dim _btran_cotizacionesfletes As New BTRAN_CotizacionesFletes
+               _btran_cotizacionesfletes.TRAN_CotizacionesFletes = New ETRAN_CotizacionesFletes
+               _btran_cotizacionesfletes.TRAN_CotizacionesFletes = item
+               _btran_cotizacionesfletes.TRAN_CotizacionesFletes.COTIZ_Codigo = m_tran_cotizaciones.COTIZ_Codigo
+               _btran_cotizacionesfletes.TRAN_CotizacionesFletes.Instanciar(ACEInstancia.Nuevo)
+               _btran_cotizacionesfletes.Guardar(x_usuario)
+               '' Actualizar Flete
+               Dim _flete As New BTRAN_Fletes
+               _flete.TRAN_Fletes = New ETRAN_Fletes
+               _flete.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+               _flete.TRAN_Fletes.FLETE_Id = item.FLETE_Id
+               _flete.TRAN_Fletes.FLETE_Estado = ETRAN_Fletes.getEstado(ETRAN_Fletes.Estados.Cotizado)
+               _flete.Guardar(x_usuario)
+            Next
+         Else
+            '' Actualizar estado del flete
+            Dim _flete As New BTRAN_Fletes
+            _flete.TRAN_Fletes = New ETRAN_Fletes
+            _flete.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+            _flete.TRAN_Fletes.FLETE_Estado = ETRAN_Fletes.getEstado(ETRAN_Fletes.Estados.Cotizado)
+            _flete.TRAN_Fletes.FLETE_Id = m_tran_cotizaciones.FLETE_Id
+            _flete.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Public Function getTipoCambio() As Boolean
+      Try
+         Dim b_tipocambio As New BTipoCambio()
+         Dim _where As New Hashtable
+         _where.Add("TIPOC_Fecha", New ACWhere("select max(TIPOC_Fecha) from TipoCambio", ACWhere.TipoWhere._In))
+         If b_tipocambio.Cargar(_where) Then
+            m_tipocambio = b_tipocambio.TipoCambio
+            Return True
+         Else
+            Return False
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Cargar(ByVal x_cotiz_codigo As String, ByVal x_opcion As Boolean) As Boolean
+      Try
+         '' Cargar Cotización
+         m_tran_cotizaciones = New ETRAN_Cotizaciones()
+         Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                               , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                               , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Cliente") _
+                                                , New ACCampos("ENTID_Direccion", "ENTID_Direccion") _
+                                                 , New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Left _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                            , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_TipoDocumento")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TMon", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMoneda")} _
+                            , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoMoneda")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TCond", ACJoin.TipoJoin.Left _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodCondicionPago")} _
+                            , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_CondicionPago")}))
+            _join.Add(New ACJoin(ETRAN_Rutas.Esquema, ETRAN_Rutas.Tabla, "Ruta", ACJoin.TipoJoin.Left _
+                               , New ACCampos() {New ACCampos("RUTAS_Id", "RUTAS_Id")} _
+                               , New ACCampos() {New ACCampos("RUTAS_Nombre", "RUTAS_Nombre")}))
+            _join.Add(New ACJoin(ETRAN_Fletes.Esquema, ETRAN_Fletes.Tabla, "Flete", ACJoin.TipoJoin.Left _
+                           , New ACCampos() {New ACCampos("FLETE_Id", "FLETE_Id")} _
+                           , New ACCampos() {New ACCampos("VIAJE_Id", "VIAJE_Id")}))
+         Dim _where As New Hashtable()
+         _where.Add("ZONAS_Codigo", New ACWhere(BConstantes.ZONAS_Codigo))
+         _where.Add("SUCUR_Id", New ACWhere(BConstantes.SUCUR_Id))
+         _where.Add("PVENT_Id", New ACWhere(BConstantes.PVENT_Id))
+         _where.Add("COTIZ_Codigo", New ACWhere(x_cotiz_codigo))
+         If Cargar(_join, _where) Then
+            Dim m_btran_cotizacionesdetalle As New BTRAN_CotizacionesDetalle()
+            If m_btran_cotizacionesdetalle.CargarTodos(x_cotiz_codigo) Then
+               m_tran_cotizaciones.ListTRAN_CotizacionesDetalle = New List(Of ETRAN_CotizacionesDetalle)(m_btran_cotizacionesdetalle.ListTRAN_CotizacionesDetalle)
+
+               Dim _btran_cotizacionesfletes As New BTRAN_CotizacionesFletes
+               Dim _whereCF As New Hashtable
+               _whereCF.Add("COTIZ_Codigo", New ACWhere(x_cotiz_codigo))
+               Dim _joinCF As New List(Of ACJoin)
+               _joinCF.Add(New ACJoin(ETRAN_Fletes.Esquema, ETRAN_Fletes.Tabla, "Cot", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("FLETE_Id", "FLETE_Id")} _
+                            , New ACCampos() {New ACCampos("FLETE_Glosa", "FLETE_Glosa") _
+                                              , New ACCampos("FLETE_TotIngreso", "FLETE_TotIngreso") _
+                                              , New ACCampos("TIPOS_CodTipoMoneda", "TIPOS_CodTipoMoneda") _
+                                              , New ACCampos("FLETE_PesoEnTM", "FLETE_PesoEnTM") _
+                                              , New ACCampos("FLETE_RazonSocial", "ENTID_RazonSocial")}))
+               _joinCF.Add(New ACJoin(ETRAN_Viajes.Esquema, ETRAN_Viajes.Tabla, "Viaje", ACJoin.TipoJoin.Left _
+                        , New ACCampos() {New ACCampos("VIAJE_Id", "VIAJE_Id")} _
+                        , New ACCampos() {New ACCampos("VIAJE_Descripcion", "VIAJE_Descripcion")}))
+               _joinCF.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TMon", "Cot", ACJoin.TipoJoin.Left _
+                        , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMoneda")} _
+                        , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoMoneda")}))
+               _joinCF.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", "Cot", ACJoin.TipoJoin.Left _
+                        , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                        , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_RazonSocial") _
+                                         , New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")
+                                          }))
+               If _btran_cotizacionesfletes.CargarTodos(_joinCF, _whereCF) Then
+                  m_listTRAN_CotizacionesFletes = New List(Of ETRAN_CotizacionesFletes)(_btran_cotizacionesfletes.ListTRAN_CotizacionesFletes)
+                  Return True
+               End If
+               Return True
+            End If
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CambiarEstado(ByVal x_estado As ETRAN_Cotizaciones.Estado, ByVal x_cotiz_codigo As String)
+      Try
+         Return d_tran_cotizaciones.CambiarEstado(x_estado, x_cotiz_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function ObtenerGuias(ByVal x_cadena As String)
+      Try
+         Dim _guias As New BTRAN_ViajesGuiasRemision
+         If _guias.ObtenerGuia(x_cadena) Then
+            m_listTRAN_ViajesGuiasRemision = New List(Of ETRAN_ViajesGuiasRemision)(_guias.ListTRAN_ViajesGuiasRemision)
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function QuitarFacturaCotizacion(ByVal x_docve_codigo As String) As Boolean
+      Try
+         Return d_tran_cotizaciones.QuitarFacturaCotizacion(x_docve_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Metodos Privados "
+   Private Function getCorrelativo(ByRef x_cotiz_numero As Integer, ByVal x_tipo As ETRAN_Cotizaciones.TipoCotizacion, ByVal x_zonas_codigo As String _
+                                   , ByVal x_sucur_codigo As Short) As String
+      Try
+         x_cotiz_numero = d_tran_cotizaciones.getCorrelativo(x_zonas_codigo, x_sucur_codigo) + 1
+         Return String.Format("{0}{1}{2}", x_tipo.ToString(), x_sucur_codigo.ToString("000"), x_cotiz_numero.ToString("0000000"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

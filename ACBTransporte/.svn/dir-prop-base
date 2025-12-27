@@ -1,0 +1,18 @@
+K 10
+svn:ignore
+V 342
+ACBTransporte.vbproj.user
+ACBTransporte.vsdoc
+BTRAN_IncidenciasNeumaticos.Parcial.vb
+BTRAN_IncidenciasNeumaticos.vb
+BTRAN_IncidenciasVehiculos.Parcial.vb
+BTRAN_IncidenciasVehiculos.vb
+BTRAN_SegurosVehiculos.Parcial.vb
+BTRAN_SegurosVehiculos.vb
+IBTRAN_IncidenciasNeumaticos.vb
+IBTRAN_IncidenciasVehiculos.vb
+IBTRAN_SegurosVehiculos.vb
+bin
+obj
+
+END

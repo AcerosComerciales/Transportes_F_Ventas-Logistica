@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_Planillas" Esquema="Transportes" Prefijo="PLANI">
+  <Nombre>TRAN_Planillas</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PLANI_Id">PLANI_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VGAST_Id">VGAST_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="CONDU_Id">CONDU_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLANI_UsrCrea">PLANI_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLANI_FecCrea">PLANI_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLANI_UsrMod">PLANI_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLANI_FecMod">PLANI_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PLANI_Id">PLANI_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONDU_Id">CONDU_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAST_Id">VGAST_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

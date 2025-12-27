@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_VehiculosMantenimientoDocCompra" Esquema="Transportes" Prefijo="VMDCO">
+  <Nombre>TRAN_VehiculosMantenimientoDocCompra</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="VMDCO_Numero">VMDCO_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDCO_UsrCrea">VMDCO_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDCO_FecCrea">VMDCO_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDCO_UsrMod">VMDCO_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDCO_FecMod">VMDCO_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="VMDCO_Numero">VMDCO_Numero</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_Item">VMAN_Item</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

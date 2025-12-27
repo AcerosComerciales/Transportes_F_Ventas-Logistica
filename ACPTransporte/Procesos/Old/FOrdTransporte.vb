@@ -1,0 +1,191 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+Imports ACFrameworkC1
+
+Imports C1.Win.C1FlexGrid
+Imports ACEVentas
+
+Public Class FOrdTransporte
+
+#Region " Variables "
+   Private managerTRAN_OrdenesTransportes As BTRAN_OrdenesTransportes
+
+   Private bs_btran_ordenestransportes As BindingSource
+   Private m_etran_ordenestransportes As ETRAN_OrdenesTransportes
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+      Try
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+
+         managerTRAN_OrdenesTransportes = New BTRAN_OrdenesTransportes
+
+         formatearGrilla()
+         AcFecha.ACValidarFecha = True
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+
+#Region " Utilitarios "
+   ' <summary>
+   ' Dar Formato a la grilla de busqueda
+   ' </summary>
+   ' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 9, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "ORDTR_Codigo", "ORDTR_Codigo", 100, True, False, "System.String", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cotización", "COTIZ_Codigo", "COTIZ_Codigo", 100, True, False, "System.String", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha", "ORDTR_Fecha", "ORDTR_Fecha", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Ruta", "RUTAS_Nombre", "RUTAS_Nombre", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Monto", "ORDTR_MONTO", "ORDTR_MONTO", 100, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Carga", "ORDTR_CARGA", "ORDTR_CARGA", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "ORDTR_ESTADO_Text", "ORDTR_ESTADO_Text", 100, True, False, "System.String", "") : index += 1
+         c1grdBusqueda.AllowEditing = False
+         c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+         c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " + Me.Text, "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos "
+   ' <summary>
+   ' Cargar los datos en el control Visual C1FlexGrid
+   ' </summary>
+   Private Sub cargarDatos()
+      Try
+         bs_btran_ordenestransportes = New BindingSource()
+         bs_btran_ordenestransportes.DataSource = managerTRAN_OrdenesTransportes.getListTRAN_OrdenesTransportes
+         c1grdBusqueda.DataSource = bs_btran_ordenestransportes
+         bnavBusqueda.BindingSource = bs_btran_ordenestransportes
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ' <summary>
+   ' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+   ' </summary>
+   ' <param name="x_cadena">Cadena objetivo</param>
+   ' <returns></returns>
+   Private Function busqueda(ByVal x_cadena As String) As Boolean
+      Try
+         Dim rpta As Boolean = managerTRAN_OrdenesTransportes.Busqueda(x_cadena, getCampo(), AcFecha.ACDtpFecha_De.Value.Date, AcFecha.ACDtpFecha_A.Value.Date.AddDays(1))
+         cargarDatos()
+         Return rpta
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+#End Region
+
+   Private Function getCampo() As String
+      Try
+         If (rbtnCodigo.Checked) Then
+            Return "ORDTR_Codigo"
+         ElseIf rbtnCliente.Checked Then
+            Return "ENTID_Nombres"
+         Else
+            Return "ORDTR_Codigo"
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Metodos de Controles"
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Me.Close()
+
+   End Sub
+
+   Private Sub acbtnRecOrden_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acbtnRecOrden.Click
+      Try
+         If Not IsNothing(bs_btran_ordenestransportes) Then
+            If Not IsNothing(bs_btran_ordenestransportes.Current) Then
+               Dim m_fflete As New FFlete(CType(bs_btran_ordenestransportes.Current, ETRAN_Cotizaciones))
+               m_fflete.StartPosition = FormStartPosition.CenterScreen
+
+               Select Case m_fflete.ShowDialog()
+                  Case Windows.Forms.DialogResult.OK
+                     busqueda(txtBusqueda.Text)
+                  Case Windows.Forms.DialogResult.Yes
+                     Dim frmViajes As New FViajes(FViajes.TipoCarga.Base)
+                     frmViajes.MdiParent = Me.MdiParent
+                     frmViajes.StartPosition = FormStartPosition.CenterScreen
+                     frmViajes.Show()
+                  Case Else
+                     busqueda(txtBusqueda.Text)
+               End Select
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion("Información: " & Me.Text, "No se puede recepcionar la orden por que no ha cargado ningun orden")
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion("Información: " & Me.Text, "No se puede recepcionar la orden por que no ha cargado ningun orden")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso Aceptar Orden", ex)
+      End Try
+   End Sub
+
+   Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+      Me.Close()
+   End Sub
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+      Try
+         If e.KeyCode = Keys.Enter Then
+            busqueda(txtBusqueda.Text)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+#End Region
+
+   Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+      txtBusqueda_ACAyudaClick(Nothing, Nothing)
+   End Sub
+End Class

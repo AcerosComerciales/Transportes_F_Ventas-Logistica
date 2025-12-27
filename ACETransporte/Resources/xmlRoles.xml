@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Roles" Esquema="dbo" Prefijo="ROLES">
+  <Nombre>Roles</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ROLES_Id">ROLES_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ROLES_Descripcion">ROLES_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_UsrCrea">TIPOE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_FecCrea">TIPOE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_UsrMod">TIPOE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_FecMod">TIPOE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ROLES_Id">ROLES_Id</CCampo>
+  </CPrimarios>
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

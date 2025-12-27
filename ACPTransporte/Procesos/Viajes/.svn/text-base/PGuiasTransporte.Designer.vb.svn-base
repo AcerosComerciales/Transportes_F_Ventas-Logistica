@@ -1,0 +1,292 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class PGuiasTransporte
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+      Me.components = New System.ComponentModel.Container()
+      Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PGuiasTransporte))
+      Me.pnlGuias = New System.Windows.Forms.Panel()
+      Me.cmbCondicion = New System.Windows.Forms.ComboBox()
+      Me.cmbTipoGuia = New System.Windows.Forms.ComboBox()
+      Me.c1grdGuiaRemision = New C1.Win.C1FlexGrid.C1FlexGrid()
+      Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+      Me.tsbtnAceptar = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator28 = New System.Windows.Forms.ToolStripSeparator()
+      Me.tsbtnCancelar = New System.Windows.Forms.ToolStripButton()
+      Me.tsbtnSalir = New System.Windows.Forms.ToolStripButton()
+      Me.bnavGuiaRemision = New System.Windows.Forms.BindingNavigator(Me.components)
+      Me.ToolStripLabel10 = New System.Windows.Forms.ToolStripLabel()
+      Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator44 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripTextBox10 = New System.Windows.Forms.ToolStripTextBox()
+      Me.ToolStripSeparator45 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripButton27 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton28 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator46 = New System.Windows.Forms.ToolStripSeparator()
+      Me.AcPanelCaption9 = New ACControles.ACPanelCaption()
+      Me.cmbGEmpresa = New System.Windows.Forms.ComboBox()
+      Me.pnlGuias.SuspendLayout()
+      CType(Me.c1grdGuiaRemision, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.ToolStrip2.SuspendLayout()
+      CType(Me.bnavGuiaRemision, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.bnavGuiaRemision.SuspendLayout()
+      Me.SuspendLayout()
+      '
+      'pnlGuias
+      '
+      Me.pnlGuias.Controls.Add(Me.cmbGEmpresa)
+      Me.pnlGuias.Controls.Add(Me.cmbCondicion)
+      Me.pnlGuias.Controls.Add(Me.cmbTipoGuia)
+      Me.pnlGuias.Controls.Add(Me.c1grdGuiaRemision)
+      Me.pnlGuias.Controls.Add(Me.ToolStrip2)
+      Me.pnlGuias.Controls.Add(Me.bnavGuiaRemision)
+      Me.pnlGuias.Controls.Add(Me.AcPanelCaption9)
+      Me.pnlGuias.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.pnlGuias.Location = New System.Drawing.Point(0, 0)
+      Me.pnlGuias.Name = "pnlGuias"
+      Me.pnlGuias.Size = New System.Drawing.Size(578, 287)
+      Me.pnlGuias.TabIndex = 38
+      '
+      'cmbCondicion
+      '
+      Me.cmbCondicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbCondicion.DropDownWidth = 100
+      Me.cmbCondicion.Enabled = False
+      Me.cmbCondicion.FormattingEnabled = True
+      Me.cmbCondicion.Location = New System.Drawing.Point(322, 112)
+      Me.cmbCondicion.Name = "cmbCondicion"
+      Me.cmbCondicion.Size = New System.Drawing.Size(133, 21)
+      Me.cmbCondicion.TabIndex = 42
+      '
+      'cmbTipoGuia
+      '
+      Me.cmbTipoGuia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbTipoGuia.DropDownWidth = 250
+      Me.cmbTipoGuia.Enabled = False
+      Me.cmbTipoGuia.FormattingEnabled = True
+      Me.cmbTipoGuia.Location = New System.Drawing.Point(159, 112)
+      Me.cmbTipoGuia.Name = "cmbTipoGuia"
+      Me.cmbTipoGuia.Size = New System.Drawing.Size(133, 21)
+      Me.cmbTipoGuia.TabIndex = 40
+      '
+      'c1grdGuiaRemision
+      '
+      Me.c1grdGuiaRemision.AllowAddNew = True
+      Me.c1grdGuiaRemision.AllowDelete = True
+      Me.c1grdGuiaRemision.ColumnInfo = "2,1,0,0,0,95,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+      Me.c1grdGuiaRemision.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.c1grdGuiaRemision.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+      Me.c1grdGuiaRemision.Location = New System.Drawing.Point(0, 54)
+      Me.c1grdGuiaRemision.Name = "c1grdGuiaRemision"
+      Me.c1grdGuiaRemision.Rows.Count = 2
+      Me.c1grdGuiaRemision.Rows.DefaultSize = 19
+      Me.c1grdGuiaRemision.Size = New System.Drawing.Size(578, 208)
+      Me.c1grdGuiaRemision.StyleInfo = resources.GetString("c1grdGuiaRemision.StyleInfo")
+      Me.c1grdGuiaRemision.TabIndex = 1
+      '
+      'ToolStrip2
+      '
+      Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
+      Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnAceptar, Me.ToolStripSeparator28, Me.tsbtnCancelar, Me.tsbtnSalir})
+      Me.ToolStrip2.Location = New System.Drawing.Point(0, 262)
+      Me.ToolStrip2.Name = "ToolStrip2"
+      Me.ToolStrip2.Size = New System.Drawing.Size(578, 25)
+      Me.ToolStrip2.TabIndex = 0
+      Me.ToolStrip2.Text = "ToolStrip2"
+      '
+      'tsbtnAceptar
+      '
+      Me.tsbtnAceptar.Image = Global.ACPTransportes.My.Resources.Resources.ok1
+      Me.tsbtnAceptar.Name = "tsbtnAceptar"
+      Me.tsbtnAceptar.RightToLeftAutoMirrorImage = True
+      Me.tsbtnAceptar.Size = New System.Drawing.Size(68, 22)
+      Me.tsbtnAceptar.Text = "Aceptar"
+      '
+      'ToolStripSeparator28
+      '
+      Me.ToolStripSeparator28.Name = "ToolStripSeparator28"
+      Me.ToolStripSeparator28.Size = New System.Drawing.Size(6, 25)
+      '
+      'tsbtnCancelar
+      '
+      Me.tsbtnCancelar.Image = Global.ACPTransportes.My.Resources.Resources.ACCancelar_16x16
+      Me.tsbtnCancelar.Name = "tsbtnCancelar"
+      Me.tsbtnCancelar.RightToLeftAutoMirrorImage = True
+      Me.tsbtnCancelar.Size = New System.Drawing.Size(73, 22)
+      Me.tsbtnCancelar.Text = "Cancelar"
+      '
+      'tsbtnSalir
+      '
+      Me.tsbtnSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+      Me.tsbtnSalir.Image = Global.ACPTransportes.My.Resources.Resources.ACExit_16x16
+      Me.tsbtnSalir.Name = "tsbtnSalir"
+      Me.tsbtnSalir.RightToLeftAutoMirrorImage = True
+      Me.tsbtnSalir.Size = New System.Drawing.Size(49, 22)
+      Me.tsbtnSalir.Text = "Salir"
+      '
+      'bnavGuiaRemision
+      '
+      Me.bnavGuiaRemision.AddNewItem = Nothing
+      Me.bnavGuiaRemision.CountItem = Me.ToolStripLabel10
+      Me.bnavGuiaRemision.DeleteItem = Nothing
+      Me.bnavGuiaRemision.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripSeparator44, Me.ToolStripTextBox10, Me.ToolStripLabel10, Me.ToolStripSeparator45, Me.ToolStripButton27, Me.ToolStripButton28, Me.ToolStripSeparator46})
+      Me.bnavGuiaRemision.Location = New System.Drawing.Point(0, 29)
+      Me.bnavGuiaRemision.MoveFirstItem = Me.ToolStripButton1
+      Me.bnavGuiaRemision.MoveLastItem = Me.ToolStripButton28
+      Me.bnavGuiaRemision.MoveNextItem = Me.ToolStripButton27
+      Me.bnavGuiaRemision.MovePreviousItem = Me.ToolStripButton2
+      Me.bnavGuiaRemision.Name = "bnavGuiaRemision"
+      Me.bnavGuiaRemision.PositionItem = Me.ToolStripTextBox10
+      Me.bnavGuiaRemision.Size = New System.Drawing.Size(578, 25)
+      Me.bnavGuiaRemision.TabIndex = 2
+      Me.bnavGuiaRemision.Text = "bnavFletes"
+      '
+      'ToolStripLabel10
+      '
+      Me.ToolStripLabel10.Name = "ToolStripLabel10"
+      Me.ToolStripLabel10.Size = New System.Drawing.Size(35, 22)
+      Me.ToolStripLabel10.Text = "of {0}"
+      Me.ToolStripLabel10.ToolTipText = "Total number of items"
+      '
+      'ToolStripButton1
+      '
+      Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+      Me.ToolStripButton1.Name = "ToolStripButton1"
+      Me.ToolStripButton1.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton1.Text = "Move first"
+      '
+      'ToolStripButton2
+      '
+      Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+      Me.ToolStripButton2.Name = "ToolStripButton2"
+      Me.ToolStripButton2.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton2.Text = "Move previous"
+      '
+      'ToolStripSeparator44
+      '
+      Me.ToolStripSeparator44.Name = "ToolStripSeparator44"
+      Me.ToolStripSeparator44.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripTextBox10
+      '
+      Me.ToolStripTextBox10.AccessibleName = "Position"
+      Me.ToolStripTextBox10.AutoSize = False
+      Me.ToolStripTextBox10.Name = "ToolStripTextBox10"
+      Me.ToolStripTextBox10.Size = New System.Drawing.Size(50, 21)
+      Me.ToolStripTextBox10.Text = "0"
+      Me.ToolStripTextBox10.ToolTipText = "Current position"
+      '
+      'ToolStripSeparator45
+      '
+      Me.ToolStripSeparator45.Name = "ToolStripSeparator45"
+      Me.ToolStripSeparator45.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripButton27
+      '
+      Me.ToolStripButton27.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton27.Image = CType(resources.GetObject("ToolStripButton27.Image"), System.Drawing.Image)
+      Me.ToolStripButton27.Name = "ToolStripButton27"
+      Me.ToolStripButton27.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton27.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton27.Text = "Move next"
+      '
+      'ToolStripButton28
+      '
+      Me.ToolStripButton28.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton28.Image = CType(resources.GetObject("ToolStripButton28.Image"), System.Drawing.Image)
+      Me.ToolStripButton28.Name = "ToolStripButton28"
+      Me.ToolStripButton28.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton28.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton28.Text = "Move last"
+      '
+      'ToolStripSeparator46
+      '
+      Me.ToolStripSeparator46.Name = "ToolStripSeparator46"
+      Me.ToolStripSeparator46.Size = New System.Drawing.Size(6, 25)
+      '
+      'AcPanelCaption9
+      '
+      Me.AcPanelCaption9.ACCaption = "Guias de Remisión"
+      Me.AcPanelCaption9.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption9.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption9.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption9.Name = "AcPanelCaption9"
+      Me.AcPanelCaption9.Size = New System.Drawing.Size(578, 29)
+      Me.AcPanelCaption9.TabIndex = 3
+      '
+      'cmbGEmpresa
+      '
+      Me.cmbGEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbGEmpresa.DropDownWidth = 100
+      Me.cmbGEmpresa.Enabled = False
+      Me.cmbGEmpresa.FormattingEnabled = True
+      Me.cmbGEmpresa.Location = New System.Drawing.Point(229, 160)
+      Me.cmbGEmpresa.Name = "cmbGEmpresa"
+      Me.cmbGEmpresa.Size = New System.Drawing.Size(133, 21)
+      Me.cmbGEmpresa.TabIndex = 43
+      '
+      'PGuiasTransporte
+      '
+      Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+      Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+      Me.ClientSize = New System.Drawing.Size(578, 287)
+      Me.Controls.Add(Me.pnlGuias)
+      Me.Name = "PGuiasTransporte"
+      Me.Text = "Guias de Remisión"
+      Me.pnlGuias.ResumeLayout(False)
+      Me.pnlGuias.PerformLayout()
+      CType(Me.c1grdGuiaRemision, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.ToolStrip2.ResumeLayout(False)
+      Me.ToolStrip2.PerformLayout()
+      CType(Me.bnavGuiaRemision, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.bnavGuiaRemision.ResumeLayout(False)
+      Me.bnavGuiaRemision.PerformLayout()
+      Me.ResumeLayout(False)
+
+   End Sub
+   Friend WithEvents pnlGuias As System.Windows.Forms.Panel
+   Friend WithEvents cmbCondicion As System.Windows.Forms.ComboBox
+   Friend WithEvents cmbTipoGuia As System.Windows.Forms.ComboBox
+   Friend WithEvents c1grdGuiaRemision As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
+   Friend WithEvents tsbtnAceptar As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator28 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents bnavGuiaRemision As System.Windows.Forms.BindingNavigator
+   Friend WithEvents ToolStripLabel10 As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator44 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripTextBox10 As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents ToolStripSeparator45 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton27 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton28 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator46 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents AcPanelCaption9 As ACControles.ACPanelCaption
+   Friend WithEvents tsbtnCancelar As System.Windows.Forms.ToolStripButton
+   Friend WithEvents tsbtnSalir As System.Windows.Forms.ToolStripButton
+   Friend WithEvents cmbGEmpresa As System.Windows.Forms.ComboBox
+End Class

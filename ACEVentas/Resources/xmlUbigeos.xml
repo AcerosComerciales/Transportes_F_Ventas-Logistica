@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Ubigeos" Esquema="dbo" Prefijo="UBIGO">
+  <Nombre>Ubigeos</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CodPadre">UBIGO_CodPadre</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Descripcion">UBIGO_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_DescCorta">UBIGO_DescCorta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Protegido">UBIGO_Protegido</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_UsrCrea">UBIGO_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_FecCrea">UBIGO_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_UsrMod">UBIGO_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_FecMod">UBIGO_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_Codigo">UBIGO_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

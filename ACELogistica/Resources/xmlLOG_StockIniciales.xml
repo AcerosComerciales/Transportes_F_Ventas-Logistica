@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="LOG_StockIniciales" Esquema="Logistica" Prefijo="STINI">
+  <Nombre>LOG_StockIniciales</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PERIO_Codigo">PERIO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="0" xmlns="STINI_Id">STINI_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_Cantidad">STINI_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_Fecha">STINI_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_UsrCrea">STINI_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_FecCrea">STINI_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_UsrMod">STINI_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="STINI_FecMod">STINI_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PERIO_Codigo">PERIO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PERIO_Codigo">PERIO_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PERIO_Codigo">PERIO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

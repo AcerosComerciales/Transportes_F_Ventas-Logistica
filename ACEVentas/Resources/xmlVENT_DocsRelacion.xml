@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="VENT_DocsRelacion" Esquema="Ventas" Prefijo="DOCRE">
+  <Nombre>VENT_DocsRelacion</Nombre>
+  <Esquema>Ventas</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_CodReferencia">DOCVE_CodReferencia</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_NCPorcentaje">DOCRE_NCPorcentaje</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_NCImporte">DOCRE_NCImporte</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_UsrCrea">DOCRE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_FecCrea">DOCRE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_UsrMod">DOCRE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_FecMod">DOCRE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_CodReferencia">DOCVE_CodReferencia</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_CodReferencia">DOCVE_CodReferencia</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

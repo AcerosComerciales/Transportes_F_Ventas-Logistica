@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRANGUIAS_Usuarios" Esquema="TransportesGuias" Prefijo="GTUS">
+  <Nombre>TRANGUIAS_Usuarios</Nombre>
+  <Esquema>TransportesGuias</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GtusId">GtusId</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TiposUsuariosFk">TiposUsuariosFk</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoFk">ENTID_CodigoFk</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusUsuario">GtusUsuario</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusContraseña">GtusContraseña</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusHash">GtusHash</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusSalt">GtusSalt</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusEstado">GtusEstado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusFecCreacion">GtusFecCreacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusUsrCreacion">GtusUsrCreacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusFecModificacion">GtusFecModificacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GtusUsrModificacion">GtusUsrModificacion</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GtusId">GtusId</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TiposUsuariosFk">TiposUsuariosFk</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoFk">ENTID_CodigoFk</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+  </CForaneosPrimarios>
+</Tabla>

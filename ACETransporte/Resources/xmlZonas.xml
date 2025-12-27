@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Zonas" Esquema="dbo" Prefijo="ZONAS">
+  <Nombre>Zonas</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ZONAS_Descripcion">ZONAS_Descripcion</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

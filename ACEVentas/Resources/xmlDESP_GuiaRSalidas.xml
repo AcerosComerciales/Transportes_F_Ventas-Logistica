@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="DESP_GuiaRSalidas" Esquema="Logistica" Prefijo="GUISA">
+  <Nombre>DESP_GuiaRSalidas</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SALID_Id">SALID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_HoraSalida">GUISA_HoraSalida</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_HoraLlegada">GUISA_HoraLlegada</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_Destino">GUISA_Destino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_Numero">GUISA_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_UsrCrea">GUISA_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_FecCrea">GUISA_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_UsrMod">GUISA_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUISA_FecMod">GUISA_FecMod</CCampo>
+  </Campos>
+  <CPrimarios />
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SALID_Id">SALID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TESO_SIniciales" Esquema="Tesoreria" Prefijo="SINIC">
+  <Nombre>TESO_SIniciales</Nombre>
+  <Esquema>Tesoreria</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_Id">SINIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_Glosa">SINIC_Glosa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_Importe">SINIC_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_Fecha">SINIC_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_UsrCrea">SINIC_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_FecCrea">SINIC_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_UsrMod">SINIC_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SINIC_FecMod">SINIC_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CCA9821-73CF-4863-B870-D90F4A63A50E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ACDLogistica</RootNamespace>
+    <AssemblyName>ACDLogistica</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ACDLogistica.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ACDLogistica.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ACDLogistica.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ACDLogistica.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACEVentas">
+      <HintPath>..\..\Librerias\ACEVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="DAEnterprise, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\DAEnterprise.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\DCTRL_Arreglos.vb" />
+    <Compile Include="Control\DCTRL_Arreglos.Parcial.vb">
+      <DependentUpon>DCTRL_Arreglos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DCTRL_ArreglosDetalle.vb" />
+    <Compile Include="Control\DCTRL_ArreglosDetalle.Parcial.vb">
+      <DependentUpon>DCTRL_ArreglosDetalle.vb</DependentUpon>
+    </Compile>
+    	<Compile Include="Control\DCTRL_InventarioRotativo.vb" />
+	<Compile Include="Control\DCTRL_InventarioRotativo.Parcial.vb">
+		<DependentUpon>DCTRL_InventarioRotativo.vb</DependentUpon>
+	</Compile>
+	<Compile Include="Control\DCTRL_InventarioRotativoDetalle.vb" />
+	<Compile Include="Control\DCTRL_InventarioRotativoDetalle.Parcial.vb">
+		<DependentUpon>DCTRL_InventarioRotativoDetalle.vb</DependentUpon>
+	</Compile>
+
+    <Compile Include="Procesos\DAdministrarArticulos.vb" />
+    <Compile Include="Stocks\DLOG_StockIniciales.vb" />
+    <Compile Include="Stocks\DLOG_StockIniciales.Parcial.vb">
+      <DependentUpon>DLOG_StockIniciales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\DDIST_GuiasRemision.vb" />
+    <Compile Include="Despachos\DDIST_GuiasRemision.Parcial.vb">
+      <DependentUpon>DDIST_GuiasRemision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\DDIST_GuiasRemisionDetalle.vb" />
+    <Compile Include="Despachos\DDIST_GuiasRemisionDetalle.Parcial.vb">
+      <DependentUpon>DDIST_GuiasRemisionDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\DDIST_Ordenes.vb" />
+    <Compile Include="Despachos\DDIST_Ordenes.Parcial.vb">
+      <DependentUpon>DDIST_Ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\DDIST_OrdenesDetalle.vb" />
+    <Compile Include="Despachos\DDIST_OrdenesDetalle.Parcial.vb">
+      <DependentUpon>DDIST_OrdenesDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\DLOG_Stocks.vb" />
+    <Compile Include="Stocks\DLOG_Stocks.Parcial.vb">
+      <DependentUpon>DLOG_Stocks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_Costeos.vb" />
+    <Compile Include="DABAS_Costeos.Parcial.vb">
+      <DependentUpon>DABAS_Costeos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_CotizacionesCompra.vb" />
+    <Compile Include="DABAS_CotizacionesCompra.Parcial.vb">
+      <DependentUpon>DABAS_CotizacionesCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_CotizacionesCompraDetalle.vb" />
+    <Compile Include="DABAS_CotizacionesCompraDetalle.Parcial.vb">
+      <DependentUpon>DABAS_CotizacionesCompraDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_DocsCompra.vb" />
+    <Compile Include="DABAS_DocsCompra.Parcial.vb">
+      <DependentUpon>DABAS_DocsCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_DocsCompraDetalle.vb" />
+    <Compile Include="DABAS_DocsCompraDetalle.Parcial.vb">
+      <DependentUpon>DABAS_DocsCompraDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_IngresosCompra.vb" />
+    <Compile Include="DABAS_IngresosCompra.Parcial.vb">
+      <DependentUpon>DABAS_IngresosCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_IngresosCompraDetalle.vb" />
+    <Compile Include="DABAS_IngresosCompraDetalle.Parcial.vb">
+      <DependentUpon>DABAS_IngresosCompraDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_ListaPreciosCompra.vb" />
+    <Compile Include="DABAS_ListaPreciosCompra.Parcial.vb">
+      <DependentUpon>DABAS_ListaPreciosCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_OrdenesCompra.vb" />
+    <Compile Include="DABAS_OrdenesCompra.Parcial.vb">
+      <DependentUpon>DABAS_OrdenesCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_OrdenesCompraDetalle.vb" />
+    <Compile Include="DABAS_OrdenesCompraDetalle.Parcial.vb">
+      <DependentUpon>DABAS_OrdenesCompraDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DABAS_RelDocsCosteo.vb" />
+    <Compile Include="DABAS_RelDocsCosteo.Parcial.vb">
+      <DependentUpon>DABAS_RelDocsCosteo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\DGenerarDocsCompra.vb" />
+    <Compile Include="Procesos\DGenerarCotizCompra.vb" />
+    <Compile Include="Procesos\DGenerarOrdenCompra.vb" />
+    <Compile Include="Procesos\DGenerarRegMercTransito.vb" />
+    <Compile Include="Procesos\DGenerarCosteo.vb" />
+    <Compile Include="Procesos\DControlDescuentos.vb" />
+    <Compile Include="Procesos\DGenerarRequiCompra.vb" />
+    <Compile Include="Procesos\DManejarStock.vb" />
+    <Compile Include="Procesos\DGenerarReportes.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Generales\App.vb" />
+    <Compile Include="Procesos\DReporte.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACELogistica\ACELogistica.vbproj">
+      <Project>{69989640-635C-4093-B7EF-71FEF6624EFC}</Project>
+      <Name>ACELogistica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportes.sql" />
+    <None Include="Resources\sql.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

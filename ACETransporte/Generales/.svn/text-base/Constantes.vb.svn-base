@@ -1,0 +1,267 @@
+﻿Imports ACEVentas
+
+Public Class Constantes
+   Private Shared mInstance As Constantes = Nothing
+   Private Shared mMutex As New System.Threading.Mutex
+
+  
+
+   Public Shared Function Initialize() As Constantes
+      mMutex.WaitOne()
+      If mInstance Is Nothing Then
+         mInstance = New Constantes
+      End If
+      mMutex.ReleaseMutex()
+      Return mInstance
+   End Function
+
+#Region "Tipos de Entidad"
+   Public Function getTipoEntidad(ByVal x_opcion As EEntidades.TipoEntidad)
+      Select Case x_opcion
+         Case EEntidades.TipoEntidad.Clientes
+            Return 2
+         Case EEntidades.TipoEntidad.Proveedores
+            Return 3
+         Case EEntidades.TipoEntidad.Trabajadores
+            Return 4
+         Case EEntidades.TipoEntidad.Usuarios
+            Return 1
+         Case Else
+            Return 2
+      End Select
+   End Function
+
+   
+#End Region
+
+#Region " Constantes para entidades "
+   Public Shared ReadOnly Property LongitudCodigo() As Integer
+      Get
+         Return 8
+      End Get
+   End Property
+
+   Public Enum Seteo
+      Activar
+      Desactivar
+   End Enum
+
+   Public Shared ReadOnly Property ClienteAnulado() As String
+      Get
+         Return "10000000000"
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property ClienteBlanco() As String
+      Get
+         Return "10000000001"
+      End Get
+   End Property
+#End Region
+
+#Region " Constantes de Caja "
+
+   Public Shared ReadOnly Property CAJA_SerieIngreso() As String
+      Get
+         Return "001"
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property CAJA_SerieEgreso() As String
+      Get
+         Return "002"
+      End Get
+   End Property
+
+   Enum TipoIngEgre
+      Ingreso
+      Egreso
+   End Enum
+
+
+#End Region
+
+#Region " Estados "
+   Public Enum EstadoDocVta
+      Ingresado
+      Confirmado
+      Anulado
+      Extornado
+      Gestionado
+   End Enum
+
+   Public Enum EstadoViajes
+      Ingresado
+      Confirmado
+      Anulado
+   End Enum
+
+   ''' <summary>
+   ''' Estado de documentos de venta
+   ''' </summary>
+   ''' <param name="Estado"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Shared Function getEstado(ByVal Estado As EstadoDocVta) As String
+      Select Case Estado
+         Case EstadoDocVta.Ingresado : Return "I"
+         Case EstadoDocVta.Confirmado : Return "C"
+         Case EstadoDocVta.Anulado : Return "X"
+         Case EstadoDocVta.Extornado : Return "T"
+         Case Else : Return "I"
+      End Select
+   End Function
+
+   ''' <summary>
+   ''' Estados de Viajes
+   ''' </summary>
+   ''' <param name="Estado"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Shared Function getEstado(ByVal Estado As EstadoViajes) As String
+      Select Case Estado
+         Case EstadoViajes.Ingresado : Return "I"
+         Case EstadoViajes.Confirmado : Return "C"
+         Case EstadoViajes.Anulado : Return "X"
+         Case Else : Return "I"
+      End Select
+   End Function
+
+#End Region
+
+#Region " Para la tabla tipos "
+
+
+#End Region
+
+#Region " Tipo de Entidad "
+   Public Shared ReadOnly Property PersonaNatural() As String
+      Get
+         Return "N"
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property PersonaJuridica() As String
+      Get
+         Return "J"
+      End Get
+   End Property
+#End Region
+
+#Region " Neumaticos "
+
+   Enum TipoLlanta
+      DeTraccion
+      Lineal
+      TodasPosiciones
+   End Enum
+
+   Public Shared Function getTipoLlanta(ByVal x_opcion As TipoLlanta) As String
+      Select Case x_opcion
+         Case TipoLlanta.DeTraccion
+            Return "NEU01"
+         Case TipoLlanta.Lineal
+            Return "NEU02"
+         Case TipoLlanta.TodasPosiciones
+            Return "NEU00"
+         Case Else
+            Return "NEU01"
+      End Select
+   End Function
+
+   Enum LadoNeumatico
+      Izquierdo
+      Derecho
+   End Enum
+
+   Public Shared Function getLadoNeumatico(ByVal x_opcion As LadoNeumatico, Optional ByVal x_nombre As Boolean = False) As String
+      Select Case x_opcion
+         Case LadoNeumatico.Derecho
+            Return IIf(x_nombre, "Derecho", "D")
+         Case LadoNeumatico.Izquierdo
+            Return IIf(x_nombre, "Izquierdo", "I")
+         Case Else
+            Return IIf(x_nombre, "Derecho", "D")
+      End Select
+   End Function
+
+   Enum IntExtNeumatico
+      Interno
+      Externo
+   End Enum
+
+   Public Shared Function getIntExt(ByVal x_opcion As IntExtNeumatico, Optional ByVal x_nombre As Boolean = False) As String
+      Select Case x_opcion
+         Case IntExtNeumatico.Externo
+            Return IIf(x_nombre, "Externo", "E")
+         Case IntExtNeumatico.Interno
+            Return IIf(x_nombre, "Interno", "I")
+         Case Else
+            Return IIf(x_nombre, "Externo", "E")
+      End Select
+   End Function
+
+   Enum SeccionNeumatico
+      Delanteros
+      Posteriores
+      Repuesto
+   End Enum
+
+   Public Shared Function getSeccionNeumatico(ByVal x_opcion As SeccionNeumatico, Optional ByVal x_nombre As Boolean = False) As String
+      Select Case x_opcion
+         Case SeccionNeumatico.Delanteros
+            Return IIf(x_nombre, "Delanteros", "D")
+         Case SeccionNeumatico.Posteriores
+            Return IIf(x_nombre, "Posteriores", "P")
+         Case SeccionNeumatico.Repuesto
+            Return IIf(x_nombre, "Repuesto", "R")
+         Case Else
+            Return IIf(x_nombre, "Delanteros", "D")
+      End Select
+   End Function
+
+#End Region
+
+#Region " Monedas "
+   Public Shared ReadOnly Property Moneda(ByVal x_tipo As ETipos.TipoMoneda) As String
+      Get
+         Select Case x_tipo
+            Case ETipos.TipoMoneda.Soles
+               Return "S/."
+            Case ETipos.TipoMoneda.Dolares
+               Return "US$"
+            Case Else
+               Return "S/."
+         End Select
+      End Get
+   End Property
+
+#End Region
+
+#Region " Cotizaciones "
+
+   Public Shared ReadOnly Property ImporteInterno() As Decimal
+      Get
+         Return 135
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property ProductoInterno() As String
+      Get
+         Return "PRODUCTOS DE FERRETERIA"
+      End Get
+   End Property
+
+#End Region
+
+#Region " Documentos de Venta "
+
+   Public Shared ReadOnly Property Porcentaje_IGV() As Decimal
+      Get
+         Return 18
+      End Get
+   End Property
+
+#End Region
+
+End Class

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="DIST_OrdenesRecojoDetalle" Esquema="Logistica" Prefijo="ORDRE">
+  <Nombre>DIST_OrdenesRecojoDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDRE_Codigo">ORDRE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDRE_Item">ORDRE_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCVD_Item">DOCVD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_Cantidad">ORDET_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_UsrCrea">ORDET_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_FecCrea">ORDET_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_UsrMod">ORDET_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_FecMod">ORDET_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDRE_Codigo">ORDRE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDRE_Item">ORDRE_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDRE_Codigo">ORDRE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVD_Item">DOCVD_Item</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDRE_Codigo">ORDRE_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

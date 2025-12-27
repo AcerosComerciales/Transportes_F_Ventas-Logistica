@@ -1,0 +1,223 @@
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Ventas\ACEVentas\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\Ventas\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\VentasPC\ACEVentas\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\PromasaERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\PromasaERP\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Developer\PromasaERP\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC - 1version0.0\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.pdb
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.xml
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+\\192.168.30.3\desarrollo\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.dll
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+F:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+F:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+F:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+F:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+E:\DESARROLLO\VentasPC\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+H:\MILAGROS_MT\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+H:\MILAGROS_MT\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.dll
+H:\MILAGROS_MT\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+H:\MILAGROS_MT\VentasPC\ACEVentas\bin\x86\Debug\ACEVentas.xml
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.dll
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.xml
+H:\MILAGROS_MT\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.vbprojAssemblyReference.cache
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.cache
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.CoreCompileInputs.cache
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.CopyComplete
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL)\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.Cache
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC\ACEVentas\obj\x86\Debug\ACEVentas.vbprojResolveAssemblyReference.cache
+F:\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbprojAssemblyReference.cache
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.cache
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.CoreCompileInputs.cache
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.CopyComplete
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.dll
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.xml
+F:\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.pdb
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll.config
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.pdb
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\bin\x86\Debug\ACEVentas.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\Interop.SHDocVw.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.ResolveComReference.cache
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.Resources.resources
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.vbproj.GenerateResource.cache
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACEVentas\obj\x86\Debug\ACEVentas.pdb

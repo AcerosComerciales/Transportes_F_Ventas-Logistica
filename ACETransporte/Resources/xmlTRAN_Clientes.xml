@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_Clientes" Esquema="Transportes" Prefijo="CLIEN">
+  <Nombre>TRAN_Clientes</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CLIEN_Id">CLIEN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_Id">ENTID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_ESTADO">CLIEN_ESTADO</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_UsrCrea">CLIEN_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_FecCrea">CLIEN_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_UsrMod">CLIEN_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_FecMod">CLIEN_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CLIEN_Id">CLIEN_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Id">ENTID_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

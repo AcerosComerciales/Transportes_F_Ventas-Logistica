@@ -1,0 +1,381 @@
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACDTransporte.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\Debug\ACDVentas.pdb
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACDVentas.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACDVentas.pdb
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACDVentas.xml
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACEVentas.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACETransporte.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACEVentas.pdb
+C:\alex\VentasPC\ACDVentas\bin\Debug\ACEVentas.xml
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.Cache
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.dll
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.xml
+C:\alex\VentasPC\ACDVentas\obj\Debug\ACDVentas.pdb
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACDVentas.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACDVentas.pdb
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACDVentas.xml
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACEVentas.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACETransporte.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACEVentas.pdb
+C:\alex\qrventaspc\VentasPC\ACDVentas\bin\Debug\ACEVentas.xml
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.Cache
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.dll
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.xml
+C:\alex\qrventaspc\VentasPC\ACDVentas\obj\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\C1.Win.C1FlexGrid.2.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\Debug\C1.Win.C1FlexGrid.2.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas - copia\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACDVentas.dll.config
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACDVentas.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACDVentas.pdb
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACDVentas.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACEVentas.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.IO.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Runtime.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACEVentas.pdb
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACEVentas.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\ACEVentas.dll.config
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.IO.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Runtime.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Developer\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.dll
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.xml
+D:\Developer\Transportes\ACDVentas\obj\Debug\ACDVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACDVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACDVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACDVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACDVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACEVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.IO.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Runtime.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACEVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACEVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\ACEVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.IO.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Runtime.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDVentas\obj\Debug\ACDVentas.pdb

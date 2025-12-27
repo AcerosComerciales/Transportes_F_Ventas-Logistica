@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="DIST_GuiasRemisionDetalle" Esquema="Logistica" Prefijo="GUIRD">
+  <Nombre>DIST_GuiasRemisionDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIRD_Item">GUIRD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_ItemDocumento">GUIRD_ItemDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_PesoUnitario">GUIRD_PesoUnitario</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_Cantidad">GUIRD_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_UsrCrea">GUIRD_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_FecCrea">GUIRD_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_UsrMod">GUIRD_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIRD_FecMod">GUIRD_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIRD_Item">GUIRD_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

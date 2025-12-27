@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{014BC6D2-749C-45C0-BC4F-B3E065C215CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ACBTransporte</RootNamespace>
+    <AssemblyName>ACBTransporte</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ACBTransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ACBTransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ACBTransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ACBTransporte.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACBLogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACBLogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACBVentas">
+      <HintPath>..\..\Librerias\ACBVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACDLogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACDLogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACDVentas">
+      <HintPath>..\..\Librerias\ACDVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACELogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACELogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACEVentas">
+      <HintPath>..\..\Librerias\ACEVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="DAEnterprise, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\DAEnterprise.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BTRAN_CotizacionesFletes.vb" />
+    <Compile Include="BTRAN_CotizacionesFletes.Parcial.vb">
+      <DependentUpon>BTRAN_CotizacionesFletes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_FletePorRuta.Parcial.vb" />
+    <Compile Include="BTRAN_FletePorRuta.vb" />
+    <Compile Include="BTRAN_Piezas.Parcial.vb" />
+    <Compile Include="BTRAN_Piezas.vb" />
+    <Compile Include="BTRAN_VehiculosMantenimientoDetalle.Parcial.vb" />
+    <Compile Include="BTRAN_VehiculosMantenimientoDetalle.vb" />
+    <Compile Include="BTRAN_VehiculosMantenimientoDocCompra.Parcial.vb" />
+    <Compile Include="BTRAN_VehiculosMantenimientoDocCompra.vb" />
+    <Compile Include="BTRAN_ViajesGuiasRemision.vb" />
+    <Compile Include="BTRAN_ViajesGuiasRemision.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesGuiasRemision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_ViajesVentas.vb" />
+    <Compile Include="BTRAN_ViajesVentas.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BDocumentos.vb" />
+    <Compile Include="Generales\BDocumentos.Parcial.vb">
+      <DependentUpon>BDocumentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_CombustibleConsumo.vb" />
+    <Compile Include="BTRAN_CombustibleConsumo.Parcial.vb">
+      <DependentUpon>BTRAN_CombustibleConsumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Cotizaciones.vb" />
+    <Compile Include="BTRAN_Cotizaciones.Parcial.vb">
+      <DependentUpon>BTRAN_Cotizaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_CotizacionesDetalle.vb" />
+    <Compile Include="BTRAN_CotizacionesDetalle.Parcial.vb">
+      <DependentUpon>BTRAN_CotizacionesDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Documentos.vb" />
+    <Compile Include="BTRAN_Documentos.Parcial.vb">
+      <DependentUpon>BTRAN_Documentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_DocumentosDetalle.vb" />
+    <Compile Include="BTRAN_DocumentosDetalle.Parcial.vb">
+      <DependentUpon>BTRAN_DocumentosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Fletes.vb" />
+    <Compile Include="BTRAN_Fletes.Parcial.vb">
+      <DependentUpon>BTRAN_Fletes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_GuiasTransportista.vb" />
+    <Compile Include="BTRAN_GuiasTransportista.Parcial.vb">
+      <DependentUpon>BTRAN_GuiasTransportista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_GuiasTransportistaDetalles.vb" />
+    <Compile Include="BTRAN_GuiasTransportistaDetalles.Parcial.vb">
+      <DependentUpon>BTRAN_GuiasTransportistaDetalles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_IncidenciasViajes.vb" />
+    <Compile Include="BTRAN_IncidenciasViajes.Parcial.vb">
+      <DependentUpon>BTRAN_IncidenciasViajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_MovimientosAlmacenes.vb" />
+    <Compile Include="BTRAN_MovimientosAlmacenes.Parcial.vb">
+      <DependentUpon>BTRAN_MovimientosAlmacenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_MovimientosNeumaticos.vb" />
+    <Compile Include="BTRAN_MovimientosNeumaticos.Parcial.vb">
+      <DependentUpon>BTRAN_MovimientosNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Neumaticos.vb" />
+    <Compile Include="BTRAN_Neumaticos.Parcial.vb">
+      <DependentUpon>BTRAN_Neumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_NeumaticosIncidencias.vb" />
+    <Compile Include="BTRAN_NeumaticosIncidencias.Parcial.vb">
+      <DependentUpon>BTRAN_NeumaticosIncidencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_OrdenesTransportes.vb" />
+    <Compile Include="BTRAN_OrdenesTransportes.Parcial.vb">
+      <DependentUpon>BTRAN_OrdenesTransportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Proveedores.vb" />
+    <Compile Include="BTRAN_Proveedores.Parcial.vb">
+      <DependentUpon>BTRAN_Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Ranflas.vb" />
+    <Compile Include="BTRAN_Ranflas.Parcial.vb">
+      <DependentUpon>BTRAN_Ranflas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Recibos.vb" />
+    <Compile Include="BTRAN_Recibos.Parcial.vb">
+      <DependentUpon>BTRAN_Recibos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Rutas.vb" />
+    <Compile Include="BTRAN_Rutas.Parcial.vb">
+      <DependentUpon>BTRAN_Rutas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Vehiculos.vb" />
+    <Compile Include="BTRAN_Vehiculos.Parcial.vb">
+      <DependentUpon>BTRAN_Vehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosConductores.vb" />
+    <Compile Include="BTRAN_VehiculosConductores.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosConductores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosIncidencias.vb" />
+    <Compile Include="BTRAN_VehiculosIncidencias.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosIncidencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosInventario.vb" />
+    <Compile Include="BTRAN_VehiculosInventario.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosInventarioDetalle.vb" />
+    <Compile Include="BTRAN_VehiculosInventarioDetalle.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosInventarioDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosMantenimiento.vb" />
+    <Compile Include="BTRAN_VehiculosMantenimiento.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosMantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosNeumaticos.vb" />
+    <Compile Include="BTRAN_VehiculosNeumaticos.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosRanflas.vb" />
+    <Compile Include="BTRAN_VehiculosRanflas.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosRanflas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_VehiculosSeguros.vb" />
+    <Compile Include="BTRAN_VehiculosSeguros.Parcial.vb">
+      <DependentUpon>BTRAN_VehiculosSeguros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_Viajes.vb" />
+    <Compile Include="BTRAN_Viajes.Parcial.vb">
+      <DependentUpon>BTRAN_Viajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_ViajesGastos.vb" />
+    <Compile Include="BTRAN_ViajesGastos.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_ViajesIngresos.vb" />
+    <Compile Include="BTRAN_ViajesIngresos.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_ViajesNeumaticos.vb" />
+    <Compile Include="BTRAN_ViajesNeumaticos.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BTRAN_ViajesVehiculos.vb" />
+    <Compile Include="BTRAN_ViajesVehiculos.Parcial.vb">
+      <DependentUpon>BTRAN_ViajesVehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\BAdministracionViajes.vb" />
+    <Compile Include="Procesos\BAdministracionVehiculos.vb" />
+    <Compile Include="Procesos\BAdministracionNeumaticos.vb" />
+    <Compile Include="Procesos\BAdministracionInventarios.vb" />
+    <Compile Include="Procesos\BGCancelacion.vb" />
+    <Compile Include="Procesos\BMovimientosNeumaticos.vb" />
+    <Compile Include="Procesos\BReporte.vb" />
+    <Compile Include="Procesos\BRevisionVehicularPostViaje.vb" />
+    <Compile Include="Procesos\BMantenimientosVehicular.vb" />
+    <Compile Include="Procesos\BPlanillasConductor.vb" />
+    <Compile Include="Procesos\BCobrosPendientes.vb" />
+    <Compile Include="Procesos\BAdministracionCaja.vb" />
+    <Compile Include="Procesos\BGenerarGuias.vb" />
+    <Compile Include="Procesos\BGenerarDocsVentaTrans.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACDTransporte\ACDTransporte.vbproj">
+      <Project>{5E6172F1-4F6D-4729-A8C4-F05DDECE6D3B}</Project>
+      <Name>ACDTransporte</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACETransporte\ACETransporte.vbproj">
+      <Project>{2D4A40A6-2947-46F7-896B-369CF6CAF241}</Project>
+      <Name>ACETransporte</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

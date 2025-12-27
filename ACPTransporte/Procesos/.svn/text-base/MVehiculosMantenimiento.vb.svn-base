@@ -1,0 +1,781 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+Imports ACFrameworkC1
+
+Imports C1.Win.C1FlexGrid
+Imports ACBVentas
+Imports ACEVentas
+
+Public Class MVehiculosMantenimiento
+#Region " Variables "
+   Private managerTRAN_Vehiculos As BTRAN_Vehiculos
+   Private managerTRAN_VehiculosMantenimiento As BTRAN_VehiculosMantenimiento
+   Private managerEntidades As BEntidades
+
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private bs_btran_vehiculos As BindingSource
+   Private bs_piezas As BindingSource
+   Private bs_facturas As BindingSource
+   Private m_opcion As TMante
+
+   Enum TMante
+      Nuevo
+      Modificar
+   End Enum
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New(Optional ByVal x_opcion As TMante = TMante.Nuevo)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         m_opcion = x_opcion
+
+         Select Case m_opcion
+            Case TMante.Nuevo
+               acTool.ACBtnModificarVisible = False
+               AcFecha.Visible = False
+            Case TMante.Modificar
+               acTool.ACBtnModificarVisible = True
+               acTool.ACBtnNuevo.Enabled = False
+               AcFecha.Visible = True
+            Case Else
+
+         End Select
+
+
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+         formatearGrilla()
+         cargarCombos()
+         managerTRAN_Vehiculos = New BTRAN_Vehiculos
+         managerTRAN_VehiculosMantenimiento = New BTRAN_VehiculosMantenimiento
+         managerEntidades = New BEntidades
+         acTool.ACBtnNuevoEnabled = False
+
+         acTool.ACBtnEliminar.Enabled = False
+         acTool.ACBtnModificar.Enabled = False
+
+         txtVehicPlaca.ReadOnly = True
+         txtVehiDescripcion.ReadOnly = True
+
+         Me.KeyPreview = True
+
+         spcBase.Panel2Collapsed = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+#Region " Utilitarios "
+
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         Select Case m_opcion
+            Case TMante.Nuevo
+               ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 7, 1, 0)
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "VEHIC_Codigo", "VEHIC_Codigo", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Placa", "VEHIC_Placa", "VEHIC_Placa", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Marca", "TIPOS_Marca", "TIPOS_Marca", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Modelo", "VEHIC_Modelo", "VEHIC_Modelo", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Vehiculo", "TIPOS_Vehiculo", "TIPOS_Vehiculo", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fec. Adq.", "VEHIC_FecAdquisicion", "VEHIC_FecAdquisicion", 150, True, False, "System.DateTime", "dd/MM/yyyy") : index += 1
+            Case TMante.Modificar
+               ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 7, 1, 0)
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cod. Mant.", "VMAN_Id", "VMAN_Id", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha", "VMAN_FecRealizacion", "VMAN_FecRealizacion", 150, True, False, "System.Datetime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Placa", "VEHIC_Placa", "VEHIC_Placa", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "K.M.", "VMAN_Km", "VMAN_Km", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Responsable", "ENTID_Responsable", "ENTID_Responsable", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Proveedor", "ENTID_Proveedor", "ENTID_Proveedor", 150, True, False, "System.String", "") : index += 1
+         End Select
+
+         c1grdBusqueda.AllowEditing = False
+         c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+         c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+
+         index = 1
+
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdDetalle, 1, 1, 6, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Codigo", "PIEZA_Codigo", "PIEZA_Codigo", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Nombre", "PIEZA_Descripcion", "PIEZA_Descripcion", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Tipo Repuesto", "TIPOS_TipoRepuesto", "TIPOS_TipoRepuesto", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Cantidad", "VMDET_Cantidad", "VMDET_Cantidad", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Responsable", "VMDET_Responsable", "VMDET_Responsable", 150, True, False, "System.String") : index += 1
+
+         c1grdDetalle.AllowEditing = False
+         c1grdDetalle.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdDetalle.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdDetalle.Styles.Highlight.BackColor = Color.Gray
+         c1grdDetalle.SelectionMode = SelectionModeEnum.Row
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdFacturas, 1, 1, 6, 1, 1)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFacturas, index, "Fecha", "DOCUS_Fecha", "DOCUS_Fecha", 150, True, False, "System.DateTime") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFacturas, index, "Documento", "Documento", "Documento", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFacturas, index, "RUC", "ENTID_Codigo", "ENTID_Codigo", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFacturas, index, "Razon Social", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFacturas, index, "Total", "DOCUS_TotalPago", "DOCUS_TotalPago", 110, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) : index += 1
+
+         c1grdFacturas.AllowEditing = False
+         c1grdFacturas.Styles.Alternate.BackColor = Color.LightGray
+         c1grdFacturas.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdFacturas.Styles.Highlight.BackColor = Color.Gray
+         c1grdFacturas.SelectionMode = SelectionModeEnum.Row
+         c1grdFacturas.AllowSorting = AllowSortingEnum.SingleColumn
+         c1grdFacturas.AllowResizing = AllowResizingEnum.Columns
+
+         Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdFacturas.Styles.Add("Facturado")
+         t.BackColor = Color.LightGreen
+         t.ForeColor = Color.DarkBlue
+         t.Font = New Font(c1grdFacturas.Font, FontStyle.Regular)
+
+         Dim t1 As C1.Win.C1FlexGrid.CellStyle = c1grdFacturas.Styles.Add("Rehuzado")
+         t1.BackColor = Color.LightSalmon
+         t1.ForeColor = Color.DarkBlue
+         t1.Font = New Font(c1grdFacturas.Font, FontStyle.Regular)
+
+         Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdFacturas.Styles.Add("Facturar")
+         u.BackColor = Color.Green
+         u.ForeColor = Color.White
+         u.Font = New Font(c1grdFacturas.Font, FontStyle.Regular)
+
+         Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdFacturas.Styles.Add("Anulado")
+         d.BackColor = Color.Red
+         d.ForeColor = Color.White
+         d.Font = New Font(c1grdFacturas.Font, FontStyle.Bold)
+         c1grdFacturas.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Sub cargarCombos()
+      Try
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbManTipoMantenimiento, Colecciones.Tipos(ETipos.MyTipos.TipoMantenimiento), "TIPOS_Descripcion", "TIPOS_Codigo")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+
+      Select Case _opcion
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+
+      End Select
+
+   End Sub
+#End Region
+
+#Region " Cargar Datos "
+   ''' <summary>
+   ''' Cargar los datos en el control Visual C1FlexGrid
+   ''' </summary>
+   Private Sub cargarDatos()
+      Try
+         bs_btran_vehiculos = New BindingSource()
+
+         Select Case m_opcion
+            Case TMante.Nuevo
+               bs_btran_vehiculos.DataSource = managerTRAN_Vehiculos.getListTRAN_Vehiculos
+            Case TMante.Modificar
+               bs_btran_vehiculos.DataSource = managerTRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimiento
+            Case Else
+
+         End Select
+         c1grdBusqueda.DataSource = bs_btran_vehiculos
+         bnavBusqueda.BindingSource = bs_btran_vehiculos
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ''' <summary>
+   ''' Realiza el enlace de los controles visuales con la clase esquema
+   ''' </summary>
+   Private Sub AsignarBinding()
+      Try
+         m_listBindHelper = New List(Of ACBindHelper)()
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbManTipoMantenimiento, "SelectedValue", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "TIPOS_CodTipoMantenimiento"))
+         If managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.VMAN_FecRealizacion.Year < 1700 Then managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.VMAN_FecRealizacion = DateTime.Now
+         m_listBindHelper.Add(ACBindHelper.ACBind(dtpFecMantenimiento, "Value", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "VMAN_FecRealizacion"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtManObservacion, "Text", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "VMAN_Observaciones"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnManKilometraje, "Text", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "VMAN_Km"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxaNroDocProveedor, "Text", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "ENTID_Codigo"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxaCodResponsable, "Text", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "ENTID_CodigoResponsable"))
+         'm_listBindHelper.Add(ACBindHelper.ACBind(txt, "Text", managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento, "ENTID_CodigoResponsable"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargar()
+      Try
+         If bs_btran_vehiculos.Current IsNot Nothing Then
+            Dim x_codigo As Integer = CType(bs_btran_vehiculos.Current, ETRAN_VehiculosMantenimiento).VMAN_Id
+            If managerTRAN_VehiculosMantenimiento.Cargar(x_codigo) Then
+               AsignarBinding()
+               managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.Instanciar(ACEInstancia.Modificado)
+               actxaDescProveedor.Text = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ENTID_Proveedor
+               txtVehicPlaca.Text = CType(bs_btran_vehiculos.Current, ETRAN_VehiculosMantenimiento).VEHIC_Placa
+               txtVehiDescripcion.Text = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.VEHIC_Modelo
+               actxaNomResponsable.Text = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ENTID_Responsable
+               tabMantenimiento.SelectedTab = tabDatos
+
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Modificar)
+
+               bs_piezas = New BindingSource
+               bs_piezas.DataSource = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle
+               c1grdDetalle.DataSource = bs_piezas
+               bnavDetalle.BindingSource = bs_piezas
+
+               bs_facturas = New BindingSource
+               bs_facturas.DataSource = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos
+               c1grdFacturas.DataSource = bs_facturas
+               bnavFacturas.BindingSource = bs_facturas
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar ")
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+            End If
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+         Throw ex
+      End Try
+   End Sub
+
+   Private Function getOpcion() As Integer
+      If rbtnCodigo.Checked Then
+         Return 1
+      ElseIf rbtnPlaca.Checked Then
+         Return 0
+      Else
+         Return 0
+      End If
+   End Function
+
+   ''' <summary>
+   ''' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+   ''' </summary>
+   ''' <param name="x_cadena">Cadena objetivo</param>
+   ''' <returns></returns>
+   Private Function busqueda(ByVal x_cadena As String) As Boolean
+      Try
+         Select Case m_opcion
+            Case TMante.Nuevo
+               If managerTRAN_Vehiculos.Busqueda(getCampo(), x_cadena) Then
+                  acTool.ACBtnNuevoEnabled = True
+                  acTool.ACBtnEliminar.Enabled = True
+                  acTool.ACBtnModificar.Enabled = True
+               Else
+                  acTool.ACBtnNuevoEnabled = False
+                  acTool.ACBtnEliminar.Enabled = False
+                  acTool.ACBtnModificar.Enabled = False
+               End If
+            Case TMante.Modificar
+               If managerTRAN_VehiculosMantenimiento.TRAN_VMAN_ObtenerMantenimientos(AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date, getOpcion(), x_cadena, False) Then
+                  acTool.ACBtnModificarVisible = True
+                  acTool.ACBtnModificar.Enabled = True
+               Else
+                  acTool.ACBtnModificarVisible = False
+                  acTool.ACBtnModificar.Enabled = False
+               End If
+            Case Else
+
+         End Select
+         cargarDatos()
+
+         Return acTool.ACBtnNuevoEnabled
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+#End Region
+
+   Private Function getCampoModificar() As String
+      Try
+         If (rbtnCodigo.Checked) Then
+            Return "VEHIC_Id"
+         ElseIf rbtnPlaca.Checked Then
+            Return "VEHIC_Placa"
+         Else
+            Return "VEHIC_Placa"
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getCampo() As Short
+      Try
+         If (rbtnCodigo.Checked) Then
+            Return 0
+         ElseIf rbtnPlaca.Checked Then
+            Return 1
+         Else
+            Return 1
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub AyudaEntidad(ByVal x_cadenas As String, ByVal x_campo As String, ByVal x_opcion As EEntidades.TipoEntidad)
+      Try
+         Select Case x_opcion
+            Case EEntidades.TipoEntidad.Proveedores
+               Dim _where As New Hashtable
+               _where.Add(x_campo, New ACWhere(x_cadenas, ACWhere.TipoWhere._Like))
+               If managerEntidades.Ayuda(_where, x_opcion) Then
+                  Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Proveedor", managerEntidades.DTEntidades, False)
+                  If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                     '' Cargar datos del cliente
+                     actxaNroDocProveedor.Text = Ayuda.Respuesta.Rows(0)("Doc./R.U.C.")
+                     actxaDescProveedor.Text = Ayuda.Respuesta.Rows(0)("Razon Social")
+                  End If
+               Else
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Cargar la ayuda por que no se encontro registros")
+               End If
+            Case EEntidades.TipoEntidad.Usuarios
+               Dim _where As New Hashtable
+               _where.Add(x_campo, New ACWhere(x_cadenas, ACWhere.TipoWhere._Like))
+               If managerEntidades.Ayuda(_where, x_opcion) Then
+                  Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Usuario", managerEntidades.DTEntidades, False)
+                  If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                     '' Cargar datos del cliente
+                     actxaCodResponsable.Text = Ayuda.Respuesta.Rows(0)("Doc./R.U.C.")
+                     actxaNomResponsable.Text = Ayuda.Respuesta.Rows(0)("Razon Social")
+                  End If
+               Else
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Cargar la ayuda por que no se encontro registros")
+               End If
+            Case Else
+               Dim _where As New Hashtable
+               _where.Add(x_campo, New ACWhere(x_cadenas, ACWhere.TipoWhere._Like))
+               If managerEntidades.Ayuda(_where, x_opcion) Then
+                  Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Usuario", managerEntidades.DTEntidades, False)
+                  If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                     '' Cargar datos del cliente
+                     actxaCodResponsable.Text = Ayuda.Respuesta.Rows(0)("Doc./R.U.C.")
+                     actxaNomResponsable.Text = Ayuda.Respuesta.Rows(0)("Razon Social")
+                  End If
+               Else
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Cargar la ayuda por que no se encontro registros")
+               End If
+         End Select
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub NuevaEntidad(ByVal x_entid_nrodocumento As String, ByVal x_tipoentidad As EEntidades.TipoEntidad)
+      Try
+         Dim frmEntidad As New MEntidad(MEntidad.Inicio.NuevaEntidad, x_tipoentidad)
+         frmEntidad.StartPosition = FormStartPosition.CenterScreen
+         If x_entid_nrodocumento.Length > 0 Then
+            frmEntidad.EEntidad.ENTID_NroDocumento = x_entid_nrodocumento
+            frmEntidad.lblNombres.Focus()
+         End If
+         If frmEntidad.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            Select Case x_tipoentidad
+               Case EEntidades.TipoEntidad.Proveedores
+                  If managerEntidades.Cargar(frmEntidad.EEntidad.ENTID_Codigo, EEntidades.TipoInicializacion.Direcciones) Then
+                     actxaNroDocProveedor.Text = managerEntidades.Entidades.ENTID_NroDocumento
+                     actxaDescProveedor.Text = managerEntidades.Entidades.ENTID_RazonSocial
+                  End If
+            End Select
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format("Ocurrio un error en el proceso Nuevo ", x_tipoentidad.ToString()), ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+
+#Region " Tool Bar "
+   Private Sub acTool_ACBtnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnRehusar_Click, acTool.ACBtnNuevo_Click
+      Try
+         tabMantenimiento.SelectedTab = tabDatos
+
+         managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento = New ETRAN_VehiculosMantenimiento()
+         managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.VEHIC_Id = CType(bs_btran_vehiculos.Current, ETRAN_Vehiculos).VEHIC_Id
+         managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle = New List(Of ETRAN_VehiculosMantenimientoDetalle)
+         managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos = New List(Of ETRAN_Documentos)
+
+         txtVehicPlaca.Text = CType(bs_btran_vehiculos.Current, ETRAN_Vehiculos).VEHIC_Placa
+         txtVehiDescripcion.Text = String.Format("{0} / {1}", CType(bs_btran_vehiculos.Current, ETRAN_Vehiculos).VEHIC_Certificado, CType(bs_btran_vehiculos.Current, ETRAN_Vehiculos).TIPOS_Marca)
+
+         bs_piezas = New BindingSource
+         bs_piezas.DataSource = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle
+         c1grdDetalle.DataSource = bs_piezas
+         bnavDetalle.BindingSource = bs_piezas
+
+         bs_facturas = New BindingSource
+         bs_facturas.DataSource = managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos
+         c1grdFacturas.DataSource = bs_facturas
+         bnavFacturas.BindingSource = bs_facturas
+
+         TabControl1.SelectedTab = tpgFacturas
+
+         managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.Instanciar(ACEInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         AsignarBinding()
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Nuevo Mantenimiento de Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnCancelar_Click
+      Try
+         tabMantenimiento.SelectedTab = tabBusqueda
+         For Each Item As ACBindHelper In m_listBindHelper
+            Item.ACUnBind()
+         Next
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cancelar Mantenimiento de Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnModificar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnModificar_Click
+      Try
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+         cargar()
+         tabMantenimiento.SelectedTab = tabDatos
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Mantenimiento de Vehiculo", ex)
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click
+      Dim msg As String = ""
+      Try
+         If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) = True Then
+            If managerTRAN_VehiculosMantenimiento.Guardar(GApp.Usuario, True) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado satisfactoriamente")
+               tabMantenimiento.SelectedTab = tabBusqueda
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+            Else
+               Throw New Exception("No se completo el proceso de grabación")
+            End If
+         Else
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar, por que hay campos obligatorios vacios: {0}", msg))
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede grabar", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnEliminar_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Convert.ToString(Me.Text)), String.Format("Desea eliminar el registro: {0}?", CType(bs_btran_vehiculos.Current, ETRAN_Neumaticos).NEUMA_Codigo), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento = CType(bs_btran_vehiculos.Current, ETRAN_VehiculosMantenimiento)
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.Instanciar(ACEInstancia.Eliminado)
+            managerTRAN_Vehiculos.Guardar(GApp.Usuario)
+            ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Convert.ToString(Me.Text)), "Eliminado satisfactoriamente")
+            busqueda(txtBusqueda.Text)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede Eliminar", ex)
+      End Try
+   End Sub
+#End Region
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         If sender.Name = "acTool" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+      Try
+         If e.KeyCode = Keys.Enter Then
+            busqueda(txtBusqueda.Text)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub c1grdDetalle_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles c1grdBusqueda.MouseDoubleClick
+      Try
+         If e.X > c1grdBusqueda.Rows.Fixed Then
+            Select Case m_opcion
+               Case TMante.Nuevo
+                  acTool_ACBtnNuevo_Click(Nothing, Nothing)
+                  acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+               Case TMante.Modificar
+                  acTool_ACBtnModificar_Click(Nothing, Nothing)
+                  acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            End Select
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar el registro seleccionado", ex)
+      End Try
+
+   End Sub
+
+   Private Sub actxaProveedor_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaNroDocProveedor.ACAyudaClick
+      Try
+         AyudaEntidad(actxaNroDocProveedor.Text, "ENTID_NroDocumento", EEntidades.TipoEntidad.Proveedores)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Ayuda de Proveedores", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaRazonSocial_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaDescProveedor.ACAyudaClick
+      Try
+         AyudaEntidad(actxaDescProveedor.Text, "ENTID_RazonSocial", EEntidades.TipoEntidad.Proveedores)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Ayuda de Proveedores", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaNomResponsable_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaNomResponsable.ACAyudaClick
+      Try
+         AyudaEntidad(actxaNomResponsable.Text, "ENTID_RazonSocial", EEntidades.TipoEntidad.Todos)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Ayuda de Usuarios", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaCodResponsable_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCodResponsable.ACAyudaClick
+      Try
+         AyudaEntidad(actxaCodResponsable.Text, "ENTID_NroDocumento", EEntidades.TipoEntidad.Todos)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Ayuda de Usuarios", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaNroDocProveedor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxaNroDocProveedor.KeyDown
+      Try
+         If e.KeyData = Keys.Enter Then
+            If actxaNroDocProveedor.Text.ToString().Length >= ACETransporte.Constantes.LongitudCodigo Then
+               '' Cargar datos adicionales cliente
+               If actxaNroDocProveedor.ACAyuda.Enabled = True Then
+                  If managerEntidades.CargarDocIden(actxaNroDocProveedor.Text, EEntidades.TipoInicializacion.Direcciones) Then
+                     actxaNroDocProveedor.Text = managerEntidades.Entidades.ENTID_NroDocumento
+                     actxaDescProveedor.Text = managerEntidades.Entidades.ENTID_RazonSocial
+                     Label2.Focus()
+                  Else
+                     If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Documento de Identidad: {0}", Me.Text) _
+                                     , String.Format("El Documento de Identidad {0} no existe, ¿Desea Ingresar la Entidad?", actxaNroDocProveedor.Text) _
+                                     , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                        NuevaEntidad(actxaNroDocProveedor.Text, EEntidades.TipoEntidad.Proveedores)
+                     Else
+                        actxaNroDocProveedor.Clear()
+                        actxaDescProveedor.Clear()
+                        lblProveedor.Focus()
+                     End If
+                  End If
+               End If
+            Else
+               If actxaNroDocProveedor.Text.Trim().Length > 0 Then
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("El Documento de Identidad {0} no existe, el documento ingresado tienen menos de 8 numeros", actxaNroDocProveedor.Text))
+                  actxaNroDocProveedor.Clear()
+                  actxaDescProveedor.Clear()
+                  lblProveedor.Focus()
+               End If
+
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Cliente", ex)
+      End Try
+   End Sub
+
+#End Region
+
+   Private Sub actxaCodResponsable_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxaCodResponsable.KeyDown
+      Try
+         If e.KeyData = Keys.Enter Then
+            If actxaCodResponsable.Text.ToString().Length >= ACETransporte.Constantes.LongitudCodigo Then
+               '' Cargar datos adicionales cliente
+               If actxaCodResponsable.ACAyuda.Enabled = True Then
+                  If managerEntidades.CargarDocIden(actxaCodResponsable.Text, EEntidades.TipoInicializacion.Direcciones) Then
+                     actxaCodResponsable.Text = managerEntidades.Entidades.ENTID_NroDocumento
+                     actxaNomResponsable.Text = managerEntidades.Entidades.ENTID_RazonSocial
+                     Label6.Focus()
+                  Else
+                     If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Documento de Identidad: {0}", Me.Text) _
+                                     , String.Format("El Documento de Identidad {0} no existe, ¿Desea Ingresar la Entidad?", actxaCodResponsable.Text) _
+                                     , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                        NuevaEntidad(actxaCodResponsable.Text, EEntidades.TipoEntidad.Proveedores)
+                     Else
+                        actxaCodResponsable.Clear()
+                        actxaNomResponsable.Clear()
+                        Label2.Focus()
+                     End If
+                  End If
+               End If
+            Else
+               If actxaCodResponsable.Text.Trim().Length > 0 Then
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("El Documento de Identidad {0} no existe, el documento ingresado tienen menos de 8 numeros", actxaNroDocProveedor.Text))
+                  actxaCodResponsable.Clear()
+                  actxaNomResponsable.Clear()
+                  Label2.Focus()
+               End If
+
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Cliente", ex)
+      End Try
+   End Sub
+
+   Private Sub actxnManKilometraje_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxnManKilometraje.KeyDown
+      If e.KeyCode = Keys.Enter Then
+         KeyPreview = False
+         tool.Focus()
+         tsbtnAgregar.Select()
+      End If
+   End Sub
+
+   Private Sub tsbtnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnAgregar.Click
+      Try
+         If Not managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos.Count > 0 Then
+            Throw New Exception("Debe Ingresar Documentos de Compra para continuar")
+         End If
+         Dim frmpartes As New MPartesMant(managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos) With {.WindowState = FormWindowState.Normal, .StartPosition = FormStartPosition.CenterScreen}
+         If frmpartes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle.Add(frmpartes.TRAN_VehiculosMantenimientoDetalle)
+            bs_piezas.ResetBindings(False)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Agregar Parte"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnQuitar.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Quitar Registro: {0}", Me.Text) _
+             , "Desea eliminar el registro: " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle.Remove(CType(bs_piezas.Current, ETRAN_VehiculosMantenimientoDetalle))
+            bs_piezas.ResetBindings(False)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Quitar Parte"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnAgregarFacturas_Click(sender As Object, e As EventArgs) Handles tsbtnAgregarFacturas.Click
+      Try
+         Dim _doccompra As New MDocumentosCompra(Nothing, MDocumentosCompra.TInicio.Busqueda)
+         If _doccompra.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos.Add(_doccompra.TRAN_Documentos)
+            bs_facturas.ResetBindings(False)
+            If managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos.Count > 0 Then
+               Dim _documentos As New BTRAN_Documentos
+               Dim x_condicion As String = ""
+               Dim _uno As Boolean = True
+               For Each item As ETRAN_Documentos In managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos
+                  If _uno Then
+                     x_condicion &= String.Format("'{0}{1}'", item.DOCUS_Codigo, item.ENTID_Codigo) : _uno = False
+                  Else
+                     x_condicion &= String.Format(",'{0}{1}'", item.DOCUS_Codigo, item.ENTID_Codigo)
+                  End If
+               Next
+               If _documentos.CargarDetalle(x_condicion) Then
+                  For Each item As ETRAN_DocumentosDetalle In _documentos.TRAN_Documentos.ListETRAN_DocumentosDetalle
+                     Dim _filter As New ACFiltrador(Of ETRAN_VehiculosMantenimientoDetalle)
+                     _filter.ACFiltro = String.Format("DOCUS_Codigo={0} AND ENTID_Codigo={1} AND PIEZA_Codigo={2}", item.DOCUS_Codigo, item.ENTID_Codigo, item.PIEZA_Codigo)
+                     If Not _filter.ACFiltrar(managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle).Count > 0 Then
+                        Dim _detalle As New ETRAN_VehiculosMantenimientoDetalle
+                        _detalle.DOCUS_Codigo = item.DOCUS_Codigo
+                        _detalle.ENTID_Codigo = item.ENTID_Codigo
+                        _detalle.PIEZA_Codigo = item.PIEZA_Codigo
+                        _detalle.PIEZA_Descripcion = item.DCDET_Descripcion
+                        _detalle.VMDET_Cantidad = item.DCDET_Cantidad
+                        _detalle.PIEZA_Id = item.PIEZA_Id
+                        _detalle.TIPOS_CodTipoRepuesto = Colecciones.Tipos(ETipos.MyTipos.TipoRepuesto)(0).TIPOS_Codigo
+                        _detalle.TIPOS_TipoRepuesto = Colecciones.Tipos(ETipos.MyTipos.TipoRepuesto)(0).TIPOS_Descripcion
+                        _detalle.VMDET_Responsable = "-"
+                        '_detalle.PIEZA_Descripcion = item.DOCUS_Estado
+                        managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_VehiculosMantenimientoDetalle.Add(_detalle)
+                     End If
+                  Next
+                  bs_piezas.ResetBindings(False)
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Agregar Factura de Compra"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnQuitarFacturas_Click(sender As Object, e As EventArgs) Handles tsbtnQuitarFacturas.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Quitar Registro: {0}", Me.Text) _
+             , "Desea eliminar el registro: " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos.Remove(CType(bs_facturas.Current, ETRAN_Documentos))
+            bs_facturas.ResetBindings(False)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Quitar Parte"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnModificarPieza_Click(sender As Object, e As EventArgs) Handles tsbtnModificarPieza.Click
+      Try
+         If Not managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos.Count > 0 Then
+            Throw New Exception("Debe Ingresar Documentos de Compra para continuar")
+         End If
+         Dim frmpartes As New MPartesMant(CType(bs_piezas.Current, ETRAN_VehiculosMantenimientoDetalle), managerTRAN_VehiculosMantenimiento.TRAN_VehiculosMantenimiento.ListTRAN_Documentos) With {.WindowState = FormWindowState.Normal, .StartPosition = FormStartPosition.CenterScreen}
+         If frmpartes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            bs_piezas.ResetBindings(False)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Agregar Parte"), ex)
+      End Try
+   End Sub
+End Class

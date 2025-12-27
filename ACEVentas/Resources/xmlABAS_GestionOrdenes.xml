@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="ABAS_GestionOrdenes" Esquema="Logistica" Prefijo="GESTOR">
+  <Nombre>ABAS_GestionOrdenes</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GESTOR_Codigo">GESTOR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoEncargado">ENTID_CodigoEncargado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Numero">GESTOR_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Serie">GESTOR_Serie</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_FechaIngreso">GESTOR_FechaIngreso</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Lote">GESTOR_Lote</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_PesoBruto">GESTOR_PesoBruto</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_PesoNeto">GESTOR_PesoNeto</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_CalcMetros">GESTOR_CalcMetros</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Observaciones">GESTOR_Observaciones</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Estado">GESTOR_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_EstadoCorte">GESTOR_EstadoCorte</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_UsrCrea">GESTOR_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_FecCrea">GESTOR_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_UsrMod">GESTOR_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_FecMod">GESTOR_FecMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_FecTrans">GESTOR_FecTrans</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Calibre1">GESTOR_Calibre1</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Calibre2">GESTOR_Calibre2</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Calibre3">GESTOR_Calibre3</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Pm1">GESTOR_Pm1</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Pm2">GESTOR_Pm2</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Pm3">GESTOR_Pm3</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Aprox1">GESTOR_Aprox1</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Aprox2">GESTOR_Aprox2</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOR_Aprox3">GESTOR_Aprox3</CCampo>
+
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GESTOR_Codigo">GESTOR_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_CodigoEncargado">ENTID_CodigoEncargado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

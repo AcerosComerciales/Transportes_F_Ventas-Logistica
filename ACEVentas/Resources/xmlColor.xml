@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Color" Esquema="dbo" Prefijo="COLOR">
+  <Nombre>Color</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COLOR_Id">COLOR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_Codigo">COLOR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_Descripcion">COLOR_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_DescCorta">COLOR_DescCorta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_UsrCrea">COLOR_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_FecCrea">COLOR_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_UsrMod">COLOR_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COLOR_FecMod">COLOR_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COLOR_Id">COLOR_Id</CCampo>
+  </CPrimarios>
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

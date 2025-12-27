@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRANGUIAS_Entidades" Esquema="TransportesGuias" Prefijo="GTUS">
+  <Nombre>TRANGUIAS_Entidades</Nombre>
+  <Esquema>TransportesGuias</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="EntiId">EntiId</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TipoDocumentoFk">TipoDocumentoFk</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="EntiDocumento">EntiDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiRazonSocial">EntiRazonSocial</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiDireccion">EntiDireccion</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiEstado">EntiEstado</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiFecCreacion">EntiFecCreacion</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiUsrCreacion">EntiUsrCreacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiFecModificacion">EntiFecModificacion</CCampo>
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EntiUsrModificacion">EntiUsrModificacion</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="EntiId">EntiId</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="EntiDocumento">EntiDocumento</CCampo>
+
+  </CForaneos>
+  <CForaneosPrimarios>
+  </CForaneosPrimarios>
+</Tabla>

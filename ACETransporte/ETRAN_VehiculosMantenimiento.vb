@@ -1,0 +1,118 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+
+Partial Public Class ETRAN_VehiculosMantenimiento
+
+#Region " Variables "
+    Private m_tipos_descripcion As String
+   Private m_entid_razonsocial As String
+   Private m_vehic_placa As String
+   Private m_entid_responsable As String
+   Private m_entid_proveedor As String
+   Private m_vehic_modelo As String
+
+   Private m_listmantenimientodetalle As List(Of ETRAN_VehiculosMantenimientoDetalle)
+    Private m_listtran_documentos As List(Of ETRAN_Documentos)
+
+#End Region
+
+#Region " Propiedades "
+    Public Property TIPOS_TipoMantenimiento() As String
+      Get
+         Return m_tipos_descripcion
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_tipos_descripcion) Then
+            If Not m_tipos_descripcion.Equals(value) Then
+               m_tipos_descripcion = value
+            End If
+         Else
+            m_tipos_descripcion = value
+         End If
+      End Set
+   End Property
+
+   Public Property ENTID_RazonSocial() As String
+      Get
+         Return m_entid_razonsocial
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_entid_razonsocial) Then
+            If Not m_entid_razonsocial.Equals(value) Then
+               m_entid_razonsocial = value
+            End If
+         Else
+            m_entid_razonsocial = value
+         End If
+      End Set
+   End Property
+
+   Public Property ListTRAN_VehiculosMantenimientoDetalle() As List(Of ETRAN_VehiculosMantenimientoDetalle)
+      Get
+         Return m_listmantenimientodetalle
+      End Get
+      Set(ByVal value As List(Of ETRAN_VehiculosMantenimientoDetalle))
+         m_listmantenimientodetalle = value
+      End Set
+   End Property
+
+   Public Property VEHIC_Placa() As String
+      Get
+         Return m_vehic_placa
+      End Get
+      Set(ByVal value As String)
+         m_vehic_placa = value
+      End Set
+   End Property
+
+   Public Property ENTID_Responsable() As String
+      Get
+         Return m_entid_responsable
+      End Get
+      Set(ByVal value As String)
+         m_entid_responsable = value
+      End Set
+   End Property
+
+   Public Property ENTID_Proveedor() As String
+      Get
+         Return m_entid_proveedor
+      End Get
+      Set(ByVal value As String)
+         m_entid_proveedor = value
+      End Set
+   End Property
+
+    Public Property ListTRAN_Documentos() As List(Of ETRAN_Documentos)
+        Get
+            Return m_listtran_documentos
+        End Get
+        Set(ByVal value As List(Of ETRAN_Documentos))
+            m_listtran_documentos = value
+        End Set
+    End Property
+
+    Public Property VEHIC_Modelo() As String
+      Get
+         Return m_vehic_modelo
+      End Get
+      Set(ByVal value As String)
+         m_vehic_modelo = value
+      End Set
+   End Property
+
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Metodos "
+
+#End Region
+
+End Class

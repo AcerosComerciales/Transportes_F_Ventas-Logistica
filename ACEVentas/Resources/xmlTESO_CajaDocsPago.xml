@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TESO_CajaDocsPago" Esquema="Tesoreria" Prefijo="CAJA">
+  <Nombre>TESO_CajaDocsPago</Nombre>
+  <Esquema>Tesoreria</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="CAJA_Codigo">CAJA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_Numero">CDEPO_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_Importe">CDEPO_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_UsrCrea">CDEPO_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_FecCrea">CDEPO_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_UsrMod">CDEPO_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_FecMod">CDEPO_FecMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CDEPO_Numero">Cod_Confirmacion</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="CAJA_Codigo">CAJA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DPAGO_Id">DPAGO_Id</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

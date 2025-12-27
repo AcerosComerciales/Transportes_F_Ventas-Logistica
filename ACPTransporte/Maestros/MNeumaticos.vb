@@ -1,0 +1,447 @@
+﻿Imports System
+Imports System.Collections.Generic
+Imports ACBTransporte
+Imports ACBVentas
+Imports ACETransporte
+Imports ACFramework
+
+Imports C1.Win.C1FlexGrid
+Imports ACEVentas
+
+Public Class MNeumaticos
+#Region " Variables "
+   Private managerTRAN_Neumaticos As BTRAN_Neumaticos
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private m_etran_neumaticos As ETRAN_Neumaticos
+   Private bs_btran_neumaticos As BindingSource
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+         tabBusqueda.Focus()
+         formatearGrilla()
+         cargarCombos()
+         m_listBindHelper = New List(Of ACBindHelper)()
+         managerTRAN_Neumaticos = New BTRAN_Neumaticos
+
+         acTool.ACBtnEliminar.Enabled = False
+         acTool.ACBtnModificar.Enabled = False
+         txtBusqueda.Focus()
+
+         txtBusqueda.ACActivarAyudaAuto = False
+         'txtBusqueda.ACLongitudAceptada = IIf(Parametros.GetParametro(EParametros.TipoParametros.pg_LongTexAyuda).ToString() = "", 0, Parametros.GetParametro(EParametros.TipoParametros.pg_LongTexAyuda))
+
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACNeumatico_16x16.GetHicon)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+#Region " Utilitarios "
+   ' <summary>
+   ' Dar Formato a la grilla de busqueda
+   ' </summary>
+   ' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+        Try
+            'TABLA QUE SE MUESTRA PARA LOS NEUMATICOS 
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 9, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "NEUMA_Codigo", "NEUMA_Codigo", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Sucursal", "SUCUR_Nombre", "SUCUR_Nombre", 150, False, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Marca", "TIPO_Marca", "TIPO_Marca", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "T. Neumatico", "TIPO_Llanta", "TIPO_Llanta", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Modelo", "NEUMA_Modelo", "NEUMA_Modelo", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "NEUMA_Estado", "NEUMA_Estado", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fec. Compra", "NEUMA_FecCompra", "NEUMA_FecCompra", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Kilometraje", "NEUMA_TiempoVidaUtil", "NEUMA_TiempoVidaUtil", 150, True, False, "System.Decimal", "") : index += 1
+            c1grdBusqueda.AllowEditing = False
+            'c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+            'c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            'c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+            'c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+            'Dando estilo a las Columnas 
+            If c1grdBusqueda.Cols(c1grdBusqueda.Col).Name = "Estado" Then
+                If c1grdBusqueda(c1grdBusqueda.Row, "Estado").Equals("X") Then
+                    'c1grdBusqueda.Style = c1grdBusqueda.Styles("Anulado")
+                    Dim BajasNeuma As CellStyle = Me.c1grdBusqueda.Styles.Add("Anulado")
+                    BajasNeuma.BackColor = Color.Red
+                    BajasNeuma.ForeColor = Color.White
+                    c1grdBusqueda.Rows(1).Style = BajasNeuma
+                End If
+                'If c1grdBusqueda(e.Row, "Condicion").Equals("Entregado") Then
+                '    e.Style = c1grdBusqueda.Styles("Facturar")
+                'End If
+            End If
+
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+    'Private Sub c1FlexGrid1_OwnerDrawCell(sender As Object, e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1FlexGrid1.OwnerDrawCell
+    '    ' Verificar que la celda no sea un encabezado y que esté en la columna correcta
+    '    If e.Row > 0 AndAlso e.Col = c1FlexGrid1.Cols("NEUMA_Estado").Index Then
+    '        Dim valorCelda As String = c1FlexGrid1(e.Row, e.Col).ToString()
+
+    '        ' Si el valor de la celda es "X", pintarla de rojo
+    '        If valorCelda = "X" Then
+    '            e.Style.BackColor = Color.Red
+    '            e.Style.ForeColor = Color.White  ' Opcional: cambiar color de texto a blanco
+    '        End If
+    '    End If
+    'End Sub
+
+    Private Sub cargarCombos()
+      Try
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbMarca, Colecciones.Tipos(ETipos.MyTipos.MarcasNeumaticos), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoLlanta, Colecciones.Tipos(ETipos.MyTipos.TipoNeumatico), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbMoneda, Colecciones.Tipos(ETipos.MyTipos.TipoMoneda), "TIPOS_Descripcion", "TIPOS_Codigo", Parametros.GetParametro(EParametros.TipoParametros.pg_NeumaMoneda))
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoVehiculo, Colecciones.Tipos(ETipos.MyTipos.TipoVehiculos), "TIPOS_Descripcion", "TIPOS_Codigo")
+         'ACFramework.ACUtilitarios.ACCargaCombo(cmbSucursal, Colecciones.Sucursales, "SUCUR_Nombre", "SUCUR_Id")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+
+      Select Case _opcion
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+
+      End Select
+
+   End Sub
+#End Region
+
+#Region " Cargar Datos "
+   ' <summary>
+   ' Cargar los datos en el control Visual C1FlexGrid
+   ' </summary>
+   Private Sub cargarDatos()
+      Try
+         bs_btran_neumaticos = New BindingSource()
+         bs_btran_neumaticos.DataSource = managerTRAN_Neumaticos.getListTRAN_Neumaticos
+         c1grdBusqueda.DataSource = bs_btran_neumaticos
+         bnavBusqueda.BindingSource = bs_btran_neumaticos
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ' <summary>
+   ' Realiza el enlace de los controles visuales con la clase esquema
+   ' </summary>
+   Private Sub AsignarBinding()
+      Try
+         m_listBindHelper = New List(Of ACBindHelper)()
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtCodigo, "Text", m_etran_neumaticos, "NEUMA_Codigo"))
+         'm_listBindHelper.Add(ACBindHelper.ACBind(cmbSucursal, "SelectedValue", m_etran_neumaticos, "SUCUR_Id"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbMarca, "SelectedValue", m_etran_neumaticos, "TIPOS_CodMarca"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtModelo, "Text", m_etran_neumaticos, "NEUMA_Modelo"))
+
+         If m_etran_neumaticos.NEUMA_FechaGarantia.Year < 1700 Then m_etran_neumaticos.NEUMA_FechaGarantia = DateTime.Now
+         m_listBindHelper.Add(ACBindHelper.ACBind(dtpFecGarantia, "Value", m_etran_neumaticos, "NEUMA_FechaGarantia"))
+         If m_etran_neumaticos.NEUMA_FecCompra.Year < 1700 Then m_etran_neumaticos.NEUMA_FecCompra = DateTime.Now
+         m_listBindHelper.Add(ACBindHelper.ACBind(dtpFecCompra, "Value", m_etran_neumaticos, "NEUMA_FecCompra"))
+         If m_etran_neumaticos.NEUMA_TiempoVidaUtil.Year < 1700 Then m_etran_neumaticos.NEUMA_TiempoVidaUtil = DateTime.Now
+         m_listBindHelper.Add(ACBindHelper.ACBind(dtpVidaUtil, "Value", m_etran_neumaticos, "NEUMA_TiempoVidaUtil"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbTipoLlanta, "SelectedValue", m_etran_neumaticos, "TIPOS_CodTipoLlanta"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbMoneda, "SelectedValue", m_etran_neumaticos, "TIPOS_CodMoneda"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnPrecio, "Text", m_etran_neumaticos, "NEUMA_Precio"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnKilomUtil, "Text", m_etran_neumaticos, "NEUMA_KmVidaUtil"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtTamano, "Text", m_etran_neumaticos, "NEUMA_Tamano"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbTipoVehiculo, "SelectedValue", m_etran_neumaticos, "TIPOS_CodTipoVehiculo"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(nupParches, "Value", m_etran_neumaticos, "NEUMA_Parches"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(nupReencauches, "Value", m_etran_neumaticos, "NEUMA_Reencauches"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(nupPosicion, "Value", m_etran_neumaticos, "NEUMA_NroPosicion"))
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargar()
+      Try
+         If bs_btran_neumaticos.Current IsNot Nothing Then
+            Dim x_codigo As Integer = CType(bs_btran_neumaticos.Current, ETRAN_Neumaticos).NEUMA_Id
+            managerTRAN_Neumaticos.Cargar(x_codigo)
+            m_etran_neumaticos = managerTRAN_Neumaticos.getTRAN_Neumaticos()
+            AsignarBinding()
+            tabMantenimiento.SelectedTab = tabDatos
+            acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Modificar)
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Cancelar)
+         Throw ex
+      End Try
+   End Sub
+
+   ' <summary>
+   ' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+   ' </summary>
+   ' <param name="x_cadena">Cadena objetivo</param>
+   ' <returns></returns>
+   Private Function busqueda(ByVal x_cadena As String) As Boolean
+      Try
+         'If txtBusqueda.ACEstadoAutoAyuda Then
+            If managerTRAN_Neumaticos.Busqueda(x_cadena, getCampo(), chkTodos.Checked) Then
+                acTool.ACBtnEliminar.Enabled = True
+                acTool.ACBtnModificar.Enabled = True
+            Else
+                acTool.ACBtnEliminar.Enabled = False
+                acTool.ACBtnModificar.Enabled = False
+            End If
+         cargarDatos()
+         'End If
+         Return acTool.ACBtnEliminar.Enabled
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+#End Region
+
+   Private Function getCampo() As String
+      Try
+         If (rbtnCodigo.Checked) Then
+            Return "NEUMA_Codigo"
+         ElseIf rbtnModelo.Checked Then
+            Return "NEUMA_Modelo"
+         Else
+            Return "NEUMA_Codigo"
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Metodos de Controles"
+#Region " Tool Bar "
+   Private Sub acTool_ACBtnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnNuevo_Click
+      Try
+         tabMantenimiento.SelectedTab = tabDatos
+
+         m_etran_neumaticos = New ETRAN_Neumaticos()
+         m_etran_neumaticos.Instanciar(ACEInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         AsignarBinding()
+         cmbMoneda.SelectedValue = Parametros.GetParametro(EParametros.TipoParametros.pg_NeumaMoneda)
+         txtCodigo.Focus()
+         eprError.SetError(Me.txtCodigo, "Campo Obligatorio")
+         eprError.SetError(Me.cmbMarca, "Campo Obligatorio")
+         eprError.SetError(Me.cmbTipoLlanta, "Campo Obligatorio")
+         Me.KeyPreview = True
+      Catch ex As Exception
+         acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabIni
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Nuevo Neumatico", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnCancelar_Click
+      Try
+         tabMantenimiento.SelectedTab = tabBusqueda
+         Me.KeyPreview = False
+         For Each Item As ACBindHelper In m_listBindHelper
+            Item.ACUnBind()
+         Next
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cancelar Neumatico", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnModificar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnModificar_Click
+      Try
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+         cargar()
+         tabMantenimiento.SelectedTab = tabDatos
+         txtCodigo.Focus()
+         Me.KeyPreview = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Neumatico", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click
+      Dim msg As String = ""
+      Try
+         If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) = True Then
+            m_etran_neumaticos.SUCUR_Id = GApp.Sucursal
+            m_etran_neumaticos.ZONAS_Codigo = GApp.Zona
+            managerTRAN_Neumaticos.setTRAN_Neumaticos(m_etran_neumaticos)
+
+            If m_etran_neumaticos.Nuevo = True Then
+               ''Correlativo
+               Dim x_corre As Integer = 0
+                    m_etran_neumaticos.NEUMA_Id = managerTRAN_Neumaticos.getCorrelativo(x_corre)
+                    m_etran_neumaticos.NEUMA_Estado = BConstantes.getEstado(BConstantes.Estados.Activo)
+                    managerTRAN_Neumaticos.setTRAN_Neumaticos(m_etran_neumaticos)
+
+            End If
+
+            If managerTRAN_Neumaticos.Guardar(GApp.Usuario) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado satisfactoriamente")
+               tabMantenimiento.SelectedTab = tabBusqueda
+               busqueda(txtBusqueda.Text)
+               Me.KeyPreview = False
+            Else
+               acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabFin
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede grabar")
+            End If
+         Else
+            acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabFin
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar, por que hay campos obligatorios vacios: {0}", msg))
+         End If
+      Catch ex As Exception
+         acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabFin
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede grabar", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnEliminar_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Me.Text), String.Format("Desea eliminar el registro: {0}?", CType(bs_btran_neumaticos.Current, ETRAN_Neumaticos).NEUMA_Codigo), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            m_etran_neumaticos = CType(bs_btran_neumaticos.Current, ETRAN_Neumaticos)
+            m_etran_neumaticos.Instanciar(ACEInstancia.Eliminado)
+            managerTRAN_Neumaticos.setTRAN_Neumaticos(m_etran_neumaticos)
+            managerTRAN_Neumaticos.Guardar(GApp.Usuario)
+            ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Text), "Eliminado satisfactoriamente")
+            busqueda(txtBusqueda.Text)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede Eliminar", ex)
+      End Try
+   End Sub
+#End Region
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+            busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+      Try
+         If e.KeyCode = Keys.Enter Then
+            busqueda(txtBusqueda.Text)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub c1grdDetalle_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles c1grdBusqueda.MouseDoubleClick
+      Try
+         If e.X > c1grdBusqueda.Rows.Fixed Then
+            setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+            cargar()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede cargar el registro seleccionado", ex)
+      End Try
+
+   End Sub
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+#End Region
+
+   Private Sub tsbtnExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnExcel.Click
+      Utilitarios.ExportarXLS(c1grdBusqueda, String.Format("Lista de Neumaticos"))
+   End Sub
+
+    Private Sub acTool_Load(sender As Object, e As EventArgs) Handles acTool.Load
+
+    End Sub
+
+    Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
+        Try
+             busqueda(txtBusqueda.Text)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso consultar documentos", ex)
+        End Try
+    End Sub
+
+
+    Private Sub chkTodos_CheckedChanged(sender As Object, e As EventArgs) Handles chkTodos.CheckedChanged
+
+    End Sub
+    Private Sub c1grdBusqueda_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdBusqueda.OwnerDrawCell
+        Try
+            'Funcion Para Dar Estilos 
+            If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+            If c1grdBusqueda.Rows(e.Row)("NEUMA_Estado") = "X" Then
+                e.Style = c1grdBusqueda.Styles("Anulado")
+            End If
+            'If c1grdBusqueda.Rows(e.Row)("DOCVE_Estado") = EVENT_DocsVenta.getEstado(EVENT_DocsVenta.Estado.Anulado) Then
+            '    e.Style = c1grdBusqueda.Styles("Anulado")
+            'End If
+
+            '  If c1grdBusqueda.Cols(e.Col).Name = "DOCVE_Impresiones" Then
+            ' e.Style = c1grdBusqueda.Styles("Alinear")
+            ' End If
+            If c1grdBusqueda.Cols(e.Col).Name = "Estado" Then
+                If c1grdBusqueda(e.Row, "Estado").Equals("X") Then
+                    e.Style = c1grdBusqueda.Styles("Anulado")
+                    Dim BajasNeuma As CellStyle = Me.c1grdBusqueda.Styles.Add("Anulado")
+                    BajasNeuma.BackColor = Color.Red
+                    BajasNeuma.ForeColor = Color.White
+                    c1grdBusqueda.Rows(1).Style = BajasNeuma
+                End If
+                'If c1grdBusqueda(e.Row, "Condicion").Equals("Entregado") Then
+                '    e.Style = c1grdBusqueda.Styles("Facturar")
+                'End If
+            End If
+            'If c1grdBusqueda.Cols(e.Col).Name = "TIPOS_CondicionPago" Then
+            '    If c1grdBusqueda(e.Row, "TIPOS_CondicionPago").Equals("Credito") Or c1grdBusqueda(e.Row, "TIPOS_CondicionPago").Equals("Bancarizac") Or c1grdBusqueda(e.Row, "TIPOS_CondicionPago").Equals(Nothing) Then
+            '        e.Style = c1grdBusqueda.Styles("Anulado")
+            '    End If
+            '    If c1grdBusqueda(e.Row, "TIPOS_CondicionPago").Equals("Contado") Then
+            '        e.Style = c1grdBusqueda.Styles("Facturar")
+            '    End If
+            'End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+        End Try
+    End Sub
+
+End Class

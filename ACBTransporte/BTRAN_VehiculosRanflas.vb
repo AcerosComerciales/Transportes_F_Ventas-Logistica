@@ -1,0 +1,65 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+
+Public Class BTRAN_VehiculosRanflas
+
+#Region " Variables "
+	
+#End Region
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Propiedades "
+	
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+   ' <summary>
+   ' Cargar las ranflas asignadas al vehiculo
+   ' </summary>
+   ' <param name="x_vehic_id"></param>
+   ' <param name="x_opcion"></param>
+   ' <returns></returns>
+   ' <remarks></remarks>
+   Public Function CargarTodos(ByVal x_vehic_id As Long, ByVal x_opcion As Boolean, ByVal x_estado As Boolean) As Boolean
+      Dim d_tran_ranflas As New DTRAN_VehiculosRanflas()
+      Try
+         m_listTRAN_VehiculosRanflas = New List(Of ETRAN_VehiculosRanflas)()
+         Return d_tran_ranflas.RAMFSS_Todos(m_listTRAN_VehiculosRanflas, x_vehic_id, x_opcion, x_estado)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary>
+   ' Cargar todas las ranflas disponibles y no disponibles, segun el parametro x_opcion
+   ' </summary>
+   ' <param name="x_opcion"></param>
+   ' <returns></returns>
+   ' <remarks></remarks>
+   Public Function CargarTodos(ByVal x_opcion As Boolean) As Boolean
+      Dim d_tran_ranflas As New DTRAN_VehiculosRanflas()
+      Try
+         m_listTRAN_VehiculosRanflas = New List(Of ETRAN_VehiculosRanflas)()
+         Return d_tran_ranflas.RAMFSS_Todos(m_listTRAN_VehiculosRanflas, x_opcion)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+#End Region
+
+End Class
+

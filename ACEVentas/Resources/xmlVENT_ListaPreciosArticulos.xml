@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="VENT_ListaPreciosArticulos" Esquema="Ventas" Prefijo="ALPRE">
+  <Nombre>VENT_ListaPreciosArticulos</Nombre>
+  <Esquema>Ventas</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="LPREC_Id">LPREC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_Constante">ALPRE_Constante</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_PorcentaVenta">ALPRE_PorcentaVenta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_UsrCrea">ALPRE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_FecCrea">ALPRE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_UsrMod">ALPRE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALPRE_FecMod">ALPRE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="LPREC_Id">LPREC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="LPREC_Id">LPREC_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="LPREC_Id">LPREC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

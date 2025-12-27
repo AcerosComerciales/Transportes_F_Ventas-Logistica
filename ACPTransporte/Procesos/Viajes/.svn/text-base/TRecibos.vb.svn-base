@@ -1,0 +1,360 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+
+Imports ACEVentas
+Imports ACBVentas
+
+Public Class TRecibos
+#Region " Variables "
+   Private managerTRAN_Recibos As BTRAN_Recibos
+
+   Private bs_series As BindingSource
+   Private bs_tiporecibo As BindingSource
+
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private m_opcion As Origen
+
+   Enum Origen
+      Normal
+      Viajes
+      Modificar
+   End Enum
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(Origen.Normal, 0, DateTime.Now)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_recib_codigo As String, ByVal x_caja_id As Long)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(Origen.Modificar, 0, DateTime.Now)
+         Modificar(x_recib_codigo)
+         managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = x_recib_codigo
+         managerTRAN_Recibos.TRAN_Recibos.CAJA_Id = x_caja_id
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_viajes_id As Long, ByVal x_fecha As DateTime)
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(Origen.Viajes, x_viajes_id, x_fecha)
+         managerTRAN_Recibos.TRAN_Recibos.VIAJE_Id = x_viajes_id
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_viajes_id As Long, ByVal x_fecha As DateTime, ByVal x_importe As Decimal)
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(Origen.Viajes, x_viajes_id, x_fecha)
+         managerTRAN_Recibos.TRAN_Recibos.VIAJE_Id = x_viajes_id
+         actxnMonto.Text = x_importe
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Private Sub setInicio(ByVal x_opcion As Origen, ByVal x_viaje_id As Long, ByVal x_fecha As DateTime)
+      Try
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+
+         managerTRAN_Recibos = New BTRAN_Recibos(GApp.Aplicacion, GApp.Zona, GApp.Sucursal, GApp.PuntoVenta, GApp.Periodo)
+
+         formatearGrilla()
+         cargarCombos(x_viaje_id)
+         m_opcion = x_opcion
+         Select Case x_opcion
+            Case Origen.Normal
+
+            Case Origen.Viajes
+               tabMantenimiento.SelectedTab = tabDatos
+               Nuevo(x_viaje_id)
+               cmbSerie.SelectedIndex = 0
+               cmbTipoRecibo.SelectedIndex = 0
+               bs_series_CurrentChanged(Nothing, Nothing)
+               dtpFecha.Value = x_fecha
+               actool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            Case Origen.Modificar
+               tabMantenimiento.SelectedTab = tabDatos
+               actool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            Case Else
+               setInicio(Origen.Normal, 0, DateTime.Now)
+
+         End Select
+         actool.ACBtnEliminarEnabled = False
+         actool.ACBtnModificarEnabled = False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+#Region " Utilitarios "
+   Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+
+      Select Case _opcion
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, False)
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+
+      End Select
+   End Sub
+
+   ''' <summary>
+   ''' Dar Formato a la grilla de busqueda
+   ''' </summary>
+   ''' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         'Definicion de grilla de Fletes
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 5, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Gasto", "TIPOS_Gastos", "TIPOS_Gastos", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Descripcion", "VINGR_Descripcion", "VINGR_Descripcion", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_Descripcion", "TIPOS_Descripcion", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Monto", "VINGR_Monto", "VINGR_Monto", 150, True, False, "System.String", "") : index += 1
+         c1grdBusqueda.AllowEditing = False
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Sub cargarCombos(ByVal x_viaje_id As Long)
+      Try
+         ACUtilitarios.ACCargaCombo(cmbTipoMoneda, Colecciones.Tipos(ETipos.MyTipos.TipoMoneda), "TIPOS_Descripcion", "TIPOS_Codigo")
+         '' Cargar tipo de recibo
+         bs_tiporecibo = New BindingSource()
+         bs_tiporecibo.DataSource = Colecciones.TiposRecibo(ETipos.MyTipos.TipoRecibo)
+         ACUtilitarios.ACCargaCombo(cmbTipoRecibo, bs_tiporecibo, "TIPOS_Descripcion", "TIPOS_Codigo")
+         AddHandler bs_tiporecibo.CurrentChanged, AddressOf bs_tiporecibo_CurrentChanged
+         'cmbTipoRecibo.SelectedValue = ETipos.getTipo(ETipos.TipoRecibo.Egreso)
+         cmbTipoRecibo.Enabled = False
+         '' Cargar la serie del recibo
+         If managerTRAN_Recibos.GetSeries(GApp.Zona, GApp.Sucursal, 0, ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.ReciboTransporte)) Then
+            bs_series = New BindingSource
+            bs_series.DataSource = managerTRAN_Recibos.ListVENT_PVentDocumento
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbSerie, bs_series, "PVDOCU_Serie", "PVDOCU_Serie")
+            AddHandler bs_series.CurrentChanged, AddressOf bs_series_CurrentChanged
+         End If
+
+         Dim _badministracionviajes As New BAdministracionViajes(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta, GApp.Periodo)
+         _badministracionviajes.TRAN_Viajes = New ETRAN_Viajes
+         _badministracionviajes.TRAN_Viajes.VIAJE_Id = x_viaje_id
+         _badministracionviajes.GastosViajeInicial()
+         ACUtilitarios.ACCargaCombo(cmbPendiente, _badministracionviajes.ListTESO_Caja, "CAJA_GlosaImporte", "RECIB_Codigo")
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+   Private Sub Nuevo(ByVal x_viajes_id As Long)
+      Try
+         tabMantenimiento.SelectedTab = tabDatos
+
+         managerTRAN_Recibos.TRAN_Recibos = New ETRAN_Recibos()
+         managerTRAN_Recibos.TRAN_Recibos.VIAJE_Id = x_viajes_id
+         managerTRAN_Recibos.TRAN_Recibos.Instanciar(ACEInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         AsignarBinding()
+         cmbTipoRecibo.Focus()
+         Me.KeyPreview = True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub Modificar(ByVal x_recib_codigo As String)
+      Try
+         tabMantenimiento.SelectedTab = tabDatos
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+         If managerTRAN_Recibos.Cargar(x_recib_codigo) Then
+            AsignarBinding()
+            cmbTipoRecibo.Focus()
+            Me.KeyPreview = True
+         Else
+            Me.DialogResult = Windows.Forms.DialogResult.Cancel
+            Throw New Exception("No se puede cargar el registro")
+         End If
+         
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ''' <summary>
+   ''' Realiza el enlace de los controles visuales con la clase esquema
+   ''' </summary>
+   Private Sub AsignarBinding()
+      Try
+         m_listBindHelper = New List(Of ACBindHelper)()
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbTipoRecibo, "SelectedValue", managerTRAN_Recibos.TRAN_Recibos, "TIPOS_CodTipoRecibo"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbSerie, "SelectedValue", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Serie"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbPendiente, "SelectedValue", managerTRAN_Recibos.TRAN_Recibos, "RECIB_CodRecRef"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(cmbTipoMoneda, "SelectedValue", managerTRAN_Recibos.TRAN_Recibos, "TIPOS_CodTipoMoneda"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnNumero, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Numero"))
+         If managerTRAN_Recibos.TRAN_Recibos.RECIB_Fecha.Year < 1700 Then managerTRAN_Recibos.TRAN_Recibos.RECIB_Fecha = DateTime.Now
+         m_listBindHelper.Add(ACBindHelper.ACBind(dtpFecha, "Value", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Fecha"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtRecibi, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_De"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtConcepto, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Concepto"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnMonto, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Monto"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtDNI, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Documento"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtNombre, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Nombre"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtDireccion, "Text", managerTRAN_Recibos.TRAN_Recibos, "RECIB_Direccion"))
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_series_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_series.Current) Then
+            Dim x_numero As Integer = managerTRAN_Recibos.getNumero(CType(bs_series.Current, EVENT_PVentDocumento).PVDOCU_Serie, cmbTipoRecibo.SelectedValue)
+            actxnNumero.Text = (x_numero + 1).ToString()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso calcular correlativo de recibo", ex)
+      End Try
+   End Sub
+
+   Private Sub bs_tiporecibo_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         bs_series_CurrentChanged(Nothing, Nothing)
+         If CType(bs_tiporecibo.Current, ETipos).TIPOS_Codigo = ETipos.getTipo(ETipos.TipoRecibo.Egreso) Or _
+            CType(bs_tiporecibo.Current, ETipos).TIPOS_Codigo = ETipos.getTipo(ETipos.TipoRecibo.ACtaSueldo) Then
+            txtRecibi.Text = GApp.EEmpresa.EMPR_Desc
+            txtDNI.Tag = "EVO"
+            If CType(bs_tiporecibo.Current, ETipos).TIPOS_Codigo = ETipos.getTipo(ETipos.TipoRecibo.ACtaSueldo) Then
+               txtConcepto.Text = String.Format("A Cta. de Sueldo / Viaje {0}", managerTRAN_Recibos.TRAN_Recibos.VIAJE_Id)
+            End If
+         Else
+            txtDNI.Tag = Nothing
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso calcular correlativo de recibo", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+#Region "Tools"
+   Private Sub actool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles actool.ACBtnGrabar_Click
+      Dim msg As String = ""
+      Try
+         If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) = True Then
+            managerTRAN_Recibos.TRAN_Recibos.SUCUR_Id = GApp.Sucursal
+            managerTRAN_Recibos.TRAN_Recibos.ZONAS_Codigo = GApp.Zona
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = String.Format("{0}{1}{2:0000000}", managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoRecibo.Substring(3, 1).PadLeft(2, "0") _
+                                                                          , managerTRAN_Recibos.TRAN_Recibos.RECIB_Serie, managerTRAN_Recibos.TRAN_Recibos.RECIB_Numero)
+            If managerTRAN_Recibos.Guardar(GApp.Usuario, Parametros.GetParametro(EParametros.TipoParametros.Empresa)) Then
+               tabMantenimiento.SelectedTab = tabBusqueda
+               'busqueda(txtBusqueda.Text)
+               Me.KeyPreview = False
+               txtBusqueda.Focus()
+               Select Case m_opcion
+                  Case Origen.Viajes, Origen.Modificar
+                     Me.DialogResult = Windows.Forms.DialogResult.OK
+                     Me.Close()
+                  Case Else
+                     ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado satisfactoriamente")
+               End Select
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion("Información: " & Me.Text, "No puede guardar" + msg)
+               actool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            End If
+         Else
+            actool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            ACControles.ACDialogos.ACMostrarMensajeInformacion("Información: " & Me.Text, "No puede guardar, por que hay campos obligatorios vacios: " + msg)
+         End If
+      Catch ex As Exception
+         actool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " + Me.Text, "No se puede grabar", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles actool.ACBtnCancelar_Click
+      Try
+         tabMantenimiento.SelectedTab = tabBusqueda
+         For Each Item As ACBindHelper In m_listBindHelper
+            Item.ACUnBind()
+         Next
+         txtBusqueda.Focus()
+         Me.KeyPreview = False
+         Select Case m_opcion
+            Case Origen.Viajes
+               Me.DialogResult = Windows.Forms.DialogResult.Cancel
+               Me.Close()
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso Cancelar Recibo", ex)
+      End Try
+   End Sub
+#End Region
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+#End Region
+
+   Private Sub actool_ACBtnSalir_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles actool.ACBtnSalir_Click
+      Me.Close()
+   End Sub
+
+   Private Sub txtDNI_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDNI.KeyDown
+      If e.KeyData = Keys.Enter Then
+         KeyPreview = False
+         actool.Focus()
+         actool.ACBtnGrabar.Select()
+      End If
+   End Sub
+
+End Class

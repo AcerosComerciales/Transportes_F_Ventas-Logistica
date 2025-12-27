@@ -1,0 +1,31 @@
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.Resources.resources
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Debug\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACBVentas.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.Resources.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Debug\ACETransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.Resources.resources
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.vbproj.GenerateResource.Cache
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Debug\ACETransporte.pdb

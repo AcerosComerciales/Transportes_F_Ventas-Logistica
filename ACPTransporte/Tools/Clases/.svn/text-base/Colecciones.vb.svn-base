@@ -1,0 +1,1000 @@
+Imports System
+Imports System.Threading
+Imports System.Collections.Generic
+Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+
+Imports ACFramework
+Imports ACETransporte
+Imports ACBTransporte
+
+Imports ACEVentas
+Imports ACBVentas
+
+Public Class Colecciones
+   Private Shared m_mutex As New Mutex()
+   Private Shared m_instance As Colecciones = Nothing
+
+
+   Enum TipoInicializacion
+      Todos
+      Tipos
+      Sucursales
+      Ubigeos
+      Otros
+   End Enum
+
+
+#Region " Definicion Clase "
+   Private Sub New()
+      m_listTipos = New List(Of ETipos)()
+      m_listEstados = New List(Of Lista)()
+      m_listEstadosProgramacion = New List(Of Lista)()
+      m_listEstadosEntrega = New List(Of Lista)()
+      m_listGestionados = New List(Of Lista)()
+      m_listTiposDocumento = New List(Of Lista)()
+      m_listPedidos = New List(Of Lista)
+      m_listUbigeo = New List(Of EUbigeos)()
+
+      m_listBancos = New List(Of EBancos)()
+      m_listNroCuentas = New List(Of ECuentas)()
+   End Sub
+   ''' <summary>
+   ''' Inicializa la instancia de la clase Colecciones
+   ''' </summary>
+   ''' <returns>Retorna la instancia que se utilizara para llamar a Colecciones</returns>
+   ''' <remarks>Una vez inicializada la clase Colecciones se podrán utilizar la colecciones que se carguen</remarks>
+   Public Shared Function Inicializar(Optional ByVal x_cargar As Boolean = False) As Colecciones
+      m_mutex.WaitOne()
+      Try
+         If m_instance Is Nothing Then
+            m_instance = New Colecciones()
+         End If
+         ' Cargar las colecciones
+         If x_cargar Then
+            GetTodosTipos()
+            GetTiposDocumento()
+            GetEstados()
+            GetEstadosProgramacion()
+            GetEstadosEntrega()
+            GetEstadoGestionado()
+            GetTipoPedido()
+            GetUbigeos()
+            GetSucursales()
+            GetPuntosVenta()
+            GetZonas()
+            GetAlmacenes()
+            getListaPrecios()
+            GetRoles()
+            GetEstadoEntrega()
+            GetNroCuentas()
+            GetBancos()
+         End If
+         m_errores = ACUtilitarios.cargarErrores()
+      Catch ex As Exception
+         Throw ex
+      Finally
+         m_mutex.ReleaseMutex()
+      End Try
+      Return m_instance
+   End Function
+
+   Public Shared Function Inicializar(ByVal x_opcion As TipoInicializacion) As Colecciones
+      m_mutex.WaitOne()
+      Try
+         If m_instance Is Nothing Then
+            m_instance = New Colecciones()
+         End If
+         ' Cargar las colecciones
+         If x_opcion = TipoInicializacion.Tipos Or x_opcion = TipoInicializacion.Todos Then
+            GetTodosTipos()
+         End If
+
+         If x_opcion = TipoInicializacion.Sucursales Or x_opcion = TipoInicializacion.Todos Then
+            GetSucursales()
+         End If
+
+         If x_opcion = TipoInicializacion.Ubigeos Or x_opcion = TipoInicializacion.Todos Then
+            GetUbigeos()
+         End If
+
+         If x_opcion = TipoInicializacion.Otros Or x_opcion = TipoInicializacion.Todos Then
+            GetTiposDocumento()
+            GetEstados()
+            GetEstadosProgramacion()
+            GetEstadosEntrega()
+            GetEstadoGestionado()
+            GetTipoPedido()
+            GetEstadoEntrega()
+            CargarImpresoras()
+            GetNroCuentas()
+            GetBancos()
+         End If
+         m_errores = ACUtilitarios.cargarErrores()
+      Catch ex As Exception
+         Throw ex
+      Finally
+         m_mutex.ReleaseMutex()
+      End Try
+      Return m_instance
+   End Function
+#End Region
+
+#Region " Errores Personalizados "
+   Private Shared m_errores As Hashtable
+   Public Shared Function getError(ByVal x_codigo As String) As String
+      Return ACUtilitarios.getError(x_codigo)
+   End Function
+
+#End Region
+
+#Region " Impresoras "
+   Private Shared m_listPrinters As List(Of Printer)
+
+
+   Private Shared m_printerdefault As String
+   Public Shared ReadOnly Property PrinterDefault() As String
+      Get
+         Return m_printerdefault
+      End Get
+   End Property
+
+   Public Shared Sub CargarImpresoras()
+      m_listPrinters = New List(Of Printer)
+      For index As Integer = 0 To Printers.Count - 1
+         Try
+            m_listPrinters.Add(Printers(index))
+            If Printers(index).IsDefaultPrinter Then m_printerdefault = Printers(index).DeviceName
+         Catch ex As Exception
+         End Try
+      Next
+   End Sub
+
+   Public Shared ReadOnly Property ListPrinter() As List(Of Printer)
+      Get
+         Return m_listPrinters
+      End Get
+   End Property
+
+#End Region
+
+#Region " Productos "
+
+#End Region
+
+#Region " Servicios "
+
+#End Region
+
+#Region " Puntos de Venta "
+    Private Shared m_listPuntoVenta As List(Of EPuntoVenta)
+    Public Shared ReadOnly Property PuntosVenta() As List(Of EPuntoVenta)
+        Get
+            Return m_listPuntoVenta
+        End Get
+   End Property
+
+   Public Shared Sub GetPuntosVenta()
+      Try
+         Dim managerPuntosVenta As New BPuntoVenta
+         Dim _Join As New List(Of ACJoin)()
+         _Join.Add(New ACJoin(ESucursales.Esquema, ESucursales.Tabla, ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("SUCUR_Id", "SUCUR_Id")} _
+                              , New ACCampos() {New ACCampos("SUCUR_Nombre", "SUCUR_Nombre")}))
+         _Join.Add(New ACJoin(EAlmacenes.Esquema, EAlmacenes.Tabla, ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ALMAC_Id", "ALMAC_Id")} _
+                              , New ACCampos() {New ACCampos("ALMAC_Descripcion", "ALMAC_Nombre")}))
+         Dim _where As New Hashtable()
+         _where.Add("PVENT_Descripcion", New ACWhere("", ACWhere.TipoWhere._Like))
+         If managerPuntosVenta.CargarTodos(_Join, _where) Then
+            m_listPuntoVenta = New List(Of EPuntoVenta)(managerPuntosVenta.ListPuntoVenta)
+         Else
+            m_listPuntoVenta = New List(Of EPuntoVenta)()
+         End If
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener las sucursales.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Sub
+#End Region
+
+#Region " Lista de Precios "
+   Private Shared m_listaPrecios As List(Of EVENT_ListaPrecios)
+
+   Public Shared ReadOnly Property ListaPrecios() As List(Of EVENT_ListaPrecios)
+      Get
+         Return m_listaPrecios
+      End Get
+   End Property
+
+   Public Shared Sub getListaPrecios()
+      Try
+         Dim managerVENT_ListaPrecios As New BVENT_ListaPrecios
+         If managerVENT_ListaPrecios.CargarTodos() Then
+            m_listaPrecios = New List(Of EVENT_ListaPrecios)(managerVENT_ListaPrecios.ListVENT_ListaPrecios)
+         Else
+            m_listaPrecios = New List(Of EVENT_ListaPrecios)()
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+
+#End Region
+
+#Region " Sucursales "
+    Private Shared m_listSucursales As List(Of ESucursales)
+    Public Shared ReadOnly Property Sucursales() As List(Of ESucursales)
+        Get
+            Return m_listSucursales
+        End Get
+    End Property
+
+    Public Shared Sub GetSucursales()
+        Try
+         Dim managerBSucursales As New BSucursales
+         managerBSucursales.CargarTodos()
+            m_listSucursales = New List(Of ESucursales)(managerBSucursales.ListSucursales)
+        Catch ex As Exception
+            Throw New Exception("Error: No se han podido obtener los Tipos." + Environment.NewLine + "[" + ex.Message + "]")
+        End Try
+    End Sub
+#End Region
+
+#Region " Zonas "
+    Private Shared m_listZonas As List(Of EZonas)
+    Public Shared ReadOnly Property Zonas() As List(Of EZonas)
+        Get
+            Return m_listZonas
+        End Get
+    End Property
+
+    Public Shared Sub GetZonas()
+        Try
+         Dim managerZonas As New BZonas
+         If managerZonas.CargarTodos() Then
+            m_listZonas = New List(Of EZonas)(managerZonas.ListZonas)
+         Else
+            m_listZonas = New List(Of EZonas)()
+         End If
+        Catch ex As Exception
+            Throw New Exception(String.Format("Error: No se han podido obtener las zonas.{0}[{1}]", Environment.NewLine, ex.Message))
+        End Try
+    End Sub
+#End Region
+
+#Region " Almacenes "
+    Private Shared m_listAlmacenes As List(Of EAlmacenes)
+    Public Shared ReadOnly Property Almacenes() As List(Of EAlmacenes)
+        Get
+            Return m_listAlmacenes
+        End Get
+    End Property
+
+    Public Shared Sub GetAlmacenes()
+        Try
+         Dim managerBAlmacenes As BAlmacenes
+         managerBAlmacenes = New BAlmacenes
+            If managerBAlmacenes.CargarTodos() Then
+                m_listAlmacenes = New List(Of EAlmacenes)(managerBAlmacenes.ListAlmacenes)
+            Else
+                m_listAlmacenes = New List(Of EAlmacenes)()
+            End If
+        Catch ex As Exception
+            Throw New Exception(String.Format("Error: No se han podido obtener los Tipos.{0}[{1}]", Environment.NewLine, ex.Message))
+        End Try
+    End Sub
+#End Region
+
+#Region " Tipos "
+
+    Private Shared m_listTipos As List(Of ETipos)
+
+   Public Shared ReadOnly Property Tipos() As List(Of ETipos)
+      Get
+         Return m_listTipos
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property Tipos(ByVal x_opcion As ETipos.MyTipos) As List(Of ETipos)
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(x_opcion))}
+         If ETipos.getCodTipo(x_opcion).Equals("TIP") Then
+            _filter.ACFiltrar(m_listTipos)
+            Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = " TIPOS_Protegido=False"}
+            Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         End If
+         If x_opcion = ETipos.MyTipos.TipoMoneda Then
+            Dim _sort As New ACFramework.ACOrdenador(Of ETipos)("TIPOS_Codigo ASC")
+            m_listTipos.Sort(_sort)
+         End If
+         Return _filter.ACFiltrar(m_listTipos)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposAutorizacion(ByVal x_opcion As ETipos.MyTipos) As List(Of ETipos)
+      Get
+         Dim _order As New ACOrdenador(Of ETipos)
+         _order.ACOrdenamiento = "TIPOS_Descripcion ASC"
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}% AND TIPOS_Desc2={1}", ETipos.getCodTipo(x_opcion), GApp.Aplicacion)}
+         If ETipos.getCodTipo(x_opcion).Equals("TIP") Then
+            _filter.ACFiltrar(m_listTipos)
+            Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format(" TIPOS_Protegido=False")}
+            _filter2.ACFiltrar(_filter.ACListaFiltrada).Sort(_order)
+            Return _filter2.ACListaFiltrada
+         End If
+         _filter.ACFiltrar(m_listTipos).Sort(_order)
+         Return _filter.ACListaFiltrada
+      End Get
+   End Property
+
+   Public Shared Sub GetTodosTipos()
+      Try
+         Dim managerTipos As New BTipos
+         managerTipos.CargarTodos()
+         m_listTipos = New List(Of ETipos)(managerTipos.ListTipos)
+         'Dim _order As New ACOrdenador(Of ETipos)("TIPOS_Descripcion ASC")
+         'm_listTipos.Sort(_order)
+
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener los Tipos.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Sub
+
+   Public Shared Function GetTipos(ByVal x_tipo_codtabla As String) As List(Of ETipos)
+      Try
+         Dim _filtrador As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", x_tipo_codtabla)}
+         Return _filtrador.ACFiltrar(m_listTipos)
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener los Tipos.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Function
+
+   Public Shared ReadOnly Property TiposDocMerTransito()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero<7"}
+         Dim _order As New ACOrdenador(Of ETipos)
+         _order.ACOrdenamiento = String.Format("TIPOS_Descripcion ASC")
+         _filter.ACFiltrar(m_listTipos)
+         If _filter2.ACFiltrar(_filter.ACListaFiltrada).Count Then
+            _filter2.ACListaFiltrada.Sort(_order)
+            Return _filter2.ACListaFiltrada
+         Else
+            Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         End If
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocsTraslado()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=8"}
+         Dim _filter3 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Codigo=CPD09"}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         _filter3.ACFiltrar(_filter.ACListaFiltrada)
+         For Each Item As ETipos In _filter3.ACListaFiltrada
+            _filter2.ACListaFiltrada.Add(Item)
+         Next
+         Dim _filter4 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Codigo=CPD01"}
+         _filter4.ACFiltrar(m_listTipos)
+
+         For Each item As ETipos In _filter4.ACListaFiltrada
+            _filter2.ACListaFiltrada.Add(item)
+         Next
+
+         Return _filter2.ACListaFiltrada
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDePago()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoPago))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=5"}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         Return _filter2.ACListaFiltrada
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposGuiaRemisionRemitente()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}", ETipos.getTipoDocTraslado(ETipos.TipoDocsTraslado.GuiaRemisionRemitente))}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         Return _filter2.ACListaFiltrada
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposGuiaRemisionTransportista()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}", ETipos.getTipoDocTraslado(ETipos.TipoDocsTraslado.GuiaRemisionTransportista))}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         Return _filter2.ACListaFiltrada
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocComprobante()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero<6"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocNotas()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=7"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocNotasDebito()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=9"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocCompFacturacion()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero<3"}
+         Dim _filter3 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero>0"}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         Return _filter3.ACFiltrar(_filter2.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocFactGastos()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero<4"}
+         Dim _filter3 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero>1"}
+         _filter.ACFiltrar(m_listTipos)
+         _filter2.ACFiltrar(_filter.ACListaFiltrada)
+         Return _filter3.ACFiltrar(_filter2.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocFacturacion()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=2"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposRecibo(ByVal x_opcion As ETipos.MyTipos) As List(Of ETipos)
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(x_opcion))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=20"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposIngEgre()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=25"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property TiposDocGastos()
+      Get
+         Dim _filter As New ACFiltrador(Of ETipos)() With {.ACFiltro = String.Format("TIPOS_Codigo={0}%", ETipos.getCodTipo(ETipos.MyTipos.TipoDocComprobante))}
+         Dim _filter2 As New ACFiltrador(Of ETipos)() With {.ACFiltro = "TIPOS_Numero=20"}
+         _filter.ACFiltrar(m_listTipos)
+         Return _filter2.ACFiltrar(_filter.ACListaFiltrada)
+      End Get
+   End Property
+
+#End Region
+
+#Region " Tipos de Datos Genericos"
+
+#Region "Variables"
+    Private Shared m_listTiposDocumento As List(Of Lista)
+    Private Shared m_listEstados As List(Of Lista)
+    Private Shared m_listEstadosProgramacion As List(Of Lista)
+    Private Shared m_listEstadosEntrega As List(Of Lista)
+    Private Shared m_listGestionados As List(Of Lista)
+    Private Shared m_listPedidos As List(Of Lista)
+#End Region
+
+#Region "Propiedades"
+    Public Shared ReadOnly Property TiposDocumento() As List(Of Lista)
+        Get
+            Return m_listTiposDocumento
+        End Get
+    End Property
+    Public Shared ReadOnly Property Estados() As List(Of Lista)
+        Get
+            Return m_listEstados
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property EstadosProgramacion() As List(Of Lista)
+        Get
+            Return m_listEstadosProgramacion
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property EstadosEntrega() As List(Of Lista)
+        Get
+            Return m_listEstadosEntrega
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property EstadoGestionados() As List(Of Lista)
+        Get
+            Return m_listGestionados
+        End Get
+    End Property
+    Public Shared ReadOnly Property TipoPedidos() As List(Of Lista)
+        Get
+            Return m_listPedidos
+        End Get
+    End Property
+#End Region
+
+#Region "Metodos"
+    Public Shared Sub GetTiposDocumento()
+        Try
+            m_listTiposDocumento = New List(Of Lista)
+            'D.N.I.
+            'm_listTiposDocumento.Add(New Lista("D", "D.N.I.", CType(ParametrosGral.documentoEntDNI, Integer)))
+            'R.U.C.
+            'm_listTiposDocumento.Add(New Lista("R", "R.U.C.", CType(ParametrosGral.documentoEntRUC, Integer)))
+            'Carnet de Extranjeria
+            'm_listTiposDocumento.Add(New Lista("N", "CARNET DE EXTRANJERIA", CType(ParametrosGral.documentoEntCarnetExt, Integer)))
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Estados.")
+        End Try
+    End Sub
+
+    Public Shared Sub GetEstados()
+        Try
+            m_listEstados = New List(Of Lista)
+            ' INGRESADO
+            m_listEstados.Add(New Lista("I", "INGRESADO"))
+            ' CONFIRMADO
+            m_listEstados.Add(New Lista("C", "CONFIRMADO"))
+            ' ANULADO
+            m_listEstados.Add(New Lista("X", "ANULADO"))
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Estados.")
+        End Try
+    End Sub
+
+    Public Shared Sub GetEstadosProgramacion()
+        Try
+            m_listEstadosProgramacion = New List(Of Lista)
+            ' INGRESADO
+            m_listEstadosProgramacion.Add(New Lista("C", "Confirmado"))
+            ' CONFIRMADO
+            m_listEstadosProgramacion.Add(New Lista("B", "Probable"))
+            ' ANULADO
+            m_listEstadosProgramacion.Add(New Lista("P", "Pendiente de Entrega"))
+
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Estados.")
+        End Try
+    End Sub
+
+    Public Shared Sub GetEstadosEntrega()
+        Try
+            m_listEstadosEntrega = New List(Of Lista)
+            ' INGRESADO
+            m_listEstadosEntrega.Add(New Lista("P", "Pendiente"))
+            ' CONFIRMADO
+            m_listEstadosEntrega.Add(New Lista("E", "Entregado"))
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Estados.")
+        End Try
+    End Sub
+
+    Public Shared Sub GetEstadoGestionado()
+        Try
+            m_listGestionados = New List(Of Lista)
+            ' TODOS
+            m_listGestionados.Add(New Lista("T", "<< TODOS >>"))
+            ' GESTIONADO
+            m_listGestionados.Add(New Lista("True", "GESTIONADOS"))
+            ' NO GESTIONADO
+            m_listGestionados.Add(New Lista("False", "NO GESTIONADOS"))
+
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Estados.")
+        End Try
+    End Sub
+
+    Public Shared Sub GetTipoPedido()
+        Try
+            m_listPedidos = New List(Of Lista)
+            m_listPedidos.Add(New Lista("N", "Pedido"))
+            m_listPedidos.Add(New Lista("C", "Cotización"))
+        Catch
+            Throw New Exception("Error: No se han podido obtener los Tipos de Pedidos.")
+        End Try
+    End Sub
+#End Region
+#End Region
+
+#Region " UBIGEOS "
+    Private Shared m_listUbigeo As List(Of EUbigeos)
+    Private Shared m_dtUbigeo As DataTable
+
+    Public Shared ReadOnly Property Ubigeos() As List(Of EUbigeos)
+        Get
+            Return m_listUbigeo
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property UbigeosDT() As DataTable
+        Get
+            Return m_dtUbigeo
+        End Get
+    End Property
+
+    Public Shared Sub GetUbigeos()
+        Try
+         Dim managerUbigeos As New BUbigeos
+         managerUbigeos = New BUbigeos
+            managerUbigeos.CargarTodosLTD()
+            m_listUbigeo = New List(Of EUbigeos)(managerUbigeos.ListUbigeos)
+            m_dtUbigeo = managerUbigeos.UbigeosDT
+        Catch ex As Exception
+            Throw New Exception("Error: No se han podido obtener los ubigeos." + Environment.NewLine + "[" + ex.Message + "]")
+        End Try
+    End Sub
+
+    Public Shared Sub GetUbigeosDT()
+        Try
+         Dim managerUbigeos As New BUbigeos
+         managerUbigeos.CargarTodos()
+            m_dtUbigeo = managerUbigeos.CargarTodosDT()
+        Catch ex As Exception
+            Throw New Exception("Error: No se han podido obtener los ubigeos." + Environment.NewLine + "[" + ex.Message + "]")
+        End Try
+    End Sub
+
+    Public Shared ReadOnly Property Departamentos() As List(Of EUbigeos)
+        Get
+            Dim m_listDep As New List(Of EUbigeos)
+            For Each Item As EUbigeos In m_listUbigeo
+                If Item.UBIGO_Codigo.Trim().Length = 2 Then
+                    m_listDep.Add(Item.Clone)
+                End If
+            Next
+            Return m_listDep
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property Provincias() As List(Of EUbigeos)
+        Get
+            Dim m_listProv As New List(Of EUbigeos)
+            For Each Item As EUbigeos In m_listUbigeo
+                If Item.UBIGO_Codigo.Trim().Length = 5 Then
+                    m_listProv.Add(Item.Clone)
+                End If
+            Next
+            Return m_listProv
+        End Get
+    End Property
+
+    Public Shared ReadOnly Property Distritos() As List(Of EUbigeos)
+        Get
+            Dim m_listDis As New List(Of EUbigeos)
+            For Each Item As EUbigeos In m_listUbigeo
+                If Item.UBIGO_Codigo.Trim().Length = 8 Then
+                    m_listDis.Add(Item.Clone)
+                End If
+            Next
+            Return m_listDis
+        End Get
+    End Property
+#End Region
+
+#Region "Clases Auxiliares"
+    Public Class Lista
+        Implements ICloneable
+
+#Region " Campos "
+        Private m_Codigo As String
+        Private m_Descripcion As String
+        Private m_longitud As Integer
+#End Region
+
+#Region " Constructor "
+        Sub New(ByVal x_Codigo As String, ByVal x_Descripcion As String)
+            Codigo = x_Codigo
+            Descripcion = x_Descripcion
+        End Sub
+
+        Sub New(ByVal x_Codigo As String, ByVal x_Descripcion As String, ByVal x_longitud As Integer)
+            Codigo = x_Codigo
+            Descripcion = x_Descripcion
+            m_longitud = x_longitud
+        End Sub
+#End Region
+
+#Region " Propiedades "
+        Public Property Codigo() As String
+            Get
+                Return m_Codigo
+            End Get
+            Set(ByVal value As String)
+                m_Codigo = value
+            End Set
+        End Property
+        Public Property Descripcion() As String
+            Get
+                Return m_Descripcion
+            End Get
+            Set(ByVal value As String)
+                m_Descripcion = value
+            End Set
+        End Property
+
+        Public Property Longitud() As Integer
+            Get
+                Return m_longitud
+            End Get
+            Set(ByVal value As Integer)
+                m_longitud = value
+            End Set
+        End Property
+
+#End Region
+
+        Public Function Clone() As Object Implements System.ICloneable.Clone
+            Try
+                Dim cloneInstance As Lista
+                cloneInstance = DirectCast(Me, Lista)
+                Return cloneInstance.MemberwiseClone()
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Function
+    End Class
+#End Region
+
+#Region " Coleccion Lados del Neumaticos "
+    Public Shared Function ListLadosNeumatico() As List(Of ACLista)
+        Try
+            Dim _list As New List(Of ACLista)
+         _list.Add(New ACLista(ACETransporte.Constantes.getLadoNeumatico(ACETransporte.Constantes.LadoNeumatico.Derecho) _
+                              , ACETransporte.Constantes.getLadoNeumatico(ACETransporte.Constantes.LadoNeumatico.Derecho, True)))
+         _list.Add(New ACLista(ACETransporte.Constantes.getLadoNeumatico(ACETransporte.Constantes.LadoNeumatico.Izquierdo) _
+                              , ACETransporte.Constantes.getLadoNeumatico(ACETransporte.Constantes.LadoNeumatico.Izquierdo, True)))
+         Return _list
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Shared Function ListIntExtNeumatico() As List(Of ACLista)
+      Try
+         Dim _list As New List(Of ACLista)
+         _list.Add(New ACLista(ACETransporte.Constantes.getIntExt(ACETransporte.Constantes.IntExtNeumatico.Externo) _
+                              , ACETransporte.Constantes.getIntExt(ACETransporte.Constantes.IntExtNeumatico.Externo, True)))
+         _list.Add(New ACLista(ACETransporte.Constantes.getIntExt(ACETransporte.Constantes.IntExtNeumatico.Interno) _
+                              , ACETransporte.Constantes.getIntExt(ACETransporte.Constantes.IntExtNeumatico.Interno, True)))
+         Return _list
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Shared Function ListSeccionNeumatico() As List(Of ACLista)
+      Try
+         Dim _list As New List(Of ACLista)
+         _list.Add(New ACLista(ACETransporte.Constantes.getSeccionNeumatico(ACETransporte.Constantes.SeccionNeumatico.Delanteros) _
+                              , ACETransporte.Constantes.getSeccionNeumatico(ACETransporte.Constantes.SeccionNeumatico.Delanteros, True)))
+         _list.Add(New ACLista(ACETransporte.Constantes.getSeccionNeumatico(ACETransporte.Constantes.SeccionNeumatico.Posteriores) _
+                              , ACETransporte.Constantes.getSeccionNeumatico(ACETransporte.Constantes.SeccionNeumatico.Posteriores, True)))
+         Return _list
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Roles "
+
+    Private Shared m_listRoles As List(Of ERoles)
+
+    Public Shared Sub GetRoles()
+        Try
+         Dim managerRoles As New BRoles
+         managerRoles.CargarTodos()
+            m_listRoles = New List(Of ERoles)(managerRoles.ListRoles)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Public Shared ReadOnly Property Roles() As List(Of ERoles)
+        Get
+            Return m_listRoles
+        End Get
+    End Property
+
+#End Region
+
+#Region " Estado de Entrega "
+   Private Shared m_listEstadoEntrega As List(Of ACFramework.ACLista)
+
+   Public Shared ReadOnly Property ListEstadoEntrega() As List(Of ACFramework.ACLista)
+      Get
+         Return m_listEstadoEntrega
+      End Get
+   End Property
+
+   Private Shared Sub GetEstadoEntrega()
+      Try
+         m_listEstadoEntrega = New List(Of ACLista)
+         m_listEstadoEntrega.Add(New ACFramework.ACLista("E", "Entregado"))
+         m_listEstadoEntrega.Add(New ACFramework.ACLista("P", "Pendiente"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region "VehiculoInventario"
+   Private Shared m_listVehiculoInventario As List(Of ETRAN_VehiculosInventario)
+   Public Shared ReadOnly Property Lista_VehiculoInventario() As List(Of ETRAN_VehiculosInventario)
+      Get
+         Return m_listVehiculoInventario
+      End Get
+   End Property
+
+   Public Shared Sub GetVehiculoInventario()
+      Try
+         Dim managerBVehiculoInventario As BTRAN_VehiculosInventario
+         managerBVehiculoInventario = New BTRAN_VehiculosInventario
+         If managerBVehiculoInventario.CargarTodos() Then
+            m_listVehiculoInventario = New List(Of ETRAN_VehiculosInventario)(managerBVehiculoInventario.ListTRAN_VehiculosInventario)
+         Else
+            m_listVehiculoInventario = New List(Of ETRAN_VehiculosInventario)()
+         End If
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener los Tipos.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Sub
+#End Region
+
+#Region "NroCuentas"
+   Private Shared m_listNroCuentas As List(Of ECuentas)
+   Private Shared m_dtCuentas As DataTable
+
+   Public Shared ReadOnly Property NroCuentas() As List(Of ECuentas)
+      Get
+         Return m_listNroCuentas
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property NroCuentasDT() As DataTable
+      Get
+         Return m_dtCuentas
+      End Get
+   End Property
+
+   'Public Shared Sub GetNroCuentas()
+   '    Try
+   '        Dim managerBCuentas As IBCuentas
+   '        managerBCuentas = Principal.containerB.Resolve(Of IBCuentas)("cuentasDAO")
+   '        If managerBCuentas.CargarTodos() Then
+   '            m_listNroCuentas = New List(Of ECuentas)(managerBCuentas.ListCuentas)
+   '            m_dtCuentas = managerBCuentas.CuentasDT '
+   '        Else
+   '            m_listNroCuentas = New List(Of ECuentas)()
+   '            m_dtCuentas = New DataTable() '
+   '        End If
+   '    Catch ex As Exception
+   '        Throw New Exception(String.Format("Error: No se han podido obtener los nros cuentas.{0}[{1}]", Environment.NewLine, ex.Message))
+   '    End Try
+   'End Sub
+   ''
+
+   Public Shared Sub GetNroCuentas()
+      Try
+         Dim managerBNroCuentas As New BCuentas
+
+         If managerBNroCuentas.CargarTodos() Then
+            m_listNroCuentas = New List(Of ECuentas)(managerBNroCuentas.ListCuentas)
+         Else
+            m_listNroCuentas = New List(Of ECuentas)()
+         End If
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener los Nro de cuentas.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Sub
+   ''
+
+   Public Shared Sub GetNroCuentasDT()
+      Try
+         Dim managerCuentas As New BCuentas
+
+         If managerCuentas.CargarTodos() Then
+            m_dtCuentas = managerCuentas.CargarTodosDT()
+            m_dtCuentas.Columns("CUENT_Id").ColumnName = "CODIGO"
+            m_dtCuentas.Columns("CUENT_Numero").ColumnName = "NUMERO"
+         Else
+            m_dtCuentas = New DataTable()
+         End If
+
+      Catch ex As Exception
+         Throw New Exception("Error: No se han podido obtener los bancos." + Environment.NewLine + "[" + ex.Message + "]")
+      End Try
+   End Sub
+#End Region
+
+#Region "Bancos"
+   Private Shared m_listBancos As List(Of EBancos)
+   Private Shared m_dtBanco As DataTable
+
+   Public Shared ReadOnly Property Bancos() As List(Of EBancos)
+      Get
+         Return m_listBancos
+      End Get
+   End Property
+
+   Public Shared ReadOnly Property BancosDT() As DataTable
+      Get
+         Return m_dtBanco
+      End Get
+   End Property
+
+   Public Shared Sub GetBancos()
+      Try
+         Dim managerBBancos As BBancos
+         managerBBancos = New BBancos()
+         If managerBBancos.CargarTodos() Then
+            m_listBancos = New List(Of EBancos)(managerBBancos.ListBancos)
+            m_dtBanco = managerBBancos.BancosDT '
+         Else
+            m_listBancos = New List(Of EBancos)()
+            m_dtBanco = New DataTable() '
+         End If
+      Catch ex As Exception
+         Throw New Exception(String.Format("Error: No se han podido obtener los bancos.{0}[{1}]", Environment.NewLine, ex.Message))
+      End Try
+   End Sub
+
+   Public Shared Sub GetBancosDT()
+      Try
+         Dim managerBancos As BBancos
+         managerBancos = New BBancos()
+
+         If managerBancos.CargarTodos() Then
+            m_dtBanco = managerBancos.CargarTodosDT()
+            m_dtBanco.Columns("BANCO_Id").ColumnName = "CODIGO"
+            m_dtBanco.Columns("BANCO_Descripcion").ColumnName = "DESCRIPCION"
+         Else
+            m_dtBanco = New DataTable()
+         End If
+
+      Catch ex As Exception
+         Throw New Exception("Error: No se han podido obtener los bancos." + Environment.NewLine + "[" + ex.Message + "]")
+      End Try
+   End Sub
+
+#End Region
+
+End Class

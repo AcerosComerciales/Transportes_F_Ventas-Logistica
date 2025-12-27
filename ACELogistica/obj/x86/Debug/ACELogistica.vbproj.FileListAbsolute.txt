@@ -1,0 +1,102 @@
+D:\Developer\AcerosERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Developer\AcerosERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\Developer\AcerosERP\Logistica\ACELogistica\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Logistica\ACELogistica\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\Developer\AcerosERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\Developer\PromasaERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\Developer\PromasaERP\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\Logistica\ACELogistica\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\bin\x86\Debug\ACFramework.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACELogistica\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACFramework.dll
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\logistica\ACELogistica\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+E:\DESARROLLO\logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+E:\DESARROLLO\logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+E:\DESARROLLO\logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+E:\DESARROLLO\logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACFramework.dll
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\logistica\ACELogistica\bin\x86\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.Resources.resources
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.vbproj.GenerateResource.Cache
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\logistica\ACELogistica\obj\x86\Debug\ACELogistica.pdb

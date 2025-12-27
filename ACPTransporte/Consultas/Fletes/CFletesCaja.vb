@@ -1,0 +1,741 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACBVentas
+Imports ACEVentas
+Imports C1.Win.C1FlexGrid
+
+Imports ACFramework
+
+Public Class CFletesCaja
+#Region " Variables "
+   Private m_badministracioncaja As BAdministracionCaja
+   Private managerEntidades As BEntidades
+
+   Private bs_reporte As BindingSource
+   Private bs_egresos As BindingSource
+   Private bs_pendientes As BindingSource
+   Private bs_pagos As BindingSource
+   Private bs_fletes As BindingSource
+   Private bs_efectivo As BindingSource
+   Private bs_pendientespagados As BindingSource
+
+   Private m_tconsulta As Boolean
+   Private m_entid_codigo As String
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the designer.
+      InitializeComponent()
+
+      ' Add any initialization after the InitializeComponent() call.
+      Try
+         formatearGrilla()
+         m_badministracioncaja = New BAdministracionCaja(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta)
+         managerEntidades = New BEntidades
+         btnExcel.Enabled = False
+
+         actxnSaldoAnteriorEfectivo.ReadOnly = True
+         actxnSaldoEfectivo.ReadOnly = True
+         actxnSaldoAnteriorFletes.ReadOnly = True
+         actxnSaldoFletes.ReadOnly = True
+
+         tctReporte.SelectedTab = tpgCEfectivo
+
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACReporte_16x16.GetHicon)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), Colecciones.getError("00000"), ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+
+   Private Sub formateargrilla_Base(ByVal x_opcion As Boolean)
+      Dim index As Integer = 1
+      Try
+         If x_opcion Then
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdReporte, 1, 1, 11, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Codigo", "DOCVE_Codigo", "DOCVE_Codigo", 80, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Documento", "Documento", "Documento", 110, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento", 90, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Fecha", "DOCVE_FechaDocumento", "DOCVE_FechaDocumento", 80, True, False, "System.DateTime", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 60, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Importe US$", "TotalDolares", "TotalDolares", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Importe S/.", "DOCVE_TotalPagar", "DOCVE_TotalPagar", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Pago", "DOCVE_TotalPagado", "DOCVE_TotalPagado", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Pendiente", "SaldoPendiente", "SaldoPendiente", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+            c1grdReporte.AllowEditing = False
+            c1grdReporte.Styles.Alternate.BackColor = Color.WhiteSmoke
+            c1grdReporte.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            c1grdReporte.Styles.Highlight.BackColor = Color.Gray
+            c1grdReporte.SelectionMode = SelectionModeEnum.Row
+            c1grdReporte.AutoResize = False
+            c1grdReporte.AllowResizing = AllowResizingEnum.Both
+            c1grdReporte.Cols("ENTID_RazonSocial").StyleDisplay.WordWrap = True
+            c1grdReporte.AllowSorting = AllowSortingEnum.SingleColumn
+            c1grdReporte.Tree.Column = 1
+
+            Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Facturado")
+            t.BackColor = Color.LightGreen
+            t.ForeColor = Color.DarkBlue
+            t.Font = New Font(c1grdReporte.Font, FontStyle.Regular)
+
+            Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Facturar")
+            u.BackColor = Color.Green
+            u.ForeColor = Color.White
+            u.Font = New Font(c1grdReporte.Font, FontStyle.Regular)
+
+            Dim j As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Pagar")
+            j.BackColor = Color.DarkBlue
+            j.ForeColor = Color.White
+            j.Font = New Font(c1grdReporte.Font, FontStyle.Bold)
+
+            Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Anulado")
+            d.BackColor = Color.Red
+            d.ForeColor = Color.White
+            d.Font = New Font(c1grdReporte.Font, FontStyle.Bold)
+            c1grdReporte.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+         Else
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdReporte, 1, 1, 11, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Cod. Viaje", "VIAJE_Id", "VIAJE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Cod. Flete", "FLETE_Id", "FLETE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Documento", "Documento", "Documento", 110, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento", 90, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Glosa", "FLETE_Glosa", "FLETE_Glosa", 250, True, False, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Fec. Salida", "FLETE_FecSalida", "FLETE_FecSalida", 80, True, False, "System.DateTime", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+            'ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Fec. Llegada", "FecSalida", "FecSalida", 80, True, False, "System.DateTime", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Importe", "FLETE_TotIngreso", "FLETE_TotIngreso", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Pago", "Pago", "Pago", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdReporte, index, "Pendiente", "Pendiente", "Pendiente", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+            c1grdReporte.AllowEditing = False
+            c1grdReporte.Styles.Alternate.BackColor = Color.WhiteSmoke
+            c1grdReporte.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            c1grdReporte.Styles.Highlight.BackColor = Color.Gray
+            c1grdReporte.SelectionMode = SelectionModeEnum.Row
+            c1grdReporte.AutoResize = False
+            c1grdReporte.AllowResizing = AllowResizingEnum.Both
+            c1grdReporte.Cols("FLETE_Glosa").StyleDisplay.WordWrap = True
+            c1grdReporte.Cols("ENTID_RazonSocial").StyleDisplay.WordWrap = True
+            c1grdReporte.AllowSorting = AllowSortingEnum.SingleColumn
+            c1grdReporte.Tree.Column = 1
+
+            Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Facturado")
+            t.BackColor = Color.LightGreen
+            t.ForeColor = Color.DarkBlue
+            t.Font = New Font(c1grdReporte.Font, FontStyle.Regular)
+
+            Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Facturar")
+            u.BackColor = Color.Green
+            u.ForeColor = Color.White
+            u.Font = New Font(c1grdReporte.Font, FontStyle.Regular)
+
+            Dim j As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Pagar")
+            j.BackColor = Color.DarkBlue
+            j.ForeColor = Color.White
+            j.Font = New Font(c1grdReporte.Font, FontStyle.Bold)
+
+            Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdReporte.Styles.Add("Anulado")
+            d.BackColor = Color.Red
+            d.ForeColor = Color.White
+            d.Font = New Font(c1grdReporte.Font, FontStyle.Bold)
+            c1grdReporte.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ' <summary>
+   ' Dar Formato a la grilla de busqueda
+   ' </summary>
+   ' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         formateargrilla_Base(True)
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdPagosRealizados, 1, 1, 11, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Cod. Caja", "CAJA_Id", "CAJA_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Documento", "Documento", "Documento", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Orden Doc.", "CAJA_OrdenDocumento", "CAJA_OrdenDocumento", 90, True, False, "System.Integer") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Fecha", "CAJA_Fecha", "CAJA_Fecha", 350, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Fecha Proceso", "CAJA_FechaPago", "CAJA_FechaPago", 350, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Importe", "CAJA_Importe", "CAJA_Importe", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Transacción", "TIPOS_Transaccion", "TIPOS_Transaccion", 80, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 80, True, False, "System.String") : index += 1
+
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Glosa", "Glosa", "Glosa", 80, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPagosRealizados, index, "Fecha", "DPAGO_Fecha", "DPAGO_Fecha", 80, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+
+         c1grdPagosRealizados.AllowEditing = False
+         c1grdPagosRealizados.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdPagosRealizados.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdPagosRealizados.Styles.Highlight.BackColor = Color.Gray
+         c1grdPagosRealizados.SelectionMode = SelectionModeEnum.Row
+         c1grdPagosRealizados.AutoResize = True
+         c1grdPagosRealizados.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdEfectivo, 1, 1, 12, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Cod. Viaje", "VIAJE_Id", "VIAJE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Viaje", "TIPOS_Moneda", "TIPOS_Moneda", 150, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Documento", "Documento", "Documento", 110, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Descripción", "VGAST_Descripcion", "VGAST_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Descripción Viaje", "VIAJE_Descripcion", "VIAJE_Descripcion", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Fecha", "VGAST_FechaViaje", "VGAST_FechaViaje", 80, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Ingreso", "Ingreso", "Ingreso", 90, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Salida", "Egreso", "Egreso", 90, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento ", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdEfectivo, index, "Glosa", "FLETE_Glosa", "FLETE_Glosa", 450, True, False, "System.String") : index += 1
+
+         c1grdEfectivo.AllowEditing = False
+         c1grdEfectivo.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdEfectivo.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdEfectivo.Styles.Highlight.BackColor = Color.Gray
+         c1grdEfectivo.SelectionMode = SelectionModeEnum.Row
+         c1grdEfectivo.AllowResizing = AllowResizingEnum.Both
+         c1grdEfectivo.AutoResize = False
+         c1grdEfectivo.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+         c1grdEfectivo.Cols("VGAST_Descripcion").StyleDisplay.WordWrap = True
+         c1grdEfectivo.Cols("VIAJE_Descripcion").StyleDisplay.WordWrap = True
+         c1grdEfectivo.Cols("FLETE_Glosa").StyleDisplay.WordWrap = True
+         c1grdEfectivo.Tree.Column = 2
+
+         Dim s As CellStyle = c1grdEfectivo.Styles(CellStyleEnum.Subtotal0)
+         s.BackColor = Color.Black
+         s.ForeColor = Color.White
+         s.Font = New Font(c1grdEfectivo.Font, FontStyle.Bold)
+
+         s = c1grdEfectivo.Styles(CellStyleEnum.Subtotal1)
+         s.BackColor = Color.DarkBlue
+         s.ForeColor = Color.White
+         s = c1grdEfectivo.Styles(CellStyleEnum.Subtotal2)
+         s.BackColor = Color.DarkRed
+         s.ForeColor = Color.White
+
+         Dim j1 As C1.Win.C1FlexGrid.CellStyle = c1grdEfectivo.Styles.Add("Pagar")
+         j1.BackColor = Color.DarkBlue
+         j1.ForeColor = Color.White
+         j1.Font = New Font(c1grdEfectivo.Font, FontStyle.Bold)
+
+         Dim d1 As C1.Win.C1FlexGrid.CellStyle = c1grdEfectivo.Styles.Add("Anulado")
+         d1.BackColor = Color.Red
+         d1.ForeColor = Color.White
+         d1.Font = New Font(c1grdEfectivo.Font, FontStyle.Bold)
+         c1grdEfectivo.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdPendientesPagadas, 1, 1, 11, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Cod. Viaje", "VIAJE_Id", "VIAJE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Cod. Flete", "FLETE_Id", "FLETE_Id", 80, True, False, "System.Integer", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Documento", "Documento", "Documento", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento", 90, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Glosa", "FLETE_Glosa", "FLETE_Glosa", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Fec. Salida", "FLETE_FecSalida", "FLETE_FecSalida", 80, True, False, "System.DateTime", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Importe", "FLETE_TotIngreso", "FLETE_TotIngreso", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Pago", "Pago", "Pago", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdPendientesPagadas, index, "Pendiente", "Pendiente", "Pendiente", 100, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+         c1grdPendientesPagadas.AllowEditing = False
+         c1grdPendientesPagadas.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdPendientesPagadas.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdPendientesPagadas.Styles.Highlight.BackColor = Color.Gray
+         c1grdPendientesPagadas.SelectionMode = SelectionModeEnum.Row
+         c1grdPendientesPagadas.AutoResize = False
+         c1grdPendientesPagadas.AllowResizing = AllowResizingEnum.Both
+         c1grdPendientesPagadas.Cols("FLETE_Glosa").StyleDisplay.WordWrap = True
+         c1grdPendientesPagadas.Cols("ENTID_RazonSocial").StyleDisplay.WordWrap = True
+         c1grdPendientesPagadas.AllowSorting = AllowSortingEnum.SingleColumn
+         c1grdPendientesPagadas.Tree.Column = 1
+
+         Dim t2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientesPagadas.Styles.Add("Facturado")
+         t2.BackColor = Color.LightGreen
+         t2.ForeColor = Color.DarkBlue
+         t2.Font = New Font(c1grdPendientesPagadas.Font, FontStyle.Regular)
+
+         Dim u2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientesPagadas.Styles.Add("Facturar")
+         u2.BackColor = Color.Green
+         u2.ForeColor = Color.White
+         u2.Font = New Font(c1grdPendientesPagadas.Font, FontStyle.Regular)
+
+         Dim j2 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientesPagadas.Styles.Add("Pagar")
+         j2.BackColor = Color.DarkBlue
+         j2.ForeColor = Color.White
+         j2.Font = New Font(c1grdPendientesPagadas.Font, FontStyle.Bold)
+
+         Dim d3 As C1.Win.C1FlexGrid.CellStyle = c1grdPendientesPagadas.Styles.Add("Anulado")
+         d3.BackColor = Color.Red
+         d3.ForeColor = Color.White
+         d3.Font = New Font(c1grdPendientesPagadas.Font, FontStyle.Bold)
+         c1grdPendientesPagadas.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdDetalle, 1, 1, 11, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Viaje", "VIAJE_Id", "VIAJE_Id", 250, True, False, "System.String", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Código", "FLETE_Id", "FLETE_Id", 250, True, False, "System.String", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Peso T.M.", "FLETE_PesoEnTM", "FLETE_PesoEnTM", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Monto x TM", "FLETE_MontoPorTM", "FLETE_MontoPorTM", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "I.G.V.", "FLETE_ImporteIgv", "FLETE_ImporteIgv", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Total Flete", "FLETE_TotIngreso", "FLETE_TotIngreso", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Viaje", "VIAJE_Descripcion", "VIAJE_Descripcion", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Salida", "FLETE_FecSalida", "FLETE_FecSalida", 250, True, False, "System.DateTime", "dd/MM/yyyy") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Llegada", "FLETE_FecLlegada", "FLETE_FecLlegada", 250, True, False, "System.DateTime", "dd/MM/yyyy") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Descripción", "FLETE_Glosa", "FLETE_Glosa", 250, True, False, "System.String") : index += 1
+
+         c1grdDetalle.AllowEditing = False
+         c1grdDetalle.AutoResize = True
+         c1grdDetalle.Cols(0).Width = 18
+         c1grdDetalle.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdDetalle.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdDetalle.Styles.Highlight.BackColor = Color.Gray
+         c1grdDetalle.SelectionMode = SelectionModeEnum.Row
+         c1grdDetalle.AllowResizing = AllowResizingEnum.Rows
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " + Me.Text, "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private m_order As Integer = 1
+   Private Sub Ordenar(ByVal x_columna As String)
+      Dim _ordenador As New ACOrdenador(Of ETRAN_Fletes)
+      Try
+         If m_order = 2 Then x_columna += " DESC"
+         _ordenador.ACOrdenamiento = x_columna
+         CType(bs_reporte.DataSource, List(Of ETRAN_Fletes)).Sort(_ordenador)
+         c1grdReporte.Refresh()
+         m_order = IIf(m_order = 1, 2, 1)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+   Private Sub c1grdReporte_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdReporte.OwnerDrawCell
+      Try
+         If e.Row < c1grdReporte.Rows.Fixed OrElse e.Col < c1grdReporte.Cols.Fixed Then Return
+         'If c1grdReporte.Rows(e.Row)("Pendiente") <> 0 Then
+         '   e.Style = c1grdReporte.Styles("Facturado")
+         'End If
+         If c1grdReporte.Cols(e.Col).Name = "SaldoPendiente" Then
+            If c1grdReporte.Rows(e.Row)("SaldoPendiente") <> 0 Then
+               e.Style = c1grdReporte.Styles("Anulado")
+            End If
+         End If
+
+         If c1grdReporte.Cols(e.Col).Name = "DOCVE_TotalPagar" Then
+            If c1grdReporte.Rows(e.Row)("DOCVE_TotalPagar") > 0 Then
+               e.Style = c1grdReporte.Styles("Pagar")
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdEfectivo_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdEfectivo.OwnerDrawCell
+      Try
+         If e.Row < c1grdEfectivo.Rows.Fixed OrElse e.Col < c1grdEfectivo.Cols.Fixed Then Return
+         'If c1grdReporte.Rows(e.Row)("Pendiente") <> 0 Then
+         '   e.Style = c1grdReporte.Styles("Facturado")
+         'End If
+         If c1grdEfectivo.Cols(e.Col).Name = "Ingreso" Then
+            If c1grdEfectivo.Rows(e.Row)("Ingreso") >= 0 Then
+               e.Style = c1grdReporte.Styles("Anulado")
+            End If
+         End If
+
+         If c1grdEfectivo.Cols(e.Col).Name = "Egreso" Then
+            If c1grdEfectivo.Rows(e.Row)("Egreso") >= 0 Then
+               e.Style = c1grdReporte.Styles("Pagar")
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdPendientesPagadas_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdPendientesPagadas.OwnerDrawCell
+      Try
+         If e.Row < c1grdPendientesPagadas.Rows.Fixed OrElse e.Col < c1grdPendientesPagadas.Cols.Fixed Then Return
+         'If c1grdReporte.Rows(e.Row)("Pendiente") <> 0 Then
+         '   e.Style = c1grdReporte.Styles("Facturado")
+         'End If
+         If c1grdPendientesPagadas.Cols(e.Col).Name = "Pendiente" Then
+            If c1grdPendientesPagadas.Rows(e.Row)("Pendiente") <> 0 Then
+               e.Style = c1grdPendientesPagadas.Styles("Anulado")
+            End If
+         End If
+
+         If c1grdPendientesPagadas.Cols(e.Col).Name = "FLETE_TotIngreso" Then
+            If c1grdPendientesPagadas.Rows(e.Row)("FLETE_TotIngreso") > 0 Then
+               e.Style = c1grdPendientesPagadas.Styles("Pagar")
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdReporte_BeforeSort(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.SortColEventArgs) Handles c1grdReporte.BeforeSort
+      Try
+         Ordenar(c1grdReporte.Cols(e.Col).UserData)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso ordenar", ex)
+      End Try
+   End Sub
+
+#Region " Clientes "
+   Private Sub setCliente()
+      '' Cargar datos adicionales cliente
+      If actxaCliRuc.ACAyuda.Enabled = True Then
+         If managerEntidades.CargarDocIden(actxaCliRuc.Text, EEntidades.TipoInicializacion.Direcciones) Then
+            '' Cargar datos del cliente
+            m_entid_codigo = managerEntidades.Entidades.ENTID_Codigo
+
+            Dim x_direcciones As New EDirecciones
+            x_direcciones.DIREC_Id = 0
+            x_direcciones.Direccion = managerEntidades.Entidades.Direccion
+            x_direcciones.UBIGO_Codigo = managerEntidades.Entidades.UBIGO_Codigo
+            If IsNothing(managerEntidades.Entidades.ListDirecciones) Then managerEntidades.Entidades.ListDirecciones = New List(Of EDirecciones)()
+            managerEntidades.Entidades.ListDirecciones.Insert(0, x_direcciones)
+
+            actxaCliRazonSocial.Text = managerEntidades.Entidades.ENTID_RazonSocial
+            actxaCliRuc.Text = managerEntidades.Entidades.ENTID_NroDocumento
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Documento de Identidad: {0}", Me.Text) _
+                            , String.Format("El Documento de Identidad {0} no existe, ¿Desea Ingresar la Entidad?", actxaCliRuc.Text) _
+                            )
+            
+            btnClean_Click(Nothing, Nothing)
+            lblNroDocumento.Focus()
+         End If
+      End If
+   End Sub
+
+   Private Sub AyudaEntidad(ByVal x_cadenas As String, ByVal x_campo As String, ByVal x_opcion As EEntidades.TipoEntidad)
+      Try
+         Dim _where As New Hashtable
+         _where.Add(x_campo, New ACWhere(x_cadenas, ACWhere.TipoWhere._Like))
+         If managerEntidades.Ayuda(_where, x_opcion) Then
+            Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Entidad", managerEntidades.DTEntidades, False)
+            If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               Select Case x_opcion
+                  Case EEntidades.TipoEntidad.Clientes
+                     '' Cargar datos del cliente
+                     m_entid_codigo = Ayuda.Respuesta.Rows(0)("Codigo")
+                     actxaCliRazonSocial.Text = Ayuda.Respuesta.Rows(0)("Razon Social").ToString()
+                     actxaCliRuc.Text = Ayuda.Respuesta.Rows(0)("Doc./R.U.C.").ToString()
+                     setCliente()
+                  Case EEntidades.TipoEntidad.Vendedores
+                     Dim x_entid_codigo As String = Ayuda.Respuesta.Rows(0)("Codigo")
+               End Select
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede mostrar la ayuda, posiblemente no haya datos que mostrar")
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub actxaCliRuc_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxaCliRuc.KeyDown
+      Try
+         If e.KeyData = Keys.Enter Then
+            If actxaCliRuc.Text.ToString().Length >= ACETransporte.Constantes.LongitudCodigo Then
+               setCliente()
+            Else
+               If actxaCliRuc.Text.Trim().Length > 0 Then
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("El Documento de Identidad {0} no existe, el documento ingresado tienen menos de 8 numeros", actxaCliRuc.Text))
+                  btnClean_Click(Nothing, Nothing)
+                  lblNroDocumento.Focus()
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Cliente", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaCliRuc_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCliRuc.ACAyudaClick
+      Try
+         AyudaEntidad(actxaCliRuc.Text, "ENTID_NroDocumento", EEntidades.TipoEntidad.Clientes)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Documento de Identidad", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaCliRazonSocial_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCliRazonSocial.ACAyudaClick
+      Try
+         AyudaEntidad(actxaCliRazonSocial.Text, "ENTID_RazonSocial", EEntidades.TipoEntidad.Clientes)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso busqueda de cliente por Nombre/Razon Social", ex)
+      End Try
+   End Sub
+
+   Private Sub btnClean_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClean.Click
+      Try
+         actxaCliRazonSocial.Clear()
+         actxaCliRuc.Clear()
+         actxaCliRuc.Focus()
+         m_entid_codigo = Nothing
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Limpiar Entidad", ex)
+      End Try
+   End Sub
+#End Region
+#End Region
+
+   Private Sub btnProcesar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnProcesar.Click
+      bs_reporte = New BindingSource
+      bs_egresos = New BindingSource
+      bs_pendientes = New BindingSource
+      Try
+         'formatearGrilla()
+         btnExcel.Enabled = True
+         If tpgFletes.Selected Then
+            Dim _reporte As New ETRAN_Fletes
+            m_tconsulta = rbtnFacturas.Checked
+            formateargrilla_Base(m_tconsulta)
+            If rbtnFacturas.Checked Then
+               If Not m_badministracioncaja.CuadreCajaFacturasPendientes(_reporte, AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date, m_entid_codigo) Then
+                  actxnSaldoAnteriorFletes.Text = "0.00"
+                  actxnSaldoFletes.Text = "0.00"
+                  m_badministracioncaja.ListVENT_DocsVenta = New List(Of EVENT_DocsVenta)
+                  btnExcel.Enabled = False
+               End If
+               bs_reporte.DataSource = m_badministracioncaja.ListVENT_DocsVenta
+            ElseIf rbtnFletes.Checked Then
+               If Not m_badministracioncaja.CuadreCajaFletesPendientes(_reporte, AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date, m_entid_codigo) Then
+                  actxnSaldoAnteriorFletes.Text = "0.00"
+                  actxnSaldoFletes.Text = "0.00"
+                  m_badministracioncaja.ListTRAN_FletesFacturados = New List(Of ETRAN_Fletes)
+                  btnExcel.Enabled = False
+               End If
+               bs_reporte.DataSource = m_badministracioncaja.ListTRAN_FletesFacturados
+            Else
+               If Not m_badministracioncaja.TRAN_CAJASS_CuadreCajaFletesPendientesSF(_reporte, AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date, m_entid_codigo) Then
+                  actxnSaldoAnteriorFletes.Text = "0.00"
+                  actxnSaldoFletes.Text = "0.00"
+                  m_badministracioncaja.ListTRAN_FletesFacturados = New List(Of ETRAN_Fletes)
+                  btnExcel.Enabled = False
+               End If
+               bs_reporte.DataSource = m_badministracioncaja.ListTRAN_FletesFacturados
+            End If
+
+            c1grdReporte.DataSource = bs_reporte
+            bnavReporte.BindingSource = bs_reporte
+            AddHandler bs_reporte.CurrentChanged, AddressOf bs_reporte_CurrentChanged
+            bs_reporte_CurrentChanged(Nothing, Nothing)
+            actxnSaldoAnteriorFletes.Text = _reporte.FLETE_TotIngreso
+            actxnSaldoFletes.Text = CalcularSaldo() + _reporte.FLETE_TotIngreso
+            c1grdReporte.AutoSizeRows()
+            actxnSaldoFletes.Formatear()
+            actxnSaldoAnteriorFletes.Formatear()
+
+            c1grdReporte.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+            c1grdReporte.Subtotal(AggregateEnum.Sum, 0, -1, 9, "Total")
+            c1grdReporte.Subtotal(AggregateEnum.Sum, 0, -1, 10, "Total")
+            c1grdReporte.AutoSizeCol(1)
+         End If
+         '' Gastos
+         If tpgCEfectivo.Selected Then
+            'formatearGrilla()
+            Dim _santerior As New ETRAN_ViajesGastos
+            If Not m_badministracioncaja.CuadreCajaEfectivo(_santerior, AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date) Then
+               m_badministracioncaja.ListTRAN_ViajesGastosEfectivo = New List(Of ETRAN_ViajesGastos)
+            End If
+
+            bs_efectivo = New BindingSource
+            bs_efectivo.DataSource = m_badministracioncaja.ListTRAN_ViajesGastosEfectivo
+            c1grdEfectivo.DataSource = bs_efectivo
+            bnavEfectivo.BindingSource = bs_efectivo
+            If chkAgruparEfectivo.Checked Then
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 1, 2, 8, "Total Viaje Nro: {0}")
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 1, 2, 7, "Total Viaje Nro: {0}")
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+            Else
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+               c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+            End If
+            c1grdEfectivo.AutoSizeRows()
+            c1grdEfectivo.AutoSizeCol(c1grdEfectivo.Cols("VIAJE_Id").Index)
+            c1grdEfectivo.AutoSizeCol(c1grdEfectivo.Cols("TIPOS_Moneda").Index)
+            c1grdEfectivo.AutoSizeCol(c1grdEfectivo.Cols("Documento").Index)
+            c1grdEfectivo.AutoSizeCol(c1grdEfectivo.Cols("ENTID_NroDocumento").Index)
+            c1grdEfectivo.AutoSizeCol(c1grdEfectivo.Cols("ENTID_RazonSocial").Index)
+            'c1grdEfectivo.AutoSizeCols()
+
+            CalcularSaldos(_santerior)
+         End If
+         '' Pagos Pendientes
+         If tpgPagosPendientes.Selected Then
+            bs_pendientespagados = New BindingSource
+            If Not m_badministracioncaja.PendientesPagadas(AcFecha.ACFecha_De.Value.Date, AcFecha.ACFecha_A.Value.Date) Then
+               m_badministracioncaja.ListTRAN_FletesPagos = New List(Of ETRAN_Fletes)
+            End If
+            bs_pendientespagados.DataSource = m_badministracioncaja.ListTRAN_FletesPagos
+            c1grdPendientesPagadas.DataSource = bs_pendientespagados
+            bnavPendientesPagados.BindingSource = bs_pendientespagados
+
+            c1grdPendientesPagadas.Subtotal(AggregateEnum.Sum, 0, -1, 9, "Total")
+            c1grdPendientesPagadas.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+            c1grdPendientesPagadas.Subtotal(AggregateEnum.Sum, 0, -1, 10, "Total")
+
+            c1grdPendientesPagadas.AutoSizeRows()
+            c1grdPendientesPagadas.AutoSizeCol(2)
+         End If
+         AcPanelCaption1.ACCaption = String.Format("Reporte de Cuadre de Caja: {0:dd/MM/yyyy} Al {1:dd/MM/yyyy}", AcFecha.ACDtpFecha_De.Value, AcFecha.ACDtpFecha_A.Value)
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Cargar el Reporte"), ex)
+      End Try
+   End Sub
+
+   Private Function CalcularSaldo() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         If Not IsNothing(m_badministracioncaja.ListVENT_DocsVenta) Then
+            For Each item As EVENT_DocsVenta In m_badministracioncaja.ListVENT_DocsVenta
+               _saldo += item.DOCVE_TotalPagar - item.DOCVE_TotalPagado
+            Next
+         End If
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function CalcularGastos() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         For Each item As ETRAN_ViajesGastos In m_badministracioncaja.ListTRAN_ViajesGastos
+            _saldo += item.Importe
+         Next
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function CalcularPendientes() As Decimal
+      Try
+         Dim _saldo As Decimal = 0
+         For Each item As ETRAN_Viajes In m_badministracioncaja.ListTRAN_Viajes
+            _saldo += item.Pendiente
+         Next
+         Return _saldo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub CalcularSaldos(ByVal _santerior As ETRAN_ViajesGastos)
+      Try
+         actxnSaldoAnteriorEfectivo.Text = _santerior.VGAST_Monto : actxnSaldoAnteriorEfectivo.Formatear()
+         Dim _ingreso As Decimal = 0 : Dim _egreso As Decimal = 0
+         For Each item As ETRAN_ViajesGastos In m_badministracioncaja.ListTRAN_ViajesGastosEfectivo
+            _ingreso += item.Ingreso
+            _egreso += item.Egreso
+         Next
+         actxnSaldoEfectivo.Text = (_santerior.VGAST_Monto + _ingreso) - _egreso : actxnSaldoEfectivo.Formatear()
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_reporte_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      bs_pagos = New BindingSource
+      bs_fletes = New BindingSource
+      Try
+         If Not IsNothing(bs_reporte.Current) Then
+            Dim _codigo As String
+            If m_tconsulta Then
+               _codigo = CType(bs_reporte.Current, EVENT_DocsVenta).DOCVE_Codigo
+            Else
+               _codigo = CType(bs_reporte.Current, ETRAN_Fletes).DOCVE_Codigo
+            End If
+            If Not m_badministracioncaja.CuadreCajaPagos(False, _codigo) Then
+               m_badministracioncaja.ListTESO_CajaPagos = New List(Of ETESO_Caja)
+            End If
+            bs_pagos.DataSource = m_badministracioncaja.ListTESO_CajaPagos
+            c1grdPagosRealizados.DataSource = bs_pagos
+            bnavPagos.BindingSource = bs_pagos
+            c1grdPagosRealizados.Subtotal(AggregateEnum.Sum, 0, -1, 6, "Total")
+
+            If Not m_badministracioncaja.FletesXFacturas(_codigo) Then
+               m_badministracioncaja.ListTRAN_Fletes = New List(Of ETRAN_Fletes)
+            End If
+            bs_fletes.DataSource = m_badministracioncaja.ListTRAN_Fletes
+            c1grdDetalle.DataSource = bs_fletes
+            bnavFletes.BindingSource = bs_fletes
+            c1grdDetalle.Subtotal(AggregateEnum.Sum, 0, -1, 4, "Total")
+            c1grdDetalle.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+   Private Sub AcFecha_ACFecIni_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles AcFecha.ACFecIni_KeyDown
+      If e.KeyData = Keys.Enter Then
+         AcFecha.ACDtpFecha_A.Focus()
+      End If
+   End Sub
+
+   Private Sub AcFecha_ACFecFin_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles AcFecha.ACFecFin_KeyDown
+      If e.KeyData = Keys.Enter Then
+         btnProcesar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub chkAgruparEfectivo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkAgruparEfectivo.CheckedChanged
+      If chkAgruparEfectivo.Checked Then
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 1, 2, 8, "Total Viaje Nro: {0}")
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 1, 2, 7, "Total Viaje Nro: {0}")
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+      Else
+         c1grdEfectivo.Subtotal(AggregateEnum.Clear)
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+         c1grdEfectivo.Subtotal(AggregateEnum.Sum, 0, -1, 8, "Total")
+      End If
+      c1grdEfectivo.AutoSizeCol(2)
+   End Sub
+
+   Private Sub btnExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcel.Click
+      Try
+         If tctReporte.SelectedTab Is tpgFletes Then
+            Utilitarios.ExportarXLS(c1grdReporte, "Fletes Pendientes")
+         ElseIf tctReporte.SelectedTab Is tpgCEfectivo Then
+            Utilitarios.ExportarXLS(c1grdEfectivo, "Cuadre de Efectivo")
+         ElseIf tctReporte.SelectedTab Is tpgPagosPendientes Then
+            Utilitarios.ExportarXLS(c1grdPendientesPagadas, "Pagos Pendientes")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso enviar a excel", ex)
+      End Try
+   End Sub
+
+
+End Class

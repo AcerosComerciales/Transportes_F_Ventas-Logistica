@@ -1,0 +1,301 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACDLogistica
+</name>
+</assembly>
+<members>
+<member name="M:ACDLogistica.DABAS_DocsCompra.LOG_DOCCOSS_TodosDocCompra(System.Collections.Generic.List{ACELogistica.EABAS_DocsCompra},System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_DOCCOSS_TodosDocCompra
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_DocsCompra.LOG_ABASSS_ConsultaCompras(System.Collections.Generic.List{ACELogistica.EABAS_DocsCompra},System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_ABASSS_ConsultaCompras
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opciontc">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_DocsCompra.COSTESS_ObtenerDocCosteados(ACELogistica.EABAS_DocsCompra@,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: COSTESS_ObtenerDocCosteados
+ </summary>
+	<param name="x_entid_codigoproveedor">Parametro 1: </param>
+	<param name="x_docco_codigo">Parametro 2: </param>
+	<param name="x_detalle">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_IngresosCompra.LOG_INGSS_Consulta(System.Collections.Generic.List{ACELogistica.EABAS_IngresosCompra},System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_INGSS_Consulta
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DReporte.CTRL_STOCKSS_KardexXArticulo(System.Data.DataTable@,System.String,System.Int32,System.String,System.String,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: CTRL_STOCKSS_KardexXArticulo
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_perio_codigo">Parametro 3: </param>
+	<param name="x_zonas_codigo">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DReporte.REPOSS_ObtenerArreglo(ACELogistica.ECTRL_Arreglos,System.String,System.Int32)">
+	<summary> 
+ Capa de Datos: REPOSS_ObtenerArreglo
+ </summary>
+	<param name="x_arreg_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DGenerarRegMercTransito.LOG_DOCCOSS_ObtenerSaldoEntrega(System.Collections.Generic.List{ACELogistica.EABAS_IngresosCompraDetalle},System.String)">
+	<summary> 
+ Capa de Datos: LOG_DOCCOSS_ObtenerSaldoEntrega
+ </summary>
+	<param name="x_docco_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DGenerarRegMercTransito.LOG_ORDENSS_ObtenerSaldoEntrega(System.Collections.Generic.List{ACELogistica.EABAS_IngresosCompraDetalle},System.String)">
+	<summary> 
+ Capa de Datos: LOG_ORDENSS_ObtenerSaldoEntrega
+ </summary>
+	<param name="x_ordco_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DGenerarRegMercTransito.LOG_INGCOSS_IngresoCompras(System.Collections.Generic.List{ACELogistica.EABAS_OrdenesCompra},System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_INGCOSS_IngresoCompras
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DGenerarRegMercTransito.LOG_INGCOSS_ObtenerIngresoCompra(ACELogistica.EABAS_IngresosCompra@,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: LOG_INGCOSS_ObtenerIngresoCompra
+ </summary>
+	<param name="x_almac_id">Parametro 1: </param>
+	<param name="x_ingco_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACDLogistica.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACDLogistica.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:ACDLogistica.My.Resources.Resources.reportes">
+	<summary>
+  Looks up a localized string similar to &lt;xml&gt;
+   &lt;sql&gt;
+      &lt;titulo&gt;DGenerarReportes.GetArticulos&lt;/titulo&gt;
+      &lt;descripcion&gt;&lt;/descripcion&gt;
+      &lt;code&gt;
+			Select 
+				SL.LINEA_Nombre As Linea
+				,L.LINEA_Nombre As SubLinea
+				,Art.ARTIC_Codigo As Codigo
+				,Art.ARTIC_Descripcion As Descripción
+				,TProd.TIPOS_Descripcion As [Tipo Producto]
+				,TCat.TIPOS_Descripcion As [Categoría]
+				,TUni.TIPOS_DescCorta As [Unidad Medida]
+				,TUni.TIPOS_Descripcion As Unidad
+				,Col.COLOR_Descripcion As Color
+				,ARTIC_Peso As Peso
+	 [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACDLogistica.My.Resources.Resources.sql">
+	<summary>
+  Looks up a localized string similar to &lt;xml&gt;
+	&lt;sql&gt;
+      &lt;titulo&gt;DGenerarRegMercTransito.cargarDetDif&lt;/titulo&gt;
+      &lt;descripcion&gt;Cargar los registros con el calculo de los pendientes&lt;/descripcion&gt;
+      &lt;code&gt;
+			Select Art.ARTIC_Codigo
+				,Art.ARTIC_Descripcion, TUni.TIPOS_Descripcion As TIPOS_UnidadMedida
+				,DetOrd.DOCCD_Cantidad As INGCD_CantidadTotal
+				,IsNull(Det.INGCD_Cantidad, 0.0) As Entregado
+				,IsNull(DetOrd.DOCCD_Cantidad, 0.0) - IsNull(Det.INGCD_Cantidad, 0.0) As INGCD_Cantidad
+				,IsNull(DetOrd.DOCCD_PesoUnitario [rest of string was truncated]";.
+</summary>
+</member><member name="T:ACDLogistica.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACDLogistica.DABAS_OrdenesCompra.LOG_ORDCOSS_TodosOrdenes(System.Collections.Generic.List{ACELogistica.EABAS_OrdenesCompra},System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_ORDCOSS_TodosOrdenes
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_OrdenesCompra.LOG_ABASSS_ConsultaOrdenes(System.Collections.Generic.List{ACELogistica.EABAS_OrdenesCompra},System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_ABASSS_ConsultaOrdenes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opciontc">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_OrdenesCompra.getCorrelativo">
+	<summary>
+ Metodo para generar el correlativo
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_OrdenesCompra.getSelectCorr">
+	<summary>
+ metodo para generar la sentencia SQL que obtendra el correlativo
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DLOG_Stocks.LOG_STOCKSS_ObtenerStock(System.Collections.Generic.List{ACELogistica.ELOG_Stocks},System.String,System.String,System.String)">
+	<summary> 
+ Capa de Datos: LOG_STOCKSS_ObtenerStock
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DLOG_Stocks.LOG_STOCKSS_ObtenerStockAlmacen(System.Collections.Generic.List{ACELogistica.ELOG_Stocks},System.String,System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: LOG_STOCKSS_ObtenerStockAlmacen
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DCTRL_InventarioRotativo.CTRLSS_InventarioRotativo(System.Collections.Generic.List{ACEVentas.EArticulos}@,System.String,System.Int16,System.String,System.String,System.String)">
+	<summary> 
+ Capa de Datos: CTRLSS_InventarioRotativo
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_articulo">Parametro 4: </param>
+	<param name="x_linea">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DCTRL_InventarioRotativo.CTRLSS_PendientesOrdenes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: CTRLSS_PendientesOrdenes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DCTRL_InventarioRotativo.CTRLSS_PendientesVentas(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: CTRLSS_PendientesVentas
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DCTRL_InventarioRotativo.CTRLSS_PedidoReposicion(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: CTRLSS_PedidoReposicion
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DCTRL_InventarioRotativo.CTRLSS_CompraSinConfirmar(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: CTRLSS_CompraSinConfirmar
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_CotizacionesCompra.getCodCorrelativo(System.String)">
+	<summary>
+ Metodo para generar el correlativo desde la capa de datos
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_CotizacionesCompra.LOG_COTCOSS_TodosCotizaciones(System.Collections.Generic.List{ACELogistica.EABAS_CotizacionesCompra},System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_COTCOSS_TodosCotizaciones
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DABAS_CotizacionesCompra.getSelectCorr(System.String)">
+	<summary>
+ procedimiento que construye la sentencia SQL
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DGenerarReportes.LOG_STOCKSS_StockALaFecha(System.Data.DataTable@,System.String,System.Int16,System.String,System.String,System.String,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_STOCKSS_StockALaFecha
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDLogistica.DAdministrarArticulos.ARTICSS_OrdenarProductos(System.Collections.Generic.List{ACEVentas.EArticulos},System.String,System.Int16,System.String,System.String,System.String,System.DateTime)">
+	<summary> 
+ Capa de Datos: ARTICSS_OrdenarProductos
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_linea">Parametro 4: </param>
+	<param name="x_sublinea">Parametro 5: </param>
+	<param name="x_fecha">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

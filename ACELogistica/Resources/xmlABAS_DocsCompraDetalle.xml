@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="ABAS_DocsCompraDetalle" Esquema="Logistica" Prefijo="DOCCD">
+  <Nombre>ABAS_DocsCompraDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoDestino">TIPOS_CodTipoDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_Cantidad">DOCCD_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_PesoUnitario">DOCCD_PesoUnitario</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_SubPeso">DOCCD_SubPeso</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_PrecioUnitario">DOCCD_PrecioUnitario</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_SubImporteCompra">DOCCD_SubImporteCompra</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_SubImporteIgv">DOCCD_SubImporteIgv</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_SubTotal">DOCCD_SubTotal</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_Costo">DOCCD_Costo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_CostoIGV">DOCCD_CostoIGV</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_UsrCrea">DOCCD_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_FecCrea">DOCCD_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_UsrMod">DOCCD_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_FecMod">DOCCD_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSFactura" targetNamespace="http://tempuri.org/DSFactura.xsd" xmlns:mstns="http://tempuri.org/DSFactura.xsd" xmlns="http://tempuri.org/DSFactura.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSFactura" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSFactura" msprop:Generator_UserDSName="DSFactura">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTDocsVentaDetalle" msprop:Generator_TableClassName="DTDocsVentaDetalleDataTable" msprop:Generator_TableVarName="tableDTDocsVentaDetalle" msprop:Generator_RowChangedName="DTDocsVentaDetalleRowChanged" msprop:Generator_TablePropName="DTDocsVentaDetalle" msprop:Generator_RowDeletingName="DTDocsVentaDetalleRowDeleting" msprop:Generator_RowChangingName="DTDocsVentaDetalleRowChanging" msprop:Generator_RowEvHandlerName="DTDocsVentaDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="DTDocsVentaDetalleRowDeleted" msprop:Generator_RowClassName="DTDocsVentaDetalleRow" msprop:Generator_UserTableName="DTDocsVentaDetalle" msprop:Generator_RowEvArgName="DTDocsVentaDetalleRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DOCVE_Codigo" msprop:Generator_ColumnVarNameInTable="columnDOCVE_Codigo" msprop:Generator_ColumnPropNameInRow="DOCVE_Codigo" msprop:Generator_ColumnPropNameInTable="DOCVE_CodigoColumn" msprop:Generator_UserColumnName="DOCVE_Codigo" type="xs:string" />
+              <xs:element name="DOCVD_Item" msprop:Generator_ColumnVarNameInTable="columnDOCVD_Item" msprop:Generator_ColumnPropNameInRow="DOCVD_Item" msprop:Generator_ColumnPropNameInTable="DOCVD_ItemColumn" msprop:Generator_UserColumnName="DOCVD_Item" type="xs:string" />
+              <xs:element name="DOCVD_PrecioUnitario" msprop:Generator_ColumnVarNameInTable="columnDOCVD_PrecioUnitario" msprop:Generator_ColumnPropNameInRow="DOCVD_PrecioUnitario" msprop:Generator_ColumnPropNameInTable="DOCVD_PrecioUnitarioColumn" msprop:Generator_UserColumnName="DOCVD_PrecioUnitario" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVD_SubImporteVenta" msprop:Generator_ColumnVarNameInTable="columnDOCVD_SubImporteVenta" msprop:Generator_ColumnPropNameInRow="DOCVD_SubImporteVenta" msprop:Generator_ColumnPropNameInTable="DOCVD_SubImporteVentaColumn" msprop:Generator_UserColumnName="DOCVD_SubImporteVenta" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVD_Unidad" msprop:Generator_ColumnVarNameInTable="columnDOCVD_Unidad" msprop:Generator_ColumnPropNameInRow="DOCVD_Unidad" msprop:Generator_ColumnPropNameInTable="DOCVD_UnidadColumn" msprop:Generator_UserColumnName="DOCVD_Unidad" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVD_Cantidad" msprop:Generator_ColumnVarNameInTable="columnDOCVD_Cantidad" msprop:Generator_ColumnPropNameInRow="DOCVD_Cantidad" msprop:Generator_ColumnPropNameInTable="DOCVD_CantidadColumn" msprop:Generator_UserColumnName="DOCVD_Cantidad" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVD_Detalle" msprop:Generator_ColumnVarNameInTable="columnDOCVD_Detalle" msprop:Generator_ColumnPropNameInRow="DOCVD_Detalle" msprop:Generator_ColumnPropNameInTable="DOCVD_DetalleColumn" msprop:Generator_UserColumnName="DOCVD_Detalle" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTDocsVenta" msprop:Generator_TableClassName="DTDocsVentaDataTable" msprop:Generator_TableVarName="tableDTDocsVenta" msprop:Generator_RowChangedName="DTDocsVentaRowChanged" msprop:Generator_TablePropName="DTDocsVenta" msprop:Generator_RowDeletingName="DTDocsVentaRowDeleting" msprop:Generator_RowChangingName="DTDocsVentaRowChanging" msprop:Generator_RowEvHandlerName="DTDocsVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTDocsVentaRowDeleted" msprop:Generator_RowClassName="DTDocsVentaRow" msprop:Generator_UserTableName="DTDocsVenta" msprop:Generator_RowEvArgName="DTDocsVentaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DOCVE_Codigo" msprop:Generator_ColumnVarNameInTable="columnDOCVE_Codigo" msprop:Generator_ColumnPropNameInRow="DOCVE_Codigo" msprop:Generator_ColumnPropNameInTable="DOCVE_CodigoColumn" msprop:Generator_UserColumnName="DOCVE_Codigo" type="xs:string" />
+              <xs:element name="ENTID_NroDocumento" msprop:Generator_ColumnVarNameInTable="columnENTID_NroDocumento" msprop:Generator_ColumnPropNameInRow="ENTID_NroDocumento" msprop:Generator_ColumnPropNameInTable="ENTID_NroDocumentoColumn" msprop:Generator_UserColumnName="ENTID_NroDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_DescripcionCliente" msprop:Generator_ColumnVarNameInTable="columnDOCVE_DescripcionCliente" msprop:Generator_ColumnPropNameInRow="DOCVE_DescripcionCliente" msprop:Generator_ColumnPropNameInTable="DOCVE_DescripcionClienteColumn" msprop:Generator_UserColumnName="DOCVE_DescripcionCliente" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_DireccionCliente" msprop:Generator_ColumnVarNameInTable="columnDOCVE_DireccionCliente" msprop:Generator_ColumnPropNameInRow="DOCVE_DireccionCliente" msprop:Generator_ColumnPropNameInTable="DOCVE_DireccionClienteColumn" msprop:Generator_UserColumnName="DOCVE_DireccionCliente" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_FechaDocumento" msprop:Generator_ColumnVarNameInTable="columnDOCVE_FechaDocumento" msprop:Generator_ColumnPropNameInRow="DOCVE_FechaDocumento" msprop:Generator_ColumnPropNameInTable="DOCVE_FechaDocumentoColumn" msprop:Generator_UserColumnName="DOCVE_FechaDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_ImporteVenta" msprop:Generator_ColumnVarNameInTable="columnDOCVE_ImporteVenta" msprop:Generator_ColumnPropNameInRow="DOCVE_ImporteVenta" msprop:Generator_ColumnPropNameInTable="DOCVE_ImporteVentaColumn" msprop:Generator_UserColumnName="DOCVE_ImporteVenta" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_ImporteIgv" msprop:Generator_ColumnVarNameInTable="columnDOCVE_ImporteIgv" msprop:Generator_ColumnPropNameInRow="DOCVE_ImporteIgv" msprop:Generator_ColumnPropNameInTable="DOCVE_ImporteIgvColumn" msprop:Generator_UserColumnName="DOCVE_ImporteIgv" type="xs:string" minOccurs="0" />
+              <xs:element name="DOCVE_TotalPagar" msprop:Generator_ColumnVarNameInTable="columnDOCVE_TotalPagar" msprop:Generator_ColumnPropNameInRow="DOCVE_TotalPagar" msprop:Generator_ColumnPropNameInTable="DOCVE_TotalPagarColumn" msprop:Generator_UserColumnName="DOCVE_TotalPagar" type="xs:string" default="0.00" minOccurs="0" />
+              <xs:element name="TextoTotal" msprop:Generator_ColumnVarNameInTable="columnTextoTotal" msprop:Generator_ColumnPropNameInRow="TextoTotal" msprop:Generator_ColumnPropNameInTable="TextoTotalColumn" msprop:Generator_UserColumnName="TextoTotal" type="xs:string" minOccurs="0" />
+              <xs:element name="Dia" msprop:Generator_ColumnVarNameInTable="columnDia" msprop:Generator_ColumnPropNameInRow="Dia" msprop:Generator_ColumnPropNameInTable="DiaColumn" msprop:Generator_UserColumnName="Dia" type="xs:string" minOccurs="0" />
+              <xs:element name="Mes" msprop:Generator_ColumnVarNameInTable="columnMes" msprop:Generator_ColumnPropNameInRow="Mes" msprop:Generator_ColumnPropNameInTable="MesColumn" msprop:Generator_UserColumnName="Mes" type="xs:string" minOccurs="0" />
+              <xs:element name="Anho" msprop:Generator_ColumnVarNameInTable="columnAnho" msprop:Generator_ColumnPropNameInRow="Anho" msprop:Generator_ColumnPropNameInTable="AnhoColumn" msprop:Generator_UserColumnName="Anho" type="xs:string" minOccurs="0" />
+              <xs:element name="NroFactura" msprop:Generator_ColumnVarNameInTable="columnNroFactura" msprop:Generator_ColumnPropNameInRow="NroFactura" msprop:Generator_ColumnPropNameInTable="NroFacturaColumn" msprop:Generator_UserColumnName="NroFactura" type="xs:string" minOccurs="0" />
+              <xs:element name="NotaPie" msprop:Generator_ColumnVarNameInTable="columnNotaPie" msprop:Generator_ColumnPropNameInRow="NotaPie" msprop:Generator_ColumnPropNameInTable="NotaPieColumn" msprop:Generator_UserColumnName="NotaPie" type="xs:string" minOccurs="0" />
+              <xs:element name="Guias" msprop:Generator_ColumnVarNameInTable="columnGuias" msprop:Generator_ColumnPropNameInRow="Guias" msprop:Generator_ColumnPropNameInTable="GuiasColumn" msprop:Generator_UserColumnName="Guias" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DTDocsVenta" />
+      <xs:field xpath="mstns:DOCVE_Codigo" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="DTDocsVenta_DTDocsVentaDetalle" msdata:parent="DTDocsVenta" msdata:child="DTDocsVentaDetalle" msdata:parentkey="DOCVE_Codigo" msdata:childkey="DOCVE_Codigo" msprop:Generator_UserChildTable="DTDocsVentaDetalle" msprop:Generator_ChildPropName="GetDTDocsVentaDetalleRows" msprop:Generator_UserRelationName="DTDocsVenta_DTDocsVentaDetalle" msprop:Generator_ParentPropName="DTDocsVentaRow" msprop:Generator_RelationVarName="relationDTDocsVenta_DTDocsVentaDetalle" msprop:Generator_UserParentTable="DTDocsVenta" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

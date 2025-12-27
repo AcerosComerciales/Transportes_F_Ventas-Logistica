@@ -1,0 +1,1312 @@
+﻿Imports System.Text
+
+Imports ACFramework
+Imports ACBTransporte
+Imports ACETransporte
+Imports ACBVentas
+Imports ACEVentas
+Imports ACImpresion
+
+Imports CrystalDecisions
+
+Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+Imports CrystalDecisions.CrystalReports.Engine
+
+Public Class Impresion
+#Region " Variables "
+   Private m_file As StringBuilder
+   Private m_printername As String
+#End Region
+
+#Region " Propiedades "
+
+   Public Property File() As StringBuilder
+      Get
+         Return m_file
+      End Get
+      Set(ByVal value As StringBuilder)
+         m_file = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_printer As String)
+      Try
+         m_printername = x_printer
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", "Impresion"), "Ocurrio un error en el proceso Inicializar Impresora", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+
+   Public Function Print_GuiaTransportista(ByVal x_gtran_codigo As String) As Boolean
+      Try
+         Dim m_guia As New ETRAN_GuiasTransportista
+         If Get_GuiaTransportista(m_guia, x_gtran_codigo) Then
+            Dim x_serie As String = m_guia.GTRAN_Serie
+            Select Case GApp.Empresa
+               Case "ACERO"
+                  Select Case x_serie
+                     Case "018"
+                        Return ImprimirG018Aceros(m_guia, 25)
+                     Case "023"
+                        Return ImprimirG023Aceros(m_guia, 17, 7, 0)
+                     Case ""
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                     Case Else
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                  End Select
+               Case "JRANC"
+                  Throw New Exception("Metodo de Impresión no Implementado")
+            End Select
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Print_FacturaTransportista(ByVal x_docve_codigo As String, ByVal x_serie As String, Optional ByVal x_lineas As Integer = 25) As Boolean
+      Try
+         Dim m_docven As New EVENT_DocsVenta
+         If Get_FacturaTransportista(m_docven, x_docve_codigo) Then
+            Select Case GApp.Empresa
+               Case "ACERO"
+                  Select Case x_serie
+                     Case "010"
+                        Return ImprimirF010Aceros(m_docven, 21)
+                     Case "017"
+                        Return ImprimirF017Aceros(m_docven, 21)
+                     Case ""
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                     Case Else
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                  End Select
+               Case "JRANC"
+                  Select Case x_serie
+                     Case "001"
+                        Return ImprimirF001JRAnc(m_docven, 14)
+                     Case ""
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                     Case Else
+                        Throw New Exception("Metodo de Impresión no Implementado")
+                  End Select
+            End Select
+            Return False
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Print_CotizacionTransportista(ByVal x_cotiz_codigo As String, ByVal x_imprimir As Boolean) As Boolean
+      Try
+         Dim m_docven As New ETRAN_Cotizaciones
+         If Get_Cotizacion(m_docven, x_cotiz_codigo) Then
+            Dim strReportName As String = "CRCotizacionAC.rpt"
+            Dim m_Path_Plantillas As String = System.IO.Path.Combine(Application.StartupPath, "Plantillas")
+            Dim strReportPath As String = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+            If Not IO.File.Exists(strReportPath) Then
+               'Throw (New Exception("No Existe el reporte:" & vbCrLf & strReportPath))
+               ACControles.ACDialogos.ACMostrarMensajeError("Archivo No Encontrado", "El Reporte no existe, verifique que tiene el reporte en su sistema")
+               Return False
+            End If
+
+            If x_imprimir Then
+               Return Imprimir(m_docven, strReportPath)
+            Else
+               Return Visualizar(m_docven, strReportPath)
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Print_Recibos(ByVal x_recib_codigo As String) As Boolean
+      Try
+         Dim m_recibo As New ETRAN_Recibos
+         If Get_Recibo(m_recibo, x_recib_codigo) Then
+            If Imprimir(m_recibo, False) Then
+               Dim _recibo As New BTRAN_Recibos
+               _recibo.TRAN_Recibos = m_recibo
+               _recibo.TRAN_Recibos.RECIB_Impresa = True
+               _recibo.TRAN_Recibos.RECIB_Impresiones += 1
+               _recibo.TRAN_Recibos.Instanciar(ACEInstancia.Modificado)
+               Return _recibo.Guardar(GApp.Usuario)
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Print_Recibos(ByVal m_recibo As ETRAN_Recibos) As Boolean
+      Try
+         If Imprimir(m_recibo, False) Then
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#Region " Imprimir "
+
+#Region " Facturas "
+   Private Function Imprimir(ByVal dtDatos As DSFactura, ByVal strReportName As String) As Boolean
+      Dim _cad As String = "{0} {1}"
+      Try
+         Dim strReportPath As String = System.IO.Path.Combine(GApp.Path_Plantillas, strReportName)
+         If Not IO.File.Exists(strReportPath) Then
+            Throw (New Exception("No Existe el reporte:" & vbCrLf & strReportPath))
+         End If
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+
+         Informe.SetDataSource(dtDatos)
+
+         Informe.PrintOptions.PrinterName = m_printername
+         Informe.PrintOptions.PaperSize = [Shared].PaperSize.PaperA3
+         Informe.PrintOptions.PaperOrientation = [Shared].PaperOrientation.Portrait
+         Informe.PrintToPrinter(1, True, 1, 1)
+         Informe.Close()
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirF010Aceros(ByVal m_docventa As EVENT_DocsVenta, ByVal x_filas As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Try
+         '' Generar Cabecera
+         m_cabecera.Append(String.Format("{0}AV. DOLORES Nro. 145 - A  JOSÉ LUIS BUSTAMANTE Y RIVERO - AREQUIPA - AREQUIPA{1}", Space(m_space + 10), vbNewLine))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 5)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 110), m_docventa.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 37) _
+                                          , m_docventa.DOCVE_FechaDocumento.Day.ToString("00").PadRight(10, " ") _
+                                          , MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper().PadRight(28, " ").Substring(0, 28), m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 12), m_docventa.DOCVE_DescripcionCliente))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 12), m_docventa.DOCVE_DireccionCliente))
+         _cab.Add(String.Format("{0}{1}{2}", Space(m_space + 10), m_docventa.ENTID_NroDocumento.PadRight(100, " "), m_docventa.DOCVE_FechaDocumento.ToString("dd/MM/yyyy")))
+         _cab.Add(New String(""))
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 1)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         For Each item As EVENT_DocsVentaDetalle In m_docventa.ListVENT_DocsVentaDetalle
+            Dim x_lista As New List(Of String)
+            If IsNothing(item.DOCVD_Detalle) Then item.DOCVD_Detalle = ""
+            Dim _precio As Decimal
+            Dim _importe As Decimal
+            If m_docventa.DOCVE_PrecIncIVG Then
+               _precio = item.DOCVD_PrecioUnitarioPrecIncIGV
+               _importe = _precio * item.DOCVD_Cantidad
+            Else
+               _precio = item.DOCVD_PrecioUnitario
+               _importe = item.DOCVD_SubImporteVenta
+            End If
+
+            If ACUtilitarios.GetTextoLines(item.DOCVD_Detalle, 75, x_lista) > 0 Then
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}{6}", Space(m_space) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.000"), 11) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Centro, item.DOCVD_Unidad, 17) _
+                                             , x_lista(0).PadRight(75, " ").Substring(0, 75) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, _precio.ToString("###,##0.00"), 17) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, _importe.ToString("###,##0.00"), 17) _
+                                             , vbNewLine))
+               If x_lista.Count > 1 Then
+                  Dim j As Integer
+                  For j = 1 To x_lista.Count - 1
+                     m_cuerpo.Append(String.Format("{0}{1}{2}", Space(m_space + 28), x_lista(j).Trim(), vbNewLine))
+                  Next
+               End If
+               x_fila += x_lista.Count
+            Else
+               x_fila += 1
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.0000"), 11) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Centro, item.DOCVD_Unidad, 16) _
+                                             , "" _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, _precio.ToString("###,##0.0000"), 18) _
+                                             , ACUtilitarios.Alinear(ACAlineacion.Derecha, _importe.ToString("###,##0.0000"), 18) _
+                                             ))
+            End If
+
+         Next
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+         If (IsNothing(m_docventa.DOCVE_NotaPie)) Then
+            _pie.Add(New String(" "))
+         Else
+            _pie.Add(New String(String.Format("{0}{1}", Space(m_space + 28), m_docventa.DOCVE_NotaPie.Trim())))
+         End If
+         _pie.Add(New String(" "))
+         Dim _filter As New ACFiltrador(Of ETipos)
+         _filter.ACFiltro = String.Format("TIPOS_Codigo={0}", m_docventa.TIPOS_CodTipoMoneda)
+         _filter.ACFiltrar(Colecciones.Tipos)
+         Dim _simb = "S/."
+         If _filter.ACListaFiltrada.Count > 0 Then
+            _simb = _filter.ACListaFiltrada(0).TIPOS_DescCorta
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 5), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, _filter.ACListaFiltrada(0).TIPOS_Descripcion)))
+         Else
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 5), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, "NUEVOS SOLES")))
+         End If
+
+         _pie.Add(New String(""))
+         _pie.Add(String.Format("{0} {1} {2} {3} {4}", Space(m_space + 62) _
+                                , ACFramework.ACUtilitarios.Alinear(ACUtilitarios.ACAlineacion.Centro, m_docventa.ENTID_CodUsuario, 20).ToString().PadRight(20, " ").Substring(0, 20) _
+                                , (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16) _
+                                , (_simb & " " & m_docventa.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(17, " ").Substring(0, 17) _
+                                , (_simb & " " & m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16)))
+
+         '_pie.Add(String.Format("{0}{1}",Space(), GApp.EUsuario.USER_CodUsr))
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         m_cabecera.Append(m_cuerpo)
+         m_cabecera.Append(m_pie)
+
+         '' Imprimir
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(68))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Seis))
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirF017Aceros(ByVal m_docventa As EVENT_DocsVenta, ByVal x_filas As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Try
+         '' Generar Cabecera
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 6)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 110), m_docventa.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 37) _
+                                          , m_docventa.DOCVE_FechaDocumento.Day.ToString("00").PadRight(10, " ") _
+                                          , MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper().PadRight(28, " ").Substring(0, 28), m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 12), m_docventa.DOCVE_DescripcionCliente))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 12), m_docventa.DOCVE_DireccionCliente))
+         _cab.Add(String.Format("{0}{1}{2}", Space(m_space + 10), m_docventa.ENTID_NroDocumento.PadRight(100, " "), m_docventa.DOCVE_FechaDocumento.ToString("dd/MM/yyyy")))
+         _cab.Add(New String(""))
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 1)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         Dim x_peso As Decimal = 0
+         For Each item As EVENT_DocsVentaDetalle In m_docventa.ListVENT_DocsVentaDetalle
+            x_peso += item.DOCVD_Cantidad
+            Dim x_lista As New List(Of String)
+            If IsNothing(item.DOCVD_Detalle) Then item.DOCVD_Detalle = ""
+            If ACUtilitarios.GetTextoLines(item.DOCVD_Detalle, 75, x_lista) > 0 Then
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}{6}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.000"), 11) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Centro, item.DOCVD_Unidad, 17) _
+                                                   , x_lista(0).PadRight(75, " ").Substring(0, 75) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_PrecioUnitario.ToString("###,##0.00"), 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_SubImporteVenta.ToString("###,##0.00"), 17) _
+                                                   , vbNewLine))
+               If x_lista.Count > 1 Then
+                  Dim j As Integer
+                  For j = 1 To x_lista.Count - 1
+                     m_cuerpo.Append(String.Format("{0}{1}{2}", Space(m_space + 28), x_lista(j).Trim(), vbNewLine))
+                  Next
+               End If
+               x_fila += x_lista.Count
+            Else
+               x_fila += 1
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.0000"), 11) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Centro, item.DOCVD_Unidad, 16) _
+                                                   , "" _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_PrecioUnitario.ToString("###,##0.0000"), 18) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_SubImporteVenta.ToString("###,##0.0000"), 18) _
+                                                   ))
+            End If
+
+         Next
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+         If (IsNothing(m_docventa.DOCVE_NotaPie)) Then
+            _pie.Add(New String(" "))
+         Else
+            _pie.Add(New String(String.Format("{0}{1}", Space(m_space + 28), m_docventa.DOCVE_NotaPie.Trim())))
+         End If
+         _pie.Add(New String(" "))
+         Dim _filter As New ACFiltrador(Of ETipos)
+         _filter.ACFiltro = String.Format("TIPOS_Codigo={0}", m_docventa.TIPOS_CodTipoMoneda)
+         _filter.ACFiltrar(Colecciones.Tipos)
+         Dim _simb = "S/."
+         If _filter.ACListaFiltrada.Count > 0 Then
+            _simb = _filter.ACListaFiltrada(0).TIPOS_DescCorta
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 5), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, _filter.ACListaFiltrada(0).TIPOS_Descripcion)))
+         Else
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 5), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, "NUEVOS SOLES")))
+         End If
+
+         _pie.Add(New String(""))
+         _pie.Add(String.Format("{0} {1} {2} {3} {4}", Space(m_space) _
+                                    , (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16) _
+                                    , (_simb & " " & m_docventa.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(22, " ").Substring(0, 22) _
+                                    , (_simb & " " & m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(22, " ").Substring(0, 22) _
+                                    , (_simb & " " & m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(70, " ").Substring(0, 70)))
+         _pie.Add(New String(""))
+         _pie.Add(New String(""))
+         _pie.Add(String.Format("{0} {1} {2} {3} {4}", Space(m_space + 3) _
+                                    , (" " & x_peso.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) & " T.M.").ToString().PadLeft(16, " ").Substring(0, 16) _
+                                    , (" " & DateTime.Now.ToString("hh:mm tt")).PadLeft(27, " ").Substring(0, 27) _
+                                    , (" " & m_docventa.ENTID_Vendedor.PadRight(22, " ").Substring(0, 22)).ToString().PadLeft(22, " ").Substring(0, 22) _
+                                    , (" " & GApp.EUsuario.USER_CodUsr).ToString().PadLeft(24, " ").Substring(0, 24)))
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         m_cabecera.Append(m_cuerpo)
+         m_cabecera.Append(m_pie)
+
+         '' Imprimir
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(68))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Seis))
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirF001JRAnc(ByVal m_docventa As EVENT_DocsVenta, ByVal x_filas As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Dim m_lineasCabecera As Integer = 10
+      Try
+         '' Generar Cabecera
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, m_lineasCabecera)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 100), m_docventa.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 16), m_docventa.DOCVE_DescripcionCliente))
+         _cab.Add(New String(""))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 16), m_docventa.DOCVE_DireccionCliente))
+         _cab.Add(New String(""))
+         '_cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 96) _
+         '                       , m_docventa.DOCVE_FechaDocumento.Day.ToString("00").PadRight(9, " ") _
+         '                       , MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper().PadRight(26, " ").Substring(0, 26) _
+         '                       , m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")))
+         _cab.Add(String.Format("{0}{1}{2}{3}{4}{5}{6}", Space(m_space + 14), m_docventa.ENTID_NroDocumento.PadRight(36, " ") _
+                                , m_docventa.DOCVE_Guias.PadRight(42, " "), Space(3) _
+                                , m_docventa.DOCVE_FechaDocumento.Day.ToString("00").PadRight(11, " ") _
+                                , MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper().PadRight(26, " ").Substring(0, 24) _
+                                , m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")))
+         _cab.Add(New String("")) ': _cab.Add(New String(""))
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         For Each item As EVENT_DocsVentaDetalle In m_docventa.ListVENT_DocsVentaDetalle
+            Dim x_lista As New List(Of String)
+            If IsNothing(item.DOCVD_Detalle) Then item.DOCVD_Detalle = ""
+            Dim _precio As Decimal
+            Dim _importe As Decimal
+            If m_docventa.DOCVE_PrecIncIVG Then
+               _precio = item.DOCVD_PrecioUnitarioPrecIncIGV
+               _importe = _precio * item.DOCVD_Cantidad
+            Else
+               _precio = item.DOCVD_PrecioUnitario
+               _importe = item.DOCVD_SubImporteVenta
+            End If
+            If ACUtilitarios.GetTextoLines(item.DOCVD_Detalle, 75, x_lista) > 0 Then
+               m_cuerpo.Append(String.Format("{0}{1}  {2}{3}{4}{5}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.000"), 17) _
+                                                   , x_lista(0).PadRight(78, " ").Substring(0, 78) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, _precio.ToString("###,##0.00"), 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, _importe.ToString("###,##0.00"), 18) _
+                                                   , vbNewLine))
+               If x_lista.Count > 1 Then
+                  Dim j As Integer
+                  For j = 1 To x_lista.Count - 1
+                     m_cuerpo.Append(String.Format("{0}{1}{2}{2}", Space(m_space + 19), x_lista(j).Trim(), vbNewLine))
+                  Next
+               End If
+               x_fila += x_lista.Count * 2
+            Else
+               x_fila += 1
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.0000"), 17) _
+                                                   , "".PadRight(78, " ").Substring(0, 78) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_PrecioUnitario.ToString("###,##0.0000"), 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_SubImporteVenta.ToString("###,##0.0000"), 18) _
+                                                   ))
+            End If
+
+         Next
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila + 1)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+         If (IsNothing(m_docventa.DOCVE_NotaPie)) Then
+            _pie.Add(New String(" "))
+         Else
+            _pie.Add(New String(String.Format("{0}{1}", Space(m_space + 18), m_docventa.DOCVE_NotaPie.Trim())))
+         End If
+         _pie.Add(New String(" "))
+         Dim _filter As New ACFiltrador(Of ETipos)
+         _filter.ACFiltro = String.Format("TIPOS_Codigo={0}", m_docventa.TIPOS_CodTipoMoneda)
+         _filter.ACFiltrar(Colecciones.Tipos)
+         Dim _simb = "S/."
+         If _filter.ACListaFiltrada.Count > 0 Then
+            _simb = _filter.ACListaFiltrada(0).TIPOS_DescCorta
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 11), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, _filter.ACListaFiltrada(0).TIPOS_Descripcion).PadRight(104, " ")))
+         Else
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 11), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, "NUEVOS SOLES").PadRight(102, " ")))
+         End If
+         '_pie.Add(New String("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16)))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+         _pie.Add(New String(" "))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         m_cabecera.Append(m_cuerpo)
+         m_cabecera.Append(m_pie)
+
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(78))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Ocho))
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirF001JRAncVOld(ByVal m_docventa As EVENT_DocsVenta, ByVal x_filas As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Try
+         '' Generar Cabecera
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 10)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 100), m_docventa.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 14), m_docventa.DOCVE_DescripcionCliente))
+         _cab.Add(New String(""))
+         _cab.Add(String.Format("{0}{1}", Space(m_space + 14), m_docventa.DOCVE_DireccionCliente))
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 94) _
+                                , m_docventa.DOCVE_FechaDocumento.Day.ToString("00").PadRight(7, " ") _
+                                , MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper().PadRight(28, " ").Substring(0, 28) _
+                                , m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")))
+         _cab.Add(String.Format("{0}{1}{2}", Space(m_space + 12), m_docventa.ENTID_NroDocumento.PadRight(34, " ") _
+                                , m_docventa.DOCVE_Guias))
+         _cab.Add(New String(""))
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         For Each item As EVENT_DocsVentaDetalle In m_docventa.ListVENT_DocsVentaDetalle
+            Dim x_lista As New List(Of String)
+            If IsNothing(item.DOCVD_Detalle) Then item.DOCVD_Detalle = ""
+            If ACUtilitarios.GetTextoLines(item.DOCVD_Detalle, 75, x_lista) > 0 Then
+               m_cuerpo.Append(String.Format("{0}{1}  {2}{3}{4}{5}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.000"), 14) _
+                                                   , x_lista(0).PadRight(81, " ").Substring(0, 81) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_PrecioUnitario.ToString("###,##0.00"), 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_SubImporteVenta.ToString("###,##0.00"), 18) _
+                                                   , vbNewLine))
+               If x_lista.Count > 1 Then
+                  Dim j As Integer
+                  For j = 1 To x_lista.Count - 1
+                     m_cuerpo.Append(String.Format("{0}{1}{2}{2}", Space(m_space + 16), x_lista(j).Trim(), vbNewLine))
+                  Next
+               End If
+               x_fila += x_lista.Count * 2
+            Else
+               x_fila += 1
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_Cantidad.ToString("###,##0.0000"), 14) _
+                                                   , "".PadRight(81, " ").Substring(0, 81) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_PrecioUnitario.ToString("###,##0.0000"), 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.DOCVD_SubImporteVenta.ToString("###,##0.0000"), 18) _
+                                                   ))
+            End If
+
+         Next
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila + 1)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+         If (IsNothing(m_docventa.DOCVE_NotaPie)) Then
+            _pie.Add(New String(" "))
+         Else
+            _pie.Add(New String(String.Format("{0}{1}", Space(m_space + 16), m_docventa.DOCVE_NotaPie.Trim())))
+         End If
+         _pie.Add(New String(" "))
+         Dim _filter As New ACFiltrador(Of ETipos)
+         _filter.ACFiltro = String.Format("TIPOS_Codigo={0}", m_docventa.TIPOS_CodTipoMoneda)
+         _filter.ACFiltrar(Colecciones.Tipos)
+         Dim _simb = "S/."
+         If _filter.ACListaFiltrada.Count > 0 Then
+            _simb = _filter.ACListaFiltrada(0).TIPOS_DescCorta
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 9), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, _filter.ACListaFiltrada(0).TIPOS_Descripcion).PadRight(106, " ")))
+         Else
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+            _pie.Add(String.Format("{0}{1}", Space(m_space + 9), ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, "NUEVOS SOLES").PadRight(104, " ")))
+         End If
+         '_pie.Add(New String("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16)))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+         _pie.Add(New String(" "))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         m_cabecera.Append(m_cuerpo)
+         m_cabecera.Append(m_pie)
+
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(78))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Ocho))
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+   Public Function ImprimirLinea(ByVal x_cadena As String, ByVal x_filas As Integer, ByVal x_columnas As Integer, ByVal x_interlineado As Integer)
+      Dim m_cabecera As New StringBuilder
+      Try
+         '' Generar Documento Final
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, x_filas)
+         m_cabecera.Append(String.Format("{0}{1}", Space(x_columnas), x_cadena))
+
+         '' Imprimir
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(68))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         If x_interlineado = 6 Then
+            ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Seis))
+         Else
+            ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Ocho))
+         End If
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function ImprimirLista(ByVal m_cabecera As StringBuilder)
+      Try
+         '' Generar Documento Final
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 15)
+         '' Imprimir
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(68))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Seis))
+
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#Region " Guias de Remision "
+
+   Private Function ImprimirG018Aceros(ByVal m_guia As ETRAN_GuiasTransportista, ByVal x_filas As Integer) As Boolean
+      Try
+         Dim dtDatos As New DSGuiaTransportista
+         Dim _dr As DataRow = dtDatos.TRAN_GuiasTransportista.NewRow()
+         _dr("GTRAN_Codigo") = m_guia.GTRAN_Codigo
+         _dr("GTRAN_Fecha") = m_guia.GTRAN_Fecha
+         _dr("GTRAN_FechaTraslado") = m_guia.GTRAN_FechaTraslado
+         _dr("GTRAN_DireccionPartida") = m_guia.ENTID_DireccionProveedor 'GTRAN_DireccionProveedor
+         _dr("GTRAN_DireccionLlegada") = m_guia.GTRAN_DireccionDestinatario
+         _dr("GTRAN_ZonaSalida") = m_guia.GTRAN_ZonaProveedor
+         _dr("GTRAN_ZonaLlegada") = m_guia.GTRAN_ZonaDestinatario
+         _dr("SalidaDistrito") = m_guia.SalidaDistrito
+         _dr("SalidaProvincia") = m_guia.SalidaProvincia
+         _dr("SalidaDepartamento") = m_guia.SalidaDepartamento
+         _dr("LlegadaDistrito") = m_guia.LlegadaDistrito
+         _dr("LlegadaProvincia") = m_guia.LlegadaProvincia
+         _dr("LlegadaDepartamento") = m_guia.LlegadaDepartamento
+         _dr("LlegadaRuc") = m_guia.GTRAN_RUCDestinatario
+         _dr("LlegadaEntidad") = m_guia.GTRAN_DesEntidadDestinatario
+         _dr("GTRAN_DescripcionEntidad") = m_guia.GTRAN_DescEntidadProveedor
+         _dr("GTRAN_DescripcionVehiculo") = m_guia.GTRAN_DescripcionVehiculo
+         '_dr("GTRAN_ZonaSalida") = m_guia.GTRAN_DescripcionEntidad
+         _dr("GTRAN_RUCLlegada") = m_guia.GTRAN_RUCDestinatario
+         '_dr("GTRAN_ZonaSalida") = m_guia.GTRAN_ZonaSalida
+         _dr("GTRAN_PesoTotal") = m_guia.GTRAN_PesoTotal
+         _dr("ENTID_Transportista") = m_guia.ENTID_Transportista
+         _dr("ENTID_TranRUC") = m_guia.ENTID_TranRUC
+         _dr("TipoComprobante") = m_guia.TipoComprobante
+         _dr("NumeroComprobante") = m_guia.NumeroComprobante
+         _dr("GTRAN_NroPedido") = m_guia.GTRAN_NroPedido
+         _dr("ENTID_Conductor") = m_guia.ENTID_Conductor
+         If IsNothing(m_guia.GTRAN_CertificadosVehiculo) Then
+            _dr("Certificados") = m_guia.Certificados
+         Else
+            _dr("Certificados") = m_guia.GTRAN_CertificadosVehiculo
+         End If
+         _dr("CONDU_Licencia") = m_guia.CONDU_Licencia
+         _dr("FechaDia") = m_guia.GTRAN_Fecha.Day.ToString("00")
+         _dr("FechaMes") = m_guia.GTRAN_Fecha.Month.ToString("00")
+         _dr("FecTraDia") = m_guia.GTRAN_FechaTraslado.Day.ToString("00")
+         _dr("FecTraMes") = m_guia.GTRAN_FechaTraslado.Month.ToString("00")
+         _dr("NroGuia") = String.Format("{0}-{1}", m_guia.GTRAN_Serie, m_guia.GTRAN_Numero.ToString("000000"))
+
+         dtDatos.TRAN_GuiasTransportista.Rows.Add(_dr)
+
+         For Each Item As ETRAN_GuiasTransportistaDetalles In m_guia.ListETRAN_GuiasTransportistaDetalles
+            Dim x_dr As DataRow = dtDatos.TRAN_GuiasTransportistaDetalles.NewRow()
+            x_dr("GTRAN_Codigo") = Item.GTRAN_Codigo
+            x_dr("GTDET_Unidad") = Item.GTDET_Unidad
+            x_dr("GTDET_Descripcion") = Item.GTDET_Descripcion
+            x_dr("GTDET_Cantidad") = Item.GTDET_Cantidad.ToString("#0")
+            dtDatos.TRAN_GuiasTransportistaDetalles.Rows.Add(x_dr)
+         Next
+
+         'Dim Informe As New CRGuiaTransportista
+         Dim strReportName As String = "CRGuiaTransportista.rpt"
+         Dim strReportPath As String = System.IO.Path.Combine(GApp.Path_Plantillas, strReportName)
+         If Not IO.File.Exists(strReportPath) Then
+            Throw (New Exception("No Existe el reporte:" & vbCrLf & strReportPath))
+         End If
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+
+         Informe.SetDataSource(dtDatos)
+
+         Informe.PrintOptions.PrinterName = m_printername
+         Informe.PrintOptions.PaperSize = [Shared].PaperSize.PaperA4
+         Informe.PrintOptions.PaperOrientation = [Shared].PaperOrientation.Portrait
+         Informe.PrintToPrinter(1, True, 1, 1)
+
+         Informe.Close()
+         'Dim reporte As New RReportView(Informe)
+         'reporte.ShowDialog()
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirG011Aceros(ByVal m_guia As ETRAN_GuiasTransportista, ByVal x_filas As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Try
+         '' Generar Cabecera
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 5)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 100), m_guia.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 1)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}Arequipa  {1}  {2}{4}", Space(m_space), m_guia.GTRAN_Fecha.Day.ToString("00") _
+                                , MonthName(m_guia.GTRAN_Fecha.Month).ToString().PadRight(20, " ") _
+                                , m_guia.GTRAN_Fecha.Year.ToString()))
+         _cab.Add(New String(""))
+         _cab.Add(String.Format("{0}{1}-{2}/{3}/{4}", Space(m_space + 14), m_guia.GTRAN_DireccionRemitente, m_guia.SalidaDepartamento _
+                                , m_guia.SalidaProvincia, m_guia.SalidaDistrito))
+         _cab.Add(New String(""))
+         _cab.Add(String.Format("{0}{1}-{2}/{3}/{4}", Space(m_space + 14), m_guia.GTRAN_DireccionDestinatario, m_guia.LlegadaDepartamento _
+                                , m_guia.LlegadaProvincia, m_guia.LlegadaDistrito))
+         _cab.Add(New String("{0}{1}", Space(m_space), m_guia.GTRAN_DescEntidadRemitente))
+         _cab.Add(New String("{0}{1}", Space(m_space), m_guia.ENTID_Codigo.Substring(1)))
+         _cab.Add(New String(""))
+         _cab.Add(New String("{0}{1}", Space(m_space), m_guia.GTRAN_DesEntidadDestinatario))
+         _cab.Add(New String("{0}{1}", Space(m_space), m_guia.ENTID_CodigoDestinatario.Substring(1)))
+
+         _cab.Add(New String("{0}{1}", Space(m_space), m_guia.GTRAN_FechaTraslado.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha))))
+         _cab.Add(New String(""))
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         For Each item As ETRAN_GuiasTransportistaDetalles In m_guia.ListETRAN_GuiasTransportistaDetalles
+            Dim x_lista As New List(Of String)
+            If IsNothing(item.GTDET_Descripcion) Then item.GTDET_Descripcion = ""
+            If ACUtilitarios.GetTextoLines(item.GTDET_Descripcion, 75, x_lista) > 0 Then
+               m_cuerpo.Append(String.Format("{0}{1}  {2}{3}{4}{5}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.ARTIC_Codigo, 10) _
+                                                   , x_lista(0).PadRight(81, " ").Substring(0, 81) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Unidad, 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Cantidad.ToString("###,##0.000"), 14) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Peso.ToString("###,##0.00"), 18) _
+                                                   , vbNewLine))
+               If x_lista.Count > 1 Then
+                  Dim j As Integer
+                  For j = 1 To x_lista.Count - 1
+                     m_cuerpo.Append(String.Format("{0}{1}{2}{2}", Space(m_space + 10), x_lista(j).Trim(), vbNewLine))
+                  Next
+               End If
+               x_fila += x_lista.Count * 2
+            Else
+               x_fila += 1
+               m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.ARTIC_Codigo, 10) _
+                                                   , "".Substring(0, 81) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Unidad, 17) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Cantidad.ToString("###,##0.000"), 14) _
+                                                   , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Peso.ToString("###,##0.00"), 18) _
+                                                   , vbNewLine))
+            End If
+
+         Next
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila + 1)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+         '_pie.Add(New String("{0}{1}", Space(m_space + 115), (_simb & " " & m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(16, " ").Substring(0, 16)))
+         '_pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_guia.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+         '_pie.Add(New String(" "))
+         '_pie.Add(String.Format("{0}{1}", Space(m_space + 115), (_simb & " " & m_guia.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d))).ToString().PadLeft(18, " ").Substring(0, 18)))
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         m_cabecera.Append(m_cuerpo)
+         m_cabecera.Append(m_pie)
+
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(78))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Ocho))
+         ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function ImprimirG023Aceros(ByVal m_guiaventa As ETRAN_GuiasTransportista, ByVal x_filas As Integer, x_top As Integer, x_left As Integer) As Boolean
+      Dim m_texto As String = ""
+      Dim m_space As Integer = 0
+      Dim m_cabecera As New StringBuilder
+      Dim m_cabeceradet As New StringBuilder
+      Dim m_cuerpo As New StringBuilder
+      Dim m_pie As New StringBuilder
+      Try
+         '' Generar Cabecera
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, x_top)
+         m_cabecera.Append(String.Format("{0}{1}", Space(m_space + 110), m_guiaventa.Documento))
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 2)
+         Dim _cab As New List(Of String)
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 25) _
+                                          , m_guiaventa.GTRAN_Fecha.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)).PadRight(10, " ") _
+                                          , Space(35) _
+                                          , m_guiaventa.GTRAN_FechaTraslado.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)).PadRight(10, " ")))
+
+         Dim _lon1 As Integer = 43
+         Dim _lon2 As Integer = 60
+         Dim x_lista1 As New List(Of String)
+         ACUtilitarios.GetTextoLines(m_guiaventa.ENTID_DireccionProveedor, _lon1, x_lista1)
+         'ACUtilitarios.GetTextoLines(" ", _lon1, x_lista1)
+         Dim x_lista2 As New List(Of String)
+         ACUtilitarios.GetTextoLines(m_guiaventa.GTRAN_DireccionDestinatario, _lon2, x_lista2)
+
+         Dim _i As Integer = IIf(x_lista1.Count > x_lista2.Count, x_lista1.Count, x_lista2.Count)
+
+         _cab.Add(New String(""))
+
+         Dim y As Integer
+         For y = 0 To 2
+            Dim _cad1 As String = "".PadRight(_lon1, " ")
+            Dim _cad2 As String = "".PadRight(_lon2, " ")
+            If x_lista1.Count > y Then _cad1 = x_lista1(y).PadRight(_lon1, " ")
+            If x_lista2.Count > y Then _cad2 = x_lista2(y).PadRight(_lon2, " ")
+            _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 9), _cad1, Space(11), _cad2))
+         Next
+
+         ACUtilitarios.genTexto(_cab, m_cabecera)
+         _cab = New List(Of String)
+         _cab.Add(New String(""))
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 12), m_guiaventa.GTRAN_DesEntidadDestinatario.PadRight(71).Substring(0, 71), Space(10), _
+                                m_guiaventa.GTRAN_DescripcionVehiculo))
+         _cab.Add(String.Format("{0}{1}{2}{3}", Space(m_space + 10), m_guiaventa.ENTID_Codigo.PadRight(64, " "), Space(20), _
+                                m_guiaventa.GTRAN_CertificadosVehiculo))
+
+         _cab.Add(String.Format("{0}{1} / {2}", Space(m_space + 92), m_guiaventa.ENTID_Conductor, m_guiaventa.CONDU_Licencia))
+
+         ACUtilitarios.genTexto(_cab, m_cabeceradet)
+
+         ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabeceradet, 4)
+         '' Generar Detalle
+         Dim x_fila As Integer = 0
+         Dim x_peso As Decimal = 0
+         For Each item As ETRAN_GuiasTransportistaDetalles In m_guiaventa.ListETRAN_GuiasTransportistaDetalles
+            x_peso += item.GTDET_Cantidad
+            m_cuerpo.Append(String.Format("{0}{1}{2}{3}{4}", Space(m_space) _
+                                          , ACUtilitarios.Alinear(ACAlineacion.Derecha, item.GTDET_Cantidad.ToString("###,##0.00"), 11) _
+                                          , ACUtilitarios.Alinear(ACAlineacion.Centro, item.GTDET_Unidad, 17) _
+                                          , item.GTDET_Descripcion.PadRight(75, " ").Substring(0, 75) _
+                                          , vbNewLine))
+
+            x_fila += 1
+         Next
+         ', ACUtilitarios.Alinear(ACAlineacion.Derecha, (item.GUIRD_PesoUnitario * item.GUIRD_Cantidad).ToString("###,##0.00 Kg."), 17) _
+
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, x_filas - x_fila)
+         ACUtilitarios.ImprimeLinBlanco(m_cuerpo, 3)
+
+         '' Generar Pie de Pagina
+         Dim _pie As New List(Of String)
+
+         '_pie.Add(New String(" "))
+         _pie.Add(String.Format("{0}{1}{2} Kg.", Space(m_space + 7), m_guiaventa.ENTID_Transportista.PadRight(75, " "), m_guiaventa.GTRAN_PesoTotal.ToString("###,##0.0000").PadLeft(25, " ")))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 5), m_guiaventa.ENTID_CodigoTransportista))
+         _pie.Add(String.Format("{0}{1}", Space(m_space + 95), DateTime.Now.ToString("hh:mm:ss tt")))
+         _pie.Add(New String(" "))
+         If IsNothing(m_guiaventa.DocVenta) Then
+            _pie.Add(String.Format("{0}{1}", Space(80), "3"))
+            _pie.Add(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space + 5), "".PadRight(15, " "), Space(60), " ", _
+                                   Space(12), m_guiaventa.GTRAN_UsrCrea))
+            '_pie.Add(String.Format("{0}{1}", Space(m_space + 95), m_guiaventa.ENTID_CodUsuario))
+         Else
+            _pie.Add(String.Format("{0}{1}", Space(77), m_guiaventa.TIPOS_CodMotivoTraslado))
+            _pie.Add(String.Format("{0}{1}{2}{3}{4}{5}", Space(m_space + 5), m_guiaventa.DocVenta.PadRight(15, " "), Space(60), " ", _
+                     Space(10), m_guiaventa.GTRAN_UsrCrea))
+            '_pie.Add(String.Format("{0}{1}", Space(m_space + 95), m_guiaventa.ENTID_CodUsuario))
+         End If
+
+         ACUtilitarios.genTexto(_pie, m_pie)
+
+         '' Generar Documento Final
+         Dim _texto As New StringBuilder
+         _texto.Append(m_cabecera)
+         _texto.Append(m_cuerpo)
+         _texto.Append(m_pie)
+         SetPrinter(m_cabecera, ACInterEspaciado.Seis)
+         SetPrinter(m_cabeceradet, ACInterEspaciado.Ocho)
+         SetPrinter(m_cuerpo, ACInterEspaciado.Seis)
+         SetPrinter(m_pie, ACInterEspaciado.Ocho, 19)
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.SaltoPagina)
+
+         '' Imprimir
+         'ACFramework.ACUtilitarios.ImprimeLinBlanco(m_cabecera, 3)
+         'ACImpresion.ACImprimir.Inicializar(m_printername)
+         'ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(68))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         'ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(ACInterEspaciado.Seis))
+         'ACImprimir.SendStringToPrinter(m_cabecera.ToString())
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   Private Sub SetPrinter(ByVal x_file As StringBuilder, ByVal x_interlineado As ACInterEspaciado, Optional ByVal x_lineas As Integer = 10)
+      Try
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(x_lineas))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(x_interlineado))
+         ACImprimir.SendStringToPrinter(x_file.ToString())
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Cotizaciones "
+
+   Private Sub getDatos(ByRef m_cotizacion As ETRAN_Cotizaciones, ByRef _dsdatos As DSCotizacionAC)
+      Try
+         Dim _dr As DataRow = _dsdatos.DTTRAN_Cotizacion.NewRow()
+         _dr("COTIZ_Codigo") = m_cotizacion.COTIZ_Codigo
+         _dr("ENTID_RazonSocial") = m_cotizacion.ENTID_Cliente
+         _dr("COTIZ_FechaDocumento") = m_cotizacion.COTIZ_FechaDocumento
+         _dr("Atencion") = ""
+         _dr("Tel-Fax") = ""
+         _dr("COTIZ_TotalVenta") = m_cotizacion.COTIZ_TotalPagar.ToString("#.00")
+         _dr("TIPOS_TipoMoneda") = m_cotizacion.TIPOS_TipoMoneda
+         _dr("TIPOS_TipoDocumento") = m_cotizacion.TIPOS_TipoDocumento
+         _dr("TIPOS_CondicionPago") = m_cotizacion.TIPOS_CondicionPago
+         _dr("COTIZ_Observaciones") = m_cotizacion.COTIZ_Observaciones
+         _dr("Cotizador") = GApp.EUsuario.USER_Nombre
+
+         _dsdatos.DTTRAN_Cotizacion.Rows.Add(_dr)
+
+         For Each Item As ETRAN_CotizacionesDetalle In m_cotizacion.ListTRAN_CotizacionesDetalle
+            Dim x_dr As DataRow = _dsdatos.DTTRAN_CotizacionDetalle.NewRow()
+            x_dr("COTIZ_Codigo") = Item.COTIZ_Codigo
+            x_dr("COTDT_Item") = Item.COTDT_Item
+            x_dr("COTDT_Unidad") = Item.COTDT_Unidad
+            x_dr("COTDT_Detalle") = Item.COTDT_Detalle
+            x_dr("COTDT_CostoUnitario") = Item.COTDT_CostoUnitario.ToString("#.00")
+            x_dr("COTDT_PesoUnitario") = Item.COTDT_PesoUnitario.ToString("#.0000")
+            x_dr("COTDT_PrecioUnitario") = Item.COTDT_PrecioUnitario.ToString("#.00")
+            x_dr("COTDT_Cantidad") = Item.COTDT_Cantidad
+            x_dr("COTDT_SubImporteVenta") = Item.COTDT_SubImporteVenta.ToString("#.00")
+            _dsdatos.DTTRAN_CotizacionDetalle.Rows.Add(x_dr)
+         Next
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Function Imprimir(ByVal m_cotizacion As ETRAN_Cotizaciones, ByVal strReportPath As String) As Boolean
+      Try
+         Dim _dsdatos As New DSCotizacionAC
+         getDatos(m_cotizacion, _dsdatos)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+
+         Informe.PrintOptions.PrinterName = m_printername
+         Informe.PrintOptions.PaperSize = [Shared].PaperSize.PaperA5
+         Informe.PrintOptions.PaperSource = [Shared].PaperSource.Auto
+         Informe.PrintOptions.PaperOrientation = [Shared].PaperOrientation.Landscape
+
+         Informe.PrintToPrinter(1, True, 1, 1)
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Visualizar(ByRef m_percep As ETRAN_Cotizaciones, ByVal strReportPath As String) As Boolean
+      Try
+         Dim _dsdatos As New DSCotizacionAC()
+         getDatos(m_percep, _dsdatos)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+
+         Dim reporte As New RReportView(Informe)
+         reporte.ShowDialog()
+
+         Informe.Close()
+         Return True
+      Catch ex As Exception
+         Return False
+      End Try
+   End Function
+#End Region
+
+#Region " Recibos "
+   Private Function Imprimir(ByVal m_tran_recibos As ETRAN_Recibos, ByVal x_viaje As Boolean)
+      Try
+         Dim _left As Integer = 3
+         Dim _largo As Integer = 85
+         Dim _cabecera As New StringBuilder
+         ACUtilitarios.ImprimeLinBlanco(_cabecera, 1)
+         _cabecera.Append(ACUtilitarios.Alinear(ACUtilitarios.ACAlineacion.Centro, GApp.EEmpresa.EMPR_Desc, _left + _largo) & vbNewLine)
+         _cabecera.Append(ACUtilitarios.Alinear(ACUtilitarios.ACAlineacion.Centro, "Recibo de " & m_tran_recibos.TIPOS_TipoRecibo, _left + _largo) & vbNewLine)
+         _cabecera.Append(ACUtilitarios.Alinear(ACUtilitarios.ACAlineacion.Centro, String.Format("Codigo: {0}", m_tran_recibos.Codigo), _left + _largo))
+
+         Dim _texto As New StringBuilder
+         _texto.Append(String.Format("{0}{1}{2}", vbNewLine, Space(_left), ACUtilitarios.getLine(_largo, False, False)))
+         _texto.Append(String.Format("{0}{1}Importe: {2}", vbNewLine, Space(67 - _left), _
+                                     String.Format("{0} {1:#,###,##0.00}", m_tran_recibos.TIPOS_TipoMoneda, m_tran_recibos.RECIB_Monto).ToString.PadLeft(15, " ")))
+         _texto.Append(String.Format("{0}{1}Recibi De: {2}", vbNewLine, Space(_left), m_tran_recibos.RECIB_De))
+
+         Dim x_lista1 As New List(Of String)
+         x_lista1 = New List(Of String)
+         ACUtilitarios.GetTextoLines(ACUtilitarios.ACConvertirNumeroALetras(m_tran_recibos.RECIB_Monto, m_tran_recibos.TIPOS_TipoMonedaLargo, ""), _left + _largo - 16, x_lista1)
+         Dim i As Boolean = True
+         For Each item As String In x_lista1
+            If i Then
+               _texto.Append(String.Format("{0}{1}La Cantidad de: {2}", vbNewLine, Space(_left), item)) : i = False
+            Else
+               _texto.Append(String.Format("{0}{1}{2}", vbNewLine, Space(_left + 16), item))
+            End If
+         Next
+
+         x_lista1 = New List(Of String)
+         ACUtilitarios.GetTextoLines(m_tran_recibos.RECIB_Concepto, _left + _largo - 16, x_lista1)
+         i = True
+         For Each item As String In x_lista1
+            If i Then
+               _texto.Append(String.Format("{0}{1}Concepto:       {2}", vbNewLine, Space(_left), item)) : i = False
+            Else
+               _texto.Append(String.Format("{0}{1}{2}", vbNewLine, Space(_left + 16), item))
+            End If
+         Next
+
+         _texto.Append(String.Format("{0}{1}Fecha: {2:dd/MM/yyyy}", vbNewLine, Space(_left), m_tran_recibos.RECIB_Fecha))
+         _texto.Append(String.Format("{0}{1}Nombre: {2}", vbNewLine, Space(_left), m_tran_recibos.RECIB_Nombre))
+         _texto.Append(String.Format("{0}{1}Dirección: {2}{3}", vbNewLine, Space(_left), m_tran_recibos.RECIB_Direccion, Space(20)))
+         _texto.Append(String.Format("{0}{1}D.N.I.: {2}", vbNewLine, Space(_left), m_tran_recibos.RECIB_Documento))
+
+         _texto.Append(String.Format("{0}{1}{2}", vbNewLine, Space(_left), ACUtilitarios.getLine(_largo, False, False)))
+
+         _texto.Append(String.Format("{0}{1}Usr. Crea.: {2}", vbNewLine, Space(_left), m_tran_recibos.ENTID_CodUsuario))
+         _texto.Append(String.Format("{0}{1}Fec. Crea.: {2:dd/MM/yyyy HH:MM}", vbNewLine, Space(_left), m_tran_recibos.RECIB_FecCrea))
+         ACUtilitarios.ImprimeLinBlanco(_texto, 2)
+         Dim _cadena As New StringBuilder
+         _cadena.Append(_cabecera)
+         _cadena.Append(_texto)
+
+         SetPrinterTitulo(_cabecera, ACInterEspaciado.Seis)
+         SetPrinterNormal(_texto, ACInterEspaciado.Seis)
+
+         '_texto.Append(String.Format("{0}{1}", vbNewLine, Space(_left)))
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#End Region
+
+#Region " Cargar Datos "
+   Private Function CargarDocsventa(ByVal m_docventa As EVENT_DocsVenta, ByVal x_filas As Integer, ByRef dtDatos As DSFactura) As Boolean
+      Dim _cad As String = "{0} {1}"
+      Try
+         Dim _dr As DataRow = dtDatos.DTDocsVenta.NewRow()
+         _dr("DOCVE_Codigo") = m_docventa.DOCVE_Codigo
+         _dr("ENTID_NroDocumento") = m_docventa.ENTID_NroDocumento
+         _dr("DOCVE_DescripcionCliente") = m_docventa.DOCVE_DescripcionCliente
+         _dr("DOCVE_DireccionCliente") = m_docventa.DOCVE_DireccionCliente
+         _dr("DOCVE_ImporteVenta") = String.Format(_cad, m_docventa.TIPOS_TipoMoneda.Trim(), m_docventa.DOCVE_ImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)))
+         _dr("DOCVE_ImporteIgv") = String.Format(_cad, m_docventa.TIPOS_TipoMoneda.Trim(), m_docventa.DOCVE_ImporteIgv.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)))
+         _dr("DOCVE_TotalPagar") = String.Format(_cad, m_docventa.TIPOS_TipoMoneda.Trim(), m_docventa.DOCVE_TotalPagar.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)).ToString())
+         _dr("DOCVE_FechaDocumento") = m_docventa.DOCVE_FechaDocumento.ToString("dd/MM/yyyy")
+         _dr("NroFactura") = m_docventa.Documento
+         _dr("Dia") = m_docventa.DOCVE_FechaDocumento.Day.ToString("00")
+         _dr("Mes") = MonthName(m_docventa.DOCVE_FechaDocumento.Month).ToUpper()
+         _dr("Anho") = m_docventa.DOCVE_FechaDocumento.Year.ToString("0000")
+         _dr("NotaPie") = m_docventa.DOCVE_NotaPie
+         _dr("Guias") = m_docventa.DOCVE_Guias
+
+         Dim _filter As New ACFiltrador(Of ETipos)
+         _filter.ACFiltro = String.Format("TIPOS_Codigo={0}", m_docventa.TIPOS_CodTipoMoneda)
+         _filter.ACFiltrar(Colecciones.Tipos)
+         If _filter.ACListaFiltrada.Count > 0 Then
+            _dr("TextoTotal") = ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, _filter.ACListaFiltrada(0).TIPOS_Descripcion)
+         Else
+            _dr("TextoTotal") = ACUtilitarios.NumPalabra(m_docventa.DOCVE_TotalPagar, "NUEVOS SOLES")
+         End If
+
+         dtDatos.DTDocsVenta.Rows.Add(_dr)
+
+         For Each Item As EVENT_DocsVentaDetalle In m_docventa.ListVENT_DocsVentaDetalle
+            Dim x_dr As DataRow = dtDatos.DTDocsVentaDetalle.NewRow()
+            x_dr("DOCVE_Codigo") = Item.DOCVE_Codigo
+            x_dr("DOCVD_Item") = Item.DOCVD_Item
+            x_dr("DOCVD_Unidad") = Item.DOCVD_Unidad
+            x_dr("DOCVD_Detalle") = Item.DOCVD_Detalle
+            x_dr("DOCVD_PrecioUnitario") = String.Format(_cad, m_docventa.TIPOS_TipoMoneda.Trim(), Item.DOCVD_PrecioUnitario.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)))
+            x_dr("DOCVD_SubImporteVenta") = String.Format(_cad, m_docventa.TIPOS_TipoMoneda.Trim(), Item.DOCVD_SubImporteVenta.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)))
+            x_dr("DOCVD_Cantidad") = Item.DOCVD_Cantidad.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo3d))
+            dtDatos.DTDocsVentaDetalle.Rows.Add(x_dr)
+         Next
+
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Obtener Datos "
+
+   Private Function Get_GuiaTransportista(ByRef m_guia As ETRAN_GuiasTransportista, ByVal x_gtran_codigo As String) As Boolean
+      Try
+         Dim m_bGenerarGuias As New ACBTransporte.BGenerarGuias()
+         If m_bGenerarGuias.TRAN_GUIASS_ObtenerGuias(x_gtran_codigo) Then
+            Dim m_bdetaguia As New BTRAN_GuiasTransportistaDetalles()
+            Dim _detwhere As New Hashtable()
+            _detwhere.Add("GTRAN_Codigo", New ACWhere(x_gtran_codigo, ACWhere.TipoWhere.Igual))
+            If m_bdetaguia.CargarTodos(_detwhere) Then
+               m_bGenerarGuias.TRAN_GuiasTransportista.ListETRAN_GuiasTransportistaDetalles = m_bdetaguia.ListTRAN_GuiasTransportistaDetalles
+               m_guia = m_bGenerarGuias.TRAN_GuiasTransportista
+               Return True
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function Get_FacturaTransportista(ByRef m_docsventa As EVENT_DocsVenta, ByVal x_docve_codigo As String) As Boolean
+      Try
+         Dim m_bGenerarDocs As New BGenerarDocsVenta(GApp.PuntoVenta, GApp.Periodo, GApp.Zona, GApp.Sucursal)
+         If m_bGenerarDocs.getDocsVenta(x_docve_codigo) Then
+            m_docsventa = m_bGenerarDocs.VENT_DocsVenta
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function Get_Cotizacion(ByRef x_etran_cotizaciones As ETRAN_Cotizaciones, ByVal x_cotiz_codigo As String) As Boolean
+      Try
+         Dim m_btran_cotizaciones As New BTRAN_Cotizaciones
+         If m_btran_cotizaciones.Cargar(x_cotiz_codigo, True) Then
+            x_etran_cotizaciones = m_btran_cotizaciones.TRAN_Cotizaciones
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function Get_Recibo(ByRef x_etran_recibos As ETRAN_Recibos, ByVal x_recib_codigo As String)
+      Try
+         Dim _recibo As New BTRAN_Recibos
+         Return _recibo.TRAN_ObtenerRecibo(x_etran_recibos, x_recib_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Utiles "
+   Private Sub SetPrinterTitulo(ByVal x_file As StringBuilder, ByVal x_interlineado As ACInterEspaciado, Optional ByVal x_lineas As Integer = 3)
+      Try
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(x_lineas))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Courier))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Negrita(True))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         'ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(x_interlineado))
+         ACImprimir.SendStringToPrinter(x_file.ToString())
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub SetPrinterNormal(ByVal x_file As StringBuilder, ByVal x_interlineado As ACInterEspaciado, Optional ByVal x_lineas As Integer = 78)
+      Try
+         ACImpresion.ACImprimir.Inicializar(m_printername)
+         ACImpresion.ACImprimir.SendStringToPrinter(Chr(18))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.NumeroLineas(x_lineas))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Negrita(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Fuente(ACFuentes.Draft))
+         ACImpresion.ACImprimir.SendStringToPrinter(String.Format("{0}{1}", Chr(27), Chr(15)))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.FuenteDraft(ACDrafts.Draft10PCI))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Condensado(False))
+         ACImpresion.ACImprimir.SendStringToPrinter(ACFuncImpresion.Interespaciado(x_interlineado))
+         ACImprimir.SendStringToPrinter(x_file.ToString())
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+#End Region
+#End Region
+
+#Region " Metodos de Controles"
+
+#End Region
+End Class

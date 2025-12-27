@@ -1,0 +1,191 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACFramework
+Imports DAConexion
+Imports ACETransporte
+Imports ACEVentas
+
+Public Class DAdministracionViajes
+
+#Region " Variables "
+	
+#End Region
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Procedimientos Almacenados "
+	
+   Public Function getCorrelativo(ByVal x_zonas_codigo As String, ByVal x_sucur_codigo As Short) As Integer
+      Try
+         DAEnterprise.AsignarProcedure(getSelectAllC(x_zonas_codigo, x_sucur_codigo), CommandType.Text)
+         Dim m_data As DataSet = DAEnterprise.ExecuteDataSet()
+         Return CType(m_data.Tables(0).Rows(0)("Codigo"), Integer)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getKmAnterior(ByVal x_viaje_id As Long, ByVal x_vehic_id As Long) As Decimal
+      Dim m_datos As New DataTable
+      Try
+         DAEnterprise.AsignarProcedure(getSelectKmAnterior(x_viaje_id, x_vehic_id), CommandType.Text)
+         m_datos = DAEnterprise.ExecuteDataSet().Tables(0)
+         Return Convert.ToDecimal(m_datos.Rows(0)("Km"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Datos: TRAN_VIAJESS_ObtenerKMAnterior
+   ''' </summary>
+   ''' <param name="x_vehic_id">Parametro 1: </param> 
+   ''' <param name="x_viaje_idxvehiculo">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_VIAJESS_ObtenerKMAnterior(ByVal x_tran_viajesvehiculos As ETRAN_ViajesVehiculos, ByVal x_vehic_id As Long, ByVal x_viaje_idxvehiculo As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_VIAJESS_ObtenerKMAnterior")
+         DAEnterprise.AgregarParametro("@VEHIC_Id", x_vehic_id, DbType.Int64, 8)
+         DAEnterprise.AgregarParametro("@VIAJE_IdxVehiculo", x_viaje_idxvehiculo, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               reader.Read()
+               ACEsquemas.ACCargarEsquema(reader, x_tran_viajesvehiculos)
+               x_tran_viajesvehiculos.Instanciar(ACEInstancia.Consulta)
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+#Region "Procedimientos Adicionales "
+   Private Function getSelectAllC(ByVal x_zonas_codigo As String, ByVal x_sucur_codigo As Short) As String
+      Dim sql As String = ""
+      Try
+         sql &= String.Format(" SELECT Convert(Int, IsNull(Max(ORDTR_Numero), '0')) As Codigo FROM [Transportes].[TRAN_OrdenesTransportes] {0}", vbNewLine)
+         sql &= String.Format(" Where ZONAS_Codigo = '{0}' And SUCUR_Id = {1} {2}", x_zonas_codigo, x_sucur_codigo, vbNewLine)
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getSelectKmAnterior(ByVal x_viaje_id As Long, ByVal x_vehic_id As Long) As String
+      Dim sql As String = ""
+      Try
+         App.Inicializar()
+         sql = App.Hash("DTRAN_Viajes.getKmAnterior")
+         sql = String.Format(sql, x_vehic_id, x_viaje_id)
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+#End Region
+
+#Region " Metodos "
+   ''' <summary> 
+   ''' Procedimiento "TRAN_CAJASS_GastosViajeInicial" por el Generador 01/04/2012
+   ''' </summary> 
+   ''' <param name="m_listTESO_Caja">Lista donde se cargaran los valores</param> 
+   ''' <param name="x_viaje_id">Parametro 1: </param> 
+   ''' <returns>Si no hay registros devuelve Falso</returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_CAJASS_GastosViajeInicial(ByRef m_listTESO_Caja As List(Of ETESO_Caja), ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_GastosViajeInicial")
+         DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim e_teso_caja As New ETESO_Caja()
+                  ACEsquemas.ACCargarEsquema(reader, e_TESO_Caja)
+                  e_TESO_Caja.Instanciar(ACEInstancia.Consulta)
+                  m_listTESO_Caja.Add(e_TESO_Caja)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Datos: TRAN_CAJASS_Fletes
+   ''' </summary>
+   ''' <param name="x_viaje_id">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_CAJASS_Fletes(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_Fletes")
+         DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_fletes As New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                  _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_fletes.Add(_tran_fletes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Datos: TRAN_CAJASS_GuiasViajes
+   ''' </summary>
+   ''' <param name="x_viaje_id">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_CAJASS_GuiasViajes(ByVal m_listtran_viajesguiasremision As List(Of ETRAN_ViajesGuiasRemision), ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_GuiasViajes")
+         DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajesguiasremision As New ETRAN_ViajesGuiasRemision()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajesguiasremision)
+                  _tran_viajesguiasremision.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajesguiasremision.Add(_tran_viajesguiasremision)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+
+End Class
+

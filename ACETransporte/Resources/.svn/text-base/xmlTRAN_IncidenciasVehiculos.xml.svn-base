@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_IncidenciasVehiculos" Esquema="Transportes" Prefijo="INCVE">
+  <Nombre>TRAN_IncidenciasVehiculos</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INCVE_Id">INCVE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_Id">VIAJE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoIncidencia">TIPOS_CodTipoIncidencia</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_Descripcion">INCVE_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_Fecha">INCVE_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_AccionRealizada">INCVE_AccionRealizada</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_UsrCrea">INCVE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_FecCrea">INCVE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_UsrMod">INCVE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_FecMod">INCVE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INCVE_Id">INCVE_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_Id">VIAJE_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

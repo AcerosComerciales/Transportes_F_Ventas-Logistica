@@ -1,0 +1,134 @@
+<xml>
+	<sql>
+      <titulo>DGenerarRegMercTransito.cargarDetDif</titulo>
+      <descripcion>Cargar los registros con el calculo de los pendientes</descripcion>
+      <code>
+         Select Art.ARTIC_Codigo
+         ,Art.ARTIC_Descripcion, TUni.TIPOS_Descripcion As TIPOS_UnidadMedida
+         ,DetOrd.DOCCD_Cantidad As INGCD_CantidadTotal
+         ,Det.INGCD_Cantidad As Entregado
+         ,DetOrd.DOCCD_Cantidad - Det.INGCD_Cantidad As INGCD_Cantidad
+         from Logistica.ABAS_DocsCompraDetalle As DetOrd
+         Left Join (
+         Select ARTIC_Codigo, Sum(Det.INGCD_Cantidad) As INGCD_Cantidad
+         from Logistica.ABAS_IngresosCompra As Ing
+         Inner Join Logistica.ABAS_IngresosCompraDetalle As Det
+         On Det.INGCO_Codigo = Ing.INGCO_Codigo
+         And Not INGCO_Estado = 'X'
+         Where Ing.DOCCO_Codigo = '{0}'
+         Group By ARTIC_Codigo
+         ) As Det
+         On Det.ARTIC_Codigo = DetOrd.ARTIC_Codigo
+         Inner Join Articulos As Art
+         On Art.ARTIC_Codigo = DetOrd.ARTIC_Codigo
+         Inner Join Tipos As TUni
+         On TUni.TIPOS_Codigo = Art.TIPOS_CodUnidadMedida
+         Where DetOrd.DOCCO_Codigo = '{0}'
+      </code>
+	</sql>
+   <sql>
+      <titulo>DControlDescuentos.BusquedaProveedor</titulo>
+      <descripcion>Obtener a todos los proveedores que tienen documentos con un descuento</descripcion>
+      <code>
+         Select * From Entidades As Ent
+         Inner Join (
+         select Cab.ENTID_CodigoProveedor, Count(*) As Resultado from Logistica.ABAS_DocsCompra As Cab
+         Inner Join Logistica.ABAS_DocsCompraDetalle As Det
+         On Det.DOCCO_Codigo = Cab.DOCCO_Codigo And Det.ENTID_CodigoProveedor = Cab.ENTID_CodigoProveedor
+         Inner Join Logistica.ABAS_Costeos As Cost
+         On Cost.DOCCO_Codigo = Det.DOCCO_Codigo And Cost.ENTID_CodigoProveedor = Det.ENTID_CodigoProveedor
+         And Cost.DOCCD_Item = Det.DOCCD_Item
+         And Cost.TIPOS_CodTipoCosteo = '{0}'
+         Inner Join (
+         Select DOCCO_Codigo, ENTID_CodigoProveedor, DOCCD_Item, COSTE_Item, TIPOS_CodTipoCosteo From Logistica.ABAS_Costeos As Cost
+         Where
+         TIPOS_CodTipoCosteo = '{0}'
+         And COSTE_Item = (Select Max(COSTE_Item) from Logistica.ABAS_Costeos As C Where TIPOS_CodTipoCosteo = 'CTO04'
+         And C.DOCCO_Codigo = Cost.DOCCO_Codigo And  C.ENTID_CodigoProveedor = Cost.ENTID_CodigoProveedor
+         And C.DOCCD_Item = Cost.DOCCD_Item)
+         ) As CosItem On CosItem.DOCCO_Codigo = Det.DOCCO_Codigo And CosItem.ENTID_CodigoProveedor = Det.ENTID_CodigoProveedor
+         And CosItem.DOCCD_Item = Det.DOCCD_Item
+         Where Cab.DOCCO_FechaDocumento Between '{3}' And '{4}'
+         And Not (Cab.DOCCO_Codigo + RTrim(Det.DOCCD_Item) + Cab.ENTID_CodigoProveedor + RTrim(CosItem.COSTE_Item))
+         In (Select Cost.DOCCO_Codigo + RTrim(Cost.DOCCD_Item) + Cost.ENTID_CodigoProveedor + RTrim(Cost.COSTE_Item)
+         From Logistica.ABAS_Costeos As Cost
+         Inner Join Logistica.ABAS_RelDocsCosteo As Rel On Rel.DOCCO_Codigo = Cost.DOCCO_Codigo
+         And Rel.DOCCD_Item = Cost.DOCCD_Item And Rel.ENTID_CodigoProveedor = Cost.ENTID_CodigoProveedor
+         And Rel.COSTE_Item = Cost.COSTE_Item)
+         Group By Cab.ENTID_CodigoProveedor
+         ) As Docs
+         On Docs.ENTID_CodigoProveedor = Ent.ENTID_Codigo
+         Where RTrim(IsNull(Ent.{1}, '')) like '%{2}%'
+      </code>
+   </sql>
+   <sql>
+      <titulo>DControlDescuentos.ObtenerDetalle</titulo>
+      <descripcion>Obtener a todo el detalle de los items que tiene un proveedor</descripcion>
+      <code>
+         Select Costeo.Importe * Det.DOCCD_Cantidad As Descuentos
+         , Det.DOCCO_Codigo, Det.DOCCD_Item, Det.ENTID_CodigoProveedor, Det.ARTIC_Codigo, Det.DOCCD_Cantidad
+         , Cab.DOCCO_FechaDocumento, Art.ARTIC_Descripcion, Uni.TIPOS_Descripcion As TIPOS_UnidadMedida
+         , CosItem.COSTE_Item, Det.DOCCD_PrecioUnitario, Det.DOCCD_SubImporteCompra
+         from Logistica.ABAS_DocsCompra As Cab
+         Inner Join Logistica.ABAS_DocsCompraDetalle As Det
+         On Det.DOCCO_Codigo = Cab.DOCCO_Codigo And Det.ENTID_CodigoProveedor = Cab.ENTID_CodigoProveedor
+         And Det.DOCCD_Item = (
+         Select Top 1 DOCCD_Item From Logistica.ABAS_Costeos As Cost
+         Where
+         Cost.DOCCO_Codigo = Det.DOCCO_Codigo And Cost.ENTID_CodigoProveedor = Det.ENTID_CodigoProveedor
+         And Cost.DOCCD_Item = Det.DOCCD_Item And Cost.COSTE_Item > 0
+         And Cost.TIPOS_CodTipoCosteo = '{0}'
+         )
+         Inner Join Articulos As Art On Art.ARTIC_Codigo = Det.ARTIC_Codigo
+         Inner Join Tipos As Uni On Uni.TIPOS_Codigo = Art.TIPOS_CodUnidadMedida
+         Inner Join (
+         Select DOCCO_Codigo, DOCCD_Item, ENTID_CodigoProveedor, Sum(COSTE_Importe) As Importe
+         From Logistica.ABAS_Costeos As D
+         Where D.ENTID_CodigoProveedor = '{1}'
+         And TIPOS_CodTipoCosteo = '{0}'
+         Group by D.DOCCD_Item, DOCCO_Codigo, ENTID_CodigoProveedor
+         ) As Costeo On Costeo.DOCCO_Codigo = Cab.DOCCO_Codigo And Costeo.DOCCD_Item = Det.DOCCD_Item
+         And Costeo.ENTID_CodigoProveedor = Cab.ENTID_CodigoProveedor
+         Inner Join (
+         Select DOCCO_Codigo, ENTID_CodigoProveedor, DOCCD_Item, COSTE_Item, TIPOS_CodTipoCosteo From Logistica.ABAS_Costeos As Ct
+         Where
+         ENTID_CodigoProveedor = '{1}' And TIPOS_CodTipoCosteo = '{0}'
+         And COSTE_Item = (Select Max(COSTE_Item) from Logistica.ABAS_Costeos As C
+         Where C.ENTID_CodigoProveedor = Ct.ENTID_CodigoProveedor  And C.TIPOS_CodTipoCosteo = Ct.TIPOS_CodTipoCosteo
+         And C.DOCCO_Codigo = Ct.DOCCO_Codigo And C.DOCCD_Item = Ct.DOCCD_Item)
+         ) As CosItem On CosItem.DOCCO_Codigo = Det.DOCCO_Codigo And CosItem.ENTID_CodigoProveedor = Det.ENTID_CodigoProveedor
+         And CosItem.DOCCD_Item = Det.DOCCD_Item
+         Where Cab.ENTID_CodigoProveedor = '{1}' And Cab.DOCCO_FechaDocumento Between '{2}' And '{3}'
+         And Not (Cab.DOCCO_Codigo + RTrim(Det.DOCCD_Item) + Cab.ENTID_CodigoProveedor + RTrim(CosItem.COSTE_Item))
+         In (Select Cost.DOCCO_Codigo + RTrim(Cost.DOCCD_Item) + Cost.ENTID_CodigoProveedor + RTrim(Cost.COSTE_Item)
+         From Logistica.ABAS_Costeos As Cost
+         Inner Join Logistica.ABAS_RelDocsCosteo As Rel On Rel.DOCCO_Codigo = Cost.DOCCO_Codigo
+         And Rel.DOCCD_Item = Cost.DOCCD_Item And Rel.ENTID_CodigoProveedor = Cost.ENTID_CodigoProveedor
+         And Rel.COSTE_Item = Cost.COSTE_Item
+         Where Cost.ENTID_CodigoProveedor = '{1}')
+         Order By Det.ARTIC_Codigo
+      </code>
+   </sql>
+   <sql>
+      <titulo>Obtener</titulo>
+      <descripcion>Obtener el calculo de los precios usando los costeos</descripcion>
+      <code>
+         select
+         DOCCD_Item
+         ,DOCCO_Codigo
+         ,ENTID_CodigoProveedor
+         ,((Select Top 1 COSTE_Importe From [Logistica].[ABAS_Costeos]
+         where TIPOS_CodTipoCosteo = '{0}'
+         And DOCCD_Item = Costeo.DOCCD_Item
+         Order By COSTE_Item Desc
+         )
+         + Sum(COSTE_Importe))
+         * ((Select Top 1 Convert(Decimal(6, 2), PARMT_Valor) From Parametros Where PARMT_Id = 'PIGV')/100 + 1) As Precio
+         from [Logistica].[ABAS_Costeos] As Costeo
+         where Not TIPOS_CodTipoCosteo = '{0}'
+         And DOCCO_Codigo = '{1}' AND ENTID_CodigoProveedor = '{2}'
+         And COSTE_Item > 0
+         group By DOCCD_Item,DOCCO_Codigo,ENTID_CodigoProveedor
+      </code>
+   </sql>
+</xml>

@@ -1,0 +1,118 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACFramework
+Imports DAConexion
+Imports ACETransporte
+
+Partial Public Class DTRAN_ViajesGastos
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Procedimientos Almacenados "
+   Public Function GetGastosViaje(ByRef listETRAN_ViajesGastos As List(Of ETRAN_ViajesGastos), ByVal x_where As Hashtable) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelectGastosViajes(x_where), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New ETRAN_ViajesGastos())
+               While reader.Read()
+                  Dim e_tran_viajesgastos As New ETRAN_ViajesGastos()
+                  _utilitarios.ACCargarEsquemas(reader, e_tran_viajesgastos)
+                  e_tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+                  listETRAN_ViajesGastos.Add(e_tran_viajesgastos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Procedimiento "TRAN_CAJASS_GastosViajeVerificados" por el Generador 02/04/2012
+   ' </summary> 
+   ' <param name="m_listTRAN_ViajesGastos">Lista donde se cargaran los valores</param> 
+   ' <param name="x_viaje_id">Parametro 1: </param> 
+   ' <returns>Si no hay registros devuelve Falso</returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_GastosViajeVerificados(ByRef m_listTRAN_ViajesGastos As List(Of ETRAN_ViajesGastos), ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_GastosViajeVerificados")
+         DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim e_tran_viajesgastos As New ETRAN_ViajesGastos()
+                  ACEsquemas.ACCargarEsquema(reader, e_TRAN_ViajesGastos)
+                  e_TRAN_ViajesGastos.Instanciar(ACEInstancia.Consulta)
+                  m_listTRAN_ViajesGastos.Add(e_TRAN_ViajesGastos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_VIAJSS_GenerarRecibos
+   ' </summary>
+   ' <param name="x_viaje_id">Parametro 1: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_VIAJSS_GenerarRecibos(ByVal m_listtran_viajesgastos As List(Of ETRAN_ViajesGastos), ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_VIAJSS_GenerarRecibos")
+         DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajesgastos As New ETRAN_ViajesGastos()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajesgastos)
+                  _tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajesgastos.Add(_tran_viajesgastos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+#Region "Procedimientos Adicionales "
+   Private Function getSelectGastosViajes(ByVal x_where As Hashtable) As String
+      Dim sql As String = ""
+      Try
+         App.Inicializar()
+         sql = App.Hash("DTRAN_ViajesGastos.GetGastosViaje").ToString()
+         Dim _where As New ACGenerador(Of ETRAN_ViajesGastos)(m_formatofecha)
+         sql = String.Format(sql, _where.getWhere(x_where, True))
+
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+#End Region
+
+End Class
+

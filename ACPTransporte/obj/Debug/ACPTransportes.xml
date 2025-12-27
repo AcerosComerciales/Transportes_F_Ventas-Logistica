@@ -1,0 +1,956 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACPTransportes
+</name>
+</assembly>
+<members>
+<member name="T:ACPTransportes.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAdd_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAdd_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAnular_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAnular_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAppProduccion_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACAppProduccion_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACBuscar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACBuscar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCalculadora_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCalculadora_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCamara__43x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCambioLlanta_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCambioLlanta_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCancelar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCancelar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCliente_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACCliente_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACConductor_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACConductor_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDelete_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDocumento_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDocumento_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDownArrow_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDownArrow_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDownArrowAll_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACDownArrowAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACEdit_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACEdit_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.aceptar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACExit_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACExit_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFlete_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFlete_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACForkliftBoxes_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACForkliftBoxes_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFrontalLlanta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFrontalPosicion">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFuelBlack_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFuelBlack_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFuelRed_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACFuelRed_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGastos_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGastos_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGrabar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGrabar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGrabarCerrar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGrabarCerrar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGuia_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGuia_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGuiaProc_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACGuiaProc_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACImprimirRed_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACImprimirRed_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACInventario_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACInventario_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLeft_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLeft_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLeftAll_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLeftAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlanta_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlanta_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlave_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlave_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlaveFranesa_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACLlaveFranesa_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACMoney_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACMoney_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACMostrar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACMostrar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNeumaDoc_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNeumaDoc_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNeumatico_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNeumatico_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNuevo_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACNuevo_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACPersonas_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACPersonas_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACProveedor_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACProveedor_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRanfla_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRanfla_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRanflaLlanta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRanflaPosicion">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRehusar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRehusar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACReporte_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACReporte_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRight_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRight_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRightAll_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACRightAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSales_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSales_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_16x161">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_32x321">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACSum">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTrabajador_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTrabajador_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTractoLlanta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTractoPosicion">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTruck_red">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACTtruck_blue">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUpArrow_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUpArrow_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUpArrowAll_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUpArrowAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUsuario_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACUsuario_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACViajes_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACViajes_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACVolver_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ACVolver_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Add_basic_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Admin_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Admin_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.AdminPanel_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.AdminPanel_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.AppCaja_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ARight_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.banco_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Buscar2_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.cerrarsesion_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.CheckProcess_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.cheque_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.cheque_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.cuenta_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.cuenta_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.delete">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Delete_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.deposito_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.deposito_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.DownArrow_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.DownArrowAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.EditPaper_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.EditPaper_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.EMoney_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Entidad_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.EntidadAccesos_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Excel2_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Excel2_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Exit_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.folderadd_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.FondoAceros_metalico">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.guardar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Hangar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Hangar_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.hidemenu">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ImgUser">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ImgUser1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ImgUser2">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ImgUser3">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.letra_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.letra_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Listado_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Listado_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Logo_200x149">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Logo_Sistema_419x63">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Logo_Sistema_JRAM_419x63">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Mostrar_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Nuevo_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Nuevo_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ok">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.ok1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.PadLock_close_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.PadLock_close_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Personas_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Preview_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Preview_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.PrintPreview_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.PrintPreview_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Search_files_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.showmenu">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.shutdown">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.shutdown1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.StartMenu_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.StartMenu_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Transportista_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Ttruck_blue_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.undo">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.UpArrow_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.UpArrowAll_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Vendedor_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Wallpaper_Transportes_1204x768">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ACPTransportes.My.Resources.Resources.Wallpaper_Transportes_JRAM_1024x768">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Bancos" Esquema="dbo" Prefijo="BANCO">
+  <Nombre>Bancos</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="BANCO_Id">BANCO_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_Descripcion">BANCO_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_DescCorta">BANCO_DescCorta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_UsrCrea">BANCO_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_FecCrea">BANCO_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_UsrMod">BANCO_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="BANCO_FecMod">BANCO_FecMod</CCampo>
+    
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="BANCO_Id">BANCO_Id</CCampo>
+  </CPrimarios>
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

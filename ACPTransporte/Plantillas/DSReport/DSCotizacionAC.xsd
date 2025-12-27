@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSCotizacionAC" targetNamespace="http://tempuri.org/DSCotizacionAC.xsd" xmlns:mstns="http://tempuri.org/DSCotizacionAC.xsd" xmlns="http://tempuri.org/DSCotizacionAC.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSCotizacionAC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSCotizacionAC" msprop:Generator_UserDSName="DSCotizacionAC">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTTRAN_Cotizacion" msprop:Generator_TableClassName="DTTRAN_CotizacionDataTable" msprop:Generator_TableVarName="tableDTTRAN_Cotizacion" msprop:Generator_RowChangedName="DTTRAN_CotizacionRowChanged" msprop:Generator_TablePropName="DTTRAN_Cotizacion" msprop:Generator_RowDeletingName="DTTRAN_CotizacionRowDeleting" msprop:Generator_RowChangingName="DTTRAN_CotizacionRowChanging" msprop:Generator_RowEvHandlerName="DTTRAN_CotizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="DTTRAN_CotizacionRowDeleted" msprop:Generator_RowClassName="DTTRAN_CotizacionRow" msprop:Generator_UserTableName="DTTRAN_Cotizacion" msprop:Generator_RowEvArgName="DTTRAN_CotizacionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="COTIZ_Codigo" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_Codigo" msprop:Generator_ColumnPropNameInRow="COTIZ_Codigo" msprop:Generator_ColumnPropNameInTable="COTIZ_CodigoColumn" msprop:Generator_UserColumnName="COTIZ_Codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="ENTID_RazonSocial" msprop:Generator_ColumnVarNameInTable="columnENTID_RazonSocial" msprop:Generator_ColumnPropNameInRow="ENTID_RazonSocial" msprop:Generator_ColumnPropNameInTable="ENTID_RazonSocialColumn" msprop:Generator_UserColumnName="ENTID_RazonSocial" type="xs:string" minOccurs="0" />
+              <xs:element name="COTIZ_FechaDocumento" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_FechaDocumento" msprop:Generator_ColumnPropNameInRow="COTIZ_FechaDocumento" msprop:Generator_ColumnPropNameInTable="COTIZ_FechaDocumentoColumn" msprop:Generator_UserColumnName="COTIZ_FechaDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="Atencion" msprop:Generator_ColumnVarNameInTable="columnAtencion" msprop:Generator_ColumnPropNameInRow="Atencion" msprop:Generator_ColumnPropNameInTable="AtencionColumn" msprop:Generator_UserColumnName="Atencion" type="xs:string" minOccurs="0" />
+              <xs:element name="Tel-Fax" msprop:Generator_ColumnVarNameInTable="_columnTel_Fax" msprop:Generator_ColumnPropNameInRow="_Tel_Fax" msprop:Generator_ColumnPropNameInTable="_Tel_FaxColumn" msprop:Generator_UserColumnName="Tel-Fax" type="xs:string" minOccurs="0" />
+              <xs:element name="COTIZ_TotalVenta" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_TotalVenta" msprop:Generator_ColumnPropNameInRow="COTIZ_TotalVenta" msprop:Generator_ColumnPropNameInTable="COTIZ_TotalVentaColumn" msprop:Generator_UserColumnName="COTIZ_TotalVenta" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPOS_TipoMoneda" msprop:Generator_ColumnVarNameInTable="columnTIPOS_TipoMoneda" msprop:Generator_ColumnPropNameInRow="TIPOS_TipoMoneda" msprop:Generator_ColumnPropNameInTable="TIPOS_TipoMonedaColumn" msprop:Generator_UserColumnName="TIPOS_TipoMoneda" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPOS_CondicionPago" msprop:Generator_ColumnVarNameInTable="columnTIPOS_CondicionPago" msprop:Generator_ColumnPropNameInRow="TIPOS_CondicionPago" msprop:Generator_ColumnPropNameInTable="TIPOS_CondicionPagoColumn" msprop:Generator_UserColumnName="TIPOS_CondicionPago" type="xs:string" minOccurs="0" />
+              <xs:element name="TIPOS_TipoDocumento" msprop:Generator_ColumnVarNameInTable="columnTIPOS_TipoDocumento" msprop:Generator_ColumnPropNameInRow="TIPOS_TipoDocumento" msprop:Generator_ColumnPropNameInTable="TIPOS_TipoDocumentoColumn" msprop:Generator_UserColumnName="TIPOS_TipoDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="COTIZ_Observaciones" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_Observaciones" msprop:Generator_ColumnPropNameInRow="COTIZ_Observaciones" msprop:Generator_ColumnPropNameInTable="COTIZ_ObservacionesColumn" msprop:Generator_UserColumnName="COTIZ_Observaciones" type="xs:string" minOccurs="0" />
+              <xs:element name="COTIZ_NotaPie" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_NotaPie" msprop:Generator_ColumnPropNameInRow="COTIZ_NotaPie" msprop:Generator_ColumnPropNameInTable="COTIZ_NotaPieColumn" msprop:Generator_UserColumnName="COTIZ_NotaPie" type="xs:string" minOccurs="0" />
+              <xs:element name="Cotizador" msprop:Generator_ColumnVarNameInTable="columnCotizador" msprop:Generator_ColumnPropNameInRow="Cotizador" msprop:Generator_ColumnPropNameInTable="CotizadorColumn" msprop:Generator_UserColumnName="Cotizador" type="xs:string" minOccurs="0" />
+              <xs:element name="ENTID_Direccion" msprop:Generator_ColumnVarNameInTable="columnENTID_Direccion" msprop:Generator_ColumnPropNameInRow="ENTID_Direccion" msprop:Generator_ColumnPropNameInTable="ENTID_DireccionColumn" msprop:Generator_UserColumnName="ENTID_Direccion" type="xs:string" minOccurs="0" />
+              <xs:element name="RUTAS_Nombre" msprop:Generator_ColumnVarNameInTable="columnRUTAS_Nombre" msprop:Generator_ColumnPropNameInRow="RUTAS_Nombre" msprop:Generator_ColumnPropNameInTable="RUTAS_NombreColumn" msprop:Generator_UserColumnName="RUTAS_Nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTTRAN_CotizacionDetalle" msprop:Generator_TableClassName="DTTRAN_CotizacionDetalleDataTable" msprop:Generator_TableVarName="tableDTTRAN_CotizacionDetalle" msprop:Generator_RowChangedName="DTTRAN_CotizacionDetalleRowChanged" msprop:Generator_TablePropName="DTTRAN_CotizacionDetalle" msprop:Generator_RowDeletingName="DTTRAN_CotizacionDetalleRowDeleting" msprop:Generator_RowChangingName="DTTRAN_CotizacionDetalleRowChanging" msprop:Generator_RowEvHandlerName="DTTRAN_CotizacionDetalleRowChangeEventHandler" msprop:Generator_RowDeletedName="DTTRAN_CotizacionDetalleRowDeleted" msprop:Generator_RowClassName="DTTRAN_CotizacionDetalleRow" msprop:Generator_UserTableName="DTTRAN_CotizacionDetalle" msprop:Generator_RowEvArgName="DTTRAN_CotizacionDetalleRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="COTIZ_Codigo" msprop:Generator_ColumnVarNameInTable="columnCOTIZ_Codigo" msprop:Generator_ColumnPropNameInRow="COTIZ_Codigo" msprop:Generator_ColumnPropNameInTable="COTIZ_CodigoColumn" msprop:Generator_UserColumnName="COTIZ_Codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_Item" msprop:Generator_ColumnVarNameInTable="columnCOTDT_Item" msprop:Generator_ColumnPropNameInRow="COTDT_Item" msprop:Generator_ColumnPropNameInTable="COTDT_ItemColumn" msprop:Generator_UserColumnName="COTDT_Item" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_Unidad" msprop:Generator_ColumnVarNameInTable="columnCOTDT_Unidad" msprop:Generator_ColumnPropNameInRow="COTDT_Unidad" msprop:Generator_ColumnPropNameInTable="COTDT_UnidadColumn" msprop:Generator_UserColumnName="COTDT_Unidad" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_Detalle" msprop:Generator_ColumnVarNameInTable="columnCOTDT_Detalle" msprop:Generator_ColumnPropNameInRow="COTDT_Detalle" msprop:Generator_ColumnPropNameInTable="COTDT_DetalleColumn" msprop:Generator_UserColumnName="COTDT_Detalle" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_CostoUnitario" msprop:Generator_ColumnVarNameInTable="columnCOTDT_CostoUnitario" msprop:Generator_ColumnPropNameInRow="COTDT_CostoUnitario" msprop:Generator_ColumnPropNameInTable="COTDT_CostoUnitarioColumn" msprop:Generator_UserColumnName="COTDT_CostoUnitario" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_PesoUnitario" msprop:Generator_ColumnVarNameInTable="columnCOTDT_PesoUnitario" msprop:Generator_ColumnPropNameInRow="COTDT_PesoUnitario" msprop:Generator_ColumnPropNameInTable="COTDT_PesoUnitarioColumn" msprop:Generator_UserColumnName="COTDT_PesoUnitario" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_PrecioUnitario" msprop:Generator_ColumnVarNameInTable="columnCOTDT_PrecioUnitario" msprop:Generator_ColumnPropNameInRow="COTDT_PrecioUnitario" msprop:Generator_ColumnPropNameInTable="COTDT_PrecioUnitarioColumn" msprop:Generator_UserColumnName="COTDT_PrecioUnitario" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_Cantidad" msprop:Generator_ColumnVarNameInTable="columnCOTDT_Cantidad" msprop:Generator_ColumnPropNameInRow="COTDT_Cantidad" msprop:Generator_ColumnPropNameInTable="COTDT_CantidadColumn" msprop:Generator_UserColumnName="COTDT_Cantidad" type="xs:string" minOccurs="0" />
+              <xs:element name="COTDT_SubImporteVenta" msprop:Generator_ColumnVarNameInTable="columnCOTDT_SubImporteVenta" msprop:Generator_ColumnPropNameInRow="COTDT_SubImporteVenta" msprop:Generator_ColumnPropNameInTable="COTDT_SubImporteVentaColumn" msprop:Generator_UserColumnName="COTDT_SubImporteVenta" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="DTTRAN_Cotizacion_DTTRAN_CotizacionDetalle" msdata:parent="DTTRAN_Cotizacion" msdata:child="DTTRAN_CotizacionDetalle" msdata:parentkey="COTIZ_Codigo" msdata:childkey="COTIZ_Codigo" msprop:Generator_UserChildTable="DTTRAN_CotizacionDetalle" msprop:Generator_ChildPropName="GetDTTRAN_CotizacionDetalleRows" msprop:Generator_UserRelationName="DTTRAN_Cotizacion_DTTRAN_CotizacionDetalle" msprop:Generator_RelationVarName="relationDTTRAN_Cotizacion_DTTRAN_CotizacionDetalle" msprop:Generator_UserParentTable="DTTRAN_Cotizacion" msprop:Generator_ParentPropName="DTTRAN_CotizacionRow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

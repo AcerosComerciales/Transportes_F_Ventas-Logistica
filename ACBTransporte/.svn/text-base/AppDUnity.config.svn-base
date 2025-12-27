@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<configSections>
+		<section name="AppDUnity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+	</configSections>
+
+	<AppDUnity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+      <alias alias="IDDocumentos" type="ACDTransporte.IDDocumentos, ACDTransporte" />
+      <alias alias="IDTRAN_CombustibleConsumo" type="ACDTransporte.IDTRAN_CombustibleConsumo, ACDTransporte" />
+      <alias alias="IDTRAN_Conductores" type="ACDTransporte.IDTRAN_Conductores, ACDTransporte" />
+      <alias alias="IDTRAN_Cotizaciones" type="ACDTransporte.IDTRAN_Cotizaciones, ACDTransporte" />
+      <alias alias="IDTRAN_CotizacionesDetalle" type="ACDTransporte.IDTRAN_CotizacionesDetalle, ACDTransporte" />
+      <alias alias="IDTRAN_Documentos" type="ACDTransporte.IDTRAN_Documentos, ACDTransporte" />
+      <alias alias="IDTRAN_DocumentosDetalle" type="ACDTransporte.IDTRAN_DocumentosDetalle, ACDTransporte" />
+      <alias alias="IDTRAN_Fletes" type="ACDTransporte.IDTRAN_Fletes, ACDTransporte" />
+      <alias alias="IDTRAN_GuiasTransportista" type="ACDTransporte.IDTRAN_GuiasTransportista, ACDTransporte" />
+      <alias alias="IDTRAN_GuiasTransportistaDetalles" type="ACDTransporte.IDTRAN_GuiasTransportistaDetalles, ACDTransporte" />
+      <alias alias="IDTRAN_IncidenciasViajes" type="ACDTransporte.IDTRAN_IncidenciasViajes, ACDTransporte" />
+      <alias alias="IDTRAN_MovimientosAlmacenes" type="ACDTransporte.IDTRAN_MovimientosAlmacenes, ACDTransporte" />
+      <alias alias="IDTRAN_MovimientosNeumaticos" type="ACDTransporte.IDTRAN_MovimientosNeumaticos, ACDTransporte" />
+      <alias alias="IDTRAN_Neumaticos" type="ACDTransporte.IDTRAN_Neumaticos, ACDTransporte" />
+      <alias alias="IDTRAN_NeumaticosIncidencias" type="ACDTransporte.IDTRAN_NeumaticosIncidencias, ACDTransporte" />
+      <alias alias="IDTRAN_OrdenesTransportes" type="ACDTransporte.IDTRAN_OrdenesTransportes, ACDTransporte" />
+      <alias alias="IDTRAN_Proveedores" type="ACDTransporte.IDTRAN_Proveedores, ACDTransporte" />
+      <alias alias="IDTRAN_Ranflas" type="ACDTransporte.IDTRAN_Ranflas, ACDTransporte" />
+      <alias alias="IDTRAN_Recibos" type="ACDTransporte.IDTRAN_Recibos, ACDTransporte" />
+      <alias alias="IDTRAN_Rutas" type="ACDTransporte.IDTRAN_Rutas, ACDTransporte" />
+      <alias alias="IDTRAN_Vehiculos" type="ACDTransporte.IDTRAN_Vehiculos, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosConductores" type="ACDTransporte.IDTRAN_VehiculosConductores, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosIncidencias" type="ACDTransporte.IDTRAN_VehiculosIncidencias, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosInventario" type="ACDTransporte.IDTRAN_VehiculosInventario, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosInventarioDetalle" type="ACDTransporte.IDTRAN_VehiculosInventarioDetalle, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosMantenimiento" type="ACDTransporte.IDTRAN_VehiculosMantenimiento, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosNeumaticos" type="ACDTransporte.IDTRAN_VehiculosNeumaticos, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosRanflas" type="ACDTransporte.IDTRAN_VehiculosRanflas, ACDTransporte" />
+      <alias alias="IDTRAN_VehiculosSeguros" type="ACDTransporte.IDTRAN_VehiculosSeguros, ACDTransporte" />
+      <alias alias="IDTRAN_Viajes" type="ACDTransporte.IDTRAN_Viajes, ACDTransporte" />
+      <alias alias="IDTRAN_ViajesGastos" type="ACDTransporte.IDTRAN_ViajesGastos, ACDTransporte" />
+      <alias alias="IDTRAN_ViajesIngresos" type="ACDTransporte.IDTRAN_ViajesIngresos, ACDTransporte" />
+      <alias alias="IDTRAN_ViajesNeumaticos" type="ACDTransporte.IDTRAN_ViajesNeumaticos, ACDTransporte" />
+      <alias alias="IDTRAN_ViajesVehiculos" type="ACDTransporte.IDTRAN_ViajesVehiculos, ACDTransporte" />
+      <alias alias="IDAdministracionViajes" type="ACDTransporte.IDAdministracionViajes, ACDTransporte" />
+      <alias alias="IDAdministracionVehiculos" type="ACDTransporte.IDAdministracionVehiculos, ACDTransporte" />
+      <alias alias="IDAdministracionNeumaticos" type="ACDTransporte.IDAdministracionNeumaticos, ACDTransporte" />
+      <alias alias="IDMovimientosNeumaticos" type="ACDTransporte.IDMovimientosNeumaticos, ACDTransporte" />
+      <alias alias="IDRevisionVehicularPostViaje" type="ACDTransporte.IDRevisionVehicularPostViaje, ACDTransporte" />
+      <alias alias="IDMantenimientosVehicular" type="ACDTransporte.IDMantenimientosVehicular, ACDTransporte" />
+      <alias alias="IDPlanillasConductor" type="ACDTransporte.IDPlanillasConductor, ACDTransporte" />
+      <alias alias="IDCobrosPendientes" type="ACDTransporte.IDCobrosPendientes, ACDTransporte" />
+      <alias alias="IDAdministracionCaja" type="ACDTransporte.IDAdministracionCaja, ACDTransporte" />
+      <alias alias="IDGenerarGuias" type="ACDTransporte.IDGenerarGuias, ACDTransporte" />
+      <alias alias="IDGenerarDocsVentaTrans" type="ACDTransporte.IDGenerarDocsVentaTrans, ACDTransporte" />
+      <!--Implementacion del modulo de logistica-->
+      <alias alias="IDABAS_DocsCompra" type="ACDLogistica.IDABAS_DocsCompra, ACDLogistica" />
+      <alias alias="IDABAS_DocsCompraDetalle" type="ACDLogistica.IDABAS_DocsCompraDetalle, ACDLogistica" />
+      <!--Implementacion del modulo de Ventas-->
+      <alias alias="IDPeriodos" type="ACDVentas.IDPeriodos, ACDVentas" />
+      <alias alias="IDParametros" type="ACDVentas.IDParametros, ACDVentas" />
+      <alias alias="IDPrecios" type="ACDVentas.IDPrecios, ACDVentas" />
+      <alias alias="IDProveedores" type="ACDVentas.IDProveedores, ACDVentas" />
+      <alias alias="IDEntidades" type="ACDVentas.IDEntidades, ACDVentas" />
+      <alias alias="IDDirecciones" type="ACDVentas.IDDirecciones, ACDVentas" />
+      <alias alias="IDEntidadesRoles" type="ACDVentas.IDEntidadesRoles, ACDVentas" />
+      <alias alias="IDLineas" type="ACDVentas.IDLineas, ACDVentas" />
+      <alias alias="IDZonas" type="ACDVentas.IDZonas, ACDVentas" />
+      <alias alias="IDTipoCambio" type="ACDVentas.IDTipoCambio, ACDVentas" />
+      <alias alias="IDTelefonos" type="ACDVentas.IDTelefonos, ACDVentas" />
+      <alias alias="IDTipos" type="ACDVentas.IDTipos, ACDVentas" />
+      <alias alias="IDUsuariosPorPuntoVenta" type="ACDVentas.IDUsuariosPorPuntoVenta, ACDVentas" />
+      <alias alias="IDUbigeos" type="ACDVentas.IDUbigeos, ACDVentas" />
+      <alias alias="IDRoles" type="ACDVentas.IDRoles, ACDVentas" />
+      <alias alias="IDPuntoVenta" type="ACDVentas.IDPuntoVenta, ACDVentas" />
+      <alias alias="IDStocks" type="ACDVentas.IDStocks, ACDVentas" />
+      <alias alias="IDSucursales" type="ACDVentas.IDSucursales, ACDVentas" />
+      <alias alias="IDAuditoria" type="ACDVentas.IDAuditoria, ACDVentas" />
+      <alias alias="IDArticulos" type="ACDVentas.IDArticulos, ACDVentas" />
+      <alias alias="IDConductores" type="ACDVentas.IDConductores, ACDVentas" />
+      
+      <alias alias="IDBancos" type="ACDVentas.IDBancos, ACDVentas" />
+      <alias alias="IDClientes" type="ACDVentas.IDClientes, ACDVentas" />
+      <alias alias="IDColor" type="ACDVentas.IDColor, ACDVentas" />
+
+      <alias alias="IDEntidadRelacion" type="ACDVentas.IDEntidadRelacion, ACDVentas" />
+      <alias alias="IDAlmacenes" type="ACDVentas.IDAlmacenes, ACDVentas" />
+      <alias alias="IDCorrelativos" type="ACDVentas.IDCorrelativos, ACDVentas" />
+
+      <alias alias="IDConsultaArticulos" type="ACDVentas.IDConsultaArticulos, ACDVentas" />
+      <alias alias="IDVENT_PVentDocumento" type="ACDVentas.IDVENT_PVentDocumento, ACDVentas" />
+      <alias alias="IDVENT_ListaPrecios" type="ACDVentas.IDVENT_ListaPrecios, ACDVentas" />
+      <alias alias="IDVENT_DocsVentaDetalle" type="ACDVentas.IDVENT_DocsVentaDetalle, ACDVentas" />
+      <alias alias="IDVENT_DocsVenta" type="ACDVentas.IDVENT_DocsVenta, ACDVentas" />
+      <alias alias="IDGenerarDocsVenta" type="ACDVentas.IDGenerarDocsVenta, ACDVentas" />
+
+      <assembly name="ACDVentas" />
+      <assembly name="ACDLogistica" />
+      <assembly name="ACDTransporte" />
+
+		<container>
+         <register type="IDDocumentos" name="documentosDAO" mapTo="ACDTransporte.DDocumentos" />
+         <register type="IDTRAN_CombustibleConsumo" name="tran_combustibleconsumoDAO" mapTo="ACDTransporte.DTRAN_CombustibleConsumo" />
+         <register type="IDTRAN_Conductores" name="tran_conductoresDAO" mapTo="ACDTransporte.DTRAN_Conductores" />
+         <register type="IDTRAN_Cotizaciones" name="tran_cotizacionesDAO" mapTo="ACDTransporte.DTRAN_Cotizaciones" />
+         <register type="IDTRAN_CotizacionesDetalle" name="tran_cotizacionesdetalleDAO" mapTo="ACDTransporte.DTRAN_CotizacionesDetalle" />
+         <register type="IDTRAN_Documentos" name="tran_documentosDAO" mapTo="ACDTransporte.DTRAN_Documentos" />
+         <register type="IDTRAN_DocumentosDetalle" name="tran_documentosdetalleDAO" mapTo="ACDTransporte.DTRAN_DocumentosDetalle" />
+         <register type="IDTRAN_Fletes" name="tran_fletesDAO" mapTo="ACDTransporte.DTRAN_Fletes" />
+         <register type="IDTRAN_GuiasTransportista" name="tran_guiastransportistaDAO" mapTo="ACDTransporte.DTRAN_GuiasTransportista" />
+         <register type="IDTRAN_GuiasTransportistaDetalles" name="tran_guiastransportistadetallesDAO" mapTo="ACDTransporte.DTRAN_GuiasTransportistaDetalles" />
+         <register type="IDTRAN_IncidenciasViajes" name="tran_incidenciasviajesDAO" mapTo="ACDTransporte.DTRAN_IncidenciasViajes" />
+         <register type="IDTRAN_MovimientosAlmacenes" name="tran_movimientosalmacenesDAO" mapTo="ACDTransporte.DTRAN_MovimientosAlmacenes" />
+         <register type="IDTRAN_MovimientosNeumaticos" name="tran_movimientosneumaticosDAO" mapTo="ACDTransporte.DTRAN_MovimientosNeumaticos" />
+         <register type="IDTRAN_Neumaticos" name="tran_neumaticosDAO" mapTo="ACDTransporte.DTRAN_Neumaticos" />
+         <register type="IDTRAN_NeumaticosIncidencias" name="tran_neumaticosincidenciasDAO" mapTo="ACDTransporte.DTRAN_NeumaticosIncidencias" />
+         <register type="IDTRAN_OrdenesTransportes" name="tran_ordenestransportesDAO" mapTo="ACDTransporte.DTRAN_OrdenesTransportes" />
+         <register type="IDTRAN_Proveedores" name="tran_proveedoresDAO" mapTo="ACDTransporte.DTRAN_Proveedores" />
+         <register type="IDTRAN_Ranflas" name="tran_ranflasDAO" mapTo="ACDTransporte.DTRAN_Ranflas" />
+         <register type="IDTRAN_Recibos" name="tran_recibosDAO" mapTo="ACDTransporte.DTRAN_Recibos" />
+         <register type="IDTRAN_Rutas" name="tran_rutasDAO" mapTo="ACDTransporte.DTRAN_Rutas" />
+         <register type="IDTRAN_Vehiculos" name="tran_vehiculosDAO" mapTo="ACDTransporte.DTRAN_Vehiculos" />
+         <register type="IDTRAN_VehiculosConductores" name="tran_vehiculosconductoresDAO" mapTo="ACDTransporte.DTRAN_VehiculosConductores" />
+         <register type="IDTRAN_VehiculosIncidencias" name="tran_vehiculosincidenciasDAO" mapTo="ACDTransporte.DTRAN_VehiculosIncidencias" />
+         <register type="IDTRAN_VehiculosInventario" name="tran_vehiculosinventarioDAO" mapTo="ACDTransporte.DTRAN_VehiculosInventario" />
+         <register type="IDTRAN_VehiculosInventarioDetalle" name="tran_vehiculosinventariodetalleDAO" mapTo="ACDTransporte.DTRAN_VehiculosInventarioDetalle" />
+         <register type="IDTRAN_VehiculosMantenimiento" name="tran_vehiculosmantenimientoDAO" mapTo="ACDTransporte.DTRAN_VehiculosMantenimiento" />
+         <register type="IDTRAN_VehiculosNeumaticos" name="tran_vehiculosneumaticosDAO" mapTo="ACDTransporte.DTRAN_VehiculosNeumaticos" />
+         <register type="IDTRAN_VehiculosRanflas" name="tran_vehiculosranflasDAO" mapTo="ACDTransporte.DTRAN_VehiculosRanflas" />
+         <register type="IDTRAN_VehiculosSeguros" name="tran_vehiculossegurosDAO" mapTo="ACDTransporte.DTRAN_VehiculosSeguros" />
+         <register type="IDTRAN_Viajes" name="tran_viajesDAO" mapTo="ACDTransporte.DTRAN_Viajes" />
+         <register type="IDTRAN_ViajesGastos" name="tran_viajesgastosDAO" mapTo="ACDTransporte.DTRAN_ViajesGastos" />
+         <register type="IDTRAN_ViajesIngresos" name="tran_viajesingresosDAO" mapTo="ACDTransporte.DTRAN_ViajesIngresos" />
+         <register type="IDTRAN_ViajesNeumaticos" name="tran_viajesneumaticosDAO" mapTo="ACDTransporte.DTRAN_ViajesNeumaticos" />
+         <register type="IDTRAN_ViajesVehiculos" name="tran_viajesvehiculosDAO" mapTo="ACDTransporte.DTRAN_ViajesVehiculos" />
+         <register type="IDAdministracionViajes" name="administracionviajesDAO" mapTo="ACDTransporte.DAdministracionViajes" />
+         <register type="IDAdministracionVehiculos" name="administracionvehiculosDAO" mapTo="ACDTransporte.DAdministracionVehiculos" />
+         <register type="IDAdministracionNeumaticos" name="administracionneumaticosDAO" mapTo="ACDTransporte.DAdministracionNeumaticos" />
+         <register type="IDMovimientosNeumaticos" name="movimientosneumaticosDAO" mapTo="ACDTransporte.DMovimientosNeumaticos" />
+         <register type="IDRevisionVehicularPostViaje" name="revisionvehicularpostviajeDAO" mapTo="ACDTransporte.DRevisionVehicularPostViaje" />
+         <register type="IDMantenimientosVehicular" name="mantenimientosvehicularDAO" mapTo="ACDTransporte.DMantenimientosVehicular" />
+         <register type="IDPlanillasConductor" name="planillasconductorDAO" mapTo="ACDTransporte.DPlanillasConductor" />
+         <register type="IDCobrosPendientes" name="cobrospendientesDAO" mapTo="ACDTransporte.DCobrosPendientes" />
+         <register type="IDAdministracionCaja" name="administracioncajaDAO" mapTo="ACDTransporte.DAdministracionCaja" />
+         <register type="IDGenerarGuias" name="generarguiasDAO" mapTo="ACDTransporte.DGenerarGuias" />
+         <register type="IDGenerarDocsVentaTrans" name="generardocsventatransDAO" mapTo="ACDTransporte.DGenerarDocsVentaTrans" />
+         <!--Implementacion del modulo de logistica-->
+         <register type="IDABAS_DocsCompra" name="abas_docscompraDAO" mapTo="ACDLogistica.DABAS_DocsCompra" />
+         <register type="IDABAS_DocsCompraDetalle" name="abas_docscompradetalleDAO" mapTo="ACDLogistica.DABAS_DocsCompraDetalle" />
+         <!--Implementacion del modulo de Ventas-->
+         <register type="IDParametros" name="parametrosDAO" mapTo="ACDVentas.DParametros" />
+         <register type="IDPrecios" name="preciosDAO" mapTo="ACDVentas.DPrecios" />
+         <register type="IDProveedores" name="proveedoresDAO" mapTo="ACDVentas.DProveedores" />
+         <register type="IDEntidades" name="entidadesDAO" mapTo="ACDVentas.DEntidades" />
+         <register type="IDDirecciones" name="direccionesDAO" mapTo="ACDVentas.DDirecciones" />
+         <register type="IDEntidadesRoles" name="entidadesrolesDAO" mapTo="ACDVentas.DEntidadesRoles" />
+         <register type="IDLineas" name="lineasDAO" mapTo="ACDVentas.DLineas" />
+         <register type="IDZonas" name="zonasDAO" mapTo="ACDVentas.DZonas" />
+         <register type="IDTipoCambio" name="tipocambioDAO" mapTo="ACDVentas.DTipoCambio" />
+         <register type="IDTelefonos" name="telefonosDAO" mapTo="ACDVentas.DTelefonos" />
+         <register type="IDTipos" name="tiposDAO" mapTo="ACDVentas.DTipos" />
+         <register type="IDUsuariosPorPuntoVenta" name="usuariosporpuntoventaDAO" mapTo="ACDVentas.DUsuariosPorPuntoVenta" />
+         <register type="IDUbigeos" name="ubigeosDAO" mapTo="ACDVentas.DUbigeos" />
+         <register type="IDRoles" name="rolesDAO" mapTo="ACDVentas.DRoles" />
+         <register type="IDPuntoVenta" name="puntoventaDAO" mapTo="ACDVentas.DPuntoVenta" />
+         <register type="IDStocks" name="stocksDAO" mapTo="ACDVentas.DStocks" />
+         <register type="IDSucursales" name="sucursalesDAO" mapTo="ACDVentas.DSucursales" />
+         <register type="IDArticulos" name="articulosDAO" mapTo="ACDVentas.DArticulos" />
+         <register type="IDConductores" name="conductoresDAO" mapTo="ACDVentas.DConductores" />
+         
+         <register type="IDBancos" name="bancosDAO" mapTo="ACDVentas.DBancos" />
+         <register type="IDClientes" name="clientesDAO" mapTo="ACDVentas.DClientes" />
+         <register type="IDColor" name="colorDAO" mapTo="ACDVentas.DColor" />
+         
+         <register type="IDEntidadRelacion" name="entidadrelacionDAO" mapTo="ACDVentas.DEntidadRelacion" />
+         <register type="IDAlmacenes" name="almacenesDAO" mapTo="ACDVentas.DAlmacenes" />
+         <register type="IDCorrelativos" name="correlativosDAO" mapTo="ACDVentas.DCorrelativos" />
+
+         <register type="IDConsultaArticulos" name="consultaarticulosDAO" mapTo="ACDVentas.DConsultaArticulos" />
+         <register type="IDVENT_PVentDocumento" name="vent_pventdocumentoDAO" mapTo="ACDVentas.DVENT_PVentDocumento" />
+         <register type="IDVENT_ListaPrecios" name="vent_listapreciosDAO" mapTo="ACDVentas.DVENT_ListaPrecios" />
+         <register type="IDVENT_DocsVentaDetalle" name="vent_docsventadetalleDAO" mapTo="ACDVentas.DVENT_DocsVentaDetalle" />
+         <register type="IDVENT_DocsVenta" name="vent_docsventaDAO" mapTo="ACDVentas.DVENT_DocsVenta" />
+         <register type="IDGenerarDocsVenta" name="generardocsventaDAO" mapTo="ACDVentas.DGenerarDocsVenta" />
+      </container>
+
+	</AppDUnity>
+
+   <system.diagnostics>
+      <sources>
+         <!-- En esta secciÃ³n se define la configuraciÃ³n del registro para My.Application.Log -->
+         <source name="DefaultSource" switchName="DefaultSwitch">
+            <listeners>
+               <add name="FileLog"/>
+               <!-- Quite los comentarios de la secciÃ³n posterior para escribir en el registro de eventos de la aplicaciÃ³n -->
+               <!--<add name="EventLog"/>-->
+            </listeners>
+         </source>
+      </sources>
+      <switches>
+         <add name="DefaultSwitch" value="Information" />
+      </switches>
+      <sharedListeners>
+         <add name="FileLog"
+              type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+              initializeData="FileLogWriter"/>
+         <!-- Quite los comentarios de la secciÃ³n posterior y reemplace APPLICATION_NAME con el nombre de su aplicaciÃ³n para escribir en el registro de sucesos de la aplicaciÃ³n -->
+         <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
+      </sharedListeners>
+   </system.diagnostics>
+</configuration>
+

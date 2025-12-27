@@ -1,0 +1,1348 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ETRAN_GuiasTransportista
+
+#Region " Campos "
+	
+	Private m_gtran_codigo As String
+	Private m_zonas_codigo As String
+	Private m_sucur_id As Short
+	Private m_flete_id As Long
+	Private m_tipos_codtipodocumento As String
+	Private m_gtran_id As Long
+	Private m_gtran_serie As String
+	Private m_gtran_numero As Integer
+	Private m_gtran_fecha As Date
+	Private m_gtran_fechatraslado As Date
+	Private m_gtran_nrocomprobantepago As String
+	Private m_entid_codigo As String
+	Private m_gtran_rucproveedor As String
+	Private m_gtran_descentidadproveedor As String
+	Private m_gtran_direccionproveedor As String
+	Private m_ubigo_codigoproveedor As String
+	Private m_gtran_zonaproveedor As String
+	Private m_entid_codigoremitente As String
+	Private m_gtran_rucremitente As String
+	Private m_gtran_descentidadremitente As String
+	Private m_gtran_direccionremitente As String
+	Private m_ubigo_codigoremitente As String
+	Private m_gtran_zonaremitente As String
+	Private m_entid_codigodestinatario As String
+	Private m_gtran_rucdestinatario As String
+	Private m_gtran_desentidaddestinatario As String
+	Private m_gtran_direcciondestinatario As String
+	Private m_ubigo_codigodestinatario As String
+	Private m_gtran_zonadestinatario As String
+	Private m_gtran_razsocllegada As String
+	Private m_entid_codigotransportista As String
+    Private m_entid_codigoconductor As String
+    Private m_gtran_licenciaconductor As String
+    Private m_vehic_id As Long
+    Private m_vehic_placa As String
+
+	Private m_gtran_descripcionvehiculo As String
+	Private m_tipos_codmotivotraslado As String
+	Private m_gtran_costominimo As Decimal
+	Private m_gtran_pesototal As Decimal
+	Private m_gtran_nropedido As String
+	Private m_gtran_remitente As String
+	Private m_gtran_subcontrato As String
+	Private m_gtran_subcontratorazonsocial As String
+	Private m_gtran_subcontratoruc As String
+	Private m_gtran_subcontratodireccion As String
+	Private m_gtran_contratapagaservicio As Short
+	Private m_gtran_estado As String
+	Private m_gtran_certificadosvehiculo As String
+    Private m_gtran_DescConductor as String
+
+	Private m_gtran_usrcrea As String
+	Private m_gtran_feccrea As Date
+	Private m_gtran_usrmod As String
+	Private m_gtran_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+    Private m_generado As Decimal
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACETransporte.My.Resources.xmlTRAN_GuiasTransportista 'ESTE ES UN ARCHIVO XML 
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property GTRAN_Codigo() As String
+		Get
+			return m_gtran_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_codigo) Then
+				If Not m_gtran_codigo.Equals(value) Then
+					m_gtran_codigo = value
+					OnGTRAN_CodigoChanged(m_gtran_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_codigo = value
+				OnGTRAN_CodigoChanged(m_gtran_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ZONAS_Codigo() As String
+		Get
+			return m_zonas_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_zonas_codigo) Then
+				If Not m_zonas_codigo.Equals(value) Then
+					m_zonas_codigo = value
+					OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_zonas_codigo = value
+				OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property SUCUR_Id() As Short
+		Get
+			return m_sucur_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_sucur_id) Then
+				If Not m_sucur_id.Equals(value) Then
+					m_sucur_id = value
+					OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+				End If
+			Else
+				m_sucur_id = value
+				OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Id() As Long
+		Get
+			return m_flete_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_flete_id) Then
+				If Not m_flete_id.Equals(value) Then
+					m_flete_id = value
+					OnFLETE_IdChanged(m_flete_id, EventArgs.Empty)
+				End If
+			Else
+				m_flete_id = value
+				OnFLETE_IdChanged(m_flete_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoDocumento() As String
+		Get
+			return m_tipos_codtipodocumento
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipodocumento) Then
+				If Not m_tipos_codtipodocumento.Equals(value) Then
+					m_tipos_codtipodocumento = value
+					OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipodocumento = value
+				OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Id() As Long
+		Get
+			return m_gtran_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_gtran_id) Then
+				If Not m_gtran_id.Equals(value) Then
+					m_gtran_id = value
+					OnGTRAN_IdChanged(m_gtran_id, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_id = value
+				OnGTRAN_IdChanged(m_gtran_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Serie() As String
+		Get
+			return m_gtran_serie
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_serie) Then
+				If Not m_gtran_serie.Equals(value) Then
+					m_gtran_serie = value
+					OnGTRAN_SerieChanged(m_gtran_serie, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_serie = value
+				OnGTRAN_SerieChanged(m_gtran_serie, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Numero() As Integer
+		Get
+			return m_gtran_numero
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_gtran_numero) Then
+				If Not m_gtran_numero.Equals(value) Then
+					m_gtran_numero = value
+					OnGTRAN_NumeroChanged(m_gtran_numero, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_numero = value
+				OnGTRAN_NumeroChanged(m_gtran_numero, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Fecha() As Date
+		Get
+			return m_gtran_fecha
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_gtran_fecha) Then
+				If Not m_gtran_fecha.Equals(value) Then
+					m_gtran_fecha = value
+					OnGTRAN_FechaChanged(m_gtran_fecha, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_fecha = value
+				OnGTRAN_FechaChanged(m_gtran_fecha, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_FechaTraslado() As Date
+		Get
+			return m_gtran_fechatraslado
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_gtran_fechatraslado) Then
+				If Not m_gtran_fechatraslado.Equals(value) Then
+					m_gtran_fechatraslado = value
+					OnGTRAN_FechaTrasladoChanged(m_gtran_fechatraslado, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_fechatraslado = value
+				OnGTRAN_FechaTrasladoChanged(m_gtran_fechatraslado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_NroComprobantePago() As String
+		Get
+			return m_gtran_nrocomprobantepago
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_nrocomprobantepago) Then
+				If Not m_gtran_nrocomprobantepago.Equals(value) Then
+					m_gtran_nrocomprobantepago = value
+					OnGTRAN_NroComprobantePagoChanged(m_gtran_nrocomprobantepago, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_nrocomprobantepago = value
+				OnGTRAN_NroComprobantePagoChanged(m_gtran_nrocomprobantepago, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_Codigo() As String
+		Get
+			return m_entid_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigo) Then
+				If Not m_entid_codigo.Equals(value) Then
+					m_entid_codigo = value
+					OnENTID_CodigoChanged(m_entid_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigo = value
+				OnENTID_CodigoChanged(m_entid_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_RucProveedor() As String
+		Get
+			return m_gtran_rucproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_rucproveedor) Then
+				If Not m_gtran_rucproveedor.Equals(value) Then
+					m_gtran_rucproveedor = value
+					OnGTRAN_RucProveedorChanged(m_gtran_rucproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_rucproveedor = value
+				OnGTRAN_RucProveedorChanged(m_gtran_rucproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DescEntidadProveedor() As String
+		Get
+			return m_gtran_descentidadproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_descentidadproveedor) Then
+				If Not m_gtran_descentidadproveedor.Equals(value) Then
+					m_gtran_descentidadproveedor = value
+					OnGTRAN_DescEntidadProveedorChanged(m_gtran_descentidadproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_descentidadproveedor = value
+				OnGTRAN_DescEntidadProveedorChanged(m_gtran_descentidadproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DireccionProveedor() As String
+		Get
+			return m_gtran_direccionproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_direccionproveedor) Then
+				If Not m_gtran_direccionproveedor.Equals(value) Then
+					m_gtran_direccionproveedor = value
+					OnGTRAN_DireccionProveedorChanged(m_gtran_direccionproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_direccionproveedor = value
+				OnGTRAN_DireccionProveedorChanged(m_gtran_direccionproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property UBIGO_CodigoProveedor() As String
+		Get
+			return m_ubigo_codigoproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ubigo_codigoproveedor) Then
+				If Not m_ubigo_codigoproveedor.Equals(value) Then
+					m_ubigo_codigoproveedor = value
+					OnUBIGO_CodigoProveedorChanged(m_ubigo_codigoproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_ubigo_codigoproveedor = value
+				OnUBIGO_CodigoProveedorChanged(m_ubigo_codigoproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_ZonaProveedor() As String
+		Get
+			return m_gtran_zonaproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_zonaproveedor) Then
+				If Not m_gtran_zonaproveedor.Equals(value) Then
+					m_gtran_zonaproveedor = value
+					OnGTRAN_ZonaProveedorChanged(m_gtran_zonaproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_zonaproveedor = value
+				OnGTRAN_ZonaProveedorChanged(m_gtran_zonaproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoRemitente() As String
+		Get
+			return m_entid_codigoremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigoremitente) Then
+				If Not m_entid_codigoremitente.Equals(value) Then
+					m_entid_codigoremitente = value
+					OnENTID_CodigoRemitenteChanged(m_entid_codigoremitente, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigoremitente = value
+				OnENTID_CodigoRemitenteChanged(m_entid_codigoremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_RUCRemitente() As String
+		Get
+			return m_gtran_rucremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_rucremitente) Then
+				If Not m_gtran_rucremitente.Equals(value) Then
+					m_gtran_rucremitente = value
+					OnGTRAN_RUCRemitenteChanged(m_gtran_rucremitente, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_rucremitente = value
+				OnGTRAN_RUCRemitenteChanged(m_gtran_rucremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DescEntidadRemitente() As String
+		Get
+			return m_gtran_descentidadremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_descentidadremitente) Then
+				If Not m_gtran_descentidadremitente.Equals(value) Then
+					m_gtran_descentidadremitente = value
+					OnGTRAN_DescEntidadRemitenteChanged(m_gtran_descentidadremitente, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_descentidadremitente = value
+				OnGTRAN_DescEntidadRemitenteChanged(m_gtran_descentidadremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DireccionRemitente() As String
+		Get
+			return m_gtran_direccionremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_direccionremitente) Then
+				If Not m_gtran_direccionremitente.Equals(value) Then
+					m_gtran_direccionremitente = value
+					OnGTRAN_DireccionRemitenteChanged(m_gtran_direccionremitente, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_direccionremitente = value
+				OnGTRAN_DireccionRemitenteChanged(m_gtran_direccionremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property UBIGO_CodigoRemitente() As String
+		Get
+			return m_ubigo_codigoremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ubigo_codigoremitente) Then
+				If Not m_ubigo_codigoremitente.Equals(value) Then
+					m_ubigo_codigoremitente = value
+					OnUBIGO_CodigoRemitenteChanged(m_ubigo_codigoremitente, EventArgs.Empty)
+				End If
+			Else
+				m_ubigo_codigoremitente = value
+				OnUBIGO_CodigoRemitenteChanged(m_ubigo_codigoremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_ZonaRemitente() As String
+		Get
+			return m_gtran_zonaremitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_zonaremitente) Then
+				If Not m_gtran_zonaremitente.Equals(value) Then
+					m_gtran_zonaremitente = value
+					OnGTRAN_ZonaRemitenteChanged(m_gtran_zonaremitente, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_zonaremitente = value
+				OnGTRAN_ZonaRemitenteChanged(m_gtran_zonaremitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoDestinatario() As String
+		Get
+			return m_entid_codigodestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigodestinatario) Then
+				If Not m_entid_codigodestinatario.Equals(value) Then
+					m_entid_codigodestinatario = value
+					OnENTID_CodigoDestinatarioChanged(m_entid_codigodestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigodestinatario = value
+				OnENTID_CodigoDestinatarioChanged(m_entid_codigodestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_RUCDestinatario() As String
+		Get
+			return m_gtran_rucdestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_rucdestinatario) Then
+				If Not m_gtran_rucdestinatario.Equals(value) Then
+					m_gtran_rucdestinatario = value
+					OnGTRAN_RUCDestinatarioChanged(m_gtran_rucdestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_rucdestinatario = value
+				OnGTRAN_RUCDestinatarioChanged(m_gtran_rucdestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DesEntidadDestinatario() As String
+		Get
+			return m_gtran_desentidaddestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_desentidaddestinatario) Then
+				If Not m_gtran_desentidaddestinatario.Equals(value) Then
+					m_gtran_desentidaddestinatario = value
+					OnGTRAN_DesEntidadDestinatarioChanged(m_gtran_desentidaddestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_desentidaddestinatario = value
+				OnGTRAN_DesEntidadDestinatarioChanged(m_gtran_desentidaddestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_DireccionDestinatario() As String
+		Get
+			return m_gtran_direcciondestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_direcciondestinatario) Then
+				If Not m_gtran_direcciondestinatario.Equals(value) Then
+					m_gtran_direcciondestinatario = value
+					OnGTRAN_DireccionDestinatarioChanged(m_gtran_direcciondestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_direcciondestinatario = value
+				OnGTRAN_DireccionDestinatarioChanged(m_gtran_direcciondestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property UBIGO_CodigoDestinatario() As String
+		Get
+			return m_ubigo_codigodestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ubigo_codigodestinatario) Then
+				If Not m_ubigo_codigodestinatario.Equals(value) Then
+					m_ubigo_codigodestinatario = value
+					OnUBIGO_CodigoDestinatarioChanged(m_ubigo_codigodestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_ubigo_codigodestinatario = value
+				OnUBIGO_CodigoDestinatarioChanged(m_ubigo_codigodestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_ZonaDestinatario() As String
+		Get
+			return m_gtran_zonadestinatario
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_zonadestinatario) Then
+				If Not m_gtran_zonadestinatario.Equals(value) Then
+					m_gtran_zonadestinatario = value
+					OnGTRAN_ZonaDestinatarioChanged(m_gtran_zonadestinatario, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_zonadestinatario = value
+				OnGTRAN_ZonaDestinatarioChanged(m_gtran_zonadestinatario, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_RazSocLlegada() As String
+		Get
+			return m_gtran_razsocllegada
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_razsocllegada) Then
+				If Not m_gtran_razsocllegada.Equals(value) Then
+					m_gtran_razsocllegada = value
+					OnGTRAN_RazSocLlegadaChanged(m_gtran_razsocllegada, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_razsocllegada = value
+				OnGTRAN_RazSocLlegadaChanged(m_gtran_razsocllegada, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoTransportista() As String
+		Get
+			return m_entid_codigotransportista
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigotransportista) Then
+				If Not m_entid_codigotransportista.Equals(value) Then
+					m_entid_codigotransportista = value
+					OnENTID_CodigoTransportistaChanged(m_entid_codigotransportista, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigotransportista = value
+				OnENTID_CodigoTransportistaChanged(m_entid_codigotransportista, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoConductor() As String
+		Get
+			return m_entid_codigoconductor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigoconductor) Then
+				If Not m_entid_codigoconductor.Equals(value) Then
+					m_entid_codigoconductor = value
+					OnENTID_CodigoConductorChanged(m_entid_codigoconductor, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigoconductor = value
+				OnENTID_CodigoConductorChanged(m_entid_codigoconductor, EventArgs.Empty)
+			End If
+		End Set
+    End Property
+    Public Property GTRAN_LicenciaConductor() As String
+        Get
+            Return m_gtran_licenciaconductor
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_gtran_licenciaconductor) Then
+                If Not m_gtran_licenciaconductor.Equals(value) Then
+                    m_gtran_licenciaconductor = value
+                    OnGTRAN_LicenciaConductorChanged(m_gtran_licenciaconductor, EventArgs.Empty)
+                End If
+            Else
+                m_gtran_licenciaconductor = value
+                OnGTRAN_LicenciaConductorChanged(m_gtran_licenciaconductor, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+	Public Property VEHIC_Id() As Long
+		Get
+			return m_vehic_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_vehic_id) Then
+				If Not m_vehic_id.Equals(value) Then
+					m_vehic_id = value
+					OnVEHIC_IdChanged(m_vehic_id, EventArgs.Empty)
+				End If
+			Else
+				m_vehic_id = value
+				OnVEHIC_IdChanged(m_vehic_id, EventArgs.Empty)
+			End If
+		End Set
+    End Property
+    Public Property VEHIC_Placa() As String
+        Get
+            Return m_vehic_placa
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_vehic_placa) Then
+                If Not m_vehic_placa.Equals(value) Then
+                    m_vehic_placa = value
+                    OnVEHIC_PlacaChanged(m_vehic_placa, EventArgs.Empty)
+                End If
+            Else
+                m_vehic_placa = value
+                OnVEHIC_PlacaChanged(m_vehic_placa, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+	Public Property GTRAN_DescripcionVehiculo() As String
+		Get
+			return m_gtran_descripcionvehiculo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_descripcionvehiculo) Then
+				If Not m_gtran_descripcionvehiculo.Equals(value) Then
+					m_gtran_descripcionvehiculo = value
+					OnGTRAN_DescripcionVehiculoChanged(m_gtran_descripcionvehiculo, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_descripcionvehiculo = value
+				OnGTRAN_DescripcionVehiculoChanged(m_gtran_descripcionvehiculo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodMotivoTraslado() As String
+		Get
+			return m_tipos_codmotivotraslado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codmotivotraslado) Then
+				If Not m_tipos_codmotivotraslado.Equals(value) Then
+					m_tipos_codmotivotraslado = value
+					OnTIPOS_CodMotivoTrasladoChanged(m_tipos_codmotivotraslado, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codmotivotraslado = value
+				OnTIPOS_CodMotivoTrasladoChanged(m_tipos_codmotivotraslado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_CostoMinimo() As Decimal
+		Get
+			return m_gtran_costominimo
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_gtran_costominimo) Then
+				If Not m_gtran_costominimo.Equals(value) Then
+					m_gtran_costominimo = value
+					OnGTRAN_CostoMinimoChanged(m_gtran_costominimo, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_costominimo = value
+				OnGTRAN_CostoMinimoChanged(m_gtran_costominimo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_PesoTotal() As Decimal
+		Get
+			return m_gtran_pesototal
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_gtran_pesototal) Then
+				If Not m_gtran_pesototal.Equals(value) Then
+					m_gtran_pesototal = value
+					OnGTRAN_PesoTotalChanged(m_gtran_pesototal, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_pesototal = value
+				OnGTRAN_PesoTotalChanged(m_gtran_pesototal, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_NroPedido() As String
+		Get
+			return m_gtran_nropedido
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_nropedido) Then
+				If Not m_gtran_nropedido.Equals(value) Then
+					m_gtran_nropedido = value
+					OnGTRAN_NroPedidoChanged(m_gtran_nropedido, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_nropedido = value
+				OnGTRAN_NroPedidoChanged(m_gtran_nropedido, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Remitente() As String
+		Get
+			return m_gtran_remitente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_remitente) Then
+				If Not m_gtran_remitente.Equals(value) Then
+					m_gtran_remitente = value
+					OnGTRAN_RemitenteChanged(m_gtran_remitente, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_remitente = value
+				OnGTRAN_RemitenteChanged(m_gtran_remitente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_SubContrato() As String
+		Get
+			return m_gtran_subcontrato
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_subcontrato) Then
+				If Not m_gtran_subcontrato.Equals(value) Then
+					m_gtran_subcontrato = value
+					OnGTRAN_SubContratoChanged(m_gtran_subcontrato, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_subcontrato = value
+				OnGTRAN_SubContratoChanged(m_gtran_subcontrato, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_SubContratoRazonSocial() As String
+		Get
+			return m_gtran_subcontratorazonsocial
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_subcontratorazonsocial) Then
+				If Not m_gtran_subcontratorazonsocial.Equals(value) Then
+					m_gtran_subcontratorazonsocial = value
+					OnGTRAN_SubContratoRazonSocialChanged(m_gtran_subcontratorazonsocial, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_subcontratorazonsocial = value
+				OnGTRAN_SubContratoRazonSocialChanged(m_gtran_subcontratorazonsocial, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_SubContratoRUC() As String
+		Get
+			return m_gtran_subcontratoruc
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_subcontratoruc) Then
+				If Not m_gtran_subcontratoruc.Equals(value) Then
+					m_gtran_subcontratoruc = value
+					OnGTRAN_SubContratoRUCChanged(m_gtran_subcontratoruc, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_subcontratoruc = value
+				OnGTRAN_SubContratoRUCChanged(m_gtran_subcontratoruc, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_SubContratoDireccion() As String
+		Get
+			return m_gtran_subcontratodireccion
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_subcontratodireccion) Then
+				If Not m_gtran_subcontratodireccion.Equals(value) Then
+					m_gtran_subcontratodireccion = value
+					OnGTRAN_SubContratoDireccionChanged(m_gtran_subcontratodireccion, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_subcontratodireccion = value
+				OnGTRAN_SubContratoDireccionChanged(m_gtran_subcontratodireccion, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_ContrataPagaServicio() As Short
+		Get
+			return m_gtran_contratapagaservicio
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_gtran_contratapagaservicio) Then
+				If Not m_gtran_contratapagaservicio.Equals(value) Then
+					m_gtran_contratapagaservicio = value
+					OnGTRAN_ContrataPagaServicioChanged(m_gtran_contratapagaservicio, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_contratapagaservicio = value
+				OnGTRAN_ContrataPagaServicioChanged(m_gtran_contratapagaservicio, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_Estado() As String
+		Get
+			return m_gtran_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_estado) Then
+				If Not m_gtran_estado.Equals(value) Then
+					m_gtran_estado = value
+					OnGTRAN_EstadoChanged(m_gtran_estado, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_estado = value
+				OnGTRAN_EstadoChanged(m_gtran_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_CertificadosVehiculo() As String
+		Get
+			return m_gtran_certificadosvehiculo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_certificadosvehiculo) Then
+				If Not m_gtran_certificadosvehiculo.Equals(value) Then
+					m_gtran_certificadosvehiculo = value
+					OnGTRAN_CertificadosVehiculoChanged(m_gtran_certificadosvehiculo, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_certificadosvehiculo = value
+				OnGTRAN_CertificadosVehiculoChanged(m_gtran_certificadosvehiculo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+    Public Property GTRAN_DescConductor() As String
+		Get
+			return m_gtran_DescConductor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_gtran_DescConductor) Then
+				If Not m_gtran_DescConductor.Equals(value) Then
+					m_gtran_DescConductor = value
+					OnGTRAN_DescConductorChanged(m_gtran_DescConductor, EventArgs.Empty)
+				End If
+			Else
+				m_gtran_DescConductor = value
+				OnGTRAN_DescConductorChanged(m_gtran_DescConductor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GTRAN_UsrCrea() As String
+		Get
+			return m_gtran_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_gtran_usrcrea = value
+		End Set
+	End Property
+
+	Public Property GTRAN_FecCrea() As Date
+		Get
+			return m_gtran_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_gtran_feccrea = value
+		End Set
+	End Property
+
+	Public Property GTRAN_UsrMod() As String
+		Get
+			return m_gtran_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_gtran_usrmod = value
+		End Set
+	End Property
+
+	Public Property GTRAN_FecMod() As Date
+		Get
+			return m_gtran_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_gtran_fecmod = value
+		End Set
+	End Property
+        Public Property generado() As Integer
+        Get
+            Return m_generado
+        End Get
+        Set(ByVal value As Integer)
+            m_generado = value
+        End Set
+    End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "TRAN_GuiasTransportista"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Transportes"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event GTRAN_CodigoChanged As EventHandler
+	Public Event ZONAS_CodigoChanged As EventHandler
+	Public Event SUCUR_IdChanged As EventHandler
+	Public Event FLETE_IdChanged As EventHandler
+	Public Event TIPOS_CodTipoDocumentoChanged As EventHandler
+	Public Event GTRAN_IdChanged As EventHandler
+	Public Event GTRAN_SerieChanged As EventHandler
+	Public Event GTRAN_NumeroChanged As EventHandler
+	Public Event GTRAN_FechaChanged As EventHandler
+	Public Event GTRAN_FechaTrasladoChanged As EventHandler
+	Public Event GTRAN_NroComprobantePagoChanged As EventHandler
+	Public Event ENTID_CodigoChanged As EventHandler
+	Public Event GTRAN_RucProveedorChanged As EventHandler
+	Public Event GTRAN_DescEntidadProveedorChanged As EventHandler
+	Public Event GTRAN_DireccionProveedorChanged As EventHandler
+	Public Event UBIGO_CodigoProveedorChanged As EventHandler
+	Public Event GTRAN_ZonaProveedorChanged As EventHandler
+	Public Event ENTID_CodigoRemitenteChanged As EventHandler
+	Public Event GTRAN_RUCRemitenteChanged As EventHandler
+	Public Event GTRAN_DescEntidadRemitenteChanged As EventHandler
+	Public Event GTRAN_DireccionRemitenteChanged As EventHandler
+	Public Event UBIGO_CodigoRemitenteChanged As EventHandler
+	Public Event GTRAN_ZonaRemitenteChanged As EventHandler
+	Public Event ENTID_CodigoDestinatarioChanged As EventHandler
+	Public Event GTRAN_RUCDestinatarioChanged As EventHandler
+	Public Event GTRAN_DesEntidadDestinatarioChanged As EventHandler
+	Public Event GTRAN_DireccionDestinatarioChanged As EventHandler
+	Public Event UBIGO_CodigoDestinatarioChanged As EventHandler
+	Public Event GTRAN_ZonaDestinatarioChanged As EventHandler
+	Public Event GTRAN_RazSocLlegadaChanged As EventHandler
+	Public Event ENTID_CodigoTransportistaChanged As EventHandler
+    Public Event ENTID_CodigoConductorChanged As EventHandler
+    Public Event GTRAN_LicenciaConductorChanged As EventHandler
+    Public Event VEHIC_IdChanged As EventHandler
+    Public Event VEHIC_PlacaChanged As EventHandler
+	Public Event GTRAN_DescripcionVehiculoChanged As EventHandler
+	Public Event TIPOS_CodMotivoTrasladoChanged As EventHandler
+	Public Event GTRAN_CostoMinimoChanged As EventHandler
+	Public Event GTRAN_PesoTotalChanged As EventHandler
+	Public Event GTRAN_NroPedidoChanged As EventHandler
+	Public Event GTRAN_RemitenteChanged As EventHandler
+	Public Event GTRAN_SubContratoChanged As EventHandler
+	Public Event GTRAN_SubContratoRazonSocialChanged As EventHandler
+	Public Event GTRAN_SubContratoRUCChanged As EventHandler
+	Public Event GTRAN_SubContratoDireccionChanged As EventHandler
+	Public Event GTRAN_ContrataPagaServicioChanged As EventHandler
+	Public Event GTRAN_EstadoChanged As EventHandler
+	Public Event GTRAN_CertificadosVehiculoChanged As EventHandler
+    Public Event GTRAN_DescConductorChanged As EventHandler
+
+	Public Sub OnGTRAN_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnZONAS_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ZONAS_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnSUCUR_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent SUCUR_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_SerieChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_SerieChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_NumeroChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_NumeroChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_FechaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_FechaChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_FechaTrasladoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_FechaTrasladoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_NroComprobantePagoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_NroComprobantePagoChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_RucProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_RucProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DescEntidadProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DescEntidadProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DireccionProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DireccionProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnUBIGO_CodigoProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent UBIGO_CodigoProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_ZonaProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_ZonaProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_RUCRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_RUCRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DescEntidadRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DescEntidadRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DireccionRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DireccionRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnUBIGO_CodigoRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent UBIGO_CodigoRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_ZonaRemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_ZonaRemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_RUCDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_RUCDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DesEntidadDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DesEntidadDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_DireccionDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DireccionDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnUBIGO_CodigoDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent UBIGO_CodigoDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_ZonaDestinatarioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_ZonaDestinatarioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_RazSocLlegadaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_RazSocLlegadaChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoTransportistaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoTransportistaChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoConductorChanged(sender, e)
+    End Sub
+    Public Sub OnGTRAN_LicenciaConductorChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent GTRAN_LicenciaConductorChanged(sender, e)
+    End Sub
+
+	Public Sub OnVEHIC_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VEHIC_IdChanged(sender, e)
+    End Sub
+    Public Sub OnVEHIC_PlacaChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent VEHIC_PlacaChanged(sender, e)
+    End Sub
+
+	Public Sub OnGTRAN_DescripcionVehiculoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DescripcionVehiculoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodMotivoTrasladoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodMotivoTrasladoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_CostoMinimoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_CostoMinimoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_PesoTotalChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_PesoTotalChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_NroPedidoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_NroPedidoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_RemitenteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_RemitenteChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_SubContratoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_SubContratoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_SubContratoRazonSocialChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_SubContratoRazonSocialChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_SubContratoRUCChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_SubContratoRUCChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_SubContratoDireccionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_SubContratoDireccionChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_ContrataPagaServicioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_ContrataPagaServicioChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_EstadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGTRAN_CertificadosVehiculoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_CertificadosVehiculoChanged(sender, e)
+	End Sub
+    Public Sub OnGTRAN_DescConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GTRAN_DescConductorChanged(sender, e)
+	End Sub
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

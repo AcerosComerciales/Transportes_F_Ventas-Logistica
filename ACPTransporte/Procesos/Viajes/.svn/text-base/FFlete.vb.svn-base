@@ -1,0 +1,369 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+Imports ACFrameworkC1
+
+Imports ACEVentas
+
+Public Class FFlete
+#Region " Variables "
+   Private managerTRAN_Fletes As BTRAN_Fletes
+   Private managerTRAN_VehiculosConductores As BTRAN_VehiculosConductores
+   Private managerTRAN_Rutas As BTRAN_Rutas
+   Private managerAdministracionViajes As BAdministracionViajes
+   Private m_etran_fletes As ETRAN_Fletes
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private m_opcion As TipoIni
+   Private m_viaje As ETRAN_Viajes
+
+   Enum TipoIni
+      Normal
+      OrdToFlete
+      AgregarFlete
+   End Enum
+
+#End Region
+
+#Region " Propiedades "
+   Public Property TRAN_Fletes() As ETRAN_Fletes
+      Get
+         Return m_etran_fletes
+      End Get
+      Set(ByVal value As ETRAN_Fletes)
+         m_etran_fletes = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         'tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         'tabMantenimiento.SelectedTab = tabBusqueda
+
+         managerTRAN_Fletes = New BTRAN_Fletes
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         acTool.ACBtnBuscarVisible = False
+         m_opcion = TipoIni.Normal
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_tran_cotizaciones As ETRAN_Cotizaciones)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(x_tran_cotizaciones)
+         tabMantenimiento.TabPages.Remove(tabBusqueda)
+         m_opcion = TipoIni.OrdToFlete
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_viaje As ETRAN_Viajes, ByVal x_tran_cotizaciones As ETRAN_Cotizaciones, ByVal x_tran_vehiculo As ETRAN_Vehiculos, _
+                  ByVal x_conductor As EEntidades, ByVal x_vhcon_id As Long)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(x_tran_cotizaciones)
+         actxaCodVehiculo.ACAyuda.Enabled = False
+         actxaCodVehiculo.ReadOnly = True
+         actxaCodVehiculo.Text = x_tran_vehiculo.VEHIC_Codigo
+         actxaCodVehiculo.ACActivarAyuda = False
+         actxaPlaca.ACAyuda.Enabled = False
+         actxaPlaca.ReadOnly = True
+         actxaPlaca.Text = x_tran_vehiculo.VEHIC_Placa
+         actxaPlaca.ACActivarAyuda = False
+         m_etran_fletes.VHCON_Id = x_vhcon_id
+         m_opcion = TipoIni.AgregarFlete
+
+         actxaCodVehiculo.Text = x_tran_vehiculo.VEHIC_Id
+         actxaPlaca.Text = x_tran_vehiculo.VEHIC_Placa
+
+         txtViaje.Text = x_viaje.VIAJE_Id
+         txtIdConductor.Text = x_viaje.VIAJE_IdxConductor
+         txtGlosa.Text = x_viaje.VIAJE_Descripcion
+
+         txtCodConductor.Text = x_conductor.ENTID_Codigo
+         txtConductor.Text = x_conductor.ENTID_RazonSocial
+         txtCodCliente.Text = x_tran_cotizaciones.ENTID_Codigo.Substring(1)
+         txtRuta.Text = x_tran_cotizaciones.RUTAS_Nombre
+
+         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
+         acTool.ACBtnSalirVisible = False
+         acTool.ACBtnCancelarVisible = False
+
+         m_viaje = x_viaje
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Private Sub setInicio(ByVal x_tran_cotizaciones As ETRAN_Cotizaciones)
+      Try
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabDatos
+
+         managerTRAN_Fletes = New BTRAN_Fletes
+         managerAdministracionViajes = New BAdministracionViajes(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta, GApp.Periodo)
+         managerTRAN_VehiculosConductores = New BTRAN_VehiculosConductores
+         managerTRAN_Rutas = New BTRAN_Rutas
+
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         acTool.ACBtnBuscarVisible = False
+
+         cargarCombos()
+         ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+
+         m_etran_fletes = New ETRAN_Fletes()
+         m_etran_fletes.Instanciar(ACEInstancia.Nuevo)
+         m_etran_fletes.ENTID_Codigo = x_tran_cotizaciones.ENTID_Codigo
+         m_etran_fletes.COTIZ_Codigo = x_tran_cotizaciones.COTIZ_Codigo
+         m_etran_fletes.RUTAS_Id = x_tran_cotizaciones.RUTAS_Id
+         m_etran_fletes.FLETE_TotIngreso = x_tran_cotizaciones.COTIZ_Monto
+         m_etran_fletes.FLETE_MontoPorTM = x_tran_cotizaciones.COTIZ_MontoPorTM
+         m_etran_fletes.FLETE_Monto = x_tran_cotizaciones.COTIZ_Monto
+         m_etran_fletes.FLETE_PesoEnTM = x_tran_cotizaciones.COTIZ_PesoEnTM
+         m_etran_fletes.FLETE_ImporteIgv = x_tran_cotizaciones.COTIZ_ImporteIgv
+         m_etran_fletes.TIPOS_CodTipoMoneda = x_tran_cotizaciones.TIPOS_CodTipoMoneda
+         m_etran_fletes.FLETE_FechaTransaccion = x_tran_cotizaciones.COTIZ_FechaFlete
+
+         dtpFecLlegada.Value = x_tran_cotizaciones.COTIZ_FechaFlete
+         dtpFecProgramada.Value = x_tran_cotizaciones.COTIZ_FechaFlete
+         dtpFecSalida.Value = x_tran_cotizaciones.COTIZ_FechaFlete
+
+         '' Cargar Rutas
+         Dim _join As New List(Of ACJoin)()
+         _join.Add(New ACJoin(EUbigeos.Esquema, EUbigeos.Tabla, "UOri", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("UBIGO_Codigo", "UBIGO_CODORIGEN")} _
+                              , New ACCampos() {New ACCampos("UBIGO_Descripcion", "UBIGO_Origen")}))
+         _join.Add(New ACJoin(EUbigeos.Esquema, EUbigeos.Tabla, "UDes", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("UBIGO_Codigo", "UBIGO_CODDESTINO")} _
+                              , New ACCampos() {New ACCampos("UBIGO_Descripcion", "UBIGO_Destino")}))
+         Dim _where As New Hashtable()
+         _where.Add("RUTAS_Id", New ACWhere(m_etran_fletes.RUTAS_Id, ACWhere.TipoWhere.Igual))
+         If managerTRAN_Rutas.Cargar(_join, _where) Then
+            m_etran_fletes.UBIGO_ORIGEN = managerTRAN_Rutas.TRAN_Rutas.UBIGO_Origen
+            m_etran_fletes.UBIGO_DESTINO = managerTRAN_Rutas.TRAN_Rutas.UBIGO_Destino
+            txtOrigen.Text = m_etran_fletes.UBIGO_ORIGEN
+            txtUbiOrigen.Text = managerTRAN_Rutas.TRAN_Rutas.UBIGO_CodOrigen
+            txtDestino.Text = m_etran_fletes.UBIGO_DESTINO
+            txtUbiDestino.Text = managerTRAN_Rutas.TRAN_Rutas.UBIGO_CodDestino
+            txtCliente.Text = x_tran_cotizaciones.COTIZ_NombreCliente
+            txtCodCliente.Text = x_tran_cotizaciones.ENTID_NroDocumento
+            txtRuta.Text = x_tran_cotizaciones.RUTAS_Nombre
+            txtCodRuta.Text = x_tran_cotizaciones.RUTAS_Id
+            actxnMonto.Text = x_tran_cotizaciones.COTIZ_Monto
+            cmbTipoMoneda.SelectedValue = x_tran_cotizaciones.TIPOS_CodTipoMoneda
+            AsignarBinding()
+
+            eprError.SetError(grpVehiculo, "Campo Obligatorio")
+            eprError.SetError(dtpFecLlegada, "Campo Obligatorio")
+            eprError.SetError(dtpFecProgramada, "Campo Obligatorio")
+            eprError.SetError(dtpFecSalida, "Campo Obligatorio")
+            eprError.SetError(dtpHorLlegada, "Campo Obligatorio")
+            eprError.SetError(dtpHorProgramada, "Campo Obligatorio")
+            eprError.SetError(dtpHorSalida, "Campo Obligatorio")
+         End If
+         Me.KeyPreview = True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+
+   Private Sub AsignarBinding()
+      Try
+         m_listBindHelper = New List(Of ACBindHelper)()
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnMonto, "Text", m_etran_fletes, "FLETE_TotIngreso"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarCombos()
+      Try
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoMoneda, Colecciones.Tipos(ETipos.MyTipos.TipoMoneda), "TIPOS_Descripcion", "TIPOS_Codigo")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub AyudaVehiCond(ByVal x_cadena As String, ByVal x_campo As String)
+      Try
+         If managerTRAN_VehiculosConductores.CargarAyuda(x_cadena, x_campo) Then
+            Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Vehiculo", managerTRAN_VehiculosConductores.DTTRAN_VehiculosConductores, False)
+            If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               m_etran_fletes.VHCON_Id = Ayuda.Respuesta.Rows(0)("Interno")
+               actxaCodVehiculo.Text = Ayuda.Respuesta.Rows(0)("Cod. Vehiculo").ToString()
+               actxaPlaca.Text = Ayuda.Respuesta.Rows(0)("Placa").ToString()
+               txtCodConductor.Text = Ayuda.Respuesta.Rows(0)("Licencia").ToString()
+               txtConductor.Text = Ayuda.Respuesta.Rows(0)("Conductor").ToString()
+               txtSigla.Text = Ayuda.Respuesta.Rows(0)("Sigla").ToString()
+               m_etran_fletes.CONDU_Sigla = txtSigla.Text
+
+               Dim _tran_viajes As New BTRAN_Viajes
+               txtIdConductor.Text = _tran_viajes.CorrelativoXconductor(Ayuda.Respuesta.Rows(0)("Codigo").ToString(), chkFleteLocal.Checked)
+               txtGlosa.Text = String.Format("Viaje {0} / {3} / {2} : {1} ", txtIdConductor.Text, txtRuta.Text, actxaPlaca.Text, m_etran_fletes.CONDU_Sigla)
+               txtViaje.Text = _tran_viajes.getCorrelativo()
+
+               Me.KeyPreview = False
+               acTool.Focus()
+               acTool.ACBtnGrabar.Select()
+            Else
+               m_etran_fletes.VHCON_Id = 0
+               actxaCodVehiculo.Text = ""
+               actxaPlaca.Text = ""
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar la ayuda, posiblemente no haya datos que mostrar")
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+   Private Function grabar() As Boolean
+      Dim msg As String = ""
+      Try
+         If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) Then
+            m_etran_fletes.SUCUR_Id = GApp.Sucursal
+            m_etran_fletes.ZONAS_Codigo = GApp.Zona
+            m_etran_fletes.PVENT_Id = GApp.PuntoVenta
+            If dtpFecLlegada.Checked Then
+               m_etran_fletes.FLETE_FecLlegada = ACFramework.ACUtilitarios.getFecha(dtpFecLlegada.Value, dtpHorLlegada.Value)
+            End If
+            m_etran_fletes.FLETE_FecProgramada = ACFramework.ACUtilitarios.getFecha(dtpFecProgramada.Value, dtpHorProgramada.Value)
+            m_etran_fletes.FLETE_FecSalida = ACFramework.ACUtilitarios.getFecha(dtpFecSalida.Value, dtpHorSalida.Value)
+            m_etran_fletes.FLETE_Id = managerTRAN_Fletes.getCorrelativo()
+            m_etran_fletes.FLETE_NombreRuta = txtRuta.Text
+
+            managerAdministracionViajes.TRAN_Fletes = m_etran_fletes
+
+            Dim _cviaje As Integer = 1
+            Try
+               _cviaje = txtIdConductor.Text
+            Catch ex As Exception
+
+            End Try
+            Dim _rpta As Boolean
+            Select Case m_opcion
+               Case TipoIni.Normal
+
+               Case TipoIni.OrdToFlete
+                  Dim _viaje_id As Long : Dim _flete_id As Long
+                  _rpta = managerAdministracionViajes.GuardarFlete(GApp.Usuario, GApp.FechaProceso.Year.ToString(), False, True, _cviaje, _viaje_id, _flete_id, chkFleteLocal.Checked)
+                  Dim _frm As New PGuiasTransporte(_viaje_id, _flete_id) With {.StartPosition = FormStartPosition.CenterScreen, .MaximizeBox = False}
+                  If _frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+                  End If
+               Case TipoIni.AgregarFlete
+                  _rpta = managerAdministracionViajes.GuardarFlete(GApp.Usuario, GApp.FechaProceso.Year.ToString(), m_viaje.VIAJE_Id, True)
+            End Select
+            If _rpta Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado satisfactoriamente")
+               Return True
+            Else
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar{0}", msg))
+            End If
+         Else
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar, por que hay campos obligatorios vacios: {0}", msg))
+         End If
+         Return False
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede grabar", ex)
+      End Try
+   End Function
+
+#Region "ToolBar"
+   Public Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click
+      Dim msg As String = ""
+      Try
+         Me.KeyPreview = False
+         If grabar() Then
+
+            Me.DialogResult = Windows.Forms.DialogResult.OK
+            Me.Close()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " + Me.Text, "No se puede grabar", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnCancelar_Click, acTool.ACBtnSalir_Click
+      Try
+         Me.KeyPreview = False
+         Me.DialogResult = Windows.Forms.DialogResult.Cancel
+         Me.Close()
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso Cancelar", ex)
+      End Try
+   End Sub
+#End Region
+
+   Private Sub actxaCodVehiculo_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCodVehiculo.ACAyudaClick
+      Try
+         AyudaVehiCond(actxaCodVehiculo.Text, "VEHIC_Codigo")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Ayuda de Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaPlaca_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaPlaca.ACAyudaClick
+      Try
+         AyudaVehiCond(actxaPlaca.Text, "VEHIC_Placa")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Ayuda de Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+   Private Sub txtCodConductor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtCodConductor.KeyDown
+      Try
+         If e.KeyCode = Keys.Enter Then
+            Me.KeyPreview = False
+            acTool.Focus()
+            acTool.ACBtnGrabar.Select()
+         End If
+      Catch ex As Exception
+
+      End Try
+   End Sub
+#End Region
+
+
+   Private Sub acTool_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles acTool.ItemClicked
+
+   End Sub
+End Class

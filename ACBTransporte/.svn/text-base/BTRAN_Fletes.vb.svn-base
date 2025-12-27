@@ -1,0 +1,146 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+Imports DAConexion
+
+Public Class BTRAN_Fletes
+
+#Region " Variables "
+	
+#End Region
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Propiedades "
+	
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+   Public Function CargarAyuda() As Boolean
+      Dim d_tran_fletes As New DTRAN_Fletes()
+      Try
+         m_listTRAN_Fletes = New List(Of ETRAN_Fletes)()
+         Return d_tran_fletes.TRAN_FLETESS_Todos(m_listTRAN_Fletes)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CargarDisponibles() As Boolean
+      Dim d_tran_fletes As New DTRAN_Fletes()
+      Try
+         m_listTRAN_Fletes = New List(Of ETRAN_Fletes)()
+         Return d_tran_fletes.FLETSS_TodosDisponibles(m_dtTRAN_Fletes)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function ActualizarViaje(ByVal x_usuario As String) As Boolean
+      Dim d_tran_fletes As New DTRAN_Fletes()
+      Try
+         Return d_tran_fletes.TRAN_FLETESU_UnReg(m_tran_fletes, x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Procedimiento "TRAN_FLETESS_UnReg" por el Generador 27/02/2012
+   ''' </summary> 
+   ''' <param name="x_entid_codigo">Parametro 1: </param> 
+   ''' <returns>Si no hay registros devuelve Falso</returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_FLETESS_UnReg(ByVal x_entid_codigo As String) As Boolean
+      m_listTRAN_Fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_tran_fletes.TRAN_FLETESS_UnReg(m_listTRAN_Fletes, x_entid_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_PendienteFletes
+   ''' </summary>
+   ''' <param name="x_fecfin">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function Reporte_PendienteFletes(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listTRAN_Fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_tran_fletes.TRAN_CAJASS_PendienteFletes(m_listTRAN_Fletes, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Procedimiento "TRAN_FLETESS_Ayuda" por el Generador 20/03/2012
+   ''' </summary> 
+   ''' <param name="x_cadena">Parametro 1: </param> 
+   ''' <param name="x_opcion">Parametro 2: </param> 
+   ''' <param name="x_fecini">Parametro 3: </param> 
+   ''' <param name="x_fecfin">Parametro 4: </param> 
+   ''' <returns>Si no hay registros devuelve Falso</returns> 
+   ''' <remarks></remarks> 
+   Public Function TRAN_FLETESS_Ayuda(ByVal x_cadena As String, ByVal x_opcion As Short, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listTRAN_Fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_tran_fletes.TRAN_FLETESS_Ayuda(m_listTRAN_Fletes, x_cadena, x_opcion, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_FLETESS_ConsultaFletes
+   ''' </summary>
+   ''' <param name="x_cadena">Parametro 1: </param> 
+   ''' <param name="x_opcion">Parametro 2: </param> 
+   ''' <param name="x_opfecha">Parametro 3: </param> 
+   ''' <param name="x_fecini">Parametro 4: </param> 
+   ''' <param name="x_fecfin">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function ConsultaFletes(ByVal x_cadena As String, ByVal x_opcion As Short, ByVal x_opfecha As Short, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listTRAN_Fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_tran_fletes.TRAN_FLETESS_ConsultaFletes(m_listTRAN_Fletes, x_cadena, x_opcion, x_opfecha, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_FLETESS_ConsultaFletesDoc
+   ''' </summary>
+   ''' <param name="x_tipos_codtipodocumento">Parametro 1: </param> 
+   ''' <param name="x_docve_serie">Parametro 2: </param> 
+   ''' <param name="x_docve_numero">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function ConsultaFletesDoc(ByVal x_tipos_codtipodocumento As String, ByVal x_docve_serie As String, ByVal x_docve_numero As String) As Boolean
+      m_listTRAN_Fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_tran_fletes.TRAN_FLETESS_ConsultaFletesDoc(m_listTRAN_Fletes, x_tipos_codtipodocumento, x_docve_serie, x_docve_numero)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

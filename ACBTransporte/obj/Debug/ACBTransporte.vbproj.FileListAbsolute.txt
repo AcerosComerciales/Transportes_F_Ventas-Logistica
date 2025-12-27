@@ -1,0 +1,516 @@
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACBTransporte.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACBTransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACBTransporte.xml
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACBLogistica.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACDTransporte.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACDTransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACDTransporte.xml
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACBTransporte\bin\Debug\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.dll
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.xml
+D:\Developer\AcerosERP\Transportes\ACBTransporte\obj\Debug\ACBTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.xml
+D:\alex compartido\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.xml
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBLogistica.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACEVentas.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.xml
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.xml
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.xml
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.pdb
+D:\alex compartido\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.dll
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.xml
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.pdb
+F:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\DESARROLLO\Transportes _Milagros\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\DESARROLLO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\DESARROLLO\Transportes\ACBTransporte\bin\Debug\ACEVentas.xml
+F:\Transportes\ACBTransporte\bin\Debug\ACBTransporte.dll
+F:\Transportes\ACBTransporte\bin\Debug\ACBTransporte.pdb
+F:\Transportes\ACBTransporte\bin\Debug\ACBTransporte.xml
+F:\Transportes\ACBTransporte\bin\Debug\ACDTransporte.dll
+F:\Transportes\ACBTransporte\bin\Debug\ACETransporte.dll
+F:\Transportes\ACBTransporte\bin\Debug\ACDTransporte.pdb
+F:\Transportes\ACBTransporte\bin\Debug\ACDTransporte.xml
+F:\Transportes\ACBTransporte\bin\Debug\ACETransporte.pdb
+F:\Transportes\ACBTransporte\bin\Debug\ACETransporte.xml
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.dll
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.xml
+F:\Transportes\ACBTransporte\obj\Debug\ACBTransporte.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.dll
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.dll.config
+F:\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.dll.config
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.pdb
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.xml
+F:\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.dll.config
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.dll
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.xml
+F:\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\Proyectos_VB\REAL_TRANSPORTES\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\Proyectos_VB\Transportes_F\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbprojResolveAssemblyReference.cache
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.Cache
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\Proyectos_VB\Transportes_F_ULTIMA\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\Proyectos_VB\Transportes_F\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F - copia\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_Ventas\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACBTransporte\obj\Debug\ACBTransporte.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBTransporte.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBTransporte.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBTransporte.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBLogistica.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDLogistica.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDTransporte.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACELogistica.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACETransporte.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBLogistica.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBLogistica.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBVentas.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBVentas.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll.config
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDLogistica.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDLogistica.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDTransporte.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDTransporte.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDVentas.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDVentas.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll.config
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACELogistica.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACELogistica.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACETransporte.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACETransporte.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACEVentas.pdb
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACEVentas.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll.config
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Developer\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.dll
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.xml
+D:\Developer\Transportes\ACBTransporte\obj\Debug\ACBTransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBTransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBLogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDLogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACELogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACETransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBLogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBLogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACBVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDLogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDLogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDTransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACDVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACELogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACELogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACETransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACETransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACEVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACEVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\ACEVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACBTransporte\obj\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDLogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACBVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDLogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDLogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACBTransporte\obj\Debug\ACBTransporte.pdb

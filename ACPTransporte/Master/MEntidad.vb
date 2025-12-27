@@ -1,0 +1,1568 @@
+﻿Imports System.Text.RegularExpressions
+Imports ACBVentas
+Imports ACEVentas
+Imports ACFramework
+
+Imports C1.Win.C1FlexGrid
+Imports ACETransporte.LibSunat
+Imports ACETransporte.Libreria
+
+Public Class MEntidad
+
+#Region " Variables "
+    Private managerEntidades As BEntidades
+
+    Private m_listBindHelper As List(Of ACBindHelper)
+    Private m_listBHCliente As List(Of ACBindHelper)
+    Private m_listBHProveedor As List(Of ACBindHelper)
+    Private m_listBHConductor As List(Of ACBindHelper)
+    Private m_eListDireccion As List(Of EDirecciones)
+    Private m_eListTelefono As List(Of ETelefonos)
+
+    Private m_eentidades As EEntidades
+
+    Private bs_bentidades As BindingSource
+    Private bs_direcciones As BindingSource
+    Private bs_telefonos As BindingSource
+
+    Private frmUbigeo As ACControles.ACAyudaTreeView
+
+    Private frmUbigeo_ As ACControles.ACDataGridViewNumericUpDownColumn
+
+    Private m_nrodirecciones As Integer
+    Private m_nrotelefonos As Integer
+    Private m_opcion As Inicio
+    Private m_perfil As EEntidades.TipoEntidad
+    Private m_order As Integer = 1
+
+    Private bs_condicionpago As BindingSource
+
+    Private bs_tipocontribuyente As BindingSource
+
+    Dim myInfo As Sunat
+    Private myInfoDNI As Reniec
+
+    Enum TipoEntidad
+        Natural
+        Juridica
+    End Enum
+
+    Enum Inicio
+        Normal
+        NuevaEntidad
+        ModificarEntidad
+    End Enum
+
+#End Region
+#Region "validaciones"
+
+    Private Function validarDNI(ByVal documento As String, ByVal TIPO As Integer) As Boolean
+        If Regex.IsMatch(documento, "^[0-9]{8}") Then
+            Return True
+        Else
+            If TIPO <> 1 Then
+                ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "El valor ingresado no cumple con los parametros necesarios para ser un DNI")
+            End If
+            Return False
+        End If
+
+    End Function
+    Private Function validarRUC(ByVal documento As String, ByVal TIPO As Integer) As Boolean
+        If Regex.IsMatch(documento, "^[0-9]{11}") Then
+            Return True
+        Else
+            If TIPO <> 1 Then
+                ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "El valor ingresado no cumple con los parametros necesarios para ser un RUC")
+            End If
+            Return False
+        End If
+
+    End Function
+
+#End Region
+#Region " Propiedades "
+
+    Public ReadOnly Property EEntidad() As EEntidades
+        Get
+            Return m_eentidades
+        End Get
+    End Property
+
+#End Region
+
+#Region " Constructores "
+    Public Sub New(ByVal x_opcion As Inicio)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+        Try
+            m_opcion = x_opcion
+            setInicio()
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar los controles iniciales", ex)
+        End Try
+    End Sub
+
+    Public Sub New(ByVal x_opcion As Inicio, ByVal x_perfil As EEntidades.TipoEntidad)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        Try
+            m_perfil = x_perfil
+            m_opcion = x_opcion
+            setInicio()
+            setPerfil(m_perfil)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar los controles iniciales", ex)
+        End Try
+    End Sub
+    Public Sub New(ByVal x_entid_cODIGO As String)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        Try
+            'm_perfil = x_perfil
+            'm_opcion = x_opcion
+            setInicio(Inicio.ModificarEntidad, x_entid_cODIGO)
+            setPerfil(EEntidades.TipoEntidad.Clientes)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar los controles iniciales", ex)
+        End Try
+    End Sub
+
+    Public Sub New(ByVal x_entid_codigo As String, ByVal x_opcion As Inicio, ByVal x_perfil As EEntidades.TipoEntidad)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        Try
+            m_perfil = x_perfil
+            m_opcion = x_opcion
+            setInicio()
+            setPerfil(m_perfil)
+
+            RemoveHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+            cargar(x_entid_codigo)
+            AddHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+            m_opcion = Inicio.ModificarEntidad
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar los controles iniciales", ex)
+        End Try
+    End Sub
+
+    Private Sub setInicio()
+        Try
+            managerEntidades = New BEntidades
+            Select Case m_opcion
+                Case Inicio.Normal
+                    tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+                    tabMantenimiento.SelectedTab = tabBusqueda
+                    formatearGrilla()
+                    cargarCombos()
+                Case Inicio.NuevaEntidad
+                    tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+                    formatearGrilla()
+                    cargarCombos()
+                    acTool_ACBtnNuevo_Click(Nothing, Nothing)
+                    acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Nuevo)
+                Case Inicio.ModificarEntidad
+                    'setInicio()
+                    formatearGrilla()
+                    cargarCombos()
+                Case Else
+                    Close()
+            End Select
+            acTool.ACBtnEliminar.Enabled = False
+            acTool.ACBtnModificar.Enabled = False
+
+            txtBusqueda.ACActivarAyudaAuto = True
+            txtBusqueda.ACLongitudAceptada = Parametros.GetParametro(EParametros.TipoParametros.pg_LongTexAyuda)
+
+
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+    Private Sub setInicio(ByVal x_opcion As Inicio, ByVal x_entidadCodigo As String)
+        Try
+            managerEntidades = New BEntidades
+            Select Case m_opcion
+                Case Inicio.Normal
+
+                Case Inicio.NuevaEntidad
+
+                Case Inicio.ModificarEntidad
+                    tabMantenimiento.HideTabsMode = tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+                    formatearGrilla()
+                    cargarCombos()
+                    acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Modificar)
+                    busqueda(x_entidadCodigo)
+                Case Else
+                    Close()
+            End Select
+            acTool.ACBtnEliminar.Enabled = False
+            acTool.ACBtnModificar.Enabled = False
+
+            txtBusqueda.ACActivarAyudaAuto = True
+            txtBusqueda.ACLongitudAceptada = Parametros.GetParametro(EParametros.TipoParametros.pg_LongTexAyuda)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+#End Region
+
+#Region " Metodos "
+#Region " Utilitarios "
+
+    Private Sub setPerfil(ByVal x_perfil As ACEVentas.EEntidades.TipoEntidad)
+        Try
+            Select Case x_perfil
+                Case ACEVentas.EEntidades.TipoEntidad.Basico
+                    pnlFuncionEntidad.Enabled = False
+                    tabAdicionales.Visible = False
+                    pnlDatosAuxiliares.Visible = False
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACUsuario_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Clientes
+                    Me.Text &= ": Clientes"
+                    acpnlTitulo.ACCaption &= ": Clientes"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    'pnlDatosGen.Dock = DockStyle.Fill
+                    'pnlDirecciones.Visible = False
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Clientes)
+                    tsBarra.Visible = True
+                    Me.Size = New Size(Me.Width, 600)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACCliente_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Proveedores
+                    Me.Text &= ": Proveedores"
+                    acpnlTitulo.ACCaption &= ": Proveedores"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    pnlDirecciones.Visible = False
+                    pnlDatosGen.Dock = DockStyle.Fill
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Proveedores)
+                    tsBarra.Visible = True
+                    Me.Size = New Size(Me.Width, 430)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACProveedor_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Trabajadores
+                    Me.Text &= ": Trabajadores"
+                    acpnlTitulo.ACCaption &= ": Trabajadores"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    pnlDirecciones.Visible = False
+                    pnlDatosGen.Dock = DockStyle.Fill
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Trabajadores)
+                    tsBarra.Visible = True
+                    Me.Size = New Size(Me.Width, 380)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACTrabajador_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Conductores
+                    Me.Text &= ": Conductores"
+                    acpnlTitulo.ACCaption &= ": Conductores"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    pnlDirecciones.Visible = False
+                    pnlDatosGen.Dock = DockStyle.Fill
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Conductores)
+                    tsBarra.Visible = False
+                    Me.Size = New Size(Me.Width, 380)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACConductor_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Transportista
+                    Me.Text &= ": Transportista"
+                    acpnlTitulo.ACCaption &= ": Transportista"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    pnlDirecciones.Visible = False
+                    pnlDatosGen.Dock = DockStyle.Fill
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Transportista)
+                    tsBarra.Visible = True
+                    Me.Size = New Size(Me.Width, 430)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.Transportista_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Vendedores
+                    Me.Text &= ": Vendedores"
+                    acpnlTitulo.ACCaption &= ": Vendedores"
+                    pnlFuncionEntidad.Visible = False
+                    tabAdicionales.Dock = DockStyle.Fill
+                    pnlDirecciones.Visible = False
+                    pnlDatosGen.Dock = DockStyle.Fill
+                    pnlTelefonos.Visible = False
+                    RemoveAll()
+                    AddPage(EEntidades.TipoEntidad.Vendedores)
+                    tsBarra.Visible = True
+                    Me.Size = New Size(Me.Width, 380)
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.Vendedor_16x16.GetHicon)
+                Case ACEVentas.EEntidades.TipoEntidad.Todos
+                    Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.Entidad_16x16.GetHicon)
+            End Select
+            Me.WindowState = FormWindowState.Normal
+            'Me.MaximizeBox = False
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub setCheckFuncionEntidad()
+        Try
+            Select Case m_perfil
+                Case ACEVentas.EEntidades.TipoEntidad.Usuarios
+                    chkListTipos.Items(0).Checked = True
+                Case ACEVentas.EEntidades.TipoEntidad.Clientes
+                    chkListTipos.Items(1).Checked = True
+                    m_eentidades.Cliente = New EClientes
+                    m_eentidades.Cliente.Instanciar(ACEInstancia.Nuevo)
+                    ABCliente()
+                Case ACEVentas.EEntidades.TipoEntidad.Proveedores
+                    chkListTipos.Items(2).Checked = True
+                    m_eentidades.Proveedor = New EProveedores
+                    m_eentidades.Proveedor.Instanciar(ACEInstancia.Nuevo)
+                    ABProveedor()
+                Case ACEVentas.EEntidades.TipoEntidad.Trabajadores
+                    chkListTipos.Items(3).Checked = True
+                Case ACEVentas.EEntidades.TipoEntidad.Conductores
+                    chkListTipos.Items(4).Checked = True
+                    m_eentidades.Conductor = New EConductores
+                    m_eentidades.Conductor.Instanciar(ACEInstancia.Nuevo)
+                    ABConductor()
+                Case ACEVentas.EEntidades.TipoEntidad.Transportista
+                    chkListTipos.Items(8).Checked = True
+                Case ACEVentas.EEntidades.TipoEntidad.Contactos
+                    chkListTipos.Items(5).Checked = True
+                Case ACEVentas.EEntidades.TipoEntidad.Vendedores
+                    chkListTipos.Items(6).Checked = True
+            End Select
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub RemovePage(ByVal x_tipoentidad As EEntidades.TipoEntidad)
+        Select Case x_tipoentidad
+            Case EEntidades.TipoEntidad.Clientes
+                tabAdicionales.TabPages.Remove(TabClientes)
+            Case EEntidades.TipoEntidad.Conductores
+                tabAdicionales.TabPages.Remove(TabConductores)
+            Case EEntidades.TipoEntidad.Proveedores
+                tabAdicionales.TabPages.Remove(TabProveedores)
+            Case EEntidades.TipoEntidad.Trabajadores
+                tabAdicionales.TabPages.Remove(TabTrabajadores)
+            Case EEntidades.TipoEntidad.Contactos
+                tabAdicionales.TabPages.Remove(TabContactos)
+            Case EEntidades.TipoEntidad.Vendedores
+                tabAdicionales.TabPages.Remove(tabVendedores)
+        End Select
+    End Sub
+
+    Private Sub RemoveAll()
+        Try
+            RemovePage(EEntidades.TipoEntidad.Usuarios)
+            RemovePage(EEntidades.TipoEntidad.Clientes)
+            RemovePage(EEntidades.TipoEntidad.Proveedores)
+            RemovePage(EEntidades.TipoEntidad.Trabajadores)
+            RemovePage(EEntidades.TipoEntidad.Conductores)
+            RemovePage(EEntidades.TipoEntidad.Contactos)
+            RemovePage(EEntidades.TipoEntidad.Vendedores)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub AddPage(ByVal x_tipoentidad As EEntidades.TipoEntidad)
+        Select Case x_tipoentidad
+            Case EEntidades.TipoEntidad.Clientes
+                tabAdicionales.TabPages.Add(TabClientes)
+                tabAdicionales.SelectedTab = TabClientes
+            Case EEntidades.TipoEntidad.Conductores
+                tabAdicionales.TabPages.Add(TabConductores)
+                tabAdicionales.SelectedTab = TabConductores
+            Case EEntidades.TipoEntidad.Proveedores
+                tabAdicionales.TabPages.Add(TabProveedores)
+                tabAdicionales.SelectedTab = TabProveedores
+            Case EEntidades.TipoEntidad.Contactos
+                tabAdicionales.TabPages.Add(TabContactos)
+                tabAdicionales.SelectedTab = TabContactos
+            Case EEntidades.TipoEntidad.Trabajadores
+                tabAdicionales.TabPages.Add(TabTrabajadores)
+                tabAdicionales.SelectedTab = TabTrabajadores
+            Case EEntidades.TipoEntidad.Vendedores
+                tabAdicionales.TabPages.Add(tabVendedores)
+                tabAdicionales.SelectedTab = tabVendedores
+        End Select
+    End Sub
+
+    ' <summary>
+    ' Dar Formato a la grilla de busqueda
+    ' </summary>
+    ' <remarks></remarks>
+    Private Sub formatearGrilla()
+        Dim index As Integer = 1
+        Try
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 8, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "ENTID_Codigo", "ENTID_Codigo", 150, True, False, "System.String", "########0") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nombres/Razon Social", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Doc.", "TIPO_DOCUMENTO", "TIPO_DOCUMENTO", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Doc. Identidad", "ENTID_NroDocumento", "ENTID_NroDocumento", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Telefono", "ENTID_Telefono1", "ENTID_Telefono1", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "E-Mail", "ENTID_EMail", "ENTID_EMail", 150, True, False, "System.String", "") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Dirección", "ENTID_Direccion", "ENTID_Direccion", 150, True, False, "System.String", "") : index += 1
+
+            c1grdBusqueda.AllowEditing = False
+            c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+            c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+            c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+            c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+            c1grdBusqueda.VisualStyle = VisualStyle.Office2007Blue
+
+            index = 1
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdTelefonos, 1, 1, 4, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdTelefonos, index, "Codigo", "TELEF_Id", "TELEF_Id", 150, True, False, "System.String", "########0") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdTelefonos, index, "Telefono", "TELEF_Telefono", "TELEF_Telefono", 150, True, True, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdTelefonos, index, "Observación", "TELEF_Observacion", "TELEF_Observacion", 250, True, True, "System.String") : index += 1
+
+            c1grdTelefonos.AllowEditing = True
+            c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+            c1grdTelefonos.AutoResize = False
+            c1grdTelefonos.Styles.Alternate.BackColor = Color.WhiteSmoke
+            c1grdTelefonos.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            c1grdTelefonos.Styles.Highlight.BackColor = Color.Gray
+            c1grdTelefonos.SelectionMode = SelectionModeEnum.Row
+            c1grdBusqueda.VisualStyle = VisualStyle.Office2007Blue
+            c1grdTelefonos.AutoSizeCol(1)
+
+            index = 1
+            ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdDirecciones, 1, 1, 7, 1, 0)
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "Codigo", "DIREC_Id", "DIREC_Id", 20, True, False, "System.String", "########0") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "Dirección", "DIREC_Direccion", "DIREC_Direccion", 250, True, True, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "Ubigeo", "UBIGO_Codigo", "UBIGO_Codigo", 50, True, True, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "TipoDireccion", "TIPO_Direccion", "TIPO_Direccion", 50, True, True, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "Ubicación", "UBIGO_Descripcion", "UBIGO_Descripcion", 10, True, True, "System.String") : index += 1
+            ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDirecciones, index, "Observación", "DIREC_Observacion", "DIREC_Observacion", 100, True, True, "System.String") : index += 1
+
+
+
+
+
+
+
+            c1grdDirecciones.AllowEditing = True
+            c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+            c1grdDirecciones.AutoResize = False
+            c1grdDirecciones.Styles.Alternate.BackColor = Color.WhiteSmoke
+            c1grdDirecciones.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+            c1grdDirecciones.Styles.Highlight.BackColor = Color.Gray
+            c1grdDirecciones.SelectionMode = SelectionModeEnum.Row
+            c1grdBusqueda.VisualStyle = VisualStyle.Office2007Blue
+            c1grdDirecciones.AutoSizeCol(1)
+            c1grdDirecciones.AutoSizeCol(3)
+            c1grdDirecciones.AutoSizeCol(4)
+
+            Dim cd As CellStyle
+            cd = c1grdDirecciones.Styles.Add("BDistrito")
+            cd.ComboList = "..."
+
+            AddHandler c1grdDirecciones.CellButtonClick, AddressOf c1grdUbigeos_CellButtonClick
+            c1grdDirecciones.Cols("UBIGO_Codigo").Style = cd
+            c1grdDirecciones.Cols("UBIGO_Descripcion").Style = cd
+
+
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede dar formato a la grilla", ex)
+        End Try
+    End Sub
+
+    Private Sub cargarCombos()
+        Try
+            'Cargar los combos
+            'ACFramework.ACUtilitarios.ACCargaCombo(cmbEstCivil, Colecciones.Tipos(ETipos.MyTipos.EstadoCivil), "TIPOS_Descripcion", "TIPOS_Codigo")
+            'ACFramework.ACUtilitarios.ACCargaCombo(cmbSexo, Colecciones.Tipos(ETipos.MyTipos.Sexo), "TIPOS_Descripcion", "TIPOS_Codigo")
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoDoc, Colecciones.Tipos(ETipos.MyTipos.DocumentoIndentidad), "TIPOS_Descripcion", "TIPOS_Codigo")
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbCliTipoPercepcion, Colecciones.Tipos(ETipos.MyTipos.TipoPercepcion), "TIPOS_Descripcion", "TIPOS_Codigo")
+            'Lista de Precios
+            Dim _list As New List(Of EVENT_ListaPrecios)
+
+            For Each Item As EVENT_ListaPrecios In Colecciones.ListaPrecios
+                If Item.ZONAS_Codigo = GApp.Zona Then
+                    _list.Add(Item.Clone())
+                End If
+            Next
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbCliListaPrecios, _list, "LPREC_Descripcion", "LPREC_Codigo")
+            '' Vendedores
+            managerEntidades.cargarVendedores()
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbCliVendedor, managerEntidades.Vendedores, "ENTID_Nombres", "ENTID_Codigo")
+
+
+            ' Cargar los tipos de entidades
+            Dim managerTiposEntidades As New BRoles
+            managerTiposEntidades.CargarTodos()
+
+            For Each Item As ERoles In managerTiposEntidades.ListRoles
+                chkListTipos.Items.Add(Item.ROLES_Descripcion.ToString(), Item.ROLES_Id.ToString())
+            Next
+
+            'Cargar Tipos de PAgos ->> para plazos de pago
+
+            bs_condicionpago = New BindingSource() : bs_condicionpago.DataSource = Colecciones.Tipos(ETipos.MyTipos.CondicionPago)
+            ACFramework.ACUtilitarios.ACCargaCombo(cmbCondicionPago, bs_condicionpago, "TIPOS_Descripcion", "TIPOS_Codigo")
+            AddHandler bs_condicionpago.CurrentChanged, AddressOf bs_condicionpago_CurrentChanged
+            bs_condicionpago_CurrentChanged(Nothing, Nothing)
+
+          
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+
+        Select Case _opcion
+            Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+                ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+                ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+                bs_direcciones = New BindingSource
+                bs_telefonos = New BindingSource
+                setDatos()
+                actxaCodigo.Enabled = False
+                '' Inicializar ChkListLiew
+                For index As Integer = 0 To chkListTipos.Items.Count - 1
+                    chkListTipos.Items(index).Checked = False
+                Next
+                'txtCodigo.Enabled = False
+            Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+                ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+                actxaCodigo.Enabled = False
+                'txtCodigo.Enabled = False
+            Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+
+            Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+
+        End Select
+    End Sub
+    Private Sub bs_condicionpago_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        Try
+            If Not IsNothing(bs_condicionpago) Then
+                If CType(bs_condicionpago.Current, ETipos).TIPOS_Numero = 0 Then
+                    actxnPlazoCredito.Text = 0
+                    'actxnPlazo.ReadOnly = True
+                Else
+                    'actxnPlazo.ReadOnly = False
+                    If Not IsNothing(managerEntidades.Cliente) Then
+                        actxnPlazoCredito.Text = CInt(CType(bs_condicionpago.Current, ETipos).TIPOS_Numero)
+                    Else
+                        actxnPlazoCredito.Clear()
+                    End If
+
+                End If
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso cargar la condicion de pago", ex)
+        End Try
+    End Sub
+    Private Sub bs_tipocontribuyente_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+        Try
+            If Not IsNothing(bs_tipocontribuyente) Then
+                If CType(bs_tipocontribuyente.Current, ETipos).TIPOS_Numero = 0 Then
+                    'actxnPlazoCredito.Text = 0
+                    'actxnPlazo.ReadOnly = True
+                Else
+                    'actxnPlazo.ReadOnly = False
+                    If Not IsNothing(managerEntidades.Cliente) Then
+                        'actxnPlazoCredito.Text = CInt(CType(bs_condicionpago.Current, ETipos).TIPOS_Numero)
+                    Else
+                        'actxnPlazoCredito.Clear()
+                    End If
+
+                End If
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso cargar la condicion de pago", ex)
+        End Try
+    End Sub
+
+    Private Sub setDatos()
+        Try
+            bs_direcciones.DataSource = m_eentidades.ListDirecciones
+            c1grdDirecciones.DataSource = bs_direcciones
+            bnavDirecciones.BindingSource = bs_direcciones
+            m_eListDireccion = New List(Of EDirecciones)
+
+            bs_telefonos.DataSource = m_eentidades.ListTelefonos
+            c1grdTelefonos.DataSource = bs_telefonos
+            bnavTelefonos.BindingSource = bs_telefonos
+            m_eListTelefono = New List(Of ETelefonos)
+
+            grpCredito.Enabled = chkCredito.Checked
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub setTipoEntidad(ByVal x_opcion As TipoEntidad)
+        Try
+            Select Case x_opcion
+                Case TipoEntidad.Natural
+                    lblNombres.Enabled = True
+                    txtNombres.Enabled = True
+                    txtNombres.Tag = "EVO"
+                    lblApePaterno.Enabled = True
+                    txtApePaterno.Enabled = True
+                    txtApePaterno.Tag = "EVO"
+                    lblApeMaterno.Enabled = True
+                    txtApeMaterno.Enabled = True
+                    lblTipoDocIden.Enabled = True
+                    cmbTipoDoc.Enabled = True
+                    lblNroDocIden.Enabled = True
+                    actxaNumDoc.Enabled = True
+                    pnlDatosAuxiliares.Enabled = True
+                    actxaRazonSocial.Tag = "EV"
+                    actxaNomComercial.Tag = "EV"
+                    actxaNumDoc.Tag = "EVO"
+                    'actxaNomComercial.Enabled = False
+
+                    AddHandler txtNombres.TextChanged, AddressOf txt_TextChanged
+                    AddHandler txtApePaterno.TextChanged, AddressOf txt_TextChanged
+                    AddHandler txtApeMaterno.TextChanged, AddressOf txt_TextChanged
+                Case TipoEntidad.Juridica
+                    lblNombres.Enabled = False
+                    txtNombres.Enabled = False
+                    txtNombres.Tag = "EV"
+                    lblApePaterno.Enabled = False
+                    txtApePaterno.Enabled = False
+                    txtApePaterno.Tag = "EV"
+                    lblApeMaterno.Enabled = False
+                    txtApeMaterno.Enabled = False
+                    txtApeMaterno.Tag = "EV"
+                    lblTipoDocIden.Enabled = False
+                    cmbTipoDoc.SelectedValue = ETipos.getTipo(ETipos.TipoDocumentoIdentidad.RUC)
+                    cmbTipoDoc.Enabled = False
+                    lblNroDocIden.Enabled = False
+                    actxaNumDoc.Enabled = True
+                    actxaNumDoc.Tag = "EVO"
+                    pnlDatosAuxiliares.Enabled = True
+                    cmbEstCivil.SelectedIndex = -1
+                    cmbSexo.SelectedIndex = -1
+                    actxaNomComercial.Tag = "EVO"
+                    actxaRazonSocial.Tag = "EVO"
+                    actxaNumDoc.Tag = ""
+                    'actxaNomComercial.Enabled = True
+
+                    RemoveHandler txtNombres.TextChanged, AddressOf txt_TextChanged
+                    RemoveHandler txtApePaterno.TextChanged, AddressOf txt_TextChanged
+                    RemoveHandler txtApeMaterno.TextChanged, AddressOf txt_TextChanged
+                Case Else
+
+            End Select
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Function getFuncionEntidad(ByRef _referencia As String) As Boolean
+        Try
+            For index As Integer = 0 To chkListTipos.Items.Count - 1
+                If chkListTipos.Items(index).Checked = True Then
+                    Dim _buscar As New ACFiltrador(Of EEntidadesRoles)() With {.ACFiltro = String.Format("ROLES_Id={0}", chkListTipos.Items(index).ImageKey)}
+
+                    If Not _buscar.ACFiltrar(m_eentidades.ListEntidadesTipos).Count > 0 Then
+                        Dim nodo As New EEntidadesRoles() With {.ROLES_Id = CType(chkListTipos.Items(index).ImageKey, Integer)}
+                        nodo.Instanciar(ACEInstancia.Nuevo)
+                        m_eentidades.ListEntidadesTipos.Add(nodo)
+                    End If
+                Else
+                    Dim _buscar As New ACBuscador(Of EEntidadesRoles)() With {.ACBusqueda = String.Format("ROLES_Id={0}", chkListTipos.Items(index).ImageKey)}
+                    Dim i As Integer = _buscar.ACBuscar(m_eentidades.ListEntidadesTipos)
+                    If i = 1 Then
+                        m_eentidades.ListEntidadesTipos(i).Instanciar(ACEInstancia.Eliminado)
+                    End If
+                End If
+            Next
+
+            If m_eentidades.ListEntidadesTipos.Count > 0 Then
+                Return True
+            Else
+                _referencia = String.Format("- Debe elegir un tipo de Entidad.{0}", vbNewLine)
+                Return False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+#End Region
+
+#Region " Cargar Datos "
+
+    Private Sub AyudaUbigeo()
+        Try
+            If (IsNothing(frmUbigeo)) Then frmUbigeo = New ACControles.ACAyudaTreeView(Colecciones.UbigeosDT, "Ubigeos", True, "Ubigeos")
+            If frmUbigeo.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                If frmUbigeo.Codigo = "" Then
+                    actxaCodUbigeo.Text = ""
+                    actxaDescUbigeo.Text = ""
+                Else
+                    actxaCodUbigeo.Text = frmUbigeo.Codigo
+                    actxaDescUbigeo.Text = frmUbigeo.Desc
+                End If
+            End If
+            c1grdDirecciones.AutoSizeCols()
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cargar ubigeo a la dirección", ex)
+        End Try
+    End Sub
+
+    ' <summary>
+    ' Cargar los datos en el control Visual C1FlexGrid
+    ' </summary>
+    Private Sub cargarDatos()
+        Try
+            bs_bentidades = New BindingSource()
+            bs_bentidades.DataSource = managerEntidades.getListEntidades
+            c1grdBusqueda.DataSource = bs_bentidades
+            bnavBusqueda.BindingSource = bs_bentidades
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    ' <summary>
+    ' Realiza el enlace de los controles visuales con la clase esquema
+    ' </summary>
+    Private Sub AsignarBinding()
+        Try
+            m_listBindHelper = New List(Of ACBindHelper)()
+            m_listBindHelper.Add(ACBindHelper.ACBind(actxaCodigo, "Text", m_eentidades, "ENTID_Codigo"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(cmbTipoDoc, "SelectedValue", m_eentidades, "TIPOS_CodTipoDocumento"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(actxaNumDoc, "Text", m_eentidades, "ENTID_NroDocumento"))
+            '' Nombre completo
+            If Not (IsNothing(m_eentidades.ENTID_Nombres)) Then
+                If m_eentidades.ENTID_TipoEntidadPDT.Trim().Equals(ACETransporte.Constantes.PersonaNatural) Then
+                    Dim ptrM As Integer = m_eentidades.ENTID_PtrApeMaterno
+                    Dim ptrN1 As Integer = m_eentidades.ENTID_PtrNombre1
+                    Dim _long As Integer = m_eentidades.ENTID_Nombres.Length
+                    If ptrM + ptrN1 > 0 Then
+                        txtNombres.Text = m_eentidades.ENTID_Nombres.Substring(ptrN1, _long - ptrN1)
+                        txtApePaterno.Text = m_eentidades.ENTID_Nombres.Substring(0, ptrM - 1)
+                        txtApeMaterno.Text = m_eentidades.ENTID_Nombres.Substring(ptrM, _long - (_long - ptrN1) - ptrM - 1)
+                    End If
+                    rbtNatural.Checked = True
+                End If
+            Else
+                rbtJuridica.Checked = True
+            End If
+            rbtNatural_CheckedChanged(Nothing, Nothing)
+            ''
+            m_listBindHelper.Add(ACBindHelper.ACBind(actxaRazonSocial, "Text", m_eentidades, "ENTID_RazonSocial"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(actxaNomComercial, "Text", m_eentidades, "ENTID_NombreComercial"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(txtDireccion, "Text", m_eentidades, "ENTID_Direccion"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(txtTelefono1, "Text", m_eentidades, "ENTID_Telefono1"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(txtTelefono2, "Text", m_eentidades, "ENTID_Telefono2"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(txtFax, "Text", m_eentidades, "ENTID_Fax"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(actxaCodUbigeo, "Text", m_eentidades, "UBIGO_Codigo"))
+            m_listBindHelper.Add(ACBindHelper.ACBind(txtEmail, "Text", m_eentidades, "ENTID_EMail"))
+            If (m_eentidades.ENTID_FecNacimiento.Year < 1700) Then m_eentidades.ENTID_FecNacimiento = DateTime.Now
+            m_listBindHelper.Add(ACBindHelper.ACBind(dtpFecNacimiento, "Value", m_eentidades, "ENTID_FecNacimiento"))
+            rbtJuridica.Checked = (m_eentidades.ENTID_TipoEntidadPDT = ACETransporte.Constantes.PersonaJuridica)
+            rbtNatural.Checked = Not (m_eentidades.ENTID_TipoEntidadPDT = ACETransporte.Constantes.PersonaJuridica)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub ABCliente()
+        Try
+            m_eentidades.Cliente.ZONAS_Codigo = GApp.Zona
+            m_eentidades.Cliente.SUCUR_Id = GApp.Sucursal
+            m_listBHCliente = New List(Of ACBindHelper)()
+            m_listBHCliente.Add(ACBindHelper.ACBind(cmbCliListaPrecios, "SelectedValue", m_eentidades.Cliente, "LPREC_Id"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(cmbCliTipoPercepcion, "SelectedValue", m_eentidades.Cliente, "TIPOS_CodTipoPercepcion"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(cmbCliVendedor, "SelectedValue", m_eentidades.Cliente, "ENTID_CodigoVendedor"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(actxnCredito, "Text", m_eentidades.Cliente, "CLIEN_LimCredito"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(chkCredito, "Checked", m_eentidades.Cliente, "CLIEN_Credito"))
+            '       m_listBHCliente.Add(ACBindHelper.ACBind(chkPercepcion, "Checked", m_eentidades.Cliente, "CLIEN_Percepcion"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(cmbCondicionPago, "SelectedValue", m_eentidades.Cliente, "CLIEN_CodCondicionPago"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(actxnPlazoCredito, "Text", m_eentidades.Cliente, "CLIEN_PlazoCredito"))
+            'm_listBHCliente.Add(ACBindHelper.ACBind(cmbTipoContribuyente, "SelectedValue", m_eentidades.Cliente, "TIPOS_CodTipoPercepcion"))
+            m_listBHCliente.Add(ACBindHelper.ACBind(actxnCredito, "Text", m_eentidades.Cliente, "CLIEN_LimCredito"))
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub ABProveedor()
+        Try
+            m_listBHProveedor = New List(Of ACBindHelper)()
+            m_listBHProveedor.Add(ACBindHelper.ACBind(txtProvAtencion, "Text", m_eentidades.Proveedor, "PROVE_Atencion"))
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub ABConductor()
+        Try
+            m_listBHConductor = New List(Of ACBindHelper)()
+            m_listBHConductor.Add(ACBindHelper.ACBind(txtLicencia, "Text", m_eentidades.Conductor, "CONDU_Licencia"))
+            m_listBHConductor.Add(ACBindHelper.ACBind(txtSigla, "Text", m_eentidades.Conductor, "CONDU_Sigla"))
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub cargar(ByVal x_codigo As String)
+        Try
+            managerEntidades.Cargar(x_codigo, EEntidades.TipoInicializacion.EntTipos_Dir_Tel)
+            m_eentidades = managerEntidades.getEntidades()
+            setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+
+            AsignarBinding()
+            '' Cargar datos adicionales segun el perfil cargado
+            Select Case m_perfil
+                Case ACEVentas.EEntidades.TipoEntidad.Clientes
+                    managerEntidades.CargarCliente(x_codigo)
+                    ABCliente()
+                Case ACEVentas.EEntidades.TipoEntidad.Proveedores
+                    managerEntidades.CargarProveedor(x_codigo)
+                    ABProveedor()
+                Case ACEVentas.EEntidades.TipoEntidad.Todos
+                    '' Cliente
+                    managerEntidades.CargarCliente(x_codigo)
+                    ABCliente()
+                    '' Proveedor
+                    managerEntidades.CargarProveedor(x_codigo)
+                    ABProveedor()
+                    managerEntidades.CargarConductor(x_codigo)
+                    ABConductor()
+                Case EEntidades.TipoEntidad.Conductores
+                    managerEntidades.CargarConductor(x_codigo)
+                    ABConductor()
+            End Select
+            '' Direcciones
+            bs_direcciones = New BindingSource()
+            m_nrodirecciones = m_eentidades.ListDirecciones.Count
+            '' Telefonos
+            bs_telefonos = New BindingSource()
+            m_nrotelefonos = m_eentidades.ListTelefonos.Count
+            '' Cargar datos
+            setDatos()
+            '' Tipo de entidad
+            For index As Integer = 0 To chkListTipos.Items.Count - 1
+                chkListTipos.Items(index).Checked = False
+            Next
+            For Each Item As EEntidadesRoles In m_eentidades.ListEntidadesTipos
+                Item.Instanciar(ACEInstancia.Modificado)
+                For index As Integer = 0 To chkListTipos.Items.Count - 1
+                    If chkListTipos.Items(index).ImageKey.Equals(Item.ROLES_Id.ToString()) Then
+                        chkListTipos.Items(index).Checked = True
+                        Exit For
+                    End If
+                Next
+            Next
+            tabMantenimiento.SelectedTab = tabDatos
+            acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Modificar)
+            c1grdDirecciones.AutoSizeCol(1)
+            c1grdDirecciones.AutoSizeCol(3)
+            c1grdDirecciones.AutoSizeCol(4)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub cargar()
+        Try
+            If bs_bentidades.Current IsNot Nothing Then
+                RemoveHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+                cargar(CType(bs_bentidades.Current, EEntidades).ENTID_Codigo)
+                AddHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+            End If
+        Catch ex As Exception
+            acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Cancelar)
+            Throw ex
+        End Try
+    End Sub
+
+    ' <summary>
+    ' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+    ' </summary>
+    ' <param name="x_cadena">Cadena objetivo</param>
+    ' <returns></returns>
+    Private Function busqueda(ByVal x_cadena As String) As Boolean
+        Try
+            If txtBusqueda.ACEstadoAutoAyuda Then
+                If managerEntidades.Busqueda(x_cadena, getCampo(), m_perfil) Then
+                    acTool.ACBtnEliminar.Enabled = True
+                    acTool.ACBtnModificar.Enabled = True
+                Else
+                    acTool.ACBtnEliminar.Enabled = False
+                    acTool.ACBtnModificar.Enabled = False
+                End If
+                cargarDatos()
+            End If
+            Return acTool.ACBtnEliminar.Enabled
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda de los conductores", ex)
+        End Try
+        Return False
+    End Function
+#End Region
+
+    Private Function getCampo() As String
+        Try
+            If (rbtnCodigo.Checked) Then
+                Return "ENTID_Id"
+            ElseIf rbtnDocumento.Checked Then
+                Return "ENTID_NroDocumento"
+            ElseIf rbtnNombres.Checked Then
+                Return "ENTID_Nombres"
+            ElseIf rbtnRazonSocial.Checked Then
+                Return "ENTID_RazonSocial"
+            Else
+                Return "ENTID_Nombres"
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+#End Region
+
+#Region " Procesos"
+    Private Sub Ordenar(ByVal x_columna As String)
+        Dim _ordenador As New ACOrdenador(Of EEntidades)
+        Try
+            If m_order = 2 Then x_columna += " DESC"
+            _ordenador.ACOrdenamiento = x_columna
+            CType(bs_bentidades.DataSource, List(Of EEntidades)).Sort(_ordenador)
+            c1grdBusqueda.Refresh()
+            m_order = IIf(m_order = 1, 2, 1)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+#End Region
+
+#Region " Metodos de Controles"
+
+    Private Sub actxaDescUbigeo_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaDescUbigeo.ACAyudaClick
+        AyudaUbigeo()
+    End Sub
+
+    Private Sub actxaCodUbigeo_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCodUbigeo.ACAyudaClick
+        AyudaUbigeo()
+    End Sub
+
+    Private Sub c1grdUbigeos_CellButtonClick(ByVal sender As Object, ByVal e As C1.Win.C1FlexGrid.RowColEventArgs)
+        Try
+            Dim tipoSeleccionado As String = ""
+            If c1grdDirecciones.Cols(e.Col).Name = "UBIGO_Codigo" Or c1grdDirecciones.Cols(e.Col).Name = "UBIGO_Descripcion" Then
+                Dim rc As Rectangle = c1grdDirecciones.GetCellRect(e.Row, e.Col)
+                rc.Offset(0, rc.Height)
+                If (IsNothing(frmUbigeo)) Then frmUbigeo = New ACControles.ACAyudaTreeView(Colecciones.UbigeosDT, "Ubigeos", True, "Ubigeos")
+                If frmUbigeo.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                    If frmUbigeo.Codigo = "" Then
+                        CType(bs_direcciones.Current, EDirecciones).UBIGO_Codigo = ""
+                        CType(bs_direcciones.Current, EDirecciones).UBIGO_Descripcion = ""
+
+                    Else
+
+
+                        CType(bs_direcciones.Current, EDirecciones).UBIGO_Codigo = frmUbigeo.Codigo
+                        CType(bs_direcciones.Current, EDirecciones).UBIGO_Descripcion = frmUbigeo.Desc
+                        CType(bs_direcciones.Current, EDirecciones).TIPO_Direccion = tipoSeleccionado
+
+                        If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Pregunta: {0}", Convert.ToString(Me.Text)) _
+                         , String.Format("La Direccion Es Punto de Origen ?"), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                            CType(bs_direcciones.Current, EDirecciones).TIPO_Direccion = "TIPORG"
+                        Else
+                            CType(bs_direcciones.Current, EDirecciones).TIPO_Direccion = "TIPDTN"
+                        End If
+
+
+                        'If c1grdDirecciones.Row >= c1grdDirecciones.Rows.Fixed Then
+                        '    tipoSeleccionado = c1grdDirecciones(c1grdDirecciones.Row, "TipoDireccion").ToString()
+                        '    MessageBox.Show("Tipo dirección seleccionada: " & tipoSeleccionado)
+                        'End If
+                        c1grdDirecciones.AutoSizeCols()
+                        c1grdDirecciones.Cols(e.Col).Width += 20
+                    End If
+                End If
+            End If
+            c1grdDirecciones.AutoSizeCols()
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cargar ubigeo a la dirección", ex)
+        End Try
+    End Sub
+    Sub CaptionResul()
+        Try
+            If cmbTipoDoc.SelectedValue = ETipos.getTipo(ETipos.TipoDocumentoIdentidad.RUC) Then
+                Select Case myInfo.GetResul
+                    Case Libreria.Persona.Resul.Ok
+
+                        If Mid(actxaNumDoc.Text, 1, 2) = "10" Then
+                            rbtNatural.Checked = True
+                            rbtJuridica.Checked = False
+                            Dim texto() As String = Split(myInfo.RazonSocial.Substring(14), " ")
+                            Dim Nombres As String = texto(2)
+                            For i As Integer = 3 To texto.Length - 1
+                                Nombres = Nombres + " " + texto(i)
+
+                            Next
+                            Me.txtNombres.Text = Nombres
+                            'If texto.Length > 3 Then
+                            '    Me.txtNombres.Text = texto(2) + " " + texto(3)
+
+                            'Else
+                            '    Me.txtNombres.Text = texto(2)
+                            'End If
+
+
+                            Me.txtApePaterno.Text = texto(0)
+                            Me.txtApeMaterno.Text = texto(1)
+                            Me.actxaNomComercial.Text = myInfo.RazonSocial.Substring(14)
+                        Else
+                            rbtJuridica.Checked = True
+                            rbtNatural.Checked = False
+                            Me.txtApePaterno.Text = String.Empty
+                            Me.txtApeMaterno.Text = String.Empty
+                            Me.actxaNomComercial.Text = myInfo.NombreComercial
+                            Me.actxaRazonSocial.Text = myInfo.RazonSocial.Substring(14) 'myInfo.RazonSocial
+                        End If
+                        Me.txtDireccion.Text = myInfo.Direccion
+                        Dim telefono() As String = Split(myInfo.Telefonos, "/")
+                        ' Me.txtRuc.Text = txtNumDni.Text
+                        ' Me.txtEstado.Text = myInfo.Estado
+                        Me.txtTelefono1.Text = RTrim(telefono(0)) 'myInfo.Telefonos
+                        'Me.txtNumDni.Text = ""
+
+                        Exit Select
+
+                    Case Libreria.Persona.Resul.NoResul
+
+                        Me.txtDireccion.Text = ""
+                        Me.actxaRazonSocial.Text = ""
+                        Me.actxaNomComercial.Text = ""
+                        'Me.txtEstado.Text = ""
+                        Me.txtTelefono1.Text = ""
+
+                        Exit Select
+
+                    Case Libreria.Persona.Resul.ErrorCapcha
+                        CargarImagen()
+
+                        Exit Select
+                    Case Libreria.Persona.Resul.[Error]
+
+                        Exit Select
+                End Select
+            Else
+                Select Case myInfoDNI.GetResul
+                    Case Libreria.Persona.Resul.Ok
+                        Me.txtNombres.Text = myInfoDNI.Nombres
+                        Me.txtApePaterno.Text = myInfoDNI.ApePaterno
+                        Me.txtApeMaterno.Text = myInfoDNI.ApeMaterno
+                        Me.actxaNomComercial.Text = myInfoDNI.NombreCompleto
+
+                        Exit Select
+                    Case Libreria.Persona.Resul.NoResul
+                        Me.Label4.Text = "No existe DNI"
+                        Me.txtNombres.Text = ""
+
+                        Exit Select
+                    Case Libreria.Persona.Resul.ErrorCapcha
+                        CargarImagenDNI()
+
+                        Exit Select
+                    Case Libreria.Persona.Resul.[Error]
+
+                        Exit Select
+                End Select
+            End If
+            ' Me.chkEstado.Checked = True
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+    Sub CargarImagen()
+        Try
+            If myInfo Is Nothing Then
+                myInfo = New Sunat
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Sub
+    Private Sub CargarImagenDNI()
+        Try
+            If myInfoDNI Is Nothing Then
+                myInfoDNI = New Reniec(Me.actxaNumDoc.Text)
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+    'Private Sub actxaNumDoc_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '   Try
+    '      If actxaNumDoc.Text.Trim.Length >= 8 Then
+    '         RemoveHandler actxaNumDoc.Leave, AddressOf actxaNumDoc_Leave
+    '         If managerEntidades.verificarCampo("ENTID_NroDocumento", actxaNumDoc.Text.Trim) Then
+    '            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Información Registro: {0}", Me.Text) _
+    '                            , "El D.N.I. que ha ingresado ya existe, desea cargar el registro?" _
+    '                            , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+    '               cargar(managerEntidades.Entidades.ENTID_Codigo)
+    '               setCheckFuncionEntidad()
+    '            Else
+    '               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "El D.N.I. que ha ingresado ya existe, por favor verifique y vuelva a ingresarlo")
+    '               actxaNumDoc.Focus()
+    '               actxaNumDoc.Clear()
+    '               AddHandler actxaNumDoc.Leave, AddressOf actxaNumDoc_Leave
+    '            End If
+    '         End If
+    '      End If
+    '   Catch ex As Exception
+    '      ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ha ocurrido un error validando el numero de documento.", ex)
+    '   End Try
+    'End Sub
+
+    Private Sub actxaNumDoc_KeyDown(sender As Object, e As KeyEventArgs) Handles actxaNumDoc.KeyDown
+        Try
+            If e.KeyData = Keys.Enter Then
+
+                If managerEntidades.verificarCampo("ENTID_NroDocumento", actxaNumDoc.Text.Trim) Then
+                    If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Información Registro: {0}", Me.Text) _
+                                    , "El D.N.I. que ha ingresado ya existe, desea cargar el registro?" _
+                                    , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                        cargar(managerEntidades.Entidades.ENTID_Codigo)
+                        setCheckFuncionEntidad()
+                    Else
+                        ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "El D.N.I. que ha ingresado ya existe, por favor verifique y vuelva a ingresarlo")
+                        actxaNumDoc.Focus()
+                        actxaNumDoc.Clear()
+                        'AddHandler actxaNumDoc.Leave, AddressOf actxaNumDoc_Leave
+                    End If
+
+                ElseIf ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Información Registro: {0}", Me.Text) _
+                                                  , "Desea buscar el documento en la web?" _
+                                                  , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+
+                    Select Case cmbTipoDoc.SelectedValue
+                        Case ETipos.getTipo(ETipos.TipoDocumentoIdentidad.RUC)
+                            If validarRUC(Trim(actxaNumDoc.Text), 2) = True Then
+                                If myInfo Is Nothing Then
+                                    myInfo = New Sunat()
+                                End If
+                                If myInfo.ConsultaRUCSunat(Me.actxaNumDoc.Text) = False Then
+                                    ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "Revise el RUC ingresado,Vuelva a intentar ")
+                                    actxaNumDoc.Text.Trim().Substring(0, 2).Equals(Constantes.CodigoPersonaNatural)
+
+                                Else
+                                    CaptionResul()
+                                End If
+
+                            End If
+
+                        Case ETipos.getTipo(ETipos.TipoDocumentoIdentidad.DNI)
+
+                            If validarDNI(Trim(actxaNumDoc.Text), 2) = True Then
+                                'CargarImagenDNI()
+                                ' flpCaptcha.Visible = Enabled
+                                '  txtCapcha.Focus()
+                                If myInfoDNI Is Nothing Then
+                                    myInfoDNI = New Reniec(Me.actxaNumDoc.Text)
+                                End If
+                                myInfoDNI.GetInfo(Me.actxaNumDoc.Text)
+                                ' CargarImagenDNI()
+                                Me.actxaNumDoc.Enabled = False
+
+                                CaptionResul()
+                            End If
+
+                        Case Else
+                            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "El tipo de Documento no es valido para la SUNAT ingreselo manualmente por favor")
+                            actxaNumDoc.Text.Trim().Substring(0, 2).Equals(Constantes.CodigoPersonaNatural)
+                            rbtNatural.Checked = True
+                    End Select
+
+
+
+                Else
+                    actxaNumDoc.Text.Trim().Substring(0, 2).Equals(Constantes.CodigoPersonaNatural)
+                    rbtNatural.Checked = True
+                    'End If
+                End If
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ha ocurrido un error validando el numero de documento.", ex)
+        End Try
+    End Sub
+
+    Private Sub cmbTipoDoc_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Try
+            If CType(cmbTipoDoc.SelectedItem, ETipos).TIPOS_Numero > 0 Then
+                If (actxaNumDoc.Text.Length > CType(cmbTipoDoc.SelectedItem, ETipos).TIPOS_Numero) Then
+                    actxaNumDoc.Text = actxaNumDoc.Text.Substring(0, CType(cmbTipoDoc.SelectedItem, ETipos).TIPOS_Numero)
+                End If
+                actxaNumDoc.MaxLength = CType(cmbTipoDoc.SelectedItem, ETipos).TIPOS_Numero
+            ElseIf CType(cmbTipoDoc.SelectedItem, ETipos).TIPOS_Numero = 0 Then
+                actxaNumDoc.MaxLength = 14
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ha ocurrido un error seleccionando el Tipo de documentos.", ex)
+        End Try
+    End Sub
+
+    Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+        Try
+            busqueda(txtBusqueda.Text)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda", ex)
+        End Try
+    End Sub
+
+    Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+        Try
+            If e.KeyCode = Keys.Enter Then
+                busqueda(txtBusqueda.Text)
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub c1grdDetalle_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles c1grdBusqueda.MouseDoubleClick
+        Try
+            If e.X > c1grdBusqueda.Rows.Fixed Then
+                acTool_ACBtnModificar_Click(Nothing, Nothing)
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar el registro seleccionado", ex)
+        End Try
+
+    End Sub
+
+    Private Sub rbtNatural_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtNatural.CheckedChanged
+        If rbtNatural.Checked Then
+            setTipoEntidad(TipoEntidad.Natural)
+        Else
+            setTipoEntidad(TipoEntidad.Juridica)
+        End If
+    End Sub
+
+    Private Sub tsbtnNueDireccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnNueDireccion.Click
+        Try
+            Dim _direc As New EDirecciones
+            _direc.Instanciar(ACEInstancia.Consulta)
+            m_eentidades.ListDirecciones.Add(_direc)
+            bs_direcciones.ResetBindings(True)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar una Nueva direccion", ex)
+        End Try
+    End Sub
+
+    Private Sub tsbtnEliDireccion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnEliDireccion.Click
+        Try
+            Dim _direc As New EDirecciones
+            _direc = CType(bs_direcciones.Current, EDirecciones)
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Convert.ToString(Me.Text)) _
+                         , String.Format("Desea eliminar el registro: {0}?", _direc.DIREC_Direccion), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                _direc.Instanciar(ACEInstancia.Eliminado)
+                m_eListDireccion.Add(_direc)
+                m_eentidades.ListDirecciones.Remove(_direc)
+                bs_direcciones.ResetBindings(True)
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar una Nueva direccion", ex)
+        End Try
+    End Sub
+
+    Private Sub tsbtnNueTelefono_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnNueTelefono.Click
+        Try
+            Dim _telef As New ETelefonos
+            _telef.Instanciar(ACEInstancia.Consulta)
+            m_eentidades.ListTelefonos.Add(_telef)
+            bs_telefonos.ResetBindings(True)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Agregar un telefono nuevo", ex)
+        End Try
+    End Sub
+
+    Private Sub tsbtnEliTelefono_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnEliTelefono.Click
+        Try
+            Dim _telef As New ETelefonos
+            _telef = CType(bs_telefonos.Current, ETelefonos)
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Convert.ToString(Text)) _
+                         , String.Format("Desea eliminar el registro: {0}?", _telef.TELEF_Telefono), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                _telef.Instanciar(ACEInstancia.Eliminado)
+                m_eListTelefono.Add(_telef)
+                m_eentidades.ListTelefonos.Remove(_telef)
+                bs_telefonos.ResetBindings(True)
+            End If
+
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar un telefono nuevo", ex)
+        End Try
+    End Sub
+
+    Private Sub txt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Try
+            Me.actxaRazonSocial.Text = String.Format("{0} {1} {2}", txtApePaterno.Text.Trim, txtApeMaterno.Text.Trim, txtNombres.Text.Trim)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso completar razon social", ex)
+        End Try
+    End Sub
+
+    Private Sub chkListTipos_ItemChecked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ItemCheckedEventArgs) Handles chkListTipos.ItemChecked
+        Try
+            Dim _tipe_codigo As Integer
+            If e.Item.Checked Then
+                Select Case e.Item.Index
+                    Case 0
+                        AddPage(EEntidades.TipoEntidad.Usuarios)
+                        _tipe_codigo = EEntidades.TipoEntidad.Usuarios
+                    Case 1
+                        AddPage(EEntidades.TipoEntidad.Clientes)
+                        _tipe_codigo = EEntidades.TipoEntidad.Clientes
+                        m_eentidades.Cliente = New EClientes
+                        ABCliente()
+                    Case 2
+                        AddPage(EEntidades.TipoEntidad.Proveedores)
+                        _tipe_codigo = EEntidades.TipoEntidad.Proveedores
+                        m_eentidades.Proveedor = New EProveedores
+                        ABProveedor()
+                    Case 3
+                        AddPage(EEntidades.TipoEntidad.Trabajadores)
+                        _tipe_codigo = EEntidades.TipoEntidad.Trabajadores
+                    Case 4
+                        AddPage(EEntidades.TipoEntidad.Conductores)
+                        _tipe_codigo = EEntidades.TipoEntidad.Conductores
+                        ABConductor()
+                    Case 5
+                        AddPage(EEntidades.TipoEntidad.Contactos)
+                        _tipe_codigo = EEntidades.TipoEntidad.Contactos
+                    Case 6
+                        AddPage(EEntidades.TipoEntidad.Vendedores)
+                        _tipe_codigo = EEntidades.TipoEntidad.Vendedores
+                End Select
+            Else
+                Select Case e.Item.Index
+                    Case 0
+                        RemovePage(EEntidades.TipoEntidad.Usuarios)
+                    Case 1
+                        RemovePage(EEntidades.TipoEntidad.Clientes)
+                    Case 2
+                        RemovePage(EEntidades.TipoEntidad.Proveedores)
+                    Case 3
+                        RemovePage(EEntidades.TipoEntidad.Trabajadores)
+                    Case 4
+                        RemovePage(EEntidades.TipoEntidad.Conductores)
+                    Case 5
+                        RemovePage(EEntidades.TipoEntidad.Contactos)
+                    Case 6
+                        RemovePage(EEntidades.TipoEntidad.Vendedores)
+                End Select
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ha ocurrido un error seleccionando el Tipo de Entidad.", ex)
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            If sender.Name = "txtBusqueda" Then
+                Exit Sub
+            End If
+            SendKeys.Send("{TAB}")
+        End If
+    End Sub
+
+    Private Sub c1grdBusqueda_BeforeSort(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.SortColEventArgs) Handles c1grdBusqueda.BeforeSort
+        Try
+            Ordenar(c1grdBusqueda.Cols(e.Col).UserData)
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso ordenar", ex)
+        End Try
+    End Sub
+
+#Region " Tool Bar "
+    Private Sub acTool_ACBtnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnNuevo_Click
+        Try
+            tabMantenimiento.SelectedTab = tabDatos
+
+            m_eentidades = New EEntidades(EEntidades.TipoInicializacion.EntTipos_Dir_Tel)
+            m_eentidades.Instanciar(ACEInstancia.Nuevo)
+            setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+            AsignarBinding()
+            actxaNumDoc.Focus()
+            KeyPreview = True
+
+            setCheckFuncionEntidad()
+            ' AddHandler actxaNumDoc.Leave, AddressOf actxaNumDoc_Leave
+            AddHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Nueva Entidad", ex)
+        End Try
+    End Sub
+
+    Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnCancelar_Click
+        Try
+            tabMantenimiento.SelectedTab = tabBusqueda
+            For Each Item As ACBindHelper In m_listBindHelper
+                Item.ACUnBind()
+            Next
+            txtBusqueda.Focus()
+            KeyPreview = False
+            ' RemoveHandler actxaNumDoc.Leave, AddressOf actxaNumDoc_Leave
+            RemoveHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Cancelar Entidad", ex)
+        End Try
+    End Sub
+
+    Private Sub acTool_ACBtnModificar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnModificar_Click
+        Try
+            setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+            cargar()
+            tabMantenimiento.SelectedTab = tabDatos
+            actxaNumDoc.Focus()
+            KeyPreview = True
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Entidad", ex)
+        End Try
+    End Sub
+
+    ' <summary>
+    ' Grabar la entidad en la base de datos
+    ' </summary>
+    ' <param name="sender"></param>
+    ' <param name="e"></param>
+    ' <remarks></remarks>
+    Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click 'EN ESTE MOMENTO SU NOMBRE ES GRABAR 
+        Dim msg As String = ""
+        Try
+            '' Finaliza la modificacion de los controles
+            c1grdDirecciones.FinishEditing()
+            c1grdTelefonos.FinishEditing()
+            '' Verifica los campos obligatorios
+            If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) And getFuncionEntidad(msg) Then
+                m_eentidades.ENTID_TipoEntidadPDT = IIf(rbtNatural.Checked, ACETransporte.Constantes.PersonaNatural, ACETransporte.Constantes.PersonaJuridica) 'la funciones IIf 
+                'Devuelve una de dos valores y las almaena en m_entidades.ENTID_TipoEntidadPDT
+
+                If m_eentidades.Nuevo Then
+                    If rbtJuridica.Checked Then
+                        m_eentidades.ENTID_Codigo = actxaNumDoc.Text.Trim 'entonces igualamos lo que el input actxNumDoc tenga y lo ponemos en m_entidades.ENTID_Codigo 
+                        m_eentidades.TIPOS_CodTipoDocumento = ETipos.getTipo(ETipos.TipoDocumentoIdentidad.RUC)
+                    Else
+                        m_eentidades.ENTID_Codigo = actxaNumDoc.Text.Trim
+                    End If
+                End If
+                If m_eentidades.ENTID_TipoEntidadPDT.Equals(ACETransporte.Constantes.PersonaNatural) Then
+                    m_eentidades.ENTID_PtrApeMaterno = txtApePaterno.Text.Length + 1
+                    m_eentidades.ENTID_PtrNombre1 = txtApePaterno.Text.Trim.Length + txtApeMaterno.Text.Trim.Length + 2
+                    m_eentidades.ENTID_Nombres = String.Format("{0} {1} {2}", txtApePaterno.Text.Trim, txtApeMaterno.Text.Trim, txtNombres.Text.Trim)
+                    
+                    m_eentidades.ENTID_RazonSocial = m_eentidades.ENTID_Nombres.Trim
+                    m_eentidades.USUAR_Codigo = m_eentidades.ENTID_NroDocumento
+                Else
+                    m_eentidades.ENTID_Nombres = m_eentidades.ENTID_RazonSocial
+                End If
+                '' Verificar la direcciones
+                For index As Integer = 0 To m_eentidades.ListDirecciones.Count - 1
+                    If (m_nrodirecciones - m_eListDireccion.Count) < (index + 1) Then m_eentidades.ListDirecciones(index).Instanciar(ACEInstancia.Nuevo)
+                Next
+                '' verificar los telefonos
+                For index As Integer = 0 To m_eentidades.ListTelefonos.Count - 1
+                    If (m_nrotelefonos - m_eListTelefono.Count) < (index + 1) Then m_eentidades.ListTelefonos(index).Instanciar(ACEInstancia.Nuevo)
+                Next
+                'Veificar Lista de Tipo Direcciones
+         
+
+                '' Dar los valores a la clase madre para su procesamiento
+                managerEntidades.setEntidades(m_eentidades)
+                managerEntidades.setListEliDirecciones(m_eListDireccion)
+                managerEntidades.setListEliTelefonos(m_eListTelefono)
+                If managerEntidades.Guardar(GApp.Usuario, EEntidades.TipoInicializacion.EntTipos_Dir_Tel) Then
+                    ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Text), "Grabado satisfactoriamente")
+                    tabMantenimiento.SelectedTab = tabBusqueda
+                    acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabIni
+
+                    busqueda(txtBusqueda.Text)
+                    txtBusqueda.Focus()
+                    KeyPreview = False
+
+                    Select Case m_opcion
+                        Case Inicio.NuevaEntidad
+                            DialogResult = Windows.Forms.DialogResult.OK
+                            Close()
+                        Case Inicio.ModificarEntidad
+                            DialogResult = Windows.Forms.DialogResult.OK
+                            Close()
+                    End Select
+                Else
+                    acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabFin
+                    ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Text), "No puede guardar", msg)
+                End If
+            Else
+                acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabFin
+                ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Text), "No puede guardar, por que hay campos obligatorios vacios: ", msg)
+            End If
+            RemoveHandler cmbTipoDoc.SelectedIndexChanged, AddressOf cmbTipoDoc_SelectedIndexChanged
+        Catch ex As Exception
+            acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Nuevo)
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede grabar", ex)
+        End Try
+    End Sub
+
+    Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+        Close()
+    End Sub
+
+    Private Sub acTool_ACBtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnEliminar_Click
+        Try
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Convert.ToString(Text)), String.Format("Desea eliminar el registro: {0}?", CType(bs_bentidades.Current, EEntidades).ENTID_Nombres), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                m_eentidades = CType(bs_bentidades.Current, EEntidades)
+                m_eentidades.Instanciar(ACEInstancia.Eliminado)
+                managerEntidades.setEntidades(m_eentidades)
+                managerEntidades.Guardar(GApp.Usuario, EEntidades.TipoInicializacion.EntTipos_Dir_Tel)
+                ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Convert.ToString(Me.Text)), "Eliminado satisfactoriamente")
+                busqueda(txtBusqueda.Text)
+            End If
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede Eliminar", ex)
+        End Try
+    End Sub
+#End Region
+
+#End Region
+
+    Private Sub tsbtnRelacionados_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnRelacionados.Click
+        Try
+            Dim frmRela As New MRelacionados(m_eentidades.ENTID_Codigo, m_eentidades.ENTID_RazonSocial)
+            frmRela.StartPosition = FormStartPosition.CenterScreen
+            frmRela.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+            frmRela.MaximizeBox = False
+            frmRela.MinimizeBox = False
+            frmRela.ShowDialog()
+        Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cargar relacionados", ex)
+        End Try
+    End Sub
+    Private Sub chkCredito_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkCredito.CheckedChanged
+        grpCredito.Enabled = chkCredito.Checked
+    End Sub
+    Private Sub MEntidad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+
+
+
+End Class

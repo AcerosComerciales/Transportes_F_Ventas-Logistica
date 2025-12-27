@@ -1,0 +1,486 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+
+Imports ACEVentas
+Imports DAConexion
+Imports ACFramework
+Imports ACBLogistica
+Imports ACELogistica
+Imports ACBVentas
+
+Public Class BGenerarGuias
+
+#Region " Variables "
+
+   Private m_dtGenerarGuias As DataTable
+
+   Private m_dsGenerarGuias As DataSet
+   Private Shared d_generarguias As DGenerarGuias = Nothing
+
+   Private m_etran_guiastransportista As ETRAN_GuiasTransportista
+   Private m_list_tran_guiastransportista As List(Of ETRAN_GuiasTransportista)
+
+   Private m_listABAS_DocsCompra As List(Of EABAS_DocsCompra)
+#End Region
+
+#Region " Constructores "
+
+   Public Sub New()
+      d_generarguias = New DGenerarGuias
+   End Sub
+
+#End Region
+
+#Region " Propiedades "
+
+   Public Property DTGenerarGuias() As DataTable
+      Get
+         Return m_dtGenerarGuias
+      End Get
+      Set(ByVal value As DataTable)
+         m_dtGenerarGuias = value
+      End Set
+   End Property
+   Public Property DSGenerarGuias() As DataSet
+      Get
+         Return m_dsGenerarGuias
+      End Get
+      Set(ByVal value As DataSet)
+         m_dsGenerarGuias = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_GuiasTransportista() As List(Of ETRAN_GuiasTransportista)
+      Get
+         Return m_list_tran_guiastransportista
+      End Get
+      Set(ByVal value As List(Of ETRAN_GuiasTransportista))
+         m_list_tran_guiastransportista = value
+      End Set
+   End Property
+
+   Public Property TRAN_GuiasTransportista() As ETRAN_GuiasTransportista
+      Get
+         Return m_etran_guiastransportista
+      End Get
+      Set(ByVal value As ETRAN_GuiasTransportista)
+         m_etran_guiastransportista = value
+      End Set
+   End Property
+
+   Public Property ListABAS_DocsCompra() As List(Of EABAS_DocsCompra)
+      Get
+         Return m_listABAS_DocsCompra
+      End Get
+      Set(ByVal value As List(Of EABAS_DocsCompra))
+         m_listABAS_DocsCompra = value
+      End Set
+   End Property
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   Public Function getNumero(ByVal x_serie As String, ByVal x_tipos_codtipodocumento As String) As Integer
+      Try
+         Return d_generarguias.getNumero(x_serie, x_tipos_codtipodocumento)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Guardar(ByVal x_usuario As String) As Boolean
+      Dim m_btran_guiastransportista As New BTRAN_GuiasTransportista()
+      Try
+         DAEnterprise.BeginTransaction()
+         m_etran_guiastransportista.GTRAN_Id = m_btran_guiastransportista.getCorrelativo("GTRAN_Id")
+         m_btran_guiastransportista.TRAN_GuiasTransportista = m_etran_guiastransportista
+         If m_btran_guiastransportista.Guardar(x_usuario) Then
+            Dim m_btran_guiastransportistadetalle As New BTRAN_GuiasTransportistaDetalles
+            Dim i As Integer = 1
+            For Each Item As ETRAN_GuiasTransportistaDetalles In m_etran_guiastransportista.ListETRAN_GuiasTransportistaDetalles
+               Item.GTDET_Item = i
+               Item.GTDET_Estado = ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Ingresado)
+               Item.Instanciar(ACFramework.ACEInstancia.Nuevo)
+               Item.GTRAN_Codigo = m_etran_guiastransportista.GTRAN_Codigo
+               m_btran_guiastransportistadetalle.TRAN_GuiasTransportistaDetalles = Item
+               m_btran_guiastransportistadetalle.Guardar(x_usuario)
+               i += 1
+            Next
+            DAEnterprise.CommitTransaction()
+            Return True
+         Else
+            DAEnterprise.RollBackTransaction()
+            Return False
+         End If
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Eliminar(ByVal x_guiar_codigo As String, ByVal x_usuario As String)
+      Dim m_btran_guiastransportista As New BTRAN_GuiasTransportista()
+      Dim m_btran_guiastransportistadetalles As New BTRAN_GuiasTransportistaDetalles()
+      Try
+         Dim _where As New Hashtable
+         _where.Add("GTRAN_Codigo", New ACWhere(x_guiar_codigo))
+         DAEnterprise.BeginTransaction()
+         If m_btran_guiastransportistadetalles.Eliminar(_where) Then
+            If m_btran_guiastransportista.Eliminar(_where) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            Else
+               Throw New Exception(String.Format("No se puede eliminar la cabecera del documento {0}", x_guiar_codigo))
+            End If
+         Else
+            Throw New Exception(String.Format("No se puede eliminar el detalle del documento {0}", x_guiar_codigo))
+         End If
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+#Region " Buscar Guias de Remision "
+
+   Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_sucur_id As Short, ByVal x_todos As Boolean _
+                         , ByVal x_tipos_documento As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Prov", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                              , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoDocumentoCorta")}))
+         Dim _where As New Hashtable()
+         If Not x_todos Then _where.Add("GTRAN_Estado", New ACWhere(ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         _where.Add("SUCUR_Id", New ACWhere(x_sucur_id, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Fecha", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         _where.Add(ACWhere.OrderBy, New ACWhere(New ACOrderBy() {New ACOrderBy("GTRAN_Fecha", ACOrderBy.Ordenamiento.Ascendente)}))
+         _where.Add("TIPOS_CodTipoDocumento", New ACWhere(x_tipos_documento))
+         Dim m_btran_guiatransportista As New BTRAN_GuiasTransportista()
+         ListTRAN_GuiasTransportista = New List(Of ETRAN_GuiasTransportista)
+         If m_btran_guiatransportista.CargarTodos(_join, _where) Then
+            For Each Item As ETRAN_GuiasTransportista In m_btran_guiatransportista.ListTRAN_GuiasTransportista
+               Item.NumeroComprobante = Item.GTRAN_NroComprobantePago.Substring(2)
+               If Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("01") Then
+                  Item.TipoComprobante = "Fac"
+               ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("03") Then
+                  Item.TipoComprobante = "Bol"
+               ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("09") Then
+                  Item.TipoComprobante = "Guia"
+               ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("12") Then
+                  Item.TipoComprobante = "Tick"
+               End If
+            Next
+            ListTRAN_GuiasTransportista = m_btran_guiatransportista.ListTRAN_GuiasTransportista
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+    End Function
+    Public Function BusquedaGuiaTransportista(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_sucur_id As Short, ByVal x_todos As Boolean _
+                        , ByVal x_tipos_documento As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+        Try
+            Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                                 , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Prov", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoRemitente")} _
+                                 , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Remitente")}))
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                                 , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+            _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                                 , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoDocumentoCorta")}))
+            Dim _where As New Hashtable()
+            If Not x_todos Then _where.Add("GTRAN_Estado", New ACWhere(ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+            _where.Add("SUCUR_Id", New ACWhere(x_sucur_id, ACWhere.TipoWhere._Like))
+            _where.Add("GTRAN_Fecha", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+            _where.Add(ACWhere.OrderBy, New ACWhere(New ACOrderBy() {New ACOrderBy("GTRAN_Fecha", ACOrderBy.Ordenamiento.Ascendente)}))
+            _where.Add("TIPOS_CodTipoDocumento", New ACWhere(x_tipos_documento))
+            Dim m_btran_guiatransportista As New BTRAN_GuiasTransportista()
+            ListTRAN_GuiasTransportista = New List(Of ETRAN_GuiasTransportista)
+            If m_btran_guiatransportista.CargarTodos(_join, _where) Then
+                For Each Item As ETRAN_GuiasTransportista In m_btran_guiatransportista.ListTRAN_GuiasTransportista
+                    Item.NumeroComprobante = Item.GTRAN_NroComprobantePago.Substring(2)
+                    If Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("01") Then
+                        Item.TipoComprobante = "Fac"
+                    ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("03") Then
+                        Item.TipoComprobante = "Bol"
+                    ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("09") Then
+                        Item.TipoComprobante = "Guia"
+                    ElseIf Item.GTRAN_NroComprobantePago.Substring(0, 2).Equals("12") Then
+                        Item.TipoComprobante = "Tick"
+                    End If
+                Next
+                ListTRAN_GuiasTransportista = m_btran_guiatransportista.ListTRAN_GuiasTransportista
+                Return True
+            End If
+            Return False
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+   Public Function Busqueda(ByVal x_doc As String, ByVal x_serie As String, ByVal x_numero As String, ByVal x_pvent_id As Short _
+                           , ByVal x_todos As Boolean, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+         Dim _where As New Hashtable()
+         If Not x_todos Then _where.Add("GTRAN_Estado", New ACWhere(ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         If Not x_doc.Equals("000") Then _where.Add("TIPOS_CodTipoDocumento", New ACWhere(x_doc, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Serie", New ACWhere(x_serie, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Numero", New ACWhere(x_numero, ACWhere.TipoWhere._Like))
+         '_where.Add("GTRAN_Fecha", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         Dim m_btran_guiatransportista As New BTRAN_GuiasTransportista()
+         If m_btran_guiatransportista.CargarTodos(_join, _where) Then
+            ListTRAN_GuiasTransportista = m_btran_guiatransportista.ListTRAN_GuiasTransportista
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Buscar Facuras de Compra "
+
+   Public Function BusFacturas(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_todos As Boolean _
+                         , ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Dim _where As New Hashtable()
+      Try
+         _where.Add(x_campo, New ACWhere(x_cadena, "Cli", "System.String", ACWhere.TipoWhere._Like))
+            _where.Add("DOCCO_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+            If Not x_todos Then
+            _where.Add("DOCCO_Estado", New ACWhere(EABAS_IngresosCompra.getEstado(EABAS_IngresosCompra.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         End If
+         m_listABAS_DocsCompra = New List(Of EABAS_DocsCompra)
+
+         Return d_generarguias.getProveedor(m_listABAS_DocsCompra, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Negocio: LOGI_DOCSS_FacturasCemento
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <param name="x_cadena">Parametro 3: </param> 
+   ' <param name="x_campo">Parametro 4: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function FacturasCemento(ByVal x_cadena As String, ByVal x_campo As Short, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listABAS_DocsCompra = New List(Of EABAS_DocsCompra)
+      Try
+         Return d_generarguias.LOGI_DOCSS_FacturasCemento(m_listABAS_DocsCompra, x_fecini, x_fecfin, x_cadena, x_campo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function BusGuias(ByVal x_doc As String, ByVal x_serie As String, ByVal x_numero As String, ByVal x_pvent_id As Short _
+                        , ByVal x_todos As Boolean, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+         Dim _where As New Hashtable()
+         If Not x_todos Then _where.Add("GTRAN_Estado", New ACWhere(ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         If Not x_doc.Equals("000") Then _where.Add("TIPOS_CodTipoDocumento", New ACWhere(x_doc, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Serie", New ACWhere(x_serie, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Numero", New ACWhere(x_numero, ACWhere.TipoWhere._Like))
+         _where.Add("GTRAN_Fecha", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         Dim m_btran_guiatransportista As New BTRAN_GuiasTransportista()
+         If m_btran_guiatransportista.CargarTodos(_join, _where) Then
+            ListTRAN_GuiasTransportista = m_btran_guiatransportista.ListTRAN_GuiasTransportista
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+   Public Function GuiaTransportista(ByVal x_gtran_codigo As String, ByVal x_gtran_estado As String) As Boolean
+      m_etran_guiastransportista = New ETRAN_GuiasTransportista
+      Try
+         Return d_generarguias.getGuiaTransportista(m_etran_guiastransportista, x_gtran_codigo, x_gtran_estado)
+      Catch ex As Exception
+         Throw ex
+      End Try
+    End Function
+    ' <summary>
+    ' Cargar guia de remision transportista
+    ' </summary>
+    ' <param name="x_codigo">codigo de la guia de remision</param>
+    ' <returns></returns>
+    ' <remarks></remarks>
+    Public Function CargarGuiaTransportista(ByVal x_codigo As String) As Boolean
+        Try
+            Dim m_btran_docstransportista As New BTRAN_GuiasTransportista()
+            Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                                 , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                                 , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+            Dim _wherec As New Hashtable()
+            _wherec.Add("GTRAN_Codigo", New ACWhere(x_codigo))
+            'If m_btran_docstransportista.Cargar(x_codigo) Then
+            If m_btran_docstransportista.Cargar(_join, _wherec) Then
+                m_etran_guiastransportista = m_btran_docstransportista.TRAN_GuiasTransportista
+                Dim _where As New Hashtable()
+                _where.Add("GTRAN_Codigo", New ACWhere(x_codigo))
+                Dim m_btran_docstransportistadetalle As New BTRAN_GuiasTransportistaDetalles()
+                Dim _joinDet As New List(Of ACJoin)
+                _joinDet.Add(New ACJoin(EArticulos.Esquema, EArticulos.Tabla, "Art", ACJoin.TipoJoin.Inner _
+                                   , New ACCampos() {New ACCampos("ARTIC_Codigo", "ARTIC_Codigo")} _
+                                   , New ACCampos() {New ACCampos("ARTIC_Descripcion", "ARTIC_Descripcion") _
+                                                     , New ACCampos("ARTIC_Id", "ARTIC_Id")}))
+                _joinDet.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TUni", "Art", ACJoin.TipoJoin.Inner _
+                                   , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodUnidadMedida")} _
+                                   , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_UnidadMedida")}))
+                If m_btran_docstransportistadetalle.CargarTodos(_joinDet, _where) Then
+                    m_etran_guiastransportista.ListETRAN_GuiasTransportistaDetalles = New List(Of ETRAN_GuiasTransportistaDetalles)(m_btran_docstransportistadetalle.ListTRAN_GuiasTransportistaDetalles)
+                    Return True
+                End If
+            End If
+            Return False
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
+   ' <summary> 
+   ' Capa de Negocio: TRAN_GUIASS_ObtenerGuias
+   ' </summary> 
+   ' <param name="x_gtran_codigo">Parametro 1: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_GUIASS_ObtenerGuias(ByVal x_gtran_codigo As String) As Boolean
+      Try
+         m_etran_guiastransportista = New ETRAN_GuiasTransportista
+         Return d_generarguias.TRAN_GUIASS_ObtenerGuias(m_etran_guiastransportista, x_gtran_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function AnularGuia(ByVal x_gtran_codigo As String, ByVal x_usuario As String) As Boolean
+      Try
+         m_etran_guiastransportista = New ETRAN_GuiasTransportista()
+         m_etran_guiastransportista.GTRAN_Codigo = x_gtran_codigo
+         m_etran_guiastransportista.GTRAN_Estado = ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Anulado)
+         m_etran_guiastransportista.Instanciar(ACEInstancia.Modificado)
+         Dim _bguiastransportista As New BTRAN_GuiasTransportista()
+         _bguiastransportista.TRAN_GuiasTransportista = m_etran_guiastransportista
+         Return _bguiastransportista.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function cargarDocsCompra(ByVal x_docco_codigo As String, ByVal x_entid_codigo As String, ByVal x_detalle As Boolean) As Boolean
+      Dim _babas_docscompras As New BABAS_DocsCompra()
+      m_etran_guiastransportista = New ETRAN_GuiasTransportista()
+      Try
+         '' Convertir DocsCompra -> GuiaRemision
+         If _babas_docscompras.Cargar(x_docco_codigo, x_entid_codigo, x_detalle) Then
+            m_etran_guiastransportista.ZONAS_Codigo = BConstantes.ZONAS_Codigo
+            m_etran_guiastransportista.SUCUR_Id = BConstantes.SUCUR_Id
+            m_etran_guiastransportista.ENTID_Codigo = _babas_docscompras.ABAS_DocsCompra.ENTID_CodigoProveedor
+            m_etran_guiastransportista.GTRAN_RucProveedor = _babas_docscompras.ABAS_DocsCompra.ENTID_NroDocumento
+            m_etran_guiastransportista.ENTID_Proveedor = _babas_docscompras.ABAS_DocsCompra.ENTID_Proveedor
+            m_etran_guiastransportista.GTRAN_DescEntidadProveedor = _babas_docscompras.ABAS_DocsCompra.ENTID_Proveedor
+            m_etran_guiastransportista.GTRAN_NroComprobantePago = _babas_docscompras.ABAS_DocsCompra.DOCCO_Codigo
+            m_etran_guiastransportista.GTRAN_NroPedido = _babas_docscompras.ABAS_DocsCompra.DOCCO_CodigoSAP
+            '' Cargar el Detalle
+            m_etran_guiastransportista.ListETRAN_GuiasTransportistaDetalles = New List(Of ETRAN_GuiasTransportistaDetalles)()
+            _babas_docscompras.ABAS_DocsCompra.ListEABAS_DocsCompraDetalle = New List(Of EABAS_DocsCompraDetalle)()
+            d_generarguias.CargarGuia(_babas_docscompras.ABAS_DocsCompra.ListEABAS_DocsCompraDetalle, x_docco_codigo, x_entid_codigo)
+            Dim i As Integer = 1
+            For Each item As EABAS_DocsCompraDetalle In _babas_docscompras.ABAS_DocsCompra.ListEABAS_DocsCompraDetalle
+               Dim _guiaDetalle As New ETRAN_GuiasTransportistaDetalles
+               _guiaDetalle.GTDET_Item = i
+               _guiaDetalle.ARTIC_Codigo = item.ARTIC_Codigo
+               _guiaDetalle.GTDET_Unidad = item.TIPOS_UnidadMedida
+               _guiaDetalle.GTDET_Descripcion = item.ARTIC_Descripcion
+               _guiaDetalle.GTDET_Peso = item.DOCCD_PesoUnitario
+               _guiaDetalle.TotalDoc = item.DOCCD_Cantidad
+               _guiaDetalle.GTDET_Cantidad = item.DOCCD_Cantidad - item.Entregado
+               _guiaDetalle.Diferencia = item.Diferencia
+               _guiaDetalle.Entregado = item.Entregado
+               m_etran_guiastransportista.ListETRAN_GuiasTransportistaDetalles.Add(_guiaDetalle)
+               i += 1
+            Next
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CargarGuias(ByVal x_docve_codigo As String) As Boolean
+      Try
+         Dim _btran_guiastransportista As New BTRAN_GuiasTransportista
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Tra", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoTransportista")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Transportista")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoConductor")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Conductor")}))
+         Dim _where As New Hashtable
+         _where.Add("GTRAN_NroComprobantePago", New ACWhere(x_docve_codigo))
+         If _btran_guiastransportista.CargarTodos(_join, _where) Then
+            m_list_tran_guiastransportista = New List(Of ETRAN_GuiasTransportista)(_btran_guiastransportista.ListTRAN_GuiasTransportista)
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+
+

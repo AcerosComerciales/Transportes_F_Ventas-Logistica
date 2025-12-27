@@ -1,0 +1,982 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ELOG_Stocks
+
+#Region " Campos "
+	
+	Private m_perio_codigo As String
+	Private m_artic_codigo As String
+	Private m_almac_id As Short
+	Private m_stock_id As Long
+	Private m_entid_codigoproveedor As String
+	Private m_entid_codigocliente As String
+	Private m_tipos_codtipodocentrega As String
+	Private m_tipos_codtipounidad As String
+	Private m_docco_codigo As String
+	Private m_doccd_item As Short
+	Private m_ingco_id As Long
+	Private m_ingcd_item As Short
+	Private m_docve_codigo As String
+	Private m_docvd_item As Short
+	Private m_pedid_codigo As String
+	Private m_pddet_item As Short
+	Private m_ordco_codigo As String
+	Private m_guiar_codigo As String
+	Private m_guird_item As Short
+	Private m_orden_codigo As String
+    Private m_ordet_item As Short
+    Private m_orden_codigoPro As String
+    Private m_ordet_itemPro As Short
+    Private m_pedid_codigotrans As String
+    Private m_pedid_itemtrans As Short
+    Private m_stock_lote as Long
+    Private m_stock_loteGeneral as long
+	Private m_stock_fecha As Date
+	Private m_stock_cantidadingreso As Decimal
+	Private m_stock_cantidadsalida As Decimal
+	Private m_stock_estado As String
+	Private m_tipos_codtipomotivo As String
+	Private m_arreg_codigo As String
+	Private m_arrdt_item As Short
+	Private m_stock_usrcrea As String
+	Private m_stock_feccrea As Date
+	Private m_stock_usrmod As String
+	Private m_stock_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACELogistica.My.Resources.xmlLOG_Stocks
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property PERIO_Codigo() As String
+		Get
+			return m_perio_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_perio_codigo) Then
+				If Not m_perio_codigo.Equals(value) Then
+					m_perio_codigo = value
+					OnPERIO_CodigoChanged(m_perio_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_perio_codigo = value
+				OnPERIO_CodigoChanged(m_perio_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ARTIC_Codigo() As String
+		Get
+			return m_artic_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_artic_codigo) Then
+				If Not m_artic_codigo.Equals(value) Then
+					m_artic_codigo = value
+					OnARTIC_CodigoChanged(m_artic_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_artic_codigo = value
+				OnARTIC_CodigoChanged(m_artic_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ALMAC_Id() As Short
+		Get
+			return m_almac_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_almac_id) Then
+				If Not m_almac_id.Equals(value) Then
+					m_almac_id = value
+					OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+				End If
+			Else
+				m_almac_id = value
+				OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_Id() As Long
+		Get
+			return m_stock_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_stock_id) Then
+				If Not m_stock_id.Equals(value) Then
+					m_stock_id = value
+					OnSTOCK_IdChanged(m_stock_id, EventArgs.Empty)
+				End If
+			Else
+				m_stock_id = value
+				OnSTOCK_IdChanged(m_stock_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+    
+    Public Property STOCK_Lote() As Long
+		Get
+			return m_stock_lote
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_stock_lote) Then
+				If Not m_stock_lote.Equals(value) Then
+					m_stock_lote = value
+					OnSTOCK_LoteChanged(m_stock_lote, EventArgs.Empty)
+				End If
+			Else
+				m_stock_lote = value
+				OnSTOCK_LoteChanged(m_stock_lote, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+    Public Property STOCK_LoteGeneral() As Long
+		Get
+			return m_stock_loteGeneral
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_stock_loteGeneral) Then
+				If Not m_stock_loteGeneral.Equals(value) Then
+					m_stock_loteGeneral = value
+					OnSTOCK_LoteGeneralChanged(m_stock_loteGeneral, EventArgs.Empty)
+				End If
+			Else
+				m_stock_loteGeneral = value
+				OnSTOCK_LoteGeneralChanged(m_stock_loteGeneral, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+    
+	Public Property ENTID_CodigoProveedor() As String
+		Get
+			return m_entid_codigoproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigoproveedor) Then
+				If Not m_entid_codigoproveedor.Equals(value) Then
+					m_entid_codigoproveedor = value
+					OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigoproveedor = value
+				OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoCliente() As String
+		Get
+			return m_entid_codigocliente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigocliente) Then
+				If Not m_entid_codigocliente.Equals(value) Then
+					m_entid_codigocliente = value
+					OnENTID_CodigoClienteChanged(m_entid_codigocliente, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigocliente = value
+				OnENTID_CodigoClienteChanged(m_entid_codigocliente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoDocEntrega() As String
+		Get
+			return m_tipos_codtipodocentrega
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipodocentrega) Then
+				If Not m_tipos_codtipodocentrega.Equals(value) Then
+					m_tipos_codtipodocentrega = value
+					OnTIPOS_CodTipoDocEntregaChanged(m_tipos_codtipodocentrega, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipodocentrega = value
+				OnTIPOS_CodTipoDocEntregaChanged(m_tipos_codtipodocentrega, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoUnidad() As String
+		Get
+			return m_tipos_codtipounidad
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipounidad) Then
+				If Not m_tipos_codtipounidad.Equals(value) Then
+					m_tipos_codtipounidad = value
+					OnTIPOS_CodTipoUnidadChanged(m_tipos_codtipounidad, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipounidad = value
+				OnTIPOS_CodTipoUnidadChanged(m_tipos_codtipounidad, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Codigo() As String
+		Get
+			return m_docco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_codigo) Then
+				If Not m_docco_codigo.Equals(value) Then
+					m_docco_codigo = value
+					OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_docco_codigo = value
+				OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCD_Item() As Short
+		Get
+			return m_doccd_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_doccd_item) Then
+				If Not m_doccd_item.Equals(value) Then
+					m_doccd_item = value
+					OnDOCCD_ItemChanged(m_doccd_item, EventArgs.Empty)
+				End If
+			Else
+				m_doccd_item = value
+				OnDOCCD_ItemChanged(m_doccd_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Id() As Long
+		Get
+			return m_ingco_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_ingco_id) Then
+				If Not m_ingco_id.Equals(value) Then
+					m_ingco_id = value
+					OnINGCO_IdChanged(m_ingco_id, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_id = value
+				OnINGCO_IdChanged(m_ingco_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCD_Item() As Short
+		Get
+			return m_ingcd_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_ingcd_item) Then
+				If Not m_ingcd_item.Equals(value) Then
+					m_ingcd_item = value
+					OnINGCD_ItemChanged(m_ingcd_item, EventArgs.Empty)
+				End If
+			Else
+				m_ingcd_item = value
+				OnINGCD_ItemChanged(m_ingcd_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCVE_Codigo() As String
+		Get
+			return m_docve_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docve_codigo) Then
+				If Not m_docve_codigo.Equals(value) Then
+					m_docve_codigo = value
+					OnDOCVE_CodigoChanged(m_docve_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_docve_codigo = value
+				OnDOCVE_CodigoChanged(m_docve_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCVD_Item() As Short
+		Get
+			return m_docvd_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_docvd_item) Then
+				If Not m_docvd_item.Equals(value) Then
+					m_docvd_item = value
+					OnDOCVD_ItemChanged(m_docvd_item, EventArgs.Empty)
+				End If
+			Else
+				m_docvd_item = value
+				OnDOCVD_ItemChanged(m_docvd_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PEDID_Codigo() As String
+		Get
+			return m_pedid_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_pedid_codigo) Then
+				If Not m_pedid_codigo.Equals(value) Then
+					m_pedid_codigo = value
+					OnPEDID_CodigoChanged(m_pedid_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_pedid_codigo = value
+				OnPEDID_CodigoChanged(m_pedid_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PDDET_Item() As Short
+		Get
+			return m_pddet_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_pddet_item) Then
+				If Not m_pddet_item.Equals(value) Then
+					m_pddet_item = value
+					OnPDDET_ItemChanged(m_pddet_item, EventArgs.Empty)
+				End If
+			Else
+				m_pddet_item = value
+				OnPDDET_ItemChanged(m_pddet_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDCO_Codigo() As String
+		Get
+			return m_ordco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ordco_codigo) Then
+				If Not m_ordco_codigo.Equals(value) Then
+					m_ordco_codigo = value
+					OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_ordco_codigo = value
+				OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GUIAR_Codigo() As String
+		Get
+			return m_guiar_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_guiar_codigo) Then
+				If Not m_guiar_codigo.Equals(value) Then
+					m_guiar_codigo = value
+					OnGUIAR_CodigoChanged(m_guiar_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_guiar_codigo = value
+				OnGUIAR_CodigoChanged(m_guiar_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property GUIRD_Item() As Short
+		Get
+			return m_guird_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_guird_item) Then
+				If Not m_guird_item.Equals(value) Then
+					m_guird_item = value
+					OnGUIRD_ItemChanged(m_guird_item, EventArgs.Empty)
+				End If
+			Else
+				m_guird_item = value
+				OnGUIRD_ItemChanged(m_guird_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_Codigo() As String
+		Get
+			return m_orden_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_codigo) Then
+				If Not m_orden_codigo.Equals(value) Then
+					m_orden_codigo = value
+					OnORDEN_CodigoChanged(m_orden_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_orden_codigo = value
+				OnORDEN_CodigoChanged(m_orden_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+    Public Property ORDEN_CodigoProduccion() As String
+		Get
+			return m_orden_codigoPro
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_codigoPro) Then
+				If Not m_orden_codigoPro.Equals(value) Then
+					m_orden_codigoPro = value
+					OnORDEN_CodigoProduccionChanged(m_orden_codigoPro, EventArgs.Empty)
+				End If
+			Else
+				m_orden_codigoPro = value
+				OnORDEN_CodigoProduccionChanged(m_orden_codigoPro, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+    
+	Public Property ORDET_Item() As Short
+		Get
+			return m_ordet_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_ordet_item) Then
+				If Not m_ordet_item.Equals(value) Then
+					m_ordet_item = value
+					OnORDET_ItemChanged(m_ordet_item, EventArgs.Empty)
+				End If
+			Else
+				m_ordet_item = value
+				OnORDET_ItemChanged(m_ordet_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+    Public Property PEDID_CodigoTrans() As String
+		Get
+			return m_pedid_codigotrans
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_pedid_codigotrans) Then
+				If Not m_pedid_codigotrans.Equals(value) Then
+					m_pedid_codigotrans = value
+					OnPEDID_CodigoTransChanged(m_pedid_codigotrans, EventArgs.Empty)
+				End If
+			Else
+				m_pedid_codigotrans = value
+				OnPEDID_CodigoTransChanged(m_pedid_codigotrans, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+    Public Property PEDID_Item() As Short
+		Get
+			return m_pedid_itemtrans
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_pedid_itemtrans) Then
+				If Not m_pedid_itemtrans.Equals(value) Then
+					m_pedid_itemtrans = value
+					OnPEDID_ItemChanged(m_pedid_itemtrans, EventArgs.Empty)
+				End If
+			Else
+				m_pedid_itemtrans = value
+				OnPEDID_ItemChanged(m_pedid_itemtrans, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+
+    Public Property ORDET_ItemProduccion() As Short
+		Get
+			return m_ordet_itempro
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_ordet_itempro) Then
+				If Not m_ordet_itempro.Equals(value) Then
+					m_ordet_itempro = value
+					OnORDET_ItemProduccionChanged(m_ordet_itempro, EventArgs.Empty)
+				End If
+			Else
+				m_ordet_itempro = value
+				OnORDET_ItemProduccionChanged(m_ordet_itempro, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_Fecha() As Date
+		Get
+			return m_stock_fecha
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_stock_fecha) Then
+				If Not m_stock_fecha.Equals(value) Then
+					m_stock_fecha = value
+					OnSTOCK_FechaChanged(m_stock_fecha, EventArgs.Empty)
+				End If
+			Else
+				m_stock_fecha = value
+				OnSTOCK_FechaChanged(m_stock_fecha, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_CantidadIngreso() As Decimal
+		Get
+			return m_stock_cantidadingreso
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_stock_cantidadingreso) Then
+				If Not m_stock_cantidadingreso.Equals(value) Then
+					m_stock_cantidadingreso = value
+					OnSTOCK_CantidadIngresoChanged(m_stock_cantidadingreso, EventArgs.Empty)
+				End If
+			Else
+				m_stock_cantidadingreso = value
+				OnSTOCK_CantidadIngresoChanged(m_stock_cantidadingreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_CantidadSalida() As Decimal
+		Get
+			return m_stock_cantidadsalida
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_stock_cantidadsalida) Then
+				If Not m_stock_cantidadsalida.Equals(value) Then
+					m_stock_cantidadsalida = value
+					OnSTOCK_CantidadSalidaChanged(m_stock_cantidadsalida, EventArgs.Empty)
+				End If
+			Else
+				m_stock_cantidadsalida = value
+				OnSTOCK_CantidadSalidaChanged(m_stock_cantidadsalida, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_Estado() As String
+		Get
+			return m_stock_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_stock_estado) Then
+				If Not m_stock_estado.Equals(value) Then
+					m_stock_estado = value
+					OnSTOCK_EstadoChanged(m_stock_estado, EventArgs.Empty)
+				End If
+			Else
+				m_stock_estado = value
+				OnSTOCK_EstadoChanged(m_stock_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoMotivo() As String
+		Get
+			return m_tipos_codtipomotivo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipomotivo) Then
+				If Not m_tipos_codtipomotivo.Equals(value) Then
+					m_tipos_codtipomotivo = value
+					OnTIPOS_CodTipoMotivoChanged(m_tipos_codtipomotivo, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipomotivo = value
+				OnTIPOS_CodTipoMotivoChanged(m_tipos_codtipomotivo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ARREG_Codigo() As String
+		Get
+			return m_arreg_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_arreg_codigo) Then
+				If Not m_arreg_codigo.Equals(value) Then
+					m_arreg_codigo = value
+					OnARREG_CodigoChanged(m_arreg_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_arreg_codigo = value
+				OnARREG_CodigoChanged(m_arreg_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ARRDT_Item() As Short
+		Get
+			return m_arrdt_item
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_arrdt_item) Then
+				If Not m_arrdt_item.Equals(value) Then
+					m_arrdt_item = value
+					OnARRDT_ItemChanged(m_arrdt_item, EventArgs.Empty)
+				End If
+			Else
+				m_arrdt_item = value
+				OnARRDT_ItemChanged(m_arrdt_item, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property STOCK_UsrCrea() As String
+		Get
+			return m_stock_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_stock_usrcrea = value
+		End Set
+	End Property
+
+	Public Property STOCK_FecCrea() As Date
+		Get
+			return m_stock_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_stock_feccrea = value
+		End Set
+	End Property
+
+	Public Property STOCK_UsrMod() As String
+		Get
+			return m_stock_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_stock_usrmod = value
+		End Set
+	End Property
+
+	Public Property STOCK_FecMod() As Date
+		Get
+			return m_stock_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_stock_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "LOG_Stocks"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Logistica"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event PERIO_CodigoChanged As EventHandler
+	Public Event ARTIC_CodigoChanged As EventHandler
+	Public Event ALMAC_IdChanged As EventHandler
+	Public Event STOCK_IdChanged As EventHandler
+    Public Event STOCK_LoteChanged As EventHandler
+    Public Event STOCK_LoteGeneralChanged AS EventHandler
+    Public Event ENTID_CodigoProveedorChanged As EventHandler
+	Public Event ENTID_CodigoClienteChanged As EventHandler
+	Public Event TIPOS_CodTipoDocEntregaChanged As EventHandler
+	Public Event TIPOS_CodTipoUnidadChanged As EventHandler
+	Public Event DOCCO_CodigoChanged As EventHandler
+	Public Event DOCCD_ItemChanged As EventHandler
+	Public Event INGCO_IdChanged As EventHandler
+	Public Event INGCD_ItemChanged As EventHandler
+	Public Event DOCVE_CodigoChanged As EventHandler
+	Public Event DOCVD_ItemChanged As EventHandler
+	Public Event PEDID_CodigoChanged As EventHandler
+	Public Event PDDET_ItemChanged As EventHandler
+	Public Event ORDCO_CodigoChanged As EventHandler
+	Public Event GUIAR_CodigoChanged As EventHandler
+	Public Event GUIRD_ItemChanged As EventHandler
+	Public Event ORDEN_CodigoChanged As EventHandler
+    Public Event ORDEN_CodigoProduccionChanged as EventHandler
+    Public Event PEDID_CodigoTransChanged as EventHandler
+    Public Event PEDID_ItemChanged as EventHandler
+	Public Event ORDET_ItemChanged As EventHandler
+    pUBLIC Event ORDET_ItemProduccionChanged AS EventHandler
+	Public Event STOCK_FechaChanged As EventHandler
+	Public Event STOCK_CantidadIngresoChanged As EventHandler
+	Public Event STOCK_CantidadSalidaChanged As EventHandler
+	Public Event STOCK_EstadoChanged As EventHandler
+	Public Event TIPOS_CodTipoMotivoChanged As EventHandler
+	Public Event ARREG_CodigoChanged As EventHandler
+	Public Event ARRDT_ItemChanged As EventHandler
+
+	Public Sub OnPERIO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PERIO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnARTIC_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ARTIC_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnALMAC_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMAC_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnSTOCK_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_IdChanged(sender, e)
+	End Sub
+    
+    Public Sub OnSTOCK_LoteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_LoteChanged(sender, e)
+	End Sub
+
+    Public sub OnSTOCK_LoteGeneralChanged(ByVal sender As object, ByVal e As EventArgs)
+        ActualizarInstancia()
+		RaiseEvent STOCK_LoteGeneralChanged(sender, e)
+    End Sub
+
+	Public Sub OnENTID_CodigoProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoClienteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoClienteChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoDocEntregaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoDocEntregaChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoUnidadChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoUnidadChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCD_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCD_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCD_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCD_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCVE_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCVE_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCVD_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCVD_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnPEDID_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PEDID_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnPDDET_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PDDET_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGUIAR_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GUIAR_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnGUIRD_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent GUIRD_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_CodigoChanged(sender, e)
+	End Sub
+    Public Sub OnORDEN_CodigoProduccionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_CodigoProduccionChanged(sender, e)
+	End Sub
+    
+    Public Sub OnORDET_ItemProduccionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDET_ItemProduccionChanged(sender, e)
+	End Sub
+    
+    Public sub OnPEDID_CodigoTransChanged(ByVal sender As object, ByVal e As EventArgs)
+        ActualizarInstancia()
+		RaiseEvent PEDID_CodigoTransChanged(sender, e)
+	End Sub
+    
+    Public Sub OnPEDID_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PEDID_ItemChanged(sender, e)
+	End Sub
+    
+	Public Sub OnORDET_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDET_ItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnSTOCK_FechaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_FechaChanged(sender, e)
+	End Sub
+
+	Public Sub OnSTOCK_CantidadIngresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_CantidadIngresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnSTOCK_CantidadSalidaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_CantidadSalidaChanged(sender, e)
+	End Sub
+
+	Public Sub OnSTOCK_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent STOCK_EstadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoMotivoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoMotivoChanged(sender, e)
+	End Sub
+
+	Public Sub OnARREG_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ARREG_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnARRDT_ItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ARRDT_ItemChanged(sender, e)
+	End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

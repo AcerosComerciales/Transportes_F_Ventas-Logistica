@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="ABAS_PedidoTransformacionDetalle" Esquema="Logistica" Prefijo="PEDID">
+  <Nombre>ABAS_PedidoTransformacionDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PEDID_CodigoTrans">PEDID_CodigoTrans</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PEDID_Item">PEDID_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_Cantidad">PEDID_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PEDID_PesoUnitario">PEDID_PesoUnitario</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_Lote">PEDID_Lote</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_UsrCrea">PEDID_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_FecCrea">PEDID_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_UsrMod">PEDID_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_FecMod">PEDID_FecMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_Faltante">PEDID_Faltante</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_LoteGeneral">PEDID_LoteGeneral</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PEDID_Referencia">PEDID_Referencia</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PEDID_CodigoTrans">PEDID_CodigoTrans</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PEDID_Item">PEDID_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PEDID_CodigoTrans">PEDID_CodigoTrans</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

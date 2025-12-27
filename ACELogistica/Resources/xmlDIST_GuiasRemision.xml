@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="DIST_GuiasRemision" Esquema="Logistica" Prefijo="GUIAR">
+  <Nombre>DIST_GuiasRemision</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo">DOCVE_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMAC_IdOrigen">ALMAC_IdOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_IdOrigen">PVENT_IdOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIREC_IdDestino">DIREC_IdDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMAC_IdDestino">ALMAC_IdDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_IdDestino">PVENT_IdDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodMotivoTraslado">TIPOS_CodMotivoTraslado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_CodTipoGuia">TIPOS_CodTipoGuia</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoCliente">ENTID_CodigoCliente</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoTransportista">ENTID_CodigoTransportista</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoConductor">ENTID_CodigoConductor</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Id">GUIAR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Serie">GUIAR_Serie</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Numero">GUIAR_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_DireccOrigen">GUIAR_DireccOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_DireccDestino">GUIAR_DireccDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Descripcioncliente">GUIAR_Descripcioncliente</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_FechaEmision">GUIAR_FechaEmision</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_FechaTraslado">GUIAR_FechaTraslado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_DescripcionTransportista">GUIAR_DescripcionTransportista</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_DescripcionConductor">GUIAR_DescripcionConductor</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_DescripcionVehiculo">GUIAR_DescripcionVehiculo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_CertificadoVehiculo">GUIAR_CertificadoVehiculo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_TotalPeso">GUIAR_TotalPeso</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Observaciones">GUIAR_Observaciones</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Impresa">GUIAR_Impresa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Estado">GUIAR_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_Salida">GUIAR_Salida</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_HoraSalida">GUIAR_HoraSalida</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_HoraLlegada">GUIAR_HoraLlegada</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_UsrCrea">GUIAR_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_FecCrea">GUIAR_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_UsrMod">GUIAR_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_FecMod">GUIAR_FecMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GUIAR_RevisadoControl">GUIAR_RevisadoControl</CCampo>
+  
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIAR_Codigo">GUIAR_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

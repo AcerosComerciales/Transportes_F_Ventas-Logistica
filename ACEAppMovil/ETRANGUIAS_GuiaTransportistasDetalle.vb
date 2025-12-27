@@ -1,0 +1,3 @@
+﻿Public Class ETRANGUIAS_GuiaTransportistasDetalle
+
+End Class

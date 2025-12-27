@@ -1,0 +1,934 @@
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\App.config
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACBLogistica.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACBVentas.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACControles.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACControlesC1.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACELogistica.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACEVentas.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACFramework.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACFrameworkC1.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACImpresion.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACReporteador.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACSeguridad.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\C1.C1Preview.2.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\DAEnterprise.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\DotNetMagic.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\AC_ERP\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\AC_ERP\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+\\192.168.30.188\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+\\192.168.30.188\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+\\192.168.30.188\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+\\192.168.30.188\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\App.config
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\alex compartido\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\alex compartido\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\App.config
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBLogistica.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACControles.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACControlesC1.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACELogistica.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACEVentas.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACFramework.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACFrameworkC1.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACImpresion.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACReporteador.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACSeguridad.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\DAEnterprise.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\DotNetMagic.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\App.config
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.C1Preview.2.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\App.config
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.C1Preview.2.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.Win.C1Preview.2.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.Win.C1FlexGrid.2.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\C1.Win.C1Preview.2.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses
+D:\alex compartido\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.ConsultasViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\obj\x86\Release\ACPTransportes.ConsultasViajes.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACEVentas.dll
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.xml
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.pdb
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBLogistica.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACControles.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACControlesC1.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACELogistica.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACFramework.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACFrameworkC1.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACImpresion.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACReporteador.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACSeguridad.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\DAEnterprise.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\DotNetMagic.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACBVentas.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\x86\Release\ACDVentas.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe.config
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre.rpt
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuentasCorrientes1.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiasCemento.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientesListado.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCotizacionAC.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRCuadreCaja.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFactura.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRFacturaJRA001.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRGuiaTransportista.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\CRPendientes.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Plantillas\RPTCuadre1.vb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\App.config
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Documentos\ManualUsuario-Transportes.pdf
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.exe
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACPTransportes.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\C1.C1Preview.2.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDLogistica.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDVentas.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Microsoft.Practices.ObjectBuilder.dll
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACBTransporte.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACBVentas.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACBVentas.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACETransporte.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\C1.C1Preview.2.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDTransporte.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDVentas.pdb
+D:\Proyectos\otros\Transportes\ACPTransporte\bin\x86\Release\ACDVentas.xml
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbprojResolveAssemblyReference.cache
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAdministrar.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CDocsPago.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionNotas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PDocumento.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngGasCajaChica.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CPagosPorDepositos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CEstPagosPorCliente.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionSimple.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CCompCombustible.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasPorFactura.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocsPago.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosOtros.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFacturasGuias.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCancelados.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CGuiasRemisionAC.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CProductos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CViajesFletes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFletesPorRuta.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MInventarioVehiculo.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPiezas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TInventarioVehiculo.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MDocumentosCompra.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MPartesMant.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculosMantenimiento.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MAlmacenes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MEntidad.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRelacionados.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MSucursales.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MTipos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MUbigeos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MVehiculos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpresion.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RReportView.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacionFletes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizacionesFletes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCreaFactAnulado.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConCombustible.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PMarcarPagos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.ConsultasViajes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiasTransporte.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PModDocFecha.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiTransportista.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaTransportista.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOTGuiaTransportista.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGuiaRemiRemitenteFactura.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FGuiaRemiRemitente.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCotizaciones.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PFacturacion.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PCamFecFacturas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresoEfectivo.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PViajesVentas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TCancelacion.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculosIncidencias.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MFlete.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PGastosViaje.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PConsumoCombustible.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaOrdenMantenimientoBasico.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FFlete.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FInformeMantenimiento.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PVehiculos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PPendientesViaje.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.TRecibos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FConsultaNeumaticos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FMovimientoNeumatico.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FCotizaciones.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosIncidencias.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIncidenciaViajes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FViajes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PNeumaticosVehiculos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MNeumaticos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRamflas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.MRutas.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Resources.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Principal.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.FOrdTransporte.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PIngresosViajes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCCaja.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.CFletesCaja.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RConductores.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCPendientes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RCuentasCorrientes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFacturasGuias.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RFletesPendientes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RGastos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RNeumaticos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientes.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RPendientesPorFecha.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RRecibos.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.RSueldoConductor.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.ACEntornoTrabajo.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.Base.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PBase.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.PImpLinea.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.SSInicio.resources
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.vbproj.GenerateResource.Cache
+D:\Proyectos\otros\Transportes\ACPTransporte\obj\x86\Release\ACPTransportes.exe.licenses

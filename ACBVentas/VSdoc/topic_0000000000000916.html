@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>BGenerarOrdenes.GrabarOrdenIngresoActStock (Método)</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ACBVentas Reference</div>
+  	<h1 class="title">BGenerarOrdenes.GrabarOrdenIngresoActStock (Método)</h1>
+  	<div id="headerLinks">
+
+	<a href="#seeAlsoSection">Vea también</a>
+
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+       
+        Generar Orden de Ingreso, Generando Orden de Ingreso Local y Remota, asi como la actualización de los stocks
+ tanto local como remoto
+
+
+
+        <br /><strong>Ensamblado:</strong> ACBVentas (in ACBVentas.dll)
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Sintaxis</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="syntaxSection" class="section">	
+	
+	
+	<div id="syntaxCodeBlocks">
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">Public Function GrabarOrdenIngresoActStock( _&nbsp;<br />   ByVal <i>x_usuario</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_pvremoto</i> As <strong>EPuntoVenta</strong>, _&nbsp;<br />   ByVal <i>x_pvlocal</i> As <strong>EPuntoVenta</strong>, _&nbsp;<br />   ByVal <i>x_usuario_db</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_password_db</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCsharp">
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> GrabarOrdenIngresoActStock(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario</i>,&nbsp;<br />   <strong>EPuntoVenta</strong> <i>x_pvremoto</i>,&nbsp;<br />   <strong>EPuntoVenta</strong> <i>x_pvlocal</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario_db</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_password_db</i>&nbsp;<br />)</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCpp">
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> GrabarOrdenIngresoActStock(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario</i>,&nbsp;<br />   <strong>EPuntoVenta</strong>^ <i>x_pvremoto</i>,&nbsp;<br />   <strong>EPuntoVenta</strong>^ <i>x_pvlocal</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario_db</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_password_db</i>&nbsp;<br />) </pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCornerActive">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeJScript">
+					<pre xml:space="preserve" class="brush: js">public function GrabarOrdenIngresoActStock(&nbsp;<br />    <i>x_usuario</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_pvremoto</i> : <strong>EPuntoVenta</strong>,&nbsp;<br />    <i>x_pvlocal</i> : <strong>EPuntoVenta</strong>,&nbsp;<br />    <i>x_usuario_db</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_password_db</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+<h4 class="subHeading">
+	Parámetros</h4><dl paramName="x_usuario">
+	<dt>
+		<span class="parameter">
+			x_usuario
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			codigo de usuario 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_pvremoto">
+	<dt>
+		<span class="parameter">
+			x_pvremoto
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <strong>EPuntoVenta</strong> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_pvlocal">
+	<dt>
+		<span class="parameter">
+			x_pvlocal
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <strong>EPuntoVenta</strong> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_usuario_db">
+	<dt>
+		<span class="parameter">
+			x_usuario_db
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_password_db">
+	<dt>
+		<span class="parameter">
+			x_password_db
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Código fuente</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="sourceCodeSection" class="section">	
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csNaTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">
+Public Function GrabarOrdenIngresoActStock(ByVal x_usuario As String, ByVal x_pvremoto As EPuntoVenta, ByVal x_pvlocal As EPuntoVenta, ByVal x_usuario_db As String, ByVal x_password_db As String) As Boolean
+    Dim m_bdist_ordenes As New BDIST_Ordenes
+    Dim _where As New Hashtable
+    Dim _entidad As New BEntidades : Dim _cliente As New BClientes : Dim _roles As New BEntidadesRoles
+    Dim _entgrabar As Boolean = False
+    Try
+       '' Verificar que la Factura no ha sido anulada
+       Dim _factura As New BVENT_DocsVenta
+       If _factura.Cargar(m_dist_ordenes.DOCVE_Codigo) Then
+          If _factura.VENT_DocsVenta.DOCVE_Estado.Equals(Constantes.getEstado(Constantes.Estado.Anulado)) Then
+             Throw New Exception(String.Format(&quot;El documento {0} se encuentra anulado, Ud. no podra completar el proceso de Crear la Orden&quot;, _factura.VENT_DocsVenta.DOCVE_Codigo))
+          End If
+       End If
+       '' Grabar en Remoto
+       _where.Add(&quot;PVENT_Id&quot;, New ACWhere(m_dist_ordenes.PVENT_Id))
+       _where.Add(&quot;TIPOS_CodTipoOrden&quot;, New ACWhere(m_dist_ordenes.TIPOS_CodTipoOrden))
+       '' Completar Datos de la Orden
+       m_dist_ordenes.ORDEN_Id = m_bdist_ordenes.getCorrelativo(&quot;ORDEN_Id&quot;, _where)
+       m_dist_ordenes.ORDEN_Codigo = String.Format(&quot;{0}{1}{2:0000000}&quot;, m_dist_ordenes.TIPOS_CodTipoOrden.Substring(3, 1).PadLeft(2, &quot;0&quot;), m_dist_ordenes.ORDEN_Serie, m_dist_ordenes.ORDEN_Numero)
+       m_dist_ordenes.ORDEN_Estado = Constantes.getEstado(Constantes.Estado.Ingresado)
+       m_bdist_ordenes.DIST_Ordenes = m_dist_ordenes
+       '' Establecer conexion con el servidor remoto
+       If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvremoto.PVENT_DireccionIP, x_pvremoto.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+          DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+          '' Verificar si el cliente existe en el servidor remoto
+          If Not _entidad.Cargar(m_dist_ordenes.ENTID_CodigoCliente) Then
+             _entgrabar = True
+             '' Establecer conexion con el servidor local para traer los datos del cliente, pra grabarlos en el servidor remoto
+             If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvlocal.PVENT_DireccionIP, x_pvlocal.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+                DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+                If Not _entidad.Cargar(m_dist_ordenes.ENTID_CodigoCliente) Then Throw New Exception(&quot;No se puede Cargar la entidad Cliente en el servidor Local&quot;)
+                If Not _cliente.Cargar(m_dist_ordenes.ENTID_CodigoCliente) Then Throw New Exception(&quot;No se puede cargar los datos adicionales del cliente en el servidor Local&quot;)
+                If Not _roles.CargarTodos(m_dist_ordenes.ENTID_CodigoCliente) Then Throw New Exception(&quot;No se puede cargar los roles que tiene el cliente Local&quot;)
+             Else
+                Throw New Exception(&quot;No se puede establecer conexion con el servidor local&quot;)
+             End If
+          Else
+             If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvlocal.PVENT_DireccionIP, x_pvlocal.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+                DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+                If Not _entidad.Cargar(m_dist_ordenes.ENTID_CodigoCliente) Then Throw New Exception(&quot;No se puede Cargar la entidad Cliente en el servidor remoto&quot;)
+             End If
+          End If
+          '' Establecer conexion al servidor remoto para grabar los datos
+          If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvremoto.PVENT_DireccionIP, x_pvremoto.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+             DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+             DAEnterprise.BeginTransaction()
+             '' Grabar los datos del cliente
+             If _entgrabar Then
+                _entidad.Entidades.Instanciar(ACEInstancia.Nuevo) : If Not _entidad.Guardar(x_usuario) Then Throw New Exception(&quot;No se puede Cargar la entidad Cliente en el servidor Local&quot;)
+                _cliente.Clientes.Instanciar(ACEInstancia.Nuevo) : If Not _cliente.Guardar(x_usuario) Then Throw New Exception(&quot;No se puede cargar los datos adicionales del cliente en el servidor Local&quot;)
+                For Each item As EEntidadesRoles In _roles.ListEntidadesRoles
+                   _roles.EntidadesRoles = item
+                   _roles.EntidadesRoles.Instanciar(ACEInstancia.Nuevo) : If Not _roles.Guardar(x_usuario) Then Throw New Exception(&quot;No se puede cargar los datos adicionales del cliente en el servidor Local&quot;)
+                Next
+             Else
+                _entidad.Entidades.Instanciar(ACEInstancia.Modificado) : If Not _entidad.Guardar(x_usuario) Then Throw New Exception(&quot;No se puede Cargar la entidad Cliente en el servidor Local&quot;)
+             End If
+             '' Grabar la Orden
+             If m_bdist_ordenes.Guardar(x_usuario, New String() {&quot;ORDEN_FechaIngreso&quot;}) Then
+                Dim i As Integer = 1
+                For Each item As EDIST_OrdenesDetalle In m_dist_ordenes.ListDIST_OrdenesDetalle
+                   If item.ORDET_Cantidad &gt; 0 Then
+                      Dim _detalle As New BDIST_OrdenesDetalle
+                      _detalle.DIST_OrdenesDetalle = item
+                      _detalle.DIST_OrdenesDetalle.ORDEN_Codigo = m_dist_ordenes.ORDEN_Codigo
+                      _detalle.DIST_OrdenesDetalle.ORDET_Cantidad = item.ORDET_Cantidad
+                      _detalle.DIST_OrdenesDetalle.ORDET_Item = i
+                      _detalle.DIST_OrdenesDetalle.Instanciar(ACEInstancia.Nuevo)
+ 
+                      _detalle.Guardar(x_usuario)
+ 
+                      '' Realizar el egreso de Stock
+                      Dim m_bmanejarstocks As New ACBLogistica.BManejarStock()
+                      m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                      m_bmanejarstocks.LOG_Stocks.ORDEN_Codigo = item.ORDEN_Codigo
+                      m_bmanejarstocks.LOG_Stocks.ORDET_Item = item.ORDET_Item
+                      m_bmanejarstocks.Egreso(m_periodo, item.ARTIC_Codigo, item.TIPOS_CodUnidadMedida, x_pvremoto.ALMAC_Id, item.ORDET_Cantidad, _
+                                              m_bdist_ordenes.DIST_Ordenes.ORDEN_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaOrden), x_usuario)
+                   End If
+                   i += 1
+                Next
+                DAEnterprise.CommitTransaction()
+             Else
+                Throw New Exception(&quot;No se puede completar el proceso de grabar orden&quot;)
+             End If
+          Else
+             Throw New Exception(&quot;No se puede eestablecer conexion con el servidor remoto&quot;)
+          End If
+       Else
+          Throw New Exception(&quot;No se puede eestablecer conexion con el servidor remoto&quot;)
+       End If
+ 
+       '' Grabar en el servidor Local
+       If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvlocal.PVENT_DireccionIP, x_pvlocal.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+          DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+          DAEnterprise.BeginTransaction()
+          m_dist_ordenes.ORDEN_Estado = Constantes.getEstado(Constantes.Estado.Confirmado)
+          If m_bdist_ordenes.Guardar(x_usuario, New String() {&quot;ORDEN_FechaIngreso&quot;}) Then
+             Dim i As Integer = 1
+             For Each item As EDIST_OrdenesDetalle In m_dist_ordenes.ListDIST_OrdenesDetalle
+                If item.ORDET_Cantidad &gt; 0 Then
+                   Dim _detalle As New BDIST_OrdenesDetalle
+                   _detalle.DIST_OrdenesDetalle = item
+                   _detalle.DIST_OrdenesDetalle.ORDEN_Codigo = m_dist_ordenes.ORDEN_Codigo
+                   _detalle.DIST_OrdenesDetalle.ORDET_Item = i
+                   _detalle.DIST_OrdenesDetalle.ORDET_Cantidad = item.ORDET_Cantidad
+                   _detalle.DIST_OrdenesDetalle.Instanciar(ACEInstancia.Nuevo)
+                   _detalle.Guardar(x_usuario)
+                   '' Realizar el Ingreso a Stock
+                   Dim m_bmanejarstocks As New ACBLogistica.BManejarStock()
+                   m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                   m_bmanejarstocks.LOG_Stocks.ORDEN_Codigo = item.ORDEN_Codigo
+                   m_bmanejarstocks.LOG_Stocks.ORDET_Item = item.ORDET_Item
+                   m_bmanejarstocks.Ingreso(m_periodo, item.ARTIC_Codigo, item.TIPOS_CodUnidadMedida, m_bdist_ordenes.DIST_Ordenes.ALMAC_Id, item.ORDET_Cantidad, _
+                                            m_bdist_ordenes.DIST_Ordenes.ORDEN_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.IngresoOrden), x_usuario)
+                End If
+                i += 1
+             Next
+             DAEnterprise.CommitTransaction()
+             Return True
+          End If
+       End If
+ 
+    Catch ex As Exception
+       If ACUtilitarios.ACCrearCadena(&quot;StrConn&quot;, x_pvlocal.PVENT_DireccionIP, x_pvlocal.PVENT_BaseDatos, x_usuario_db, x_password_db) Then
+          DAEnterprise.Instanciar(&quot;StrConn&quot;, True)
+       End If
+       DAEnterprise.RollBackTransaction()
+       Throw ex
+    End Try
+ End Function
+					</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+	</div>					
+</div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Plataformas</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="platformsSection" class="section">	
+		<p>
+			Windows 8, Windows Server 2012, Windows 7, Windows Vista SP1 or later, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008 (Server Core not supported), Windows Server 2008 R2 (Server Core supported with SP1 or later), Windows Server 2003 SP2
+		</p>
+		<p>
+			.NET Framework no admite todas las versiones de cada plataforma. Para obtener una lista de las versiones admitidas, vea 
+			<a target="_top" href="http://msdn2.microsoft.com/en-us/library/298275e2-da1d-4618-9f74-6a3567832350.aspx">System Requirements</a>.
+		</p>
+	</div>					
+</div>
+
+
+
+  
+
+	
+
+	
+	
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Información de versión</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="frameworksSection" class="section">	
+  <h4 class="subHeading">.NET Framework</h4>Supported in: 4.5, 4, 3.5, 3.0, 2.0, 1.1, 1.0<br />
+
+	<h4 class="subHeading">.NET Compact Framework</h4>Supported in: 3.5, 2.0, 1.0<br />
+
+	<h4 class="subHeading">XNA Framework</h4>Supported in: 3.0, 2.0, 1.0<br />
+	
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Vea también</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Referencia</h4>
+			<a href="topic_0000000000000908.html">BGenerarOrdenes (Clase)</a><br />
+<a href="topic_0000000000000908_members--.html">BGenerarOrdenes (Miembros)</a><br />
+
+
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 52
+ACBLogistica.vbproj.user
+ACBLogistica.vsdoc
+bin
+obj
+
+END

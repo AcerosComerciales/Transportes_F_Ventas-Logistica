@@ -1,0 +1,109 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACFramework
+Imports DAConexion
+Imports ACETransporte
+
+Partial Public Class DTRAN_Neumaticos
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Procedimientos Almacenados "
+   Public Function NEUMSS_Todos(ByRef listETRAN_Neumaticos As List(Of ETRAN_Neumaticos), ByVal x_cadena As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelectAll(x_cadena), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New ETRAN_Neumaticos())
+               While reader.Read()
+                  Dim e_tran_neumaticos As New ETRAN_Neumaticos()
+                  _utilitarios.ACCargarEsquemas(reader, e_tran_neumaticos)
+                  e_tran_neumaticos.Instanciar(ACEInstancia.Consulta)
+                  listETRAN_Neumaticos.Add(e_tran_neumaticos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function NEUMSS_TodosAyuda(ByRef dtETRAN_Neumaticos As DataTable, ByVal x_where As Hashtable) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelectAyuda(x_where), CommandType.Text)
+         dtETRAN_Neumaticos = DAEnterprise.ExecuteDataSet().Tables(0)
+         Return dtETRAN_Neumaticos.Rows.Count > 0
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getCorrelativo() As Integer
+      Try
+         DAEnterprise.AsignarProcedure(getSelectId(), CommandType.Text)
+         Dim m_data As DataSet = DAEnterprise.ExecuteDataSet()
+         Return CType(m_data.Tables(0).Rows(0)("NEUMA_Id"), Integer)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+#Region "Procedimientos Adicionales "
+   Public Function getSelectAll(ByVal x_cadena As String) As String
+      Dim sql As String
+      Try
+         sql = " SELECT "
+         sql &= " Neu.*"
+         sql &= ",TIPOS_CodMoneda"
+         sql &= ",Suc.SUCUR_Nombre"
+         sql &= ",TMarca.TIPOS_Descripcion TIPO_Marca"
+         sql &= " FROM Transportes.TRAN_Neumaticos As Neu "
+         sql &= " Inner Join Sucursales As Suc On Suc.SUCUR_Id = Neu.SUCUR_Id "
+         sql &= " Inner Join Tipos As TMarca On TMarca.TIPOS_Codigo = Neu.TIPOS_CodMarca "
+         sql &= " WHERE "
+         sql &= "NEUMA_Codigo Like '%" + x_cadena & "%'"
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getSelectAyuda(ByVal x_where As Hashtable) As String
+      Dim sql As String = ""
+      Try
+         sql = " Select Neu.NEUMA_Id As Interno, Neu.NEUMA_Codigo AS Codigo, Neu.NEUMA_Modelo As Modelo, TNeu.TIPOs_DESCRIPCION As [Tipo Llanta], TMarca.TIPOs_DESCRIPCION  As [Marca], Convert(VarChar, Neu.NEUMA_FecCompra, 103) As [Fec. Compra], NEUMA_KmVidaUtil As Kilometraje From Transportes.TRAN_Neumaticos As Neu Inner Join Tipos As TNeu On TNeu.TIPOS_Codigo = Neu.TIPOS_CodTipoLlanta Inner Join Tipos As TMarca On TMarca.TIPOS_Codigo = Neu.TIPOS_CodMarca "
+         If Not IsNothing(x_where) Then
+            sql &= " WHERE "
+            Dim _where As New ACGenerador(Of ETRAN_Neumaticos)(m_formatofecha)
+            sql &= _where.getWhere(x_where, True)
+         End If
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getSelectID() As String
+      Dim sql As String = ""
+      Try
+         sql &= String.Format(" SELECT isnull(max(TN.NEUMA_Id),0) as NEUMA_Id  from Transportes.TRAN_Neumaticos TN {0}", vbNewLine)
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+#End Region
+
+End Class
+

@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>BGenerarDocsVenta.generarDocumento (String, DateTime, String, Integer, String, String, Boolean) (Método)</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ACBVentas Reference</div>
+  	<h1 class="title">BGenerarDocsVenta.generarDocumento (String, DateTime, String, Integer, String, String, Boolean) (Método)</h1>
+  	<div id="headerLinks">
+
+	<a href="#seeAlsoSection">Vea también</a>
+
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+       
+        Para Transportes Generar documento
+
+
+
+        <br /><strong>Ensamblado:</strong> ACBVentas (in ACBVentas.dll)
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Sintaxis</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="syntaxSection" class="section">	
+	
+	
+	<div id="syntaxCodeBlocks">
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">Public Function generarDocumento( _&nbsp;<br />   ByVal <i>x_usuario</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_fecfacturacion</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">Date</a>, _&nbsp;<br />   ByVal <i>x_serie</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_numero</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a>, _&nbsp;<br />   ByVal <i>x_estentrega</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByRef <i>x_msg</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   Optional ByRef <i>x_trans</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a> = True _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCsharp">
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> generarDocumento(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> <i>x_fecfacturacion</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_serie</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_numero</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_estentrega</i>,&nbsp;<br />   ref <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_msg</i>,&nbsp;<br />   ref <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_trans</i> = True&nbsp;<br />)</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCpp">
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> generarDocumento(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> <i>x_fecfacturacion</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_serie</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_numero</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_estentrega</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^&amp; <i>x_msg</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a>&amp; <i>x_trans</i>&nbsp;<br />) </pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCornerActive">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeJScript">
+					<pre xml:space="preserve" class="brush: js">public function generarDocumento(&nbsp;<br />    <i>x_usuario</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_fecfacturacion</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a>,&nbsp;<br />    <i>x_serie</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_numero</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>,&nbsp;<br />    <i>x_estentrega</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_msg</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_trans</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+<h4 class="subHeading">
+	Parámetros</h4><dl paramName="x_usuario">
+	<dt>
+		<span class="parameter">
+			x_usuario
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_fecfacturacion">
+	<dt>
+		<span class="parameter">
+			x_fecfacturacion
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_serie">
+	<dt>
+		<span class="parameter">
+			x_serie
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_numero">
+	<dt>
+		<span class="parameter">
+			x_numero
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_estentrega">
+	<dt>
+		<span class="parameter">
+			x_estentrega
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_msg">
+	<dt>
+		<span class="parameter">
+			x_msg
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_trans">
+	<dt>
+		<span class="parameter">
+			x_trans
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Código fuente</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="sourceCodeSection" class="section">	
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csNaTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">
+Public Function generarDocumento(ByVal x_usuario As String, ByVal x_fecfacturacion As DateTime _
+                                , ByVal x_serie As String, ByVal x_numero As Integer, ByVal x_estentrega As String _
+                                , ByRef x_msg As String, Optional ByRef x_trans As Boolean = True) As Boolean
+    Try '' Cargar Pedido/Cotizacion y su detalle
+       '' Validar que el numero de documento no este ya creado
+       If validarNumeroDocumento(x_serie, x_numero, m_event_docsventa.TIPOS_CodTipoDocumento) Then
+          x_msg &amp;= String.Format(&quot;- El numero de documento ya fue usado{0}&quot;, vbNewLine)
+          Return False
+       End If
+       '' Iniciar el proceso de creacion del documento de venta
+       If x_trans Then DAEnterprise.BeginTransaction()
+       '' Crear las clases de Documento de Venta con los datos del Pedido
+       '' Cargar la cabecera del Documento de Venta
+       m_event_docsventa.DOCVE_Serie = x_serie : m_event_docsventa.DOCVE_Numero = x_numero
+       m_event_docsventa.DOCVE_EstEntrega = x_estentrega : m_event_docsventa.DOCVE_FechaDocumento = x_fecfacturacion
+       '' Generar el codigo del documento de venta
+       m_event_docsventa.DOCVE_Codigo = m_event_docsventa.TIPOS_CodTipoDocumento.Substring(3, 2) &amp; x_serie &amp; x_numero.ToString().PadLeft(7, &quot;0&quot;)
+       '' Grabar cabecera
+       Dim x_bevent_docsventa As New BVENT_DocsVenta(m_pvent_id, m_periodo, m_zonas_codigo, m_sucur_id)
+       m_event_docsventa.DOCVE_Id = x_bevent_docsventa.getCorrelativo(&quot;DOCVE_Id&quot;)
+       x_bevent_docsventa.VENT_DocsVenta = m_event_docsventa
+       x_bevent_docsventa.VENT_DocsVenta.DOCVE_TotalPagar = m_event_docsventa.DOCVE_TotalVenta
+       x_bevent_docsventa.VENT_DocsVenta.DOCVE_TotalPagado = m_event_docsventa.DOCVE_TotalVenta
+       If x_bevent_docsventa.Guardar(x_usuario) Then
+          '' verifica la autorizacion del Stock Negativo
+          Dim x_msgStock As String = &quot;&quot;
+          '' Grabar el detalle del documento de venta
+          Dim x_bevent_docsventadetalle As New BVENT_DocsVentaDetalle
+          Dim I As Integer = 1
+          For Each Item As EVENT_DocsVentaDetalle In m_event_docsventa.ListVENT_DocsVentaDetalle
+             Item.Instanciar(ACFramework.ACEInstancia.Nuevo)
+             Item.DOCVE_Codigo = m_event_docsventa.DOCVE_Codigo
+             Item.ZONAS_Codigo = m_event_docsventa.ZONAS_Codigo
+             Item.DOCVD_Item = I : I += 1
+             Item.LPREC_Id = 1
+             'Item.DOCVD_PrecioUnitario = m_event_docsventa.DOCVE_TotalVenta
+ 
+             'Item.DOCVD_Cantidad = 1
+ 
+             x_bevent_docsventadetalle.setVENT_DocsVentaDetalle(Item)
+             '' Verificar que hay Stock disponible del Articulo
+             If Not x_bevent_docsventadetalle.Guardar(x_usuario) Then
+                If x_trans Then DAEnterprise.RollBackTransaction()
+                Return False
+                Exit For
+             End If
+          Next
+          '' Enumerar los articulos que no tienes stock y mostrarlos
+          If x_msg.Length &gt; 0 Then
+             If x_trans Then DAEnterprise.RollBackTransaction()
+             Return False
+          Else
+             x_msg = x_msgStock
+          End If
+          '' Culminar transaccion
+          If x_trans Then DAEnterprise.CommitTransaction()
+          Return True
+       Else
+          If x_trans Then DAEnterprise.RollBackTransaction()
+          Return False
+       End If
+    Catch ex As Exception
+       If x_trans Then DAEnterprise.RollBackTransaction()
+       Throw ex
+    End Try
+ End Function
+					</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+	</div>					
+</div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Plataformas</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="platformsSection" class="section">	
+		<p>
+			Windows 8, Windows Server 2012, Windows 7, Windows Vista SP1 or later, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008 (Server Core not supported), Windows Server 2008 R2 (Server Core supported with SP1 or later), Windows Server 2003 SP2
+		</p>
+		<p>
+			.NET Framework no admite todas las versiones de cada plataforma. Para obtener una lista de las versiones admitidas, vea 
+			<a target="_top" href="http://msdn2.microsoft.com/en-us/library/298275e2-da1d-4618-9f74-6a3567832350.aspx">System Requirements</a>.
+		</p>
+	</div>					
+</div>
+
+
+
+  
+
+	
+
+	
+	
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Información de versión</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="frameworksSection" class="section">	
+  <h4 class="subHeading">.NET Framework</h4>Supported in: 4.5, 4, 3.5, 3.0, 2.0, 1.1, 1.0<br />
+
+	<h4 class="subHeading">.NET Compact Framework</h4>Supported in: 3.5, 2.0, 1.0<br />
+
+	<h4 class="subHeading">XNA Framework</h4>Supported in: 3.0, 2.0, 1.0<br />
+	
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Vea también</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Referencia</h4>
+			<a href="topic_000000000000089B.html">BGenerarDocsVenta (Clase)</a><br />
+<a href="topic_000000000000089B_members--.html">BGenerarDocsVenta (Miembros)</a><br />
+
+
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

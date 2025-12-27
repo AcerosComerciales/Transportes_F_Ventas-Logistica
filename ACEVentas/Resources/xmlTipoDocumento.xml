@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TipoDocumento" Esquema="dbo" Prefijo="TDOCU">
+  <Nombre>TipoDocumento</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="TDOCU_Id">TDOCU_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TDOCU_Codigo">TDOCU_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TDOCU_Descripcion">TDOCU_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TDOCU_DescCorta">TDOCU_DescCorta</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="TDOCU_Id">TDOCU_Id</CCampo>
+  </CPrimarios>
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

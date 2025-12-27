@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_Neumaticos" Esquema="Transportes" Prefijo="NEUMA">
+  <Nombre>TRAN_Neumaticos</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodMoneda">TIPOS_CodMoneda</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodMarca">TIPOS_CodMarca</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoLlanta">TIPOS_CodTipoLlanta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_CodTipoVehiculo">TIPOS_CodTipoVehiculo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Codigo">NEUMA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FecCompra">NEUMA_FecCompra</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Modelo">NEUMA_Modelo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FechaGarantia">NEUMA_FechaGarantia</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Precio">NEUMA_Precio</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_TiempoVidaUtil">NEUMA_TiempoVidaUtil</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_KmVidaUtil">NEUMA_KmVidaUtil</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Tamano">NEUMA_Tamano</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Km">NEUMA_Km</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Reencauches">NEUMA_Reencauches</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Parches">NEUMA_Parches</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_NroPosicion">NEUMA_NroPosicion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Estado">NEUMA_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_UsrCrea">NEUMA_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FecCrea">NEUMA_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_UsrMod">NEUMA_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FecMod">NEUMA_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ZONAS_Codigo">ZONAS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_Id">SUCUR_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

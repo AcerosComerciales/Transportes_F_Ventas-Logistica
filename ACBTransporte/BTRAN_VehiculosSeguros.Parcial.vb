@@ -1,0 +1,356 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+
+Partial Public Class BTRAN_VehiculosSeguros
+
+#Region " Variables "
+	
+	Private m_tran_vehiculosseguros As ETRAN_VehiculosSeguros
+	Private m_listTRAN_VehiculosSeguros As List(Of ETRAN_VehiculosSeguros)
+	Private m_dtTRAN_VehiculosSeguros As DataTable
+
+	Private m_dsTRAN_VehiculosSeguros As DataSet
+	Private d_tran_vehiculosseguros As DTRAN_VehiculosSeguros 
+
+
+#End Region
+
+#Region " Constructores "
+	
+	Public Sub New()
+		d_tran_vehiculosseguros = New DTRAN_VehiculosSeguros()
+	End Sub
+
+#End Region
+
+#Region " Propiedades "
+	
+	Public Property TRAN_VehiculosSeguros() As ETRAN_VehiculosSeguros 
+		Get
+			return m_tran_vehiculosseguros
+		End Get
+		Set(ByVal value As ETRAN_VehiculosSeguros)
+			m_tran_vehiculosseguros = value
+		End Set
+	End Property
+	Public Property ListTRAN_VehiculosSeguros() As List(Of ETRAN_VehiculosSeguros)
+		Get
+			return m_listTRAN_VehiculosSeguros
+		End Get
+		Set(ByVal value As List(Of ETRAN_VehiculosSeguros))
+			m_listTRAN_VehiculosSeguros = value
+		End Set
+	End Property
+	Public Property DTTRAN_VehiculosSeguros() As DataTable
+		Get
+			return m_dtTRAN_VehiculosSeguros
+		End Get
+		Set(ByVal value As DataTable)
+			m_dtTRAN_VehiculosSeguros = value
+		End Set
+	End Property
+	Public Property DSTRAN_VehiculosSeguros() As DataSet
+		Get
+			return m_dsTRAN_VehiculosSeguros
+		End Get
+		Set(ByVal value As DataSet)
+			m_dsTRAN_VehiculosSeguros = value
+		End Set
+	End Property
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+
+		Public Function getListTRAN_VehiculosSeguros() As List(Of ETRAN_VehiculosSeguros)
+			Return Me.m_listTRAN_VehiculosSeguros
+		End Function
+		Public Sub setListTRAN_VehiculosSeguros(ByVal _listtran_vehiculosseguros As List (Of ETRAN_VehiculosSeguros))
+			Me.m_listTRAN_VehiculosSeguros = m_listtran_vehiculosseguros 
+		End Sub
+		Public Function getTRAN_VehiculosSeguros() As ETRAN_VehiculosSeguros
+			Return Me.m_tran_vehiculosseguros
+		End Function
+		Public Sub setTRAN_VehiculosSeguros(ByVal x_tran_vehiculosseguros As ETRAN_VehiculosSeguros)
+			Me.m_tran_vehiculosseguros = x_tran_vehiculosseguros 
+		End Sub
+#End Region
+
+#Region " Metodos "
+    'Funcion Creado frank 
+    Public Function TRAN_Seguros_DiasDiferencia()
+        Try
+            m_listTRAN_VehiculosSeguros = New List(Of ETRAN_VehiculosSeguros)()
+            Return d_tran_vehiculosseguros.TRAN_Seguros_DiasDiferencia(m_listTRAN_VehiculosSeguros)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function TRAN_SEGUROS_ActualizarColores()
+        Try
+            ' m_listTRAN_VehiculosSeguros = New List(Of ETRAN_VehiculosSeguros)()
+            Return d_tran_vehiculosseguros.TRAN_SEGUROS_ActualizarColores() 'Actualizar colores de los Seguros 
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
+    Public Function CargarTodos() As Boolean
+		Try
+			m_listTRAN_VehiculosSeguros = new List(Of ETRAN_VehiculosSeguros)()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_listTRAN_VehiculosSeguros)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listTRAN_VehiculosSeguros = new List(Of ETRAN_VehiculosSeguros)()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_listTRAN_VehiculosSeguros, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listTRAN_VehiculosSeguros = new List(Of ETRAN_VehiculosSeguros)()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_listTRAN_VehiculosSeguros, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable, ByVal x_distinct As Boolean) As Boolean
+		Try
+			m_listTRAN_VehiculosSeguros = new List(Of ETRAN_VehiculosSeguros)()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_listTRAN_VehiculosSeguros, x_join, x_where, x_distinct)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDS(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsTRAN_VehiculosSeguros = new DataSet()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_dsTRAN_VehiculosSeguros, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDS(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsTRAN_VehiculosSeguros = new DataSet()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_dsTRAN_VehiculosSeguros, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDT(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsTRAN_VehiculosSeguros = new DataSet()
+			Dim _opcion As Boolean = d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_dsTRAN_VehiculosSeguros, x_where)
+		If _opcion Then
+			m_dtTRAN_VehiculosSeguros = m_dsTRAN_VehiculosSeguros.Tables(0)
+			Return True
+		Else
+			Return False
+		End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDT(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsTRAN_VehiculosSeguros = new DataSet()
+			Dim _opcion As Boolean = d_tran_vehiculosseguros.TRAN_SEGVHSS_Todos(m_dsTRAN_VehiculosSeguros, x_join, x_where)
+		If _opcion Then
+			m_dtTRAN_VehiculosSeguros = m_dsTRAN_VehiculosSeguros.Tables(0)
+			Return True
+		Else
+			Return False
+		End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Cargar(ByVal x_segvh_id As Long) As Boolean
+		Try
+			m_tran_vehiculosseguros = New ETRAN_VehiculosSeguros()
+			Return d_tran_vehiculosseguros.TRAN_SEGVHSS_UnReg(m_tran_vehiculosseguros, x_segvh_id)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Cargar(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_tran_vehiculosseguros = New ETRAN_VehiculosSeguros()
+			Return d_tran_vehiculosseguros.TRAN_SEGVHSS_UnReg(m_tran_vehiculosseguros, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Cargar(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_tran_vehiculosseguros = New ETRAN_VehiculosSeguros()
+			Return d_tran_vehiculosseguros.TRAN_SEGVHSS_UnReg(m_tran_vehiculosseguros, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_usuario As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario)
+			ElseIf m_tran_vehiculosseguros.Modificado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSU_UnReg(m_tran_vehiculosseguros, x_usuario)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(m_tran_vehiculosseguros)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario)
+			ElseIf m_tran_vehiculosseguros.Modificado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSU_UnReg(m_tran_vehiculosseguros, x_where, x_usuario)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(x_where)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Modificado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSU_UnReg(m_tran_vehiculosseguros, x_where, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(m_tran_vehiculosseguros)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String, ByVal x_setcampos() As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Modificado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSU_UnReg(m_tran_vehiculosseguros, x_where, x_usuario, x_excluir, x_setfecha, x_setcampos)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(m_tran_vehiculosseguros)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_usuario As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Modificado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSU_UnReg(m_tran_vehiculosseguros, x_usuario, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(m_tran_vehiculosseguros)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Guardar(ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_tran_vehiculosseguros.Nuevo Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSI_UnReg(m_tran_vehiculosseguros, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_tran_vehiculosseguros.Eliminado Then
+				d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(m_tran_vehiculosseguros)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function Eliminar(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listTRAN_VehiculosSeguros = new List(Of ETRAN_VehiculosSeguros)()
+			return d_tran_vehiculosseguros.TRAN_SEGVHSD_UnReg(x_where) > 0
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo() As Integer
+		Try
+			Return d_tran_vehiculosseguros.getCorrelativo("SEGVH_Id") + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function getCorrelativo(ByRef x_id As Integer) As Integer
+		Try
+			x_id = d_tran_vehiculosseguros.getCorrelativo("SEGVH_Id")
+			Return (x_id + 1)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function getCorrelativo(ByVal x_campo As String) As Integer
+		Try
+			Return d_tran_vehiculosseguros.getCorrelativo(x_campo) + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function getCorrelativo(ByRef x_id As Integer, ByVal x_campo As String) As Integer
+		Try
+			x_id = d_tran_vehiculosseguros.getCorrelativo(x_campo)
+			Return (x_id + 1)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function getCorrelativo(ByVal x_campo As String, ByVal x_where As Hashtable) As Integer
+		Try
+			Return d_tran_vehiculosseguros.getCorrelativo(x_campo, x_where) + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+    Public Function getCorrelativo(ByRef x_id As Integer, ByVal x_campo As String, ByVal x_where As Hashtable) As Integer
+        Try
+            x_id = d_tran_vehiculosseguros.getCorrelativo(x_campo, x_where)
+            Return (x_id + 1)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
+
+
+#End Region
+
+End Class
+

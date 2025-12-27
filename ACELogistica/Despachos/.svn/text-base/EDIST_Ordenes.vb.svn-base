@@ -1,0 +1,642 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class EDIST_Ordenes
+
+#Region " Campos "
+	
+	Private m_orden_codigo As String
+	Private m_entid_codigocliente As String
+	Private m_tipos_codtipomoneda As String
+	Private m_tipos_codtipoorden As String
+	Private m_docve_codigo As String
+	Private m_pvent_id As Long
+	Private m_alma_id As Short
+	Private m_alma_idorigen As Short
+	Private m_alma_iddestino As Short
+	Private m_pvent_idorigen As Long
+	Private m_pvent_iddestino As Long
+	Private m_orden_id As Long
+	Private m_orden_direccionorigen As String
+	Private m_orden_direcciondestino As String
+	Private m_orden_fechaingreso As Date
+	Private m_orden_fechadocumento As Date
+	Private m_orden_descripcioncliente As String
+	Private m_orden_observaciones As String
+	Private m_orden_atendido As Boolean
+	Private m_orden_estado As String
+	Private m_orden_usrcrea As String
+	Private m_orden_feccrea As Date
+	Private m_orden_usrmod As String
+	Private m_orden_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACELogistica.My.Resources.xmlDIST_Ordenes
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property ORDEN_Codigo() As String
+		Get
+			return m_orden_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_codigo) Then
+				If Not m_orden_codigo.Equals(value) Then
+					m_orden_codigo = value
+					OnORDEN_CodigoChanged(m_orden_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_orden_codigo = value
+				OnORDEN_CodigoChanged(m_orden_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoCliente() As String
+		Get
+			return m_entid_codigocliente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigocliente) Then
+				If Not m_entid_codigocliente.Equals(value) Then
+					m_entid_codigocliente = value
+					OnENTID_CodigoClienteChanged(m_entid_codigocliente, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigocliente = value
+				OnENTID_CodigoClienteChanged(m_entid_codigocliente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoMoneda() As String
+		Get
+			return m_tipos_codtipomoneda
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipomoneda) Then
+				If Not m_tipos_codtipomoneda.Equals(value) Then
+					m_tipos_codtipomoneda = value
+					OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipomoneda = value
+				OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoOrden() As String
+		Get
+			return m_tipos_codtipoorden
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipoorden) Then
+				If Not m_tipos_codtipoorden.Equals(value) Then
+					m_tipos_codtipoorden = value
+					OnTIPOS_CodTipoOrdenChanged(m_tipos_codtipoorden, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipoorden = value
+				OnTIPOS_CodTipoOrdenChanged(m_tipos_codtipoorden, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCVE_Codigo() As String
+		Get
+			return m_docve_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docve_codigo) Then
+				If Not m_docve_codigo.Equals(value) Then
+					m_docve_codigo = value
+					OnDOCVE_CodigoChanged(m_docve_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_docve_codigo = value
+				OnDOCVE_CodigoChanged(m_docve_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PVENT_Id() As Long
+		Get
+			return m_pvent_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_pvent_id) Then
+				If Not m_pvent_id.Equals(value) Then
+					m_pvent_id = value
+					OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+				End If
+			Else
+				m_pvent_id = value
+				OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ALMA_Id() As Short
+		Get
+			return m_alma_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_alma_id) Then
+				If Not m_alma_id.Equals(value) Then
+					m_alma_id = value
+					OnALMA_IdChanged(m_alma_id, EventArgs.Empty)
+				End If
+			Else
+				m_alma_id = value
+				OnALMA_IdChanged(m_alma_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ALMA_IdOrigen() As Short
+		Get
+			return m_alma_idorigen
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_alma_idorigen) Then
+				If Not m_alma_idorigen.Equals(value) Then
+					m_alma_idorigen = value
+					OnALMA_IdOrigenChanged(m_alma_idorigen, EventArgs.Empty)
+				End If
+			Else
+				m_alma_idorigen = value
+				OnALMA_IdOrigenChanged(m_alma_idorigen, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ALMA_IdDestino() As Short
+		Get
+			return m_alma_iddestino
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_alma_iddestino) Then
+				If Not m_alma_iddestino.Equals(value) Then
+					m_alma_iddestino = value
+					OnALMA_IdDestinoChanged(m_alma_iddestino, EventArgs.Empty)
+				End If
+			Else
+				m_alma_iddestino = value
+				OnALMA_IdDestinoChanged(m_alma_iddestino, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PVENT_IdOrigen() As Long
+		Get
+			return m_pvent_idorigen
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_pvent_idorigen) Then
+				If Not m_pvent_idorigen.Equals(value) Then
+					m_pvent_idorigen = value
+					OnPVENT_IdOrigenChanged(m_pvent_idorigen, EventArgs.Empty)
+				End If
+			Else
+				m_pvent_idorigen = value
+				OnPVENT_IdOrigenChanged(m_pvent_idorigen, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PVENT_IdDestino() As Long
+		Get
+			return m_pvent_iddestino
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_pvent_iddestino) Then
+				If Not m_pvent_iddestino.Equals(value) Then
+					m_pvent_iddestino = value
+					OnPVENT_IdDestinoChanged(m_pvent_iddestino, EventArgs.Empty)
+				End If
+			Else
+				m_pvent_iddestino = value
+				OnPVENT_IdDestinoChanged(m_pvent_iddestino, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_Id() As Long
+		Get
+			return m_orden_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_orden_id) Then
+				If Not m_orden_id.Equals(value) Then
+					m_orden_id = value
+					OnORDEN_IdChanged(m_orden_id, EventArgs.Empty)
+				End If
+			Else
+				m_orden_id = value
+				OnORDEN_IdChanged(m_orden_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_DireccionOrigen() As String
+		Get
+			return m_orden_direccionorigen
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_direccionorigen) Then
+				If Not m_orden_direccionorigen.Equals(value) Then
+					m_orden_direccionorigen = value
+					OnORDEN_DireccionOrigenChanged(m_orden_direccionorigen, EventArgs.Empty)
+				End If
+			Else
+				m_orden_direccionorigen = value
+				OnORDEN_DireccionOrigenChanged(m_orden_direccionorigen, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_DireccionDestino() As String
+		Get
+			return m_orden_direcciondestino
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_direcciondestino) Then
+				If Not m_orden_direcciondestino.Equals(value) Then
+					m_orden_direcciondestino = value
+					OnORDEN_DireccionDestinoChanged(m_orden_direcciondestino, EventArgs.Empty)
+				End If
+			Else
+				m_orden_direcciondestino = value
+				OnORDEN_DireccionDestinoChanged(m_orden_direcciondestino, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_FechaIngreso() As Date
+		Get
+			return m_orden_fechaingreso
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_orden_fechaingreso) Then
+				If Not m_orden_fechaingreso.Equals(value) Then
+					m_orden_fechaingreso = value
+					OnORDEN_FechaIngresoChanged(m_orden_fechaingreso, EventArgs.Empty)
+				End If
+			Else
+				m_orden_fechaingreso = value
+				OnORDEN_FechaIngresoChanged(m_orden_fechaingreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_FechaDocumento() As Date
+		Get
+			return m_orden_fechadocumento
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_orden_fechadocumento) Then
+				If Not m_orden_fechadocumento.Equals(value) Then
+					m_orden_fechadocumento = value
+					OnORDEN_FechaDocumentoChanged(m_orden_fechadocumento, EventArgs.Empty)
+				End If
+			Else
+				m_orden_fechadocumento = value
+				OnORDEN_FechaDocumentoChanged(m_orden_fechadocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_DescripcionCliente() As String
+		Get
+			return m_orden_descripcioncliente
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_descripcioncliente) Then
+				If Not m_orden_descripcioncliente.Equals(value) Then
+					m_orden_descripcioncliente = value
+					OnORDEN_DescripcionClienteChanged(m_orden_descripcioncliente, EventArgs.Empty)
+				End If
+			Else
+				m_orden_descripcioncliente = value
+				OnORDEN_DescripcionClienteChanged(m_orden_descripcioncliente, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_Observaciones() As String
+		Get
+			return m_orden_observaciones
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_observaciones) Then
+				If Not m_orden_observaciones.Equals(value) Then
+					m_orden_observaciones = value
+					OnORDEN_ObservacionesChanged(m_orden_observaciones, EventArgs.Empty)
+				End If
+			Else
+				m_orden_observaciones = value
+				OnORDEN_ObservacionesChanged(m_orden_observaciones, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_Atendido() As Boolean
+		Get
+			return m_orden_atendido
+		End Get
+		Set(ByVal value As Boolean)
+			If Not m_orden_atendido.Equals(value) Then
+				m_orden_atendido = value
+				OnORDEN_AtendidoChanged(m_orden_atendido, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_Estado() As String
+		Get
+			return m_orden_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_orden_estado) Then
+				If Not m_orden_estado.Equals(value) Then
+					m_orden_estado = value
+					OnORDEN_EstadoChanged(m_orden_estado, EventArgs.Empty)
+				End If
+			Else
+				m_orden_estado = value
+				OnORDEN_EstadoChanged(m_orden_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDEN_UsrCrea() As String
+		Get
+			return m_orden_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_orden_usrcrea = value
+		End Set
+	End Property
+
+	Public Property ORDEN_FecCrea() As Date
+		Get
+			return m_orden_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_orden_feccrea = value
+		End Set
+	End Property
+
+	Public Property ORDEN_UsrMod() As String
+		Get
+			return m_orden_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_orden_usrmod = value
+		End Set
+	End Property
+
+	Public Property ORDEN_FecMod() As Date
+		Get
+			return m_orden_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_orden_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "DIST_Ordenes"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Logistica"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event ORDEN_CodigoChanged As EventHandler
+	Public Event ENTID_CodigoClienteChanged As EventHandler
+	Public Event TIPOS_CodTipoMonedaChanged As EventHandler
+	Public Event TIPOS_CodTipoOrdenChanged As EventHandler
+	Public Event DOCVE_CodigoChanged As EventHandler
+	Public Event PVENT_IdChanged As EventHandler
+	Public Event ALMA_IdChanged As EventHandler
+	Public Event ALMA_IdOrigenChanged As EventHandler
+	Public Event ALMA_IdDestinoChanged As EventHandler
+	Public Event PVENT_IdOrigenChanged As EventHandler
+	Public Event PVENT_IdDestinoChanged As EventHandler
+	Public Event ORDEN_IdChanged As EventHandler
+	Public Event ORDEN_DireccionOrigenChanged As EventHandler
+	Public Event ORDEN_DireccionDestinoChanged As EventHandler
+	Public Event ORDEN_FechaIngresoChanged As EventHandler
+	Public Event ORDEN_FechaDocumentoChanged As EventHandler
+	Public Event ORDEN_DescripcionClienteChanged As EventHandler
+	Public Event ORDEN_ObservacionesChanged As EventHandler
+	Public Event ORDEN_AtendidoChanged As EventHandler
+	Public Event ORDEN_EstadoChanged As EventHandler
+
+	Public Sub OnORDEN_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoClienteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoClienteChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoMonedaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoMonedaChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoOrdenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoOrdenChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCVE_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCVE_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnPVENT_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PVENT_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnALMA_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMA_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnALMA_IdOrigenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMA_IdOrigenChanged(sender, e)
+	End Sub
+
+	Public Sub OnALMA_IdDestinoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMA_IdDestinoChanged(sender, e)
+	End Sub
+
+	Public Sub OnPVENT_IdOrigenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PVENT_IdOrigenChanged(sender, e)
+	End Sub
+
+	Public Sub OnPVENT_IdDestinoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PVENT_IdDestinoChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_DireccionOrigenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_DireccionOrigenChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_DireccionDestinoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_DireccionDestinoChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_FechaIngresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_FechaIngresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_FechaDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_FechaDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_DescripcionClienteChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_DescripcionClienteChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_ObservacionesChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_ObservacionesChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_AtendidoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_AtendidoChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDEN_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDEN_EstadoChanged(sender, e)
+	End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

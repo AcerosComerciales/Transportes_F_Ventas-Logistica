@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_NeumaticosFletes" Esquema="Transportes" Prefijo="NEUM">
+  <Nombre>TRAN_NeumaticosFletes</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMF_ID">NEUMF_ID</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_Id">FLETE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_Km">NEUMF_Km</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_UsrCrea">NEUMF_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_FecCrea">NEUMF_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_UsrMod">NEUMF_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_FecMod">NEUMF_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMF_ID">NEUMF_ID</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_Id">FLETE_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

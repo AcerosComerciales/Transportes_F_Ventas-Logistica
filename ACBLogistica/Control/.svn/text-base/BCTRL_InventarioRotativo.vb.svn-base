@@ -1,0 +1,136 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+
+Partial Public Class BCTRL_InventarioRotativo
+
+#Region " Variables "
+   Private m_listarticulos As List(Of ACEVentas.EArticulos)
+   Private m_listvent_docsventadetalle As List(Of ACEVentas.EVENT_DocsVentaDetalle)
+#End Region
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Propiedades "
+
+   Public Property ListArticulos() As List(Of ACEVentas.EArticulos)
+      Get
+         Return m_listarticulos
+      End Get
+      Set(ByVal value As List(Of ACEVentas.EArticulos))
+         m_listarticulos = value
+      End Set
+   End Property
+
+   Public Property ListVENT_DocsVentaDetalle() As List(Of ACEVentas.EVENT_DocsVentaDetalle)
+      Get
+         Return m_listvent_docsventadetalle
+      End Get
+      Set(ByVal value As List(Of ACEVentas.EVENT_DocsVentaDetalle))
+         m_listvent_docsventadetalle = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+   ''' <summary> 
+   ''' Capa de Negocio: CTRLSS_InventarioRotativo
+   ''' </summary>
+   ''' <param name="x_perio_codigo">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_zonas_codigo">Parametro 3: </param> 
+   ''' <param name="x_articulo">Parametro 4: </param> 
+   ''' <param name="x_linea">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRLSS_InventarioRotativo(ByVal x_perio_codigo As String, ByVal x_almac_id As Short, ByVal x_zonas_codigo As String, ByVal x_articulo As String, ByVal x_linea As String) As Boolean
+      m_listarticulos = New List(Of ACEVentas.EArticulos)
+      Try
+         Return d_ctrl_inventariorotativo.CTRLSS_InventarioRotativo(m_listarticulos, x_perio_codigo, x_almac_id, x_zonas_codigo, x_articulo, x_linea)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRLSS_PendientesOrdenes
+   ''' </summary>
+   ''' <param name="x_fecfin">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_linea">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRLSS_PendientesOrdenes(ByVal x_fecfin As Date, ByVal x_almac_id As Short, ByVal x_linea As String) As Boolean
+      m_listvent_docsventadetalle = New List(Of ACEVentas.EVENT_DocsVentaDetalle)
+      Try
+         Return d_ctrl_inventariorotativo.CTRLSS_PendientesOrdenes(m_listvent_docsventadetalle, x_fecfin, x_almac_id, x_linea)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRLSS_PendientesVentas
+   ''' </summary>
+   ''' <param name="x_fecfin">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_linea">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRLSS_PendientesVentas(ByVal x_fecfin As Date, ByVal x_almac_id As Short, ByVal x_linea As String) As Boolean
+      m_listvent_docsventadetalle = New List(Of ACEVentas.EVENT_DocsVentaDetalle)
+      Try
+         Return d_ctrl_inventariorotativo.CTRLSS_PendientesVentas(m_listvent_docsventadetalle, x_fecfin, x_almac_id, x_linea)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRLSS_PedidoReposicion
+   ''' </summary>
+   ''' <param name="x_fecfin">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_linea">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRLSS_PedidoReposicion(ByVal x_fecfin As Date, ByVal x_almac_id As Short, ByVal x_linea As String) As Boolean
+      m_listvent_docsventadetalle = New List(Of ACEVentas.EVENT_DocsVentaDetalle)
+      Try
+         Return d_ctrl_inventariorotativo.CTRLSS_PedidoReposicion(m_listvent_docsventadetalle, x_fecfin, x_almac_id, x_linea)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRLSS_CompraSinConfirmar
+   ''' </summary>
+   ''' <param name="x_fecfin">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_linea">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRLSS_CompraSinConfirmar(ByVal x_fecfin As Date, ByVal x_almac_id As Short, ByVal x_linea As String) As Boolean
+      m_listvent_docsventadetalle = New List(Of ACEVentas.EVENT_DocsVentaDetalle)
+      Try
+         Return d_ctrl_inventariorotativo.CTRLSS_CompraSinConfirmar(m_listvent_docsventadetalle, x_fecfin, x_almac_id, x_linea)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

@@ -1,0 +1,1141 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACBLogistica
+</name>
+</assembly>
+<members>
+<member name="M:ACBLogistica.BABAS_IngresosCompra.Cargar(System.Int64,System.Int16,System.Boolean)">
+	<summary>
+ Cargar los ingresos de compra incluyendo su detalle
+ </summary>
+	<param name="x_ingco_codigo">Codigo del documento de ingreso</param>
+	<param name="x_detalle">Detalle del documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_IngresosCompra.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de documento de ingreso
+ </summary>
+	<param name="x_cadena">Cadena de busqueda </param>
+	<param name="x_campo">Campor el cual se realiza la busqueda</param>
+	<param name="x_todos">Opcion para cargar todos los registros ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">fecha final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_IngresosCompra.Consulta(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_INGSS_Consulta
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BControlDescuentos.BusquedaProveedor(System.String,System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Proceso para cargar los proveedores que tienen documentos a los cuales se les puede aplicar una nota de credito
+ </summary>
+	<param name="x_cadena">Cadena para realizar la busqueda del proveedor</param>
+	<param name="x_campo">Nombre del Campo sobre el cual se aplica la busqueda</param>
+	<param name="x_fecini">Fecha Inicial</param>
+	<param name="x_fecfin">Fecha Final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BControlDescuentos.ObtenerDetalle(System.String,System.DateTime,System.DateTime)">
+	<summary>
+ Proceso para cargar los registros sobre los cuales se puede obtener el detalle de los items a los
+ que se aplica la nota de credito
+ </summary>
+	<param name="x_entid_codigo">Codigo del proveedor</param>
+	<param name="x_fecini">Fecha Inicial</param>
+	<param name="x_fecfin">Fecha Final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BControlDescuentos.GrabarCDescuento(System.String)">
+	<summary>
+ Crear la nota de credito con los items de los documentos de venta
+ </summary>
+	<param name="x_usuario">Usuario que realiza la operacion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarOrdenCompra.GrabaOrdenCompra(System.String,System.String@)">
+	<summary>
+ Grabar orden de compra
+ </summary>
+	<param name="x_usuario">Usuario que realiza el proceso</param>
+	<param name="x_msg">Mensajeque se devuelve con algun error</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarOrdenCompra.AnularOrdenCompra(System.String,System.String,System.String)">
+	<summary>
+ Anular la orden de compra
+ </summary>
+	<param name="x_ordco_codigo">Codigo de la orden de compra</param>
+	<param name="x_cotco_codigo">Codigo de la cotizacion de compra</param>
+	<param name="x_usuario">Usuario que realiza el proceso</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarOrdenCompra.RegistroCompra(System.String)">
+	<summary>
+ cargar registro de compras
+ </summary>
+	<param name="x_ordco_codigo">codifo de orden de compra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_OrdenesCompra.getCorrelativo(System.Int32@,System.Int64)">
+	<summary>
+ Obtener el correlativo para crear la orden de compra
+ </summary>
+	<param name="x_abas_numero">Numero que contiene el correlativo  y sera devuelto a la siguiente capa</param>
+	<param name="x_almac_id">Codigo del punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_OrdenesCompra.Busqueda(System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_ORDCOSS_TodosOrdenes
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_OrdenesCompra.Cargar(System.String,System.Boolean)">
+	<summary>
+ Cargar una orden de compra con su respectivo detalle
+ </summary>
+	<param name="x_ordco_codigo">codigo de la orden de compra</param>
+	<param name="x_detalle">opciion para cargar el detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_OrdenesCompra.ConsultaOrdenes(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_ABASSS_ConsultaOrdenes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opciontc">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCosteo.GrabarCosteo(ACELogistica.EABAS_DocsCompra,System.String)">
+	<summary>
+ Grabar los registros necesarios para registrar el costeo de los items de un documento de venta
+ </summary>
+	<param name="x_eabas_docscompra">Clase Docmento de Venta que contiene los datos necesarios para
+ grabar el costeo respectivo por cada detalle</param>
+	<param name="x_usuario">Usuario que realiza la operación</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCosteo.ObtenerDocCosteadosDetalle(System.String,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: COSTESS_ObtenerDocCosteadosDetalle
+ </summary>
+	<param name="x_entid_codigoproveedor">Parametro 1: </param>
+	<param name="x_docco_codigo">Parametro 2: </param>
+	<param name="x_artic_codigo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCosteo.CargarCosteo(System.String,System.String,System.Int32@)">
+	<summary>
+ Proceso para recupera el costeo grabado, en las clases respectivas para su edición tanto
+ de cambio como de corrección
+ </summary>
+	<param name="x_docco_codigo">Nro documento de compra</param>
+	<param name="x_entid_codigo">Codigo de entidad de proveedor</param>
+	<param name="x_max">Objeto para recuperar el numero de descuentos que se realizaron</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BAdministrarArticulos.ARTICSS_OrdenarProductos(System.String,System.Int16,System.String,System.String,System.String,System.DateTime)">
+	<summary> 
+ Capa de Negocio: ARTICSS_OrdenarProductos
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_linea">Parametro 4: </param>
+	<param name="x_sublinea">Parametro 5: </param>
+	<param name="x_fecha">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BAdministrarArticulos.Grabar(System.String)">
+	<summary>
+ Grabar listado de articulos
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.BuscarInventarioRotativo(ACBLogistica.BCTRL_InventarioRotativo.TBus,System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Busqueda de arreglos por fecha de ingreso
+ </summary>
+	<param name="x_tbusqueda">tipo de busqueda</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_codigo">codigo de arreglo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.CTRLSS_PendientesOrdenes(System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: CTRLSS_PendientesOrdenes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.CTRLSS_PendientesVentas(System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: CTRLSS_PendientesVentas
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.CTRLSS_PedidoReposicion(System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: CTRLSS_PedidoReposicion
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.CTRLSS_CompraSinConfirmar(System.DateTime,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: CTRLSS_CompraSinConfirmar
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_linea">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_InventarioRotativo.Cargar(System.String,System.Boolean)">
+	<summary>
+ Cargar arreglo
+ </summary>
+	<param name="x_codigo">codigo de arreglo</param>
+	<param name="x_detalle">opcion para cargar detalle del arreglo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarDocsCompra.GrabarDocCompra(System.String,System.Boolean,System.String@)">
+	<summary>
+ grabar documentod e compra
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_act_orden">opcion para actualizar la orden de compra</param>
+	<param name="x_msg">mensaje que se devuelve en caso de error</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarDocsCompra.BusquedaDocsGenNotas(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Obtener notas de credito
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">cargar todos los registros, incluidos los anulados</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqeuda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarDocsCompra.cargarDetDifOrden(System.String)">
+	<summary>
+ Cargar el detalle del documento, pero solo la diferenca de lo entregado
+ </summary>
+	<param name="x_ordco_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRequiCompra.GrabaRequiCompra(System.String,System.String@)">
+	<summary>
+ Grabar la requisición de compra
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_msg"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.GrabaIngresoCompra(System.String,System.String@)">
+	<summary>
+ Grabar el ingreso de compra
+ </summary>
+	<param name="x_usuario">Usuario</param>
+	<param name="x_msg">Mensaje que se devuelve en caso de problemas</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.GrabaIngresoCompraCOnfirmacion(System.String,System.String@)">
+	<summary>
+ grabar confirmacion de ingreso de compras
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_msg"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.cargarDetDif(System.String)">
+	<summary>
+ Cargar el detalle de la orden de cargar con la diferencia faltante
+ </summary>
+	<param name="x_ordco_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.cargarDetDifDocCompra(System.String)">
+	<summary>
+ Cargar la diferencia pendiente
+ </summary>
+	<param name="x_docco_codigo">codigo del documento de compra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.cargarDetDifOrden(System.String)">
+	<summary>
+ cargar la diferencia de la orden de compra
+ </summary>
+	<param name="x_ordco_codigo">codigo de la orden de compra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.GrabarConfirmacion(System.Int16,System.String,System.String,System.Boolean)">
+	<summary>
+ Grabar comnfirmacion de ingreso de compra
+ </summary>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_tipos_codtipodocumento">codigo de tipo de documento</param>
+	<param name="x_tran">opcion para iniciar las transacciones</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.BusquedaDocsRegCompra(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ busqueda de documentos de compra registrados
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">cargar todos los registros, incluidos los anulados</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.BusquedaDocsRegCompraOrden(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de coumentos registrados usando la orden de compra
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">mostrar todos incluidos los anulados</param>
+	<param name="x_fecini">fecha inicial de buqeuda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.LOG_INGCOSS_IngresoCompras(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_INGCOSS_IngresoCompras
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.BusquedaDocsRegCompra(System.String,System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de documentos de compra
+ </summary>
+	<param name="x_doc"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_todos"></param>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de documentos 
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<param name="x_fecini">fecha inicialde busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.Consulta(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Consulta de documentos de compra
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">mostrar todos los registros</param>
+	<param name="x_fecini">fecha inicial de busquedaq</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.ConsultaIT(System.String,System.Int16,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Consulta de documentos ingreso por transformacion
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.BusquedaOrdenesCompras(ACBLogistica.BGenerarRegMercTransito.TConsulta,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ busqueda de documentos de compras
+ </summary>
+	<param name="x_tconsulta">tipo de consulta</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_opciontc">opcion de busqueda de tipo de consulta</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.ConvertToIngreso(ACBLogistica.BGenerarRegMercTransito.TConsulta)">
+	<summary>
+ Convertir orden de compra en ingreso de compra
+ </summary>
+	<param name="x_tconsulta"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.ToIngreso">
+	<summary>
+ convertir a ingreso de compra
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.ComprasToIngresos(System.String,System.String)">
+	<summary>
+ convertir documento de compra en ingreso de compra
+ </summary>
+	<param name="x_docco_codigo">codigo de documento de compra</param>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.OrdenesToIngreso(System.String)">
+	<summary>
+ convertir orden de compra a ingreso de compra
+ </summary>
+	<param name="x_ordco_codigo">orden de compra</param>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.CargarIngreso(System.Int64,System.Int16,System.Boolean)">
+	<summary>
+ cargar ingreso de compra
+ </summary>
+	<param name="x_ingco_id">codigo de ingreso de compra</param>
+	<param name="x_almac_id">codigo de almacen</param>
+	<param name="x_opcion">opcion de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.AnularConfMercaderia(System.Boolean,System.String)">
+	<summary>
+ anular confirmacion de mercaderia en transito
+ </summary>
+	<param name="x_stock">opcion para confirmar la anulacion de movimiento de stoc</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.AnularRegMercaderia_Log(System.String,System.Int32)">
+	<summary>
+ Anular registro de mercaderia
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.AnularRegMercaderia(System.String)">
+	<summary>
+ Anular registro de mercaderia
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarRegMercTransito.ObtenerIngresoCompra(System.Int16,System.Int64)">
+	<summary> 
+ Capa de Negocio: LOG_INGCOSS_ObtenerIngresoCompra
+ </summary>
+	<param name="x_almac_id">Parametro 1: </param>
+	<param name="x_ingco_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.DevolverStock(ACEVentas.EVENT_DocsVenta,System.String,System.Int16,System.DateTime,System.String)">
+	<summary>
+ Proceso para devolucion de stock al kardex
+ </summary>
+	<param name="x_vent_docsventas">clase documento de venta que se devolvera el stock</param>
+	<param name="x_periodo">codigo del periodo</param>
+	<param name="x_almac_id">codigo de almacen</param>
+	<param name="x_fecha">fecha de decolucion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnularDevolucionStock(ACEVentas.EVENT_DocsVenta,System.String,System.Int16,System.DateTime,System.String)">
+	<summary>
+ Anulacion de devolucion de stock
+ </summary>
+	<param name="x_vent_docsventas">clase documento de venta que se devolvera el stock</param>
+	<param name="x_periodo">codigo de periodo</param>
+	<param name="x_almac_id">codigo de almacen</param>
+	<param name="x_fecha">fecha de anulacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.Ingreso(System.String,System.String,System.String,System.Int16,System.Double,System.DateTime,System.String,System.String)">
+	<summary>
+ Ingresos de mercaderia al stock
+ </summary>
+	<param name="x_periodo">Codigo del periodo</param>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<param name="x_tipos_codtipounidad">Codigo de tipo de unidda</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_cantidad">cantidad a ingresar</param>
+	<param name="x_fecha">fecha</param>
+	<param name="x_tipos_codtipomotivo">motivo del movimiento de stock</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.Ingreso_anulado(System.String,System.String,System.String,System.Int16,System.Double,System.DateTime,System.String,System.String)">
+	<summary>
+ Ingresos de mercaderia al stock_anulado
+ </summary>
+	<param name="x_periodo">Codigo del periodo</param>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<param name="x_tipos_codtipounidad">Codigo de tipo de unidda</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_cantidad">cantidad a ingresar</param>
+	<param name="x_fecha">fecha</param>
+	<param name="x_tipos_codtipomotivo">motivo del movimiento de stock</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.ActivacionPedidoVenta(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ activacion de pedido de venta
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_pedid_codigo"></param>
+	<param name="x_pddet_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionIngresoGuia(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion de guia ingresada
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_guiar_codigo"></param>
+	<param name="x_guird_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionIngresoCompra(System.String,System.String,System.Int16,System.Int64,System.Int16,System.Double,System.String)">
+	<summary>
+ anulacion de ingreso de compra
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_ingco_id"></param>
+	<param name="x_ingcd_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionIngresoOrden(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ anulacion de de ingreso de orden de recojo
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_orden_codigo"></param>
+	<param name="x_ordet_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.Egreso(System.String,System.String,System.String,System.Int16,System.Double,System.DateTime,System.String,System.String)">
+	<summary>
+ egreso de mercaderia
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_tipos_codtipounidad"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_fecha"></param>
+	<param name="x_tipos_codtipomotivo"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionIngresoFactura(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ anulacion de egreso de facturas
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_docve_codigo"></param>
+	<param name="x_docvd_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionEgresoFactura(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ anulacion de egreso de ffactura
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_docve_codigo"></param>
+	<param name="x_docvd_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionEgresoOrden(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion de egreso de orden
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_orden_codigo"></param>
+	<param name="x_ordet_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionIngresoArreglo(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion de ingresos por arreglos de control
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_arreg_codigo"></param>
+	<param name="x_arrdt_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionEgresoArreglo(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion por egreso de arreglos de control
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_arreg_codigo"></param>
+	<param name="x_arrdt_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionEgresoGuia(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ anulacion de egreso generado por guias de remison que mueven stock, aquellas facturas que son marcadas con devolucion
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_guiar_codigo"></param>
+	<param name="x_guird_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionPedidoVenta(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion de pedido de venta
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_pedid_codigo"></param>
+	<param name="x_pddet_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.AnulacionPedidoSeparacion(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Anulacion de pedidos de separacion de mercaderia aceptados, es decir estos pedidos separan mercaderias cuando son aceptados en los 
+ puntos de venta a donde son enviados
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_pedid_codigo"></param>
+	<param name="x_pddet_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.EliminarEgresoFactura(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Eliminar el egreso de facturas
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_docve_codigo"></param>
+	<param name="x_docvd_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.EliminarIngresoMercaderia(System.String,System.String,System.Int16,System.Int64,System.Int16,System.Double,System.String)">
+	<summary>
+ Eliminar el ingreso de mercaderia
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_ingco_id"></param>
+	<param name="x_guird_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BManejarStock.EliminarMovimientoGuia(System.String,System.String,System.Int16,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ eiminar el movimientos de guias de traslado
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_almac_id"></param>
+	<param name="x_guiar_codigo"></param>
+	<param name="x_guird_item"></param>
+	<param name="x_cantidad"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BLOG_Stocks.ObtenerStock(System.String,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: LOG_STOCKSS_ObtenerStock
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BLOG_Stocks.ObtenerStockAlmacen(System.String,System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: LOG_STOCKSS_ObtenerStockAlmacen
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime,System.Int64)">
+	<summary>
+ cargar la busqueda de documentos
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">campo por el cual se realizara la busqueda</param>
+	<param name="x_todos">Opcion para cargar todos los registros ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">Fecha final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_DOCCOSS_TodosDocCompra
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime,System.String,System.Int64)">
+	<summary>
+ cargar la busqueda de documentos
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">campo por el cual se realizara la busqueda</param>
+	<param name="x_todos">Opcion para cargar todos los registros ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">Fecha final</param>
+	<param name="x_in">Para definir que estados se cargaran</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime,System.String)">
+	<summary>
+ cargar la busqueda de documentos
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">campo por el cual se realizara la busqueda</param>
+	<param name="x_todos">Opcion para cargar todos los registros ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">Fecha final</param>
+	<param name="x_in">Para definir que estados se cargaran</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.String,System.String,System.Boolean,System.DateTime,System.DateTime,System.Int64)">
+	<summary>
+ cargar la busqueda de documentos por el numero de documento
+ </summary>
+	<param name="x_doc">Numero del documento</param>
+	<param name="x_serie">Serie del documento</param>
+	<param name="x_numero">Numero del documento</param>
+	<param name="x_todos">Opcion para cargar todos los registro ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">Fecha Final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Busqueda(System.String,System.String,System.String,System.Boolean,System.DateTime,System.DateTime,System.String,System.Int64)">
+	<summary>
+ cargar la busqueda de documentos por el numero de documento
+ </summary>
+	<param name="x_doc">Numero del documento</param>
+	<param name="x_serie">Serie del documento</param>
+	<param name="x_numero">Numero del documento</param>
+	<param name="x_todos">Opcion para cargar todos los registro ignorando el estado del documento</param>
+	<param name="x_fecini">Fecha inicial</param>
+	<param name="x_fecfin">Fecha Final</param>
+	<param name="x_in">Opcion para definir que estados se tomaran en cuenta para la busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.Cargar(System.String,System.String,System.Boolean)">
+	<summary>
+ Cargar el documento de compra incluyendo su detalle
+ </summary>
+	<param name="x_entid_codigo">codigo de la entidad proveedor</param>
+	<param name="x_detalle">Opcion para cargar el detalle del documento de compra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.ObtenerDocCosteados(System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: COSTESS_ObtenerDocCosteados
+ </summary>
+	<param name="x_entid_codigoproveedor">Parametro 1: </param>
+	<param name="x_docco_codigo">Parametro 2: </param>
+	<param name="x_detalle">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_DocsCompra.ConsultaCompras(System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_ABASSS_ConsultaCompras
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opciontc">Parametro 2: </param>
+	<param name="x_todos">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BReporte.KardexXArticulo(System.String,System.Int32,System.String,System.String,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: CTRL_STOCKSS_KardexXArticulo
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_perio_codigo">Parametro 3: </param>
+	<param name="x_zonas_codigo">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BReporte.REPOSS_ObtenerArreglo(System.String,System.Int32)">
+	<summary> 
+ Capa de Negocio: REPOSS_ObtenerArreglo
+ </summary>
+	<param name="x_arreg_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BReporte.CTRL_MostrarDocumentosCliente(System.DateTime,System.DateTime,System.Int64,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: CTRL_MostrarDocumentosCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 4: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasTodas.CargarTodos">
+	<summary>
+ cargar todod los docuementos
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasTodas.CargarTodos(System.Collections.Hashtable)">
+	<summary>
+ cargar documentos segun condicion
+ </summary>
+	<param name="x_where">condicion para la carga de datos</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasTodas.CargarTodos(System.Collections.Generic.List{ACFramework.ACJoin},System.Collections.Hashtable)">
+	<summary>
+ Cargar datos segun carga y listado de join
+ </summary>
+	<param name="x_join">join</param>
+	<param name="x_where">condicionales</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasTodas.CargarTodos(System.Collections.Generic.List{ACFramework.ACJoin},System.Collections.Hashtable,System.Boolean)">
+	<summary>
+ Cargar guias de remision
+ </summary>
+	<param name="x_join">joins</param>
+	<param name="x_where">condiciones</param>
+	<param name="x_distinct"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasRemision.CargarTodos">
+	<summary>
+ cargar todod los docuementos
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasRemision.CargarTodos(System.Collections.Hashtable)">
+	<summary>
+ cargar documentos segun condicion
+ </summary>
+	<param name="x_where">condicion para la carga de datos</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasRemision.CargarTodos(System.Collections.Generic.List{ACFramework.ACJoin},System.Collections.Hashtable)">
+	<summary>
+ Cargar datos segun carga y listado de join
+ </summary>
+	<param name="x_join">join</param>
+	<param name="x_where">condicionales</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BDIST_GuiasRemision.CargarTodos(System.Collections.Generic.List{ACFramework.ACJoin},System.Collections.Hashtable,System.Boolean)">
+	<summary>
+ Cargar guias de remision
+ </summary>
+	<param name="x_join">joins</param>
+	<param name="x_where">condiciones</param>
+	<param name="x_distinct"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACBLogistica.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACBLogistica.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ACBLogistica.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACBLogistica.BCTRL_Arreglos.Guardar(System.String,System.Boolean,System.String)">
+	<summary>
+ Guardar arreglo
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle">opcion para guardar el detalle del arreglo</param>
+	<param name="x_periodo">codigo de periodo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_Arreglos.Anular(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ Anular arreglo
+ </summary>
+	<param name="x_periodo">codigo de periodo</param>
+	<param name="x_motivo">motivo de anulacion</param>
+	<param name="m_proceso">permiso de anulacion para fechas posteriores a la fecha de creacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_Arreglos.BuscarArreglos(ACBLogistica.BCTRL_Arreglos.TBus,System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Busqueda de arreglos por fecha de ingreso
+ </summary>
+	<param name="x_tbusqueda">tipo de busqueda</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_codigo">codigo de arreglo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BCTRL_Arreglos.Cargar(System.String,System.Boolean)">
+	<summary>
+ Cargar arreglo
+ </summary>
+	<param name="x_codigo">codigo de arreglo</param>
+	<param name="x_detalle">opcion para cargar detalle del arreglo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_CotizacionesCompra.getCorrelativo(System.String,System.Int32@,System.Int64)">
+	<summary>
+ Obtener el correlativo para generar el codigo
+ </summary>
+	<param name="x_abas_numero">Numero que se devuelve</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_CotizacionesCompra.Busqueda(System.String,System.Int16,System.String,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_COTCOSS_TodosCotizaciones
+ </summary>
+	<param name="x_zonas_codigo">Parametro 1: </param>
+	<param name="x_sucur_id">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<param name="x_fecini">Parametro 6: </param>
+	<param name="x_fecfin">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BABAS_CotizacionesCompra.Cargar(System.String,System.Boolean)">
+	<summary>
+ Realiza la carga del documento con su respectivo detalle
+ </summary>
+	<param name="x_cotco_codigo">Codigo de cotización</param>
+	<param name="x_detalle">Opción para cargar el detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCotizCompra.GrabaCotizCompra(System.String,System.String@)">
+	<summary>
+ Grabar la cotización de compra
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_msg"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCotizCompra.CargarCotizacion(System.String,System.Boolean)">
+	<summary>
+ cargar cotizacion de compra
+ </summary>
+	<param name="x_cotco_codigo">codigo de la cotizacion</param>
+	<param name="x_detalle">opcion para cargar detalle de la cotizacion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarCotizCompra.getProveedor(System.String)">
+	<summary>
+ Obtener proveedor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.GetArticulos(System.String,System.String,System.Data.DataTable@)">
+	<summary>
+ obtener articulos
+ </summary>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_cadena">cadena de busquedqa</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.Stocks(System.String,System.Int16,System.Int32,System.Data.DataTable@,System.String,System.String)">
+	<summary>
+ obtener los stocks
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_almac_id">codigo de almacen</param>
+	<param name="x_opcion">opcion de busqueda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<param name="x_periodo">codigo del periodo</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.LOG_STOCKSS_StockALaFecha(System.Data.DataTable@,System.String,System.Int16,System.String,System.String,System.String,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_STOCKSS_StockALaFecha
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_linea">Parametro 4: </param>
+	<param name="x_sublinea">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.ComprasXLinea(System.String,System.DateTime,System.DateTime,System.Data.DataTable@)">
+	<summary>
+ Compras por linea
+ </summary>
+	<param name="x_linea_codigo">codigo de lineqa</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.ComprasXProveedorDetalle(System.String,System.DateTime,System.DateTime,System.Data.DataTable@)">
+	<summary>
+ Compras por proveedor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad proveedor</param>
+	<param name="x_fecini">fecha incial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_datos"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.ComprasXArticulo(System.String,System.DateTime,System.DateTime,System.Data.DataTable@)">
+	<summary>
+ compras por articulo
+ </summary>
+	<param name="x_artic_codigo">codigo de articulo</param>
+	<param name="x_fecini">fehca inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqeuda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.StocksArticulos(System.String,System.Int32,System.Data.DataTable@)">
+	<summary>
+ Stocks por articulos
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_opcion">opcion de busqueda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.PendientesXProveedor(System.String,System.DateTime,System.DateTime,System.Data.DataTable@)">
+	<summary>
+ pendientes por proveedor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.comprasXproveedor(System.String,System.DateTime,System.DateTime)">
+	<summary>
+ compras por proveedor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<param name="x_fecini">fecha inicial de busqeuda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.PendientesXProveedorXFecha(System.String,System.DateTime,System.DateTime,System.Data.DataSet@)">
+	<summary>
+ pendientes por proveedor por fecha
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_datos">clase contenedora del resultado de la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBLogistica.BGenerarReportes.GuiasXFecha(System.DateTime,System.DateTime)">
+	<summary>
+ Guias por fechas
+ </summary>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

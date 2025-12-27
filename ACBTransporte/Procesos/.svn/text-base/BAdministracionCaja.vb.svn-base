@@ -1,0 +1,575 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports ACBVentas
+Imports ACEVentas
+Imports System.Configuration
+Imports DAConexion
+
+Imports ACFramework
+
+Public Class BAdministracionCaja
+
+#Region " Variables "
+   Private m_eteso_caja As ETESO_Caja
+   Private m_listtran_fletes As List(Of ETRAN_Fletes)
+   Private m_listtran_fletesfacturados As List(Of ETRAN_Fletes)
+   Private m_listvent_docsventa As List(Of EVENT_DocsVenta)
+   Private m_listteso_caja As List(Of ETESO_Caja)
+   Private m_listteso_cajapagos As List(Of ETESO_Caja)
+   Private m_listtran_viajes As List(Of ETRAN_Viajes)
+   Private m_listtran_viajesgastos As List(Of ETRAN_ViajesGastos)
+   Private m_listtran_viajesgastosefectivo As List(Of ETRAN_ViajesGastos)
+
+   Private m_listtran_viajessueldos As List(Of ETRAN_Viajes)
+   Private m_listtran_fletesPagos As List(Of ETRAN_Fletes)
+
+   Private d_administracioncaja As DAdministracionCaja
+   Private m_zona As String
+   Private m_sucursal As Integer
+   Private m_pvent_id As Integer
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_zona As String, ByVal x_sucursal As Integer, ByVal x_pvent_id As Integer)
+      m_zona = x_zona
+      m_sucursal = x_sucursal
+      m_pvent_id = x_pvent_id
+
+      d_administracioncaja = New DAdministracionCaja()
+
+   End Sub
+#End Region
+
+#Region " Propiedades "
+
+   Public Property TESO_Caja() As ETESO_Caja
+      Get
+         Return m_eteso_caja
+      End Get
+      Set(ByVal value As ETESO_Caja)
+         m_eteso_caja = value
+      End Set
+   End Property
+
+   Public Property ListVENT_DocsVenta() As List(Of EVENT_DocsVenta)
+      Get
+         Return m_listvent_docsventa
+      End Get
+      Set(ByVal value As List(Of EVENT_DocsVenta))
+         m_listvent_docsventa = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_Fletes() As List(Of ETRAN_Fletes)
+      Get
+         Return m_listtran_fletes
+      End Get
+      Set(ByVal value As List(Of ETRAN_Fletes))
+         m_listtran_fletes = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_FletesFacturados() As List(Of ETRAN_Fletes)
+      Get
+         Return m_listtran_fletesfacturados
+      End Get
+      Set(ByVal value As List(Of ETRAN_Fletes))
+         m_listtran_fletesfacturados = value
+      End Set
+   End Property
+
+   Public Property ListTESO_CajaPagos() As List(Of ETESO_Caja)
+      Get
+         Return m_listteso_cajapagos
+      End Get
+      Set(ByVal value As List(Of ETESO_Caja))
+         m_listteso_cajapagos = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_ViajesGastos() As List(Of ETRAN_ViajesGastos)
+      Get
+         Return m_listtran_viajesgastos
+      End Get
+      Set(ByVal value As List(Of ETRAN_ViajesGastos))
+         m_listtran_viajesgastos = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_ViajesGastosEfectivo() As List(Of ETRAN_ViajesGastos)
+      Get
+         Return m_listtran_viajesgastosefectivo
+      End Get
+      Set(ByVal value As List(Of ETRAN_ViajesGastos))
+         m_listtran_viajesgastosefectivo = value
+      End Set
+   End Property
+
+   Public Property ListTESO_Caja() As List(Of ETESO_Caja)
+      Get
+         Return m_listteso_caja
+      End Get
+      Set(ByVal value As List(Of ETESO_Caja))
+         m_listteso_caja = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_Viajes() As List(Of ETRAN_Viajes)
+      Get
+         Return m_listtran_viajes
+      End Get
+      Set(ByVal value As List(Of ETRAN_Viajes))
+         m_listtran_viajes = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_ViajesConductor() As List(Of ETRAN_Viajes)
+      Get
+         Return m_listtran_viajessueldos
+      End Get
+      Set(ByVal value As List(Of ETRAN_Viajes))
+         m_listtran_viajessueldos = value
+      End Set
+   End Property
+
+   Public Property ListTRAN_FletesPagos() As List(Of ETRAN_Fletes)
+      Get
+         Return m_listtran_fletesPagos
+      End Get
+      Set(ByVal value As List(Of ETRAN_Fletes))
+         m_listtran_fletesPagos = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+   Public Function GuardarOtrosIngreso(ByVal x_usuario As String, ByVal x_tipo As ACETransporte.Constantes.TipoIngEgre)
+      Dim _bteso_caja As New BTESO_Caja
+      Dim _where As New Hashtable
+      Try
+         DAEnterprise.BeginTransaction()
+
+         Dim managerTRAN_Recibos As New BTRAN_Recibos
+         managerTRAN_Recibos.TRAN_Recibos = New ETRAN_Recibos
+
+         m_eteso_caja.CAJA_Serie = ACETransporte.Constantes.CAJA_SerieIngreso
+         _where.Add("CAJA_Serie", New ACWhere(m_eteso_caja.CAJA_Serie))
+         m_eteso_caja.CAJA_Numero = _bteso_caja.getCorrelativo("CAJA_Numero", _where)
+         m_eteso_caja.CAJA_OrdenDocumento = 1
+         m_eteso_caja.CAJA_FechaPago = m_eteso_caja.CAJA_Fecha
+         m_eteso_caja.CAJA_Estado = ETESO_Caja.getEstado(ETESO_Caja.Estado.Ingresado)
+         m_eteso_caja.CAJA_Pase = ACEVentas.Constantes.GetPase(ACEVentas.Constantes.Pase.Entrada)
+         m_eteso_caja.CAJA_NroDocumento = m_eteso_caja.CAJA_Id.ToString("0000000")
+         m_eteso_caja.TIPOS_CodTipoOrigen = ETipos.getTipoOrigen(ETipos.OrigenCancelacion.COtrosIngresos)
+
+         Dim _serie As String = "001" : Dim _numero As Integer
+         If managerTRAN_Recibos.GetSeries(m_zona, m_sucursal, 0, ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.ReciboTransporte)) Then
+            _serie = managerTRAN_Recibos.ListVENT_PVentDocumento(0).PVDOCU_Serie
+            If x_tipo = ACETransporte.Constantes.TipoIngEgre.Ingreso Then
+               _numero = managerTRAN_Recibos.getNumero(_serie, ETipos.getTipo(ETipos.TipoRecibo.Ingreso)) + 1
+               managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = String.Format("{0}{1}{2:0000000}", ETipos.getTipo(ETipos.TipoRecibo.Ingreso).Substring(3, 1).PadLeft(2, "0") _
+                                                                     , _serie, _numero)
+               m_eteso_caja.TIPOS_CodTipoDocumento = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.IngresoEfectivo)
+            Else
+               _numero = managerTRAN_Recibos.getNumero(_serie, ETipos.getTipo(ETipos.TipoRecibo.Egreso)) + 1
+               managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = String.Format("{0}{1}{2:0000000}", ETipos.getTipo(ETipos.TipoRecibo.Egreso).Substring(3, 1).PadLeft(2, "0") _
+                                                                     , _serie, _numero)
+               m_eteso_caja.TIPOS_CodTipoDocumento = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.EgresoEfectivo)
+            End If
+
+         End If
+
+         m_eteso_caja.CAJA_NroDocumento = managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo
+         _bteso_caja.TESO_Caja.CAJA_Codigo = String.Format("{0:00}{1}{2:0000000}", m_pvent_id, _bteso_caja.TESO_Caja.CAJA_Serie, _bteso_caja.TESO_Caja.CAJA_Numero)
+         _bteso_caja.TESO_Caja = m_eteso_caja
+
+         If _bteso_caja.Guardar(x_usuario, New String() {"CAJA_Hora", "CAJA_FechaPago"}) Then
+            ' Generar Recibo de Ingreso o Egreso
+            managerTRAN_Recibos.TRAN_Recibos.Instanciar(ACEInstancia.Nuevo)
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Concepto = _bteso_caja.TESO_Caja.CAJA_Glosa
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Serie = _serie
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Numero = _numero
+            managerTRAN_Recibos.TRAN_Recibos.ZONAS_Codigo = m_zona
+            managerTRAN_Recibos.TRAN_Recibos.SUCUR_Id = m_sucursal
+            managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoMoneda = _bteso_caja.TESO_Caja.TIPOS_CodTipoMoneda
+            If x_tipo = ACETransporte.Constantes.TipoIngEgre.Ingreso Then
+               managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Ingreso)
+            Else
+               managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Egreso)
+            End If
+
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Fecha = _bteso_caja.TESO_Caja.CAJA_Fecha
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Monto = _bteso_caja.TESO_Caja.CAJA_Importe
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_CodReferencia = _bteso_caja.TESO_Caja.CAJA_Id.ToString("0000000")
+            '' Diferenciación de Caja en Efectivo con Documentos Generados en los Viajes
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Efectivo = 1
+            If managerTRAN_Recibos.Guardar(x_usuario) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            Else
+               Throw New Exception("No se puede Guardar los recibos")
+            End If
+            DAEnterprise.CommitTransaction()
+            Return True
+         End If
+         DAEnterprise.RollBackTransaction()
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Public Function AnularIngreso(ByVal x_usuario As String) As Boolean
+      Dim _bteso_caja As New BTESO_Caja
+      Try
+         DAEnterprise.BeginTransaction()
+         _bteso_caja.TESO_Caja = New ETESO_Caja
+         _bteso_caja.TESO_Caja.CAJA_Id = m_eteso_caja.CAJA_Id
+         _bteso_caja.TESO_Caja.PVENT_Id = m_pvent_id
+         _bteso_caja.TESO_Caja.CAJA_Estado = ETESO_Caja.getEstado(ETESO_Caja.Estado.Anulado)
+         _bteso_caja.TESO_Caja.Instanciar(ACEInstancia.Modificado)
+         If _bteso_caja.Guardar(x_usuario) Then
+            Dim _btran_recibos As New BTRAN_Recibos
+            _btran_recibos.TRAN_Recibos = New ETRAN_Recibos
+            _btran_recibos.TRAN_Recibos.Instanciar(ACEInstancia.Modificado)
+            _btran_recibos.TRAN_Recibos.RECIB_Codigo = m_eteso_caja.CAJA_NroDocumento
+            _btran_recibos.TRAN_Recibos.RECIB_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            If _btran_recibos.Guardar(x_usuario) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            Else
+               Throw New Exception("No se puede Anular el documento")
+            End If
+         End If
+         DAEnterprise.RollBackTransaction()
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Public Function GuardarIngreso(ByVal x_usuario As String, ByVal x_tipo As ACETransporte.Constantes.TipoIngEgre)
+      Dim _bteso_caja As New BTESO_Caja
+      Dim _where As New Hashtable
+      Try
+         DAEnterprise.BeginTransaction()
+
+         Dim managerTRAN_Recibos As New BTRAN_Recibos
+         managerTRAN_Recibos.TRAN_Recibos = New ETRAN_Recibos
+
+         m_eteso_caja.CAJA_Serie = ACETransporte.Constantes.CAJA_SerieIngreso
+         _where.Add("CAJA_Serie", New ACWhere(m_eteso_caja.CAJA_Serie))
+         m_eteso_caja.CAJA_Numero = _bteso_caja.getCorrelativo("CAJA_Numero", _where)
+         m_eteso_caja.CAJA_OrdenDocumento = 1
+         m_eteso_caja.CAJA_FechaPago = m_eteso_caja.CAJA_Fecha
+         m_eteso_caja.CAJA_Estado = ETESO_Caja.getEstado(ETESO_Caja.Estado.Ingresado)
+         m_eteso_caja.CAJA_Pase = ACEVentas.Constantes.GetPase(ACEVentas.Constantes.Pase.Entrada)
+         m_eteso_caja.CAJA_NroDocumento = m_eteso_caja.CAJA_Id.ToString("0000000")
+         m_eteso_caja.TIPOS_CodTipoOrigen = ETipos.getTipoOrigen(ETipos.OrigenCancelacion.CIngEgre)
+         m_eteso_caja.CAJA_Codigo = String.Format("{0:00}{1}{2:0000000}", m_pvent_id, m_eteso_caja.CAJA_Serie, m_eteso_caja.CAJA_Numero)
+
+         Dim _serie As String = "001" : Dim _numero As Integer
+         If managerTRAN_Recibos.GetSeries(m_zona, m_sucursal, 0, ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.ReciboTransporte)) Then
+            _serie = managerTRAN_Recibos.ListVENT_PVentDocumento(0).PVDOCU_Serie
+            If x_tipo = ACETransporte.Constantes.TipoIngEgre.Ingreso Then
+               _numero = managerTRAN_Recibos.getNumero(_serie, ETipos.getTipo(ETipos.TipoRecibo.Ingreso)) + 1
+               managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = String.Format("{0}{1}{2:0000000}", ETipos.getTipo(ETipos.TipoRecibo.Ingreso).Substring(3, 1).PadLeft(2, "0") _
+                                                                     , _serie, _numero)
+               m_eteso_caja.TIPOS_CodTipoDocumento = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.IngresoEfectivo)
+            Else
+               _numero = managerTRAN_Recibos.getNumero(_serie, ETipos.getTipo(ETipos.TipoRecibo.Egreso)) + 1
+               managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo = String.Format("{0}{1}{2:0000000}", ETipos.getTipo(ETipos.TipoRecibo.Egreso).Substring(3, 1).PadLeft(2, "0") _
+                                                                     , _serie, _numero)
+               m_eteso_caja.TIPOS_CodTipoDocumento = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.EgresoEfectivo)
+            End If
+
+         End If
+         m_eteso_caja.CAJA_NroDocumento = managerTRAN_Recibos.TRAN_Recibos.RECIB_Codigo
+
+         _bteso_caja.TESO_Caja = m_eteso_caja
+         _bteso_caja.TESO_Caja.PVENT_Id = m_pvent_id
+         Dim _whereCaja As New Hashtable : _whereCaja.Add("PVENT_Id", New ACWhere(_bteso_caja.TESO_Caja.PVENT_Id))
+         _bteso_caja.TESO_Caja.CAJA_Id = _bteso_caja.getCorrelativo("CAJA_Id", _whereCaja)
+
+         If _bteso_caja.Guardar(x_usuario, New String() {"CAJA_Hora", "CAJA_FechaPago"}) Then
+            ' Generar Recibo de Ingreso o Egreso
+            managerTRAN_Recibos.TRAN_Recibos.Instanciar(ACEInstancia.Nuevo)
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Concepto = _bteso_caja.TESO_Caja.CAJA_Glosa
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Serie = _serie
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Numero = _numero
+            managerTRAN_Recibos.TRAN_Recibos.ZONAS_Codigo = m_zona
+            managerTRAN_Recibos.TRAN_Recibos.SUCUR_Id = m_sucursal
+            managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoMoneda = _bteso_caja.TESO_Caja.TIPOS_CodTipoMoneda
+            If x_tipo = ACETransporte.Constantes.TipoIngEgre.Ingreso Then
+               managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Ingreso)
+            Else
+               managerTRAN_Recibos.TRAN_Recibos.TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Egreso)
+            End If
+
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Fecha = _bteso_caja.TESO_Caja.CAJA_Fecha
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Monto = _bteso_caja.TESO_Caja.CAJA_Importe
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_CodReferencia = _bteso_caja.TESO_Caja.CAJA_Id.ToString("0000000")
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Nombre = _bteso_caja.TESO_Caja.RECIB_Nombre
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Direccion = _bteso_caja.TESO_Caja.RECIB_Direccion
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Documento = _bteso_caja.TESO_Caja.RECIB_Documento
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_De = _bteso_caja.TESO_Caja.RECIB_De
+            '' Diferenciación de Caja en Efectivo con Documentos Generados en los Viajes
+            managerTRAN_Recibos.TRAN_Recibos.RECIB_Efectivo = 1
+            If managerTRAN_Recibos.Guardar(x_usuario) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            Else
+               Throw New Exception("No se puede Guardar los recibos")
+            End If
+            DAEnterprise.CommitTransaction()
+            Return True
+         End If
+         DAEnterprise.RollBackTransaction()
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCaja
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaFacturasPendientes(ByRef e_reportecaja As ETRAN_Fletes, ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      m_listvent_docsventa = New List(Of EVENT_DocsVenta)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaFacturasPendientes(m_listvent_docsventa, e_reportecaja, x_fecini, x_fecfin, x_entid_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCajaFletes
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaFletesPendientes(ByRef e_reportecaja As ETRAN_Fletes, ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      m_listtran_fletesfacturados = New List(Of ETRAN_Fletes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaFletesPendientes(m_listtran_fletesfacturados, e_reportecaja, x_fecini, x_fecfin, x_entid_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function TRAN_CAJASS_CuadreCajaFletesPendientesSF(ByRef e_reportecaja As ETRAN_Fletes, ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      m_listtran_fletesfacturados = New List(Of ETRAN_Fletes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaFletesPendientesSF(m_listtran_fletesfacturados, e_reportecaja, x_fecini, x_fecfin, x_entid_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_FacturasXCliente
+   ''' </summary>
+   ''' <param name="x_entid_codigo">Parametro 1: </param> 
+   ''' <param name="x_todos">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function FacturasXCliente(ByVal x_entid_codigo As String, ByVal x_todos As Boolean) As Boolean
+      m_listvent_docsventa = New List(Of EVENT_DocsVenta)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_FacturasXCliente(m_listvent_docsventa, x_entid_codigo, x_todos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCajaEgresos
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <param name="x_viaje_id">Parametro 3: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaEgresos(ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_viaje_id As Long) As Boolean
+      m_listtran_viajesgastos = New List(Of ETRAN_ViajesGastos)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaEgresos(m_listtran_viajesgastos, x_fecini, x_fecfin, x_viaje_id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCajaPendientes
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaPendientes(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_viajes = New List(Of ETRAN_Viajes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaPendientes(m_listtran_viajes, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_VIAJSS_SueldoConductor
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function SueldoConductor(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_viajessueldos = New List(Of ETRAN_Viajes)
+      Try
+         Return d_administracioncaja.TRAN_VIAJSS_SueldoConductor(m_listtran_viajessueldos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCajaEfectivo
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaEfectivo(ByRef m_tran_viajesgastos As ETRAN_ViajesGastos, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_viajesgastosefectivo = New List(Of ETRAN_ViajesGastos)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaEfectivo(m_listtran_viajesgastosefectivo, m_tran_viajesgastos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_CuadreCajaPagos
+   ''' </summary>
+   ''' <param name="x_docve_codigo">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CuadreCajaPagos(ByVal x_todos As Boolean, ByVal x_docve_codigo As String) As Boolean
+      m_listteso_cajapagos = New List(Of ETESO_Caja)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_CuadreCajaPagos(m_listteso_cajapagos, x_todos, x_docve_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_FletesXFacturas
+   ''' </summary>
+   ''' <param name="x_docve_codigo">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function FletesXFacturas(ByVal x_docve_codigo As String) As Boolean
+      m_listtran_fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_FletesXFacturas(m_listtran_fletes, x_docve_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_PendientesPagadas
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function PendientesPagadas(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_fletesPagos = New List(Of ETRAN_Fletes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_PendientesPagadas(m_listtran_fletesPagos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_MovimientoSencillo
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_pvent_id">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function MovimientoSencillo(ByVal x_fecini As Date, ByVal x_pvent_id As Long) As Boolean
+      m_listteso_caja = New List(Of ETESO_Caja)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_MovimientoSencillo(m_listteso_caja, x_fecini, x_pvent_id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_CAJASS_Pendientes
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function Pendientes(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_fletes = New List(Of ETRAN_Fletes)
+      Try
+         Return d_administracioncaja.TRAN_CAJASS_Pendientes(m_listtran_fletes, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: TRAN_REPOSS_GenerarRecibos
+   ''' </summary>
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function GenerarRecibos(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listtran_viajesgastos = New List(Of ETRAN_ViajesGastos)
+      Try
+         Return d_administracioncaja.TRAN_REPOSS_GenerarRecibos(m_listtran_viajesgastos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function GetCorrelativo() As Integer
+      Try
+         Dim _bteso_caja As New BTESO_Caja
+         Return _bteso_caja.getCorrelativo() + 1
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

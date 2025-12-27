@@ -1,0 +1,959 @@
+﻿Imports ACBVentas
+Imports ACEVentas
+Imports ACFramework
+
+Imports System
+Imports System.Collections.Generic
+Imports C1.Win.C1FlexGrid
+
+
+Public Class MDocsPago
+
+#Region " Variables "
+
+   Private managerBDocsPago As BTESO_DocsPagos
+   Private bs_docsPago As BindingSource
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private m_edocpago As ETESO_DocsPagos
+
+   Private m_order As Integer = 1
+
+   Private bs_Bancos As BindingSource
+   Private managerBBancos As BBancos
+   Private bs_cuentas As BindingSource
+
+   Private m_opcion As ETipos.TipoDocPago
+   Private m_dialogo As TipoInicio
+
+   Enum TipoInicio
+      Normal
+      Dialogo
+   End Enum
+
+#End Region
+
+#Region " Propiedades "
+
+   Public Property TESO_DocsPagos() As ETESO_DocsPagos
+      Get
+         Return m_edocpago
+      End Get
+      Set(ByVal value As ETESO_DocsPagos)
+         m_edocpago = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_opcion As ETipos.TipoDocPago, ByVal x_busqueda As Boolean, ByVal x_inicio As TipoInicio)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      ' Add any initialization after the InitializeComponent() call.
+      Try
+         m_opcion = x_opcion
+         m_dialogo = x_inicio
+         setTipoDocumento()
+
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+         formatearGrilla()
+         cargarCombos()
+         m_listBindHelper = New List(Of ACBindHelper)()
+         '' Iniciar el Control de Injección
+         managerBDocsPago = New BTESO_DocsPagos(GApp.PuntoVenta, GApp.Periodo, GApp.Zona, GApp.Sucursal)
+         acTool.ACBtnEliminar.Enabled = False
+         acTool.ACBtnModificar.Enabled = False
+         acTool.ACBtnAnularVisible = True
+
+         If x_busqueda Then
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+            acTool.ACBtnNuevoVisible = False
+            acTool.ACBtnModificarVisible = False
+            acbtnSeleccionar.Visible = True
+         Else
+            acbtnSeleccionar.Visible = False
+            acTool_ACBtnNuevo_Click(Nothing, Nothing)
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         End If
+         If x_inicio = TipoInicio.Normal Then
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+            acbtnSeleccionar.Visible = False
+            acTool.ACBtnAnularVisible = True
+         End If
+         Me.KeyPreview = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso inicial de la interfaz", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+   Private Sub bs_bancos_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_Bancos) Then
+            If CType(bs_Bancos.DataSource, List(Of EBancos)).Count > 0 Then
+
+               Select Case m_opcion
+                  Case ETipos.TipoDocPago.Cheque
+                     Dim x_bancoCh As String = cmbChBanco.SelectedValue
+                     Dim _filter As New ACFiltrador(Of ECuentas)() With {.ACFiltro = String.Format("BANCO_Id={0}", x_bancoCh)}
+                     bs_cuentas = New BindingSource()
+                     bs_cuentas.DataSource = _filter.ACFiltrar(Colecciones.NroCuentas)
+                     ACUtilitarios.ACCargaCombo(cmbChCuenta, bs_cuentas, "CUENT_Numero", "CUENT_Id")
+                  Case ETipos.TipoDocPago.Deposito
+                     Dim x_bancoDe As String = cmbDeBanco.SelectedValue
+                     Dim _filter As New ACFiltrador(Of ECuentas)() With {.ACFiltro = String.Format("BANCO_Id={0}", x_bancoDe)}
+                     bs_cuentas = New BindingSource()
+                     bs_cuentas.DataSource = _filter.ACFiltrar(Colecciones.NroCuentas)
+                     ACUtilitarios.ACCargaCombo(cmbDeNumeroCuenta, bs_cuentas, "CUENT_Numero", "CUENT_Id")
+                     AddHandler bs_cuentas.CurrentChanged, AddressOf bs_cuentas_CurrentChanged
+                     bs_cuentas_CurrentChanged(Nothing,Nothing)
+                  Case ETipos.TipoDocPago.Letra
+                     Dim x_bancoLe As String = cmbLeBanco.SelectedValue
+                     Dim _filter As New ACFiltrador(Of ECuentas)() With {.ACFiltro = String.Format("BANCO_Id={0}", x_bancoLe)}
+                     bs_cuentas = New BindingSource()
+                     bs_cuentas.DataSource = _filter.ACFiltrar(Colecciones.NroCuentas)
+                     ACUtilitarios.ACCargaCombo(cmbLeNroCuenta, bs_cuentas, "CUENT_Numero", "CUENT_Id")
+                  Case ETipos.TipoDocPago.Detraccion
+
+               End Select
+
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Nro Cuentas", ex)
+      End Try
+   End Sub
+
+   Private Sub bs_cuentas_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_cuentas.Current) Then
+            cmbDeTipoCuenta.SelectedValue = CType(bs_cuentas.Current, ECuentas).TIPOS_CodTipoCuenta
+            cmbDeMoneda.SelectedValue = CType(bs_cuentas.Current, ECuentas).TIPOS_CodTipoMoneda
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+#Region " Utilitarios "
+   Private Sub setTipoDocumento()
+      tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+      Select Case m_opcion
+         Case ETipos.TipoDocPago.Cheque
+            Me.Size = New Size(Me.Width, 400)
+            tabMantenimiento.SelectedTab = tabCheque
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Cheques")
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.cheque_16x16.GetHicon)
+         Case ETipos.TipoDocPago.Deposito
+            Me.Size = New Size(Me.Width, 360)
+            tabMantenimiento.SelectedTab = tabDeposito
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Depositos")
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.deposito_16x16.GetHicon)
+            bs_bancos_CurrentChanged(Nothing, Nothing)
+         Case ETipos.TipoDocPago.NotaCredito
+            Me.Size = New Size(500, 355)
+            cmbNCTipoDocumento.Enabled = False
+            tabMantenimiento.SelectedTab = tpgNotaCredito
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACDocumento_16x16.GetHicon)
+            cmbNCTipoDocumento.SelectedValue = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.NotaCredito)
+         Case ETipos.TipoDocPago.Letra
+            Me.Size = New Size(Me.Width, 545)
+            tabMantenimiento.SelectedTab = tabLetras
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Letras")
+            grpLetra.Visible = True
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.letra_16x16.GetHicon)
+         Case ETipos.TipoDocPago.Detraccion
+            Me.Size = New Size(Me.Width, 300)
+            tabMantenimiento.SelectedTab = tpgDetraccion
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Detracción")
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.deposito_16x16.GetHicon)
+         Case ETipos.TipoDocPago.RecEgreInterno
+            Me.Size = New Size(Me.Width, 345)
+            tabMantenimiento.SelectedTab = tpgRecEgreInterno
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Recibo de Egreso")
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACGuia_16x16.GetHicon)
+         Case Else
+            Me.Size = New Size(Me.Width, 340)
+            tabMantenimiento.SelectedTab = tabCheque
+            acpnlTitulo.ACCaption = String.Format(acpnlTitulo.ACCaption, "Cheques")
+            Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.cheque_16x16.GetHicon)
+      End Select
+      Me.Text = acpnlTitulo.ACCaption
+   End Sub
+
+   Private Sub formatearGrilla()
+      Try
+         Select Case m_opcion
+            Case ETipos.TipoDocPago.Cheque
+
+               ''Cheque
+               Dim index As Integer = 1
+
+               ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 11, 1, 0)
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Banco", "BANCO_Descripcion", "BANCO_Descripcion", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nro Cuenta", "DPAGO_Numero", "DPAGO_Numero", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nro Cheque", "DPAGO_NumeroCheque", "DPAGO_NumeroCheque", 150, True, False, "System.String", "") : index += 1
+
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo Girador", "DPAGO_CodigoGirador", "DPAGO_CodigoGirador", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Depositante", "DPAGO_Depositante", "DPAGO_Depositante", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha Giro", "DPAGO_Fecha", "DPAGO_Fecha", 150, True, False, "System.String", "") : index += 1
+
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha Cobro Deposito", "DPAGO_FechaVenc", "DPAGO_FechaVenc", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo Cuenta", "CUENT_Id", "CUENT_Id", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_CodTipoMoneda_Text", "TIPOS_CodTipoMoneda_Text", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo_Moneda", "TIPOS_CodTipoMoneda", "TIPOS_CodTipoMoneda", 150, False, False, "System.String") : index += 1
+
+               c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+               c1grdBusqueda.AllowEditing = False 'True 
+               c1grdBusqueda.AutoResize = True
+               c1grdBusqueda.AllowAddNew = False
+               c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+               c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+               c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+               c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+               c1grdBusqueda.Tree.Column = 2
+
+               Dim uch As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("DolaresChe")
+               uch.BackColor = Color.Green
+               uch.ForeColor = Color.White
+               uch.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+               Dim dch As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("SolesChe")
+               c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+            Case ETipos.TipoDocPago.Deposito
+               ''Depositos
+               Dim index As Integer = 1
+               ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 11, 1, 0)
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "DPAGO_Id", "DPAGO_Id", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cliente", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nro Cuenta", "DPAGO_Numero", "DPAGO_Numero", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Banco", "BANCO_Descripcion", "BANCO_Descripcion", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Importe", "DPAGO_Importe", "DPAGO_Importe", 150, True, False, "System.String", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_CodTipoMoneda_Text", "TIPOS_CodTipoMoneda_Text", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo_Moneda", "TIPOS_CodTipoMoneda", "TIPOS_CodTipoMoneda", 150, False, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "DPAGO_Estado_Text", "DPAGO_Estado_Text", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "DPAGO_Estado", "DPAGO_Estado", 150, False, False, "System.String") : index += 1
+
+               c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+               c1grdBusqueda.AllowEditing = False
+               c1grdBusqueda.AutoResize = True
+               c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+               c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+               c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+               c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+               c1grdBusqueda.Tree.Column = 2
+
+               Dim ude As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("DolaresDe")
+               ude.BackColor = Color.Green
+               ude.ForeColor = Color.White
+               ude.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+               Dim dde As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("SolesDe")
+               c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+               Dim ade As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Anulado")
+               ade.BackColor = Color.Red
+               ade.ForeColor = Color.White
+               ade.Font = New Font(c1grdBusqueda.Font, FontStyle.Bold)
+               c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+            Case ETipos.TipoDocPago.Letra
+               ''Letra
+               Dim index As Integer = 1
+               ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 15, 1, 0)
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Banco", "BANCO_Descripcion", "BANCO_Descripcion", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nro Cuenta", "DPAGO_Numero", "DPAGO_Numero", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Importe", "DPAGO_Importe", "DPAGO_Importe", 150, True, False, "System.String", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String", "") : index += 1
+
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Lugar Giro", "DPAGO_LugarGiro", "DPAGO_LugarGiro", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Glosa", "DPAGO_Glosa", "DPAGO_Glosa", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Aceptante", "DPAGO_Aceptante", "DPAGO_Aceptante", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Domicilio", "DPAGO_Domicilio", "DPAGO_Domicilio", 150, True, False, "System.String", "") : index += 1
+
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Localidad", "DPAGO_Localidad", "DPAGO_Localidad", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "RUC", "DPAGO_RUC", "DPAGO_RUC", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Telefono", "DPAGO_Telefono", "DPAGO_Telefono", 150, True, False, "System.String", "") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Girador", "DPAGO_RefGirador", "DPAGO_RefGirador", 150, True, False, "System.String", "") : index += 1
+
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_CodTipoMoneda_Text", "TIPOS_CodTipoMoneda_Text", 150, True, False, "System.String") : index += 1
+               ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo_Moneda", "TIPOS_CodTipoMoneda", "TIPOS_CodTipoMoneda", 150, False, False, "System.String") : index += 1
+
+               c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+               c1grdBusqueda.AllowEditing = False 'True
+               c1grdBusqueda.AutoResize = True
+               'c1grdBusqueda.AllowAddNew = False
+               c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+               c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+               c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+               c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+               c1grdBusqueda.Tree.Column = 2
+
+               Dim ule As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("DolaresLe")
+               ule.BackColor = Color.Green
+               ule.ForeColor = Color.White
+               ule.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+               Dim dle As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("SolesLe")
+               c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         End Select
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Sub cargarCombos()
+      Try
+         bs_Bancos = New BindingSource()
+         bs_Bancos.DataSource = Colecciones.Bancos
+
+         Select Case m_opcion
+            Case ETipos.TipoDocPago.Cheque
+               ''Cheques
+               ACUtilitarios.ACCargaCombo(cmbChBanco, bs_Bancos, "BANCO_Descripcion", "BANCO_Id")
+               ACUtilitarios.ACCargaCombo(cmbChCuenta, Colecciones.NroCuentas, "CUENT_Numero", "CUENT_Id")
+               cmbChBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.Deposito
+               ''Depositos
+               ACUtilitarios.ACCargaCombo(cmbDeBanco, bs_Bancos, "BANCO_Descripcion", "BANCO_Id")
+               ACUtilitarios.ACCargaCombo(cmbDeNumeroCuenta, Colecciones.NroCuentas, "CUENT_Numero", "CUENT_Id")
+               cmbDeBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.Letra
+               ''Letras
+               ACUtilitarios.ACCargaCombo(cmbLeBanco, bs_Bancos, "BANCO_Descripcion", "BANCO_Id")
+               ACUtilitarios.ACCargaCombo(cmbLeNroCuenta, Colecciones.NroCuentas, "CUENT_Numero", "CUENT_Id")
+               cmbLeBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.Detraccion
+               ''Letras
+               ACUtilitarios.ACCargaCombo(cmbDtBanco, bs_Bancos, "BANCO_Descripcion", "BANCO_Id")
+               cmbDtBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.NotaCredito
+               ACUtilitarios.ACCargaCombo(cmbNCTipoDocumento, Colecciones.TiposDocNotas, "TIPOS_Descripcion", "TIPOS_Codigo")
+         End Select
+         ACUtilitarios.ACCargaCombo(cmbDeTipoCuenta, Colecciones.Tipos(ETipos.MyTipos.TipoCuentaBancaria), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACUtilitarios.ACCargaCombo(cmbDeMoneda, Colecciones.Tipos(ETipos.MyTipos.TipoMoneda), "TIPOS_Descripcion", "TIPOS_Codigo")
+         AddHandler bs_Bancos.CurrentChanged, AddressOf bs_bancos_CurrentChanged
+         bs_bancos_CurrentChanged(Nothing, Nothing)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+      Select Case _opcion
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            acTool.ACBtnBuscarVisible = False
+            acTool.ACBtnBuscarEnabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+
+      End Select
+   End Sub
+
+#End Region
+
+#Region "Cargar Datos"
+
+   ' <summary>
+   ' Cargar los datos en el control Visual C1FlexGrid
+   ' </summary>
+   Private Sub cargarDatos()
+      Try
+         bs_docsPago = New BindingSource()
+         bs_docsPago.DataSource = managerBDocsPago.ListTESO_DocsPagos()
+         c1grdBusqueda.DataSource = bs_docsPago
+         bnavBusqueda.BindingSource = bs_docsPago
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ' <summary>
+   ' Realiza el enlace de los controles visuales con la clase esquema
+   ' </summary>
+   Private Sub AsignarBinding()
+      Try
+         Select Case m_opcion
+            ''Cheque
+            Case ETipos.TipoDocPago.Cheque
+
+               m_listBindHelper = New List(Of ACBindHelper)()
+               m_listBindHelper.Add(ACBindHelper.ACBind(cmbChBanco, "SelectedValue", m_edocpago, "BANCO_Id"))
+
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtChCodGirador, "Text", m_edocpago, "DPAGO_CodigoGirador"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtChNumeroCheque, "Text", m_edocpago, "DPAGO_NumeroCheque"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtChNumeroOperacion, "Text", m_edocpago, "DPAGO_Numero"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnChImporte, "Text", m_edocpago, "DPAGO_Importe"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtChDepositante, "Text", m_edocpago, "DPAGO_Depositante"))
+
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpChFecha, "Value", m_edocpago, "DPAGO_Fecha"))
+               If m_edocpago.DPAGO_FechaVenc.Year < 1700 Then m_edocpago.DPAGO_FechaVenc = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpChFechaCaja, "Value", m_edocpago, "DPAGO_FechaVenc"))
+
+               If Not m_edocpago.TIPOS_CodTipoMoneda = "" Then
+                  If m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares) Then
+                     rbtnChDolares.Checked = True
+                  ElseIf m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles) Then
+                     rbtnChSoles.Checked = True
+                  End If
+
+               End If
+               cmbChBanco.SelectedIndex = 0
+               ''Deposito
+            Case ETipos.TipoDocPago.Deposito
+
+               m_listBindHelper = New List(Of ACBindHelper)()
+               m_listBindHelper.Add(ACBindHelper.ACBind(cmbDeBanco, "SelectedValue", m_edocpago, "BANCO_Id"))
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpDeFechaCaja, "Value", m_edocpago, "DPAGO_Fecha"))
+               If m_edocpago.DPAGO_FechaVenc.Year < 1700 Then m_edocpago.DPAGO_FechaVenc = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpDeFechaVoucher, "Value", m_edocpago, "DPAGO_FechaVenc"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtDeNumeroOperacion, "Text", m_edocpago, "DPAGO_Numero"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnDeImporte, "Text", m_edocpago, "DPAGO_Importe"))
+
+               AddHandler bs_Bancos.CurrentChanged, AddressOf bs_bancos_CurrentChanged
+               bs_bancos_CurrentChanged(Nothing, Nothing)
+               If m_edocpago.Nuevo Then
+                  cmbDeBanco.SelectedIndex = 0
+               End If
+
+               ''Letra
+            Case ETipos.TipoDocPago.Letra
+
+               m_listBindHelper = New List(Of ACBindHelper)()
+
+               m_listBindHelper.Add(ACBindHelper.ACBind(cmbLeBanco, "SelectedValue", m_edocpago, "BANCO_Id"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtLeNumero, "Text", m_edocpago, "DPAGO_Numero"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtLeReGirador, "Text", m_edocpago, "DPAGO_RefGirador"))
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpLeFechaGiro, "Value", m_edocpago, "DPAGO_Fecha"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtLeLugarGiro, "Text", m_edocpago, "DPAGO_LugarGiro"))
+               If m_edocpago.DPAGO_FechaVenc.Year < 1700 Then m_edocpago.DPAGO_FechaVenc = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpLeFechaVencimiento, "Value", m_edocpago, "DPAGO_FechaVenc"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnImporte, "Text", m_edocpago, "DPAGO_Importe"))
+
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtGlosa, "Text", m_edocpago, "DPAGO_Glosa"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtAceptante, "Text", m_edocpago, "DPAGO_Aceptante"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtDomicilio, "Text", m_edocpago, "DPAGO_Domicilio"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtLocalidad, "Text", m_edocpago, "DPAGO_Localidad"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtRUC, "Text", m_edocpago, "DPAGO_RUC"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtTelefono, "Text", m_edocpago, "DPAGO_Telefono"))
+
+               cmbLeBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.Detraccion
+
+               m_listBindHelper = New List(Of ACBindHelper)()
+               m_listBindHelper.Add(ACBindHelper.ACBind(cmbDtBanco, "SelectedValue", m_edocpago, "BANCO_Id"))
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpDtFecCaja, "Value", m_edocpago, "DPAGO_Fecha"))
+               If m_edocpago.DPAGO_FechaVenc.Year < 1700 Then m_edocpago.DPAGO_FechaVenc = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpDtFecVoucher, "Value", m_edocpago, "DPAGO_FechaVenc"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtDtNumOperacion, "Text", m_edocpago, "DPAGO_Numero"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnDtImporte, "Text", m_edocpago, "DPAGO_Importe"))
+
+               AddHandler bs_Bancos.CurrentChanged, AddressOf bs_bancos_CurrentChanged
+               bs_bancos_CurrentChanged(Nothing, Nothing)
+
+               cmbDtBanco.SelectedIndex = 0
+            Case ETipos.TipoDocPago.NotaCredito
+               m_listBindHelper = New List(Of ACBindHelper)()
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpNCFecha, "Value", m_edocpago, "DPAGO_Fecha"))
+               If m_edocpago.DPAGO_FechaVenc.Year < 1700 Then m_edocpago.DPAGO_FechaVenc = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpNCFecDocumento, "Value", m_edocpago, "DPAGO_FechaVenc"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnNCImporte, "Text", m_edocpago, "DPAGO_Importe"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtNCMotivo, "Text", m_edocpago, "DPAGO_Glosa"))
+            Case ETipos.TipoDocPago.RecEgreInterno
+               m_listBindHelper.Add(ACBindHelper.ACBind(actxnREImporte, "Text", m_edocpago, "DPAGO_Importe"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtREGirador, "Text", m_edocpago, "DPAGO_RefGirador"))
+               If m_edocpago.DPAGO_Fecha.Year < 1700 Then m_edocpago.DPAGO_Fecha = DateTime.Now
+               m_listBindHelper.Add(ACBindHelper.ACBind(dtpREFecha, "Value", m_edocpago, "DPAGO_Fecha"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtRENumero, "Text", m_edocpago, "DPAGO_Numero"))
+               m_listBindHelper.Add(ACBindHelper.ACBind(txtREConcepto, "Text", m_edocpago, "DPAGO_Glosa"))
+         End Select
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargar()
+      Try
+         If bs_docsPago.Current IsNot Nothing Then
+            Dim x_codigo As Integer = CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Id
+            Dim x_pvent_id As Integer = CType(bs_docsPago.Current, ETESO_DocsPagos).PVENT_Id
+            managerBDocsPago.Cargar(x_pvent_id, x_codigo)
+            m_edocpago = managerBDocsPago.TESO_DocsPagos()
+            AsignarBinding()
+            Select Case m_opcion
+               Case ETipos.TipoDocPago.Cheque
+                  tabMantenimiento.SelectedTab = tabCheque
+               Case ETipos.TipoDocPago.Deposito
+                  tabMantenimiento.SelectedTab = tabDeposito
+               Case ETipos.TipoDocPago.Letra
+                  tabMantenimiento.SelectedTab = tabLetras
+            End Select
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Modificar)
+            setInstancia(ACUtilitarios.ACSetInstancia.Modificado)
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Cancelar)
+         Throw ex
+      End Try
+   End Sub
+
+#End Region
+
+   Private Function busqueda(ByVal x_cadena As String, ByVal x_opcion As Short) As Boolean
+      Try
+         If managerBDocsPago.Busqueda(x_cadena, ETipos.getTipoDocPago(m_opcion), x_opcion, acFecha.ACDtpFecha_De.Value.Date, acFecha.ACDtpFecha_A.Value.Date, chkTodos.Checked) Then '
+            acTool.ACBtnEliminar.Enabled = True
+            acTool.ACBtnModificar.Enabled = True
+         Else
+            acTool.ACBtnEliminar.Enabled = False
+            acTool.ACBtnModificar.Enabled = False
+         End If
+         cargarDatos()
+         Return acTool.ACBtnEliminar.Enabled
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda de Docs de Pago", ex)
+      End Try
+      Return False
+   End Function
+
+#End Region
+
+#Region "Procesos"
+   Private Sub Ordenar(ByVal x_columna As String)
+      Dim _ordenador As New ACOrdenador(Of ETESO_DocsPagos)
+      Try
+         If m_order = 2 Then x_columna += " DESC"
+         _ordenador.ACOrdenamiento = x_columna
+         CType(bs_docsPago.DataSource, List(Of ETESO_DocsPagos)).Sort(_ordenador)
+         c1grdBusqueda.Refresh()
+         m_order = IIf(m_order = 1, 2, 1)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+
+#Region "Tool Bar"
+
+   Private Sub acTool_ACBtnAnular_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnAnular_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Anular Registro: {0}", Me.Text) _
+             , String.Format("Desea Anular el Desposito Numero: {0}, Cod: {1}", CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Numero, CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Id) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            Dim _docspagos As New BTESO_DocsPagos(GApp.PuntoVenta, GApp.Periodo, GApp.Zona, GApp.Sucursal)
+            _docspagos.TESO_DocsPagos = New ETESO_DocsPagos
+            _docspagos.TESO_DocsPagos.DPAGO_Id = CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Id
+            _docspagos.TESO_DocsPagos.DPAGO_Estado = ACEVentas.Constantes.getEstado(Constantes.Estado.Anulado)
+            _docspagos.TESO_DocsPagos.Instanciar(ACEInstancia.Modificado)
+            If _docspagos.Guardar(GApp.Usuario) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Anulado satisfactoriamente")
+               txtBusqueda_ACAyudaClick(Nothing, Nothing)
+            Else
+               Throw New Exception("No se puede anular el documento, ocurrio un error en el proceso")
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Anular Deposito", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnNuevo_Click
+      Try
+         'tabMantenimiento.SelectedTab = tabDeposito
+         setTipoDocumento()
+         Select Case m_opcion
+            Case ETipos.TipoDocPago.Cheque
+               tabMantenimiento.SelectedTab = tabCheque
+
+               '' Campos Obligatorios
+               eprError.SetError(Me.cmbChBanco, "Campo Obligatorio")
+               eprError.SetError(Me.cmbChCuenta, "Campo Obligatorio")
+               eprError.SetError(Me.txtChCodGirador, "Campo Obligatorio")
+               eprError.SetError(Me.txtChNumeroOperacion, "Campo Obligatorio")
+            Case ETipos.TipoDocPago.Deposito
+               tabMantenimiento.SelectedTab = tabDeposito
+
+               '' Campos Obligatorios
+               eprError.SetError(Me.cmbDeBanco, "Campo Obligatorio")
+               eprError.SetError(Me.cmbDeNumeroCuenta, "Campo Obligatorio")
+               eprError.SetError(Me.txtDeNumeroOperacion, "Campo Obligatorio")
+            Case ETipos.TipoDocPago.Letra
+               tabMantenimiento.SelectedTab = tabLetras
+               '' Campos Obligatorios
+               eprError.SetError(Me.txtLeNumero, "Campo Obligatorio")
+               eprError.SetError(Me.txtLeReGirador, "Campo Obligatorio")
+            Case ETipos.TipoDocPago.Detraccion
+               tabMantenimiento.SelectedTab = tpgDetraccion
+               '' Campos Obligatorios
+               eprError.SetError(Me.txtDtNumOperacion, "Campo Obligatorio")
+               eprError.SetError(Me.cmbDtBanco, "Campo Obligatorio")
+            Case ETipos.TipoDocPago.RecEgreInterno
+               eprError.SetError(Me.txtRENumero, "Campo Obligatorio")
+         End Select
+
+         m_edocpago = New ETESO_DocsPagos()
+         m_edocpago.Instanciar(ACEInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         AsignarBinding()
+         m_edocpago.TIPOS_CodTipoDocumento = ETipos.getTipoDocPago(m_opcion)
+
+         Me.KeyPreview = True
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Nuevo Deposito", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnCancelar_Click
+      Try
+         tabMantenimiento.SelectedTab = tabBusqueda
+         For Each Item As ACBindHelper In m_listBindHelper
+            Item.ACUnBind()
+            acTool.ACBtnAnularVisible = True
+         Next
+         If m_dialogo = TipoInicio.Dialogo Then
+            Me.DialogResult = Windows.Forms.DialogResult.Cancel
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Cancelar Deposito", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnModificar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnModificar_Click
+      Try
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+         cargar()
+         Select Case m_opcion
+            Case ETipos.TipoDocPago.Cheque
+               tabMantenimiento.SelectedTab = tabCheque
+            Case ETipos.TipoDocPago.Deposito
+               tabMantenimiento.SelectedTab = tabDeposito
+            Case ETipos.TipoDocPago.Letra
+               tabMantenimiento.SelectedTab = tabLetras
+         End Select
+
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "Ocurrio un error en el proceso Modificar Deposito", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click
+      Try
+         Dim x_cta As String
+         If tabCheque.Selected Then
+            x_cta = cmbChCuenta.SelectedValue()
+            m_edocpago.CUENT_Id = x_cta
+            m_edocpago.TIPOS_TipoDocumento = "Cheque"
+            If rbtnChSoles.Checked() Then
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+               m_edocpago.TIPOS_TipoMoneda = rbtnChSoles.Text
+            Else
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+               m_edocpago.TIPOS_TipoMoneda = rbtnDtDolares.Text
+            End If
+         ElseIf tabDeposito.Selected Then
+            x_cta = cmbDeNumeroCuenta.SelectedValue()
+            m_edocpago.CUENT_Id = x_cta
+            m_edocpago.TIPOS_TipoDocumento = "Deposito"
+            m_edocpago.TIPOS_CodTipoMoneda = cmbDeMoneda.SelectedValue
+         ElseIf tabLetras.Selected Then
+            ''
+            x_cta = cmbLeNroCuenta.SelectedValue()
+            m_edocpago.CUENT_Id = x_cta
+            m_edocpago.TIPOS_TipoDocumento = "Letra"
+            If rbtnLeSoles.Checked() Then
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+               m_edocpago.TIPOS_TipoMoneda = rbtnLeSoles.Text
+            Else
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+               m_edocpago.TIPOS_TipoMoneda = rbtnDtDolares.Text
+            End If
+         ElseIf tpgDetraccion.Selected Then
+            ''
+            m_edocpago.TIPOS_TipoDocumento = "Detracción"
+            m_edocpago.TIPOS_TipoMoneda = IIf(rbtnDtSoles.Checked, rbtnDtSoles.Text, rbtnDtDolares.Text)
+            m_edocpago.BANCO_Descripcion = cmbDeBanco.Text
+            m_edocpago.TIPOS_TipoCuenta = "Detracción"
+
+                     globales_.x_MontoDetraccionAGrabar = actxnDtImporte.Text
+
+
+            If rbtnDtSoles.Checked() Then
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+            Else
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+            End If
+         ElseIf tpgNotaCredito.Selected Then
+            ''
+            m_edocpago.TIPOS_TipoDocumento = "Nota de Credito"
+            m_edocpago.TIPOS_TipoMoneda = IIf(rbtnNCSoles.Checked, rbtnNCSoles.Text, rbtnNCDolares.Text)
+            m_edocpago.BANCO_Descripcion = " - "
+            m_edocpago.TIPOS_TipoCuenta = "Nota de Credito"
+
+            m_edocpago.VENT_DocsVenta = New EVENT_DocsVenta
+            m_edocpago.VENT_DocsVenta.ZONAS_Codigo = GApp.Zona
+            m_edocpago.VENT_DocsVenta.SUCUR_Id = GApp.Sucursal
+            m_edocpago.VENT_DocsVenta.PVENT_Id = GApp.PuntoVenta
+
+            If rbtnNCSoles.Checked() Then
+               m_edocpago.VENT_DocsVenta.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+            Else
+               m_edocpago.VENT_DocsVenta.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+            End If
+
+            m_edocpago.VENT_DocsVenta.TIPOS_CodCondicionPago = ETipos.getCondicionPago(ETipos.TipoPago.Contado)
+            m_edocpago.VENT_DocsVenta.TIPOS_CodTipoDocumento = cmbNCTipoDocumento.SelectedValue
+            m_edocpago.VENT_DocsVenta.DOCVE_Serie = txtSerie.Text
+            m_edocpago.VENT_DocsVenta.DOCVE_Numero = actxnNumero.Text
+            m_edocpago.VENT_DocsVenta.DOCVE_FechaDocumento = dtpNCFecDocumento.Value
+            m_edocpago.VENT_DocsVenta.ENTID_CodigoVendedor = GApp.EUsuarioEntidad.ENTID_Codigo
+            m_edocpago.VENT_DocsVenta.DOCVE_PorcentajeIGV = Parametros.GetParametro(EParametros.TipoParametros.PIGV)
+            m_edocpago.VENT_DocsVenta.DOCVE_TotalVenta = actxnNCImporte.Text
+            m_edocpago.VENT_DocsVenta.DOCVE_ImporteVenta = m_edocpago.VENT_DocsVenta.DOCVE_TotalVenta / (1 + m_edocpago.VENT_DocsVenta.DOCVE_PorcentajeIGV / 100)
+            m_edocpago.VENT_DocsVenta.DOCVE_ImporteIgv = m_edocpago.VENT_DocsVenta.DOCVE_TotalVenta - m_edocpago.VENT_DocsVenta.DOCVE_ImporteVenta
+         ElseIf tpgRecEgreInterno.Selected Then
+            m_edocpago.TIPOS_TipoDocumento = "Recibo de Egreso"
+            m_edocpago.TIPOS_CodTipoDocumento = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.ReciboEgreso)
+            If rbtnRISoles.Checked() Then
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Soles)
+               m_edocpago.TIPOS_TipoMoneda = rbtnRISoles.Text
+            Else
+               m_edocpago.TIPOS_CodTipoMoneda = ETipos.getTipo(ETipos.TipoMoneda.Dolares)
+               m_edocpago.TIPOS_TipoMoneda = rbtnRIDolares.Text
+            End If
+         End If
+         m_edocpago.PVENT_Id = GApp.PuntoVenta
+         m_edocpago.ImporteUsado = m_edocpago.DPAGO_Importe
+         managerBDocsPago.TESO_DocsPagos = m_edocpago
+             
+         If m_dialogo = TipoInicio.Dialogo Then
+            Me.DialogResult = Windows.Forms.DialogResult.OK
+            Me.Close()
+         Else
+          
+            If managerBDocsPago.Guardar(GApp.Usuario) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Text), "Grabado satisfactoriamente")
+               tabMantenimiento.SelectedTab = tabBusqueda
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+               busqueda(txtBusqueda.Text, getOpcion)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede grabar", ex)
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+      If m_dialogo = TipoInicio.Dialogo Then
+         Me.DialogResult = Windows.Forms.DialogResult.Cancel
+      End If
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnEliminar_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro: {0}", Me.Text), String.Format("Desea eliminar el registro: {0}?", CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Numero), ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            m_edocpago = CType(bs_docsPago.Current, ETESO_DocsPagos)
+            m_edocpago.Instanciar(ACEInstancia.Eliminado)
+            managerBDocsPago.TESO_DocsPagos = m_edocpago
+            managerBDocsPago.Guardar(GApp.Usuario)
+            ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Text), "Eliminado satisfactoriamente")
+            busqueda(txtBusqueda.Text, getOpcion)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede Eliminar", ex)
+      End Try
+   End Sub
+
+#End Region
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text, getOpcion)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda de Docs Pagos", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+      Try
+         If e.KeyCode = Keys.Enter Then
+            busqueda(txtBusqueda.Text, getOpcion)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub c1grdDetalle_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles c1grdBusqueda.MouseDoubleClick
+      Try
+         If e.X > c1grdBusqueda.Rows.Fixed Then
+            Dim carga As Boolean = False
+            Select m_opcion
+               Case ETipos.TipoDocPago.Cheque
+                  carga = True
+               Case ETipos.TipoDocPago.Deposito
+                  If CType(bs_docsPago.Current, ETESO_DocsPagos).DPAGO_Estado = ACEVentas.Constantes.getEstado(Constantes.Estado.Anulado) Then
+                     ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No Puede modificar un Documento Anulado")
+                  Else
+                     carga = True
+                  End If
+               Case Else
+                  carga = True
+            End Select
+            If carga Then
+               cargar()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar el registro seleccionado", ex)
+      End Try
+
+   End Sub
+
+   Private Sub c1grdBusqueda_BeforeSort(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.SortColEventArgs) Handles c1grdBusqueda.BeforeSort
+      Try
+         Ordenar(c1grdBusqueda.Cols(e.Col).UserData)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso ordenar", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdBusqueda_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdBusqueda.OwnerDrawCell
+      Try
+         Select Case m_opcion
+            Case ETipos.TipoDocPago.Cheque
+               If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Soles) Then
+                  e.Style = c1grdBusqueda.Styles("SolesChe")
+               End If
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Dolares) Then
+                  e.Style = c1grdBusqueda.Styles("DolaresChe")
+               End If
+            Case ETipos.TipoDocPago.Deposito
+               If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Soles) Then
+                  e.Style = c1grdBusqueda.Styles("SolesDe")
+               End If
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Dolares) Then
+                  e.Style = c1grdBusqueda.Styles("DolaresDe")
+               End If
+               If c1grdBusqueda.Rows(e.Row)("DPAGO_Estado") = EVENT_DocsVenta.getEstado(EVENT_DocsVenta.Estado.Anulado) Then
+                  e.Style = c1grdBusqueda.Styles("Anulado")
+               End If
+
+            Case ETipos.TipoDocPago.Letra
+               If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Soles) Then
+                  e.Style = c1grdBusqueda.Styles("SolesLe")
+               End If
+               If c1grdBusqueda.Rows(e.Row)("TIPOS_CodTipoMoneda") = ETipos.getTipo(ETipos.TipoMoneda.Dolares) Then
+                  e.Style = c1grdBusqueda.Styles("DolaresLe")
+               End If
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         If TypeOf ActiveControl Is ACControles.ACTextBoxAyuda And ActiveControl.Name = "actxaProdCodigo" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+   Protected Overrides Sub Finalize()
+      MyBase.Finalize()
+   End Sub
+
+   Private Sub acbtnSeleccionar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acbtnSeleccionar.Click
+      Try
+         If Not IsNothing(bs_docsPago.Current) Then
+            m_edocpago = CType(bs_docsPago.Current, ETESO_DocsPagos)
+            Me.DialogResult = Windows.Forms.DialogResult.OK
+            Me.Close()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Seleccionar", ex)
+      End Try
+   End Sub
+
+#End Region
+
+   Private Sub actxnDtImporte_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxnDtImporte.KeyDown
+      If e.KeyData = Keys.Enter Then
+         KeyPreview = False
+         acTool.Focus()
+         acTool.ACBtnGrabar.Select()
+
+          globales_.x_MontoDetraccionAGrabar = actxnDtImporte.Text
+
+      End If
+   End Sub
+
+   Private Sub dtpChFechaCaja_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dtpChFechaCaja.KeyDown
+      If e.KeyData = Keys.Enter Then
+         KeyPreview = False
+         acTool.Focus()
+         acTool.ACBtnGrabar.Select()
+      End If
+   End Sub
+
+   Private Sub actxnDeImporte_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxnDeImporte.KeyDown
+      If e.KeyData = Keys.Enter Then
+         KeyPreview = False
+         acTool.Focus()
+         acTool.ACBtnGrabar.Select()
+      End If
+   End Sub
+
+   Private Sub txtTelefono_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtTelefono.KeyDown
+      If e.KeyData = Keys.Enter Then
+         KeyPreview = False
+         acTool.Focus()
+         acTool.ACBtnGrabar.Select()
+      End If
+   End Sub
+
+
+   Private Function getOpcion()
+      If rbtnOperacion.Checked Then
+         Return 1
+      ElseIf rbtnCliente.Checked Then
+         Return 0
+      Else
+         Return 1
+      End If
+   End Function
+End Class

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tabla Nombre="TESO_Sencillo" Esquema="Tesoreria" Prefijo="SENCI">
+  <Nombre>TESO_Sencillo</Nombre>
+  <Esquema>Tesoreria</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="SENCI_Id">SENCI_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_Fecha">SENCI_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_Observacion">SENCI_Observacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_Importe">SENCI_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_TipoCambio">SENCI_TipoCambio</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda">TIPOS_CodTipoMoneda</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_UsrCrea">SENCI_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_FecCrea">SENCI_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_UsrMod">SENCI_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_FecMod">SENCI_FecMod</CCampo>
+   <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_Estado">SENCI_Estado</CCampo>
+   <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_Fechaanulacion">SENCI_Fechaanulacion</CCampo>
+   <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SENCI_MotivoAnulacion">SENCI_MotivoAnulacion</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="SENCI_Id">SENCI_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PVENT_Id">PVENT_Id</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

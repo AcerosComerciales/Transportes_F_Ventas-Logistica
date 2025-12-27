@@ -1,0 +1,65 @@
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACELogistica.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACEVentas.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\bin\x86\Release\ACFramework.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACELogistica.dll
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACEVentas.dll
+D:\AC_ERP\Transportes\ACETransporte\bin\x86\Release\ACFramework.dll
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\AC_ERP\Transportes\ACETransporte\obj\x86\Release\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACELogistica.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACEVentas.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\bin\x86\Release\ACFramework.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\Developer\AcerosERP\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\alex compartido\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\alex compartido\Transportes _Milagros\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\alex compartido\Transportes _Milagros\ACETransporte\obj\x86\Release\ACETransporte.pdb
+D:\MilagrosMT\DESARROLLO\Transportes _Milagros\ACETransporte\bin\x86\Release\ACEVentas.dll
+D:\alex compartido\Transportes _Milagros\ACETransporte\bin\x86\Release\ACEVentas.dll
+D:\Proyectos\otros\Transportes\ACETransporte\bin\x86\Release\ACETransporte.dll
+D:\Proyectos\otros\Transportes\ACETransporte\bin\x86\Release\ACETransporte.pdb
+D:\Proyectos\otros\Transportes\ACETransporte\bin\x86\Release\ACETransporte.xml
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbprojResolveAssemblyReference.cache
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.Resources.resources
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.vbproj.GenerateResource.Cache
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.dll
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.xml
+D:\Proyectos\otros\Transportes\ACETransporte\obj\x86\Release\ACETransporte.pdb

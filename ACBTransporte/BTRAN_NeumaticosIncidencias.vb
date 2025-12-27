@@ -1,0 +1,191 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+Imports ACFramework
+
+Imports DAConexion
+Imports ACEVentas
+
+Public Class BTRAN_NeumaticosIncidencias
+
+#Region " Variables "
+   Private m_zona As String
+   Private m_sucursal As Integer
+   Private m_pvent_id As Integer
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_zona As String, ByVal x_sucursal As Integer, ByVal x_pvent_id As Integer)
+      m_zona = x_zona
+      m_sucursal = x_sucursal
+      m_pvent_id = x_pvent_id
+
+      d_tran_neumaticosincidencias = New DTRAN_NeumaticosIncidencias()
+   End Sub
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   ' <summary>
+   ' Crea el Documento si lo es requerido y graba la incidencia del neumatico
+   ' </summary>
+   ' <param name="x_usuario"></param>
+   ' <param name="x_documento"></param>
+   ' <returns></returns>
+   ' <remarks></remarks>
+   Public Function Guardar(ByVal x_usuario As String, ByVal x_documento As Boolean) As Boolean
+      Dim m_btran_documentos As New BTRAN_Documentos()
+      Try
+         DAEnterprise.BeginTransaction()
+         If x_documento Then
+            '' Grabar Documento de pago
+            m_btran_documentos.TRAN_Documentos = m_tran_neumaticosincidencias.TRAN_Documentos
+            m_btran_documentos.TRAN_Documentos.DOCUS_Codigo = String.Format("{0}{1}{2}", m_btran_documentos.TRAN_Documentos.TIPOS_CodTipoDocumento.Substring(3, 2) _
+                                                                            , m_btran_documentos.TRAN_Documentos.DOCUS_Serie.Trim().PadLeft(3, "0") _
+                                                                            , m_btran_documentos.TRAN_Documentos.DOCUS_Numero.ToString().PadLeft(7, "0"))
+            m_btran_documentos.TRAN_Documentos.ENTID_Codigo = m_tran_neumaticosincidencias.ENTID_CodigoProveedor
+            Dim _igv As Decimal = (ACETransporte.Constantes.Porcentaje_IGV) / 100
+            m_btran_documentos.TRAN_Documentos.DOCUS_Importe = Math.Round(m_tran_neumaticosincidencias.INCNU_Pago / (_igv + 1), 2, MidpointRounding.AwayFromZero)
+            m_btran_documentos.TRAN_Documentos.DOCUS_ImporteIGV = Math.Round((m_tran_neumaticosincidencias.INCNU_Pago / (_igv + 1)) * _igv, 2, MidpointRounding.AwayFromZero)
+            m_btran_documentos.TRAN_Documentos.DOCUS_TotalPago = m_tran_neumaticosincidencias.INCNU_Pago
+            m_btran_documentos.TRAN_Documentos.TIPOS_CodTipoMoneda = m_tran_neumaticosincidencias.TIPOS_CodTipoMoneda
+            m_btran_documentos.TRAN_Documentos.DOCUS_Fecha = m_tran_neumaticosincidencias.INCNU_Fecha
+            m_btran_documentos.crearDocumento(m_tran_neumaticosincidencias.INCNU_Descripcion)
+            m_btran_documentos.TRAN_Documentos.Instanciar(ACEInstancia.Nuevo)
+            If m_btran_documentos.Guardar(x_usuario, True, False) Then
+               '' Grabar Incidencia
+               m_tran_neumaticosincidencias.DOCUS_Codigo = m_btran_documentos.TRAN_Documentos.DOCUS_Codigo
+               m_tran_neumaticosincidencias.ENTID_CodigoProveedor = m_btran_documentos.TRAN_Documentos.ENTID_Codigo
+               m_tran_neumaticosincidencias.ZONAS_Codigo = ACBVentas.BConstantes.ZONAS_Codigo
+               m_tran_neumaticosincidencias.SUCUR_Id = ACBVentas.BConstantes.SUCUR_Id
+               m_tran_neumaticosincidencias.INCNU_Estado = ETRAN_NeumaticosIncidencias.getEstado(ETRAN_NeumaticosIncidencias.Estado.Ingresado)
+               If Guardar(x_usuario) Then
+                  DAEnterprise.CommitTransaction()
+                  Return True
+               End If
+            End If
+         Else
+            m_tran_neumaticosincidencias.ZONAS_Codigo = ACBVentas.BConstantes.ZONAS_Codigo
+            m_tran_neumaticosincidencias.SUCUR_Id = ACBVentas.BConstantes.SUCUR_Id
+            m_tran_neumaticosincidencias.INCNU_Estado = ETRAN_NeumaticosIncidencias.getEstado(ETRAN_NeumaticosIncidencias.Estado.Ingresado)
+            If Guardar(x_usuario) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            End If
+         End If
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary>
+   ' Crea el documento si lo es requerido, graba la incidencia del neumatico y crea un registro de Gasto en las incidencias del viaje
+   ' </summary>
+   ' <param name="x_usuario"></param>
+   ' <param name="x_documento"></param>
+   ' <returns></returns>
+   ' <remarks></remarks>
+   Public Function GuardarIngreso(ByVal x_usuario As String, ByVal x_documento As Boolean) As Boolean
+      Dim m_btran_documentos As New BTRAN_Documentos()
+      Try
+         DAEnterprise.BeginTransaction()
+         If x_documento Then
+            '' Grabar Documento de Pago
+            m_btran_documentos.TRAN_Documentos = m_tran_neumaticosincidencias.TRAN_Documentos
+            m_btran_documentos.TRAN_Documentos.DOCUS_Codigo = String.Format("{0}{1}{2}", m_btran_documentos.TRAN_Documentos.TIPOS_CodTipoDocumento.Substring(3, 2) _
+                                                                            , m_btran_documentos.TRAN_Documentos.DOCUS_Serie.Trim().PadLeft(3, "0") _
+                                                                            , m_btran_documentos.TRAN_Documentos.DOCUS_Numero.ToString().PadLeft(7, "0"))
+            m_btran_documentos.TRAN_Documentos.ENTID_Codigo = m_tran_neumaticosincidencias.ENTID_CodigoProveedor
+            Dim _igv As Decimal = (ACETransporte.Constantes.Porcentaje_IGV) / 100
+            m_btran_documentos.TRAN_Documentos.DOCUS_Importe = Math.Round(m_tran_neumaticosincidencias.INCNU_Pago / (_igv + 1), 2, MidpointRounding.AwayFromZero)
+            m_btran_documentos.TRAN_Documentos.DOCUS_ImporteIGV = Math.Round((m_tran_neumaticosincidencias.INCNU_Pago / (_igv + 1)) * _igv, 2, MidpointRounding.AwayFromZero)
+            m_btran_documentos.TRAN_Documentos.DOCUS_TotalPago = m_tran_neumaticosincidencias.INCNU_Pago
+            m_btran_documentos.TRAN_Documentos.TIPOS_CodTipoMoneda = m_tran_neumaticosincidencias.TIPOS_CodTipoMoneda
+            m_btran_documentos.TRAN_Documentos.DOCUS_Fecha = m_tran_neumaticosincidencias.INCNU_Fecha
+            m_btran_documentos.crearDocumento(m_tran_neumaticosincidencias.INCNU_Descripcion)
+            m_btran_documentos.TRAN_Documentos.Instanciar(ACEInstancia.Nuevo)
+            If m_btran_documentos.Guardar(x_usuario, True, False) Then
+               '' Grabar Incidencia
+               m_tran_neumaticosincidencias.DOCUS_Codigo = m_btran_documentos.TRAN_Documentos.DOCUS_Codigo
+               m_tran_neumaticosincidencias.ENTID_CodigoProveedor = m_btran_documentos.TRAN_Documentos.ENTID_Codigo
+               m_tran_neumaticosincidencias.ZONAS_Codigo = ACBVentas.BConstantes.ZONAS_Codigo
+               m_tran_neumaticosincidencias.SUCUR_Id = ACBVentas.BConstantes.SUCUR_Id
+               m_tran_neumaticosincidencias.INCNU_Estado = ETRAN_NeumaticosIncidencias.getEstado(ETRAN_NeumaticosIncidencias.Estado.Ingresado)
+               If Guardar(x_usuario) Then
+                  '' Grabar el registro de gastos
+                  Dim m_btran_viajesgastos As New BTRAN_ViajesGastos()
+                  m_btran_viajesgastos.TRAN_ViajesGastos = New ETRAN_ViajesGastos()
+                  Dim _where As New Hashtable : _where.Add("VIAJE_Id", New ACWhere(m_tran_neumaticosincidencias.VIAJE_Id))
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VGAST_Id = m_btran_viajesgastos.getCorrelativo("VGAST_Id", _where)
+                  m_btran_viajesgastos.TRAN_ViajesGastos.ZONAS_Codigo = m_tran_neumaticosincidencias.ZONAS_Codigo
+                  m_btran_viajesgastos.TRAN_ViajesGastos.SUCUR_Id = m_tran_neumaticosincidencias.SUCUR_Id
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VIAJE_Id = m_tran_neumaticosincidencias.VIAJE_Id
+                  m_btran_viajesgastos.TRAN_ViajesGastos.DOCUS_Codigo = m_tran_neumaticosincidencias.DOCUS_Codigo
+                  m_btran_viajesgastos.TRAN_ViajesGastos.ENTID_CodigoProveedor = m_tran_neumaticosincidencias.ENTID_CodigoProveedor
+                  m_btran_viajesgastos.TRAN_ViajesGastos.TIPOS_CodTipoGasto = ETipos.getTipo(ETipos.TipoGasto.IncNeumaticos)
+                  m_btran_viajesgastos.TRAN_ViajesGastos.TIPOS_CodTipoMoneda = m_tran_neumaticosincidencias.TIPOS_CodTipoMoneda
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VGAST_Descripcion = m_tran_neumaticosincidencias.INCNU_Descripcion
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VGAST_Fecha = m_tran_neumaticosincidencias.INCNU_Fecha
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VGAST_Monto = m_tran_neumaticosincidencias.INCNU_Pago
+                  m_btran_viajesgastos.TRAN_ViajesGastos.VGAST_Estado = ETRAN_ViajesGastos.getEstado(ETRAN_ViajesGastos.Estado.Ingresado)
+                  m_btran_viajesgastos.TRAN_ViajesGastos.Instanciar(ACEInstancia.Nuevo)
+
+                  If m_btran_viajesgastos.Guardar(x_usuario) Then
+                     DAEnterprise.CommitTransaction()
+                     Return True
+                  End If
+                  Return False
+               End If
+            End If
+         Else
+            m_tran_neumaticosincidencias.ZONAS_Codigo = ACBVentas.BConstantes.ZONAS_Codigo
+            m_tran_neumaticosincidencias.SUCUR_Id = ACBVentas.BConstantes.SUCUR_Id
+            m_tran_neumaticosincidencias.INCNU_Estado = ETRAN_NeumaticosIncidencias.getEstado(ETRAN_NeumaticosIncidencias.Estado.Ingresado)
+            If Guardar(x_usuario) Then
+               DAEnterprise.CommitTransaction()
+               Return True
+            End If
+         End If
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Public Function EliminarIncidencias() As Boolean
+      Try
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Incidencias(ByVal x_neuma_id As Integer) As Boolean
+      Dim _where As New Hashtable()
+      Try
+         _where.Add("NEUMA_Id", New ACWhere(x_neuma_id))
+         m_listTRAN_NeumaticosIncidencias = New List(Of ETRAN_NeumaticosIncidencias)
+         Return d_tran_neumaticosincidencias.GetIncidencias(m_listTRAN_NeumaticosIncidencias, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

@@ -1,0 +1,3003 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+
+Imports C1.Win.C1FlexGrid
+Imports C1.C1Preview
+Imports System.IO
+Imports System.Xml
+Imports ACReporteador
+Imports ACBVentas
+Imports ACEVentas
+Imports System.ComponentModel
+
+Imports ACSeguridad
+
+Imports Crownwood.DotNetMagic.Docking
+Imports Crownwood.DotNetMagic.Controls
+
+Public Class FViajes
+
+#Region " Variables "
+   Private managerTRAN_Viajes As BTRAN_Viajes
+   Private managerEntidades As BEntidades
+   Private managerTRAN_VehiculosConductores As BTRAN_VehiculosConductores
+   Private managerTRAN_Vehiculos As BTRAN_Vehiculos
+   Private managerTRAN_VehiculosRanflas As BTRAN_VehiculosRanflas
+   Private managerTRAN_Ranflas As BTRAN_Ranflas
+   Private managerAdministracionViajes As BAdministracionViajes
+   Private managerTRAN_OrdenesTransportes As BTRAN_OrdenesTransportes
+
+   Private m_listPresupuesto As List(Of Presupuesto)
+   Private bs_bpresupuesto As BindingSource
+
+   Private bs_tran_viajes As BindingSource
+   Private bs_tran_viajesneumaticos As BindingSource
+   Private bs_tran_fletes As BindingSource
+   Private bs_tran_incidenciasviajes As BindingSource
+   Private bs_tran_combustibleconsumo As BindingSource
+   Private bs_tran_viajeguias As BindingSource
+   Private bs_tran_viajesgastos As BindingSource
+   Private bs_tran_viajesingresos As BindingSource
+   Private bs_tran_incidenciasneumaticos As BindingSource
+   Private bs_tran_recibos As BindingSource
+   Private bs_tran_viajesgastosrecibos As BindingSource
+   Private bs_rutas As BindingSource
+
+   Private m_opcion As TipoCarga
+   Private m_opcionform As TipoFormulario
+
+   Private m_vrconductor As Boolean
+   Private m_neumaticos As Boolean
+
+   Private m_conductores As EEntidades
+   Private m_tran_vehiculos As ETRAN_Vehiculos
+   Private m_tran_ranflas As ETRAN_Ranflas
+
+   Private m_listBindHelper As List(Of ACBindHelper)
+   Private m_listBHConductores As List(Of ACBindHelper)
+   Private m_listBHVehiculos As List(Of ACBindHelper)
+   Private m_listBHRanflas As List(Of ACBindHelper)
+
+   Private m_dockingManager As DockingManager
+
+   Private _validate As ACValidarUsuario
+
+   Private m_order As Integer = 1
+
+   Private m_anular As Boolean
+   Private m_activaranulado As Boolean
+   Private m_eliminar As Boolean
+
+   Private m_reimprimir As Boolean = False
+
+   Enum TipoCarga
+      Base
+      VRConductor
+      Fletes
+      Neumaticos
+      Incidencias
+      ConsCombustible
+      Gastos
+      Ingresos
+      Recibos
+   End Enum
+
+   Enum TipoFormulario
+      Administracion
+      Reporte_IE
+      Reporte_Inv
+   End Enum
+
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_opcion As TipoFormulario)
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      m_opcion = TipoCarga.Base
+      m_opcionform = x_opcion
+      Try
+         InitDocket()
+         Inicializar()
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+
+         managerTRAN_Viajes = New BTRAN_Viajes
+         managerEntidades = New BEntidades
+         managerTRAN_VehiculosConductores = New BTRAN_VehiculosConductores
+         managerTRAN_Vehiculos = New BTRAN_Vehiculos
+         managerTRAN_VehiculosRanflas = New BTRAN_VehiculosRanflas
+         managerTRAN_Ranflas = New BTRAN_Ranflas
+         managerAdministracionViajes = New BAdministracionViajes(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta, GApp.Periodo)
+         managerTRAN_OrdenesTransportes = New BTRAN_OrdenesTransportes
+
+         cargarCombos()
+
+         txtBusqueda.Focus()
+         formatearGrilla()
+
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Deshacer)
+
+         acTool.ACTipoToolBar = ACControles.ACToolBarMantHorizontalNew.tipoToolBar.ToolReporte
+
+         tsbtnLiquidacion.Visible = False
+         acTool.ACBtnEliminarEnabled = False
+         acTool.ACBtnModificarEnabled = False
+
+         Select Case m_opcionform
+            Case TipoFormulario.Reporte_IE
+               tcnDetalle.TabPages.Remove(tpgIncidencias)
+               tcnDetalle.TabPages.Remove(tpgNeumaticos)
+               acpnlTitulo.ACCaption = String.Format("Reporte de Ingresos y Egresos : {0}", acpnlTitulo.ACCaption)
+            Case TipoFormulario.Reporte_Inv
+               tcnDetalle.TabPages.Remove(tpgConsCombustible)
+               tcnDetalle.TabPages.Remove(tpgFletes)
+               tcnDetalle.TabPages.Remove(tpgGastos)
+               tcnDetalle.TabPages.Remove(tpgPresupuesto)
+               acpnlTitulo.ACCaption = String.Format("Reporte de Inventarios : {0}", acpnlTitulo.ACCaption)
+            Case Else
+               acTool.ACBtnGrabarVisible = True
+         End Select
+         Me.Text = acpnlTitulo.Text
+         tcnDetalle.TabPages.Remove(tpgResumen)
+         'tcnDetalle.TabPages.Remove(tpgFletes)
+
+         bnavBusqueda.Visible = True
+         bnavConsCombustible.Visible = True
+         bnavFletes.Visible = True
+         bnavGastos.Visible = True
+         bnavInciNeumaticos.Visible = True
+         bnavIngEgre.Visible = True
+         bnavInicidencias.Visible = True
+         bnavNeumaticos.Visible = True
+         bnavPresupuesto.Visible = True
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_opcion As TipoCarga)
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      m_opcion = x_opcion
+      m_opcionform = TipoFormulario.Administracion
+      Try
+         InitDocket()
+         Inicializar()
+         tabMantenimiento.HideTabsMode = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+         tabMantenimiento.SelectedTab = tabBusqueda
+
+         managerTRAN_Viajes = New BTRAN_Viajes
+         managerEntidades = New BEntidades
+         managerTRAN_VehiculosConductores = New BTRAN_VehiculosConductores
+         managerTRAN_Vehiculos = New BTRAN_Vehiculos
+         managerTRAN_VehiculosRanflas = New BTRAN_VehiculosRanflas
+         managerTRAN_Ranflas = New BTRAN_Ranflas
+         managerAdministracionViajes = New BAdministracionViajes(GApp.Zona, GApp.Sucursal, GApp.PuntoVenta, GApp.Periodo)
+         managerTRAN_OrdenesTransportes = New BTRAN_OrdenesTransportes
+
+         cargarCombos()
+
+         txtBusqueda.Focus()
+         formatearGrilla()
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Deshacer)
+
+         acTool.ACBtnEliminarEnabled = False
+         acTool.ACBtnModificarEnabled = False
+         tcnDetalle.TabPages.Remove(tpgResumen)
+         'tcnDetalle.TabPages.Remove(tpgFletes)
+
+         bnavBusqueda.Visible = True
+         bnavConsCombustible.Visible = True
+         bnavFletes.Visible = True
+         bnavGastos.Visible = True
+         bnavInciNeumaticos.Visible = True
+         bnavIngEgre.Visible = True
+         bnavInicidencias.Visible = True
+         bnavNeumaticos.Visible = True
+         bnavPresupuesto.Visible = True
+         rbtnPlacaTracto.Checked = True
+
+         rbtnDescripcion.Checked = True
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Private Sub Inicializar()
+      Try
+         m_anular = False
+         m_activaranulado = False
+         m_eliminar = False
+         _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarVariosProcesos)
+         For Each item As ACSeguridad.EProcesos In _validate.ListProcesos
+            Select Case item.PROC_Codigo
+               Case Procesos.getProceso(Procesos.TipoProcesos.AnularViaje)
+                  m_anular = True
+               Case Procesos.getProceso(Procesos.TipoProcesos.ActivarViajeAnulado)
+                  m_activaranulado = True
+               Case Procesos.getProceso(Procesos.TipoProcesos.EliminarViaje)
+                  m_eliminar = True
+               Case Procesos.getProceso(Procesos.TipoProcesos.RIngEgre_Reimprimir)
+                  m_reimprimir = True
+            End Select
+         Next
+
+         GApp.DataUsuario.PROC_Codigo = Procesos.getProceso(Procesos.TipoProcesos.QuitarLiqViaje)
+         _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarProceso)
+
+         tsbtnQuitarLiquidacion.Visible = _validate.ACProceso
+
+         acFecha.ACDtpFecha_De.Value = DateTime.Now.AddDays(-1 * DateTime.Now.Day + 1)
+         Dim _existe As Boolean = False
+         tscmbImpresora.Text = Parametros.GetParametro("pg_ImpRecibos", _existe)
+         tscmbImpresoraRec.Text = tscmbImpresora.Text
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+
+#Region " Utilitarios "
+
+   ''' <summary>
+   ''' Dar Formato a la grilla de busqueda
+   ''' </summary>
+   ''' <remarks></remarks>
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         'Deficion de grilla de Viajes
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 14, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Código", "VIAJE_Id", "VIAJE_Id", 250, True, False, "System.String", "0000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Viaje x Veh.", "VIAJE_IdxVehiculo", "VIAJE_IdxVehiculo", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Viaje x Cond.", "VIAJE_IdxConductor", "VIAJE_IdxConductor", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Descripción", "VIAJE_Descripcion", "VIAJE_Descripcion", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fec. Salida", "VIAJE_FecSalida", "VIAJE_FecSalida", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fec. LLegada", "VIAJE_FecLlegada_Text", "VIAJE_FecLlegada_Text", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Vehiculo", "VEHIC_Placa", "VEHIC_Placa", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Ranfla", "RANFL_Placa", "RANFL_Placa", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Conductor", "ENTID_Nombres", "ENTID_Nombres", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "VIAJE_Estado_Text", "VIAJE_Estado_Text", 100, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "VIAJE_Estado", "VIAJE_Estado", 100, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cotizador", "Usuario", "Usuario", 100, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fec. Creación", "VIAJE_FecCrea", "VIAJE_FecCrea", 100, True, False, "System.DateTime") : index += 1
+         c1grdBusqueda.AllowEditing = False
+         c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+         c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+         c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+
+         Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturado")
+         t.BackColor = Color.LightGreen
+         t.ForeColor = Color.DarkBlue
+         t.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturar")
+         u.BackColor = Color.Green
+         u.ForeColor = Color.White
+         u.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Anulado")
+         d.BackColor = Color.Red
+         d.ForeColor = Color.White
+         d.Font = New Font(c1grdBusqueda.Font, FontStyle.Bold)
+         c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         formatearGrilla_GastosViajeInicial()
+         formatearGrilla_Neumaticos()
+         formatearGrilla_Fletes()
+         formatearGrilla_Gastos()
+         formatearGrilla_IncidenciasViajes()
+         formatearGrilla_ConsCombustible()
+         formatearGrilla_Recibos()
+         formatearGrilla_GuiasRemision()
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Sub setInstancia(ByVal _opcion As ACFramework.ACUtilitarios.ACSetInstancia)
+      acTool.ACBtnImprimirVisible = False
+      acTool.ACBtnAnularVisible = False
+      actsbtnQuitarAnulado.Visible = False
+      tsbtnPreview.Visible = False
+      Select Case _opcion
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Nuevo
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            ACFramework.ACUtilitarios.ACLimpiaVar(pnlDatos)
+            tsbtnLiquidacion.Visible = True
+            acTool.ACBtnAnularVisible = False
+            actsbtnQuitarAnulado.Visible = False
+            txtDescripcion.Clear()
+            'txtCodigo.Enabled = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Modificado
+            ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+            tsbtnLiquidacion.Visible = True
+            'txtCodigo.Enabled = False
+            Select Case m_opcionform
+               Case TipoFormulario.Reporte_IE, TipoFormulario.Reporte_Inv
+                  acTool.ACBtnImprimirVisible = True
+                  tsbtnPreview.Visible = True
+
+                  acTool.ACBtnReporteVisible = False
+                  acTool.ACBtnGrabarVisible = False
+                  tsbtnLiquidacion.Visible = False
+               Case Else
+                  acTool.ACBtnGrabarVisible = True
+                  acTool.ACBtnModificarVisible = False
+                  acTool.ACBtnCancelarVisible = True
+            End Select
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Guardar
+            tsbtnLiquidacion.Visible = False
+            acTool.ACBtnAnularVisible = False
+            actsbtnQuitarAnulado.Visible = False
+            acTool.ACBtnEliminarVisible = False
+         Case ACFramework.ACUtilitarios.ACSetInstancia.Deshacer
+            tsbtnLiquidacion.Visible = False
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Cancelar)
+            Select Case m_opcionform
+               Case TipoFormulario.Reporte_IE, TipoFormulario.Reporte_Inv
+                  acTool.ACBtnReporteVisible = True
+            End Select
+            acTool.ACBtnAnularVisible = m_anular
+            acTool.ACBtnEliminarVisible = m_eliminar
+            bs_tran_viajes_CurrentChanged(Nothing, Nothing)
+      End Select
+      acTool.ACBtnNuevoVisible = False
+      bs_tran_viajes_CurrentChanged(Nothing, Nothing)
+   End Sub
+
+   Private Sub cargarCombos()
+      Try
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbMarca, Colecciones.Tipos(ETipos.MyTipos.MarcasVehiculos), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoVehiculo, Colecciones.Tipos(ETipos.MyTipos.TipoVehiculos), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbRanMarca, Colecciones.Tipos(ETipos.MyTipos.MarcasRanflas), "TIPOS_Descripcion", "TIPOS_Codigo")
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbTipoGuia, Colecciones.TiposDocsTraslado(), "TIPOS_Descripcion", "TIPOS_Codigo")
+         'ACFramework.ACUtilitarios.ACCargaCombo(cmbSucursal, Colecciones.Sucursales, "SUCUR_Nombre", "SUCUR_Id")
+
+         Dim _lista As New List(Of ACLista)
+         _lista.Add(New ACLista("I", "Ida"))
+         _lista.Add(New ACLista("", "Vuelta"))
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbCondicion, _lista, ACLista.Descripcion, ACLista.Codigo)
+
+         acvRanfla.VisiblePanelPos3 = True
+         acvRanfla.VisiblePanelPos4 = True
+
+         acvTracto.VisiblePanelPos1 = True
+         acvTracto.VisiblePanelPos3 = True
+
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.ACViajes_16x16.GetHicon)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Function getCampoFecha() As Integer
+      Try
+         If (rbtnFecLlegada.Checked) Then
+            'Return "VIAJE_FecLlegada"
+            Return 0
+         ElseIf rbtnFecSalida.Checked Then
+            'Return "VIAJE_FecSalida"
+            Return 1
+         Else
+            'Return "VIAJE_FecLlegada"
+            Return 0
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getCampo() As Integer
+      Try
+         If (rbtnCodigo.Checked) Then
+            'Return "VIAJE_Id"
+            Return 0
+         ElseIf rbtnDescripcion.Checked Then
+            'Return "VIAJE_Descripcion"
+            Return 1
+         ElseIf rbtnPlacaTracto.Checked Then
+            'Return "VEHIC_Placa"
+            Return 2
+         Else
+            'Return "VIAJE_Id"
+            Return 0
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Cargar Datos Generales del Viaje "
+   ''' <summary>
+   ''' Cargar los datos en el control Visual C1FlexGrid
+   ''' </summary>
+   Private Sub cargarDatos()
+      Try
+         RemoveHandler txtBusqueda.KeyDown, AddressOf txtBusqueda_KeyDown
+
+         bs_tran_viajes = New BindingSource()
+         bs_tran_viajes.DataSource = managerTRAN_Viajes.getListTRAN_Viajes
+         AddHandler bs_tran_viajes.CurrentChanged, AddressOf bs_tran_viajes_CurrentChanged
+         bs_tran_viajes_CurrentChanged(Nothing, Nothing)
+         c1grdBusqueda.DataSource = bs_tran_viajes
+         bnavBusqueda.BindingSource = bs_tran_viajes
+
+         AddHandler txtBusqueda.KeyDown, AddressOf txtBusqueda_KeyDown
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   ''' <summary>
+   ''' Realiza el enlace de los controles visuales con la clase esquema
+   ''' </summary>
+   Private Sub AsignarBinding()
+      Try
+         m_listBindHelper = New List(Of ACBindHelper)()
+         txtCodigo.Text = managerTRAN_Viajes.TRAN_Viajes.VIAJE_CODIGO_Text
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtDescripcion, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_Descripcion"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnGastonInicial, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_MontoPresupuesto"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnCombRealizado, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_CombConsumido"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnConsRealizado, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_ConsumoRealizado"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnPagoConductor, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_PagoConductor"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnPendiente2, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_SaldoConductor"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtViajeXvehiculo, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_IdxVehiculo"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(txtViajexConductor, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_IdxConductor"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnGastosConductor, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_GastosConductor"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnRecibosIngreso, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_TotRecIngreso"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnPendiente, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_Saldo"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnKmDiferencia, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_KmTotal"))
+
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnCombScanner, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_ScanCombustible"))
+         m_listBindHelper.Add(ACBindHelper.ACBind(actxnKmScanner, "Text", managerTRAN_Viajes.TRAN_Viajes, "VIAJE_ScanKm"))
+
+         If managerTRAN_Viajes.TRAN_Viajes.VIAJE_ScanFecha.Year < 1700 Then
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_ScanFecha = DateTime.Now
+            dtpFecScan.Checked = False
+         Else
+            dtpFecScan.Checked = True
+            dtpFecScan.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_ScanFecha
+         End If
+
+         If managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada.Year < 1700 Then
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada = DateTime.Now
+            dtpFecLlegada.Checked = False
+         Else
+            dtpFecLlegada.Checked = True
+            dtpFecLlegada.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada
+            dtpHorLlegada.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada
+         End If
+
+         If managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida.Year < 1700 Then managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida = DateTime.Now
+         dtpFecSalida.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida : dtpHorSalida.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida
+
+
+         'm_listBindHelper.Add(ACBindHelper.ACBind(actxnKilometraje, "Text", managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos, "VIAVE_Kilometraje"))
+         actxnKilometraje.Text = managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_Kilometraje
+         'm_listBindHelper.Add(ACBindHelper.ACBind(actxnKmAnterior, "Text", managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos, "VIAVE_KmAnterior"))
+         actxnKmAnterior.Text = managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_KmAnterior
+
+         '' Convertir XML a Lista
+         'cargarXmlToPrespuesto()
+
+         cargarGastosViaje()
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargar()
+      Try
+         If bs_tran_viajes.Current IsNot Nothing Then
+            Dim x_codigo As Integer = CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id
+            RemoveHandler actxnKmAnterior.TextChanged, AddressOf actxnKmAnterior_TextChanged
+            RemoveHandler actxnKilometraje.TextChanged, AddressOf actxnKmAnterior_TextChanged
+            managerTRAN_Viajes.TRAN_Viajes = New ETRAN_Viajes
+            If managerTRAN_Viajes.CargarXML(x_codigo) Then
+               managerAdministracionViajes.setTRAN_Viajes(managerTRAN_Viajes.TRAN_Viajes)
+               AsignarBinding()
+
+               tabMantenimiento.SelectedTab = tabDatos
+               acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Nuevo)
+               m_neumaticos = False : m_vrconductor = False
+               SetCarga(m_opcion)
+               AddHandler tcnDetalle.SelectionChanged, AddressOf TabAdicionales_SelectionChanged
+
+               'If managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_KmAnterior = 0 Then
+               managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_KmAnterior = managerAdministracionViajes.ObtenerKMAnterior(txtVehCodigo.Text)
+               actxnKmAnterior.Text = managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_KmAnterior
+               'End If
+               actxnKmDiferencia.Text = managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.Diferencia
+               actxnKilometraje.Formatear() : actxnKmAnterior.Formatear() : actxnKmDiferencia.Formatear()
+
+               managerAdministracionViajes.ListTRAN_CombustibleConsumo = Nothing
+               managerAdministracionViajes.ListTRAN_Fletes = Nothing
+               managerAdministracionViajes.ListTRAN_IncidenciasViajes = Nothing
+               managerAdministracionViajes.ListTRAN_Recibos = Nothing
+               managerAdministracionViajes.ListTRAN_ViajesGastos = Nothing
+               managerAdministracionViajes.ListTRAN_ViajesNeumaticos = Nothing
+
+               If managerTRAN_Viajes.TRAN_Viajes.VIAJE_SaldoConductor = 0 Then
+                  calcular(TipoCarga.Gastos)
+               End If
+
+               cargarGuiaRemision()
+
+               AddHandler actxnKmAnterior.TextChanged, AddressOf actxnKmAnterior_TextChanged
+               AddHandler actxnKilometraje.TextChanged, AddressOf actxnKmAnterior_TextChanged
+
+            Else
+               acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Nuevo)
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Grabar")
+            End If
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantVertical.TipoInstancia.Nuevo)
+         Throw ex
+      End Try
+   End Sub
+
+   ''' <summary>
+   ''' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+   ''' </summary>
+   ''' <param name="x_cadena">Cadena objetivo</param>
+   ''' <remarks></remarks>
+   ''' 
+   Private Function busqueda(ByVal x_cadena As String) As Boolean
+      Try
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Deshacer)
+         If managerTRAN_Viajes.Busqueda(x_cadena, getCampo(), getCampoFecha(), acFecha.ACFecha_De.Value.Date _
+                                        , acFecha.ACFecha_A.Value.Date.AddDays(1), IIf(m_opcionform = TipoFormulario.Administracion, chkTodos.Checked, False), GApp.PuntoVenta) Then
+            acTool.ACBtnEliminarEnabled = True
+            acTool.ACBtnModificarEnabled = True
+         Else
+            acTool.ACBtnEliminarEnabled = False
+            acTool.ACBtnModificarEnabled = False
+         End If
+         cargarDatos()
+         Return acTool.ACBtnModificarEnabled
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+#End Region
+
+   Private Sub Ordenar(ByVal x_columna As String)
+      Dim _ordenador As New ACOrdenador(Of ETRAN_Viajes)
+      Try
+         If m_order = 2 Then x_columna += " DESC"
+         _ordenador.ACOrdenamiento = x_columna
+         CType(bs_tran_viajes.DataSource, List(Of ETRAN_Viajes)).Sort(_ordenador)
+         c1grdBusqueda.Refresh()
+         m_order = IIf(m_order = 1, 2, 1)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub SetCarga(ByVal x_opcion As TipoCarga, Optional ByVal x_cambiarTab As Boolean = True)
+      Try
+         Select Case x_opcion
+            Case TipoCarga.Base
+               cargarVRC()
+               cargarFletes()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgVehiRanfla
+            Case TipoCarga.Fletes
+               cargarFletes()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgFletes
+            Case TipoCarga.Neumaticos
+               cargarNeumaticos()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgNeumaticos
+            Case TipoCarga.Incidencias
+               cargarIncidenciasViaje()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgIncidencias
+            Case TipoCarga.ConsCombustible
+               cargarConsumoCombustible()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgConsCombustible
+            Case TipoCarga.Gastos
+               cargarViajesGastos()
+               If x_cambiarTab Then tcnDetalle.SelectedTab = tpgGastos
+            Case TipoCarga.Recibos
+               cargarRecibos()
+            Case Else
+               SetCarga(TipoCarga.Base)
+         End Select
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub calcular(ByVal x_opcion As TipoCarga)
+      Try
+         Dim _gastosiniciales As Decimal = 0
+         Dim _consumocombustible As Decimal = 0
+         Dim _gastos As Decimal = 0
+         Dim _pendiente As Decimal = 0
+         Dim _combustible As Decimal = 0
+
+         '' Gasos Iniciales
+         For Each Item As ETESO_Caja In managerAdministracionViajes.ListTESO_Caja
+            _gastosiniciales += Item.CAJA_Importe
+         Next
+         actxnGastonInicial.Text = _gastosiniciales : actxnGastonInicial.Formatear()
+
+         '' Consumo de Combustible
+         If IsNothing(managerAdministracionViajes.ListTRAN_CombustibleConsumo) Then
+            SetCarga(TipoCarga.ConsCombustible)
+         End If
+         For Each Item As ETRAN_CombustibleConsumo In managerAdministracionViajes.ListTRAN_CombustibleConsumo
+            If Item.COMCO_CCaja Then
+               _consumocombustible += Item.COMCO_Total
+            End If
+            _combustible += Item.COMCO_GalonesConsumidos
+         Next
+
+         actxnConsRealizado.Text = _consumocombustible : actxnConsRealizado.Formatear()
+         actxnCombRealizado.Text = _combustible : actxnCombRealizado.Formatear()
+         actxnConsumoCombustible.Text = _consumocombustible : actxnConsumoCombustible.Formatear()
+
+         '' Gastos de Viaje
+         If IsNothing(managerAdministracionViajes.ListTRAN_ViajesGastos) Then
+            SetCarga(TipoCarga.Gastos)
+         End If
+         For Each Item As ETRAN_ViajesGastos In managerAdministracionViajes.ListTRAN_ViajesGastos
+            _gastos += Item.VGAST_Monto
+         Next
+         actxnGastosConductor.Text = _gastos : actxnGastosConductor.Formatear()
+
+
+         '' Recibos
+         Dim _rec_ingresos As Decimal = 0
+         Dim _rec_egresos As Decimal = 0
+         Dim _rec_egresosconductor As Decimal = 0
+         If IsNothing(managerAdministracionViajes.ListTRAN_Recibos) Then
+            SetCarga(TipoCarga.Recibos)
+         End If
+         For Each item As ETRAN_Recibos In managerAdministracionViajes.ListTRAN_Recibos
+            If item.TIPOS_CodTipoRecibo = ACEVentas.ETipos.getTipo(ETipos.TipoRecibo.Egreso) Then
+               _rec_egresos += item.RECIB_Monto
+            ElseIf item.TIPOS_CodTipoRecibo = ACEVentas.ETipos.getTipo(ETipos.TipoRecibo.Ingreso) Then
+               _rec_ingresos += item.RECIB_Monto
+            ElseIf item.TIPOS_CodTipoRecibo = ACEVentas.ETipos.getTipo(ETipos.TipoRecibo.ACtaSueldo) Then
+               _rec_egresosconductor += item.RECIB_Monto
+            End If
+         Next
+         actxnRecibosIngreso.Text = _rec_ingresos : actxnRecibosIngreso.Formatear()
+         actxnRecibosEgreso.Text = _rec_egresos + _rec_egresosconductor : actxnRecibosEgreso.Formatear()
+
+         '' Colocar Resultados
+         _pendiente = _gastosiniciales - (_consumocombustible + _gastos + _rec_egresos + _rec_egresosconductor + _rec_ingresos)
+         actxnPendiente.Text = _pendiente : actxnPendiente.Formatear()
+
+         '' Sueldos
+         actxnPendiente2.Text = _rec_egresosconductor
+         Dim _importe As Decimal = actxnPagoConductor.Text
+         actxnSaldo.Text = _importe - _rec_egresosconductor
+
+         If Not managerAdministracionViajes.TRAN_Viajes.VIAJE_Estado = ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Liquidado) Then
+            If Not x_opcion = TipoCarga.Base Then
+               grabar()
+            Else
+               tcnDetalle.SelectedTab = tpgVehiRanfla
+            End If
+         Else
+            tcnDetalle.SelectedTab = tpgVehiRanfla
+         End If
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub CalcularRecibos()
+
+
+
+   End Sub
+
+   Private Sub setActivate(ByVal x_opcion As Boolean)
+      Try
+         '' Otros
+         btnGenRecibo.Enabled = x_opcion
+
+         tsbtnAgregarIncNeumaticos.Enabled = x_opcion
+         tsbtnQuitarIncNeumaticos.Enabled = x_opcion
+
+         tsbtnIVAgregar.Enabled = x_opcion
+         tsbtnIVQuitar.Enabled = x_opcion
+
+         tsbtnLiquidacion.Enabled = x_opcion
+         tsbtnCModificar.Enabled = x_opcion
+
+         '' Modificar vehiculo
+         btnModVehiculo.Enabled = x_opcion
+         '' Guias de Remision
+         tsbtnGuiaGrabar.Enabled = x_opcion
+         c1grdGuiaRemision.AllowEditing = x_opcion
+         c1grdGuiaRemision.AllowAddNew = x_opcion
+         '' Consumo Combustible
+         tsbtnCCAgregar.Enabled = x_opcion
+         tsbtnCCQuitar.Enabled = x_opcion
+         tsbtnCModificar.Visible = False
+         '' Gastos de Viaje
+         tsbtnGVAgregar.Enabled = x_opcion
+         tsbtnGVQuitar.Enabled = x_opcion
+         tsbtnGVModificar.Enabled = x_opcion
+         '' Fletes
+         tsbtnAgregarFlete.Enabled = x_opcion
+         tsbtnAddNewFlete.Enabled = x_opcion
+         tsbtnFQuitar.Enabled = False
+         tsbtnModFlete.Enabled = x_opcion
+         '' Recibos
+         tsbtnRecAgregar.Enabled = x_opcion
+         tsbtnRecQuitar.Enabled = x_opcion
+         tsbtnRModificar.Enabled = x_opcion
+         '' Gasto Inicial
+         tsbtnPrAgregar.Enabled = x_opcion
+         tsbtnPrQuitar.Enabled = x_opcion
+         tsbtnPrModificar.Enabled = x_opcion
+         '' Datos del Viaje
+         dtpFecLlegada.Enabled = x_opcion
+         dtpFecSalida.Enabled = x_opcion
+         dtpHorLlegada.Enabled = x_opcion
+         dtpHorSalida.Enabled = x_opcion
+         txtDescripcion.ReadOnly = Not x_opcion
+         actxnKilometraje.ReadOnly = Not x_opcion
+         actxnPagoConductor.ReadOnly = Not x_opcion
+         acTool.ACBtnGrabarEnabled = x_opcion
+         GroupBox4.Enabled = x_opcion
+         txtFleObs.Enabled = x_opcion
+         tsbtnFleGrabar.Enabled = x_opcion
+         '' Cal
+         btnCalLiqConductor.Enabled = x_opcion
+         If Not x_opcion Then
+            '' Obtener los Permisos
+            '' Obtener el proceso que se va a validar
+            _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarVariosProcesos)
+            For Each item As ACSeguridad.EProcesos In _validate.ListProcesos
+               Select Case item.PROC_Codigo
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModFecComCombustible)
+                     tsbtnCModificar.Visible = True
+                     tsbtnCModificar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarVehiculo)
+                     btnModVehiculo.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.RecalcularPendiente)
+                     btnCalLiqConductor.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarGuia)
+                     tsbtnGuiaGrabar.Enabled = True
+                     c1grdGuiaRemision.AllowEditing = True
+                     c1grdGuiaRemision.AllowAddNew = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarConsumoComb)
+                     tsbtnCCAgregar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.QuitarConsumoComb)
+                     tsbtnCCQuitar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarGastosViaje)
+                     tsbtnGVAgregar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.QuitarGastosViaje)
+                     tsbtnGVQuitar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarGastosViaje)
+                     tsbtnGVModificar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarFlete)
+                     tsbtnAgregarFlete.Enabled = True
+                     tsbtnAddNewFlete.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.QuitarFlete)
+                     tsbtnFQuitar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarFlete)
+                     tsbtnModFlete.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarReciboIngreso)
+                     tsbtnRecAgregar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.QuitarReciboIngreso)
+                     tsbtnRecQuitar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarReciboIngreso)
+                     tsbtnRModificar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarDatosViaje)
+                     dtpFecLlegada.Enabled = True
+                     dtpFecSalida.Enabled = True
+                     dtpHorLlegada.Enabled = True
+                     dtpHorSalida.Enabled = True
+
+                     txtDescripcion.ReadOnly = False
+                     actxnKilometraje.ReadOnly = False
+                     actxnPagoConductor.ReadOnly = False
+
+                     acTool.ACBtnGrabarEnabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.AgregarGastoInicial)
+                     tsbtnPrAgregar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.QuitarGastoInicial)
+                     tsbtnPrQuitar.Enabled = True
+                  Case Procesos.getProceso(Procesos.TipoProcesos.ModificarGastoInicial)
+                     tsbtnPrModificar.Enabled = True
+               End Select
+            Next
+         Else
+            _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarVariosProcesos)
+            If Not IsNothing(_validate.ListProcesos) Then
+               For Each item As ACSeguridad.EProcesos In _validate.ListProcesos
+                  Select Case item.PROC_Codigo
+                     Case Procesos.getProceso(Procesos.TipoProcesos.QuitarFlete)
+                        tsbtnFQuitar.Enabled = True
+                     Case Procesos.getProceso(Procesos.TipoProcesos.ModFecComCombustible)
+                        tsbtnCModificar.Enabled = True
+                        tsbtnCModificar.Visible = True
+                  End Select
+               Next
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub btnCalcular_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         calcular(TipoCarga.Ingresos)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Calculando el saldo", ex)
+      End Try
+   End Sub
+
+   Private Function grabar() As Boolean
+      Try
+         managerTRAN_Viajes.TRAN_Viajes.SUCUR_Id = GApp.Sucursal
+         If dtpFecLlegada.Checked Then
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada = ACFramework.ACUtilitarios.getFecha(dtpFecLlegada.Value, dtpHorLlegada.Value)
+         Else
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada = Nothing
+         End If
+         If dtpFecScan.Checked Then
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_ScanFecha = dtpFecScan.Value
+         Else
+            managerTRAN_Viajes.TRAN_Viajes.VIAJE_ScanFecha = Nothing
+         End If
+         managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida = ACFramework.ACUtilitarios.getFecha(dtpFecSalida.Value, dtpHorSalida.Value)
+
+         managerTRAN_Viajes.TRAN_Viajes.VIAJE_KmTotal = Convert.ToDecimal(actxnKmDiferencia.Text)
+         'managerTRAN_Viajes.setTRAN_Viajes(managerTRAN_Viajes.TRAN_Viajes)
+         If managerTRAN_Viajes.Guardar(GApp.Usuario, True) Then
+            If Not dtpFecLlegada.Checked Then
+               managerTRAN_Viajes.GuardarFecSalida()
+            End If
+            If Not dtpFecScan.Checked Then
+               managerTRAN_Viajes.GuardarFecScan()
+            End If
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub bs_tran_viajes_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_viajes) Then
+            If Not IsNothing(bs_tran_viajes.Current) Then
+               If CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Estado.Equals(ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Anulado)) Then
+                  acTool.ACBtnModificar.Enabled = False
+                  acTool.ACBtnAnular.Visible = False
+                  actsbtnQuitarAnulado.Visible = m_activaranulado
+               ElseIf CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Estado.Equals(ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Liquidado)) Then
+                  tsbtnQuitarLiquidacion.Enabled = True
+               Else
+                  tsbtnQuitarLiquidacion.Enabled = False
+                  acTool.ACBtnModificar.Enabled = True
+                  actsbtnQuitarAnulado.Visible = False
+                  acTool.ACBtnAnular.Visible = m_anular
+               End If
+               acTool.ACBtnEliminarVisible = m_eliminar
+            Else
+               acTool.ACBtnModificar.Enabled = False
+            End If
+         Else
+            acTool.ACBtnAnular.Visible = False
+            actsbtnQuitarAnulado.Visible = False
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos de Controles Generales "
+   Private Sub cmbImpresora_DropDown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tscmbImpresora.DropDown
+      Try
+         If IsNothing(Colecciones.ListPrinter) Then
+            Colecciones.CargarImpresoras()
+         End If
+         ACFramework.ACUtilitarios.ACCargaCombo(tscmbImpresora, Colecciones.ListPrinter, "DeviceName", "DeviceName")
+      Catch ex As Exception
+
+      End Try
+   End Sub
+
+   Private Sub cmbImpresoraRec_DropDown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tscmbImpresoraRec.DropDown
+      Try
+         If IsNothing(Colecciones.ListPrinter) Then
+            Colecciones.CargarImpresoras()
+         End If
+         ACFramework.ACUtilitarios.ACCargaCombo(tscmbImpresoraRec, Colecciones.ListPrinter, "DeviceName", "DeviceName")
+      Catch ex As Exception
+
+      End Try
+   End Sub
+
+#Region " Tool Bar "
+
+   Private Sub acTool_ACBtnAnular_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnAnular_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Anular Registro: {0}", Me.Text) _
+             , String.Format("Desea Anular el Viaje {0} - {1}: ", CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id, _
+                             CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Descripcion) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_Viajes.TRAN_Viajes = CType(bs_tran_viajes.Current, ETRAN_Viajes)
+            If managerTRAN_Viajes.AnularViaje() Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Anulado satisfactoriamente")
+               acTool_ACBtnCancelar_Click(Nothing, Nothing)
+               btnConsultar_Click(Nothing, Nothing)
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Anular Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnNuevo_Click
+      Try
+         tabMantenimiento.SelectedTab = tabDatos
+
+         managerTRAN_Viajes.TRAN_Viajes = New ETRAN_Viajes()
+         managerTRAN_Viajes.TRAN_Viajes.Instanciar(ACEInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         AsignarBinding()
+         txtCodigo.Focus()
+         Me.KeyPreview = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Nuevo Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnCancelar_Click
+      Try
+         tabMantenimiento.SelectedTab = tabBusqueda
+         For Each Item As ACBindHelper In m_listBindHelper
+            Item.ACUnBind()
+         Next
+         txtBusqueda.Focus()
+         Me.KeyPreview = False
+         RemoveHandler tcnDetalle.SelectionChanged, AddressOf TabAdicionales_SelectionChanged
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Deshacer)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cancelar Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnModificar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnModificar_Click
+      Try
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Nuevo)
+         cargar()
+         SetCarga(TipoCarga.Base, False)
+         SetCarga(TipoCarga.Fletes)
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         tcnDetalle.SelectedTab = tpgVehiRanfla
+         tabMantenimiento.SelectedTab = tabDatos
+         txtCodigo.Focus()
+         Me.KeyPreview = True
+         calcular(TipoCarga.Base)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+
+         GApp.DataUsuario.PROC_Codigo = Procesos.getProceso(Procesos.TipoProcesos.ViajesSoloLectura)
+         _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarProceso)
+         If _validate.ACProceso Then
+            setActivate(False)
+         Else
+            GApp.DataUsuario.PROC_Codigo = Nothing
+            Select Case managerTRAN_Viajes.TRAN_Viajes.VIAJE_Estado
+               Case "L"
+                  setActivate(False)
+               Case Else
+                  setActivate(True)
+            End Select
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Vehiculo", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles acTool.ACBtnGrabar_Click
+      Dim msg As String = ""
+      Try
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+         If ACFramework.ACUtilitarios.ACDatosOk(pnlDatos, msg) = True Then
+            If grabar() Then
+               managerAdministracionViajes.GuardarGuiaRemision(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, GApp.Usuario)
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado satisfactoriamente")
+               busqueda(txtBusqueda.Text)
+               Me.KeyPreview = False
+               txtBusqueda.Focus()
+               setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+            Else
+               acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar{0}", msg))
+            End If
+         Else
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("No puede guardar, por que hay campos obligatorios vacios: {0}", msg))
+         End If
+      Catch ex As Exception
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede grabar", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnReporte_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnReporte_Click
+      Try
+         If Not IsNothing(bs_tran_viajes) Then
+            If Not IsNothing(bs_tran_viajes.Current) Then
+               acTool_ACBtnModificar_Click(Nothing, Nothing)
+               setInstancia(ACFramework.ACUtilitarios.ACSetInstancia.Modificado)
+               Me.KeyPreview = False
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar, por que no se ha seleccionado/cargado ningun registro")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cancelar Vehiculo", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Grilla "
+
+   Private Sub c1grdDetalle_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles c1grdBusqueda.MouseDoubleClick
+      Try
+         If e.X > c1grdBusqueda.Rows.Fixed Then
+            acTool_ACBtnModificar_Click(Nothing, Nothing)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar el registro seleccionado", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdBusqueda_BeforeSort(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.SortColEventArgs) Handles c1grdBusqueda.BeforeSort
+      Try
+         Ordenar(c1grdBusqueda.Cols(e.Col).UserData)
+         c1grdBusqueda.Subtotal(AggregateEnum.Clear)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso ordenar", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdBusqueda_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdBusqueda.OwnerDrawCell
+      Try
+         If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+         If c1grdBusqueda.Cols(e.Col).Name = "VIAJE_Estado_Text" Or c1grdBusqueda.Cols(e.Col).Name = "VIAJE_Id" Or c1grdBusqueda.Cols(e.Col).Name = "VIAJE_IdxConductor" Then
+            If c1grdBusqueda.Rows(e.Row)("VIAJE_Estado") = ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Liquidado) Then
+               e.Style = c1grdBusqueda.Styles("Facturado")
+            End If
+         End If
+         If c1grdBusqueda.Rows(e.Row)("VIAJE_Estado") = ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Anulado) Then
+            e.Style = c1grdBusqueda.Styles("Anulado")
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Textos "
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Me.Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyUp(ByVal sender As Object, ByVal e As KeyEventArgs) Handles txtBusqueda.KeyUp
+      Try
+         If e.KeyCode = Keys.Enter Then
+            busqueda(txtBusqueda.Text)
+         ElseIf e.KeyCode = Keys.F4 Then
+            If Not IsNothing(bs_tran_viajes) Then
+               acTool_ACBtnModificar_Click(Nothing, Nothing)
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+      Try
+         Select Case e.KeyCode
+            Case Keys.Down
+               bs_tran_viajes.Position += 1
+               e.Handled = True
+               Exit Select
+            Case Keys.Up
+               bs_tran_viajes.Position -= 1
+               e.Handled = True
+               Exit Select
+            Case Keys.PageDown
+               bs_tran_viajes.Position += 10
+               e.Handled = True
+               e.Handled = True
+               Exit Select
+            Case Keys.PageUp
+               bs_tran_viajes.Position -= 10
+               e.Handled = True
+               e.Handled = True
+               Exit Select
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No puede completar el proceso ejecutado por el teclado", ex)
+      End Try
+   End Sub
+
+#End Region
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+   Private Sub TabAdicionales_SelectionChanged(ByVal sender As Crownwood.DotNetMagic.Controls.TabControl, ByVal oldPage As Crownwood.DotNetMagic.Controls.TabPage, ByVal newPage As Crownwood.DotNetMagic.Controls.TabPage)
+      Try
+         Select Case sender.SelectedTab.Name.ToString()
+            Case "tpgFletes"
+               SetCarga(TipoCarga.Fletes)
+            Case "tpgVehiRanfla"
+               SetCarga(TipoCarga.Base)
+            Case "tpgNeumaticos"
+               SetCarga(TipoCarga.Neumaticos)
+            Case "tpgIncidencias"
+               SetCarga(TipoCarga.Incidencias)
+            Case "tpgConsCombustible"
+               SetCarga(TipoCarga.ConsCombustible)
+            Case "tpgGastos"
+               SetCarga(TipoCarga.Gastos)
+            Case "tpgPresupuesto"
+               SetCarga(TipoCarga.Recibos)
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format("Ocurrio un error en el proceso Cargar {0}", sender.SelectedTab), ex)
+      End Try
+   End Sub
+
+   Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+      txtBusqueda_ACAyudaClick(Nothing, Nothing)
+   End Sub
+
+   Private Sub actxnKmAnterior_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(managerTRAN_Viajes.TRAN_Viajes) Then
+            managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_KmAnterior = Convert.ToDecimal(actxnKmAnterior.Text)
+            managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.VIAVE_Kilometraje = Convert.ToDecimal(actxnKilometraje.Text)
+            actxnKmDiferencia.Text = managerTRAN_Viajes.TRAN_Viajes.TRAN_ViajesVehiculos.Diferencia
+            actxnKmDiferencia.Formatear()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error calculando la diferencia de kilometros recorridos", ex)
+      End Try
+   End Sub
+
+   Private Sub btnCalLiqConductor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalLiqConductor.Click
+      Try
+         calcular(TipoCarga.Recibos)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Calculando el saldo", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnRepIngre_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnRepIngre.Click
+      Try
+         reporteIE(False)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Imprimir Reporte", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnRecQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnRecQuitar.Click
+      Dim _where As New Hashtable()
+      Try
+         If Not IsNothing(bs_tran_recibos) Then
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Quitar Registro: {0}", Me.Text) _
+                , String.Format("Desea quitar el registro: recibo nro {0} ", CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Numero) _
+                , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+               Dim _serie As String = CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Serie
+               Dim _numero As Integer = CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Numero
+               Dim _doc As String = CType(bs_tran_recibos.Current, ETRAN_Recibos).TIPOS_CodTipoRecibo
+               _where.Add("RECIB_Serie", New ACWhere(_serie))
+               _where.Add("RECIB_Numero", New ACWhere(_numero))
+               _where.Add("TIPOS_CodTipoRecibo", New ACWhere(_doc))
+               If managerAdministracionViajes.QuitarRecibos(CType(bs_tran_recibos.Current, ETRAN_Recibos).CAJA_Id, _where) Then
+                  'ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Quitar satisfactoriamente")
+               End If
+               SetCarga(TipoCarga.Recibos)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error quitando el Recibo", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdConsCombustible_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles c1grdConsCombustible.DoubleClick
+      If tsbtnCModificar.Enabled Then
+         tsbtnCModificar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub c1grdGastViajes_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles c1grdGastViajes.DoubleClick
+      If tsbtnGVModificar.Enabled Then
+         tsbtnGVModificar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub tsbtnOrdenInterna_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnAgregarFlete.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Generar Flete de Salida: {0}", Me.Text) _
+             , String.Format("¿Desea Generar un Flete de {0}? ", GApp.EEmpresa.EMPR_Desc) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            Dim _frm As New FCotizaciones(GApp.Empresa)
+            If _frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               Dim m_fflete As New FFlete(managerTRAN_Viajes.TRAN_Viajes, _frm.TRAN_Cotizaciones, m_tran_vehiculos, m_conductores, managerTRAN_Viajes.TRAN_Viajes.VHCON_Id)
+               m_fflete.dtpFecSalida.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida
+               m_fflete.dtpFecProgramada.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida
+               If managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada.Year > 1900 Then
+                  m_fflete.dtpFecLlegada.Value = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada
+               Else
+                  m_fflete.dtpFecLlegada.Value = DateTime.Now
+               End If
+               m_fflete.StartPosition = FormStartPosition.CenterScreen
+               m_fflete.acTool_ACBtnGrabar_Click(Nothing, Nothing)
+               'If m_fflete.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               SetCarga(TipoCarga.Fletes)
+               'calcular(TipoCarga.Ingresos)
+               calcular(TipoCarga.Recibos)
+               tcnDetalle.SelectedTab = tpgFletes
+
+               ACFramework.ACUtilitarios.ACCargaCombo(cmbFlete, managerAdministracionViajes.ListTRAN_Fletes, "ENTID_Nombres", "FLETE_Id")
+               'End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Generar Orden Interna", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnGrabar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnGuiaGrabar.Click
+      Try
+         c1grdGuiaRemision.FinishEditing()
+         If managerAdministracionViajes.GuardarGuiaRemision(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, GApp.Usuario) Then
+            ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Grabado Satisfactoriamente")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Grabar Guias de Remisión", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnPrAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnPrAgregar.Click
+      Try
+         Dim _frm As New PPendientesViaje(dtpFecSalida.Value, txtDescripcion.Text) With {.StartPosition = FormStartPosition.CenterScreen}
+         Select Case _frm.ShowDialog()
+            Case Windows.Forms.DialogResult.OK
+               managerAdministracionViajes.TESO_Caja = _frm.TESO_Caja
+               If managerAdministracionViajes.GenerarGasto(GApp.Usuario) Then
+                  cargarGastosViaje()
+               End If
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Agregar Gasto de Viaje"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnPrQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnPrQuitar.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro de Gasto Inicial: {0}", Me.Text) _
+             , String.Format("¿Desea Eliminar el registro de Gasto Inicial: {0}? ", CType(bs_bpresupuesto.Current, ETESO_Caja).CAJA_Glosa) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            If managerAdministracionViajes.QuitarGasto(CType(bs_bpresupuesto.Current, ETESO_Caja).CAJA_Id, CType(bs_bpresupuesto.Current, ETESO_Caja).RECIB_Codigo, GApp.Usuario) Then
+               cargarGastosViaje()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Quitar el Gasto de Viaje"), ex)
+      End Try
+   End Sub
+
+
+   Private Sub tsbtnPrModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnPrModificar.Click
+      Try
+         Dim _frm As New PPendientesViaje(CType(bs_bpresupuesto.Current, ETESO_Caja).PVENT_Id, CType(bs_bpresupuesto.Current, ETESO_Caja).CAJA_Id, txtDescripcion.Text) With {.StartPosition = FormStartPosition.CenterScreen}
+         If _frm.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            cargarGastosViaje()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Modificar Gasto de Viaje"), ex)
+      End Try
+   End Sub
+
+   Private Sub AcFecha_ACFecIni_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles acFecha.ACFecIni_KeyDown
+      If e.KeyData = Keys.Enter Then
+         AcFecha.ACDtpFecha_A.Focus()
+      End If
+   End Sub
+
+   Private Sub AcFecha_ACFecFin_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles acFecha.ACFecFin_KeyDown
+      If e.KeyData = Keys.Enter Then
+         btnConsultar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub rbtnFecSalida_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles rbtnFecSalida.KeyDown, rbtnFecLlegada.KeyDown, rbtnCodigo.KeyDown _
+      , rbtnDescripcion.KeyDown, rbtnPlacaTracto.KeyDown
+      If e.KeyCode = Keys.Enter Then
+         btnConsultar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub tsbtnModFlete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnModFlete.Click
+      Try
+         If Not IsNothing(bs_tran_fletes.Current) Then
+
+            Dim _fletes As New BTRAN_ViajesVentas
+            Dim _where As New Hashtable
+            _where.Add("FLETE_Id", New ACWhere(CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Id))
+            _where.Add("VIAVE_Estado", New ACWhere("X", ACWhere.TipoWhere.Diferente))
+            If _fletes.CargarTodos(_where) Then
+               GApp.DataUsuario.PROC_Codigo = Procesos.getProceso(Procesos.TipoProcesos.ModFletefacturado)
+               _validate = New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarProceso)
+               If Not _validate.ACProceso Then
+                  Throw New Exception("No puede modificar el flete, por que ya tiene un documento de venta, primero debe anular el documento de venta para modificar el flete")
+               End If
+            End If
+
+            Dim m_fflete As New MFlete(managerTRAN_Viajes.TRAN_Viajes, CType(bs_tran_fletes.Current, ETRAN_Fletes), m_tran_vehiculos, m_conductores, managerTRAN_Viajes.TRAN_Viajes.VHCON_Id)
+            m_fflete.dtpFecSalida.Value = CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_FecSalida
+            If CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_FecLlegada.Year > 1900 Then
+               m_fflete.dtpFecProgramada.Value = CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_FecLlegada
+               m_fflete.dtpFecLlegada.Value = CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_FecLlegada
+            Else
+               m_fflete.dtpFecProgramada.Value = DateTime.Now
+               m_fflete.dtpFecLlegada.Value = DateTime.Now
+            End If
+            
+            m_fflete.StartPosition = FormStartPosition.CenterScreen
+            If m_fflete.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               'calcular(TipoCarga.Ingresos)
+               calcular(TipoCarga.Recibos)
+               SetCarga(TipoCarga.Fletes)
+               tcnDetalle.SelectedTab = tpgFletes
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Flete", ex)
+      End Try
+   End Sub
+
+   Private Sub cmbTipoGuia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbTipoGuia.SelectedIndexChanged
+      Try
+         If Not IsNothing(cmbTipoGuia.SelectedValue) Then
+            If Not IsNothing(bs_tran_viajeguias) Then
+               CType(bs_tran_viajeguias.Current, ETRAN_ViajesGuiasRemision).TIPOS_CodTipoDocumento = cmbTipoGuia.SelectedValue
+               c1grdGuiaRemision.AutoSizeCols()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Seleccionar Item")
+      End Try
+   End Sub
+
+   Private Sub cmbFlete_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbFlete.SelectedIndexChanged
+      Try
+         If Not IsNothing(cmbFlete.SelectedValue) Then
+            If Not IsNothing(bs_tran_viajeguias) Then
+               CType(bs_tran_viajeguias.Current, ETRAN_ViajesGuiasRemision).FLETE_Id = cmbFlete.SelectedValue
+               c1grdGuiaRemision.AutoSizeCols()
+               c1grdGuiaRemision.Refresh()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Seleccionar Item")
+      End Try
+   End Sub
+
+   Private Sub cmbCondicion_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCondicion.SelectedIndexChanged
+      Try
+         If Not IsNothing(cmbCondicion.SelectedValue) Then
+            If Not IsNothing(bs_tran_viajeguias) Then
+               CType(bs_tran_viajeguias.Current, ETRAN_ViajesGuiasRemision).VEGRE_Condicion = cmbCondicion.SelectedValue
+               c1grdGuiaRemision.AutoSizeCols()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Seleccionar Item")
+      End Try
+   End Sub
+
+   Private Sub cmbGEmpresa_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbGEmpresa.SelectedIndexChanged
+      Try
+         If Not IsNothing(cmbTipoGuia.SelectedValue) Then
+            If Not IsNothing(bs_tran_viajeguias) Then
+               CType(bs_tran_viajeguias.Current, ETRAN_ViajesGuiasRemision).ENTID_Codigo = cmbGEmpresa.SelectedValue
+               c1grdGuiaRemision.AutoSizeCols()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Seleccionar Item")
+      End Try
+   End Sub
+
+   Private Sub rbtnCodigo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnCodigo.CheckedChanged
+      grpBFecha.Enabled = Not rbtnCodigo.Checked
+   End Sub
+
+   Private Sub btnModVehiculo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModVehiculo.Click
+      Try
+         Try
+            AyudaVehiCond("", "VEHIC_Placa")
+         Catch ex As Exception
+            ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Ayuda de Vehiculo", ex)
+         End Try
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Seleccionar Item")
+      End Try
+   End Sub
+
+   Private Sub AyudaVehiCond(ByVal x_cadena As String, ByVal x_campo As String)
+      Try
+         If managerTRAN_VehiculosConductores.CargarAyuda(x_cadena, x_campo) Then
+            Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Vehiculo", managerTRAN_VehiculosConductores.DTTRAN_VehiculosConductores, False)
+            If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               managerTRAN_Viajes.TRAN_Viajes.VHCON_Id = Ayuda.Respuesta.Rows(0)("Interno")
+               txtVehCodigo.Text = Ayuda.Respuesta.Rows(0)("Cod. Vehiculo").ToString()
+               txtVehPlaca.Text = Ayuda.Respuesta.Rows(0)("Placa").ToString()
+               txtConLicencia.Text = Ayuda.Respuesta.Rows(0)("Licencia").ToString()
+               txtConNombre.Text = Ayuda.Respuesta.Rows(0)("Conductor").ToString()
+               Dim _btran_vehiculos As New BTRAN_Vehiculos
+               If _btran_vehiculos.Cargar(Ayuda.Respuesta.Rows(0)("Cod. Vehiculo")) Then
+                  cmbMarca.SelectedValue = _btran_vehiculos.TRAN_Vehiculos.TIPOS_CodMarca
+                  cmbTipoVehiculo.SelectedValue = _btran_vehiculos.TRAN_Vehiculos.TIPOS_CodTipoVehiculo
+               End If
+
+               Dim b_tran_vehiculosranflas As New BTRAN_VehiculosRanflas()
+               Dim _join As New List(Of ACJoin)()
+               _join.Add(New ACJoin(ETRAN_VehiculosConductores.Esquema, ETRAN_VehiculosConductores.Tabla, "VCon", ACJoin.TipoJoin.Inner _
+                                    , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")}))
+               _join.Add(New ACJoin(ETRAN_Vehiculos.Esquema, ETRAN_Vehiculos.Tabla, "Veh", ACJoin.TipoJoin.Inner _
+                                    , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")} _
+                                    , New ACCampos() {New ACCampos("VEHIC_Placa", "VEHIC_Placa")}))
+               Dim _where As New Hashtable()
+               _where.Add("VHCON_Id", New ACWhere(managerTRAN_Viajes.TRAN_Viajes.VHCON_Id, "VCon", "System.Int64", ACWhere.TipoWhere.Igual))
+               _where.Add("VEHRN_Estado", New ACWhere(BConstantes.getEstado(BConstantes.Estados.Activo), ACWhere.TipoWhere.Igual))
+               _where.Add("VHCON_Estado", New ACWhere(BConstantes.getEstado(BConstantes.Estados.Activo), "VCon", "System.String", ACWhere.TipoWhere.Igual))
+               b_tran_vehiculosranflas.TRAN_VehiculosRanflas = New ETRAN_VehiculosRanflas
+               b_tran_vehiculosranflas.Cargar(_join, _where)
+
+               Dim _btran_ranflas As New BTRAN_Ranflas
+               If _btran_ranflas.Cargar(b_tran_vehiculosranflas.TRAN_VehiculosRanflas.RANFL_Id) Then
+                  txtRanCertificado.Text = _btran_ranflas.TRAN_Ranflas.RANFL_Certificado
+                  txtRanCodigo.Text = _btran_ranflas.TRAN_Ranflas.RANFL_Id.ToString("0000000")
+                  txtRanPlaca.Text = _btran_ranflas.TRAN_Ranflas.RANFL_Placa
+                  cmbRanMarca.SelectedValue = _btran_ranflas.TRAN_Ranflas.TIPOS_CodMarca
+               End If
+
+               managerTRAN_Viajes.TRAN_Viajes.VEHRN_Id = b_tran_vehiculosranflas.TRAN_VehiculosRanflas.VEHRN_Id
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar la ayuda, posiblemente no haya datos que mostrar")
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub btnGenRecibo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGenRecibo.Click
+      Try
+         Dim frmGViajes As New TRecibos(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada, actxnPendiente.Text) With {.StartPosition = FormStartPosition.CenterParent}
+         If frmGViajes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            cargarRecibos()
+            calcular(TipoCarga.Recibos)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Generar Recibo")
+      End Try
+   End Sub
+
+   Private Sub actxnPagoConductor_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles actxnPagoConductor.LostFocus
+      calcular(TipoCarga.Base)
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Vehiculo, Ranfla, Conductor"
+   Private Sub cargarVRC()
+      Try
+         '' Cargar Vehiculo, Ranfla y Conductor
+         If Not m_vrconductor Then
+            '' Cargar Vehiculo por conductor asignado
+            managerTRAN_VehiculosConductores.Cargar(managerTRAN_Viajes.TRAN_Viajes.VHCON_Id)
+            '' Cargar Conductor
+            managerEntidades.Cargar(managerTRAN_VehiculosConductores.TRAN_VehiculosConductores.ENTID_Codigo)
+            m_conductores = managerEntidades.getEntidades()
+            ABConductor()
+            '' Cargar Vehiculo
+            managerTRAN_Vehiculos.Cargar(managerTRAN_VehiculosConductores.TRAN_VehiculosConductores.VEHIC_Id)
+            m_tran_vehiculos = managerTRAN_Vehiculos.getTRAN_Vehiculos()
+            ABVehiculo()
+            '' Cargar Ranflas
+            managerTRAN_VehiculosRanflas.Cargar(managerTRAN_Viajes.TRAN_Viajes.VEHRN_Id)
+            managerTRAN_Ranflas.Cargar(managerTRAN_VehiculosRanflas.TRAN_VehiculosRanflas.RANFL_Id)
+            m_tran_ranflas = managerTRAN_Ranflas.getTRAN_Ranflas()
+            ABRanfla()
+            m_vrconductor = True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub ABConductor()
+      Try
+         m_listBHConductores = New List(Of ACBindHelper)()
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtConNombre, "Text", m_conductores, "ENTID_Nombres"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtConLicencia, "Text", m_conductores, "ENTID_NroDocumento"))
+         If m_conductores.ENTID_FecNacimiento.Year < 1700 Then m_conductores.ENTID_FecNacimiento = DateTime.Now
+         m_listBHConductores.Add(ACBindHelper.ACBind(dtpConFecNacimiento, "Value", m_conductores, "ENTID_FecNacimiento"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub ABVehiculo()
+      Try
+         m_listBHVehiculos = New List(Of ACBindHelper)()
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtVehCodigo, "Text", m_tran_vehiculos, "VEHIC_Id"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtVehCertificado, "Text", m_tran_vehiculos, "VEHIC_Certificado"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtVehPlaca, "Text", m_tran_vehiculos, "VEHIC_Placa"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(cmbMarca, "SelectedValue", m_tran_vehiculos, "TIPOS_CodMarca"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(cmbTipoVehiculo, "SelectedValue", m_tran_vehiculos, "TIPOS_CodTipoVehiculo"))
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub ABRanfla()
+      Try
+         m_listBHRanflas = New List(Of ACBindHelper)()
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtRanCodigo, "Text", m_tran_ranflas, "RANFL_Codigo"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtRanPlaca, "Text", m_tran_ranflas, "RANFL_Placa"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(txtRanCertificado, "Text", m_tran_ranflas, "RANFL_Certificado"))
+         m_listBHConductores.Add(ACBindHelper.ACBind(cmbRanMarca, "SelectedValue", m_tran_ranflas, "TIPOS_CodMarca"))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Fletes"
+
+   Private Sub formatearGrilla_Fletes()
+      Try
+         Dim index As Integer = 1
+         'Definicion de grilla de Fletes
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdFletes, 1, 1, 15, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Código", "FLETE_Id", "FLETE_Id", 250, True, False, "System.String", "000000") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Cliente", "ENTID_Nombres", "ENTID_Nombres", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Documento", "Documento", "Documento", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Fec. Salida", "FLETE_FecSalida", "FLETE_FecSalida", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Fec. LLegada", "FLETE_FecLlegada", "FLETE_FecLlegada", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Peso T.M.", "FLETE_PesoEnTM", "FLETE_PesoEnTM", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Monto Por TM.", "FLETE_MontoPorTM", "FLETE_MontoPorTM", 250, True, False, "System.Decial", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "I.G.V.", "FLETE_ImporteIgv", "FLETE_ImporteIgv", 250, True, False, "System.Decial", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Ingreso", "FLETE_TotIngreso", "FLETE_TotIngreso", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Pagado", "Pago", "Pago", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Ruta", "RUTAS_Nombre", "RUTAS_Nombre", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdFletes, index, "Glosa", "FLETE_Glosa", "FLETE_Glosa", 250, True, False, "System.String") : index += 1
+         c1grdFletes.AllowEditing = False
+         c1grdFletes.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdFletes.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdFletes.Styles.Highlight.BackColor = Color.Gray
+         c1grdFletes.SelectionMode = SelectionModeEnum.Row
+         c1grdFletes.AutoClipboard = True
+
+         Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdFletes.Styles.Add("Facturado")
+         t.BackColor = Color.LightGreen
+         t.ForeColor = Color.DarkBlue
+         t.Font = New Font(c1grdFletes.Font, FontStyle.Regular)
+
+         Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdFletes.Styles.Add("Facturar")
+         u.BackColor = Color.Green
+         u.ForeColor = Color.White
+         u.Font = New Font(c1grdFletes.Font, FontStyle.Regular)
+
+         Dim d1 As C1.Win.C1FlexGrid.CellStyle = c1grdFletes.Styles.Add("Anulado")
+         d1.BackColor = Color.Red
+         d1.ForeColor = Color.White
+         d1.Font = New Font(c1grdFletes.Font, FontStyle.Bold)
+
+         Dim j1 As C1.Win.C1FlexGrid.CellStyle = c1grdFletes.Styles.Add("Pagar")
+         j1.BackColor = Color.DarkBlue
+         j1.ForeColor = Color.White
+         j1.Font = New Font(c1grdFletes.Font, FontStyle.Bold)
+
+         c1grdFletes.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdRutas, 1, 1, 6, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRutas, index, "Ruta", "RUTAS_Nombre", "RUTAS_Nombre", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRutas, index, "Fec. Salida", "FLETE_FecSalida", "FLETE_FecSalida", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRutas, index, "Fec. LLegada", "FLETE_FecLlegada", "FLETE_FecLlegada", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRutas, index, "R.U.C.", "ENTID_NroDocumento", "ENTID_NroDocumento", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRutas, index, "Cliente", "ENTID_Nombres", "ENTID_Nombres", 250, True, False, "System.String", "") : index += 1
+
+         c1grdRutas.AllowEditing = False
+         c1grdRutas.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdRutas.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdRutas.Styles.Highlight.BackColor = Color.Gray
+         c1grdRutas.SelectionMode = SelectionModeEnum.Row
+         c1grdRutas.AutoClipboard = True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub c1grdFletes_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdFletes.OwnerDrawCell
+      Try
+         If e.Row < c1grdFletes.Rows.Fixed OrElse e.Col < c1grdFletes.Cols.Fixed Then Return
+         'If c1grdReporte.Rows(e.Row)("Pendiente") <> 0 Then
+         '   e.Style = c1grdReporte.Styles("Facturado")
+         'End If
+         If c1grdFletes.Cols(e.Col).Name = "Pago" Then
+            If c1grdFletes.Rows(e.Row)("FLETE_TotIngreso") - c1grdFletes.Rows(e.Row)("Pago") > 0 Then
+               e.Style = c1grdFletes.Styles("Anulado")
+            End If
+         End If
+
+         If c1grdFletes.Cols(e.Col).Name = "Pago" Then
+            If c1grdFletes.Rows(e.Row)("Pago") - c1grdFletes.Rows(e.Row)("FLETE_TotIngreso") = 0 Then
+               e.Style = c1grdFletes.Styles("Pagar")
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Sub cargarFletes()
+      Try
+         '' Cargar Los fletes asociados
+         managerAdministracionViajes.CargarFletes(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+         bs_tran_fletes = New BindingSource()
+         bs_tran_fletes.DataSource = managerAdministracionViajes.ListTRAN_Fletes
+         c1grdFletes.DataSource = bs_tran_fletes
+         bnavFletes.BindingSource = bs_tran_fletes
+
+         c1grdFletes.Subtotal(AggregateEnum.Sum, 0, -1, 7, "Total")
+         c1grdFletes.Subtotal(AggregateEnum.Sum, 0, -1, 9, "Total")
+         c1grdFletes.Subtotal(AggregateEnum.Sum, 0, -1, 11, "Total")
+
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbFlete, managerAdministracionViajes.ListTRAN_Fletes, "ENTID_Nombres", "FLETE_Id")
+
+         bs_rutas = New BindingSource
+         bs_rutas.DataSource = managerAdministracionViajes.ListTRAN_Fletes
+         bnavRutas.BindingSource = bs_rutas
+         c1grdRutas.DataSource = bs_rutas
+
+         AddHandler bs_tran_fletes.CurrentChanged, AddressOf bs_fletes_CurrentChanged
+         bs_fletes_CurrentChanged(Nothing, Nothing)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_fletes_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_fletes) Then
+            txtFleObs.Text = CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Observaciones
+         Else
+            txtFleObs.Clear()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso Cargar Observaciones del Flete", ex)
+      End Try
+   End Sub
+
+#Region " Controles "
+
+   Private Sub tsbtnAddNewFlete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnAddNewFlete.Click
+      Try
+         'If managerTRAN_OrdenesTransportes.CargarAyuda(Nothing) Then
+         '   Dim frmAyuda As New ACControlesC1.ACAyudaFlex("Ayuda de Ordenes de Transporte", managerTRAN_OrdenesTransportes.DTTRAN_OrdenesTransportes, False)
+         '   If frmAyuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+         '      Dim x_codigo As String = frmAyuda.Respuesta.Rows(0)("Codigo")
+         '      managerTRAN_OrdenesTransportes.Cargar(x_codigo, True)
+         '      Dim m_fflete As New FFlete(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, managerTRAN_OrdenesTransportes.TRAN_coti, m_tran_vehiculos, managerTRAN_Viajes.TRAN_Viajes.VHCON_Id)
+         '      m_fflete.acbtnGrabarAbrir.Enabled = False
+         '      m_fflete.acbtnGrabarAbrir.Visible = False
+         '      m_fflete.StartPosition = FormStartPosition.CenterScreen
+         '      If m_fflete.ShowDialog() = Windows.Forms.DialogResult.OK Then
+         '         SetCarga(TipoCarga.Fletes)
+         '      End If
+         '   End If
+         'Else
+         '   ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar la ayuda, posiblemente no haya registros")
+         'End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Nuevo Flete", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnDelFlete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnFQuitar.Click
+      Try
+         If CType(bs_tran_fletes.DataSource, List(Of ETRAN_Fletes)).Count > 0 Then
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Quitar Flete del Viaje Actual: {0}", Me.Text) _
+                , String.Format("Desea quitar el flete: {0}", CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Id) _
+                , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+               '' Asignar el codigo del viaje al flete
+               Dim b_tran_fletes As New BTRAN_Fletes()
+               b_tran_fletes.TRAN_Fletes = New ETRAN_Fletes
+               'b_tran_fletes.TRAN_Fletes.VIAJE_Id = -1 ' -1 Permite que se envie un valor nulo a la base de datos
+               b_tran_fletes.TRAN_Fletes.FLETE_Id = CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Id
+               b_tran_fletes.TRAN_Fletes.FLETE_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+               b_tran_fletes.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+               If b_tran_fletes.Guardar(GApp.Usuario) Then
+                  ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Se quito el flete satisfactoriamente")
+               End If
+               '' Carga flete
+               SetCarga(TipoCarga.Fletes)
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede dejar a un Viaje sin fletes")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Quitar Flete", ex)
+      End Try
+   End Sub
+#End Region
+#End Region
+
+#Region " Cargar Datos: Neumaticos "
+   Private Sub formatearGrilla_Neumaticos()
+      Try
+         Dim index As Integer = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdInvNeumaticos, 1, 1, 7, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Orden", "NEUMF_Id", "NEUMF_Id", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Código", "NEUMA_Codigo", "NEUMA_Codigo", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Modelo", "NEUMA_Modelo", "NEUMA_Modelo", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Tamaño", "NEUMA_Tamano", "NEUMA_Tamano", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Tipo Neumatico", "TIPOS_TipoLlanta", "TIPOS_TipoLlanta", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInvNeumaticos, index, "Kilometraje", "NEUMF_Km", "NEUMF_Km", 250, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+
+         c1grdInvNeumaticos.AllowEditing = False
+         c1grdInvNeumaticos.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdInvNeumaticos.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdInvNeumaticos.Styles.Highlight.BackColor = Color.Gray
+         c1grdInvNeumaticos.SelectionMode = SelectionModeEnum.Row
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdInciNeumatico, 1, 1, 4, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciNeumatico, index, "Interno", "INCNU_ID", "INCNU_ID", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciNeumatico, index, "Descripción", "INCNU_Descripcion", "INCNU_Descripcion", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciNeumatico, index, "Fecha", "INCNU_Fecha", "INCNU_Fecha", 250, True, False, "System.String") : index += 1
+
+         c1grdInciNeumatico.AllowEditing = False
+         c1grdInciNeumatico.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdInciNeumatico.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdInciNeumatico.Styles.Highlight.BackColor = Color.Gray
+         c1grdInciNeumatico.SelectionMode = SelectionModeEnum.Row
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarNeumaticos()
+      Try
+         '' Cargar el inventario de Neumaticos del Vehiculo
+         If Not m_neumaticos Then
+            bs_tran_viajesneumaticos = New BindingSource()
+            managerAdministracionViajes.CargarNeumaticos(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+            bs_tran_viajesneumaticos.DataSource = managerAdministracionViajes.ListTRAN_ViajesNeumaticos
+
+            c1grdInvNeumaticos.DataSource = bs_tran_viajesneumaticos
+            bnavNeumaticos.BindingSource = bs_tran_viajesneumaticos
+            m_neumaticos = True
+            AddHandler bs_tran_viajesneumaticos.CurrentChanged, AddressOf bs_tran_viajesneumaticos_CurrentChanged
+            bs_tran_viajesneumaticos_CurrentChanged(Nothing, Nothing)
+         End If
+         tcnDetalle.SelectedTab = tpgNeumaticos
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_tran_viajesneumaticos_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_viajesneumaticos) Then
+            If Not IsNothing(bs_tran_viajesneumaticos.Current) Then
+               bs_tran_incidenciasneumaticos = New BindingSource()
+               bs_tran_incidenciasneumaticos.DataSource = CType(bs_tran_viajesneumaticos.Current, ETRAN_ViajesNeumaticos).ListTRAN_IncidenciasNeumaticos
+               c1grdInciNeumatico.DataSource = bs_tran_incidenciasneumaticos
+               bnavInciNeumaticos.BindingSource = bs_tran_incidenciasneumaticos
+
+               Dim m_etran_neumaticos As New ETRAN_ViajesNeumaticos
+               m_etran_neumaticos = CType(bs_tran_viajesneumaticos.Current, ETRAN_ViajesNeumaticos)
+
+               Dim _lado As String = m_etran_neumaticos.VNEUM_Lado
+               Dim _intext As String = m_etran_neumaticos.VNEUM_InternoExterno
+               Dim _seccion As String = m_etran_neumaticos.VNEUM_Seccion
+
+               Dim _posicion As String
+               If m_etran_neumaticos.VEHIC_Id = 0 Then
+                  _posicion = (m_etran_neumaticos.VNEUM_OrdenPosicion + 1).ToString()
+                  acvRanfla.setColor(_seccion & _lado & _intext & _posicion)
+                  acvTracto.setColorAll(Color.Black)
+               ElseIf m_etran_neumaticos.RANFL_Id = 0 Then
+                  _posicion = m_etran_neumaticos.VNEUM_OrdenPosicion.ToString()
+                  acvTracto.setColor(_seccion & _lado & _intext & _posicion)
+                  acvRanfla.setColorAll(Color.Black)
+               End If
+
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+#Region " Incidencias "
+
+   Private Sub tsbtnAgregarIncNeumaticos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnAgregarIncNeumaticos.Click
+      Try
+         Dim frmIncNeuma As New PNeumaticosIncidencias(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, CType(bs_tran_viajesneumaticos.Current, ETRAN_ViajesNeumaticos).NEUMA_Id)
+         If frmIncNeuma.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            CType(bs_tran_viajesneumaticos.Current, ETRAN_ViajesNeumaticos).ListTRAN_IncidenciasNeumaticos.Add(frmIncNeuma.TRAN_IncidenciasNeumaticos)
+            bs_tran_incidenciasneumaticos.ResetBindings(False)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Ingreso de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnQuitarIncNeumaticos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnQuitarIncNeumaticos.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar el la incidencia del Neumatico: {0}", Me.Text) _
+             , "¿Desea quitar la incidencia del neumatico ingresada? " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerAdministracionViajes.TRAN_NeumaticosIncidencias = CType(bs_tran_incidenciasneumaticos.Current, ETRAN_NeumaticosIncidencias)
+            If managerAdministracionViajes.eliminarIncidenciaNeumaticos() Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Eliminado satisfactoriamente")
+               cargarNeumaticos()
+            End If
+
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Quitar Incidencia de Viaje", ex)
+      End Try
+   End Sub
+
+#End Region
+#End Region
+
+#Region " Cargar Datos: Recibos "
+   Private Sub formatearGrilla_Recibos()
+      Try
+         Dim index As Integer = 1
+         'Definicion de grilla de Presupuestos
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdIngEgre, 1, 1, 10, 1, 3)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Codigo", "Codigo", "Codigo", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "x", "RECIB_Impresa", "RECIB_Impresa", 150, True, False, "System.Boolean") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "N", "RECIB_Impresiones", "RECIB_Impresiones", 150, True, False, "System.Integer") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Tipo Recibo", "TIPOS_TipoRecibo", "TIPOS_TipoRecibo", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Monto", "RECIB_Monto", "RECIB_Monto", 100, True, True, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Recibido de", "RECIB_De", "RECIB_De", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Concepto", "RECIB_Concepto", "RECIB_Concepto", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdIngEgre, index, "Fecha", "RECIB_Fecha", "RECIB_Fecha", 300, True, True, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+
+         c1grdIngEgre.AllowEditing = False
+         c1grdIngEgre.AutoResize = True
+         c1grdIngEgre.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdIngEgre.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdIngEgre.Styles.Highlight.BackColor = Color.Gray
+         c1grdIngEgre.SelectionMode = SelectionModeEnum.Row
+
+         index = 1
+         'Definicion de grilla de Presupuestos
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdRecEmitir, 1, 1, 6, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRecEmitir, index, "Estado", "FLETE_Glosa", "FLETE_Glosa", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRecEmitir, index, "Importe", "Importe", "Importe", 90, True, False, "System.Decimal", Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRecEmitir, index, "Documento", "Documento", "Documento", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRecEmitir, index, "Glosa", "VGAST_Descripcion", "VGAST_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdRecEmitir, index, "Fecha", "VGAST_Fecha", "VGAST_Fecha", 90, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+
+         c1grdRecEmitir.AllowEditing = False
+         c1grdRecEmitir.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdRecEmitir.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdRecEmitir.Styles.Highlight.BackColor = Color.Gray
+         c1grdRecEmitir.SelectionMode = SelectionModeEnum.Row
+         c1grdRecEmitir.AutoResize = False
+         c1grdRecEmitir.AllowResizing = AllowResizingEnum.Both
+         c1grdRecEmitir.Cols("VGAST_Descripcion").StyleDisplay.WordWrap = True
+         c1grdRecEmitir.Tree.Column = 1
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub tsbtnRecAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnRecAgregar.Click
+      Try
+         Dim frmGViajes As New TRecibos(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada) With {.StartPosition = FormStartPosition.CenterParent}
+         If frmGViajes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.Recibos)
+            calcular(TipoCarga.Recibos)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Recibos de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub cargarRecibos()
+      Try
+         '' Cargar Los fletes asociados
+         managerAdministracionViajes.cargarRecibos(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+         'formatearGrilla_Recibos()
+         bs_tran_recibos = New BindingSource()
+         bs_tran_recibos.DataSource = managerAdministracionViajes.ListTRAN_Recibos
+         c1grdIngEgre.DataSource = bs_tran_recibos
+         bnavIngEgre.BindingSource = bs_tran_recibos
+         AddHandler bs_tran_recibos.CurrentChanged, AddressOf bs_tran_recibos_CurrentChanged
+         bs_tran_recibos_CurrentChanged(Nothing, Nothing)
+         'c1grdIngEgre.Subtotal(AggregateEnum.Sum, 0, -1, 4, "Total")
+         c1grdIngEgre.Subtotal(AggregateEnum.Sum, 0, -1, c1grdIngEgre.Cols("RECIB_Monto").Index, "{0}")
+
+
+         bs_tran_viajesgastosrecibos = New BindingSource
+         bs_tran_viajesgastosrecibos.DataSource = managerAdministracionViajes.ListTRAN_ViajesGastosRecibos
+         c1grdRecEmitir.DataSource = bs_tran_viajesgastosrecibos
+         bnavRecEmitir.BindingSource = bs_tran_viajesgastosrecibos
+         c1grdRecEmitir.Subtotal(AggregateEnum.Sum, 0, -1, 2, "Total")
+         c1grdRecEmitir.AutoSizeCols(1)
+
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_tran_recibos_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_recibos) Then
+            If Not IsNothing(bs_tran_recibos.Current) Then
+               If CType(bs_tran_recibos.Current, ETRAN_Recibos).TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Pendiente) Or _
+                  CType(bs_tran_recibos.Current, ETRAN_Recibos).TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Gasto) Then
+                  tsbtnRecQuitar.Enabled = False
+               Else
+                  Select Case managerTRAN_Viajes.TRAN_Viajes.VIAJE_Estado
+                     Case "L"
+                        tsbtnRecQuitar.Enabled = False
+                     Case Else
+                        tsbtnRecQuitar.Enabled = True
+                  End Select
+               End If
+               If CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Impresiones > 0 Then
+                  tsbtnImprimir.Enabled = m_reimprimir
+               Else
+                  tsbtnImprimir.Enabled = True
+               End If
+            End If
+            Select Case managerTRAN_Viajes.TRAN_Viajes.VIAJE_Estado
+               Case "L"
+                  tsbtnRecAgregar.Enabled = True
+               Case Else
+                  tsbtnRecAgregar.Enabled = True
+            End Select
+          
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Gasto Inicial "
+   Private Sub formatearGrilla_GastosViajeInicial()
+      Try
+         Dim index As Integer = 1
+         'Definicion de grilla de Presupuestos
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdGastoInicial, 1, 1, 7, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Recibo", "Documento", "Documento", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Tipo", "TIPOS_TipoDocumento", "TIPOS_TipoDocumento", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Descripción", "CAJA_Glosa", "CAJA_Glosa", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 300, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Monto", "CAJA_Importe", "CAJA_Importe", 100, True, True, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastoInicial, index, "Fecha", "CAJA_Fecha", "CAJA_Fecha", 300, True, True, "System.String", "") : index += 1
+
+         c1grdGastoInicial.AllowEditing = False
+         c1grdGastoInicial.AutoResize = True
+         c1grdGastoInicial.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdGastoInicial.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdGastoInicial.Styles.Highlight.BackColor = Color.Gray
+         c1grdGastoInicial.SelectionMode = SelectionModeEnum.Row
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarGastosViaje()
+      Try
+         If Not managerAdministracionViajes.GastosViajeInicial() Then
+            managerAdministracionViajes.ListTESO_Caja = New List(Of ETESO_Caja)
+         End If
+
+         bs_bpresupuesto = New BindingSource()
+         bs_bpresupuesto.DataSource = managerAdministracionViajes.ListTESO_Caja
+         c1grdGastoInicial.DataSource = bs_bpresupuesto
+         bnavPresupuesto.BindingSource = bs_bpresupuesto
+
+         c1grdGastoInicial.Subtotal(AggregateEnum.Sum, 0, -1, c1grdGastoInicial.Cols("CAJA_Importe").Index, "Total")
+         'c1grdGastoInicial.Subtotal(AggregateEnum.Sum, 0, -1, 6, "Total")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Incidencias Viajes "
+   Private Sub formatearGrilla_IncidenciasViajes()
+      Try
+         'Definicion de grilla de Incidencias Viaje
+         Dim index As Integer = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdInciViajes, 1, 1, 4, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciViajes, index, "Descripción", "INCIV_Descripcion", "INCIV_Descripcion", 350, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciViajes, index, "Detalle", "INCIV_AccionRealizada", "INCIV_AccionRealizada", 100, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdInciViajes, index, "Fecha", "INCIV_Fecha", "INCIV_Fecha", 100, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         c1grdInciViajes.AllowEditing = False
+         c1grdInciViajes.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdInciViajes.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdInciViajes.Styles.Highlight.BackColor = Color.Gray
+         c1grdInciViajes.SelectionMode = SelectionModeEnum.Row
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarIncidenciasViaje()
+      Try
+         '' Cargar Los fletes asociados
+         managerAdministracionViajes.cargarIncidencias(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+         bs_tran_incidenciasviajes = New BindingSource()
+         bs_tran_incidenciasviajes.DataSource = managerAdministracionViajes.ListTRAN_IncidenciasViajes
+         c1grdInciViajes.DataSource = bs_tran_incidenciasviajes
+         bnavInicidencias.BindingSource = bs_tran_incidenciasviajes
+         AddHandler bs_tran_incidenciasviajes.CurrentChanged, AddressOf bs_Incidencias_CurrentChanged
+         bs_Incidencias_CurrentChanged(Nothing, Nothing)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub bs_Incidencias_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_incidenciasviajes) Then
+            If Not IsNothing(bs_tran_incidenciasviajes.Current) Then
+               txtVIGlosa.Text = CType(bs_tran_incidenciasviajes.Current, ETRAN_IncidenciasViajes).INCIV_AccionRealizada
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnIVAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnIVAgregar.Click
+      Try
+         Dim frmInc As New PIncidenciaViajes(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+         If frmInc.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.Incidencias)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Incidencia de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnIVQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnIVQuitar.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Incidencia de Viajes: {0}", Me.Text) _
+             , "¿Desea quitar la Incidencia actualmente seleccionada? " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerAdministracionViajes.eliminarIncidencia(CType(bs_tran_incidenciasviajes.Current, ETRAN_IncidenciasViajes).INCIV_Id)
+            ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Eliminado satisfactoriamente")
+            cargarIncidenciasViaje()
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Quitar Incidencia de Viaje", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Consumo de Combustible"
+   Private Sub formatearGrilla_ConsCombustible()
+      Try
+         Dim index As Integer = 1
+         'Definicion de grilla de Ingresos
+         '' Conbustible Consumo
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdConsCombustible, 1, 1, 16, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Codigo", "COMCO_Id", "COMCO_Id", 150, True, False, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Recibo", "Documento", "Documento", 150, True, False, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Referencia", "Referencia", "Referencia", 150, True, False, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "R.U.C.", "ENTID_CodigoProveedor", "ENTID_CodigoProveedor", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Proveedor", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Modo Pago", "TIPOS_ModoPago", "TIPOS_ModoPago", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "T. Combustible", "TIPOS_TipoCombustible", "TIPOS_TipoCombustible", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Prec. Galon", "COMCO_PrecioGalon", "COMCO_PrecioGalon", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Prec. Total", "COMCO_Total", "COMCO_Total", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Fecha Viaje", "COMCO_FechaViaje", "COMCO_FechaViaje", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Documento", "CompDocumento", "CompDocumento", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Consumo (Gls)", "COMCO_GalonesConsumidos", "COMCO_GalonesConsumidos", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Fecha", "COMCO_Fecha", "COMCO_Fecha", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConsCombustible, index, "Considerar en Caja", "COMCO_CCaja", "COMCO_CCaja", 150, True, False, "System.Boolean", "") : index += 1
+
+         c1grdConsCombustible.AllowEditing = False
+         c1grdConsCombustible.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdConsCombustible.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdConsCombustible.Styles.Highlight.BackColor = Color.Gray
+         c1grdConsCombustible.SelectionMode = SelectionModeEnum.Row
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarConsumoCombustible()
+      Try
+         '' Cargar el consumo de combustible asociado
+         If Not managerAdministracionViajes.cargarConsCombustible(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id) Then
+            managerAdministracionViajes.ListTRAN_CombustibleConsumo = New List(Of ETRAN_CombustibleConsumo)
+         End If
+         bs_tran_combustibleconsumo = New BindingSource()
+         bs_tran_combustibleconsumo.DataSource = managerAdministracionViajes.ListTRAN_CombustibleConsumo
+         c1grdConsCombustible.DataSource = bs_tran_combustibleconsumo
+         bnavConsCombustible.BindingSource = bs_tran_combustibleconsumo
+
+         c1grdConsCombustible.Subtotal(AggregateEnum.Sum, 0, -1, 10, "Total")
+         c1grdConsCombustible.Subtotal(AggregateEnum.Sum, 0, -1, 13, "Total")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub tsbtnCCAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnCCAgregar.Click
+      Try
+         Dim frmCC As New PConsumoCombustible(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, m_tran_vehiculos.VEHIC_Id, managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada)
+         If frmCC.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.ConsCombustible)
+            calcular(TipoCarga.ConsCombustible)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Consumo de Combustible", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnCModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnCModificar.Click
+      Try
+         Dim frmCC As New PConsumoCombustible(CType(bs_tran_combustibleconsumo.Current, ETRAN_CombustibleConsumo).COMCO_Id)
+         If frmCC.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.ConsCombustible)
+            calcular(TipoCarga.ConsCombustible)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Consumo de Combustible", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnCCQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnCCQuitar.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar el consumo de combustible: {0}", Me.Text) _
+             , "¿Desea quitar el consumo de combustible seleccionado? " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerAdministracionViajes.TRAN_CombustibleConsumo = CType(bs_tran_combustibleconsumo.Current, ETRAN_CombustibleConsumo)
+            managerAdministracionViajes.eliminarConsCombustible()
+            'ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Eliminado satisfactoriamente")
+            cargarIncidenciasViaje()
+            calcular(TipoCarga.ConsCombustible)
+            SetCarga(TipoCarga.ConsCombustible)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Quitar Incidencia de Viaje", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Cargar Datos: Gastos de Viaje "
+   Private Sub formatearGrilla_Gastos()
+      Dim index As Integer = 1
+      Try
+         'Definicion de grilla de Gastos
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdGastViajes, 1, 1, 13, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Codigo", "VGAST_Id", "VGAST_Id", 150, True, False, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Recibo", "Recibo", "Recibo", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Referencia", "Referencia", "Referencia", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Tipo Gasto", "TIPOS_TipoGasto", "TIPOS_TipoGasto", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Monto", "VGAST_Monto", "VGAST_Monto", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Descripción", "VGAST_Descripcion", "VGAST_Descripcion", 250, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Fecha", "VGAST_Fecha", "VGAST_Fecha", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Comp.", "VGAST_Comprobantes", "VGAST_Comprobantes", 150, True, False, "System.Boolean") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Documento", "Documento", "Documento", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Proveedor", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGastViajes, index, "Fecha Viaje", "VGAST_FechaViaje", "VGAST_FechaViaje", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+
+         c1grdGastViajes.AllowEditing = False
+         c1grdGastViajes.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdGastViajes.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdGastViajes.Styles.Highlight.BackColor = Color.Gray
+         c1grdGastViajes.SelectionMode = SelectionModeEnum.Row
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarViajesGastos()
+      Try
+         '' Cargar Los fletes asociados
+         managerAdministracionViajes.cargarGastosViaje(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+         bs_tran_viajesgastos = New BindingSource()
+         bs_tran_viajesgastos.DataSource = managerAdministracionViajes.ListTRAN_ViajesGastos
+         c1grdGastViajes.DataSource = bs_tran_viajesgastos
+         bnavGastos.BindingSource = bs_tran_viajesgastos
+         AddHandler bs_tran_viajesgastos.CurrentChanged, AddressOf bs_viajesgastos_CurrentChanged
+         bs_viajesgastos_CurrentChanged(Nothing, Nothing)
+
+         c1grdGastViajes.Subtotal(AggregateEnum.Sum, 0, -1, 6, "Total")
+         c1grdGastViajes.AutoSizeCols()
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub tsbtnGVAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnGVAgregar.Click
+      Try
+         Dim frmGViajes As New PGastosViaje(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada)
+         If frmGViajes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.Gastos)
+            calcular(TipoCarga.Gastos)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Agregar Gasto de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnGVModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnGVModificar.Click
+      Try
+         Dim frmGViajes As New PGastosViaje(CType(bs_tran_viajesgastos.Current, ETRAN_ViajesGastos).VGAST_Id, managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id, _
+                                            managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecSalida, CType(bs_tran_viajesgastos.Current, ETRAN_ViajesGastos).RECIB_Codigo, _
+                                            CType(bs_tran_viajesgastos.Current, ETRAN_ViajesGastos).CAJA_Id)
+         If frmGViajes.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.Gastos)
+            calcular(TipoCarga.Gastos)
+            tcnDetalle.SelectedTab = tpgGastos
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Modificar Gasto de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnGVQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnGVQuitar.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar el gasto de viaje: {0}", Me.Text) _
+             , "¿Desea quitar el gasto de viaje seleccionado? " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerAdministracionViajes.TRAN_ViajesGastos = CType(bs_tran_viajesgastos.Current, ETRAN_ViajesGastos)
+            If managerAdministracionViajes.eliminarGastoViaje() Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Eliminado satisfactoriamente")
+               cargarViajesGastos()
+               calcular(TipoCarga.Gastos)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Quitar Incidencia de Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub bs_viajesgastos_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_tran_viajesgastos) Then
+            If Not IsNothing(bs_tran_viajesgastos.Current) Then
+               If tsbtnGVAgregar.Enabled Then
+                  If CType(bs_tran_viajesgastos.Current, ETRAN_ViajesGastos).TIPOS_Gasto = ETipos.getTipo(ETipos.TipoGasto.IncNeumaticos) Then
+                     tsbtnGVQuitar.Enabled = False
+                  Else
+                     tsbtnGVQuitar.Enabled = True
+                  End If
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Guias de Remision "
+   Private Sub formatearGrilla_GuiasRemision()
+      Try
+         Dim index As Integer = 1
+         'Definicion de grilla de Ingresos
+         '' Conbustible Consumo
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdGuiaRemision, 1, 1, 10, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Codigo", "GTRAN_Codigo", "GTRAN_Codigo", 50, False, False, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Serie", "Serie", "Serie", 30, True, True, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Numero", "Numero", "Numero", 80, True, True, "System.Integer", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Tipo Doc", "TIPOS_CodTipoDocumento_Text", "TIPOS_CodTipoDocumento_Text", 200, True, True, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Cod Flete", "FLETE_Id", "FLETE_Id", 250, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Flete", "FLETE_Id_Text", "FLETE_Id_Text", 250, True, True, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Empresa", "ENTID_RazonSocial", "ENTID_RazonSocial", 150, True, True, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Condicion", "VEGRE_Condicion_Text", "VEGRE_Condicion_Text", 150, True, True, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuiaRemision, index, "Observación", "VEGRE_Observacion", "VEGRE_Observacion", 250, True, True, "System.String") : index += 1
+
+         c1grdGuiaRemision.AllowEditing = True
+         c1grdGuiaRemision.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdGuiaRemision.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdGuiaRemision.Styles.Highlight.BackColor = Color.Gray
+         c1grdGuiaRemision.SelectionMode = SelectionModeEnum.Default
+
+         c1grdGuiaRemision.Cols("TIPOS_CodTipoDocumento_Text").Editor = cmbTipoGuia
+         c1grdGuiaRemision.Cols("FLETE_Id_Text").Editor = cmbFlete
+         c1grdGuiaRemision.Cols("VEGRE_Condicion_Text").Editor = cmbCondicion
+         c1grdGuiaRemision.Cols("ENTID_RazonSocial").Editor = cmbGEmpresa
+         'c1grdGuiaRemision.AutoSizeCols()
+
+         cmbTipoGuia.Enabled = True : cmbTipoGuia.Visible = False
+         cmbFlete.Enabled = True : cmbFlete.Visible = False
+         cmbCondicion.Enabled = True : cmbCondicion.Visible = False
+         cmbGEmpresa.Enabled = True : cmbGEmpresa.Visible = False
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub cargarGuiaRemision()
+      Try
+         Dim _bentidad As New BEntidades : _bentidad.Cargar(GApp.EmpresaRUC.Trim)
+
+         Dim _listaE As New List(Of ACLista)
+         _listaE.Add(New ACLista(GApp.EmpresaRUC.Trim, _bentidad.Entidades.ENTID_RazonSocial))
+
+         cargarFletes()
+         For Each item As ETRAN_Fletes In managerAdministracionViajes.ListTRAN_Fletes
+            Dim x_cliente As String = item.ENTID_Nombres
+            Dim x_ruccliente As String = item.ENTID_Codigo
+            _listaE.Add(New ACLista(x_ruccliente, x_cliente))
+         Next
+
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbGEmpresa, _listaE, ACLista.Descripcion, ACLista.Codigo)
+         '' Cargar el consumo de combustible asociado
+         If Not managerAdministracionViajes.cargarGuiaRemision(managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id) Then
+            managerAdministracionViajes.ListTRAN_ViajesGuiasRemision = New List(Of ETRAN_ViajesGuiasRemision)
+         End If
+         bs_tran_viajeguias = New BindingSource()
+         bs_tran_viajeguias.DataSource = managerAdministracionViajes.ListTRAN_ViajesGuiasRemision
+         c1grdGuiaRemision.DataSource = bs_tran_viajeguias
+         bnavGuiaRemision.BindingSource = bs_tran_viajeguias
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Liquidacion del Viaje "
+
+   Private Sub tsbtnLiquidacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnLiquidacion.Click
+      Dim msg As String = ""
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Liquidación de Viaje{0}", Me.Text) _
+                      , "¿Desea liquidar el viaje? ", "Se guardara todos los cambios que haya realizado" _
+                      , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            If validarLiquidacion(msg) And grabar() Then
+               managerAdministracionViajes.setTRAN_Viajes(managerTRAN_Viajes.TRAN_Viajes)
+               Dim x_vehic_id As Long = m_tran_vehiculos.VEHIC_Id
+               If managerAdministracionViajes.liquidarViaje(x_vehic_id, GApp.Usuario) Then
+                  ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "La lisquidación se realizo satisfactoriamente")
+                  tabMantenimiento.SelectedTab = tabBusqueda
+                  busqueda(txtBusqueda.Text)
+                  Me.KeyPreview = False
+                  txtBusqueda.Focus()
+                  acTool_ACBtnCancelar_Click(Nothing, Nothing)
+               End If
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede completar la lisquidación", msg)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso liquidar viaje", ex)
+      End Try
+   End Sub
+
+   Private Function validarLiquidacion(ByRef msg As String)
+      Try
+         'If Not managerTRAN_Viajes.TRAN_Viajes.VIAJE_ConsumoRealizado > 0 Then
+         '   msg &= String.Format("- No se han ingresado el consumo de combustible{0}", vbNewLine)
+         'End If
+         'If Not managerTRAN_Viajes.TRAN_Viajes.VIAJE_KmTotal > 0 Then
+         '   msg &= String.Format("- No se han ingresado el kilometraje recorrido{0}", vbNewLine)
+         'End If
+
+         If msg.Length > 0 Then
+            Return False
+         Else
+            Return True
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Reporte "
+   Private Sub reporteIE(ByVal x_preview As Boolean)
+      Dim index As Integer = 1
+      Try
+         SetCarga(TipoCarga.Fletes, False)
+         SetCarga(TipoCarga.Gastos, False)
+         SetCarga(TipoCarga.ConsCombustible, False)
+
+         '' Resumen de Gastos de Viaje
+         Dim c1grdResGastos As New C1FlexGrid()
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdResGastos, 2, 1, 4, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResGastos, index, "Descripción", "Descripcion", "Descripcion", 100, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResGastos, index, "Egresos", "MontoE", "MontoE", 50, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResGastos, index, "Ingresos", "MontoI", "MontoI", 50, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+         Dim i As Integer = 2
+         For Each item As ETESO_Caja In managerAdministracionViajes.ListTESO_Caja
+            c1grdResGastos.Rows.Count += 1
+            c1grdResGastos.Rows(i)("Descripcion") = item.CAJA_Glosa
+            c1grdResGastos.Rows(i)("MontoI") = item.CAJA_Importe
+            i += 1
+         Next
+
+         c1grdResGastos.Rows.Count += 1
+         c1grdResGastos.Rows(i)("Descripcion") = "Consumo de Combustible"
+         c1grdResGastos.Rows(i)("MontoE") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_ConsumoRealizado
+         c1grdResGastos.Rows.Count += 1 : i += 1
+         c1grdResGastos.Rows(i)("Descripcion") = "Gastos de Viaje"
+         c1grdResGastos.Rows(i)("MontoE") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_GastosConductor
+         c1grdResGastos.Rows.Count += 1 : i += 1
+
+         Dim _ing As Decimal = 0
+         Dim _egr As Decimal = 0
+         For Each item As ETRAN_Recibos In managerAdministracionViajes.ListTRAN_Recibos
+            c1grdResGastos.Rows(i)("Descripcion") = item.RECIB_Concepto
+            c1grdResGastos.Rows(i)("MontoE") = item.RECIB_Monto
+            c1grdResGastos.Rows.Count += 1 : i += 1
+
+            If item.TIPOS_CodTipoRecibo = ETipos.getTipo(ETipos.TipoRecibo.Ingreso) Then
+               _ing += item.RECIB_Monto
+            Else
+               _egr += item.RECIB_Monto
+            End If
+         Next
+
+         c1grdResGastos.Subtotal(AggregateEnum.Sum, 1, -1, 2, "Total")
+         c1grdResGastos.Subtotal(AggregateEnum.Sum, 1, -1, 3, "Total")
+
+         '' Resumen
+         index = 1
+         Dim c1grdResumen As New C1FlexGrid()
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdResumen, 8, 1, 4, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResumen, index, "Descripción", "Descripcion", "Descripcion", 100, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResumen, index, "Egresos", "MontoE", "MontoE", 50, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdResumen, index, "Ingresos", "MontoI", "MontoI", 50, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+         c1grdResumen.Rows(1)("Descripcion") = "Fletes de Transporte"
+         c1grdResumen.Rows(2)("Descripcion") = "Recibos de Ingreso"
+         c1grdResumen.Rows(3)("Descripcion") = "Consumo de Combustible"
+         c1grdResumen.Rows(4)("Descripcion") = "Gastos de Viaje"
+         c1grdResumen.Rows(5)("Descripcion") = "Sueldo de Conductor"
+         c1grdResumen.Rows(6)("Descripcion") = "Recibos de Egresos"
+
+         Dim _fletes As Decimal = 0
+         For Each item As ETRAN_Fletes In managerAdministracionViajes.ListTRAN_Fletes
+            _fletes += item.FLETE_TotIngreso
+         Next
+
+         'Dim _egresos As Decimal = managerTRAN_Viajes.TRAN_Viajes.VIAJE_ConsumoRealizado + managerTRAN_Viajes.TRAN_Viajes.VIAJE_GastosConductor + managerTRAN_Viajes.TRAN_Viajes.VIAJE_PagoConductor
+         c1grdResumen.Rows(1)("MontoI") = _fletes
+         c1grdResumen.Rows(3)("MontoE") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_ConsumoRealizado
+         c1grdResumen.Rows(4)("MontoE") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_GastosConductor
+         c1grdResumen.Rows(5)("MontoE") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_PagoConductor
+
+         
+         c1grdResumen.Rows(2)("MontoI") = _ing
+         c1grdResumen.Rows(6)("MontoE") = _egr
+
+         'c1grdResumen.Rows(6)("MontoI") = (_egresos) * -1
+
+         c1grdResumen.Subtotal(AggregateEnum.Sum, 1, -1, 2, "Total")
+         c1grdResumen.Subtotal(AggregateEnum.Sum, 1, -1, 3, "Total")
+
+         '' Conductor
+         index = 1
+         Dim c1grdConductor As New C1FlexGrid
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdConductor, 3, 1, 3, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConductor, index, "Descripción", "Descripcion", "Descripcion", 300, True, False, "System.String", "") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdConductor, index, "Monto", "Monto", "Monto", 50, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+
+         c1grdConductor.Rows(1)("Descripcion") = String.Format("Viaje: {0}, Sueldo ", txtDescripcion.Text)
+         c1grdConductor.Rows(2)("Descripcion") = "Recibos de Egresos"
+
+         c1grdConductor.Rows(1)("Monto") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_PagoConductor
+         c1grdConductor.Rows(2)("Monto") = managerTRAN_Viajes.TRAN_Viajes.VIAJE_TotRecEgreso * -1
+
+         c1grdConductor.Subtotal(AggregateEnum.Sum, 1, -1, 2, "Total")
+
+         Dim m_listFlex As New ACListaFlex()
+         m_listFlex.Add(c1grdFletes)
+         m_listFlex.Add(c1grdGastViajes)
+         m_listFlex.Add(c1grdConsCombustible)
+         m_listFlex.Add(c1grdResGastos)
+         m_listFlex.Add(c1grdResumen)
+
+         actxnGastonInicial.Formatear()
+         Dim _sub() As ACTexto = {New ACTexto(String.Format("Nro. Viaje: {0}", managerTRAN_Viajes.TRAN_Viajes.VIAJE_IdxVehiculo), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Placa Vehiculo: {0}", m_tran_vehiculos.VEHIC_Placa), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Placa Ranfla: {0}", m_tran_ranflas.RANFL_Placa), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Conductor: {0}", m_conductores.ENTID_Nombres), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Gastos de Viaje: {0}", actxnGastonInicial.Text), New Font(Me.Font.FontFamily, 8, FontStyle.Regular))}
+         Dim x As New ACPreview(m_listFlex, New ACCabecera(New ACTexto("Reporte de Viajes", New Font(Me.Font.FontFamily, 14, FontStyle.Bold)), GApp.ESucursal.SUCUR_Nombre, "", _sub, New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         x.setCabecera(New ACTexto() {New ACTexto("Ingresos y Egresos", New Font(Me.Font.FontFamily, 12, FontStyle.Regular))})
+         x.setMargen(20.0, 12.0, 12.0, 20.0, UnitTypeEnum.Mm)
+         x.setEstilo(ACEEstilo.elegant, False)
+         x.setEstiloLinea(New LineDef("1pt", Color.Black))
+         x.setFuente(New Font("Tahoma", 6, FontStyle.Regular))
+         x.ACEstiloReporte.FuenteTamano = 6
+         Dim line As New LineDef("1pt", Color.Black)
+         x.setEstiloLinea(line)
+
+         x.ACTextoLista = New ACTextoLista()
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Fletes{0}", vbNewLine), New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Gastos de Viaje{0}", vbNewLine), New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Consumo de Combustible{0}", vbNewLine), New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Resumen Gastos de Viaje{0}", vbNewLine), New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Resumen de Utilidad{0}", vbNewLine), New Font(Me.Font.FontFamily, 8, FontStyle.Bold)))
+         ''
+         x.ACColumnasLista = New ACColumnaAlineacionLista()
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(17, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(44, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(7, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(13, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(42, UnitTypeEnum.Mm)}))
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(8, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(12, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(45, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(58, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm)}))
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(10, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(58, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(15, UnitTypeEnum.Mm) _
+                                                                  , New C1.C1Preview.Unit(10, UnitTypeEnum.Mm)}))
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(100, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm)}))
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(50, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(20, UnitTypeEnum.Mm)}))
+         x.setEstiloLinea(New LineDef(New Unit(0.5, UnitTypeEnum.Mm), Color.Black))
+
+
+
+         x.ACEjecutar()
+         x.WindowState = FormWindowState.Maximized
+         x.StartPosition = FormStartPosition.CenterScreen
+         x.Show()
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub reporteInv(ByVal x_preview As Boolean)
+      Try
+         SetCarga(TipoCarga.Neumaticos, False)
+         SetCarga(TipoCarga.Incidencias, False)
+
+         c1grdInciViajes.Cols("INCIV_AccionRealizada").Visible = True
+         Dim m_listFlex As New ACListaFlex()
+         m_listFlex.Add(c1grdInvNeumaticos)
+         m_listFlex.Add(c1grdInciViajes)
+         Dim _sub() As ACTexto = {New ACTexto(String.Format("Codigo: {0}", managerTRAN_Viajes.TRAN_Viajes.VIAJE_CODIGO_Text), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Placa Vehiculo: {0}", m_tran_vehiculos.VEHIC_Placa), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Placa Ranfla: {0}", m_tran_ranflas.RANFL_Placa), New Font(Me.Font.FontFamily, 8, FontStyle.Regular)) _
+                               , New ACTexto(String.Format("Conductor: {0}", m_conductores.ENTID_Nombres), New Font(Me.Font.FontFamily, 8, FontStyle.Regular))}
+         Dim x As New ACPreview(m_listFlex, New ACCabecera(New ACTexto("Reporte de Viajes", New Font(Me.Font.FontFamily, 14, FontStyle.Bold)), GApp.ESucursal.SUCUR_Nombre, "", _sub, New Font(Me.Font.FontFamily, 11, FontStyle.Bold)))
+         x.setCabecera(New ACTexto() {New ACTexto("Inventarios y Consumos", New Font(Me.Font.FontFamily, 12, FontStyle.Bold))})
+         x.setMargen(20.0, 12.0, 12.0, 20.0, UnitTypeEnum.Mm)
+         x.setEstilo(ACEEstilo.elegant, False)
+         x.setEstiloLinea(New LineDef("2pt", Color.Black))
+         x.setFuente(New Font("Courier New", 7.5, FontStyle.Regular))
+
+         x.ACTextoLista = New ACTextoLista()
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Neumaticos{0}", vbNewLine), New Font(Me.Font.FontFamily, 10, FontStyle.Bold)))
+         x.ACTextoLista.Add(New ACTexto(String.Format("{0}Incidencias{0}", vbNewLine), New Font(Me.Font.FontFamily, 10, FontStyle.Bold)))
+         ''
+         x.ACColumnasLista = New ACColumnaAlineacionLista()
+
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(25, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(25, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(40, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(60, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(25, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(0, UnitTypeEnum.Mm)}))
+         x.ACColumnasLista.Add(New ACColumnaAlineacion(New Unit() {New C1.C1Preview.Unit(0, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(30, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(100, UnitTypeEnum.Mm) _
+                                                                 , New C1.C1Preview.Unit(45, UnitTypeEnum.Mm)}))
+
+         x.setEstiloLinea(New LineDef(New Unit(0.25, UnitTypeEnum.Mm), Color.Black))
+         x.ACEstiloReporte.HojaHorizontal = False
+         x.ACEjecutar()
+         x.ShowDialog()
+         c1grdInciViajes.Cols("INCIV_AccionRealizada").Visible = False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub tsbtnPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnPreview.Click
+      Try
+         Select Case m_opcionform
+            Case TipoFormulario.Reporte_IE
+               reporteIE(True)
+            Case TipoFormulario.Reporte_Inv
+               reporteInv(True)
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Previsualizar Reporte", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles acTool.ACBtnImprimir_Click
+      Try
+         Select Case m_opcionform
+            Case TipoFormulario.Reporte_IE
+               reporteIE(False)
+            Case TipoFormulario.Reporte_Inv
+               reporteInv(False)
+            Case Else
+               'reporteIE(False)
+         End Select
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Imprimir Reporte", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Docking "
+
+   Private allowContextMenu As Boolean
+   Private customContextMenu As Boolean
+   Private captionBars As Boolean
+   Private closeButtons As Boolean
+   Private ignoreClose As Integer
+   Private count As Integer = 0
+
+   Private Sub InitDocket()
+      allowContextMenu = True
+      customContextMenu = True
+      captionBars = True
+      closeButtons = False
+      ignoreClose = 0
+
+      m_dockingManager = New DockingManager(tscBase.ContentPanel, VisualStyle.Office2007Black)
+
+      'AddHandler m_dockingManager.LayoutChanged, AddressOf OnLayoutChanged
+      'AddHandler m_dockingManager.ContentShown, AddressOf OnContentShown
+      m_dockingManager.InnerControl = pnlDatos
+
+      Dim cA As Content = CreatePanelContentGRP()
+      cA.DisplaySize = New Size(270, cA.DisplaySize.Height - 25)
+      cA.FloatingSize = New Size(270, cA.DisplaySize.Height - 25)
+      InitializeContent(cA)
+
+      Dim cB As Content = CreatePanelRutas()
+      cB.DisplaySize = New Size(270, cB.DisplaySize.Height - 25)
+      cB.FloatingSize = New Size(270, cB.DisplaySize.Height - 25)
+      ' Setup initial state to match menu selections
+      InitializeContent(cB)
+
+      Me.SuspendLayout()
+
+      ' Request a new Docking window be created for the first content on the right edge
+      Dim wc As WindowContent = TryCast(m_dockingManager.AddContentWithState(cA, Crownwood.DotNetMagic.Docking.State.DockRight), WindowContent)
+
+      ' Add two other content into the same WindowContent
+      m_dockingManager.AddContentToWindowContent(cA, wc)
+      m_dockingManager.AddContentToWindowContent(cB, wc)
+      '' Mostrar el control fijando en el lado designado
+      m_dockingManager.ShowContent(cA)
+
+      ' Ocultar los contenidos, dockeandolos a un lado del control
+      'm_dockingManager.ToggleContentAutoHide(cB)
+
+      grpLiq.BackColor = Color.LightSteelBlue
+      pnlGuias.BackColor = Color.LightSteelBlue
+
+      Me.ResumeLayout()
+
+      m_dockingManager.ShowContent(cB)
+
+      'grpLiq.Dock = DockStyle.Fill
+   End Sub
+
+   Protected Sub OnLayoutChanged(ByVal sender As Object, ByVal e As EventArgs)
+      Console.WriteLine("Docking layout changed")
+   End Sub
+
+   Protected Sub OnContentShown(ByVal c As Content, ByVal cea As EventArgs)
+      Console.WriteLine("OnContentShown {0}", c.Title)
+   End Sub
+
+   Private Sub InitializeContent(ByVal c As Content)
+      c.CaptionBar = captionBars
+      c.CloseButton = closeButtons
+      ' Definir el tamaño del panel que se muestra al pasar el mouse
+      c.AutoHideSize = New Size(330, c.AutoHideSize.Height)
+   End Sub
+
+   Private Function CreatePanelContentGRP() As Content
+      ' Create a new docking Content instance with our new TextBox
+      Dim c As Content = m_dockingManager.Contents.Add(grpLiq, "Datos Adicionales", ImageList, 0)
+      grpLiq.Dock = DockStyle.Fill
+      c.FloatingSize = New Size(270, c.FloatingSize.Height)
+      Return c
+   End Function
+
+   Private Function CreatePanelRutas() As Content
+      ' Create a new docking Content instance with our new TextBox
+      Dim c As Content = m_dockingManager.Contents.Add(grpRutas, "Rutas", ImageList, 1)
+      grpRutas.Dock = DockStyle.Fill
+      c.FloatingSize = New Size(270, c.FloatingSize.Height)
+      Return c
+   End Function
+#End Region
+
+   Private Sub actsbtnQuitarAnulado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actsbtnQuitarAnulado.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Activar Registro Anulado: {0}", Me.Text) _
+             , String.Format("Desea Activar el Registro de Viaje Anulado: {0} - {1}: ", CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id, _
+                             CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Descripcion) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_Viajes.TRAN_Viajes = CType(bs_tran_viajes.Current, ETRAN_Viajes)
+            If managerTRAN_Viajes.ActivarAnulado() Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Activado satisfactoriamente")
+               btnConsultar_Click(Nothing, Nothing)
+               bs_tran_viajes_CurrentChanged(Nothing, Nothing)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Anular Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnEliminar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnEliminar_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro de Viaje: {0}", Me.Text) _
+             , String.Format("Desea Eliminar el Registro de Viaje: {0} - {1}: ", CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id, _
+                             CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Descripcion) _
+                         , "Esta operación eliminara todos los registros del viaje, incluyendo los registros anexos" _
+                         , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Eliminar Registro de Viaje: {0}", Me.Text) _
+             , String.Format("Confirmar Eliminación del Viaje: {0} - {1}: ", CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id, _
+                             CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Descripcion) _
+                         , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+               managerTRAN_Viajes.TRAN_Viajes = CType(bs_tran_viajes.Current, ETRAN_Viajes)
+               If managerTRAN_Viajes.EliminarViaje() Then
+                  ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Eliminado satisfactoriamente")
+                  btnConsultar_Click(Nothing, Nothing)
+                  bs_tran_viajes_CurrentChanged(Nothing, Nothing)
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Eliminar Viaje", ex)
+      End Try
+   End Sub
+
+   Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReporte.Click
+      Try
+         reporteIE(False)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Imprimir Reporte", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnRModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnRModificar.Click
+      Try
+         Dim frmCC As New TRecibos(CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Codigo, CType(bs_tran_recibos.Current, ETRAN_Recibos).CAJA_Id)
+         If frmCC.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            SetCarga(TipoCarga.Recibos)
+            calcular(TipoCarga.Recibos)
+            tcnDetalle.SelectedTab = tpgPresupuesto
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Imprimir Modificar Recibo", ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnQuitarLiquidacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnQuitarLiquidacion.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Activar Viaje: {0}", Me.Text) _
+             , String.Format("Desea activar el registro: {0}", CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Descripcion) _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            If managerAdministracionViajes.CambiarEstadoViaje(GApp.Usuario, CType(bs_tran_viajes.Current, ETRAN_Viajes).VIAJE_Id, ETRAN_Viajes.EstadosViajes.Activo) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Cambiado satisfactoriamente")
+               btnConsultar_Click(Nothing, Nothing)
+            End If
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "quitar la liquidacion al viaje seleccionado"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnGrabar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnFleGrabar.Click
+      Try
+         If (managerAdministracionViajes.GrabarObsFlete(CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Id, txtFleObs.Text, GApp.Usuario)) Then
+            CType(bs_tran_fletes.Current, ETRAN_Fletes).FLETE_Observaciones = txtFleObs.Text
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Grabar las Observaciones del Flete"), ex)
+      End Try
+   End Sub
+
+   Private Sub dtpFecLlegada_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+   End Sub
+
+   Private Sub tsbtnCCModFecha_Click(sender As Object, e As EventArgs) Handles tsbtnCCModFecha.Click
+
+   End Sub
+
+   Private Sub tcnDetalle_SelectionChanged(sender As TabControl, oldPage As TabPage, newPage As TabPage) Handles tcnDetalle.SelectionChanged
+
+   End Sub
+
+   Private Sub tsbtnImprimir_Click(sender As Object, e As EventArgs) Handles tsbtnImprimir.Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Imprimir Registro: {0}", Me.Text) _
+                                     , String.Format("Desea Imprimir el registro: {0}", CType(bs_tran_recibos.Current, ETRAN_Recibos).Codigo) _
+                                     , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            Dim _Imprimir As New Impresion(tscmbImpresora.Text)
+            If _Imprimir.Print_Recibos(CType(bs_tran_recibos.Current, ETRAN_Recibos).RECIB_Codigo) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Impreso Satisfactoriamente")
+               tsbtnImprimir.Enabled = m_reimprimir
+               cargarRecibos()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Imprimir Documento"), ex)
+      End Try
+   End Sub
+
+   Private Sub tsbtnImprimirRec_Click(sender As Object, e As EventArgs) Handles tsbtnImprimirRec.Click
+      Try
+         Dim _total As Decimal = 0
+         For Each item As ETRAN_ViajesGastos In managerAdministracionViajes.ListTRAN_ViajesGastosRecibos
+            _total += item.Importe
+         Next
+
+
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Imprimir Registro: {0}", Me.Text) _
+                                     , String.Format("Desea Imprimir el registro: {0} por S/. {1:#,###,##0.00}", String.Format("RV {0:000}-{1:0000000}", GApp.PuntoVenta, managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id), _total) _
+                                     , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            Dim _Imprimir As New Impresion(tscmbImpresoraRec.Text)
+            Dim x_recibo As New ETRAN_Recibos
+            x_recibo.TIPOS_TipoRecibo = "Viaje"
+            x_recibo.Codigo = String.Format("RV {0:000}-{1:0000000}", GApp.PuntoVenta, managerTRAN_Viajes.TRAN_Viajes.VIAJE_Id)
+            x_recibo.TIPOS_TipoMoneda = "S/."
+            x_recibo.TIPOS_TipoMonedaLargo = "NUEVOS SOLES"
+            x_recibo.RECIB_Monto = _total
+            x_recibo.RECIB_De = "-"
+            x_recibo.RECIB_Concepto = String.Format("Otros Gastos de Viaje: {0}", managerTRAN_Viajes.TRAN_Viajes.VIAJE_Descripcion)
+            x_recibo.RECIB_Fecha = managerTRAN_Viajes.TRAN_Viajes.VIAJE_FecLlegada
+            x_recibo.RECIB_Nombre = "-"
+            x_recibo.RECIB_Direccion = "-"
+            x_recibo.RECIB_Documento = "-"
+            x_recibo.ENTID_CodUsuario = GApp.EUsuario.USER_CodUsr
+            x_recibo.RECIB_FecCrea = DateTime.Now
+
+            If _Imprimir.Print_Recibos(x_recibo) Then
+               ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Impreso Satisfactoriamente")
+               tsbtnImprimir.Enabled = m_reimprimir
+               cargarRecibos()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), String.Format(Colecciones.getError("00101"), "Imprimir Documento"), ex)
+      End Try
+   End Sub
+End Class
+

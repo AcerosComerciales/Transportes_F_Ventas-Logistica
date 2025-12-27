@@ -1,0 +1,120 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ETRAN_CotizacionesFletes
+
+#Region " Campos "
+   Private m_viaje_id As Long
+   Private m_flete_glosa As String
+   Private m_entid_razonsocial As String
+   Private m_viaje_descripcion As String
+   Private m_flete_totingreso As Decimal
+   Private m_flete_pesoentm As Decimal
+   Private m_tipos_codtipomoneda As String
+   Private m_tipos_tipomoneda As String
+   Private m_entid_nrodocumento As String
+#End Region
+
+#Region" Constructores "
+	
+#End Region
+
+#Region" Propiedades "
+
+   Public Property VIAJE_Id() As Long
+      Get
+         Return m_viaje_id
+      End Get
+      Set(ByVal value As Long)
+         m_viaje_id = value
+      End Set
+   End Property
+
+   Public Property FLETE_Glosa() As String
+      Get
+         Return m_flete_glosa
+      End Get
+      Set(ByVal value As String)
+         m_flete_glosa = value
+      End Set
+   End Property
+
+   Public Property ENTID_RazonSocial() As String
+      Get
+         Return m_entid_razonsocial
+      End Get
+      Set(ByVal value As String)
+         m_entid_razonsocial = value
+      End Set
+   End Property
+
+   Public Property VIAJE_Descripcion() As String
+      Get
+         Return m_viaje_descripcion
+      End Get
+      Set(ByVal value As String)
+         m_viaje_descripcion = value
+      End Set
+   End Property
+
+   Public Property FLETE_TotIngreso() As Decimal
+      Get
+         Return m_flete_totingreso
+      End Get
+      Set(ByVal value As Decimal)
+         m_flete_totingreso = value
+      End Set
+   End Property
+
+   Public Property FLETE_PesoEnTM() As Decimal
+      Get
+         Return m_flete_pesoentm
+      End Get
+      Set(ByVal value As Decimal)
+         m_flete_pesoentm = value
+      End Set
+   End Property
+
+   Public Property TIPOS_CodTipoMoneda() As String
+      Get
+         Return m_tipos_codtipomoneda
+      End Get
+      Set(ByVal value As String)
+         m_tipos_codtipomoneda = value
+      End Set
+   End Property
+
+   Public Property TIPOS_TipoMoneda() As String
+      Get
+         Return m_tipos_tipomoneda
+      End Get
+      Set(ByVal value As String)
+         m_tipos_tipomoneda = value
+      End Set
+   End Property
+
+   Public Property ENTID_NroDocumento() As String
+      Get
+         Return m_entid_nrodocumento
+      End Get
+      Set(ByVal value As String)
+         m_entid_nrodocumento = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Eventos "
+	
+#End Region
+
+#Region " Metodos "
+	
+#End Region
+
+End Class
+

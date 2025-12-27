@@ -1,0 +1,159 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACEVentas
+Imports ACDLogistica
+
+Imports DAConexion
+Imports ACFramework
+
+
+Public Class BControlDescuentos
+
+#Region " Variables "
+
+   Private m_dtControlDescuentos As DataTable
+
+   Private ds_controldescuentos As DataSet
+   Private d_controldescuentos As DControlDescuentos
+
+   Private m_listproveedores As List(Of EEntidades)
+   Private m_listdocscompradetalle As List(Of EABAS_DocsCompraDetalle)
+
+   Private m_eabas_docsnotacredito As EABAS_DocsCompra
+
+#End Region
+
+#Region " Constructores "
+
+   Public Sub New()
+      d_controldescuentos = New DControlDescuentos
+   End Sub
+
+#End Region
+
+#Region " Propiedades "
+
+   Public Property ListProveedores() As List(Of EEntidades)
+      Get
+         Return m_listproveedores
+      End Get
+      Set(ByVal value As List(Of EEntidades))
+         m_listproveedores = value
+      End Set
+   End Property
+
+   Public Property ListDocsCompraDetalle() As List(Of EABAS_DocsCompraDetalle)
+      Get
+         Return m_listdocscompradetalle
+      End Get
+      Set(ByVal value As List(Of EABAS_DocsCompraDetalle))
+         m_listdocscompradetalle = value
+      End Set
+   End Property
+
+   Public Property ABAS_DocsNotaCredito() As EABAS_DocsCompra
+      Get
+         Return m_eabas_docsnotacredito
+      End Get
+      Set(ByVal value As EABAS_DocsCompra)
+         m_eabas_docsnotacredito = value
+      End Set
+   End Property
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   ''' <summary>
+   ''' Proceso para cargar los proveedores que tienen documentos a los cuales se les puede aplicar una nota de credito
+   ''' </summary>
+   ''' <param name="x_cadena">Cadena para realizar la busqueda del proveedor</param>
+   ''' <param name="x_campo">Nombre del Campo sobre el cual se aplica la busqueda</param>
+   ''' <param name="x_fecini">Fecha Inicial</param>
+   ''' <param name="x_fecfin">Fecha Final</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function BusquedaProveedor(ByVal x_cadena As String, ByVal x_campo As String _
+                                   , ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         m_listproveedores = New List(Of EEntidades)()
+         Return d_controldescuentos.BusquedaProveedor(m_listproveedores, ACEVentas.ETipos.getTipo(ACEVentas.ETipos.TipoCosteo.Descuentos), x_cadena, x_campo, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Proceso para cargar los registros sobre los cuales se puede obtener el detalle de los items a los
+   ''' que se aplica la nota de credito
+   ''' </summary>
+   ''' <param name="x_entid_codigo">Codigo del proveedor</param>
+   ''' <param name="x_fecini">Fecha Inicial</param>
+   ''' <param name="x_fecfin">Fecha Final</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function ObtenerDetalle(ByVal x_entid_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         m_listdocscompradetalle = New List(Of EABAS_DocsCompraDetalle)()
+         Return d_controldescuentos.ObtenerDetalle(m_listdocscompradetalle, ACEVentas.ETipos.getTipo(ACEVentas.ETipos.TipoCosteo.Descuentos), x_entid_codigo, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Crear la nota de credito con los items de los documentos de venta
+   ''' </summary>
+   ''' <param name="x_usuario">Usuario que realiza la operacion</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function GrabarCDescuento(ByVal x_usuario As String) As Boolean
+      Try
+         DAEnterprise.BeginTransaction()
+         '' Grabar el documento Nota de Credito
+         Dim m_babas_docscompra As New BABAS_DocsCompra
+         m_babas_docscompra.ABAS_DocsCompra = m_eabas_docsnotacredito
+         m_babas_docscompra.ABAS_DocsCompra.DOCCO_Estado = EABAS_DocsCompra.getEstado(EABAS_DocsCompra.Estado.Ingresado)
+         If m_babas_docscompra.Guardar(x_usuario) Then
+            '' Grabar el detalle
+            Dim i As Integer = 1
+            For Each Item As EABAS_DocsCompraDetalle In m_eabas_docsnotacredito.ListEABAS_DocsCompraDetalle
+               Dim m_babas_docscompradetalle As New BABAS_DocsCompraDetalle() With {.ABAS_DocsCompraDetalle = Item.Clone()}
+               m_babas_docscompradetalle.ABAS_DocsCompraDetalle.DOCCO_Codigo = m_babas_docscompra.ABAS_DocsCompra.DOCCO_Codigo
+               m_babas_docscompradetalle.ABAS_DocsCompraDetalle.DOCCD_Item = i
+               m_babas_docscompradetalle.ABAS_DocsCompraDetalle.Instanciar(ACEInstancia.Nuevo)
+               m_babas_docscompradetalle.ABAS_DocsCompraDetalle.ENTID_CodigoProveedor = m_eabas_docsnotacredito.ENTID_CodigoProveedor
+               m_babas_docscompradetalle.ABAS_DocsCompraDetalle.DOCCD_SubImporteCompra = m_babas_docscompradetalle.ABAS_DocsCompraDetalle.Descuentos
+               m_babas_docscompradetalle.Guardar(x_usuario)
+
+               Dim m_babas_reldocscosteo As New BABAS_RelDocsCosteo
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo = New EABAS_RelDocsCosteo
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.DOCCO_Codigo = Item.DOCCO_Codigo
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.ENTID_CodigoProveedor = Item.ENTID_CodigoProveedor
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.DOCCD_Item = Item.DOCCD_Item
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.COSTE_Item = Item.COSTE_Item
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.DOCCD_ItemDetalle = i
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.DOCCO_CodigoDetalle = m_babas_docscompra.ABAS_DocsCompra.DOCCO_Codigo
+               m_babas_reldocscosteo.ABAS_RelDocsCosteo.Instanciar(ACEInstancia.Nuevo)
+               m_babas_reldocscosteo.Guardar(x_usuario)
+
+               i += 1
+            Next
+         End If
+         DAEnterprise.CommitTransaction()
+         Return True
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

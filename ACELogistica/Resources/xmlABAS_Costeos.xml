@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="ABAS_Costeos" Esquema="Logistica" Prefijo="COSTE">
+  <Nombre>ABAS_Costeos</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COSTE_Item">COSTE_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoCosteo">TIPOS_CodTipoCosteo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda">TIPOS_CodTipoMoneda</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_Porcentaje">COSTE_Porcentaje</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_Importe">COSTE_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_CodigoDocumento">COSTE_CodigoDocumento</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="COSTE_CodigoProveedor">COSTE_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_Operacion">COSTE_Operacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_Cantidad">COSTE_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_UsrCrea">COSTE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_FecCrea">COSTE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_UsrMod">COSTE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COSTE_FecMod">COSTE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COSTE_Item">COSTE_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo">DOCCO_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor">ENTID_CodigoProveedor</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCD_Item">DOCCD_Item</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

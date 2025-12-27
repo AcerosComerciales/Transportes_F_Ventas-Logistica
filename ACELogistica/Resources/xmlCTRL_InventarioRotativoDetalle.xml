@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="CTRL_InventarioRotativoDetalle" Esquema="Logistica" Prefijo="INROT">
+  <Nombre>CTRL_InventarioRotativoDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROT_Codigo">INROT_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROD_Item">INROD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_Stock">INROD_Stock</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_PenOrdenes">INROD_PenOrdenes</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_PenPedidos">INROD_PenPedidos</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_PenFacturas">INROD_PenFacturas</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_PenConfirmacion">INROD_PenConfirmacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_Pendiente">INROD_Pendiente</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_StockFinal">INROD_StockFinal</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_StockFisico">INROD_StockFisico</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_VeriCorrecto">INROD_VeriCorrecto</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_VeriSobrante">INROD_VeriSobrante</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_VeriFaltante">INROD_VeriFaltante</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_UsrCrea">INROD_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_FecCrea">INROD_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_UsrMod">INROD_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROD_FecMod">INROD_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROT_Codigo">INROT_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROD_Item">INROD_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTIC_Codigo">ARTIC_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

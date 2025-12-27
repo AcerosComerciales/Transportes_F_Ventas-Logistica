@@ -1,0 +1,2 @@
+D:\alex compartido\Transportes _Milagros\ACPTransporte\bin\Release\ACPTransportes.exe.config
+F:\DESARROLLO\Transportes _Milagros\ACPTransporte\bin\Release\ACPTransportes.exe.config

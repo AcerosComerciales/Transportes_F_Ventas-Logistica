@@ -1,0 +1,374 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ETRAN_Rutas
+
+#Region " Campos "
+	
+	Private m_rutas_id As Long
+	Private m_ubigo_codorigen As String
+	Private m_ubigo_coddestino As String
+	Private m_rutas_codigo As String
+	Private m_rutas_nombre As String
+	Private m_rutas_fecha As Date
+	Private m_rutas_km As Integer
+	Private m_rutas_tiempo As Short
+    Private m_rutas_estado As String
+    Private m_rutas_valorreferencial As Decimal
+	Private m_rutas_usrcrea As String
+	Private m_rutas_feccrea As Date
+    Private m_rutas_usrmod As String
+	Private m_rutas_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACETransporte.My.Resources.xmlTRAN_Rutas
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property RUTAS_Id() As Long
+		Get
+			return m_rutas_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_rutas_id) Then
+				If Not m_rutas_id.Equals(value) Then
+					m_rutas_id = value
+					OnRUTAS_IdChanged(m_rutas_id, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_id = value
+				OnRUTAS_IdChanged(m_rutas_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property UBIGO_CodOrigen() As String
+		Get
+			return m_ubigo_codorigen
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ubigo_codorigen) Then
+				If Not m_ubigo_codorigen.Equals(value) Then
+					m_ubigo_codorigen = value
+					OnUBIGO_CodOrigenChanged(m_ubigo_codorigen, EventArgs.Empty)
+				End If
+			Else
+				m_ubigo_codorigen = value
+				OnUBIGO_CodOrigenChanged(m_ubigo_codorigen, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property UBIGO_CodDestino() As String
+		Get
+			return m_ubigo_coddestino
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ubigo_coddestino) Then
+				If Not m_ubigo_coddestino.Equals(value) Then
+					m_ubigo_coddestino = value
+					OnUBIGO_CodDestinoChanged(m_ubigo_coddestino, EventArgs.Empty)
+				End If
+			Else
+				m_ubigo_coddestino = value
+				OnUBIGO_CodDestinoChanged(m_ubigo_coddestino, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Codigo() As String
+		Get
+			return m_rutas_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_rutas_codigo) Then
+				If Not m_rutas_codigo.Equals(value) Then
+					m_rutas_codigo = value
+					OnRUTAS_CodigoChanged(m_rutas_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_codigo = value
+				OnRUTAS_CodigoChanged(m_rutas_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Nombre() As String
+		Get
+			return m_rutas_nombre
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_rutas_nombre) Then
+				If Not m_rutas_nombre.Equals(value) Then
+					m_rutas_nombre = value
+					OnRUTAS_NombreChanged(m_rutas_nombre, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_nombre = value
+				OnRUTAS_NombreChanged(m_rutas_nombre, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Fecha() As Date
+		Get
+			return m_rutas_fecha
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_rutas_fecha) Then
+				If Not m_rutas_fecha.Equals(value) Then
+					m_rutas_fecha = value
+					OnRUTAS_FechaChanged(m_rutas_fecha, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_fecha = value
+				OnRUTAS_FechaChanged(m_rutas_fecha, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Km() As Integer
+		Get
+			return m_rutas_km
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_rutas_km) Then
+				If Not m_rutas_km.Equals(value) Then
+					m_rutas_km = value
+					OnRUTAS_KmChanged(m_rutas_km, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_km = value
+				OnRUTAS_KmChanged(m_rutas_km, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Tiempo() As Short
+		Get
+			return m_rutas_tiempo
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_rutas_tiempo) Then
+				If Not m_rutas_tiempo.Equals(value) Then
+					m_rutas_tiempo = value
+					OnRUTAS_TiempoChanged(m_rutas_tiempo, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_tiempo = value
+				OnRUTAS_TiempoChanged(m_rutas_tiempo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+	Public Property RUTAS_Estado() As String
+		Get
+			return m_rutas_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_rutas_estado) Then
+				If Not m_rutas_estado.Equals(value) Then
+					m_rutas_estado = value
+					OnRUTAS_EstadoChanged(m_rutas_estado, EventArgs.Empty)
+				End If
+			Else
+				m_rutas_estado = value
+				OnRUTAS_EstadoChanged(m_rutas_estado, EventArgs.Empty)
+			End If
+		End Set
+    End Property
+    Public Property RUTAS_ValorReferencial() As Decimal
+
+        Get
+            Return m_rutas_valorreferencial
+        End Get
+        Set(ByVal value As Decimal)
+            If Not IsNothing(m_rutas_valorreferencial) Then
+                If Not m_rutas_valorreferencial.Equals(value) Then
+                    m_rutas_valorreferencial = value
+                    OnRUTAS_ValorReferencialChanged(m_rutas_valorreferencial, EventArgs.Empty)
+                End If
+            Else
+                m_rutas_valorreferencial = value
+                OnRUTAS_ValorReferencialChanged(m_rutas_valorreferencial, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+	Public Property RUTAS_UsrCrea() As String
+		Get
+			return m_rutas_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_rutas_usrcrea = value
+		End Set
+	End Property
+	Public Property RUTAS_FecCrea() As Date
+		Get
+			return m_rutas_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_rutas_feccrea = value
+		End Set
+	End Property
+	Public Property RUTAS_UsrMod() As String
+		Get
+			return m_rutas_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_rutas_usrmod = value
+		End Set
+	End Property
+	Public Property RUTAS_FecMod() As Date
+		Get
+			return m_rutas_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_rutas_fecmod = value
+		End Set
+	End Property
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "TRAN_Rutas"
+		End Get
+	End Property
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Transportes"
+		End Get
+	End Property
+
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event RUTAS_IdChanged As EventHandler
+	Public Event UBIGO_CodOrigenChanged As EventHandler
+	Public Event UBIGO_CodDestinoChanged As EventHandler
+	Public Event RUTAS_CodigoChanged As EventHandler
+	Public Event RUTAS_NombreChanged As EventHandler
+	Public Event RUTAS_FechaChanged As EventHandler
+	Public Event RUTAS_KmChanged As EventHandler
+	Public Event RUTAS_TiempoChanged As EventHandler
+    Public Event RUTAS_EstadoChanged As EventHandler
+    Public Event RUTAS_ValorReferencialChanged As EventHandler
+	Public Sub OnRUTAS_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_IdChanged(sender, e)
+	End Sub
+	Public Sub OnUBIGO_CodOrigenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent UBIGO_CodOrigenChanged(sender, e)
+	End Sub
+	Public Sub OnUBIGO_CodDestinoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent UBIGO_CodDestinoChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_CodigoChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_NombreChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_NombreChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_FechaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_FechaChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_KmChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_KmChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_TiempoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_TiempoChanged(sender, e)
+	End Sub
+	Public Sub OnRUTAS_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent RUTAS_EstadoChanged(sender, e)
+	End Sub
+    Public Sub OnRUTAS_ValorReferencialChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent RUTAS_ValorReferencialChanged(sender, e)
+
+    End Sub
+#End Region
+
+#Region " Metodos "
+
+    Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+        Select Case x_instancia
+            Case ACEInstancia.Consulta
+                m_nuevo = False
+                m_modificado = False
+                m_eliminado = False
+            Case ACEInstancia.Nuevo
+                m_nuevo = True
+                m_modificado = False
+                m_eliminado = False
+            Case ACEInstancia.Modificado
+                m_nuevo = False
+                m_modificado = True
+                m_eliminado = False
+            Case ACEInstancia.Eliminado
+                m_nuevo = False
+                m_modificado = False
+                m_eliminado = True
+        End Select
+    End Sub
+    Public Sub ActualizarInstancia()
+        If Not Nuevo Then
+            If Not Eliminado Then
+                Instanciar(ACEInstancia.Modificado)
+            End If
+        End If
+    End Sub
+
+#End Region
+
+End Class
+

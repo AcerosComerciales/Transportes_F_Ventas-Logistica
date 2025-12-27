@@ -1,0 +1,348 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+
+Partial Public Class BABAS_IngresosCompraDetalle
+
+#Region " Variables "
+	
+	Private m_eabas_ingresoscompradetalle As EABAS_IngresosCompraDetalle
+	Private m_listABAS_IngresosCompraDetalle As List(Of EABAS_IngresosCompraDetalle)
+	Private m_dtABAS_IngresosCompraDetalle As DataTable
+
+	Private m_dsABAS_IngresosCompraDetalle As DataSet
+	Private d_abas_ingresoscompradetalle As DABAS_IngresosCompraDetalle 
+
+
+#End Region
+
+#Region " Constructores "
+	
+	Public Sub New()
+		d_abas_ingresoscompradetalle = New DABAS_IngresosCompraDetalle()
+	End Sub
+
+#End Region
+
+#Region " Propiedades "
+	
+	Public Property ABAS_IngresosCompraDetalle() As EABAS_IngresosCompraDetalle 
+		Get
+			return m_eabas_ingresoscompradetalle
+		End Get
+		Set(ByVal value As EABAS_IngresosCompraDetalle)
+			m_eabas_ingresoscompradetalle = value
+		End Set
+	End Property
+
+	Public Property ListABAS_IngresosCompraDetalle() As List(Of EABAS_IngresosCompraDetalle)
+		Get
+			return m_listABAS_IngresosCompraDetalle
+		End Get
+		Set(ByVal value As List(Of EABAS_IngresosCompraDetalle))
+			m_listABAS_IngresosCompraDetalle = value
+		End Set
+	End Property
+
+	Public Property DTABAS_IngresosCompraDetalle() As DataTable
+		Get
+			return m_dtABAS_IngresosCompraDetalle
+		End Get
+		Set(ByVal value As DataTable)
+			m_dtABAS_IngresosCompraDetalle = value
+		End Set
+	End Property
+
+	Public Property DSABAS_IngresosCompraDetalle() As DataSet
+		Get
+			return m_dsABAS_IngresosCompraDetalle
+		End Get
+		Set(ByVal value As DataSet)
+			m_dsABAS_IngresosCompraDetalle = value
+		End Set
+	End Property
+
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+	
+	Public Function CargarTodos() As Boolean
+		Try
+			m_listABAS_IngresosCompraDetalle = new List(Of EABAS_IngresosCompraDetalle)()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_listABAS_IngresosCompraDetalle)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listABAS_IngresosCompraDetalle = new List(Of EABAS_IngresosCompraDetalle)()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_listABAS_IngresosCompraDetalle, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listABAS_IngresosCompraDetalle = new List(Of EABAS_IngresosCompraDetalle)()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_listABAS_IngresosCompraDetalle, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable, ByVal x_distinct As Boolean) As Boolean
+		Try
+			m_listABAS_IngresosCompraDetalle = new List(Of EABAS_IngresosCompraDetalle)()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_listABAS_IngresosCompraDetalle, x_join, x_where, x_distinct)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodos(ByVal x_almac_id As Short, ByVal x_ingco_id As Long) As Boolean
+		Try
+			m_eabas_ingresoscompradetalle = New EABAS_IngresosCompraDetalle()
+			Return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_eabas_ingresoscompradetalle, x_almac_id, x_ingco_id)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+	Public Function CargarTodosDS(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsABAS_IngresosCompraDetalle = new DataSet()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_dsABAS_IngresosCompraDetalle, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDS(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsABAS_IngresosCompraDetalle = new DataSet()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_dsABAS_IngresosCompraDetalle, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDT(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsABAS_IngresosCompraDetalle = new DataSet()
+			Dim _opcion As Boolean = d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_dsABAS_IngresosCompraDetalle, x_where)
+		If _opcion Then
+			m_dtABAS_IngresosCompraDetalle = m_dsABAS_IngresosCompraDetalle.Tables(0)
+			Return True
+		Else
+			Return False
+		End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function CargarTodosDT(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_dsABAS_IngresosCompraDetalle = new DataSet()
+			Dim _opcion As Boolean = d_abas_ingresoscompradetalle.ABAS_INGCDSS_Todos(m_dsABAS_IngresosCompraDetalle, x_join, x_where)
+		If _opcion Then
+			m_dtABAS_IngresosCompraDetalle = m_dsABAS_IngresosCompraDetalle.Tables(0)
+			Return True
+		Else
+			Return False
+		End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Cargar(ByVal x_almac_id As Short, x_ingco_id As Long, x_ingcd_item As Short) As Boolean
+		Try
+			m_eabas_ingresoscompradetalle = New EABAS_IngresosCompraDetalle()
+			Return d_abas_ingresoscompradetalle.ABAS_INGCDSS_UnReg(m_eabas_ingresoscompradetalle, x_almac_id, x_ingco_id, x_ingcd_item)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Cargar(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_eabas_ingresoscompradetalle = New EABAS_IngresosCompraDetalle()
+			Return d_abas_ingresoscompradetalle.ABAS_INGCDSS_UnReg(m_eabas_ingresoscompradetalle, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Cargar(ByVal x_join As List(Of ACFramework.ACJoin), ByVal x_where As Hashtable) As Boolean
+		Try
+			m_eabas_ingresoscompradetalle = New EABAS_IngresosCompraDetalle()
+			Return d_abas_ingresoscompradetalle.ABAS_INGCDSS_UnReg(m_eabas_ingresoscompradetalle, x_join, x_where)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_usuario As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario)
+			ElseIf m_eabas_ingresoscompradetalle.Modificado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSU_UnReg(m_eabas_ingresoscompradetalle, x_usuario)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(ABAS_IngresosCompraDetalle)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario)
+			ElseIf m_eabas_ingresoscompradetalle.Modificado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSU_UnReg(m_eabas_ingresoscompradetalle, x_where, x_usuario)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(x_where)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Modificado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSU_UnReg(m_eabas_ingresoscompradetalle, x_where, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(ABAS_IngresosCompraDetalle)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_where As Hashtable, ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String, ByVal x_setcampos() As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Modificado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSU_UnReg(m_eabas_ingresoscompradetalle, x_where, x_usuario, x_excluir, x_setfecha, x_setcampos)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(ABAS_IngresosCompraDetalle)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_usuario As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Modificado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSU_UnReg(m_eabas_ingresoscompradetalle, x_usuario, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(ABAS_IngresosCompraDetalle)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Guardar(ByVal x_usuario As String, ByVal x_excluir() As String, ByVal x_setfecha() As String) As Boolean
+		Try
+			If m_eabas_ingresoscompradetalle.Nuevo Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSI_UnReg(m_eabas_ingresoscompradetalle, x_usuario, x_excluir, x_setfecha)
+			ElseIf m_eabas_ingresoscompradetalle.Eliminado Then
+				d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(ABAS_IngresosCompraDetalle)
+			End If
+			Return True
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function Eliminar(ByVal x_where As Hashtable) As Boolean
+		Try
+			m_listABAS_IngresosCompraDetalle = new List(Of EABAS_IngresosCompraDetalle)()
+			return d_abas_ingresoscompradetalle.ABAS_INGCDSD_UnReg(x_where) > 0
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo() As Integer
+		Try
+			Return d_abas_ingresoscompradetalle.getCorrelativo("ALMAC_Id") + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo(ByRef x_id As Integer) As Integer
+		Try
+			x_id = d_abas_ingresoscompradetalle.getCorrelativo("ALMAC_Id")
+			Return (x_id + 1)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo(ByVal x_campo As String) As Integer
+		Try
+			Return d_abas_ingresoscompradetalle.getCorrelativo(x_campo) + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo(ByRef x_id As Integer, ByVal x_campo As String) As Integer
+		Try
+			x_id = d_abas_ingresoscompradetalle.getCorrelativo(x_campo)
+			Return (x_id + 1)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo(ByVal x_campo As String, ByVal x_where As Hashtable) As Integer
+		Try
+			Return d_abas_ingresoscompradetalle.getCorrelativo(x_campo, x_where) + 1 
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+	Public Function getCorrelativo(ByRef x_id As Integer, ByVal x_campo As String, ByVal x_where As Hashtable) As Integer
+		Try
+			x_id = d_abas_ingresoscompradetalle.getCorrelativo(x_campo, x_where)
+			Return (x_id + 1)
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Function
+
+
+#End Region
+
+End Class
+

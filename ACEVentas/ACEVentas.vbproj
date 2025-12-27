@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0342AB4F-BE96-4347-BA2E-D6432D3D913E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ACEVentas</RootNamespace>
+    <AssemblyName>ACEVentas</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ACEVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ACEVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ACEVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ACEVentas.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACELogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ordenes\logistica\ACPLogistica\bin\Debug\ACELogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACETransporte">
+      <HintPath>..\..\Librerias\ACETransporte.dll</HintPath>
+    </Reference>
+    <Reference Include="ACFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.2">
+      <HintPath>D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACPVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Despachos\EABAS_GestionOrdenes.vb" />
+    <Compile Include="Despachos\EABAS_GestionOrdenesDetalle.vb" />
+    <Compile Include="Despachos\EABAS_OrdenesProduccion.vb" />
+    <Compile Include="Despachos\EABAS_OrdenesProduccionDetalle.vb" />
+    <Compile Include="Despachos\EABAS_PedidoTransformacion.vb" />
+    <Compile Include="Despachos\EABAS_PedidoTransformacionDetalle.vb" />
+    <Compile Include="Despachos\EDESP_GuiaRSalidas.vb" />
+    <Compile Include="Despachos\EDESP_GuiaRSalidas.Parcial.vb">
+      <DependentUpon>EDESP_GuiaRSalidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\EDESP_Salidas.vb" />
+    <Compile Include="Despachos\EDESP_Salidas.Parcial.vb">
+      <DependentUpon>EDESP_Salidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\EDIST_GuiasRemision.vb" />
+    <Compile Include="Despachos\EDIST_GuiasRemision.Parcial.vb">
+      <DependentUpon>EDIST_GuiasRemision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\EDIST_GuiasRemisionDetalle.vb" />
+    <Compile Include="Despachos\EDIST_GuiasRemisionDetalle.Parcial.vb">
+      <DependentUpon>EDIST_GuiasRemisionDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\EDIST_Ordenes.vb" />
+    <Compile Include="Despachos\EDIST_Ordenes.Parcial.vb">
+      <DependentUpon>EDIST_Ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\EDIST_OrdenesDetalle.vb" />
+    <Compile Include="Despachos\EDIST_OrdenesDetalle.Parcial.vb">
+      <DependentUpon>EDIST_OrdenesDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ECONT_DocsPercepcion.Parcial.vb" />
+    <Compile Include="ECONT_DocsPercepcion.vb" />
+    <Compile Include="ECONT_DocsPercepcionDetalle.Parcial.vb" />
+    <Compile Include="ECONT_DocsPercepcionDetalle.vb" />
+    <Compile Include="EVENT_DocsRelacion.Parcial.vb" />
+    <Compile Include="EVENT_DocsRelacion.vb" />
+    <Compile Include="EVENT_DocsVentaPagos.Parcial.vb" />
+    <Compile Include="EVENT_DocsVentaPagos.vb" />
+    <Compile Include="Generales\EUsuariosPorAlmacen.vb" />
+    <Compile Include="Generales\EUsuariosPorAlmacen.Parcial.vb">
+      <DependentUpon>EUsuariosPorAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EEntidadesPadrones.Parcial.vb" />
+    <Compile Include="Generales\EEntidadesPadrones.vb" />
+    <Compile Include="Generales\EVerStockPtoVenta.Parcial.vb" />
+    <Compile Include="Generales\EVerStockPtoVenta.vb" />
+    <Compile Include="Procesos\CAsientos.vb" />
+    <Compile Include="Procesos\ECCuadreCaja.vb" />
+    <Compile Include="Procesos\ECCuadrePendientes.vb" />
+    <Compile Include="Procesos\ESaldoCaja.vb" />
+    <Compile Include="Procesos\Reniec.vb" />
+    <Compile Include="Procesos\Sunat.vb" />
+    <Compile Include="Tesoreria\ETESO_CajaChicaIngreso.vb" />
+    <Compile Include="Tesoreria\ETESO_CajaChicaIngreso.Parcial.vb">
+      <DependentUpon>ETESO_CajaChicaIngreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_CajaChicaPagos.vb" />
+    <Compile Include="Tesoreria\ETESO_CajaChicaPagos.Parcial.vb">
+      <DependentUpon>ETESO_CajaChicaPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_Documentos.vb" />
+    <Compile Include="Tesoreria\ETESO_Documentos.Parcial.vb">
+      <DependentUpon>ETESO_Documentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_DocumentosDetalle.vb" />
+    <Compile Include="Tesoreria\ETESO_DocumentosDetalle.Parcial.vb">
+      <DependentUpon>ETESO_DocumentosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_PendientesCaja.vb" />
+    <Compile Include="Tesoreria\ETESO_PendientesCaja.Parcial.vb">
+      <DependentUpon>ETESO_PendientesCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_PendientesCancelacion.vb" />
+    <Compile Include="Tesoreria\ETESO_PendientesCancelacion.Parcial.vb">
+      <DependentUpon>ETESO_PendientesCancelacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_Recibos.Parcial.vb" />
+    <Compile Include="Tesoreria\ETESO_Recibos.vb" />
+    <Compile Include="Tesoreria\ETESO_Sencillo.Parcial.vb" />
+    <Compile Include="Tesoreria\ETESO_Sencillo.vb" />
+    <Compile Include="Tesoreria\ETESO_SIniciales.vb" />
+    <Compile Include="Tesoreria\ETESO_SIniciales.Parcial.vb">
+      <DependentUpon>ETESO_SIniciales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\Constantes.vb" />
+    <Compile Include="Generales\ELineas.vb" />
+    <Compile Include="Generales\ELineas.Parcial.vb">
+      <DependentUpon>ELineas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EEntidadRelacion.vb" />
+    <Compile Include="Generales\EEntidadRelacion.Parcial.vb">
+      <DependentUpon>EEntidadRelacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EParametros.vb" />
+    <Compile Include="Generales\EParametros.Parcial.vb">
+      <DependentUpon>EParametros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EPrecios.vb" />
+    <Compile Include="Generales\EPrecios.Parcial.vb">
+      <DependentUpon>EPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EPeriodos.vb" />
+    <Compile Include="Generales\EPeriodos.Parcial.vb">
+      <DependentUpon>EPeriodos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EDirecciones.vb" />
+    <Compile Include="Generales\EDirecciones.Parcial.vb">
+      <DependentUpon>EDirecciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ECuentas.vb" />
+    <Compile Include="Generales\ECuentas.Parcial.vb">
+      <DependentUpon>ECuentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EEntidadesRoles.vb" />
+    <Compile Include="Generales\EEntidadesRoles.Parcial.vb">
+      <DependentUpon>EEntidadesRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EEntidades.vb" />
+    <Compile Include="Generales\EEntidades.Parcial.vb">
+      <DependentUpon>EEntidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EProveedores.vb" />
+    <Compile Include="Generales\EProveedores.Parcial.vb">
+      <DependentUpon>EProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EZonas.vb" />
+    <Compile Include="Generales\EZonas.Parcial.vb">
+      <DependentUpon>EZonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ETelefonos.vb" />
+    <Compile Include="Generales\ETelefonos.Parcial.vb">
+      <DependentUpon>ETelefonos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ETipos.vb" />
+    <Compile Include="Generales\ETipos.Parcial.vb">
+      <DependentUpon>ETipos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EUsuariosPorPuntoVenta.vb" />
+    <Compile Include="Generales\EUsuariosPorPuntoVenta.Parcial.vb">
+      <DependentUpon>EUsuariosPorPuntoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EUbigeos.vb" />
+    <Compile Include="Generales\EUbigeos.Parcial.vb">
+      <DependentUpon>EUbigeos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ERoles.vb" />
+    <Compile Include="Generales\ERoles.Parcial.vb">
+      <DependentUpon>ERoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EPuntoVenta.vb" />
+    <Compile Include="Generales\EPuntoVenta.Parcial.vb">
+      <DependentUpon>EPuntoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ESucursales.vb" />
+    <Compile Include="Generales\ESucursales.Parcial.vb">
+      <DependentUpon>ESucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ECorrelativos.vb" />
+    <Compile Include="Generales\ECorrelativos.Parcial.vb">
+      <DependentUpon>ECorrelativos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EClientes.vb" />
+    <Compile Include="Generales\EClientes.Parcial.vb">
+      <DependentUpon>EClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EAlmacenes.vb" />
+    <Compile Include="Generales\EAlmacenes.Parcial.vb">
+      <DependentUpon>EAlmacenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EAuditoria.vb" />
+    <Compile Include="Generales\EAuditoria.Parcial.vb">
+      <DependentUpon>EAuditoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EArticDestinos.vb" />
+    <Compile Include="Generales\EArticDestinos.Parcial.vb">
+      <DependentUpon>EArticDestinos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EArticulos.vb" />
+    <Compile Include="Generales\EArticulos.Parcial.vb">
+      <DependentUpon>EArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EColor.vb" />
+    <Compile Include="Generales\EColor.Parcial.vb">
+      <DependentUpon>EColor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\ETipoCambio.vb" />
+    <Compile Include="Generales\ETipoCambio.Parcial.vb">
+      <DependentUpon>ETipoCambio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EConductores.vb" />
+    <Compile Include="Generales\EConductores.Parcial.vb">
+      <DependentUpon>EConductores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\EBancos.vb" />
+    <Compile Include="Generales\EBancos.Parcial.vb">
+      <DependentUpon>EBancos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_Caja.vb" />
+    <Compile Include="Tesoreria\ETESO_Caja.Parcial.vb">
+      <DependentUpon>ETESO_Caja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_CajaDocsPago.vb" />
+    <Compile Include="Tesoreria\ETESO_CajaDocsPago.Parcial.vb">
+      <DependentUpon>ETESO_CajaDocsPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\ETESO_DocsPagos.vb" />
+    <Compile Include="Tesoreria\ETESO_DocsPagos.Parcial.vb">
+      <DependentUpon>ETESO_DocsPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_PedidosDetalle.vb" />
+    <Compile Include="EVENT_PedidosDetalle.Parcial.vb">
+      <DependentUpon>EVENT_PedidosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_ProductoAdicionales.vb" />
+    <Compile Include="EVENT_ProductoAdicionales.Parcial.vb">
+      <DependentUpon>EVENT_ProductoAdicionales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_ListaPrecios.vb" />
+    <Compile Include="EVENT_ListaPrecios.Parcial.vb">
+      <DependentUpon>EVENT_ListaPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_PVentDocumento.vb" />
+    <Compile Include="EVENT_PVentDocumento.Parcial.vb">
+      <DependentUpon>EVENT_PVentDocumento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_DocsVentaDetalle.vb" />
+    <Compile Include="EVENT_DocsVentaDetalle.Parcial.vb">
+      <DependentUpon>EVENT_DocsVentaDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_DocsVenta.vb" />
+    <Compile Include="EVENT_DocsVenta.Parcial.vb">
+      <DependentUpon>EVENT_DocsVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_Pedidos.vb" />
+    <Compile Include="EVENT_Pedidos.Parcial.vb">
+      <DependentUpon>EVENT_Pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EVENT_ListaPreciosArticulos.vb" />
+    <Compile Include="EVENT_ListaPreciosArticulos.Parcial.vb">
+      <DependentUpon>EVENT_ListaPreciosArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Tools\EUtilitarios.vb" />
+    <Compile Include="Tools\EPPrecios.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\xmlPuntoVenta.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlAlmacenes.xml" />
+    <None Include="Resources\xmlArticDestinos.xml" />
+    <Content Include="Resources\xmlABAS_GestionOrdenes.xml" />
+    <Content Include="Resources\xmlABAS_GestionOrdenesDetalle.xml" />
+    <Content Include="Resources\xmlABAS_OrdenesProduccion.xml" />
+    <Content Include="Resources\xmlABAS_OrdenesProduccionDetalle.xml" />
+    <Content Include="Resources\xmlABAS_PedidoTransformacion.xml" />
+    <Content Include="Resources\xmlABAS_PedidoTransformacionDetalle.xml" />
+    <Content Include="Resources\xmlArticulos.xml" />
+    <None Include="Resources\xmlClientes.xml" />
+    <None Include="Resources\xmlColor.xml" />
+    <None Include="Resources\xmlBancos.xml" />
+    <None Include="Resources\xmlAuditoria.xml" />
+    <None Include="Resources\xmlConductores.xml" />
+    <None Include="Resources\xmlCONT_DocsPercepcion.xml" />
+    <None Include="Resources\xmlCONT_DocsPercepcionDetalle.xml" />
+    <Content Include="Resources\xmlCorrelativos.xml" />
+    <Content Include="Resources\xmlCuentas.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Resources\xmlDESP_GuiaRSalidas.xml" />
+    <None Include="Resources\xmlDESP_Salidas.xml" />
+    <Content Include="Resources\xmlDirecciones.xml" />
+    <None Include="Resources\xmlDIST_GuiasRemision.xml" />
+    <None Include="Resources\xmlDIST_GuiasRemisionDetalle.xml" />
+    <None Include="Resources\xmlDIST_Ordenes.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xmlDIST_OrdenesDetalle.xml" />
+    <Content Include="Resources\xmlEntidades.xml" />
+    <None Include="Resources\xmlEntidadesPadrones.xml" />
+    <Content Include="Resources\xmlEntidadesRoles.xml" />
+    <None Include="Resources\xmlEntidadRelacion.xml" />
+    <Content Include="Resources\xmlLineas.xml" />
+    <Content Include="Resources\xmlParametros.xml" />
+    <None Include="Resources\xmlPrueba.xml" />
+    <None Include="Resources\xmlPruebaTipo.xml" />
+    <None Include="Resources\xmlProveedores.xml" />
+    <None Include="Resources\xmlPrecios.xml" />
+    <None Include="Resources\xmlPeriodos.xml" />
+    <Content Include="Resources\xmlRoles.xml" />
+    <None Include="Resources\xmlStocks.xml" />
+    <Content Include="Resources\xmlSucursales.xml" />
+    <Content Include="Resources\xmlTelefonos.xml" />
+    <None Include="Resources\xmlTESO_DocsPagos.xml" />
+    <None Include="Resources\xmlTESO_Pagos.xml" />
+    <None Include="Resources\xmlTESO_Caja.xml" />
+    <None Include="Resources\xmlTESO_CajaDeposito.xml" />
+    <None Include="Resources\xmlTESO_Deposito.xml" />
+    <None Include="Resources\xmlTESO_CajaDocsPago.xml" />
+    <None Include="Resources\xmlTESO_SIniciales.xml" />
+    <None Include="Resources\xmlTESO_CajaChicaIngreso.xml" />
+    <None Include="Resources\xmlTESO_CajaChicaPagos.xml" />
+    <None Include="Resources\xmlTESO_Documentos.xml" />
+    <None Include="Resources\xmlTESO_DocumentosDetalle.xml" />
+    <None Include="Resources\xmlTESO_PendientesCaja.xml" />
+    <None Include="Resources\xmlTESO_PendientesCancelacion.xml" />
+    <None Include="Resources\xmlTESO_Recibos.xml" />
+    <None Include="Resources\xmlTESO_Sencillo.xml" />
+    <Content Include="Resources\xmlTipoCambio.xml" />
+    <Content Include="Resources\xmlTipoColor.xml" />
+    <Content Include="Resources\xmlTipoDocumento.xml" />
+    <Content Include="Resources\xmlTipos.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosConductores.xml" />
+    <None Include="Resources\xmlTRAN_Vehiculos.xml" />
+    <Content Include="Resources\xmlUbigeos.xml" />
+    <None Include="Resources\xmlUsuariosPorPuntoVenta.xml" />
+    <None Include="Resources\xmlUsuariosPorAlmacen.xml" />
+    <None Include="Resources\xmlVENT_DocsRelacion.xml" />
+    <Content Include="Resources\xmlVENT_DocsVenta.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\xmlVENT_DocsVentaDetalle.xml" />
+    <None Include="Resources\xmlVENT_DocsVentaPagos.xml" />
+    <Content Include="Resources\xmlVENT_ListaPrecios.xml" />
+    <Content Include="Resources\xmlVENT_ListaPreciosArticulos.xml" />
+    <Content Include="Resources\xmlVENT_Pedidos.xml" />
+    <Content Include="Resources\xmlVENT_PedidosDetalle.xml" />
+    <None Include="Resources\xmlVENT_ProductoAdicionales.xml" />
+    <Content Include="Resources\xmlVENT_PVentDocumento.xml" />
+    <Content Include="Resources\xmlVENT_UsuariosPorPuntoVenta.xml" />
+    <None Include="Resources\xmlVerStockPtoVenta.xml" />
+    <Content Include="Resources\xmlZonas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,690 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class EABAS_DocsCompra
+
+#Region " Campos "
+	
+	Private m_docco_codigo As String
+	Private m_entid_codigoproveedor As String
+	Private m_almac_id As Short
+	Private m_ordco_codigo As String
+	Private m_tipos_codtipodocumento As String
+	Private m_tipos_codtipopago As String
+	Private m_tipos_codtipomoneda As String
+	Private m_docco_id As Long
+	Private m_docco_serie As String
+	Private m_docco_numero As String
+	Private m_docco_codigosap As String
+	Private m_docco_fechadocumento As Date
+	Private m_docco_fechapago As Date
+	Private m_docco_tipocambiosunat As Decimal
+	Private m_docco_importecompra As Decimal
+	Private m_docco_importeigv As Decimal
+	Private m_docco_totalcompra As Decimal
+	Private m_docco_porcentajeigv As Decimal
+	Private m_docco_totalpeso As Decimal
+	Private m_docco_referencia As String
+	Private m_docco_costeado As Boolean
+	Private m_docco_estado As String
+	Private m_docco_usrcrea As String
+	Private m_docco_feccrea As Date
+	Private m_docco_usrmod As String
+	Private m_docco_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACELogistica.My.Resources.xmlABAS_DocsCompra
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property DOCCO_Codigo() As String
+		Get
+			return m_docco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_codigo) Then
+				If Not m_docco_codigo.Equals(value) Then
+					m_docco_codigo = value
+					OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_docco_codigo = value
+				OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoProveedor() As String
+		Get
+			return m_entid_codigoproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigoproveedor) Then
+				If Not m_entid_codigoproveedor.Equals(value) Then
+					m_entid_codigoproveedor = value
+					OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigoproveedor = value
+				OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ALMAC_Id() As Short
+		Get
+			return m_almac_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_almac_id) Then
+				If Not m_almac_id.Equals(value) Then
+					m_almac_id = value
+					OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+				End If
+			Else
+				m_almac_id = value
+				OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDCO_Codigo() As String
+		Get
+			return m_ordco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ordco_codigo) Then
+				If Not m_ordco_codigo.Equals(value) Then
+					m_ordco_codigo = value
+					OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_ordco_codigo = value
+				OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoDocumento() As String
+		Get
+			return m_tipos_codtipodocumento
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipodocumento) Then
+				If Not m_tipos_codtipodocumento.Equals(value) Then
+					m_tipos_codtipodocumento = value
+					OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipodocumento = value
+				OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoPago() As String
+		Get
+			return m_tipos_codtipopago
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipopago) Then
+				If Not m_tipos_codtipopago.Equals(value) Then
+					m_tipos_codtipopago = value
+					OnTIPOS_CodTipoPagoChanged(m_tipos_codtipopago, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipopago = value
+				OnTIPOS_CodTipoPagoChanged(m_tipos_codtipopago, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoMoneda() As String
+		Get
+			return m_tipos_codtipomoneda
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipomoneda) Then
+				If Not m_tipos_codtipomoneda.Equals(value) Then
+					m_tipos_codtipomoneda = value
+					OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipomoneda = value
+				OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Id() As Long
+		Get
+			return m_docco_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_docco_id) Then
+				If Not m_docco_id.Equals(value) Then
+					m_docco_id = value
+					OnDOCCO_IdChanged(m_docco_id, EventArgs.Empty)
+				End If
+			Else
+				m_docco_id = value
+				OnDOCCO_IdChanged(m_docco_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Serie() As String
+		Get
+			return m_docco_serie
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_serie) Then
+				If Not m_docco_serie.Equals(value) Then
+					m_docco_serie = value
+					OnDOCCO_SerieChanged(m_docco_serie, EventArgs.Empty)
+				End If
+			Else
+				m_docco_serie = value
+				OnDOCCO_SerieChanged(m_docco_serie, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Numero() As String
+		Get
+			return m_docco_numero
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_numero) Then
+				If Not m_docco_numero.Equals(value) Then
+					m_docco_numero = value
+					OnDOCCO_NumeroChanged(m_docco_numero, EventArgs.Empty)
+				End If
+			Else
+				m_docco_numero = value
+				OnDOCCO_NumeroChanged(m_docco_numero, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_CodigoSAP() As String
+		Get
+			return m_docco_codigosap
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_codigosap) Then
+				If Not m_docco_codigosap.Equals(value) Then
+					m_docco_codigosap = value
+					OnDOCCO_CodigoSAPChanged(m_docco_codigosap, EventArgs.Empty)
+				End If
+			Else
+				m_docco_codigosap = value
+				OnDOCCO_CodigoSAPChanged(m_docco_codigosap, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_FechaDocumento() As Date
+		Get
+			return m_docco_fechadocumento
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_docco_fechadocumento) Then
+				If Not m_docco_fechadocumento.Equals(value) Then
+					m_docco_fechadocumento = value
+					OnDOCCO_FechaDocumentoChanged(m_docco_fechadocumento, EventArgs.Empty)
+				End If
+			Else
+				m_docco_fechadocumento = value
+				OnDOCCO_FechaDocumentoChanged(m_docco_fechadocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_FechaPago() As Date
+		Get
+			return m_docco_fechapago
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_docco_fechapago) Then
+				If Not m_docco_fechapago.Equals(value) Then
+					m_docco_fechapago = value
+					OnDOCCO_FechaPagoChanged(m_docco_fechapago, EventArgs.Empty)
+				End If
+			Else
+				m_docco_fechapago = value
+				OnDOCCO_FechaPagoChanged(m_docco_fechapago, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_TipoCambioSunat() As Decimal
+		Get
+			return m_docco_tipocambiosunat
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_tipocambiosunat) Then
+				If Not m_docco_tipocambiosunat.Equals(value) Then
+					m_docco_tipocambiosunat = value
+					OnDOCCO_TipoCambioSunatChanged(m_docco_tipocambiosunat, EventArgs.Empty)
+				End If
+			Else
+				m_docco_tipocambiosunat = value
+				OnDOCCO_TipoCambioSunatChanged(m_docco_tipocambiosunat, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_ImporteCompra() As Decimal
+		Get
+			return m_docco_importecompra
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_importecompra) Then
+				If Not m_docco_importecompra.Equals(value) Then
+					m_docco_importecompra = value
+					OnDOCCO_ImporteCompraChanged(m_docco_importecompra, EventArgs.Empty)
+				End If
+			Else
+				m_docco_importecompra = value
+				OnDOCCO_ImporteCompraChanged(m_docco_importecompra, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_ImporteIgv() As Decimal
+		Get
+			return m_docco_importeigv
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_importeigv) Then
+				If Not m_docco_importeigv.Equals(value) Then
+					m_docco_importeigv = value
+					OnDOCCO_ImporteIgvChanged(m_docco_importeigv, EventArgs.Empty)
+				End If
+			Else
+				m_docco_importeigv = value
+				OnDOCCO_ImporteIgvChanged(m_docco_importeigv, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_TotalCompra() As Decimal
+		Get
+			return m_docco_totalcompra
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_totalcompra) Then
+				If Not m_docco_totalcompra.Equals(value) Then
+					m_docco_totalcompra = value
+					OnDOCCO_TotalCompraChanged(m_docco_totalcompra, EventArgs.Empty)
+				End If
+			Else
+				m_docco_totalcompra = value
+				OnDOCCO_TotalCompraChanged(m_docco_totalcompra, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_PorcentajeIGV() As Decimal
+		Get
+			return m_docco_porcentajeigv
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_porcentajeigv) Then
+				If Not m_docco_porcentajeigv.Equals(value) Then
+					m_docco_porcentajeigv = value
+					OnDOCCO_PorcentajeIGVChanged(m_docco_porcentajeigv, EventArgs.Empty)
+				End If
+			Else
+				m_docco_porcentajeigv = value
+				OnDOCCO_PorcentajeIGVChanged(m_docco_porcentajeigv, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_TotalPeso() As Decimal
+		Get
+			return m_docco_totalpeso
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_docco_totalpeso) Then
+				If Not m_docco_totalpeso.Equals(value) Then
+					m_docco_totalpeso = value
+					OnDOCCO_TotalPesoChanged(m_docco_totalpeso, EventArgs.Empty)
+				End If
+			Else
+				m_docco_totalpeso = value
+				OnDOCCO_TotalPesoChanged(m_docco_totalpeso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Referencia() As String
+		Get
+			return m_docco_referencia
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_referencia) Then
+				If Not m_docco_referencia.Equals(value) Then
+					m_docco_referencia = value
+					OnDOCCO_ReferenciaChanged(m_docco_referencia, EventArgs.Empty)
+				End If
+			Else
+				m_docco_referencia = value
+				OnDOCCO_ReferenciaChanged(m_docco_referencia, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Costeado() As Boolean
+		Get
+			return m_docco_costeado
+		End Get
+		Set(ByVal value As Boolean)
+			If Not m_docco_costeado.Equals(value) Then
+				m_docco_costeado = value
+				OnDOCCO_CosteadoChanged(m_docco_costeado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Estado() As String
+		Get
+			return m_docco_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_estado) Then
+				If Not m_docco_estado.Equals(value) Then
+					m_docco_estado = value
+					OnDOCCO_EstadoChanged(m_docco_estado, EventArgs.Empty)
+				End If
+			Else
+				m_docco_estado = value
+				OnDOCCO_EstadoChanged(m_docco_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_UsrCrea() As String
+		Get
+			return m_docco_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_docco_usrcrea = value
+		End Set
+	End Property
+
+	Public Property DOCCO_FecCrea() As Date
+		Get
+			return m_docco_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_docco_feccrea = value
+		End Set
+	End Property
+
+	Public Property DOCCO_UsrMod() As String
+		Get
+			return m_docco_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_docco_usrmod = value
+		End Set
+	End Property
+
+	Public Property DOCCO_FecMod() As Date
+		Get
+			return m_docco_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_docco_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "ABAS_DocsCompra"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Logistica"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event DOCCO_CodigoChanged As EventHandler
+	Public Event ENTID_CodigoProveedorChanged As EventHandler
+	Public Event ALMAC_IdChanged As EventHandler
+	Public Event ORDCO_CodigoChanged As EventHandler
+	Public Event TIPOS_CodTipoDocumentoChanged As EventHandler
+	Public Event TIPOS_CodTipoPagoChanged As EventHandler
+	Public Event TIPOS_CodTipoMonedaChanged As EventHandler
+	Public Event DOCCO_IdChanged As EventHandler
+	Public Event DOCCO_SerieChanged As EventHandler
+	Public Event DOCCO_NumeroChanged As EventHandler
+	Public Event DOCCO_CodigoSAPChanged As EventHandler
+	Public Event DOCCO_FechaDocumentoChanged As EventHandler
+	Public Event DOCCO_FechaPagoChanged As EventHandler
+	Public Event DOCCO_TipoCambioSunatChanged As EventHandler
+	Public Event DOCCO_ImporteCompraChanged As EventHandler
+	Public Event DOCCO_ImporteIgvChanged As EventHandler
+	Public Event DOCCO_TotalCompraChanged As EventHandler
+	Public Event DOCCO_PorcentajeIGVChanged As EventHandler
+	Public Event DOCCO_TotalPesoChanged As EventHandler
+	Public Event DOCCO_ReferenciaChanged As EventHandler
+	Public Event DOCCO_CosteadoChanged As EventHandler
+	Public Event DOCCO_EstadoChanged As EventHandler
+
+	Public Sub OnDOCCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnALMAC_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMAC_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoPagoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoPagoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoMonedaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoMonedaChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_SerieChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_SerieChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_NumeroChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_NumeroChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_CodigoSAPChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_CodigoSAPChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_FechaDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_FechaDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_FechaPagoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_FechaPagoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_TipoCambioSunatChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_TipoCambioSunatChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_ImporteCompraChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_ImporteCompraChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_ImporteIgvChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_ImporteIgvChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_TotalCompraChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_TotalCompraChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_PorcentajeIGVChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_PorcentajeIGVChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_TotalPesoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_TotalPesoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_ReferenciaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_ReferenciaChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_CosteadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_CosteadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_EstadoChanged(sender, e)
+	End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

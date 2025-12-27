@@ -1,0 +1,516 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACFramework
+Imports DAConexion
+Imports ACETransporte
+Imports ACEVentas
+
+Public Class DAdministracionCaja
+
+#Region " Variables "
+	
+#End Region
+
+#Region " Constructores "
+	
+#End Region
+
+#Region " Procedimientos Almacenados "
+	
+
+#End Region
+
+#Region " Metodos "
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCaja
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaFacturasPendientes(ByRef m_listvent_docsventa As List(Of EVENT_DocsVenta), ByRef e_reportecaja As ETRAN_Fletes, _
+                                          ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaFacturasPendientes")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         If Not IsNothing(x_entid_codigo) Then
+            DAEnterprise.AgregarParametro("@ENTID_Codigo", x_entid_codigo, DbType.String, 14)
+         End If
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  e_reportecaja = New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, e_reportecaja)
+                  e_reportecaja.Instanciar(ACEInstancia.Consulta)
+               End While
+               If reader.NextResult() Then
+                  While reader.Read()
+                     Dim _tran_fletes As New EVENT_DocsVenta()
+                     'Dim _utilitarios As New ACEsquemas(New EVENT_DocsVenta())
+                     '_utilitarios.ACCargarEsquemas(reader, _tran_fletes)
+                     ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                     _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                     m_listvent_docsventa.Add(_tran_fletes)
+                  End While
+               End If
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaFletes
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaFletesPendientes(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByRef e_reportecaja As ETRAN_Fletes, _
+                                                ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaFletesPendientes")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         If Not IsNothing(x_entid_codigo) Then
+            DAEnterprise.AgregarParametro("@ENTID_Codigo", x_entid_codigo, DbType.String, 14)
+         End If
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  e_reportecaja = New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, e_reportecaja)
+                  e_reportecaja.Instanciar(ACEInstancia.Consulta)
+               End While
+               If reader.NextResult() Then
+                  While reader.Read()
+                     Dim _tran_fletes As New ETRAN_Fletes()
+                     ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                     _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                     m_listtran_fletes.Add(_tran_fletes)
+                  End While
+               End If
+               Return True
+            Else
+               Return False
+            End If
+
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaFletes
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaFletesPendientesSF(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByRef e_reportecaja As ETRAN_Fletes, _
+                                                ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_entid_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaFletesPendientesSF")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         If Not IsNothing(x_entid_codigo) Then
+            DAEnterprise.AgregarParametro("@ENTID_Codigo", x_entid_codigo, DbType.String, 14)
+         End If
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  e_reportecaja = New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, e_reportecaja)
+                  e_reportecaja.Instanciar(ACEInstancia.Consulta)
+               End While
+               If reader.NextResult() Then
+                  While reader.Read()
+                     Dim _tran_fletes As New ETRAN_Fletes()
+                     ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                     _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                     m_listtran_fletes.Add(_tran_fletes)
+                  End While
+               End If
+               Return True
+            Else
+               Return False
+            End If
+
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_VIAJSS_SueldoConductor
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_VIAJSS_SueldoConductor(ByVal m_listtran_viajes As List(Of ETRAN_Viajes), ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_VIAJSS_SueldoConductor")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajes As New ETRAN_Viajes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajes)
+                  _tran_viajes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajes.Add(_tran_viajes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaEgresos
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <param name="x_viaje_id">Parametro 3: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaEgresos(ByVal m_listtran_viajesgastos As List(Of ETRAN_ViajesGastos), ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_viaje_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaEgresos")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         If Not x_viaje_id = 0 Then
+            DAEnterprise.AgregarParametro("@VIAJE_Id", x_viaje_id, DbType.Int64, 8)
+         End If
+
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajesgastos As New ETRAN_ViajesGastos()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajesgastos)
+                  _tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajesgastos.Add(_tran_viajesgastos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaPendientes
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaPendientes(ByVal m_listtran_viajes As List(Of ETRAN_Viajes), ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaPendientes")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajes As New ETRAN_Viajes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajes)
+                  _tran_viajes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajes.Add(_tran_viajes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaEfectivo
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaEfectivo(ByRef m_listtran_viajesgastos As List(Of ETRAN_ViajesGastos), ByRef x_tran_viajesgastos As ETRAN_ViajesGastos, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaEfectivo")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  x_tran_viajesgastos = New ETRAN_ViajesGastos()
+                  ACEsquemas.ACCargarEsquema(reader, x_tran_viajesgastos)
+                  x_tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+               End While
+               If reader.NextResult() Then
+                  While reader.Read()
+                     Dim _tran_viajesgastos As New ETRAN_ViajesGastos()
+                     ACEsquemas.ACCargarEsquema(reader, _tran_viajesgastos)
+                     _tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+                     m_listtran_viajesgastos.Add(_tran_viajesgastos)
+                  End While
+                  Return True
+               Else
+                  Return False
+               End If
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_CuadreCajaPagos
+   ' </summary>
+   ' <param name="x_docve_codigo">Parametro 1: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_CuadreCajaPagos(ByVal m_listteso_caja As List(Of ETESO_Caja), ByVal x_todos As Boolean, ByVal x_docve_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_CuadreCajaPagos")
+            DAEnterprise.AgregarParametro("@DOCVE_Codigo", x_docve_codigo, DbType.String, 15)
+         If x_todos Then
+            DAEnterprise.AgregarParametro("@Todos", x_todos)
+         End If
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _teso_caja As New ETESO_Caja()
+                  ACEsquemas.ACCargarEsquema(reader, _teso_caja)
+                  _teso_caja.Instanciar(ACEInstancia.Consulta)
+                  m_listteso_caja.Add(_teso_caja)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_FletesXFacturas
+   ' </summary>
+   ' <param name="x_docve_codigo">Parametro 1: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_FletesXFacturas(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByVal x_docve_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_FletesXFacturas")
+            DAEnterprise.AgregarParametro("@DOCVE_Codigo", x_docve_codigo, DbType.String, 15)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_fletes As New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                  _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_fletes.Add(_tran_fletes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_MovimientoSencillo
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_pvent_id">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_MovimientoSencillo(ByVal m_listteso_caja As List(Of ETESO_Caja), ByVal x_fecini As Date, ByVal x_pvent_id As Long) As Boolean
+      Try
+            DAEnterprise.AsignarProcedure("TRAN_CAJASS_MovimientoSencillo")
+            DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+            DAEnterprise.AgregarParametro("@PVENT_Id", x_pvent_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _teso_caja As New ETESO_Caja()
+                  ACEsquemas.ACCargarEsquema(reader, _teso_caja)
+                  _teso_caja.Instanciar(ACEInstancia.Consulta)
+                  m_listteso_caja.Add(_teso_caja)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_PendientesPagadas
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_PendientesPagadas(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_PendientesPagadas")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_fletes As New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                  _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_fletes.Add(_tran_fletes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_Pendientes
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_Pendientes(ByVal m_listtran_fletes As List(Of ETRAN_Fletes), ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_Pendientes")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_fletes As New ETRAN_Fletes()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_fletes)
+                  _tran_fletes.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_fletes.Add(_tran_fletes)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_REPOSS_GenerarRecibos
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_REPOSS_GenerarRecibos(ByVal m_listtran_viajesgastos As List(Of ETRAN_ViajesGastos), ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_REPOSS_GenerarRecibos")
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _tran_viajesgastos As New ETRAN_ViajesGastos()
+                  ACEsquemas.ACCargarEsquema(reader, _tran_viajesgastos)
+                  _tran_viajesgastos.Instanciar(ACEInstancia.Consulta)
+                  m_listtran_viajesgastos.Add(_tran_viajesgastos)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Datos: TRAN_CAJASS_FacturasXCliente
+   ' </summary>
+   ' <param name="x_entid_codigo">Parametro 1: </param> 
+   ' <param name="x_todos">Parametro 2: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function TRAN_CAJASS_FacturasXCliente(ByVal m_listvent_docsventa As List(Of EVENT_DocsVenta), ByVal x_entid_codigo As String, ByVal x_todos As Boolean) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("TRAN_CAJASS_FacturasXCliente")
+         DAEnterprise.AgregarParametro("@ENTID_Codigo", x_entid_codigo, DbType.String, 14)
+         DAEnterprise.AgregarParametro("@Todos", x_todos, DbType.Boolean, 1)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _vent_docsventa As New EVENT_DocsVenta()
+                  ACEsquemas.ACCargarEsquema(reader, _vent_docsventa)
+                  _vent_docsventa.Instanciar(ACEInstancia.Consulta)
+                  m_listvent_docsventa.Add(_vent_docsventa)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+#End Region
+
+End Class
+

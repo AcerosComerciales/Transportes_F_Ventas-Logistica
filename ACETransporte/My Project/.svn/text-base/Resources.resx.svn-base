@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="xmlAlmacenes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlAlmacenes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlContactos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlContactos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlCorrelativos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlCorrelativos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlDirecciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlDirecciones.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlDocumentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlDocumentos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlEntidades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlEntidades.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlParametros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlParametros.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlSucursales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlSucursales.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTelefonos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTelefonos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTipos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTipos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_AlmacenesPiezas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_AlmacenesPiezas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Cajas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Cajas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_CajasOperaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_CajasOperaciones.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Clientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Clientes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_CombustibleConsumo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_CombustibleConsumo.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Conductores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Conductores.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Cotizaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Cotizaciones.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocPagoGuiasTransportista" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocPagoGuiasTransportista.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocumentosPagoDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocumentosPagoDetalle.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocumentosPagoFletes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocumentosPagoFletes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_EstimacionesConsumo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_EstimacionesConsumo.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Fletes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Fletes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_GuiasTransportista" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_GuiasTransportista.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_GuiasTransportistaDetalles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_GuiasTransportistaDetalles.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_IncidenciasNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_IncidenciasNeumaticos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_IncidenciasVehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_IncidenciasVehiculos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_IncidenciasViajes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_IncidenciasViajes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_InformesMantenimientos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_InformesMantenimientos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_MovimientosAlmacenes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_MovimientosAlmacenes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_MovimientosNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_MovimientosNeumaticos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Neumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Neumaticos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_OrdenesMantenimiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_OrdenesMantenimiento.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_OrdenesTransportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_OrdenesTransportes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Planillas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Planillas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Proveedores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Proveedores.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Ranflas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Ranflas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Reencauches" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Reencauches.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Rutas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Rutas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_SegurosVehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_SegurosVehiculos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Vehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Vehiculos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosConductores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosConductores.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosMantenimiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosMantenimiento.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosNeumaticos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosRanflas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosRanflas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Viajes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Viajes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesGastos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesGastos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesIngresos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesIngresos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlUbigeos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlUbigeos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesNeumaticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesNeumaticos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlEntidadesRoles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\xmlentidadesroles.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlRoles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\xmlroles.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlCliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\xmlcliente.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlAuditoria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlAuditoria.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlClientes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlClientes.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlEntidadRelacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlEntidadRelacion.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlProveedores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlProveedores.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlPuntoVenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlPuntoVenta.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlUsuariosPorPuntoVenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlUsuariosPorPuntoVenta.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlVENT_ListaPrecios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlVENT_ListaPrecios.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlZonas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlZonas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Documentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Documentos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocumentosDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocumentosDetalle.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosIncidencias" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosIncidencias.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosInventario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosInventario.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosInventarioDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosInventarioDetalle.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosSeguros" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosSeguros.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_NeumaticosIncidencias" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_NeumaticosIncidencias.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesVehiculos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesVehiculos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Recibos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Recibos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocsVenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocsVenta.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_DocsVentaDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_DocsVentaDetalle.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_CotizacionesDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_CotizacionesDetalle.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesGuiasRemision" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesGuiasRemision.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ViajesVentas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ViajesVentas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_CotizacionesFletes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_CotizacionesFletes.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_Piezas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_Piezas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosMantenimientoDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosMantenimientoDetalle.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_FletePorRuta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_FletePorRuta.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_VehiculosMantenimientoDocCompra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_VehiculosMantenimientoDocCompra.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

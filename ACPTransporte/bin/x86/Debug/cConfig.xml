@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cConfig>
+  <Config empresa="ACERO">
+    <pathfondo />
+    <zona>54.00</zona>
+    <layout>None</layout>
+    <empresa>ACERO</empresa>
+    <sucursal>1</sucursal>
+    <almacen />
+    <puntoventa>9</puntoventa>
+  </Config>
+</cConfig>

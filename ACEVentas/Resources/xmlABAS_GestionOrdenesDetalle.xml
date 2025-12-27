@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="ABAS_GestionOrdenesDetalle" Esquema="Logistica" Prefijo="GESTOD">
+  <Nombre>ABAS_GestionOrdenesDetalle</Nombre>
+  <Esquema>Logistica</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GESTOR_Codigo">GESTOR_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GESTOD_Item">GESTOD_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_CodigoOC">GESTOD_CodigoOC</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_DescripcionClienteOC">GESTOD_DescripcionClienteOC</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_CantidadXmetrosOC">GESTOD_CantidadXmetrosOC</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_FecCreaOC">GESTOD_FecCreaOC</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_EstadoOC">GESTOD_EstadoOC</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_FecCrea">GESTOD_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_UsrCrea">GESTOD_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_FecCrea">GESTOD_FecMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GESTOD_UsrCrea">GESTOD_UsrMod</CCampo>
+
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GESTOR_Codigo">GESTOR_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

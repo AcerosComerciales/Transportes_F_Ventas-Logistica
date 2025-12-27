@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_DocumentosPagoDetalle" Esquema="Transportes" Prefijo="DPDET">
+  <Nombre>TRAN_DocumentosPagoDetalle</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPDET_Id">DPDET_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_Unidad">DPDET_Unidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_Detalle">DPDET_Detalle</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_ValorUnitario">DPDET_ValorUnitario</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCPF_Id">DOCPF_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_Cantidad">DPDET_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="GTDET_Id">GTDET_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_UsrCrea">DPDET_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_FecCrea">DPDET_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_UsrMod">DPDET_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_FecMod">DPDET_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPDET_Id">DPDET_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_Id">DOCPF_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_Id">GTDET_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

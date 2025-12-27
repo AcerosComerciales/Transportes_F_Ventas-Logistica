@@ -1,0 +1,3 @@
+﻿Public Class BTRANGUIAS_GuiaTransportistasDocRelacion
+
+End Class

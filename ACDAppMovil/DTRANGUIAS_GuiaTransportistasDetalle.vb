@@ -1,0 +1,3 @@
+﻿Public Class DTRANGUIAS_GuiaTransportistasDetalle
+
+End Class

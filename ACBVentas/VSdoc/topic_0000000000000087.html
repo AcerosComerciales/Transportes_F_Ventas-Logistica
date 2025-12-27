@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>BVENT_DocsVenta.AnularDocumentoVentas (Método)</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ACBVentas Reference</div>
+  	<h1 class="title">BVENT_DocsVenta.AnularDocumentoVentas (Método)</h1>
+  	<div id="headerLinks">
+
+	<a href="#seeAlsoSection">Vea también</a>
+
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+       
+        Anular un documento de Venta, y liberar la cotización correspondiente
+
+
+
+        <br /><strong>Ensamblado:</strong> ACBVentas (in ACBVentas.dll)
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Sintaxis</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="syntaxSection" class="section">	
+	
+	
+	<div id="syntaxCodeBlocks">
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">Public Function AnularDocumentoVentas( _&nbsp;<br />   ByVal <i>x_docve_codigo</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_docve_fecha</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">Date</a>, _&nbsp;<br />   ByVal <i>x_pedid_codigo</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>m_proceso</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a>, _&nbsp;<br />   ByVal <i>x_motivo</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_usuario</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCsharp">
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> AnularDocumentoVentas(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_docve_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> <i>x_docve_fecha</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_pedid_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>m_proceso</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_motivo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario</i>&nbsp;<br />)</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCpp">
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> AnularDocumentoVentas(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_docve_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> <i>x_docve_fecha</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_pedid_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>m_proceso</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_motivo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario</i>&nbsp;<br />) </pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCornerActive">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeJScript">
+					<pre xml:space="preserve" class="brush: js">public function AnularDocumentoVentas(&nbsp;<br />    <i>x_docve_codigo</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_docve_fecha</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a>,&nbsp;<br />    <i>x_pedid_codigo</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>m_proceso</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>,&nbsp;<br />    <i>x_motivo</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_usuario</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+<h4 class="subHeading">
+	Parámetros</h4><dl paramName="x_docve_codigo">
+	<dt>
+		<span class="parameter">
+			x_docve_codigo
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de Documento de Venta 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_docve_fecha">
+	<dt>
+		<span class="parameter">
+			x_docve_fecha
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.datetime.aspx">DateTime</a> 
+		</p>
+		<p>
+			Fecha del Documento de Venta 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_pedid_codigo">
+	<dt>
+		<span class="parameter">
+			x_pedid_codigo
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de Pedido 
+		</p>
+	</dd>
+</dl>
+<dl paramName="m_proceso">
+	<dt>
+		<span class="parameter">
+			m_proceso
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> 
+		</p>
+		<p>
+			Permiso de Anulacion 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_motivo">
+	<dt>
+		<span class="parameter">
+			x_motivo
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_usuario">
+	<dt>
+		<span class="parameter">
+			x_usuario
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			usuario que realiza el proceso 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Código fuente</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="sourceCodeSection" class="section">	
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csNaTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">
+Public Function AnularDocumentoVentas(ByVal x_docve_codigo As String, ByVal x_docve_fecha As Date, ByVal x_pedid_codigo As String, _
+                                 ByVal m_proceso As Boolean, ByVal x_motivo As String, ByVal x_usuario As String) As Boolean
+    Try
+       '' Verificar Guias de Remision
+       Dim _guias As New BDIST_GuiasRemision
+       Dim _whereguia As New Hashtable
+       _whereguia.Add(&quot;DOCVE_Codigo&quot;, New ACWhere(x_docve_codigo))
+       _whereguia.Add(&quot;GUIAR_Estado&quot;, New ACWhere(Constantes.getEstado(Constantes.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+       If _guias.Cargar(_whereguia) Then
+          Throw New Exception(&quot;El documento tienen Guias Generadas, primero debe anular las guias para proceder&quot;)
+       End If
+       '' Verificar Ordenes
+       Dim _orden As New BDIST_Ordenes
+       Dim _whereorden As New Hashtable
+       _whereorden.Add(&quot;DOCVE_Codigo&quot;, New ACWhere(x_docve_codigo))
+       _whereorden.Add(&quot;ORDEN_Estado&quot;, New ACWhere(Constantes.getEstado(Constantes.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+       If _orden.Cargar(_whereorden) Then
+          Throw New Exception(&quot;El documento tiene ordenes, primero debe anular las ordenes para poder proceder&quot;)
+       End If
+       '' verificar que no tenga pagos activos
+       Dim _caja As New BTESO_Caja
+       Dim _wherecaja As New Hashtable
+       _wherecaja.Add(&quot;DOCVE_Codigo&quot;, New ACWhere(x_docve_codigo))
+       _wherecaja.Add(&quot;CAJA_Estado&quot;, New ACWhere(Constantes.getEstado(Constantes.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+       _wherecaja.Add(&quot;TIPOS_CodTransaccion&quot;, New ACWhere(ETipos.getTipoDePago(ETipos.TipoDePago.Efectivo), ACWhere.TipoWhere.Diferente))
+       If _caja.Cargar(_wherecaja) Then
+          Throw New Exception(&quot;No se puede Anular un Documento que tiene pagos, primero tiene que anular los pagos para proceder&quot;)
+       End If
+       '' Comerzar proceso de Anulacion de document
+       DAEnterprise.BeginTransaction()
+       m_vent_docsventa = New EVENT_DocsVenta()
+       m_vent_docsventa.Instanciar(ACEInstancia.Modificado)
+       m_vent_docsventa.DOCVE_Codigo = x_docve_codigo
+       m_vent_docsventa.DOCVE_AnuladoCaja = False
+       m_vent_docsventa.DOCVE_MotivoAnulacion = x_motivo
+       m_vent_docsventa.DOCVE_Estado = EVENT_DocsVenta.getEstado(EVENT_DocsVenta.Estado.Anulado)
+       '' Verificar opciones de Anulacion
+       Dim _constantes As New BConstantes
+       Dim _eliFec As Boolean = False
+       If Not _constantes.getFecha().Date = x_docve_fecha.Date Then
+          '' Verificar si el usuario tiene autorizacion
+          If Not m_proceso Then
+             Throw New Exception(&quot;No se puede anular un documento despues de la fecha de emision, consulte con su administrador&quot;)
+          End If
+          m_vent_docsventa.DOCVE_AnuladoCaja = True
+          _eliFec = True
+       End If
+       If Guardar(x_usuario, New String() {&quot;DOCVE_FecAnulacion&quot;}) Then
+          '' Anular Pagos
+          ' Anula en Caja
+          _wherecaja = New Hashtable
+          _wherecaja.Add(&quot;DOCVE_Codigo&quot;, New ACWhere(x_docve_codigo))
+          _wherecaja.Add(&quot;CAJA_Estado&quot;, New ACWhere(Constantes.getEstado(Constantes.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+          _wherecaja.Add(&quot;TIPOS_CodTransaccion&quot;, New ACWhere(ETipos.getTipoDePago(ETipos.TipoDePago.Efectivo), ACWhere.TipoWhere.Igual))
+          ' Buscar el registro de pago en caja
+          If _caja.Cargar(_wherecaja) Then
+             Dim managerbadministracioncaja As New BAdminCaja(m_zonas_codigo, m_sucur_id, _caja.TESO_Caja.PVENT_Id, m_periodo)
+             Dim _motivo As String = String.Format(&quot;Por anulación automatica de Documento de Venta {0}&quot;, m_vent_docsventa.DOCVE_Codigo)
+             managerbadministracioncaja.AnularPago(_caja.TESO_Caja.PVENT_Id, _caja.TESO_Caja.CAJA_Id, _motivo, x_usuario, _caja.TESO_Caja.CAJA_Fecha, False)
+             Dim _cajadoc As New BTESO_CajaDocsPago
+             Dim _whereCD As New Hashtable
+             _whereCD.Add(&quot;CAJA_Codigo&quot;, New ACWhere(_caja.TESO_Caja.CAJA_Codigo))
+             _whereCD.Add(&quot;PVENT_Id&quot;, New ACWhere(_caja.TESO_Caja.PVENT_Id))
+             ' Buscar Documento de Pago
+             If _cajadoc.Cargar(_whereCD) Then
+                Dim _dpago As New BTESO_DocsPagos(_caja.TESO_Caja.PVENT_Id, m_periodo, m_zonas_codigo, m_sucur_id)
+                _dpago.TESO_DocsPagos = New ETESO_DocsPagos
+                _dpago.TESO_DocsPagos.Instanciar(ACEInstancia.Modificado)
+                _dpago.TESO_DocsPagos.DPAGO_Id = _cajadoc.TESO_CajaDocsPago.DPAGO_Id
+                _dpago.TESO_DocsPagos.PVENT_Id = _caja.TESO_Caja.PVENT_Id
+                _dpago.TESO_DocsPagos.DPAGO_Estado = Constantes.getEstado(Constantes.Estado.Anulado)
+                _dpago.Guardar(x_usuario)
+             End If
+          End If
+          ' Anula el doc de pago
+          '' Cambiar el estado de la cotización
+          If Not IsNothing(x_pedid_codigo) Then
+ 
+             Dim _pedidos As New BVENT_Pedidos()
+             _pedidos.Cargar(x_pedid_codigo)
+             '' Actualizar Estado de la Cotización
+             Dim _bvent_pedidos As New BVENT_Pedidos()
+             _bvent_pedidos.VENT_Pedidos = New EVENT_Pedidos
+             _bvent_pedidos.VENT_Pedidos.PEDID_Estado = EVENT_Pedidos.getEstado(EVENT_Pedidos.Estado.Ingresado)
+             _bvent_pedidos.VENT_Pedidos.PEDID_Codigo = x_pedid_codigo
+             _bvent_pedidos.VENT_Pedidos.PEDID_DocumentoPercepcion = _pedidos.VENT_Pedidos.PEDID_DocumentoPercepcion
+             _bvent_pedidos.VENT_Pedidos.PEDID_ParaFacturar = True
+             _bvent_pedidos.VENT_Pedidos.Instanciar(ACEInstancia.Modificado)
+ 
+             ' '' Devolver el Stock Cargado si es una Cotización
+             Dim m_tipoDocumento As EVENT_Pedidos.TipoPedido = EVENT_Pedidos.TipoCotizacionCodigo(x_pedid_codigo)
+             Select Case m_tipoDocumento
+                Case EVENT_Pedidos.TipoPedido.CT
+                   '' Cargar el Detalle
+                   If Cargar(x_docve_codigo, True) Then
+                      '' Anular Egreso de cada detalle
+                      For Each Item As EVENT_DocsVentaDetalle In m_vent_docsventa.ListVENT_DocsVentaDetalle
+                         Dim m_bmanejarstocks As New BManejarStock()
+                         m_bmanejarstocks.AnulacionEgresoFactura(m_periodo, Item.ARTIC_Codigo, Item.ALMAC_Id, _
+                                                                 m_vent_docsventa.DOCVE_Codigo, Item.DOCVD_Item, Item.DOCVD_Cantidad, x_usuario)
+                      Next
+                   End If
+                Case EVENT_Pedidos.TipoPedido.PD, EVENT_Pedidos.TipoPedido.PI
+                   Dim _generarpedido As New BGenerarCotizacion(m_periodo)
+                   _generarpedido.ActivarPedido(_pedidos.VENT_Pedidos.PEDID_Codigo, x_usuario, False)
+                   '' Cargar el Detalle
+                   If Cargar(x_docve_codigo, True) Then
+                      '' Anular Egreso de cada detalle
+                      For Each Item As EVENT_DocsVentaDetalle In m_vent_docsventa.ListVENT_DocsVentaDetalle
+                         Dim m_bmanejarstocks As New BManejarStock()
+                         m_bmanejarstocks.AnulacionEgresoFactura(m_periodo, Item.ARTIC_Codigo, Item.ALMAC_Id, _
+                                                                 m_vent_docsventa.DOCVE_Codigo, Item.DOCVD_Item, Item.DOCVD_Cantidad, x_usuario)
+                      Next
+                   End If
+                Case EVENT_Pedidos.TipoPedido.PD, EVENT_Pedidos.TipoPedido.PS
+                   Dim _generarpedido As New BGenerarCotizacion(m_periodo)
+                   _generarpedido.ActivarPedido(_pedidos.VENT_Pedidos.PEDID_Codigo, x_usuario, False)
+             End Select
+             '' Actualizar el Pedido
+             If _bvent_pedidos.Guardar(x_usuario) Then
+                DAEnterprise.CommitTransaction()
+                Return True
+             Else
+                DAEnterprise.RollBackTransaction()
+                Return False
+             End If
+          Else
+             DAEnterprise.CommitTransaction()
+             Return True
+          End If
+       End If
+       DAEnterprise.RollBackTransaction()
+       Return False
+    Catch ex As Exception
+       DAEnterprise.RollBackTransaction()
+       Throw ex
+    End Try
+ End Function
+					</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+	</div>					
+</div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Plataformas</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="platformsSection" class="section">	
+		<p>
+			Windows 8, Windows Server 2012, Windows 7, Windows Vista SP1 or later, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008 (Server Core not supported), Windows Server 2008 R2 (Server Core supported with SP1 or later), Windows Server 2003 SP2
+		</p>
+		<p>
+			.NET Framework no admite todas las versiones de cada plataforma. Para obtener una lista de las versiones admitidas, vea 
+			<a target="_top" href="http://msdn2.microsoft.com/en-us/library/298275e2-da1d-4618-9f74-6a3567832350.aspx">System Requirements</a>.
+		</p>
+	</div>					
+</div>
+
+
+
+  
+
+	
+
+	
+	
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Información de versión</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="frameworksSection" class="section">	
+  <h4 class="subHeading">.NET Framework</h4>Supported in: 4.5, 4, 3.5, 3.0, 2.0, 1.1, 1.0<br />
+
+	<h4 class="subHeading">.NET Compact Framework</h4>Supported in: 3.5, 2.0, 1.0<br />
+
+	<h4 class="subHeading">XNA Framework</h4>Supported in: 3.0, 2.0, 1.0<br />
+	
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Vea también</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Referencia</h4>
+			<a href="topic_0000000000000070.html">BVENT_DocsVenta (Clase)</a><br />
+<a href="topic_0000000000000070_members--.html">BVENT_DocsVenta (Miembros)</a><br />
+
+
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

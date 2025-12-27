@@ -1,0 +1,649 @@
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACDTransporte.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\Ventas\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\Ventas\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACDTransporte.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDTransporte.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Developer\AcerosERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Developer\PromasaERP\VentasPC-MILAGROS\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Developer\PromasaERP\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Developer\PromasaERP\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACDLogistica.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACDLogistica.xml
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\VentasPC - 1version0.0\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACDLogistica.pdb
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACDLogistica.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\VentasPC - 0Version Execute\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACDLogistica.pdb
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACDLogistica.xml
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Proyectos\Ordenes\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACDLogistica.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACDLogistica.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\MilagrosMT\DESARROLLO\VentasPC_Alex20171020\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACETransporte.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACDLogistica.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACDLogistica.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Proyectos\Ordenes\VentasPC 2.0\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.dll
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+D:\Proyectos\qr final ventas\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+D:\MilagrosMT\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.IO.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.IO.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.xml
+E:\DESARROLLO\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACDVentas.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.IO.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\ACEVentas.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.IO.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Runtime.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.dll
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.xml
+H:\MILAGROS_MT\VentasPC\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.dll
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\FRANK_SISTEMA+++\VentasPC_Milagros(NO CAMBIAR)\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.vbprojAssemblyReference.cache
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.cache
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.CopyComplete
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\VentasPC_Frank(OFICIAL)\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\VentasPC_Frank(OFICIAL) - copia\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.xml
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.dll
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.xml
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+F:\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll.config
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+F:\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.CopyComplete
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.dll
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.xml
+E:\Proyectos_VB\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.IO.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\bin\x86\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbprojResolveAssemblyReference.cache
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.vbproj.GenerateResource.Cache
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\VentasPC_Milagros\ACDVentas\obj\x86\Debug\ACDVentas.pdb

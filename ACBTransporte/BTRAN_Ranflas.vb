@@ -1,0 +1,110 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+Imports ACFramework
+Imports DAConexion
+Imports ACBVentas
+Imports ACEVentas
+
+Public Class BTRAN_Ranflas
+
+#Region " Variables "
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   Public Function Busqueda(ByVal x_cadena As String) As Boolean
+      Dim d_tran_ranflas As New DTRAN_Ranflas()
+      Try
+         m_listTRAN_Ranflas = New List(Of ETRAN_Ranflas)()
+         Return d_tran_ranflas.RAMFSS_Todos(m_listTRAN_Ranflas, x_cadena)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+    Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_todos As Boolean) As Boolean
+        Dim d_tran_ranflas As New DTRAN_Ranflas()
+        Try
+            Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin("dbo", "Tipos", "TMar", ACJoin.TipoJoin.Inner _
+                               , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodMarca")} _
+                               , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_Marca")}))
+            '_join.Add(New ACJoin("dbo", "Sucursales", "Suc", ACJoin.TipoJoin.Inner _
+            '                   , New ACCampos() {New ACCampos("SUCUR_Id", "SUCUR_Id")} _
+            '                   , New ACCampos() {New ACCampos("SUCUR_Nombre", "SUCUR_Nombre")}))
+            Dim _where As New Hashtable()
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+            If x_todos = True Then
+            Else
+                _where.Add("RANFL_Estado", New ACWhere(BConstantes.getEstado(BConstantes.EstadoMovimientos.Activo), ACWhere.TipoWhere.Igual))
+            End If
+            m_listTRAN_Ranflas = New List(Of ETRAN_Ranflas)()
+            Return d_tran_ranflas.TRAN_RANFLSS_Todos(m_listTRAN_Ranflas, _join, _where)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+   Public Function Ayuda(ByVal x_where As Hashtable) As Boolean
+      Dim d_tran_ranflas As New DTRAN_Ranflas()
+      Try
+         m_dtTRAN_Ranflas = New DataTable()
+         Return d_tran_ranflas.RAMFSS_TodosAyuda(m_dtTRAN_Ranflas, x_where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Guardar(ByVal x_usuario As String, ByVal x_detalle As Boolean) As Boolean
+      Try
+         If x_detalle Then
+            Dim d_tran_ranflas As New DTRAN_Ranflas()
+            If m_tran_ranflas.Nuevo Then
+               DAEnterprise.BeginTransaction()
+               Dim b_correlativo As New BCorrelativos()
+               Try
+                  b_correlativo.getCorrelativo(BConstantes.SUCUR_Id, ECorrelativos.NTabla.TRAN_Ranflas)
+                  m_tran_ranflas.RANFL_Codigo = b_correlativo.Correlativos.Codigo
+                  d_tran_ranflas.TRAN_RANFLSI_UnReg(m_tran_ranflas, x_usuario)
+                  b_correlativo.Correlativos.ZONAS_Codigo = BConstantes.ZONAS_Codigo
+                  b_correlativo.SetCorrelativo(x_usuario)
+                  DAEnterprise.CommitTransaction()
+               Catch ex As Exception
+                  DAEnterprise.RollBackTransaction()
+                  Throw ex
+               End Try
+            ElseIf m_tran_ranflas.Modificado Then
+               d_tran_ranflas.TRAN_RANFLSU_UnReg(m_tran_ranflas, x_usuario)
+            ElseIf m_tran_ranflas.Eliminado Then
+               d_tran_ranflas.TRAN_RANFLSD_UnReg(m_tran_ranflas)
+            End If
+            Return True
+         Else
+            Return Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

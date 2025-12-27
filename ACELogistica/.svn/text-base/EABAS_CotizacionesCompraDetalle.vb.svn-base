@@ -1,0 +1,49 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports ACEVentas
+
+Partial Public Class EABAS_CotizacionesCompraDetalle
+
+#Region " Variables "
+   Private m_earticulo As EArticulos
+   Private m_artic_descripcion As String
+#End Region
+
+#Region " Propiedades "
+
+   Public Property Articulo() As EArticulos
+      Get
+         Return m_earticulo
+      End Get
+      Set(ByVal value As EArticulos)
+         m_earticulo = value
+      End Set
+   End Property
+
+   Public Property ARTIC_Descripcion() As String
+      Get
+         Return m_artic_descripcion
+      End Get
+      Set(ByVal value As String)
+         If Not IsNothing(m_artic_descripcion) Then
+            If Not m_artic_descripcion.Equals(value) Then
+               m_artic_descripcion = value
+            End If
+         Else
+            m_artic_descripcion = value
+         End If
+      End Set
+   End Property
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Metodos "
+
+#End Region
+
+End Class

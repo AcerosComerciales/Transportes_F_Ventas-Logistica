@@ -1,0 +1,327 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+Imports ACFramework
+Imports ACEVentas
+
+Imports DAConexion
+
+Public Class BTRAN_Viajes
+
+#Region " Variables "
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+   'Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String _
+   '                         , ByVal x_campoFecha As String, ByVal x_fecini As DateTime _
+   '                         , ByVal x_fecfin As DateTime, ByVal x_liquidados As Boolean) As Boolean
+   '   Dim d_tran_viajes As New DTRAN_Viajes()
+   '   Try
+   '      Dim _join As New List(Of ACJoin) : getJoin(_join)
+   '      Dim _where As New Hashtable
+   '      If x_campo.Equals("VEHIC_Placa") Then
+   '         _where.Add(x_campo, New ACWhere(x_cadena, "Vehi", "System.String", ACWhere.TipoWhere._Like))
+   '      Else
+   '         _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+   '      End If
+   '      _where.Add("VEHRN_Estado", New ACWhere("A", "VRan", "System.String", ACWhere.TipoWhere.Igual))
+   '      If Not x_campo.Equals("VIAJE_Id") Then _where.Add(x_campoFecha, New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+
+   '      If Not x_liquidados Then _where.Add("VIAJE_Estado", New ACWhere(ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Anulado), ACWhere.TipoWhere.Diferente))
+   '      m_listTRAN_Viajes = New List(Of ETRAN_Viajes)()
+   '      Return d_tran_viajes.TRAN_VIAJESS_Todos(m_listTRAN_Viajes, _join, _where)
+   '   Catch ex As Exception
+   '      Throw ex
+   '   End Try
+   'End Function
+
+   ' <summary> 
+   ' Capa de Negocio: TRAN_VIAJESS_ObtenerViajes
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <param name="x_cadenas">Parametro 3: </param> 
+   ' <param name="x_campo">Parametro 4: </param> 
+   ' <param name="x_campofecha">Parametro 5: </param> 
+   ' <param name="x_liquidados">Parametro 6: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function Busqueda(ByVal x_cadenas As String, ByVal x_campo As Short, ByVal x_campofecha As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_liquidados As Boolean, ByVal x_pvent_id As Long) As Boolean
+      m_listTRAN_Viajes = New List(Of ETRAN_Viajes)
+      Try
+         Return d_tran_viajes.TRAN_VIAJESS_ObtenerViajes(m_listTRAN_Viajes, x_fecini, x_fecfin, x_cadenas, x_campo, x_campofecha, x_liquidados, x_pvent_id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ' <summary> 
+   ' Capa de Negocio: TRAN_VIAJESS_CuadroComparativoCombustible
+   ' </summary>
+   ' <param name="x_fecini">Parametro 1: </param> 
+   ' <param name="x_fecfin">Parametro 2: </param> 
+   ' <param name="x_cadenas">Parametro 3: </param> 
+   ' <param name="x_campo">Parametro 4: </param> 
+   ' <param name="x_campofecha">Parametro 5: </param> 
+   ' <param name="x_liquidados">Parametro 6: </param> 
+   ' <param name="x_pvent_id">Parametro 7: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function CuadroComparativoCombustible(ByVal x_cadenas As String, ByVal x_campo As Short, ByVal x_campofecha As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_liquidados As Boolean, ByVal x_pvent_id As Long) As Boolean
+       m_listTRAN_ViajesCombustibles = New List(Of ETRAN_CombustibleConsumo)
+       
+      Try
+         Return d_tran_viajes.TRAN_VIAJESS_CuadroComparativoCombustible(m_listTRAN_ViajesCombustibles, x_fecini, x_fecfin, x_cadenas, x_campo, x_campofecha, x_liquidados, x_pvent_id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function BusquedaLiquidados(ByVal x_cadena As String, ByVal x_campo As String _
+                         , ByVal x_campoFecha As String, ByVal x_fecini As DateTime _
+                         , ByVal x_fecfin As DateTime, ByVal x_liquidados As Boolean) As Boolean
+      Dim d_tran_viajes As New DTRAN_Viajes()
+      Try
+         Dim _where As New Hashtable
+         If x_campo.Equals("VEHIC_Placa") Then
+            _where.Add(x_campo, New ACWhere(x_cadena, "Vehi", "System.String", ACWhere.TipoWhere._Like))
+         Else
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         End If
+         _where.Add("VEHRN_Estado", New ACWhere("A", "VRan", "System.String", ACWhere.TipoWhere.Igual))
+         _where.Add(x_campoFecha, New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+
+         '_where.Add("VIAJE_Estado", New ACWhere(ETRAN_Viajes.getEstado(ETRAN_Viajes.EstadosViajes.Liquidado), ACWhere.TipoWhere.Igual))
+         m_listTRAN_Viajes = New List(Of ETRAN_Viajes)()
+         Return d_tran_viajes.getLiquidados(m_listTRAN_Viajes, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub getJoin(ByRef _join As List(Of ACJoin))
+      Try
+         _join.Add(New ACJoin(ETRAN_VehiculosConductores.Esquema, ETRAN_VehiculosConductores.Tabla, "VCond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("VHCON_Id", "VHCON_Id")} _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")}))
+         _join.Add(New ACJoin(ETRAN_Vehiculos.Esquema, ETRAN_Vehiculos.Tabla, "Vehi", "VCond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")} _
+                              , New ACCampos() {New ACCampos("VEHIC_Placa", "VEHIC_Placa"), _
+                                                New ACCampos("VEHIC_Placa", "TIPOS_Marca"), _
+                                                New ACCampos("VEHIC_Certificado", "VEHIC_Certificado")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Cond", "VCond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Nombres")}))
+         _join.Add(New ACJoin(ETRAN_VehiculosRanflas.Esquema, ETRAN_VehiculosRanflas.Tabla, "VRan", "VCond", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")} _
+                              , New ACCampos() {New ACCampos("VEHRN_FecAsignacion", "VEHRN_FecAsignacion")}))
+         _join.Add(New ACJoin(ETRAN_Ranflas.Esquema, ETRAN_Ranflas.Tabla, "Ran", "VRan", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("RANFL_Id", "RANFL_Id")} _
+                              , New ACCampos() {New ACCampos("RANFL_Placa", "RANFL_Placa")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Usu", ACJoin.TipoJoin.Left _
+                                       , New ACCampos() {New ACCampos("ENTID_NroDocumento", "VIAJE_UsrCrea")} _
+                                       , New ACCampos() {New ACCampos("ENTID_RazonSocial", "Usuario")}))
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Public Function CargarXML(ByVal x_viaje_id As Long) As Boolean
+        Try
+            'Trae registros del Viaje -- > asi tambien como el kilometraje
+            m_tran_viajes = New ETRAN_Viajes()
+            If (d_tran_viajes.VIAJSS_UnRegXML(m_tran_viajes, x_viaje_id)) Then
+                Dim _btran_vehiculo As New BTRAN_VehiculosRanflas()
+                Dim _where As New Hashtable() : _where.Add("VEHRN_Id", New ACWhere(m_tran_viajes.VEHRN_Id)) : _btran_vehiculo.Cargar(_where)
+                Dim _btran_viajevehiculo As New BTRAN_ViajesVehiculos()
+                _where = New Hashtable()
+                _where.Add("VEHIC_Id", New ACWhere(_btran_vehiculo.TRAN_VehiculosRanflas.VEHIC_Id))
+                _where.Add("VIAJE_Id", New ACWhere(m_tran_viajes.VIAJE_Id))
+                _btran_viajevehiculo.Cargar(_where)
+                m_tran_viajes.TRAN_ViajesVehiculos = _btran_viajevehiculo.TRAN_ViajesVehiculos
+
+                Return True
+            End If
+            Return False
+        Catch ex As Exception
+            Throw ex
+      End Try
+   End Function
+
+   Public Function Guardar(ByVal x_usuario As String, ByVal x_detalle As Boolean) As Boolean
+      Try
+         DAEnterprise.BeginTransaction()
+         If x_detalle Then
+            If Guardar(x_usuario) Then
+               d_tran_viajes.VIAJSU_ActualizarPendientes(m_tran_viajes)
+               Dim m_btran_viajesvehiculos As New BTRAN_ViajesVehiculos()
+               m_btran_viajesvehiculos.TRAN_ViajesVehiculos = m_tran_viajes.TRAN_ViajesVehiculos
+               Dim _where As New Hashtable
+                    _where.Add("VIAJE_Id", New ACWhere(m_tran_viajes.VIAJE_Id)) '(m_btran_viajesvehiculos.TRAN_ViajesVehiculos.VIAJE_Id))
+                    _where.Add("VEHIC_Id", New ACWhere(m_btran_viajesvehiculos.TRAN_ViajesVehiculos.VEHIC_Id))
+                    If m_btran_viajesvehiculos.Cargar(_where) Then
+                        m_btran_viajesvehiculos.TRAN_ViajesVehiculos.VIAVE_Kilometraje = m_tran_viajes.TRAN_ViajesVehiculos.VIAVE_Kilometraje
+                        m_btran_viajesvehiculos.TRAN_ViajesVehiculos.Instanciar(ACEInstancia.Modificado)
+                        If m_btran_viajesvehiculos.Guardar(_where, x_usuario, New String() {}, New String() {}, New String() {"VIAVE_Kilometraje", "VIAVE_KmAnterior"}) Then
+                            DAEnterprise.CommitTransaction()
+                            Return True
+                        End If
+                    Else
+                        '''NO
+                        '''
+                        m_btran_viajesvehiculos.TRAN_ViajesVehiculos.VEHIC_Id = m_tran_viajes.TRAN_ViajesVehiculos.VEHIC_Id
+                        m_btran_viajesvehiculos.TRAN_ViajesVehiculos.VIAJE_Id = m_tran_viajes.VIAJE_Id
+
+                        m_btran_viajesvehiculos.TRAN_ViajesVehiculos.Instanciar(ACEInstancia.Nuevo)
+                        If m_btran_viajesvehiculos.Guardar(_where, x_usuario, New String() {}, New String() {}, New String() {"VIAVE_Kilometraje", "VIAVE_KmAnterior"}) Then
+                            DAEnterprise.CommitTransaction()
+                            Return True
+                        End If
+                    End If
+                        '  If m_btran_viajesvehiculos.Guardar(_where, x_usuario, New String() {}, New String() {}, New String() {"VIAVE_Kilometraje", "VIAVE_KmAnterior"}) Then
+                        'DAEnterprise.CommitTransaction()
+                        'Return True
+                        'End If
+                    End If
+         End If
+         DAEnterprise.RollBackTransaction()
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   Public Function GuardarFecSalida()
+      Try
+         Return d_tran_viajes.GuardarFecSalida(m_tran_viajes)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function GuardarFecScan()
+      Try
+         Return d_tran_viajes.GuardarFecScan(m_tran_viajes)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CorrelativoXvehiculo(ByVal x_viaje_id As Long, ByVal x_min As Boolean) As Integer
+      Try
+         If x_min Then
+            Return d_tran_viajes.getCorrelativoXvehiculo(x_viaje_id, x_min) - 1
+         Else
+            Return d_tran_viajes.getCorrelativoXvehiculo(x_viaje_id, x_min) + 1
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function CorrelativoXconductor(ByVal x_entid_codigo As String, ByVal x_min As Boolean) As Integer
+      Try
+         If x_min Then
+            Return Math.Abs(d_tran_viajes.getCorrelativoXConductor(x_entid_codigo, x_min)) * (-1) - 1
+         Else
+            Return d_tran_viajes.getCorrelativoXConductor(x_entid_codigo, x_min) + 1
+         End If
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' <summary> 
+   ' Capa de Negocio: TRAN_CAJASS_PendientePorViaje
+   ' </summary>
+   ' <param name="x_fecfin">Parametro 1: </param> 
+   ' <returns></returns> 
+   ' <remarks></remarks> 
+   Public Function Reporte_PendientePorViaje(ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listTRAN_Viajes = New List(Of ETRAN_Viajes)
+      Try
+         Return d_tran_viajes.TRAN_CAJASS_PendientePorViaje(m_listTRAN_Viajes, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function AnularViaje() As Boolean
+      Try
+         Return d_tran_viajes.AnularViaje(m_tran_viajes.VIAJE_Id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function ActivarAnulado() As Boolean
+      Try
+         Return d_tran_viajes.ActivarAnulado(m_tran_viajes.VIAJE_Id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+    Public Function EliminarViaje() As Boolean
+        Try
+            Return d_tran_viajes.EliminarViaje(m_tran_viajes.VIAJE_Id)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function EliminarConsumoADBlue() As Boolean
+        Try
+            Return d_tran_viajes.ELiminarConsumoADBLue(m_tran_viajes.VIAJE_Id, m_tran_consumo.COMCO_Id)
+        Catch ex As Exception
+
+        End Try
+    End Function
+
+
+    Public Function CargarFletes(ByRef x_viaje As ETRAN_Viajes) As Boolean
+      Try
+         Dim _btran_fletes As New BTRAN_Fletes
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                             , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                             , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_RazonSocial"), _
+                                               New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                             , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMoneda")} _
+                             , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoMoneda")}))
+         Dim _where As New Hashtable
+         _where.Add("VIAJE_Id", New ACWhere(x_viaje.VIAJE_Id))
+         If _btran_fletes.CargarTodos(_join, _where) Then
+            x_viaje.ListTRAN_Fletes = New List(Of ETRAN_Fletes)(_btran_fletes.ListTRAN_Fletes)
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

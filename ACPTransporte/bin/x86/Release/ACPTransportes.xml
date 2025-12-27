@@ -1,0 +1,1628 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACPTransportes
+</name>
+</assembly>
+<members>
+<member name="M:ACPTransportes.MFletesPorRuta.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MFletesPorRuta.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MPiezas.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.TRecibos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.TRecibos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.RGastos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FCotizaciones.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla conductores
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.FCotizaciones.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FCotizaciones.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.RNeumaticos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.RNeumaticos.cargarCombos">
+	<summary>
+ Carga los combos de la interfaz de datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.RNeumaticos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.RNeumaticos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.RNeumaticos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.CCompCombustible.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.CCompCombustible.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MInventarioVehiculo.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MInventarioVehiculo.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MInventarioVehiculo.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.CFletesCaja.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.RPendientes.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCuadreCajaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCabeceraDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCuadreCajaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCabeceraRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCuadreCajaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes.DTCabeceraRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuadrePendientes">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.MEntidad.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MEntidad.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MEntidad.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MEntidad.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MEntidad.acTool_ACBtnGrabar_Click(System.Object,System.EventArgs)">
+	<summary>
+ Grabar la entidad en la base de datos
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MUbigeos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MUbigeos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MUbigeos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MUbigeos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCPendientesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCabPendienteDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCPendientesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCabPendienteRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCPendientesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente.DTCabPendienteRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCPendiente">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.PConsumoCombustible.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PConsumoCombustible.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PConsumoCombustible.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PConsumoCombustible.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PNeumaticosVehiculos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PNeumaticosVehiculos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PNeumaticosVehiculos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PNeumaticosVehiculos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec.VENT_DocsVentaDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSDocsVentaElec">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.MSucursales.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MSucursales.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MSucursales.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MSucursales.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PVehiculosIncidencias.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculosIncidencias.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PVehiculosIncidencias.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PVehiculosIncidencias.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MRutas.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MRutas.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MRutas.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MRutas.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla conductores
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MAdministrar.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MAdministrar.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MVehiculos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MVehiculos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MVehiculos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MVehiculos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.FConsultaOrdenMantenimientoBasico.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PNeumaticosIncidencias.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PNeumaticosIncidencias.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PNeumaticosIncidencias.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PNeumaticosIncidencias.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PIngresosViajes.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PIngresosViajes.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PIngresosViajes.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PIngresosViajes.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaDetallesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaDetallesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista.TRAN_GuiasTransportistaDetallesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSGuiaTransportista">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.FMovimientoNeumatico.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FMovimientoNeumatico.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.FMovimientoNeumatico.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.FMovimientoNeumatico.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MRamflas.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MRamflas.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MRamflas.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MRamflas.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla conductores
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.RRecibos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTBaseDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTReporteCuadreCajaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTBaseRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTReporteCuadreCajaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTBaseRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja.DTReporteCuadreCajaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuadreCaja">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.MVehiculosMantenimiento.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MVehiculosMantenimiento.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MVehiculosMantenimiento.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.MNeumaticos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MNeumaticos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MNeumaticos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MNeumaticos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC.DTTRAN_CotizacionDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCotizacionAC">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.FOrdTransporte.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FOrdTransporte.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.FOrdTransporte.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.FConsultaNeumaticos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FConsultaNeumaticos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.FConsultaNeumaticos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.FConsultaNeumaticos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.FViajes.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.FViajes.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.FViajes.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.FViajes.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.CDocsPago.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MDocsPago.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MDocsPago.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.Colecciones.Inicializar(System.Boolean)">
+	<summary>
+ Inicializa la instancia de la clase Colecciones
+ </summary>
+	<returns>Retorna la instancia que se utilizara para llamar a Colecciones</returns>
+	<remarks>Una vez inicializada la clase Colecciones se podrán utilizar la colecciones que se carguen</remarks>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCabeceraDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCuadrePendientesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCabeceraRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCuadrePendientesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCabeceraRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente.DTCuadrePendientesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSCuentaCorriente">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="M:ACPTransportes.MTipos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MTipos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MTipos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MTipos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PGastosViaje.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PGastosViaje.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PGastosViaje.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PGastosViaje.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec.VENT_DocsVentaDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSNotaCredito_Elec">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSFactura.DTDocsVentaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSFactura">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTCabeceraDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTDetalleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTCabeceraRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTDetalleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTCabeceraRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento.DTDetalleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:ACPTransportes.DSGuiasCemento">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAdd_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAdd_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAnular_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAnular_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAppProduccion_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACAppProduccion_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACBuscar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACBuscar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCalculadora_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCalculadora_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCambioLlanta_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCambioLlanta_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCancelar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCancelar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCliente_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACCliente_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACConductor_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACConductor_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDelete_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDocumento_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDocumento_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDownArrow_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDownArrow_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDownArrowAll_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACDownArrowAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACEdit_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACEdit_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.aceptar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACExit_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACExit_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFlete_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFlete_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACForkliftBoxes_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACForkliftBoxes_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFrontalLlanta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFrontalPosicion">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFuelBlack_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFuelBlack_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFuelRed_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACFuelRed_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGastos_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGastos_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGrabar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGrabar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGrabarCerrar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGrabarCerrar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGuia_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGuia_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGuiaProc_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACGuiaProc_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACImprimirRed_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACImprimirRed_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACInventario_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACInventario_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLeft_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLeft_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLeftAll_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLeftAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlanta_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlanta_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlave_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlave_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlaveFranesa_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACLlaveFranesa_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACMoney_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACMoney_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACMostrar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACMostrar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNeumaDoc_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNeumaDoc_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNeumatico_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNeumatico_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNuevo_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACNuevo_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACPersonas_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACPersonas_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACProveedor_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACProveedor_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRanfla_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRanfla_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRanflaLlanta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRanflaPosicion">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRehusar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRehusar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACReporte_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACReporte_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRight_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRight_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRightAll_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACRightAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSales_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSales_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_16x161">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSearchNeumaDoc_32x321">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACSum">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTrabajador_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTrabajador_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTractoLlanta">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTractoPosicion">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTruck_red">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACTtruck_blue">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUpArrow_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUpArrow_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUpArrowAll_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUpArrowAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUsuario_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACUsuario_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACViajes_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACViajes_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACVolver_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ACVolver_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Add_basic_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Admin_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Admin_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.AdminPanel_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.AdminPanel_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.AppCaja_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ARight_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.banco_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Buscar2_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.cerrarsesion_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.CheckProcess_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.cheque_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.cheque_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.cuenta_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.cuenta_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.delete">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Delete_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.deposito_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.deposito_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.DownArrow_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.DownArrowAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.EditPaper_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.EditPaper_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.EMoney_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Entidad_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.EntidadAccesos_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Excel2_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Excel2_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Exit_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.folderadd_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.guardar">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Hangar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Hangar_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.hidemenu">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.letra_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.letra_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Listado_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Listado_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Logo_200x149">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Logo_Sistema_419x63">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Logo_Sistema_JRAM_419x63">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Mostrar_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Nuevo_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Nuevo_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ok">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.ok1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.PadLock_close_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.PadLock_close_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Personas_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Preview_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Preview_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.PrintPreview_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.PrintPreview_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Search_files_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.showmenu">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.shutdown">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.shutdown1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.StartMenu_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.StartMenu_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Transportista_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Ttruck_blue_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.undo">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.UpArrow_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.UpArrowAll_32x32">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Vendedor_16x16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Wallpaper_Transportes_1204x768">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:ACPTransportes.My.Resources.Resources.Wallpaper_Transportes_JRAM_1024x768">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:ACPTransportes.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACPTransportes.CProductos.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MAlmacenes.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.MAlmacenes.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.MAlmacenes.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.MAlmacenes.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla conductores
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PIncidenciaViajes.formatearGrilla">
+	<summary>
+ Dar Formato a la grilla de busqueda
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PIncidenciaViajes.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PIncidenciaViajes.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PIncidenciaViajes.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member><member name="M:ACPTransportes.PVehiculos.cargarDatos">
+	<summary>
+ Cargar los datos en el control Visual C1FlexGrid
+ </summary>
+</member><member name="M:ACPTransportes.PVehiculos.cargar">
+	<summary>
+ Cargar los datos del vehiculo, su primera carga es la Ranfla
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.setDatos(ACPTransportes.PVehiculos.RanflaTipoGrilla)">
+	<summary>
+ Ranflas
+ </summary>
+	<param name="x_opcion"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.setDatos(ACPTransportes.PVehiculos.ConductoresGrilla)">
+	<summary>
+ Conductores
+ </summary>
+	<param name="x_opcion"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.setDatos(ACPTransportes.PVehiculos.MantenimientoTipo)">
+	<summary>
+ Mantenimientos
+ </summary>
+	<param name="x_opcion"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.setDatos(ACPTransportes.PVehiculos.Seguros)">
+	<summary>
+ Seguros
+ </summary>
+	<param name="x_opcion"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.setDatos(ACPTransportes.PVehiculos.ConsumoCombustible)">
+	<summary>
+ Consumo de Combustible
+ </summary>
+	<param name="x_opcion"></param>
+	<remarks></remarks>
+</member><member name="M:ACPTransportes.PVehiculos.AsignarBinding">
+	<summary>
+ Realiza el enlace de los controles visuales con la clase esquema
+ </summary>
+</member><member name="M:ACPTransportes.PVehiculos.busqueda(System.String)">
+	<summary>
+ Ejecutar la busqueda de una cadena en la tabla Neumaticos
+ </summary>
+	<param name="x_cadena">Cadena objetivo</param>
+	<returns></returns>
+</member>
+</members>
+</doc>

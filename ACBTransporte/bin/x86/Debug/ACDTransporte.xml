@@ -1,0 +1,505 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACDTransporte
+</name>
+</assembly>
+<members>
+<member name="M:ACDTransporte.DTRAN_CombustibleConsumo.TRAN_COMCOSS_ObtConCombustible(ACETransporte.ETRAN_CombustibleConsumo,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_COMCOSS_ObtConCombustible
+ </summary>
+	<param name="x_comco_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_CombustibleConsumo.TRAN_CAJASS_ConsumoCombustible(System.Collections.Generic.List{ACETransporte.ETRAN_CombustibleConsumo}@,System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_ConsumoCombustible" por el Generador 02/04/2012
+ </summary>
+	<param name="m_listTRAN_CombustibleConsumo">Lista donde se cargaran los valores</param>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_CombustibleConsumo.TRAN_COMCOSS_ConsumosXVehiculo(System.Collections.Generic.List{ACETransporte.ETRAN_CombustibleConsumo},System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_COMCOSS_ConsumosXVehiculo
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_CombustibleConsumo.TRAN_COMCOSS_Consumos(System.Collections.Generic.List{ACETransporte.ETRAN_CombustibleConsumo},System.DateTime,System.DateTime,System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: TRAN_COMCOSS_Consumos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Documentos.TRAN_ObtenerDocumentosCompra(System.Collections.Generic.List{ACETransporte.ETRAN_Documentos},System.DateTime,System.DateTime,System.Int64,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: TRAN_ObtenerDocumentosCompra
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_opcion">Parametro 4: </param>
+	<param name="x_cadena">Parametro 5: </param>
+	<param name="x_todos">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaFacturasPendientes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta}@,ACETransporte.ETRAN_Fletes@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaFletesPendientes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},ACETransporte.ETRAN_Fletes@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaFletes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaFletesPendientesSF(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},ACETransporte.ETRAN_Fletes@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaFletes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_VIAJSS_SueldoConductor(System.Collections.Generic.List{ACETransporte.ETRAN_Viajes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_VIAJSS_SueldoConductor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaEgresos(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGastos},System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaEgresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_viaje_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaPendientes(System.Collections.Generic.List{ACETransporte.ETRAN_Viajes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaPendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaEfectivo(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGastos}@,ACETransporte.ETRAN_ViajesGastos@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_CuadreCajaPagos(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.Boolean,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_FletesXFacturas(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_FletesXFacturas
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_MovimientoSencillo(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_MovimientoSencillo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_PendientesPagadas(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_PendientesPagadas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_Pendientes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_Pendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_REPOSS_GenerarRecibos(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGastos},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_REPOSS_GenerarRecibos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionCaja.TRAN_CAJASS_FacturasXCliente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_GuiasTransportista.TRAN_GUIASS_RepRecCemento(System.Collections.Generic.List{ACETransporte.ETRAN_GuiasTransportista},System.DateTime,System.DateTime,System.Int16)">
+	<summary> 
+ Capa de Datos: TRAN_GUIASS_RepRecCemento
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Viajes.TRAN_CAJASS_PendientePorViaje(System.Collections.Generic.List{ACETransporte.ETRAN_Viajes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_PendientePorViaje
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Viajes.TRAN_VIAJESS_ObtenerViajes(System.Collections.Generic.List{ACETransporte.ETRAN_Viajes},System.DateTime,System.DateTime,System.String,System.Int16,System.Boolean,System.Boolean,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_VIAJESS_ObtenerViajes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadenas">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<param name="x_campofecha">Parametro 5: </param>
+	<param name="x_liquidados">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Viajes.TRAN_VIAJESS_CuadroComparativoCombustible(System.Collections.Generic.List{ACETransporte.ETRAN_CombustibleConsumo},System.DateTime,System.DateTime,System.String,System.Int16,System.Boolean,System.Boolean,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_VIAJESS_CuadroComparativoCombustible
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadenas">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<param name="x_campofecha">Parametro 5: </param>
+	<param name="x_liquidados">Parametro 6: </param>
+	<param name="x_pvent_id">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACDTransporte.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACDTransporte.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:ACDTransporte.My.Resources.Resources.sql">
+	<summary>
+  Looks up a localized string similar to &lt;xml&gt;
+   &lt;sql&gt;
+      &lt;titulo&gt;DTRAN_Rutas.RUTASS_TodosAyuda&lt;/titulo&gt;
+      &lt;descripcion&gt;&lt;/descripcion&gt;
+      &lt;code&gt;
+			SELECT RUTAS_Id As Codigo
+				,UOri.UBIGO_Descripcion As Origen, UDes.UBIGO_Descripcion As Destino 
+				,RUTAS_Nombre As Nombre
+				,RUTAS_Km As KM
+			FROM Transportes.TRAN_Rutas As Rut
+				Inner Join dbo.Ubigeos As UOri On UOri.UBIGO_Codigo = Rut.UBIGO_CodOrigen
+				Inner Join dbo.Ubigeos As UDes On UDes.UBIGO_Codigo = Rut.UBIGO_CodDestino
+			WHERE 
+      &lt;/code&gt;
+   &lt;/sql&gt;
+   [rest of string was truncated]";.
+</summary>
+</member><member name="T:ACDTransporte.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACDTransporte.DTRAN_VehiculosMantenimiento.TRAN_VMAN_ObtenerMantenimientos(System.Collections.Generic.List{ACETransporte.ETRAN_VehiculosMantenimiento},System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: TRAN_VMAN_ObtenerMantenimientos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_VehiculosMantenimiento.TRAN_ObtenerDocCompraXMantenimiento(System.Collections.Generic.List{ACETransporte.ETRAN_Documentos}@,System.Int64,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_ObtenerDocCompraXMantenimiento
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<param name="x_vman_item">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DGCancelacion.TRAN_CAJASS_FacturasXCancelar(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Fletes.TRAN_FLETESS_UnReg(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes}@,System.String)">
+	<summary> 
+ Procedimiento "TRAN_FLETESS_UnReg" por el Generador 27/02/2012
+ </summary>
+	<param name="m_listTRAN_Fletes">Lista donde se cargaran los valores</param>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Fletes.TRAN_CAJASS_PendienteFletes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_PendienteFletes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Fletes.TRAN_FLETESS_Ayuda(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes}@,System.String,System.Int16,System.DateTime,System.DateTime)">
+	<summary> 
+ Procedimiento "TRAN_FLETESS_Ayuda" por el Generador 20/03/2012
+ </summary>
+	<param name="m_listTRAN_Fletes">Lista donde se cargaran los valores</param>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_fecini">Parametro 3: </param>
+	<param name="x_fecfin">Parametro 4: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Fletes.TRAN_FLETESS_ConsultaFletes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.String,System.Int16,System.Int16,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_FLETESS_ConsultaFletes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_opfecha">Parametro 3: </param>
+	<param name="x_fecini">Parametro 4: </param>
+	<param name="x_fecfin">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Fletes.TRAN_FLETESS_ConsultaFletesDoc(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.String,System.String,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_FLETESS_ConsultaFletesDoc
+ </summary>
+	<param name="x_tipos_codtipodocumento">Parametro 1: </param>
+	<param name="x_docve_serie">Parametro 2: </param>
+	<param name="x_docve_numero">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_REPORSS_CuadreCaja(System.Collections.Generic.List{ACETransporte.ECuadreCaja}@,ACEVentas.ESaldoCaja@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_REPORSS_CuadreCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.REPOSS_NotasCre(ACEVentas.EVENT_DocsVenta@,System.String)">
+	<summary>
+ facturaelectronica NC_a
+ </summary>
+	<param name="m_vent_docs"></param>
+	<param name="x_docve_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.REPOSS_CuentasCorrientes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: REPOSS_CuentasCorrientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.REPOSS_DocsVenta(ACEVentas.EVENT_DocsVenta@,System.String)">
+	<summary>
+ facturaelectronica ventas_a
+ </summary>
+	<param name="m_vent_docs"></param>
+	<param name="x_docve_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.VENT_CAJASS_CobranzaPendiente(System.Collections.Generic.List{ACEVentas.ECCuadrePendientes},System.DateTime,System.DateTime,System.Int64,System.Boolean,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CobranzaPendiente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<param name="x_entid_codigovendedor">Parametro 6: </param>
+	<param name="x_entid_codigocliente">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_REPORSS_CuadreCaja_Facturas(System.Collections.Generic.List{ACETransporte.ECuadreCaja},System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_REPORSS_CuadreCaja_Facturas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_REPORSS_CuadreCaja_IngEgre(System.Collections.Generic.List{ACETransporte.ECuadreCaja},System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_REPORSS_CuadreCaja_IngEgre
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_REPORSS_CuadreCaja_Pendientes(ACEVentas.ESaldoCaja@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_REPORSS_CuadreCaja_Pendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_CAJASS_CuadrePendientes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DReporte.TRAN_REPOSS_ViajesFletes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TRAN_REPOSS_ViajesFletes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionViajes.TRAN_VIAJESS_ObtenerKMAnterior(ACETransporte.ETRAN_ViajesVehiculos,System.Int64,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_VIAJESS_ObtenerKMAnterior
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<param name="x_viaje_idxvehiculo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionViajes.TRAN_CAJASS_GastosViajeInicial(System.Collections.Generic.List{ACEVentas.ETESO_Caja}@,System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_GastosViajeInicial" por el Generador 01/04/2012
+ </summary>
+	<param name="m_listTESO_Caja">Lista donde se cargaran los valores</param>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionViajes.TRAN_CAJASS_Fletes(System.Collections.Generic.List{ACETransporte.ETRAN_Fletes},System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_Fletes
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DAdministracionViajes.TRAN_CAJASS_GuiasViajes(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGuiasRemision},System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_GuiasViajes
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_VehiculosInventarioDetalle.TRAN_INVSS_TodosObjetosInventario(System.Collections.Generic.List{ACETransporte.ETRAN_VehiculosInventarioDetalle},System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_INVSS_TodosObjetosInventario
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Recibos.TRAN_CAJASS_RecibosTransporte(System.Collections.Generic.List{ACETransporte.ETRAN_Recibos}@,System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_RecibosTransporte" por el Generador 03/04/2012
+ </summary>
+	<param name="m_listTRAN_Recibos">Lista donde se cargaran los valores</param>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Recibos.TRAN_ObtenerRecibo(ACETransporte.ETRAN_Recibos@,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_ObtenerRecibo
+ </summary>
+	<param name="x_recib_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Vehiculos.TRAN_VEHISS_BuscarVehiculos(System.Collections.Generic.List{ACETransporte.ETRAN_Vehiculos},System.Int64,System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: TRAN_VEHISS_BuscarVehiculos
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_campo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Vehiculos.TRAN_VEHISS_BuscarVehiculo(System.Collections.Generic.List{ACETransporte.ETRAN_Vehiculos},System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_VEHISS_BuscarVehiculo
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_Vehiculos.TRAN_ObtenerModelosVehiculos(System.Data.DataTable@,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_ObtenerModelosVehiculos
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_ViajesGastos.TRAN_CAJASS_GastosViajeVerificados(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGastos}@,System.Int64)">
+	<summary> 
+ Procedimiento "TRAN_CAJASS_GastosViajeVerificados" por el Generador 02/04/2012
+ </summary>
+	<param name="m_listTRAN_ViajesGastos">Lista donde se cargaran los valores</param>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DTRAN_ViajesGastos.TRAN_VIAJSS_GenerarRecibos(System.Collections.Generic.List{ACETransporte.ETRAN_ViajesGastos},System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_VIAJSS_GenerarRecibos
+ </summary>
+	<param name="x_viaje_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DGenerarGuias.TRAN_GUIASS_ObtenerGuias(ACETransporte.ETRAN_GuiasTransportista@,System.String)">
+	<summary> 
+ Capa de Datos: TRAN_GUIASS_ObtenerGuias
+ </summary>
+	<param name="x_gtran_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDTransporte.DGenerarGuias.LOGI_DOCSS_FacturasCemento(System.Collections.Generic.List{ACELogistica.EABAS_DocsCompra},System.DateTime,System.DateTime,System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: LOGI_DOCSS_FacturasCemento
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_campo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

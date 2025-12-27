@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_InformesMantenimientos" Esquema="Transportes" Prefijo="INFMN">
+  <Nombre>TRAN_InformesMantenimientos</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INFMN_Id">INFMN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_Nro">INFMN_Nro</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_FecRealizacion">INFMN_FecRealizacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_Descripcion">INFMN_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_Observacion">INFMN_Observacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_AccionesRealizadas">INFMN_AccionesRealizadas</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_Estado">INFMN_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ORDMN_Id">ORDMN_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_UsrCrea">INFMN_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_FecCrea">INFMN_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_UsrMod">INFMN_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_FecMod">INFMN_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INFMN_Id">INFMN_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_Id">ORDMN_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

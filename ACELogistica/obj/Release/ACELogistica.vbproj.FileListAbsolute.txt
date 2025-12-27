@@ -1,0 +1,12 @@
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACELogistica.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACELogistica.pdb
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACELogistica.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACEVentas.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACFramework.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACEVentas.pdb
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Release\ACEVentas.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Release\ACELogistica.Resources.resources
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Release\ACELogistica.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Release\ACELogistica.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Release\ACELogistica.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Release\ACELogistica.pdb

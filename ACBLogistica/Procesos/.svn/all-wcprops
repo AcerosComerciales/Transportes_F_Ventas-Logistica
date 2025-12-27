@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos
+END
+BGenerarReportes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BGenerarReportes.vb
+END
+BGenerarRequiCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACBLogistica/Procesos/BGenerarRequiCompra.vb
+END
+BGenerarRegMercTransito.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BGenerarRegMercTransito.vb
+END
+BControlDescuentos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2518/trunk/Logistica/ACBLogistica/Procesos/BControlDescuentos.vb
+END
+BGenerarOrdenCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BGenerarOrdenCompra.vb
+END
+BGenerarCotizCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BGenerarCotizCompra.vb
+END
+BGenerarDocsCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BGenerarDocsCompra.vb
+END
+BGenerarCosteo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2140/trunk/Logistica/ACBLogistica/Procesos/BGenerarCosteo.vb
+END
+BReporte.vb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BReporte.vb
+END
+BManejarStock.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BManejarStock.vb
+END
+BAdministrarArticulos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACBLogistica/Procesos/BAdministrarArticulos.vb
+END

@@ -1,0 +1,456 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+Imports ACFrameworkC1
+Imports ACBVentas
+
+Imports ACEVentas
+Imports ACSeguridad
+
+Public Class MFlete
+#Region " Variables "
+   Private managerTRAN_Fletes As BTRAN_Fletes
+   Private managerTRAN_VehiculosConductores As BTRAN_VehiculosConductores
+   Private managerTRAN_Rutas As BTRAN_Rutas
+   Private managerEntidades As BEntidades
+   Private m_viaje As ETRAN_Viajes
+
+#End Region
+
+#Region " Propiedades "
+   Public Property TRAN_Fletes() As ETRAN_Fletes
+      Get
+         Return managerTRAN_Fletes.TRAN_Fletes
+      End Get
+      Set(ByVal value As ETRAN_Fletes)
+         managerTRAN_Fletes.TRAN_Fletes = value
+      End Set
+   End Property
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the designer.
+      InitializeComponent()
+
+      ' Add any initialization after the InitializeComponent() call.
+      Try
+         managerTRAN_Fletes = New BTRAN_Fletes
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         actxaCodVehiculo.ACAyuda.Enabled = False
+         actxaCodVehiculo.ReadOnly = True
+         actxaPlaca.ACAyuda.Enabled = False
+         actxaPlaca.ReadOnly = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Public Sub New(ByVal x_viaje As ETRAN_Viajes, ByVal x_tran_fletes As ETRAN_Fletes, ByVal x_tran_vehiculo As ETRAN_Vehiculos, _
+                  ByVal x_conductor As EEntidades, ByVal x_vhcon_id As Long)
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         setInicio(x_tran_fletes)
+         actxaCodVehiculo.ACAyuda.Enabled = False
+         actxaCodVehiculo.ReadOnly = True
+         actxaCodVehiculo.Text = x_tran_vehiculo.VEHIC_Codigo
+         actxaCodVehiculo.ACActivarAyuda = False
+         actxaPlaca.ACAyuda.Enabled = False
+         actxaPlaca.ReadOnly = True
+         actxaPlaca.Text = x_tran_vehiculo.VEHIC_Placa
+         actxaPlaca.ACActivarAyuda = False
+         managerTRAN_Fletes.TRAN_Fletes.VHCON_Id = x_vhcon_id
+
+         actxaCodVehiculo.Text = x_tran_vehiculo.VEHIC_Id
+         actxaPlaca.Text = x_tran_vehiculo.VEHIC_Placa
+
+         txtViaje.Text = x_viaje.VIAJE_Id
+         txtIdConductor.Text = x_viaje.VIAJE_IdxConductor
+         txtGlosa.Text = x_viaje.VIAJE_Descripcion
+
+         txtCodConductor.Text = x_conductor.ENTID_Codigo
+         txtConductor.Text = x_conductor.ENTID_RazonSocial
+         actxaCliRuc.Text = x_tran_fletes.ENTID_Codigo
+         actxaCliente.Text = x_tran_fletes.ENTID_Nombres
+         cmbMoneda.SelectedValue = x_tran_fletes.TIPOS_CodTipoMoneda
+
+         m_viaje = x_viaje
+
+         actxaCodVehiculo.ACAyuda.Enabled = False
+         actxaCodVehiculo.ReadOnly = True
+         actxaPlaca.ACAyuda.Enabled = False
+         actxaPlaca.ReadOnly = True
+
+         actxnMonto.Enabled = False
+         actxnMontoXTm.Enabled = False
+         actxnPeso.Enabled = False
+         chkIGV.Enabled = False
+         actxnIGV.Enabled = False
+         RemoveHandler actxnMontoXTm.LostFocus, AddressOf actxnMontoXTm_LostFocus
+         RemoveHandler actxnPeso.LostFocus, AddressOf actxnMontoXTm_LostFocus
+
+         GApp.DataUsuario.PROC_Codigo = Procesos.getProceso(Procesos.TipoProcesos.ModificarImporteFlete)
+         Dim _validate As New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarProceso)
+         actxnMonto.Enabled = _validate.ACProceso
+         actxnMontoXTm.Enabled = _validate.ACProceso
+         actxnPeso.Enabled = _validate.ACProceso
+         chkIGV.Enabled = _validate.ACProceso
+         actxnIGV.Enabled = _validate.ACProceso
+         If _validate.ACProceso Then
+            AddHandler actxnMontoXTm.LostFocus, AddressOf actxnMontoXTm_LostFocus
+            AddHandler actxnPeso.LostFocus, AddressOf actxnMontoXTm_LostFocus
+         End If
+
+         Me.KeyPreview = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Private Sub setInicio(ByVal x_tran_fletes As ETRAN_Fletes)
+      Try
+
+         managerTRAN_Fletes = New BTRAN_Fletes
+         managerTRAN_VehiculosConductores = New BTRAN_VehiculosConductores
+         managerTRAN_Rutas = New BTRAN_Rutas
+         managerEntidades = New BEntidades
+
+         acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         acTool.ACBtnBuscarVisible = False
+
+         cargarCombos()
+         ACFramework.ACUtilitarios.ACSetControl(pnlDatos, True)
+
+         managerTRAN_Fletes.TRAN_Fletes = New ETRAN_Fletes()
+         managerTRAN_Fletes.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+         managerTRAN_Fletes.TRAN_Fletes = x_tran_fletes
+         'managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = x_tran_fletes.ENTID_Codigo
+         'managerTRAN_Fletes.TRAN_Fletes.COTIZ_Codigo = x_tran_fletes.COTIZ_Codigo
+         'managerTRAN_Fletes.TRAN_Fletes.RUTAS_Id = x_tran_fletes.RUTAS_Id
+         'managerTRAN_Fletes.TRAN_Fletes.FLETE_TotIngreso = x_tran_fletes.FLETE_Monto
+         'managerTRAN_Fletes.TRAN_Fletes.TIPOS_CodTipoMoneda = x_tran_fletes.TIPOS_CodTipoMoneda
+         If x_tran_fletes.FLETE_FecLlegada.Year > 1900 Then
+            dtpFecLlegada.Value = x_tran_fletes.FLETE_FecLlegada
+         Else
+            dtpFecLlegada.Value = DateTime.Now
+         End If
+
+         dtpFecProgramada.Value = IIf(x_tran_fletes.FLETE_FecProgramada.Year > 1900, x_tran_fletes.FLETE_FecProgramada, x_tran_fletes.FLETE_FecSalida)
+         dtpFecSalida.Value = x_tran_fletes.FLETE_FecSalida
+
+         '' Cargar Rutas
+         Dim _join As New List(Of ACJoin)()
+         _join.Add(New ACJoin(EUbigeos.Esquema, EUbigeos.Tabla, "UOri", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("UBIGO_Codigo", "UBIGO_CODORIGEN")} _
+                              , New ACCampos() {New ACCampos("UBIGO_Descripcion", "UBIGO_Origen")}))
+         _join.Add(New ACJoin(EUbigeos.Esquema, EUbigeos.Tabla, "UDes", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("UBIGO_Codigo", "UBIGO_CODDESTINO")} _
+                              , New ACCampos() {New ACCampos("UBIGO_Descripcion", "UBIGO_Destino")}))
+         Dim _where As New Hashtable()
+         _where.Add("RUTAS_Id", New ACWhere(managerTRAN_Fletes.TRAN_Fletes.RUTAS_Id, ACWhere.TipoWhere.Igual))
+         If managerTRAN_Rutas.Cargar(_join, _where) Then
+            managerTRAN_Fletes.TRAN_Fletes.UBIGO_ORIGEN = managerTRAN_Rutas.TRAN_Rutas.UBIGO_Origen
+            managerTRAN_Fletes.TRAN_Fletes.UBIGO_DESTINO = managerTRAN_Rutas.TRAN_Rutas.UBIGO_Destino
+            txtOrigen.Text = managerTRAN_Fletes.TRAN_Fletes.UBIGO_ORIGEN
+            txtUbiOrigen.Text = managerTRAN_Rutas.TRAN_Rutas.UBIGO_CodOrigen
+            txtDestino.Text = managerTRAN_Fletes.TRAN_Fletes.UBIGO_DESTINO
+            txtUbiDestino.Text = managerTRAN_Rutas.TRAN_Rutas.UBIGO_CodDestino
+            actxaCliente.Text = x_tran_fletes.ENTID_RazonSocial
+            actxaCliRuc.Text = x_tran_fletes.ENTID_NroDocumento
+            actxaCodRuta.Text = x_tran_fletes.RUTAS_Id
+            actxaDescRuta.Text = x_tran_fletes.RUTAS_Nombre
+            actxnMontoXTm.Text = x_tran_fletes.FLETE_MontoPorTM
+            actxnPeso.Text = x_tran_fletes.FLETE_PesoEnTM
+            actxnMonto.Text = x_tran_fletes.FLETE_TotIngreso
+            actxnIGV.Text = x_tran_fletes.FLETE_ImporteIgv
+            chkIGV.Checked = x_tran_fletes.FLETE_ImporteIgv > 0
+            actxnIGV.Enabled = x_tran_fletes.FLETE_ImporteIgv > 0
+            txtCarga.Text = x_tran_fletes.COTIZ_Carga
+         End If
+         Me.KeyPreview = True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+   Private Sub cargarCombos()
+      Try
+         ACFramework.ACUtilitarios.ACCargaCombo(cmbMoneda, Colecciones.Tipos(ETipos.MyTipos.TipoMoneda), "TIPOS_Descripcion", "TIPOS_Codigo")
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub AyudaRutas(ByVal x_cadenas As String, ByVal x_campo As String)
+      Try
+         Dim _where As New Hashtable()
+         _where.Add(x_campo, New ACWhere(x_cadenas, ACWhere.TipoWhere._Like))
+         If managerTRAN_Rutas.Ayuda(_where) Then
+            Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Ruta", managerTRAN_Rutas.DTTRAN_Rutas, False)
+            If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               actxaCodRuta.Text = Ayuda.Respuesta.Rows(0)("Codigo").ToString()
+               actxaDescRuta.Text = Ayuda.Respuesta.Rows(0)("Nombre").ToString()
+               managerTRAN_Fletes.TRAN_Fletes.RUTAS_Id = Ayuda.Respuesta.Rows(0)("Codigo").ToString()
+               Label26.Focus()
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar la ayuda, posiblemente no haya datos que mostrar")
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub AyudaCliente(ByVal x_cadenas As String, ByVal x_campo As String)
+      Try
+         Dim _where As New Hashtable
+         _where.Add(x_campo, New ACFramework.ACWhere(x_cadenas, ACFramework.ACWhere.TipoWhere._Like))
+         If managerEntidades.Ayuda(_where, EEntidades.TipoEntidad.Clientes) Then
+            Dim Ayuda As New ACControlesC1.ACAyudaFlex("Buscar Entidad", managerEntidades.DTEntidades, False)
+            If Ayuda.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = Ayuda.Respuesta.Rows(0)("Codigo")
+               actxaCliRuc.Text = Ayuda.Respuesta.Rows(0)("Doc./R.U.C.").ToString()
+               actxaCliente.Text = Ayuda.Respuesta.Rows(0)("Razon Social").ToString()
+               Label23.Focus()
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede cargar la ayuda, posiblemente no haya datos que mostrar")
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub setCliente()
+      Try
+         If managerEntidades.CargarDocIden(actxaCliRuc.Text, EEntidades.TipoInicializacion.Cliente) Then
+            '' Cargar datos del cliente
+            managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = managerEntidades.Entidades.ENTID_Codigo
+
+            actxaCliente.Text = managerEntidades.Entidades.ENTID_RazonSocial
+            actxaCliRuc.Text = managerEntidades.Entidades.ENTID_NroDocumento
+            Label23.Focus()
+         Else
+            If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Documento de Identidad: {0}", Me.Text) _
+                            , String.Format("El Documento de Identidad {0} no existe, ¿Desea Ingresar la Entidad?", actxaCliRuc.Text) _
+                            , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+               NuevaEntidad(actxaCliRuc.Text)
+               Label26.Focus()
+            Else
+               btnClean_Click(Nothing, Nothing)
+               Label16.Focus()
+            End If
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub NuevaEntidad(ByVal x_entid_nrodocumento As String)
+      Try
+         Dim frmEntidad As New MEntidad(MEntidad.Inicio.NuevaEntidad, ACEVentas.EEntidades.TipoEntidad.Clientes)
+         frmEntidad.StartPosition = FormStartPosition.CenterScreen
+         If x_entid_nrodocumento.Length > 0 Then
+            frmEntidad.EEntidad.ENTID_NroDocumento = x_entid_nrodocumento
+            frmEntidad.lblNombres.Focus()
+         End If
+         If frmEntidad.ShowDialog() = Windows.Forms.DialogResult.OK Then
+            managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = frmEntidad.EEntidad.ENTID_Codigo
+            managerEntidades.Entidades = frmEntidad.EEntidad
+            actxaCliente.Text = managerEntidades.Entidades.ENTID_RazonSocial
+            actxaCliRuc.Text = managerEntidades.Entidades.ENTID_NroDocumento
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub chkIGV_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkIGV.CheckedChanged
+      actxnIGV.Enabled = chkIGV.Checked
+      Try
+         If chkIGV.Checked Then
+            Dim _igv As Decimal = Parametros.GetParametro(EParametros.TipoParametros.PIGV)
+            Dim _monto As Decimal = actxnMontoXTm.Text
+            actxnIGV.Text = _monto * (_igv / 100)
+            actxnIGV.Formatear()
+         Else
+            actxnIGV.Text = "0.00"
+         End If
+         Calcular()
+      Catch ex As Exception
+
+      End Try
+   End Sub
+
+   Private Sub Calcular()
+      Try
+         Dim _monto As Decimal = actxnMontoXTm.Text
+         Dim _peso As Decimal = actxnPeso.Text
+         Dim _igv As Decimal = actxnIGV.Text
+         actxnMonto.Text = (_monto + _igv) * _peso : actxnMonto.Formatear()
+      Catch ex As Exception
+         actxnMonto.Text = "0.00"
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+
+   Private Sub actxaCodRuta_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCodRuta.ACAyudaClick
+      Try
+         AyudaRutas(actxaCodRuta.Text, "RUTAS_Id")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar la ayuda de las rutas", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaDescRuta_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaDescRuta.ACAyudaClick
+      Try
+         AyudaRutas(actxaDescRuta.Text, "RUTAS_Nombre")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar la ayuda de las rutas", ex)
+      End Try
+   End Sub
+
+   Private Sub btnClean_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClean.Click
+      Try
+         managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = ""
+         actxaCliente.Clear()
+         actxaCliRuc.Clear()
+         actxaCliRuc.Focus()
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Limpiar Entidad", ex)
+      End Try
+   End Sub
+
+   Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
+      Try
+         NuevaEntidad("")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Nuevo Cliente", ex)
+      End Try
+   End Sub
+
+   Private Sub btnEditar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEditar.Click
+      Try
+         If Not IsNothing(managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo) Then
+            Dim frmEntidad As New MEntidad(managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo, MEntidad.Inicio.ModificarEntidad, ACEVentas.EEntidades.TipoEntidad.Clientes)
+            frmEntidad.StartPosition = FormStartPosition.CenterScreen
+            frmEntidad.lblNombres.Focus()
+
+            If frmEntidad.ShowDialog() = Windows.Forms.DialogResult.OK Then
+               managerTRAN_Fletes.TRAN_Fletes.ENTID_Codigo = frmEntidad.EEntidad.ENTID_Codigo
+               managerEntidades.Entidades = frmEntidad.EEntidad
+               actxaCliente.Text = managerEntidades.Entidades.ENTID_RazonSocial
+               actxaCliRuc.Text = managerEntidades.Entidades.ENTID_NroDocumento
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Editar el cliente", ex)
+      End Try
+   End Sub
+
+   Private Sub _KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+      If e.KeyCode = Keys.Enter Then
+         If sender.Name = "txtBusqueda" Then
+            Exit Sub
+         End If
+         SendKeys.Send("{TAB}")
+      End If
+   End Sub
+
+   Private Sub actxnMontoXTm_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles actxnMontoXTm.LostFocus, _
+                                                                                                    actxnPeso.LostFocus, _
+                                                                                                    actxnMontoXTm.LostFocus, _
+                                                                                                    actxnIGV.LostFocus
+      Try
+         chkIGV_CheckedChanged(Nothing, Nothing)
+         Dim _monto As Decimal = actxnMontoXTm.Text
+         Dim _peso As Decimal = actxnPeso.Text
+         Dim _igv As Decimal = actxnIGV.Text
+         actxnMonto.Text = (_monto + _igv) * _peso : actxnMonto.Formatear()
+      Catch ex As Exception
+         actxnMonto.Text = "0.00"
+      End Try
+   End Sub
+
+   Private Sub actxaCliRuc_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCliRuc.ACAyudaClick
+      Try
+         AyudaCliente(actxaCliRuc.Text, "ENTID_Id")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar la ayuda de los clientes por codigo", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaCliente_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles actxaCliente.ACAyudaClick
+      Try
+         If actxaCliente.ACAyuda.Enabled Then AyudaCliente(actxaCliente.Text, "ENTID_Nombres")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar la ayuda de los clientes por nombre", ex)
+      End Try
+   End Sub
+
+   Private Sub actxaCliRuc_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles actxaCliRuc.KeyDown
+      Try
+         If e.KeyData = Keys.Enter Then
+            If actxaCliRuc.Text.ToString().Length >= ACETransporte.Constantes.LongitudCodigo Then
+               '' Cargar datos adicionales cliente
+               If actxaCliRuc.ACAyuda.Enabled = True Then
+                  setCliente()
+               End If
+            Else
+               If actxaCliRuc.Text.Trim().Length > 0 Then
+                  ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), String.Format("El Documento de Identidad {0} no existe, el documento ingresado tienen menos de 8 numeros", actxaCliRuc.Text))
+                  btnClean_Click(Nothing, Nothing)
+                  Label16.Focus()
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Cliente", ex)
+      End Try
+   End Sub
+
+   Private Sub acTool_ACBtnCancelar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnCancelar_Click
+      Me.Close()
+   End Sub
+
+   Private Sub acTool_ACBtnGrabar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnGrabar_Click
+      Try
+         If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Grabar Registro: {0}", Me.Text) _
+             , "Desea Grabar el registro: " _
+             , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_MontoPorTM = actxnMontoXTm.Text
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_ImporteIgv = actxnIGV.Text
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_Monto = actxnMonto.Text
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_PesoEnTM = actxnPeso.Text
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_TotIngreso = managerTRAN_Fletes.TRAN_Fletes.FLETE_Monto
+            managerTRAN_Fletes.TRAN_Fletes.TIPOS_CodTipoMoneda = cmbMoneda.SelectedValue
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_Glosa = txtCarga.Text
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_FecSalida = dtpFecSalida.Value
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_FecLlegada = dtpFecLlegada.Value
+            managerTRAN_Fletes.TRAN_Fletes.FLETE_FecProgramada = dtpFecProgramada.Value
+            managerTRAN_Fletes.TRAN_Fletes.Instanciar(ACEInstancia.Modificado)
+            If managerTRAN_Fletes.Guardar(GApp.Usuario) Then
+               Me.DialogResult = Windows.Forms.DialogResult.OK
+               Me.Close()
+            End If
+         Else
+            acTool.setInstancia(ACControles.ACToolBarMantHorizontalNew.TipoInstancia.Nuevo)
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Grabar Cliente", ex)
+      End Try
+   End Sub
+#End Region
+
+   Private Sub acTool_ACBtnSalir_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles acTool.ACBtnSalir_Click
+      Me.Close()
+   End Sub
+End Class

@@ -1,0 +1,158 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+Imports Microsoft.Practices.Unity
+Imports Microsoft.Practices.Unity.Configuration
+Imports System.Configuration
+Imports DAConexion
+
+Imports ACFramework
+
+Public Class BGenerarOrdenCompra
+
+#Region " Variables "
+   Private m_eabas_ordenescompra As EABAS_OrdenesCompra
+   Private d_generarordencompra As DGenerarOrdenCompra
+   Private m_datos As DataSet
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+      d_generarordencompra = New DGenerarOrdenCompra
+   End Sub
+#End Region
+
+#Region " Propiedades "
+
+   Public Property ABAS_OrdenesCompra() As EABAS_OrdenesCompra
+      Get
+         Return m_eabas_ordenescompra
+      End Get
+      Set(ByVal value As EABAS_OrdenesCompra)
+         m_eabas_ordenescompra = value
+      End Set
+   End Property
+
+   Public Property Datos() As DataSet
+      Get
+         Return m_datos
+      End Get
+      Set(ByVal value As DataSet)
+         m_datos = value
+      End Set
+   End Property
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+
+   ''' <summary>
+   ''' Grabar orden de compra
+   ''' </summary>
+   ''' <param name="x_usuario">Usuario que realiza el proceso</param>
+   ''' <param name="x_msg">Mensajeque se devuelve con algun error</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function GrabaOrdenCompra(ByVal x_usuario As String, ByRef x_msg As String) As Boolean
+      Try
+         '' Inicializar Clase Negocio 
+         Dim m_babas_ordenescompra As New BABAS_OrdenesCompra() With {.ABAS_OrdenesCompra = m_eabas_ordenescompra}
+         m_babas_ordenescompra.ABAS_OrdenesCompra.ORDCO_Id = m_babas_ordenescompra.getCorrelativo("ORDCO_Id")
+
+         '' Iniciar transaccion
+         DAEnterprise.BeginTransaction()
+         If m_babas_ordenescompra.Guardar(x_usuario) Then
+            Dim i As Integer = 1
+            '' Grabar los detalles
+            For Each Item As EABAS_OrdenesCompraDetalle In m_babas_ordenescompra.ABAS_OrdenesCompra.ListABAS_OrdenesCompraDetalle
+               Item.ORDCO_Codigo = m_babas_ordenescompra.ABAS_OrdenesCompra.ORDCO_Codigo
+               Item.ORDCD_Item = i
+               Item.Instanciar(ACEInstancia.Nuevo)
+               i += 1
+               Dim m_babas_ordenescompradetalle As New BABAS_OrdenesCompraDetalle() With {.ABAS_OrdenesCompraDetalle = Item}
+               m_babas_ordenescompradetalle.Guardar(x_usuario)
+            Next
+         Else
+            DAEnterprise.RollBackTransaction()
+            x_msg &= String.Format("- No se completo el grabado de la cabecera del pedido{0}", vbNewLine)
+            Return False
+         End If
+         '' Completar Operaciones adicionales con el Pedido/Cotizacion
+         '' Cambiar de estado a la cotizacion de compra si  es que existiera
+         If Not m_babas_ordenescompra.ABAS_OrdenesCompra.COTCO_Codigo.Equals("") Then
+            '' Cambiar de estado a cotización
+            Dim m_cotizacion As New BABAS_CotizacionesCompra
+            m_cotizacion.ABAS_CotizacionesCompra = New EABAS_CotizacionesCompra()
+            m_cotizacion.ABAS_CotizacionesCompra.COTCO_Codigo = m_babas_ordenescompra.ABAS_OrdenesCompra.COTCO_Codigo
+            m_cotizacion.ABAS_CotizacionesCompra.COTCO_Estado = EABAS_CotizacionesCompra.getEstado(EABAS_CotizacionesCompra.Estado.Confirmado)
+            m_cotizacion.Guardar(x_usuario)
+         End If
+         '' Culminar la transaccion
+         DAEnterprise.CommitTransaction()
+         Return True
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anular la orden de compra
+   ''' </summary>
+   ''' <param name="x_ordco_codigo">Codigo de la orden de compra</param>
+   ''' <param name="x_cotco_codigo">Codigo de la cotizacion de compra</param>
+   ''' <param name="x_usuario">Usuario que realiza el proceso</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnularOrdenCompra(ByVal x_ordco_codigo As String, ByVal x_cotco_codigo As String, ByVal x_usuario As String) As Boolean
+      Try
+         DAEnterprise.BeginTransaction()
+         Dim m_babas_ordencompra As New BABAS_OrdenesCompra
+         m_babas_ordencompra.ABAS_OrdenesCompra = New EABAS_OrdenesCompra
+         m_babas_ordencompra.ABAS_OrdenesCompra.ORDCO_Codigo = x_ordco_codigo
+         m_babas_ordencompra.ABAS_OrdenesCompra.ORDCO_Estado = EABAS_OrdenesCompra.getEstado(EABAS_OrdenesCompra.Estado.Anulado)
+         m_babas_ordencompra.ABAS_OrdenesCompra.Instanciar(ACEInstancia.Modificado)
+         If m_babas_ordencompra.Guardar(x_usuario) Then
+            If Not IsNothing(x_cotco_codigo) Then
+               Dim m_babas_cotizacion As New BABAS_CotizacionesCompra
+               m_babas_cotizacion.ABAS_CotizacionesCompra = New EABAS_CotizacionesCompra
+               m_babas_cotizacion.ABAS_CotizacionesCompra.COTCO_Codigo = x_cotco_codigo
+               m_babas_cotizacion.ABAS_CotizacionesCompra.COTCO_Estado = EABAS_CotizacionesCompra.getEstado(EABAS_CotizacionesCompra.Estado.Ingresado)
+               m_babas_cotizacion.ABAS_CotizacionesCompra.Instanciar(ACEInstancia.Modificado)
+               m_babas_cotizacion.Guardar(x_usuario)
+            End If
+            DAEnterprise.CommitTransaction()
+            Return True
+         End If
+         DAEnterprise.RollBackTransaction()
+         Return False
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' cargar registro de compras
+   ''' </summary>
+   ''' <param name="x_ordco_codigo">codifo de orden de compra</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function RegistroCompra(ByVal x_ordco_codigo As String) As Boolean
+      m_datos = New DataSet()
+      Try
+         Return d_generarordencompra.ABAS_ORDCDSS_UnRegImpresion(m_datos, x_ordco_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

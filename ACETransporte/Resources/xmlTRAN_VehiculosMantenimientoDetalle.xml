@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_VehiculosMantenimientoDetalle" Esquema="Transportes" Prefijo="VMDET">
+  <Nombre>TRAN_VehiculosMantenimientoDetalle</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="VMDET_Item">VMDET_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PIEZA_Id">PIEZA_Id</CCampo> <!--ANTES PIEZA_ID ESRA ForeignKey = 1 -->
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PIEZA_Codigo">PIEZA_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoRepuesto">TIPOS_CodTipoRepuesto</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_Cantidad">VMDET_Cantidad</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_Responsable">VMDET_Responsable</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_Procedimiento">VMDET_Procedimiento</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_Estado">VMDET_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DCDET_Item">DCDET_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_UsrCrea">VMDET_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_FecCrea">VMDET_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_UsrMod">VMDET_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMDET_FecMod">VMDET_FecMod</CCampo>
+    <!--SOLO DE LECTURAS OJO -->
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Placa">VEHIC_Placa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_Observaciones">VMAN_Observaciones</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_RazonSocial">ENTID_RazonSocial</CCampo>
+
+
+
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DCDET_Precio">DCDET_Precio</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DCDet_Importe">DCDet_Importe</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DCDET_SubImporte">DCDET_SubImporte</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DCDET_Descuento">DCDET_Descuento</CCampo>
+    <!--SOLO DE LECTURAS OJO -->
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="VMDET_Item">VMDET_Item</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCUS_Codigo">DOCUS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DCDET_Item">DCDET_Item</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PIEZA_Id">PIEZA_Id</CCampo>
+   
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_Item">VMAN_Item</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VEHIC_Id">VEHIC_Id</CCampo>
+    
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="VMAN_Item">VMAN_Item</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

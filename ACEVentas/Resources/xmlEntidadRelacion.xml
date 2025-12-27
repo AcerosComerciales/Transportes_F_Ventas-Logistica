@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="EntidadRelacion" Esquema="dbo" Prefijo="ENTRE">
+  <Nombre>EntidadRelacion</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ENTRE_Numero">ENTRE_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodRelacion">ENTID_CodRelacion</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodTipoRelacion">TIPOS_CodTipoRelacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTRE_UsrCrea">ENTRE_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTRE_FecCrea">ENTRE_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTRE_UsrMod">ENTRE_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTRE_FecMod">ENTRE_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ENTRE_Numero">ENTRE_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodRelacion">ENTID_CodRelacion</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodTipoRelacion">TIPOS_CodTipoRelacion</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodRelacion">ENTID_CodRelacion</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodTipoRelacion">TIPOS_CodTipoRelacion</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

@@ -1,0 +1,1394 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACDVentas
+</name>
+</assembly>
+<members>
+<member name="M:ACDVentas.DTESO_Recibos.TESO_ConsultaRecibos(System.Collections.Generic.List{ACEVentas.ETESO_Recibos},System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: TESO_ConsultaRecibos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_PedidosDetalle.VENT_PEDIDSS_ObtDetPedidoReposicion(System.Collections.Generic.List{ACEVentas.EVENT_PedidosDetalle},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_ObtDetPedidoReposicion
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_DOCVESS_UnDocumento(ACEVentas.EVENT_DocsVenta@,System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_UnDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VEN_DOCVSS_ObtenerUltimaFecha(ACEVentas.EVENT_DocsVenta,System.String)">
+	<summary> 
+ Capa de Datos: VEN_DOCVSS_ObtenerUltimaFecha
+ </summary>
+	<param name="x_tipos_codtipodocumento">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_DOCVESS_DocumentosRelacionados(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_DOCVESS_DocumentosRelacionadoss(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.CAJASS_ObtenerPendientesPago(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.Int64,System.String)">
+	<summary> 
+ Capa de Datos: CAJASS_PendientesPago
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_VENTSS_RomperRelacionDocsVentas(System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_VENTSS_RomperRelacionDocsVentas
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_VENTSS_BusDocsVenta(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_VENTSS_BusDocsVenta
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENTSS_VentasxVendedor(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_VentasxVendedor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigovendedor">Parametro 3: </param>
+	<param name="x_entid_codigocliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENTSS_VentasPorVendedor(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_VentasPorVendedor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigovendedor">Parametro 3: </param>
+	<param name="x_entid_codigocliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_DocsVenta.VENT_REPOSS_Ventas(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.Int32)">
+	<summary> 
+ Capa de Datos: VENT_REPOSS_Ventas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarControl.REPOSS_GuiasXConductor(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Datos: REPOSS_GuiasXConductor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_id_conductor">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarControl.REPOSS_GuiasXCliente(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Datos: REPOSS_GuiasXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_id_cliente">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarOrdenes.LOG_DIST_GUIASS_ObtDocVentaXNumero(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.String,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDocVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarOrdenes.LOG_DIST_GUIASS_ObtDocVenta(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDocVenta
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarOrdenes.LOG_DIST_GUIASS_ObtDetDocVenta(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDetDocVenta
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarOrdenes.LOG_DIST_GUIASS_ObtDetDocVenta_Artic(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDetDocVenta_articulos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarOrdenes.LOG_DISTSS_OrdenesXDocumento(System.Collections.Generic.List{ACEVentas.EDIST_Ordenes},System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_OrdenesXDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarCancelacion.VENT_DOCSS_TodosConSaldo(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta}@,System.String)">
+	<summary> 
+ Procedimiento "VENT_DOCSS_TodosConSaldo" por el Generador 31/01/2012
+ </summary>
+	<param name="m_listVENT_DocsVenta">Lista donde se cargaran los valores</param>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_CajaChicaIngreso.TESO_ConsultaCajaChica(System.Collections.Generic.List{ACEVentas.ETESO_CajaChicaIngreso},System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: TESO_ConsultaCajaChica
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.TRAN_CAJASS_CuadreCajaPagos(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.String)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_CuadreCajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_DOCVESS_CajaPagos(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_CajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_DOCVESS_CajaPagosXCajaCodigo(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_CajaPagosXCajaCodigo _M
+ </summary>
+	<param name="x_caja_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_DOCVESS_CajaPagosNC(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_CajaPagosXCajaCodigo _M
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.TRAN_CAJASS_FacturasXCancelar(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VEN_CAJASS_FacturasXCancelar(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: VEN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.TRAN_CAJASS_FacturasXCliente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: TRAN_CAJASS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_DOCVESS_FacturasXCliente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_DOCRec_SaldosXCliente(System.Collections.Generic.List{ACEVentas.ETESO_Recibos},System.String,System.Int64,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.GetPagos(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.String)">
+	<summary>
+ Obtener los pagos
+ </summary>
+	<param name="x_listteso_caja">lista de clases de pagos</param>
+	<param name="x_docs_codigo">codigo del documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.VENT_CAJASS_ValidarPagos(System.Collections.Generic.List{ACEVentas.ECCuadrePendientes},System.DateTime,System.Int64,System.String)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_ValidarPagos
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_entid_razonsocial">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAdminCaja.ActualizarFechaPago(System.String,System.DateTime,System.String)">
+	<summary>
+ Actualizar la fecha de pago
+ </summary>
+	<param name="x_docve_codigo"></param>
+	<param name="x_fecha"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAlmacenes.ALMASS_Todos(System.Collections.Generic.List{ACEVentas.EAlmacenes}@,System.String)">
+	<summary>
+ cargar todos los almacenes
+ </summary>
+	<param name="listETRAN_Almacenes"></param>
+	<param name="x_cadena"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAlmacenes.ALMASS_TodosAyuda(System.Data.DataTable@,System.Collections.Hashtable)">
+	<summary>
+ cargar la ayuda de almacenes
+ </summary>
+	<param name="dtEEntidades"></param>
+	<param name="x_where"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_DocsPagos.TESO_DPAGSS_ObtenerDocPagos(System.Collections.Generic.List{ACEVentas.ETESO_DocsPagos},System.DateTime,System.DateTime,System.Int16,System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: TESO_DPAGSS_ObtenerDocPagos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_optfecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_DocsPagos.TESO_DOCPSS_ConsutaNotaCredito(System.Collections.Generic.List{ACEVentas.ETESO_DocsPagos},System.String,System.Int64,System.Int16,System.String,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Datos: TESO_DOCPSS_ConsutaNotaCredito
+ </summary>
+	<param name="x_tipodoc">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_DocsPagos.ObtenerDepositos(System.String,System.Int32,System.Int32)">
+	<summary> 
+ Capa de Datos: obtener depositos
+ </summary>
+	<param name="x_dpago_numero">Parametro 1: </param>
+	<param name="x_banco_id">Parametro 2: </param>
+	<param name="x_cuenta_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_DocsPagos.VENT_DOCVESS_GetDocsPago(System.Collections.Generic.List{ACEVentas.ETESO_DocsPagos},System.String)">
+	<summary> 
+ Capa de Datos: VENT_DOCVESS_GetDocsPago
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_DISTSS_ObtenerGuiaVenta(ACEVentas.EDIST_GuiasRemision,System.String)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+	<param name="x_guiar_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_DISTSS_ObtenerGuiaTransf(ACEVentas.EDIST_GuiasRemision,System.String)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+	<param name="x_guiar_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_DISTSS_BuscarGuiasRemision(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_BuscarGuiasRemision
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_DISTSS_BuscarGuiasRemisionXNumero(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.String,System.String,System.Int64,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_BuscarFacturasVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_DISTSS_GetSaldoArticulo(System.String,System.String,System.Decimal@,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_GetSaldoArticulo
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuias(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuias
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasSalida(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasSalida
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasSalidaRemoto(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasSalidaRemoto
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_almac_iddestino">Parametro 2: </param>
+	<param name="x_fecini">Parametro 3: </param>
+	<param name="x_fecfin">Parametro 4: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 5: </param>
+	<param name="x_opcionfecha">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasIngresos(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasIngresos
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasIngresosXNumero(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasIngresosXNumero
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasSalidaXNumero(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasSalidaXNumero
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasSalidaXNumeroRemoto(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasSalidaXNumeroRemoto
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_almac_iddestino">Parametro 2: </param>
+	<param name="x_numero">Parametro 3: </param>
+	<param name="x_serie">Parametro 4: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 5: </param>
+	<param name="x_todos">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasReposicion(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasReposicion
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.LOG_GUIASS_ObtenerGuiasReposicionXNumero(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_GUIASS_ObtenerGuiasReposicionXNumero
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.GUIA_SalidasPendientes(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_SalidasPendientes" por el Generador 17/11/2011
+ </summary>
+	<param name="m_listGuia_Remision">Lista donde se cargaran los valores</param>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.GUIA_GuiasPorConductor(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.String,System.Int64,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_GuiasPorConductor" por el Generador 17/11/2011
+ </summary>
+	<param name="m_listGuia_Remision">Lista donde se cargaran los valores</param>
+	<param name="x_condu_id">Parametro 1: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.GUIA_GuiasDeSalidas(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.Int64,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_GuiasDeSalidas" por el Generador 18/11/2011
+ </summary>
+	<param name="m_listGuia_Remision">Lista donde se cargaran los valores</param>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<param name="x_fecha">Parametro 2: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_GuiasRemision.GUIAR_UnRegActGuiaRemision(ACEVentas.EDIST_GuiasRemision@,System.Boolean,System.String)">
+	<summary>
+ Actualizar un registro 
+ </summary>
+	<param name="x_guia_remision">codigo de la guia de remision</param>
+	<param name="x_opcion">valor del booleano</param>
+	<param name="x_usuario">codigo del usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Sencillo.TESO_SENCISS_UnReg(ACEVentas.ETESO_Sencillo,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: TESO_SENCISS_UnReg
+ </summary>
+	<param name="x_senci_fecha">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Sencillo.TESO_SENCISS_VerificarIngreso(ACEVentas.ETESO_Sencillo,System.DateTime)">
+	<summary> 
+ Capa de Datos: TESO_SENCISS_VerificarIngreso
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.ARTICSS_ProductosPrecios(System.Collections.Generic.List{ACEVentas.EArticulos}@,System.Collections.Generic.List{ACEVentas.EPPrecios}@,System.Collections.Generic.List{ACEVentas.EVENT_ListaPrecios}@,System.String,System.String)">
+	<summary> 
+ Capa de Datos: ARTICSS_ProductosPrecios
+ </summary>
+	<param name="x_linea_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.getCodCorrelativo(System.String)">
+	<summary>
+ obtener el correlativo
+ </summary>
+	<param name="x_codlin"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.getName(System.String)">
+	<summary>
+ Obtener el nombre
+ </summary>
+	<param name="x_codartdest"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.getStock(System.Collections.Generic.List{ACEVentas.EArticulos}@,System.String)">
+	<summary>
+ obtyener el srtock
+ </summary>
+	<param name="listEStockArt"></param>
+	<param name="x_art_cod"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.ARTICSS_UnRegistro(ACEVentas.EArticulos,System.String,System.String)">
+	<summary> 
+ Capa de Datos: ARTICSS_UnRegistro
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.ARTICSI_UnRegSQL(ACEVentas.EArticulos@,System.String)">
+	<summary>
+ obtener el scrip del proceso ingresar articulo
+ </summary>
+	<param name="x_articulos"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DArticulos.ARTICSU_UnRegSQL(ACEVentas.EArticulos,System.String)">
+	<summary>
+ obtener el scrip del proceso ingresar articulo
+ </summary>
+	<param name="x_articulos"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_Busqueda(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_Busqueda
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_zonas_codigo">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pvent_id">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusCliente(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_BusCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_tconsulta">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_zonas_codigo">Parametro 6: </param>
+	<param name="x_sucur_id">Parametro 7: </param>
+	<param name="x_pvent_id">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusClienteSF(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_BusClienteSF
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_zonas_codigo">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pvent_id">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusCodigo(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_BusCodigo
+ </summary>
+	<param name="x_codigo">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_sucur_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusCotizacion(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_BusCotizacion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_ConsPedidoReposicion(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_ConsPedidoReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<param name="x_pvent_idorigen">Parametro 10: </param>
+	<param name="x_rehusados">Parametro 11: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusPedidoReposicion(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.String,System.Int64,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_BusPedidoReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_pvent_iddestino">Parametro 5: </param>
+	<param name="x_sucur_id">Parametro 6: </param>
+	<param name="x_pedid_tipo">Parametro 7: </param>
+	<param name="x_opcion">Parametro 8: </param>
+	<param name="x_cadena">Parametro 9: </param>
+	<param name="x_todos">Parametro 10: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_BusPedidoReposicionParaGuia(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos},System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_GuiasParaReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENTSS_ModificarPedidosReporte(System.String,System.String,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_ModificarPedidosReporte
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<param name="x_pedid_condiciones">Parametro 2: </param>
+	<param name="x_pedid_condicionentrega">Parametro 3: </param>
+	<param name="x_pedid_nota">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DVENT_Pedidos.VENT_PEDIDSS_ObtenerPedidoReposicion(System.Collections.Generic.List{ACEVentas.EVENT_Pedidos}@,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: VENT_PEDIDSS_ObtenerPedidoReposicion
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_sucur_id">Parametro 4: </param>
+	<param name="x_pedid_tipo">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_CajaChicaPagos.TESO_ConsultaPagosCC(System.Collections.Generic.List{ACEVentas.ETESO_CajaChicaPagos},System.Int64,System.Int64)">
+	<summary> 
+ Capa de Datos: TESO_ConsultaPagosCC
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<param name="x_cajac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarDocsVenta.CAJASS_ObtenerDeuda(ACEVentas.EVENT_DocsVenta,System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: CAJASS_ObtenerDeuda
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtDetDocVenta(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDetDocVenta
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_ORDENES_ObtDetGuias(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: LOG_DIST_ORDENES_ObtDetGuias
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtDocVenta(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDocVenta
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<param name="x_desbloqueo">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtOrdenes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtOrdenes
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<param name="x_desbloqueo">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtDocVentaXNumero(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.String,System.String,System.Int16,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDocVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<param name="x_desbloqueo">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtOrdenesXNumero(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.String,System.String,System.String,System.Int16,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtOrdenesXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<param name="x_desbloqueo">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DIST_GUIASS_ObtDetOrdenes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: LOG_DIST_GUIASS_ObtDetOrdenes
+ </summary>
+	<param name="x_orden_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DISTSS_GuiasXDocumento(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_GuiasXDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DGenerarGuias.LOG_DISTSS_GuiasXDocumentoOrden(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision},System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_GuiasXDocumentoOrden
+ </summary>
+	<param name="x_orden_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DEntidades.ENTISS_ObtenerDireccion(ACEVentas.EEntidades,System.String)">
+	<summary> 
+ Capa de Datos: ENTISS_ObtenerDireccion
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DEntidades.ENTISS_BuscarClientes(System.Collections.Generic.List{ACEVentas.EEntidades},System.String,System.Int16)">
+	<summary> 
+ Capa de Datos: ENTISS_BuscarClientes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.LOG_DISTSS_BuscarOrdenesIngreso(System.Collections.Generic.List{ACEVentas.EDIST_Ordenes},System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_BuscarOrdenesIngreso
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codtipoorden">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.LOG_DISTSS_BuscarOrdenesIngresoPtoVenta(System.Collections.Generic.List{ACEVentas.EDIST_Ordenes},System.DateTime,System.DateTime,System.Int64,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_BuscarOrdenesIngresoPtoVenta
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_iddestino">Parametro 3: </param>
+	<param name="x_pvent_idorigen">Parametro 4: </param>
+	<param name="x_tipos_codtipoorden">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.LOG_DISTSS_BuscarOrdenesIngresoLocal(System.Collections.Generic.List{ACEVentas.EDIST_Ordenes},System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_BuscarOrdenesIngresoLocal
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_iddestino">Parametro 3: </param>
+	<param name="x_tipos_codtipoorden">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.SetPermisoGenGuia(System.String,System.Boolean,System.String)">
+	<summary>
+ Asignar permiso para poder generar guia de remision, despues que el documento fue bloqueado por el tiempo mayor al confirurado de no haber sido recogido
+ </summary>
+	<param name="x_orden_codigo"></param>
+	<param name="x_value"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.SetPermisoImpOrden(System.String,System.Boolean,System.String)">
+	<summary>
+ Asignar permiso para poder imprimir orden
+ </summary>
+	<param name="x_orden_codigo"></param>
+	<param name="x_value"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.LOG_DIST_ObtenerPendientesOrdenes(System.Collections.Generic.List{ACEVentas.EDIST_Ordenes}@,System.DateTime,System.Int16,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_ObtenerPendientesOrdenes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_desbloqueo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDIST_Ordenes.ActualizarFechaEntrega(System.String,System.DateTime,System.String)">
+	<summary>
+ Actualizar fecha de entrega
+ </summary>
+	<param name="x_orden_codigo">codigo de la orden</param>
+	<param name="x_fecha">fecha a actualizar</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Caja.TESO_CAJASS_ObtenerDocPagosDetalle(System.Collections.Generic.List{ACEVentas.ETESO_Caja},System.Int64)">
+	<summary> 
+ Capa de Datos: TESO_CAJASS_ObtenerDocPagosDetalle
+ </summary>
+	<param name="x_dpago_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Caja.ModificarImpFec(ACEVentas.ETESO_Caja,System.DateTime,System.Decimal,System.String)">
+	<summary>
+ modificar la fecha de impresión
+ </summary>
+	<param name="x_eteso_caja"></param>
+	<param name="x_caja_fecha"></param>
+	<param name="x_importe"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Caja.ModificarFecha(ACEVentas.ETESO_Caja,System.DateTime,System.String)">
+	<summary>
+ Modificar fecha
+ </summary>
+	<param name="x_eteso_caja"></param>
+	<param name="x_caja_fecha"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DTESO_Caja.CambiarEstado(System.Int64,System.Int32,System.DateTime,ACEVentas.ETESO_Caja.Estado,System.String)">
+	<summary>
+ Cambiar estado
+ </summary>
+	<param name="x_caja_id"></param>
+	<param name="x_pvent_id"></param>
+	<param name="x_caja_fecha"></param>
+	<param name="x_estado"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACDVentas.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACDVentas.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:ACDVentas.My.Resources.Resources.sql">
+	<summary>
+  Looks up a localized string similar to &lt;xml&gt;
+   &lt;sql&gt;
+      &lt;titulo&gt;DDirecciones.DIRECS_TodosAyuda&lt;/titulo&gt;
+      &lt;descripcion&gt;Obtener las direcciones de una entidad especifica&lt;/descripcion&gt;
+      &lt;code&gt;
+			SELECT top 100 0 As Codigo
+				,m_Dir.UBIGO_Codigo As Ubigeo
+				,m_Dir.ENTID_Direccion As Direccion
+				,Dep.UBIGO_Descripcion As Departamento
+				,Prov.UBIGO_Descripcion As Provincia
+				,Dis.UBIGO_Descripcion As Distrito
+			FROM Entidades As m_Dir
+				Inner Join Ubigeos As Dep On Dep.UBIGO_Codigo = Left(m_Dir.UBIGO_Codigo, 2)
+ [rest of string was truncated]";.
+</summary>
+</member><member name="T:ACDVentas.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACDVentas.DDESP_Salidas.GUIA_Salidas(System.Collections.Generic.List{ACEVentas.EDESP_Salidas}@,System.DateTime)">
+	<summary> 
+ Procedimiento "GUIA_Salidas" por el Generador 18/11/2011
+ </summary>
+	<param name="m_listDESP_Salidas">Lista donde se cargaran los valores</param>
+	<param name="x_fecha">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DDESP_Salidas.GUIA_SalidasDetalle(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_SalidasDetalle" por el Generador 14/12/2011
+ </summary>
+	<param name="m_listGuia_Remision">Lista donde se cargaran los valores</param>
+	<param name="x_fecha">Parametro 1: </param>
+	<param name="x_csalida">Parametro 2: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_SaldoInicial(ACEVentas.ESaldoCaja@,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_SaldoInicial
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadreCaja_Facturas(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadreCaja_Facturas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadreCaja_Egresos(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadreCaja_Egresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadreCaja_Egresos_Trans(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadreCaja_Egresos_Trans
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadreCaja_Ingresos(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadreCaja_Ingresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadreCaja_Ingresos_Trans(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadreCaja_Ingresos_Trans
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJAS_CuadreCaja_Resumen(System.Data.DataSet@,System.Collections.Generic.List{ACEVentas.ECCuadreCaja}@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_CAJAS_CuadreCaja_Resumen
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadrePendientes(System.Collections.Generic.List{ACEVentas.ECCuadrePendientes},System.DateTime,System.Int64,System.Int16,ACDVentas.DReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_orden">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CuadrePendientes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.Int64,System.Int16)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_orden">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CAJASS_CobranzaPendiente(System.Collections.Generic.List{ACEVentas.ECCuadrePendientes},System.DateTime,System.DateTime,System.Int64,System.Boolean,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENT_CAJASS_CobranzaPendiente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<param name="x_entid_codigovendedor">Parametro 6: </param>
+	<param name="x_entid_codigocliente">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.LOG_DIST_CuadrePendientesVentas(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_CuadrePendientesVentas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_artic_codigo">Parametro 5: </param>
+	<param name="x_entid_codigo">Parametro 6: </param>
+	<param name="x_fecha">Parametro 7: </param>
+	<param name="x_desbloqueo">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_NotasCre(ACEVentas.EVENT_DocsVenta@,System.String)">
+	<summary>
+ facturaelectronica NC_a
+ </summary>
+	<param name="m_vent_docs"></param>
+	<param name="x_docve_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.LOG_DIST_CuadrePendientesOrdenes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_CuadrePendientesOrdenes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_artic_codigo">Parametro 5: </param>
+	<param name="x_entid_codigo">Parametro 6: </param>
+	<param name="x_fecha">Parametro 7: </param>
+	<param name="x_desbloqueo">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.LOG_DIST_CuadrePendientesIntegrado(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Datos: LOG_DIST_CuadrePendientesIntegrado
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_artic_codigo">Parametro 5: </param>
+	<param name="x_entid_codigo">Parametro 6: </param>
+	<param name="x_fecha">Parametro 7: </param>
+	<param name="x_desbloqueo">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.LOG_DISTSS_ReporVentXCliente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Datos: LOG_DISTSS_ReporVentXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_usuario">Parametro 3: </param>
+	<param name="x_cliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CCAJASS_Efectivo(System.Collections.Generic.List{ACEVentas.ECCuadreCaja},System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_CCAJASS_Efectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_CCAJASS_SaldoInicialEfectivo(ACEVentas.ESaldoCaja,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_CCAJASS_SaldoInicialEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENT_REPOSS_MovimientoEfectivo(System.Collections.Generic.List{ACEVentas.ETESO_DocsPagos},ACEVentas.ESaldoCaja,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: VENT_REPOSS_MovimientoEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENTSS_VentasXCliente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle},System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_VentasXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_linea">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_CuentasCorrientes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Datos: REPOSS_CuentasCorrientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_MovimientoCaja(System.Data.DataTable@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_ReporteCobranza(System.Data.DataTable@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_ReporteBancarizacion(System.Data.DataTable@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_ReporteVentasAnuladas(System.Data.DataTable@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_GuiasTraslado(System.Data.DataTable@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_CotizacionVenta(ACEVentas.EVENT_Pedidos@,System.String)">
+	<summary> 
+ Capa de Datos: REPOSS_CotizacionVenta
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_VentasTodos(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta}@,System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta}@,System.DateTime,System.DateTime,System.Int64,System.Int16,System.String)">
+	<summary> 
+ Capa de Datos: REPOSS_VentasTodos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.REPOSS_EstadoCuentaCorriente(System.Collections.Generic.List{ACEVentas.EVENT_DocsVenta},System.DateTime,System.DateTime,System.String,System.Int64)">
+	<summary> 
+ Capa de Datos: REPOSS_EstadoCuentaCorriente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DReporte.VENTSS_ListaPrecios(System.Data.DataTable@,System.String,System.Int16,System.String,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_ListaPrecios
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DAuditoria.VENT_AUDISS_Autorizaciones(System.Collections.Generic.List{ACEVentas.EAuditoria},System.String)">
+	<summary> 
+ Capa de Datos: VENT_AUDISS_Autorizaciones
+ </summary>
+	<param name="x_audit_codigoreferencia">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.GetStockAlmacenes(System.Collections.Hashtable@,System.Collections.Generic.List{ACEVentas.EPuntoVenta}@,System.String,System.String,System.String,System.String,System.Int64)">
+	<summary>
+ Obtener listado de almacenes
+ </summary>
+	<param name="x_hash"></param>
+	<param name="x_listpuntoventa"></param>
+	<param name="x_periodo"></param>
+	<param name="x_linea_codigo"></param>
+	<param name="x_user"></param>
+	<param name="x_password"></param>
+	<param name="x_pvent_id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.GetStockAlmacen(System.String,System.String,ACEVentas.EPuntoVenta,System.String,System.String,System.Collections.Generic.List{ACELogistica.ELOG_Stocks}@)">
+	<summary>
+ Obtener stock por almacen
+ </summary>
+	<param name="x_periodo"></param>
+	<param name="x_artic_codigo"></param>
+	<param name="x_puntoventa"></param>
+	<param name="x_user"></param>
+	<param name="x_password"></param>
+	<param name="x_liststock"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.ARTICSS_ConexionStocksAlmacenes(System.Collections.Generic.List{ACEVentas.EPuntoVenta},System.Int64)">
+	<summary> 
+ Capa de Datos: ARTICSS_ConexionStocksAlmacenes
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.ARTICSS_ObtenerPrecios(System.Collections.Generic.List{ACEVentas.EPPrecios},System.String,System.String)">
+	<summary> 
+ Capa de Datos: VEN_ARTICSS_ObtenerPrecios
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.ARTICSS_ObtenerPrecioLista(ACEVentas.EPPrecios,System.String,System.String,System.Int32)">
+	<summary> 
+ Capa de Datos: ARTICSS_ObtenerPrecioLista
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<param name="x_lprec_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.cargarPrecios(System.Collections.Generic.List{ACEVentas.EPPrecios}@,System.String,System.String)">
+	<summary>
+ cargar lista de preccios de un articulo
+ </summary>
+	<param name="listPrecios"></param>
+	<param name="x_zonas_codigo"></param>
+	<param name="x_artic_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.CargarUltimos(System.Data.DataTable@,System.Int32,System.String)">
+	<summary>
+ cargar ultimos precios
+ </summary>
+	<param name="m_datos"></param>
+	<param name="x_top"></param>
+	<param name="x_artic_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACDVentas.DConsultaArticulos.VENTSS_ObtenerArticulos(System.Collections.Generic.List{ACEVentas.EArticulos},System.String,System.Int16,System.String,System.String)">
+	<summary> 
+ Capa de Datos: VENTSS_ObtenerArticulos
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_linea_codigo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

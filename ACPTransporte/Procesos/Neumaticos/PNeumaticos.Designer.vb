@@ -1,0 +1,1312 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class PNeumaticosVehiculos
+   Inherits System.Windows.Forms.Form
+
+   'Form overrides dispose to clean up the component list.
+   <System.Diagnostics.DebuggerNonUserCode()> _
+   Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+      Try
+         If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+         End If
+      Finally
+         MyBase.Dispose(disposing)
+      End Try
+   End Sub
+
+   'Required by the Windows Form Designer
+   Private components As System.ComponentModel.IContainer
+
+   'NOTE: The following procedure is required by the Windows Form Designer
+   'It can be modified using the Windows Form Designer.  
+   'Do not modify it using the code editor.
+   <System.Diagnostics.DebuggerStepThrough()> _
+   Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PNeumaticosVehiculos))
+        Me.tabMantenimiento = New Crownwood.DotNetMagic.Controls.TabControl()
+        Me.tabDatos = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.pnlDatos = New System.Windows.Forms.SplitContainer()
+        Me.pnlNeumaticos = New System.Windows.Forms.Panel()
+        Me.pnlPosteriores = New System.Windows.Forms.Panel()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.c1grdNPIzquierdo = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.AcPanelCaption1 = New ACControles.ACPanelCaption()
+        Me.c1grdNPDerecho = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.AcPanelCaption4 = New ACControles.ACPanelCaption()
+        Me.bnavNPosteriores = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem2 = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem2 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AcPanelCaption5 = New ACControles.ACPanelCaption()
+        Me.pnlFrontales = New System.Windows.Forms.Panel()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.c1grdNDIzquierdo = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.AcPanelCaption2 = New ACControles.ACPanelCaption()
+        Me.c1grdNDDerecho = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.AcPanelCaption3 = New ACControles.ACPanelCaption()
+        Me.bnavNDelanteros = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem3 = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem2 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem3 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AcPanelCaption12 = New ACControles.ACPanelCaption()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.c1grdNRepuesto = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.bnavRepuesto = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AcPanelCaption9 = New ACControles.ACPanelCaption()
+        Me.pnlSeleccionados = New System.Windows.Forms.Panel()
+        Me.c1grdSeleccionados = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.bnavNeumaticos = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem4 = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem3 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem4 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator13 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AcPanelCaption6 = New ACControles.ACPanelCaption()
+        Me.pnlQuitados = New System.Windows.Forms.Panel()
+        Me.tabBusqueda = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.c1grdBusqueda = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.grpBusqueda = New System.Windows.Forms.GroupBox()
+        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.chkTodos = New System.Windows.Forms.CheckBox()
+        Me.rbtnPlaca = New System.Windows.Forms.RadioButton()
+        Me.rbtnCodigo = New System.Windows.Forms.RadioButton()
+        Me.txtBusqueda = New ACControles.ACTextBoxAyuda()
+        Me.bnavBusqueda = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem1 = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem4 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem1 = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.acpnlTitulo = New ACControles.ACPanelCaption()
+        Me.acToolH = New ACControles.ACToolBarMantHorizontalNew(Me.components)
+        Me.tabMantenimiento.SuspendLayout()
+        Me.tabDatos.SuspendLayout()
+        CType(Me.pnlDatos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlDatos.Panel1.SuspendLayout()
+        Me.pnlDatos.Panel2.SuspendLayout()
+        Me.pnlDatos.SuspendLayout()
+        Me.pnlNeumaticos.SuspendLayout()
+        Me.pnlPosteriores.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        CType(Me.c1grdNPIzquierdo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.c1grdNPDerecho, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bnavNPosteriores, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavNPosteriores.SuspendLayout()
+        Me.pnlFrontales.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        CType(Me.c1grdNDIzquierdo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.c1grdNDDerecho, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bnavNDelanteros, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavNDelanteros.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.c1grdNRepuesto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bnavRepuesto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavRepuesto.SuspendLayout()
+        Me.pnlSeleccionados.SuspendLayout()
+        CType(Me.c1grdSeleccionados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bnavNeumaticos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavNeumaticos.SuspendLayout()
+        Me.tabBusqueda.SuspendLayout()
+        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpBusqueda.SuspendLayout()
+        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavBusqueda.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'tabMantenimiento
+        '
+        Me.tabMantenimiento.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.tabMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabMantenimiento.Location = New System.Drawing.Point(0, 30)
+        Me.tabMantenimiento.MediaPlayerDockSides = False
+        Me.tabMantenimiento.Name = "tabMantenimiento"
+        Me.tabMantenimiento.OfficeDockSides = False
+        Me.tabMantenimiento.SelectedIndex = 0
+        Me.tabMantenimiento.ShowDropSelect = False
+        Me.tabMantenimiento.Size = New System.Drawing.Size(890, 444)
+        Me.tabMantenimiento.TabIndex = 0
+        Me.tabMantenimiento.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.tabDatos, Me.tabBusqueda})
+        Me.tabMantenimiento.TextTips = True
+        '
+        'tabDatos
+        '
+        Me.tabDatos.Controls.Add(Me.pnlDatos)
+        Me.tabDatos.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Location = New System.Drawing.Point(1, 1)
+        Me.tabDatos.Name = "tabDatos"
+        Me.tabDatos.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Size = New System.Drawing.Size(888, 419)
+        Me.tabDatos.TabIndex = 4
+        Me.tabDatos.Title = "Datos"
+        Me.tabDatos.ToolTip = "Datos"
+        '
+        'pnlDatos
+        '
+        Me.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlDatos.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.pnlDatos.Location = New System.Drawing.Point(0, 0)
+        Me.pnlDatos.Name = "pnlDatos"
+        '
+        'pnlDatos.Panel1
+        '
+        Me.pnlDatos.Panel1.Controls.Add(Me.pnlNeumaticos)
+        '
+        'pnlDatos.Panel2
+        '
+        Me.pnlDatos.Panel2.Controls.Add(Me.pnlSeleccionados)
+        Me.pnlDatos.Size = New System.Drawing.Size(888, 419)
+        Me.pnlDatos.SplitterDistance = 491
+        Me.pnlDatos.TabIndex = 30
+        '
+        'pnlNeumaticos
+        '
+        Me.pnlNeumaticos.Controls.Add(Me.pnlPosteriores)
+        Me.pnlNeumaticos.Controls.Add(Me.pnlFrontales)
+        Me.pnlNeumaticos.Controls.Add(Me.Panel1)
+        Me.pnlNeumaticos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlNeumaticos.Location = New System.Drawing.Point(0, 0)
+        Me.pnlNeumaticos.Name = "pnlNeumaticos"
+        Me.pnlNeumaticos.Size = New System.Drawing.Size(491, 419)
+        Me.pnlNeumaticos.TabIndex = 23
+        '
+        'pnlPosteriores
+        '
+        Me.pnlPosteriores.Controls.Add(Me.SplitContainer2)
+        Me.pnlPosteriores.Controls.Add(Me.bnavNPosteriores)
+        Me.pnlPosteriores.Controls.Add(Me.AcPanelCaption5)
+        Me.pnlPosteriores.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlPosteriores.Location = New System.Drawing.Point(0, 143)
+        Me.pnlPosteriores.Name = "pnlPosteriores"
+        Me.pnlPosteriores.Size = New System.Drawing.Size(491, 133)
+        Me.pnlPosteriores.TabIndex = 18
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 20)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.c1grdNPIzquierdo)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.AcPanelCaption1)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.c1grdNPDerecho)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.AcPanelCaption4)
+        Me.SplitContainer2.Size = New System.Drawing.Size(491, 88)
+        Me.SplitContainer2.SplitterDistance = 236
+        Me.SplitContainer2.TabIndex = 20
+        '
+        'c1grdNPIzquierdo
+        '
+        Me.c1grdNPIzquierdo.ColumnInfo = "3,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Caption:""Lado Externo"";}" & Global.Microsoft.VisualBasic.ChrW(9) & "2{Caption:""Lado Int" &
+    "erno"";}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNPIzquierdo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdNPIzquierdo.Location = New System.Drawing.Point(0, 15)
+        Me.c1grdNPIzquierdo.Name = "c1grdNPIzquierdo"
+        Me.c1grdNPIzquierdo.Rows.Count = 2
+        Me.c1grdNPIzquierdo.Rows.DefaultSize = 20
+        Me.c1grdNPIzquierdo.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdNPIzquierdo.Size = New System.Drawing.Size(236, 73)
+        Me.c1grdNPIzquierdo.StyleInfo = resources.GetString("c1grdNPIzquierdo.StyleInfo")
+        Me.c1grdNPIzquierdo.TabIndex = 19
+        '
+        'AcPanelCaption1
+        '
+        Me.AcPanelCaption1.ACCaption = "Izquierdos"
+        Me.AcPanelCaption1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption1.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption1.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption1.Name = "AcPanelCaption1"
+        Me.AcPanelCaption1.Size = New System.Drawing.Size(236, 15)
+        Me.AcPanelCaption1.TabIndex = 20
+        '
+        'c1grdNPDerecho
+        '
+        Me.c1grdNPDerecho.ColumnInfo = "3,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Caption:""Lado Interno"";}" & Global.Microsoft.VisualBasic.ChrW(9) & "2{Caption:""Lado Ext" &
+    "erno"";}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNPDerecho.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdNPDerecho.Location = New System.Drawing.Point(0, 15)
+        Me.c1grdNPDerecho.Name = "c1grdNPDerecho"
+        Me.c1grdNPDerecho.Rows.Count = 2
+        Me.c1grdNPDerecho.Rows.DefaultSize = 20
+        Me.c1grdNPDerecho.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdNPDerecho.Size = New System.Drawing.Size(251, 73)
+        Me.c1grdNPDerecho.StyleInfo = resources.GetString("c1grdNPDerecho.StyleInfo")
+        Me.c1grdNPDerecho.TabIndex = 20
+        '
+        'AcPanelCaption4
+        '
+        Me.AcPanelCaption4.ACCaption = "Derechos"
+        Me.AcPanelCaption4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption4.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption4.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption4.Name = "AcPanelCaption4"
+        Me.AcPanelCaption4.Size = New System.Drawing.Size(251, 15)
+        Me.AcPanelCaption4.TabIndex = 17
+        '
+        'bnavNPosteriores
+        '
+        Me.bnavNPosteriores.AddNewItem = Me.BindingNavigatorAddNewItem1
+        Me.bnavNPosteriores.CountItem = Me.BindingNavigatorCountItem2
+        Me.bnavNPosteriores.DeleteItem = Me.BindingNavigatorDeleteItem1
+        Me.bnavNPosteriores.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavNPosteriores.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem2, Me.BindingNavigatorMovePreviousItem2, Me.BindingNavigatorSeparator6, Me.BindingNavigatorPositionItem2, Me.BindingNavigatorCountItem2, Me.BindingNavigatorSeparator7, Me.BindingNavigatorMoveNextItem2, Me.BindingNavigatorMoveLastItem2, Me.BindingNavigatorSeparator8, Me.BindingNavigatorAddNewItem1, Me.BindingNavigatorDeleteItem1})
+        Me.bnavNPosteriores.Location = New System.Drawing.Point(0, 108)
+        Me.bnavNPosteriores.MoveFirstItem = Me.BindingNavigatorMoveFirstItem2
+        Me.bnavNPosteriores.MoveLastItem = Me.BindingNavigatorMoveLastItem2
+        Me.bnavNPosteriores.MoveNextItem = Me.BindingNavigatorMoveNextItem2
+        Me.bnavNPosteriores.MovePreviousItem = Me.BindingNavigatorMovePreviousItem2
+        Me.bnavNPosteriores.Name = "bnavNPosteriores"
+        Me.bnavNPosteriores.PositionItem = Me.BindingNavigatorPositionItem2
+        Me.bnavNPosteriores.Size = New System.Drawing.Size(491, 25)
+        Me.bnavNPosteriores.TabIndex = 22
+        Me.bnavNPosteriores.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem1
+        '
+        Me.BindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem1.Image = CType(resources.GetObject("BindingNavigatorAddNewItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem1.Name = "BindingNavigatorAddNewItem1"
+        Me.BindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem1.Text = "Add new"
+        Me.BindingNavigatorAddNewItem1.Visible = False
+        '
+        'BindingNavigatorCountItem2
+        '
+        Me.BindingNavigatorCountItem2.Name = "BindingNavigatorCountItem2"
+        Me.BindingNavigatorCountItem2.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem2.Text = "de {0}"
+        Me.BindingNavigatorCountItem2.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem1
+        '
+        Me.BindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem1.Image = CType(resources.GetObject("BindingNavigatorDeleteItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem1.Name = "BindingNavigatorDeleteItem1"
+        Me.BindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem1.Text = "Delete"
+        Me.BindingNavigatorDeleteItem1.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem2
+        '
+        Me.BindingNavigatorMoveFirstItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem2.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem2.Name = "BindingNavigatorMoveFirstItem2"
+        Me.BindingNavigatorMoveFirstItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem2.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem2
+        '
+        Me.BindingNavigatorMovePreviousItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem2.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem2.Name = "BindingNavigatorMovePreviousItem2"
+        Me.BindingNavigatorMovePreviousItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem2.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator6
+        '
+        Me.BindingNavigatorSeparator6.Name = "BindingNavigatorSeparator6"
+        Me.BindingNavigatorSeparator6.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem2
+        '
+        Me.BindingNavigatorPositionItem2.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem2.AutoSize = False
+        Me.BindingNavigatorPositionItem2.Name = "BindingNavigatorPositionItem2"
+        Me.BindingNavigatorPositionItem2.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem2.Text = "0"
+        Me.BindingNavigatorPositionItem2.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator7
+        '
+        Me.BindingNavigatorSeparator7.Name = "BindingNavigatorSeparator7"
+        Me.BindingNavigatorSeparator7.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem2
+        '
+        Me.BindingNavigatorMoveNextItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem2.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem2.Name = "BindingNavigatorMoveNextItem2"
+        Me.BindingNavigatorMoveNextItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem2.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem2
+        '
+        Me.BindingNavigatorMoveLastItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem2.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem2.Name = "BindingNavigatorMoveLastItem2"
+        Me.BindingNavigatorMoveLastItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem2.Text = "Move last"
+        '
+        'BindingNavigatorSeparator8
+        '
+        Me.BindingNavigatorSeparator8.Name = "BindingNavigatorSeparator8"
+        Me.BindingNavigatorSeparator8.Size = New System.Drawing.Size(6, 25)
+        '
+        'AcPanelCaption5
+        '
+        Me.AcPanelCaption5.ACCaption = "Neumaticos Posteriores"
+        Me.AcPanelCaption5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption5.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption5.Name = "AcPanelCaption5"
+        Me.AcPanelCaption5.Size = New System.Drawing.Size(491, 20)
+        Me.AcPanelCaption5.TabIndex = 21
+        '
+        'pnlFrontales
+        '
+        Me.pnlFrontales.Controls.Add(Me.SplitContainer1)
+        Me.pnlFrontales.Controls.Add(Me.bnavNDelanteros)
+        Me.pnlFrontales.Controls.Add(Me.AcPanelCaption12)
+        Me.pnlFrontales.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlFrontales.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFrontales.Name = "pnlFrontales"
+        Me.pnlFrontales.Size = New System.Drawing.Size(491, 143)
+        Me.pnlFrontales.TabIndex = 17
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 20)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.c1grdNDIzquierdo)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.AcPanelCaption2)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.c1grdNDDerecho)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.AcPanelCaption3)
+        Me.SplitContainer1.Size = New System.Drawing.Size(491, 98)
+        Me.SplitContainer1.SplitterDistance = 236
+        Me.SplitContainer1.TabIndex = 20
+        '
+        'c1grdNDIzquierdo
+        '
+        Me.c1grdNDIzquierdo.ColumnInfo = "3,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Caption:""Lado Externo"";StyleFixed:"""";}" & Global.Microsoft.VisualBasic.ChrW(9) & "2{Cap" &
+    "tion:""do Interno"";Visible:False;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNDIzquierdo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdNDIzquierdo.Location = New System.Drawing.Point(0, 15)
+        Me.c1grdNDIzquierdo.Name = "c1grdNDIzquierdo"
+        Me.c1grdNDIzquierdo.Rows.Count = 2
+        Me.c1grdNDIzquierdo.Rows.DefaultSize = 20
+        Me.c1grdNDIzquierdo.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdNDIzquierdo.Size = New System.Drawing.Size(236, 83)
+        Me.c1grdNDIzquierdo.StyleInfo = resources.GetString("c1grdNDIzquierdo.StyleInfo")
+        Me.c1grdNDIzquierdo.TabIndex = 19
+        '
+        'AcPanelCaption2
+        '
+        Me.AcPanelCaption2.ACCaption = "Izquierdos"
+        Me.AcPanelCaption2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption2.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption2.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption2.Name = "AcPanelCaption2"
+        Me.AcPanelCaption2.Size = New System.Drawing.Size(236, 15)
+        Me.AcPanelCaption2.TabIndex = 20
+        '
+        'c1grdNDDerecho
+        '
+        Me.c1grdNDDerecho.ColumnInfo = "3,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Caption:""Lado Interno"";Style:"""";}" & Global.Microsoft.VisualBasic.ChrW(9) & "2{Caption:" &
+    """Lado Externo"";Visible:False;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNDDerecho.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdNDDerecho.Location = New System.Drawing.Point(0, 15)
+        Me.c1grdNDDerecho.Name = "c1grdNDDerecho"
+        Me.c1grdNDDerecho.Rows.Count = 2
+        Me.c1grdNDDerecho.Rows.DefaultSize = 20
+        Me.c1grdNDDerecho.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdNDDerecho.Size = New System.Drawing.Size(251, 83)
+        Me.c1grdNDDerecho.StyleInfo = resources.GetString("c1grdNDDerecho.StyleInfo")
+        Me.c1grdNDDerecho.TabIndex = 20
+        '
+        'AcPanelCaption3
+        '
+        Me.AcPanelCaption3.ACCaption = "Derechos"
+        Me.AcPanelCaption3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption3.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption3.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption3.Name = "AcPanelCaption3"
+        Me.AcPanelCaption3.Size = New System.Drawing.Size(251, 15)
+        Me.AcPanelCaption3.TabIndex = 17
+        '
+        'bnavNDelanteros
+        '
+        Me.bnavNDelanteros.AddNewItem = Me.BindingNavigatorAddNewItem2
+        Me.bnavNDelanteros.CountItem = Me.BindingNavigatorCountItem3
+        Me.bnavNDelanteros.DeleteItem = Me.BindingNavigatorDeleteItem2
+        Me.bnavNDelanteros.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavNDelanteros.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem3, Me.BindingNavigatorMovePreviousItem3, Me.BindingNavigatorSeparator9, Me.BindingNavigatorPositionItem3, Me.BindingNavigatorCountItem3, Me.BindingNavigatorSeparator10, Me.BindingNavigatorMoveNextItem3, Me.BindingNavigatorMoveLastItem3, Me.BindingNavigatorSeparator11, Me.BindingNavigatorAddNewItem2, Me.BindingNavigatorDeleteItem2})
+        Me.bnavNDelanteros.Location = New System.Drawing.Point(0, 118)
+        Me.bnavNDelanteros.MoveFirstItem = Me.BindingNavigatorMoveFirstItem3
+        Me.bnavNDelanteros.MoveLastItem = Me.BindingNavigatorMoveLastItem3
+        Me.bnavNDelanteros.MoveNextItem = Me.BindingNavigatorMoveNextItem3
+        Me.bnavNDelanteros.MovePreviousItem = Me.BindingNavigatorMovePreviousItem3
+        Me.bnavNDelanteros.Name = "bnavNDelanteros"
+        Me.bnavNDelanteros.PositionItem = Me.BindingNavigatorPositionItem3
+        Me.bnavNDelanteros.Size = New System.Drawing.Size(491, 25)
+        Me.bnavNDelanteros.TabIndex = 22
+        Me.bnavNDelanteros.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem2
+        '
+        Me.BindingNavigatorAddNewItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem2.Image = CType(resources.GetObject("BindingNavigatorAddNewItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem2.Name = "BindingNavigatorAddNewItem2"
+        Me.BindingNavigatorAddNewItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem2.Text = "Add new"
+        Me.BindingNavigatorAddNewItem2.Visible = False
+        '
+        'BindingNavigatorCountItem3
+        '
+        Me.BindingNavigatorCountItem3.Name = "BindingNavigatorCountItem3"
+        Me.BindingNavigatorCountItem3.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem3.Text = "de {0}"
+        Me.BindingNavigatorCountItem3.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem2
+        '
+        Me.BindingNavigatorDeleteItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem2.Image = CType(resources.GetObject("BindingNavigatorDeleteItem2.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem2.Name = "BindingNavigatorDeleteItem2"
+        Me.BindingNavigatorDeleteItem2.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem2.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem2.Text = "Delete"
+        Me.BindingNavigatorDeleteItem2.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem3
+        '
+        Me.BindingNavigatorMoveFirstItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem3.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem3.Name = "BindingNavigatorMoveFirstItem3"
+        Me.BindingNavigatorMoveFirstItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem3.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem3
+        '
+        Me.BindingNavigatorMovePreviousItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem3.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem3.Name = "BindingNavigatorMovePreviousItem3"
+        Me.BindingNavigatorMovePreviousItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem3.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator9
+        '
+        Me.BindingNavigatorSeparator9.Name = "BindingNavigatorSeparator9"
+        Me.BindingNavigatorSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem3
+        '
+        Me.BindingNavigatorPositionItem3.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem3.AutoSize = False
+        Me.BindingNavigatorPositionItem3.Name = "BindingNavigatorPositionItem3"
+        Me.BindingNavigatorPositionItem3.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem3.Text = "0"
+        Me.BindingNavigatorPositionItem3.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator10
+        '
+        Me.BindingNavigatorSeparator10.Name = "BindingNavigatorSeparator10"
+        Me.BindingNavigatorSeparator10.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem3
+        '
+        Me.BindingNavigatorMoveNextItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem3.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem3.Name = "BindingNavigatorMoveNextItem3"
+        Me.BindingNavigatorMoveNextItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem3.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem3
+        '
+        Me.BindingNavigatorMoveLastItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem3.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem3.Name = "BindingNavigatorMoveLastItem3"
+        Me.BindingNavigatorMoveLastItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem3.Text = "Move last"
+        '
+        'BindingNavigatorSeparator11
+        '
+        Me.BindingNavigatorSeparator11.Name = "BindingNavigatorSeparator11"
+        Me.BindingNavigatorSeparator11.Size = New System.Drawing.Size(6, 25)
+        '
+        'AcPanelCaption12
+        '
+        Me.AcPanelCaption12.ACCaption = "Neumaticos Delanteros"
+        Me.AcPanelCaption12.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption12.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption12.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption12.Name = "AcPanelCaption12"
+        Me.AcPanelCaption12.Size = New System.Drawing.Size(491, 20)
+        Me.AcPanelCaption12.TabIndex = 21
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.c1grdNRepuesto)
+        Me.Panel1.Controls.Add(Me.bnavRepuesto)
+        Me.Panel1.Controls.Add(Me.AcPanelCaption9)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 276)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(491, 143)
+        Me.Panel1.TabIndex = 19
+        '
+        'c1grdNRepuesto
+        '
+        Me.c1grdNRepuesto.ColumnInfo = "3,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Caption:""Lado Externo"";}" & Global.Microsoft.VisualBasic.ChrW(9) & "2{Caption:""Lado Int" &
+    "erno"";}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNRepuesto.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdNRepuesto.Location = New System.Drawing.Point(0, 20)
+        Me.c1grdNRepuesto.Name = "c1grdNRepuesto"
+        Me.c1grdNRepuesto.Rows.Count = 2
+        Me.c1grdNRepuesto.Rows.DefaultSize = 20
+        Me.c1grdNRepuesto.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdNRepuesto.Size = New System.Drawing.Size(491, 98)
+        Me.c1grdNRepuesto.StyleInfo = resources.GetString("c1grdNRepuesto.StyleInfo")
+        Me.c1grdNRepuesto.TabIndex = 23
+        '
+        'bnavRepuesto
+        '
+        Me.bnavRepuesto.AddNewItem = Me.ToolStripButton1
+        Me.bnavRepuesto.CountItem = Me.ToolStripLabel1
+        Me.bnavRepuesto.DeleteItem = Me.ToolStripButton2
+        Me.bnavRepuesto.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavRepuesto.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator1, Me.ToolStripTextBox1, Me.ToolStripLabel1, Me.ToolStripSeparator2, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripSeparator3, Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.bnavRepuesto.Location = New System.Drawing.Point(0, 118)
+        Me.bnavRepuesto.MoveFirstItem = Me.ToolStripButton3
+        Me.bnavRepuesto.MoveLastItem = Me.ToolStripButton6
+        Me.bnavRepuesto.MoveNextItem = Me.ToolStripButton5
+        Me.bnavRepuesto.MovePreviousItem = Me.ToolStripButton4
+        Me.bnavRepuesto.Name = "bnavRepuesto"
+        Me.bnavRepuesto.PositionItem = Me.ToolStripTextBox1
+        Me.bnavRepuesto.Size = New System.Drawing.Size(491, 25)
+        Me.bnavRepuesto.TabIndex = 22
+        Me.bnavRepuesto.Text = "BindingNavigator1"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Text = "Add new"
+        Me.ToolStripButton1.Visible = False
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(37, 22)
+        Me.ToolStripLabel1.Text = "de {0}"
+        Me.ToolStripLabel1.ToolTipText = "Total number of items"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "Delete"
+        Me.ToolStripButton2.Visible = False
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton3.Text = "Move first"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton4.Text = "Move previous"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripTextBox1
+        '
+        Me.ToolStripTextBox1.AccessibleName = "Position"
+        Me.ToolStripTextBox1.AutoSize = False
+        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(50, 21)
+        Me.ToolStripTextBox1.Text = "0"
+        Me.ToolStripTextBox1.ToolTipText = "Current position"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton5.Text = "Move next"
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton6.Text = "Move last"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'AcPanelCaption9
+        '
+        Me.AcPanelCaption9.ACCaption = "Neumaticos de Repuesto"
+        Me.AcPanelCaption9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption9.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption9.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption9.Name = "AcPanelCaption9"
+        Me.AcPanelCaption9.Size = New System.Drawing.Size(491, 20)
+        Me.AcPanelCaption9.TabIndex = 21
+        '
+        'pnlSeleccionados
+        '
+        Me.pnlSeleccionados.Controls.Add(Me.c1grdSeleccionados)
+        Me.pnlSeleccionados.Controls.Add(Me.bnavNeumaticos)
+        Me.pnlSeleccionados.Controls.Add(Me.AcPanelCaption6)
+        Me.pnlSeleccionados.Controls.Add(Me.pnlQuitados)
+        Me.pnlSeleccionados.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlSeleccionados.Location = New System.Drawing.Point(0, 0)
+        Me.pnlSeleccionados.Name = "pnlSeleccionados"
+        Me.pnlSeleccionados.Size = New System.Drawing.Size(393, 419)
+        Me.pnlSeleccionados.TabIndex = 22
+        '
+        'c1grdSeleccionados
+        '
+        Me.c1grdSeleccionados.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:21;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdSeleccionados.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdSeleccionados.Location = New System.Drawing.Point(0, 30)
+        Me.c1grdSeleccionados.Name = "c1grdSeleccionados"
+        Me.c1grdSeleccionados.Rows.Count = 2
+        Me.c1grdSeleccionados.Rows.DefaultSize = 20
+        Me.c1grdSeleccionados.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdSeleccionados.Size = New System.Drawing.Size(393, 267)
+        Me.c1grdSeleccionados.StyleInfo = resources.GetString("c1grdSeleccionados.StyleInfo")
+        Me.c1grdSeleccionados.TabIndex = 29
+        '
+        'bnavNeumaticos
+        '
+        Me.bnavNeumaticos.AddNewItem = Me.BindingNavigatorAddNewItem3
+        Me.bnavNeumaticos.CountItem = Me.BindingNavigatorCountItem4
+        Me.bnavNeumaticos.DeleteItem = Me.BindingNavigatorDeleteItem3
+        Me.bnavNeumaticos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavNeumaticos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem4, Me.BindingNavigatorMovePreviousItem4, Me.BindingNavigatorSeparator12, Me.BindingNavigatorPositionItem4, Me.BindingNavigatorCountItem4, Me.BindingNavigatorSeparator13, Me.BindingNavigatorMoveNextItem4, Me.BindingNavigatorMoveLastItem4, Me.BindingNavigatorSeparator14, Me.BindingNavigatorAddNewItem3, Me.BindingNavigatorDeleteItem3})
+        Me.bnavNeumaticos.Location = New System.Drawing.Point(0, 297)
+        Me.bnavNeumaticos.MoveFirstItem = Me.BindingNavigatorMoveFirstItem4
+        Me.bnavNeumaticos.MoveLastItem = Me.BindingNavigatorMoveLastItem4
+        Me.bnavNeumaticos.MoveNextItem = Me.BindingNavigatorMoveNextItem4
+        Me.bnavNeumaticos.MovePreviousItem = Me.BindingNavigatorMovePreviousItem4
+        Me.bnavNeumaticos.Name = "bnavNeumaticos"
+        Me.bnavNeumaticos.PositionItem = Me.BindingNavigatorPositionItem4
+        Me.bnavNeumaticos.Size = New System.Drawing.Size(393, 25)
+        Me.bnavNeumaticos.TabIndex = 32
+        Me.bnavNeumaticos.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem3
+        '
+        Me.BindingNavigatorAddNewItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem3.Image = CType(resources.GetObject("BindingNavigatorAddNewItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem3.Name = "BindingNavigatorAddNewItem3"
+        Me.BindingNavigatorAddNewItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem3.Text = "Add new"
+        Me.BindingNavigatorAddNewItem3.Visible = False
+        '
+        'BindingNavigatorCountItem4
+        '
+        Me.BindingNavigatorCountItem4.Name = "BindingNavigatorCountItem4"
+        Me.BindingNavigatorCountItem4.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem4.Text = "de {0}"
+        Me.BindingNavigatorCountItem4.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem3
+        '
+        Me.BindingNavigatorDeleteItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem3.Image = CType(resources.GetObject("BindingNavigatorDeleteItem3.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem3.Name = "BindingNavigatorDeleteItem3"
+        Me.BindingNavigatorDeleteItem3.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem3.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem3.Text = "Delete"
+        Me.BindingNavigatorDeleteItem3.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem4
+        '
+        Me.BindingNavigatorMoveFirstItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem4.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem4.Name = "BindingNavigatorMoveFirstItem4"
+        Me.BindingNavigatorMoveFirstItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem4.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem4
+        '
+        Me.BindingNavigatorMovePreviousItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem4.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem4.Name = "BindingNavigatorMovePreviousItem4"
+        Me.BindingNavigatorMovePreviousItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem4.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator12
+        '
+        Me.BindingNavigatorSeparator12.Name = "BindingNavigatorSeparator12"
+        Me.BindingNavigatorSeparator12.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem4
+        '
+        Me.BindingNavigatorPositionItem4.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem4.AutoSize = False
+        Me.BindingNavigatorPositionItem4.Name = "BindingNavigatorPositionItem4"
+        Me.BindingNavigatorPositionItem4.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem4.Text = "0"
+        Me.BindingNavigatorPositionItem4.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator13
+        '
+        Me.BindingNavigatorSeparator13.Name = "BindingNavigatorSeparator13"
+        Me.BindingNavigatorSeparator13.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem4
+        '
+        Me.BindingNavigatorMoveNextItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem4.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem4.Name = "BindingNavigatorMoveNextItem4"
+        Me.BindingNavigatorMoveNextItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem4.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem4
+        '
+        Me.BindingNavigatorMoveLastItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem4.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem4.Name = "BindingNavigatorMoveLastItem4"
+        Me.BindingNavigatorMoveLastItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem4.Text = "Move last"
+        '
+        'BindingNavigatorSeparator14
+        '
+        Me.BindingNavigatorSeparator14.Name = "BindingNavigatorSeparator14"
+        Me.BindingNavigatorSeparator14.Size = New System.Drawing.Size(6, 25)
+        '
+        'AcPanelCaption6
+        '
+        Me.AcPanelCaption6.ACCaption = "Neumaticos Seleccionados"
+        Me.AcPanelCaption6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption6.Font = New System.Drawing.Font("Tahoma", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.AcPanelCaption6.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption6.Name = "AcPanelCaption6"
+        Me.AcPanelCaption6.Size = New System.Drawing.Size(393, 30)
+        Me.AcPanelCaption6.TabIndex = 30
+        '
+        'pnlQuitados
+        '
+        Me.pnlQuitados.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlQuitados.Location = New System.Drawing.Point(0, 322)
+        Me.pnlQuitados.Name = "pnlQuitados"
+        Me.pnlQuitados.Size = New System.Drawing.Size(393, 97)
+        Me.pnlQuitados.TabIndex = 21
+        Me.pnlQuitados.Visible = False
+        '
+        'tabBusqueda
+        '
+        Me.tabBusqueda.Controls.Add(Me.c1grdBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.grpBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.bnavBusqueda)
+        Me.tabBusqueda.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Location = New System.Drawing.Point(1, 1)
+        Me.tabBusqueda.Name = "tabBusqueda"
+        Me.tabBusqueda.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Selected = False
+        Me.tabBusqueda.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Size = New System.Drawing.Size(888, 419)
+        Me.tabBusqueda.TabIndex = 0
+        Me.tabBusqueda.Title = "Busqueda"
+        Me.tabBusqueda.ToolTip = "Busqueda"
+        '
+        'c1grdBusqueda
+        '
+        Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdBusqueda.Location = New System.Drawing.Point(0, 64)
+        Me.c1grdBusqueda.Name = "c1grdBusqueda"
+        Me.c1grdBusqueda.Rows.Count = 2
+        Me.c1grdBusqueda.Rows.DefaultSize = 20
+        Me.c1grdBusqueda.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdBusqueda.Size = New System.Drawing.Size(888, 330)
+        Me.c1grdBusqueda.StyleInfo = resources.GetString("c1grdBusqueda.StyleInfo")
+        Me.c1grdBusqueda.TabIndex = 2
+        '
+        'grpBusqueda
+        '
+        Me.grpBusqueda.Controls.Add(Me.btnConsultar)
+        Me.grpBusqueda.Controls.Add(Me.chkTodos)
+        Me.grpBusqueda.Controls.Add(Me.rbtnPlaca)
+        Me.grpBusqueda.Controls.Add(Me.rbtnCodigo)
+        Me.grpBusqueda.Controls.Add(Me.txtBusqueda)
+        Me.grpBusqueda.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpBusqueda.Location = New System.Drawing.Point(0, 0)
+        Me.grpBusqueda.Name = "grpBusqueda"
+        Me.grpBusqueda.Size = New System.Drawing.Size(888, 64)
+        Me.grpBusqueda.TabIndex = 0
+        Me.grpBusqueda.TabStop = False
+        Me.grpBusqueda.Text = "Opciones de Busqueda"
+        '
+        'btnConsultar
+        '
+        Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConsultar.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.btnConsultar.Image = Global.ACPTransportes.My.Resources.Resources.Search_files_32x32
+        Me.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnConsultar.Location = New System.Drawing.Point(723, 13)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(99, 42)
+        Me.btnConsultar.TabIndex = 37
+        Me.btnConsultar.Text = "Consultar"
+        Me.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnConsultar.UseVisualStyleBackColor = True
+        '
+        'chkTodos
+        '
+        Me.chkTodos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkTodos.AutoSize = True
+        Me.chkTodos.Location = New System.Drawing.Point(543, 36)
+        Me.chkTodos.Name = "chkTodos"
+        Me.chkTodos.Size = New System.Drawing.Size(101, 19)
+        Me.chkTodos.TabIndex = 36
+        Me.chkTodos.Text = "Mostrar Todos"
+        Me.chkTodos.UseVisualStyleBackColor = True
+        '
+        'rbtnPlaca
+        '
+        Me.rbtnPlaca.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtnPlaca.AutoSize = True
+        Me.rbtnPlaca.Checked = True
+        Me.rbtnPlaca.Location = New System.Drawing.Point(629, 15)
+        Me.rbtnPlaca.Name = "rbtnPlaca"
+        Me.rbtnPlaca.Size = New System.Drawing.Size(74, 19)
+        Me.rbtnPlaca.TabIndex = 4
+        Me.rbtnPlaca.TabStop = True
+        Me.rbtnPlaca.Text = "Por Placa"
+        Me.rbtnPlaca.UseVisualStyleBackColor = True
+        '
+        'rbtnCodigo
+        '
+        Me.rbtnCodigo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtnCodigo.AutoSize = True
+        Me.rbtnCodigo.Location = New System.Drawing.Point(543, 15)
+        Me.rbtnCodigo.Name = "rbtnCodigo"
+        Me.rbtnCodigo.Size = New System.Drawing.Size(85, 19)
+        Me.rbtnCodigo.TabIndex = 3
+        Me.rbtnCodigo.Text = "Por Codigo"
+        Me.rbtnCodigo.UseVisualStyleBackColor = True
+        '
+        'txtBusqueda
+        '
+        Me.txtBusqueda.ACActivarAyudaAuto = False
+        Me.txtBusqueda.ACLongitudAceptada = 0
+        Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.Location = New System.Drawing.Point(11, 24)
+        Me.txtBusqueda.MaxLength = 32767
+        Me.txtBusqueda.Name = "txtBusqueda"
+        Me.txtBusqueda.Size = New System.Drawing.Size(504, 23)
+        Me.txtBusqueda.TabIndex = 0
+        '
+        'bnavBusqueda
+        '
+        Me.bnavBusqueda.AddNewItem = Me.BindingNavigatorAddNewItem4
+        Me.bnavBusqueda.CountItem = Me.BindingNavigatorCountItem1
+        Me.bnavBusqueda.DeleteItem = Me.BindingNavigatorDeleteItem4
+        Me.bnavBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavBusqueda.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem1, Me.BindingNavigatorMovePreviousItem1, Me.BindingNavigatorSeparator3, Me.BindingNavigatorPositionItem1, Me.BindingNavigatorCountItem1, Me.BindingNavigatorSeparator4, Me.BindingNavigatorMoveNextItem1, Me.BindingNavigatorMoveLastItem1, Me.BindingNavigatorSeparator5, Me.BindingNavigatorAddNewItem4, Me.BindingNavigatorDeleteItem4})
+        Me.bnavBusqueda.Location = New System.Drawing.Point(0, 394)
+        Me.bnavBusqueda.MoveFirstItem = Me.BindingNavigatorMoveFirstItem1
+        Me.bnavBusqueda.MoveLastItem = Me.BindingNavigatorMoveLastItem1
+        Me.bnavBusqueda.MoveNextItem = Me.BindingNavigatorMoveNextItem1
+        Me.bnavBusqueda.MovePreviousItem = Me.BindingNavigatorMovePreviousItem1
+        Me.bnavBusqueda.Name = "bnavBusqueda"
+        Me.bnavBusqueda.PositionItem = Me.BindingNavigatorPositionItem1
+        Me.bnavBusqueda.Size = New System.Drawing.Size(888, 25)
+        Me.bnavBusqueda.TabIndex = 4
+        Me.bnavBusqueda.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem4
+        '
+        Me.BindingNavigatorAddNewItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem4.Image = CType(resources.GetObject("BindingNavigatorAddNewItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem4.Name = "BindingNavigatorAddNewItem4"
+        Me.BindingNavigatorAddNewItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem4.Text = "Add new"
+        Me.BindingNavigatorAddNewItem4.Visible = False
+        '
+        'BindingNavigatorCountItem1
+        '
+        Me.BindingNavigatorCountItem1.Name = "BindingNavigatorCountItem1"
+        Me.BindingNavigatorCountItem1.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem1.Text = "de {0}"
+        Me.BindingNavigatorCountItem1.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem4
+        '
+        Me.BindingNavigatorDeleteItem4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem4.Image = CType(resources.GetObject("BindingNavigatorDeleteItem4.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem4.Name = "BindingNavigatorDeleteItem4"
+        Me.BindingNavigatorDeleteItem4.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem4.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem4.Text = "Delete"
+        Me.BindingNavigatorDeleteItem4.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem1
+        '
+        Me.BindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem1.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem1.Name = "BindingNavigatorMoveFirstItem1"
+        Me.BindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem1.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem1
+        '
+        Me.BindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem1.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem1.Name = "BindingNavigatorMovePreviousItem1"
+        Me.BindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem1.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator3
+        '
+        Me.BindingNavigatorSeparator3.Name = "BindingNavigatorSeparator3"
+        Me.BindingNavigatorSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem1
+        '
+        Me.BindingNavigatorPositionItem1.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem1.AutoSize = False
+        Me.BindingNavigatorPositionItem1.Name = "BindingNavigatorPositionItem1"
+        Me.BindingNavigatorPositionItem1.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem1.Text = "0"
+        Me.BindingNavigatorPositionItem1.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator4
+        '
+        Me.BindingNavigatorSeparator4.Name = "BindingNavigatorSeparator4"
+        Me.BindingNavigatorSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem1
+        '
+        Me.BindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem1.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem1.Name = "BindingNavigatorMoveNextItem1"
+        Me.BindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem1.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem1
+        '
+        Me.BindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem1.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem1.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem1.Name = "BindingNavigatorMoveLastItem1"
+        Me.BindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem1.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem1.Text = "Move last"
+        '
+        'BindingNavigatorSeparator5
+        '
+        Me.BindingNavigatorSeparator5.Name = "BindingNavigatorSeparator5"
+        Me.BindingNavigatorSeparator5.Size = New System.Drawing.Size(6, 25)
+        '
+        'acpnlTitulo
+        '
+        Me.acpnlTitulo.ACCaption = "Neumaticos"
+        Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
+        Me.acpnlTitulo.Name = "acpnlTitulo"
+        Me.acpnlTitulo.Size = New System.Drawing.Size(890, 30)
+        Me.acpnlTitulo.TabIndex = 1
+        '
+        'acToolH
+        '
+        Me.acToolH.ACBtnAnularEnabled = False
+        Me.acToolH.ACBtnAnularVisible = False
+        Me.acToolH.ACBtnBuscarEnabled = False
+        Me.acToolH.ACBtnBuscarVisible = False
+        Me.acToolH.ACBtnCancelarEnabled = False
+        Me.acToolH.ACBtnCancelarVisible = False
+        Me.acToolH.ACBtnEliminarEnabled = False
+        Me.acToolH.ACBtnEliminarVisible = False
+        Me.acToolH.ACBtnGrabarEnabled = False
+        Me.acToolH.ACBtnGrabarVisible = False
+        Me.acToolH.ACBtnImprimirEnabled = False
+        Me.acToolH.ACBtnImprimirVisible = False
+        Me.acToolH.ACBtnNuevoEnabled = False
+        Me.acToolH.ACBtnNuevoVisible = False
+        Me.acToolH.ACBtnRehusarEnabled = False
+        Me.acToolH.ACBtnRehusarVisible = False
+        Me.acToolH.ACBtnReporteEnabled = False
+        Me.acToolH.ACBtnReporteVisible = False
+        Me.acToolH.ACBtnSalirText = "&Salir"
+        Me.acToolH.ACBtnVolverEnabled = False
+        Me.acToolH.ACBtnVolverVisible = False
+        Me.acToolH.ACTipoToolBar = ACControles.ACToolBarMantHorizontalNew.tipoToolBar.ToolGrabar
+        Me.acToolH.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.acToolH.Font = New System.Drawing.Font("Tahoma", 9.5!)
+        Me.acToolH.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.acToolH.Location = New System.Drawing.Point(0, 474)
+        Me.acToolH.Name = "acToolH"
+        Me.acToolH.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.acToolH.Size = New System.Drawing.Size(890, 56)
+        Me.acToolH.TabIndex = 11
+        Me.acToolH.Text = "AcToolBarMantHorizontalNew1"
+        '
+        'PNeumaticosVehiculos
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(890, 530)
+        Me.Controls.Add(Me.tabMantenimiento)
+        Me.Controls.Add(Me.acpnlTitulo)
+        Me.Controls.Add(Me.acToolH)
+        Me.Name = "PNeumaticosVehiculos"
+        Me.Text = "Neumaticos"
+        Me.tabMantenimiento.ResumeLayout(False)
+        Me.tabDatos.ResumeLayout(False)
+        Me.pnlDatos.Panel1.ResumeLayout(False)
+        Me.pnlDatos.Panel2.ResumeLayout(False)
+        CType(Me.pnlDatos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlDatos.ResumeLayout(False)
+        Me.pnlNeumaticos.ResumeLayout(False)
+        Me.pnlPosteriores.ResumeLayout(False)
+        Me.pnlPosteriores.PerformLayout()
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
+        CType(Me.c1grdNPIzquierdo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.c1grdNPDerecho, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bnavNPosteriores, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavNPosteriores.ResumeLayout(False)
+        Me.bnavNPosteriores.PerformLayout()
+        Me.pnlFrontales.ResumeLayout(False)
+        Me.pnlFrontales.PerformLayout()
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        CType(Me.c1grdNDIzquierdo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.c1grdNDDerecho, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bnavNDelanteros, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavNDelanteros.ResumeLayout(False)
+        Me.bnavNDelanteros.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.c1grdNRepuesto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bnavRepuesto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavRepuesto.ResumeLayout(False)
+        Me.bnavRepuesto.PerformLayout()
+        Me.pnlSeleccionados.ResumeLayout(False)
+        Me.pnlSeleccionados.PerformLayout()
+        CType(Me.c1grdSeleccionados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bnavNeumaticos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavNeumaticos.ResumeLayout(False)
+        Me.bnavNeumaticos.PerformLayout()
+        Me.tabBusqueda.ResumeLayout(False)
+        Me.tabBusqueda.PerformLayout()
+        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpBusqueda.ResumeLayout(False)
+        Me.grpBusqueda.PerformLayout()
+        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavBusqueda.ResumeLayout(False)
+        Me.bnavBusqueda.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Private WithEvents tabMantenimiento As Crownwood.DotNetMagic.Controls.TabControl
+   Private WithEvents tabDatos As Crownwood.DotNetMagic.Controls.TabPage
+   Private WithEvents tabBusqueda As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents c1grdBusqueda As C1.Win.C1FlexGrid.C1FlexGrid
+   Private WithEvents grpBusqueda As System.Windows.Forms.GroupBox
+   Friend WithEvents txtBusqueda As ACControles.ACTextBoxAyuda
+   Friend WithEvents acpnlTitulo As ACControles.ACPanelCaption
+   Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+    Private WithEvents AcPanelCaption2 As ACControles.ACPanelCaption
+    Private WithEvents c1grdNDDerecho As C1.Win.C1FlexGrid.C1FlexGrid
+    Private WithEvents AcPanelCaption3 As ACControles.ACPanelCaption
+    Friend WithEvents pnlPosteriores As System.Windows.Forms.Panel
+    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
+    Private WithEvents c1grdNPIzquierdo As C1.Win.C1FlexGrid.C1FlexGrid
+    Private WithEvents AcPanelCaption1 As ACControles.ACPanelCaption
+    Private WithEvents c1grdNPDerecho As C1.Win.C1FlexGrid.C1FlexGrid
+    Private WithEvents AcPanelCaption4 As ACControles.ACPanelCaption
+    Private WithEvents AcPanelCaption5 As ACControles.ACPanelCaption
+    Friend WithEvents pnlFrontales As System.Windows.Forms.Panel
+    Private WithEvents AcPanelCaption12 As ACControles.ACPanelCaption
+    Friend WithEvents pnlSeleccionados As System.Windows.Forms.Panel
+    Friend WithEvents pnlNeumaticos As System.Windows.Forms.Panel
+    Private WithEvents c1grdSeleccionados As C1.Win.C1FlexGrid.C1FlexGrid
+    Private WithEvents AcPanelCaption6 As ACControles.ACPanelCaption
+    Friend WithEvents rbtnPlaca As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtnCodigo As System.Windows.Forms.RadioButton
+    Friend WithEvents bnavNPosteriores As System.Windows.Forms.BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem2 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator6 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem2 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator7 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator8 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents bnavNDelanteros As System.Windows.Forms.BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem3 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem3 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator10 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator11 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents bnavNeumaticos As System.Windows.Forms.BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem4 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator12 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem4 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator13 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator14 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents pnlQuitados As System.Windows.Forms.Panel
+    Friend WithEvents acToolH As ACControles.ACToolBarMantHorizontalNew
+    Friend WithEvents bnavBusqueda As System.Windows.Forms.BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem1 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator5 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents pnlDatos As System.Windows.Forms.SplitContainer
+    Friend WithEvents bnavRepuesto As System.Windows.Forms.BindingNavigator
+    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+    Private WithEvents AcPanelCaption9 As ACControles.ACPanelCaption
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Private WithEvents c1grdNRepuesto As C1.Win.C1FlexGrid.C1FlexGrid
+    Friend WithEvents btnConsultar As System.Windows.Forms.Button
+    Friend WithEvents chkTodos As System.Windows.Forms.CheckBox
+    Private WithEvents c1grdNDIzquierdo As C1.Win.C1FlexGrid.C1FlexGrid
+End Class

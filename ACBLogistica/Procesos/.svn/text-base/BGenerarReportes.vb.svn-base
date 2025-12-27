@@ -1,0 +1,288 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACEVentas
+Imports ACDLogistica
+Imports Microsoft.Practices.Unity
+Imports Microsoft.Practices.Unity.Configuration
+Imports System.Configuration
+
+Imports ACFramework
+
+Public Class BGenerarReportes
+
+#Region " Variables "
+	
+	Private m_dtGenerarReportes As DataTable
+
+	Private ds_generarreportes As DataSet
+   Private d_generarreportes As DGenerarReportes
+
+   Private m_listeabas_docscompra As List(Of EABAS_DocsCompra)
+   Private m_listabas_guias As List(Of EABAS_Guias)
+
+   Private d_reporte As DGenerarReportes
+
+#End Region
+
+#Region " Constructores "
+	
+	Public Sub New()
+      d_generarreportes = New DGenerarReportes
+   End Sub
+
+#End Region
+
+#Region " Propiedades "
+	
+   Public Property ListEABAS_DocsCompra() As List(Of EABAS_DocsCompra)
+      Get
+         Return m_listeabas_docscompra
+      End Get
+      Set(ByVal value As List(Of EABAS_DocsCompra))
+         m_listeabas_docscompra = value
+      End Set
+   End Property
+
+
+   Public Property ListABAS_Guias() As List(Of EABAS_Guias)
+      Get
+         Return m_listabas_guias
+      End Get
+      Set(ByVal value As List(Of EABAS_Guias))
+         m_listabas_guias = value
+      End Set
+   End Property
+
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+
+   ''' <summary>
+   ''' obtener articulos
+   ''' </summary>
+   ''' <param name="x_campo">campo de busqueda</param>
+   ''' <param name="x_cadena">cadena de busquedqa</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function GetArticulos(ByVal x_campo As String, ByVal x_cadena As String, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetArticulos(x_campo, x_cadena, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' obtener los stocks
+   ''' </summary>
+   ''' <param name="x_cadena">cadena de busqueda</param>
+   ''' <param name="x_almac_id">codigo de almacen</param>
+   ''' <param name="x_opcion">opcion de busqueda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <param name="x_periodo">codigo del periodo</param>
+   ''' <param name="x_zonas_codigo">codigo de la zona</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Stocks(ByVal x_cadena As String, ByVal x_almac_id As Short, ByVal x_opcion As Integer, ByRef x_datos As DataTable, ByVal x_periodo As String, ByVal x_zonas_codigo As String) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetStocks(x_cadena, x_almac_id, x_opcion, x_datos, x_periodo, x_zonas_codigo)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: LOG_STOCKSS_StockALaFecha
+   ''' </summary> 
+   ''' <param name="x_perio_codigo">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_zonas_codigo">Parametro 3: </param> 
+   ''' <param name="x_linea">Parametro 4: </param> 
+   ''' <param name="x_sublinea">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function LOG_STOCKSS_StockALaFecha(ByRef x_datatable As DataTable, ByVal x_perio_codigo As String, ByVal x_almac_id As Short, ByVal x_zonas_codigo As String, ByVal x_linea As String, ByVal x_sublinea As String, ByVal x_fecha As DateTime) As Boolean
+      Try
+         Return d_generarreportes.LOG_STOCKSS_StockALaFecha(x_datatable, x_perio_codigo, x_almac_id, x_zonas_codigo, x_linea, x_sublinea, x_fecha)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Compras por linea
+   ''' </summary>
+   ''' <param name="x_linea_codigo">codigo de lineqa</param>
+   ''' <param name="x_fecini">fecha inicial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function ComprasXLinea(ByVal x_linea_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetComprasXLinea(x_linea_codigo, x_fecini, x_fecfin, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Compras por proveedor
+   ''' </summary>
+   ''' <param name="x_entid_codigo">codigo de entidad proveedor</param>
+   ''' <param name="x_fecini">fecha incial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <param name="x_datos"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function ComprasXProveedorDetalle(ByVal x_entid_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetComprasProveedorDetalle(x_entid_codigo, x_fecini, x_fecfin, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' compras por articulo
+   ''' </summary>
+   ''' <param name="x_artic_codigo">codigo de articulo</param>
+   ''' <param name="x_fecini">fehca inicial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqeuda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function ComprasXArticulo(ByVal x_artic_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetComprasXArticulo(x_artic_codigo, x_fecini, x_fecfin, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Stocks por articulos
+   ''' </summary>
+   ''' <param name="x_cadena">cadena de busqueda</param>
+   ''' <param name="x_opcion">opcion de busqueda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function StocksArticulos(ByVal x_cadena As String, ByVal x_opcion As Integer, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetStocksArticulos(x_cadena, x_opcion, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' pendientes por proveedor
+   ''' </summary>
+   ''' <param name="x_entid_codigo">codigo de entidad</param>
+   ''' <param name="x_fecini">fecha inicial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function PendientesXProveedor(ByVal x_entid_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByRef x_datos As DataTable) As Boolean
+      x_datos = New DataTable()
+      Try
+         Return d_generarreportes.GetPendientesXProveedor(x_entid_codigo, x_fecini, x_fecfin, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' compras por proveedor
+   ''' </summary>
+   ''' <param name="x_entid_codigo">codigo de entidad</param>
+   ''' <param name="x_fecini">fecha inicial de busqeuda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function comprasXproveedor(ByVal x_entid_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      m_listeabas_docscompra = New List(Of EABAS_DocsCompra)
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_RazonSocial")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMoneda")} _
+                              , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_TipoMoneda")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                              , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                              , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_Documento")}))
+         Dim _where As New Hashtable()
+         _where.Add("ENTID_CodigoProveedor", New ACWhere(x_entid_codigo))
+         _where.Add("DOCCO_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         _where.Add("DOCCO_Estado", New ACWhere(EABAS_DocsCompra.getEstado(EABAS_DocsCompra.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+
+         Dim m_babas_docscompra As New BABAS_DocsCompra()
+         If m_babas_docscompra.CargarTodos(_join, _where) Then
+            m_listeabas_docscompra = m_babas_docscompra.ListABAS_DocsCompra
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' pendientes por proveedor por fecha
+   ''' </summary>
+   ''' <param name="x_entid_codigo">codigo de entidad</param>
+   ''' <param name="x_fecini">fecha inicial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <param name="x_datos">clase contenedora del resultado de la consulta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function PendientesXProveedorXFecha(ByVal x_entid_codigo As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByRef x_datos As DataSet) As Boolean
+      x_datos = New DataSet()
+      Try
+         Return d_generarreportes.GetPendientesXProveedorFecha(x_entid_codigo, x_fecini, x_fecfin, x_datos)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Guias por fechas
+   ''' </summary>
+   ''' <param name="x_fecini">fecha inicial de busqueda</param>
+   ''' <param name="x_fecfin">fecha final de busqueda</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function GuiasXFecha(ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      m_listabas_guias = New List(Of EABAS_Guias)
+      Try
+         Return d_generarreportes.GetGuiasXFecha(m_listabas_guias, x_fecini, x_fecfin)
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+
+   End Function
+
+#End Region
+
+End Class
+

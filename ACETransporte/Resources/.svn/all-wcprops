@@ -1,0 +1,503 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/AcerosComerciales_ERP/!svn/ver/2656/trunk/Transportes/ACETransporte/Resources
+END
+xmlVENT_DocsRelacion.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2059/trunk/Transportes/ACETransporte/Resources/xmlVENT_DocsRelacion.xml
+END
+xmlTRAN_MovimientosAlmacenes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_MovimientosAlmacenes.xml
+END
+xmlTRAN_DocumentosPagoDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocumentosPagoDetalle.xml
+END
+xmlTRAN_Reencauches.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Reencauches.xml
+END
+xmlTRAN_DocsVenta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocsVenta.xml
+END
+xmlTRAN_VehiculosInventarioDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AcerosComerciales_ERP/!svn/ver/2180/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosInventarioDetalle.xml
+END
+xmlCliente.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlCliente.xml
+END
+xmlTRAN_VehiculosInventario.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/AcerosComerciales_ERP/!svn/ver/2180/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosInventario.xml
+END
+xmlTRAN_MovimientosNeumaticos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_MovimientosNeumaticos.xml
+END
+xmlTRAN_OrdenesTransportes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_OrdenesTransportes.xml
+END
+xmlTESO_Caja.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTESO_Caja.xml
+END
+xmlTRAN_Clientes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Clientes.xml
+END
+xmlTRAN_Neumaticos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Neumaticos.xml
+END
+xmlTelefonos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTelefonos.xml
+END
+xmlTRAN_FletePorRuta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2197/trunk/Transportes/ACETransporte/Resources/xmlTRAN_FletePorRuta.xml
+END
+xmlTRAN_Planillas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Planillas.xml
+END
+xmlPuntoVenta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlPuntoVenta.xml
+END
+xmlTRAN_VehiculosMantenimientoDocCompra.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosMantenimientoDocCompra.xml
+END
+xmlTRAN_Viajes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2550/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Viajes.xml
+END
+xmlTRAN_Fletes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Fletes.xml
+END
+xmlClientes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlClientes.xml
+END
+xmlCorrelativos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlCorrelativos.xml
+END
+xmlTRAN_Conductores.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Conductores.xml
+END
+xmlParametros.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlParametros.xml
+END
+xmlTRAN_VehiculosNeumaticos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosNeumaticos.xml
+END
+xmlTRAN_Cotizaciones.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2054/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Cotizaciones.xml
+END
+xmlTRAN_ViajesIngresos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesIngresos.xml
+END
+xmlUsuariosPorPuntoVenta.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlUsuariosPorPuntoVenta.xml
+END
+xmlRoles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlRoles.xml
+END
+xmlTRAN_ViajesGastos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesGastos.xml
+END
+xmlTRAN_AlmacenesPiezas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_AlmacenesPiezas.xml
+END
+xmlSucursales.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlSucursales.xml
+END
+xmlTRAN_GuiasTransportista.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_GuiasTransportista.xml
+END
+xmlZonas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlZonas.xml
+END
+xmlTRAN_VehiculosRanflas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosRanflas.xml
+END
+xmlTRAN_SegurosVehiculos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_SegurosVehiculos.xml
+END
+xmlContactos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlContactos.xml
+END
+xmlTRAN_CajasOperaciones.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_CajasOperaciones.xml
+END
+xmlUbigeos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlUbigeos.xml
+END
+xmlVENT_ListaPrecios.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlVENT_ListaPrecios.xml
+END
+xmlTipos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTipos.xml
+END
+xmlTRAN_DocumentosDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocumentosDetalle.xml
+END
+xmlTRAN_CombustibleConsumo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_CombustibleConsumo.xml
+END
+xmlTRAN_Documentos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Documentos.xml
+END
+xmlTRAN_Cajas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Cajas.xml
+END
+xmlTRAN_DocsVentaDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocsVentaDetalle.xml
+END
+xmlTRAN_GuiasTransportistaDetalles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_GuiasTransportistaDetalles.xml
+END
+xmlTRAN_VehiculosMantenimientoDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/AcerosComerciales_ERP/!svn/ver/2653/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosMantenimientoDetalle.xml
+END
+xmlTRAN_Recibos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2642/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Recibos.xml
+END
+xmlTRAN_OrdenesMantenimiento.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_OrdenesMantenimiento.xml
+END
+xmlTRAN_DocumentosPagoFletes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocumentosPagoFletes.xml
+END
+xmlTRAN_VehiculosIncidencias.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosIncidencias.xml
+END
+xmlTRAN_IncidenciasVehiculos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_IncidenciasVehiculos.xml
+END
+xmlDocumentos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlDocumentos.xml
+END
+xmlTRAN_Proveedores.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Proveedores.xml
+END
+xmlAuditoria.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlAuditoria.xml
+END
+xmlTRAN_CotizacionesFletes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_CotizacionesFletes.xml
+END
+xmlTRAN_Vehiculos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2656/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Vehiculos.xml
+END
+xmlTRAN_NeumaticosIncidencias.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_NeumaticosIncidencias.xml
+END
+xmlTRAN_IncidenciasNeumaticos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_IncidenciasNeumaticos.xml
+END
+xmlEntidadRelacion.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlEntidadRelacion.xml
+END
+xmlAlmacenes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlAlmacenes.xml
+END
+xmlProveedores.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlProveedores.xml
+END
+xmlTRAN_IncidenciasViajes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_IncidenciasViajes.xml
+END
+xmlEntidades.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlEntidades.xml
+END
+xmlTRAN_ViajesGuiasRemision.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesGuiasRemision.xml
+END
+xmlEntidadesRoles.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlEntidadesRoles.xml
+END
+xmlTRAN_CotizacionesDetalle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/AcerosComerciales_ERP/!svn/ver/2054/trunk/Transportes/ACETransporte/Resources/xmlTRAN_CotizacionesDetalle.xml
+END
+xmlTRAN_Ranflas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Ranflas.xml
+END
+xmlTRAN_EstimacionesConsumo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_EstimacionesConsumo.xml
+END
+xmlTRAN_VehiculosMantenimiento.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosMantenimiento.xml
+END
+xmlTRAN_Piezas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2650/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Piezas.xml
+END
+xmlTRAN_InformesMantenimientos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_InformesMantenimientos.xml
+END
+xmlTRAN_VehiculoMantenimientoDocCompra.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculoMantenimientoDocCompra.xml
+END
+xmlTRAN_Rutas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_Rutas.xml
+END
+xmlTRAN_ViajesVentas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesVentas.xml
+END
+xmlDirecciones.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlDirecciones.xml
+END
+xmlTRAN_DocPagoGuiasTransportista.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_DocPagoGuiasTransportista.xml
+END
+xmlTRAN_ViajesVehiculos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesVehiculos.xml
+END
+xmlTRAN_VehiculosSeguros.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosSeguros.xml
+END
+xmlTRAN_ViajesNeumaticos.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_ViajesNeumaticos.xml
+END
+xmlTRAN_VehiculosConductores.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_VehiculosConductores.xml
+END
+xmlTRAN_NeumaticosFletes.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACETransporte/Resources/xmlTRAN_NeumaticosFletes.xml
+END

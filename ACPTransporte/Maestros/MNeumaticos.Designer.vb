@@ -1,0 +1,830 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class MNeumaticos
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MNeumaticos))
+        Me.acTool = New ACControles.ACToolBarMantVertical()
+        Me.tabMantenimiento = New Crownwood.DotNetMagic.Controls.TabControl()
+        Me.tabDatos = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.pnlDatos = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.nupPosicion = New System.Windows.Forms.NumericUpDown()
+        Me.nupParches = New System.Windows.Forms.NumericUpDown()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.nupReencauches = New System.Windows.Forms.NumericUpDown()
+        Me.cmbTipoVehiculo = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtTamano = New System.Windows.Forms.TextBox()
+        Me.dtpVidaUtil = New System.Windows.Forms.DateTimePicker()
+        Me.cmbMarca = New System.Windows.Forms.ComboBox()
+        Me.actxnKilomUtil = New ACControles.ACTextBoxNumerico()
+        Me.actxnPrecio = New ACControles.ACTextBoxNumerico()
+        Me.cmbTipoLlanta = New System.Windows.Forms.ComboBox()
+        Me.dtpFecGarantia = New System.Windows.Forms.DateTimePicker()
+        Me.txtModelo = New System.Windows.Forms.TextBox()
+        Me.dtpFecCompra = New System.Windows.Forms.DateTimePicker()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmbMoneda = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.tabBusqueda = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.c1grdBusqueda = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.bnavBusqueda = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbtnExcel = New System.Windows.Forms.ToolStripButton()
+        Me.grpBusqueda = New System.Windows.Forms.GroupBox()
+        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.chkTodos = New System.Windows.Forms.CheckBox()
+        Me.txtBusqueda = New ACControles.ACTextBoxAyuda()
+        Me.rbtnModelo = New System.Windows.Forms.RadioButton()
+        Me.rbtnCodigo = New System.Windows.Forms.RadioButton()
+        Me.acpnlTitulo = New ACControles.ACPanelCaption()
+        Me.eprError = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.tabMantenimiento.SuspendLayout()
+        Me.tabDatos.SuspendLayout()
+        Me.pnlDatos.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.nupPosicion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupParches, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nupReencauches, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabBusqueda.SuspendLayout()
+        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.bnavBusqueda.SuspendLayout()
+        Me.grpBusqueda.SuspendLayout()
+        CType(Me.eprError, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'acTool
+        '
+        Me.acTool.ACBackColor = System.Drawing.Color.LightSteelBlue
+        Me.acTool.ACBackColorTFin = System.Drawing.Color.LightSteelBlue
+        Me.acTool.ACBackColorTIni = System.Drawing.Color.LightSteelBlue
+        Me.acTool.ACEnabledBtnAnular = False
+        Me.acTool.ACMostrarTabs = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+        Me.acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabIni
+        Me.acTool.ACVisibleBtnAnular = False
+        Me.acTool.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.acTool.Dock = System.Windows.Forms.DockStyle.Left
+        Me.acTool.Location = New System.Drawing.Point(0, 30)
+        Me.acTool.MinimumSize = New System.Drawing.Size(90, 254)
+        Me.acTool.Name = "acTool"
+        Me.acTool.Size = New System.Drawing.Size(90, 514)
+        Me.acTool.TabIndex = 2
+        '
+        'tabMantenimiento
+        '
+        Me.tabMantenimiento.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.tabMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabMantenimiento.Location = New System.Drawing.Point(90, 30)
+        Me.tabMantenimiento.MediaPlayerDockSides = False
+        Me.tabMantenimiento.Name = "tabMantenimiento"
+        Me.tabMantenimiento.OfficeDockSides = False
+        Me.tabMantenimiento.SelectedIndex = 1
+        Me.tabMantenimiento.ShowDropSelect = False
+        Me.tabMantenimiento.Size = New System.Drawing.Size(598, 514)
+        Me.tabMantenimiento.TabIndex = 0
+        Me.tabMantenimiento.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.tabDatos, Me.tabBusqueda})
+        Me.tabMantenimiento.TextTips = True
+        '
+        'tabDatos
+        '
+        Me.tabDatos.Controls.Add(Me.pnlDatos)
+        Me.tabDatos.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Location = New System.Drawing.Point(1, 1)
+        Me.tabDatos.Name = "tabDatos"
+        Me.tabDatos.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.Selected = False
+        Me.tabDatos.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Size = New System.Drawing.Size(596, 489)
+        Me.tabDatos.TabIndex = 4
+        Me.tabDatos.Title = "Datos"
+        Me.tabDatos.ToolTip = "Datos"
+        '
+        'pnlDatos
+        '
+        Me.pnlDatos.Controls.Add(Me.GroupBox1)
+        Me.pnlDatos.Controls.Add(Me.cmbTipoVehiculo)
+        Me.pnlDatos.Controls.Add(Me.Label13)
+        Me.pnlDatos.Controls.Add(Me.txtTamano)
+        Me.pnlDatos.Controls.Add(Me.dtpVidaUtil)
+        Me.pnlDatos.Controls.Add(Me.cmbMarca)
+        Me.pnlDatos.Controls.Add(Me.actxnKilomUtil)
+        Me.pnlDatos.Controls.Add(Me.actxnPrecio)
+        Me.pnlDatos.Controls.Add(Me.cmbTipoLlanta)
+        Me.pnlDatos.Controls.Add(Me.dtpFecGarantia)
+        Me.pnlDatos.Controls.Add(Me.txtModelo)
+        Me.pnlDatos.Controls.Add(Me.dtpFecCompra)
+        Me.pnlDatos.Controls.Add(Me.txtCodigo)
+        Me.pnlDatos.Controls.Add(Me.Label1)
+        Me.pnlDatos.Controls.Add(Me.Label11)
+        Me.pnlDatos.Controls.Add(Me.Label12)
+        Me.pnlDatos.Controls.Add(Me.Label9)
+        Me.pnlDatos.Controls.Add(Me.cmbMoneda)
+        Me.pnlDatos.Controls.Add(Me.Label8)
+        Me.pnlDatos.Controls.Add(Me.Label7)
+        Me.pnlDatos.Controls.Add(Me.Label6)
+        Me.pnlDatos.Controls.Add(Me.Label2)
+        Me.pnlDatos.Controls.Add(Me.Label5)
+        Me.pnlDatos.Controls.Add(Me.Label4)
+        Me.pnlDatos.Controls.Add(Me.Label3)
+        Me.pnlDatos.Controls.Add(Me.Label10)
+        Me.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlDatos.Location = New System.Drawing.Point(0, 0)
+        Me.pnlDatos.Name = "pnlDatos"
+        Me.pnlDatos.Size = New System.Drawing.Size(596, 489)
+        Me.pnlDatos.TabIndex = 1
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.nupPosicion)
+        Me.GroupBox1.Controls.Add(Me.nupParches)
+        Me.GroupBox1.Controls.Add(Me.Label14)
+        Me.GroupBox1.Controls.Add(Me.Label16)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.nupReencauches)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 411)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(596, 78)
+        Me.GroupBox1.TabIndex = 26
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Datos Iniciales"
+        '
+        'nupPosicion
+        '
+        Me.nupPosicion.Location = New System.Drawing.Point(133, 20)
+        Me.nupPosicion.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.nupPosicion.Name = "nupPosicion"
+        Me.nupPosicion.Size = New System.Drawing.Size(101, 23)
+        Me.nupPosicion.TabIndex = 1
+        '
+        'nupParches
+        '
+        Me.nupParches.Location = New System.Drawing.Point(133, 47)
+        Me.nupParches.Maximum = New Decimal(New Integer() {4, 0, 0, 0})
+        Me.nupParches.Name = "nupParches"
+        Me.nupParches.Size = New System.Drawing.Size(101, 23)
+        Me.nupParches.TabIndex = 3
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(-1, 22)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(120, 15)
+        Me.Label14.TabIndex = 0
+        Me.Label14.Text = "Posición Neumatico :"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(65, 49)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(54, 15)
+        Me.Label16.TabIndex = 2
+        Me.Label16.Text = "Parches :"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(259, 51)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(82, 15)
+        Me.Label15.TabIndex = 4
+        Me.Label15.Text = "Reencauches :"
+        '
+        'nupReencauches
+        '
+        Me.nupReencauches.Location = New System.Drawing.Point(354, 47)
+        Me.nupReencauches.Maximum = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.nupReencauches.Name = "nupReencauches"
+        Me.nupReencauches.Size = New System.Drawing.Size(101, 23)
+        Me.nupReencauches.TabIndex = 5
+        '
+        'cmbTipoVehiculo
+        '
+        Me.cmbTipoVehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTipoVehiculo.FormattingEnabled = True
+        Me.cmbTipoVehiculo.Location = New System.Drawing.Point(133, 149)
+        Me.cmbTipoVehiculo.Name = "cmbTipoVehiculo"
+        Me.cmbTipoVehiculo.Size = New System.Drawing.Size(322, 23)
+        Me.cmbTipoVehiculo.TabIndex = 12
+        Me.cmbTipoVehiculo.Tag = "ECO"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(33, 153)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(84, 15)
+        Me.Label13.TabIndex = 11
+        Me.Label13.Text = "Tipo &Vehiculo :"
+        '
+        'txtTamano
+        '
+        Me.txtTamano.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtTamano.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtTamano.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTamano.Location = New System.Drawing.Point(133, 96)
+        Me.txtTamano.MaxLength = 20
+        Me.txtTamano.Name = "txtTamano"
+        Me.txtTamano.Size = New System.Drawing.Size(322, 20)
+        Me.txtTamano.TabIndex = 7
+        Me.txtTamano.Tag = "EV"
+        '
+        'dtpVidaUtil
+        '
+        Me.dtpVidaUtil.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpVidaUtil.Location = New System.Drawing.Point(133, 230)
+        Me.dtpVidaUtil.Name = "dtpVidaUtil"
+        Me.dtpVidaUtil.Size = New System.Drawing.Size(101, 23)
+        Me.dtpVidaUtil.TabIndex = 22
+        Me.dtpVidaUtil.Tag = "E"
+        '
+        'cmbMarca
+        '
+        Me.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMarca.FormattingEnabled = True
+        Me.cmbMarca.Location = New System.Drawing.Point(133, 69)
+        Me.cmbMarca.Name = "cmbMarca"
+        Me.cmbMarca.Size = New System.Drawing.Size(322, 23)
+        Me.cmbMarca.TabIndex = 5
+        Me.cmbMarca.Tag = "ECO"
+        '
+        'actxnKilomUtil
+        '
+        Me.actxnKilomUtil.ACEnteros = 9
+        Me.actxnKilomUtil.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnKilomUtil.ACNegativo = True
+        Me.actxnKilomUtil.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.actxnKilomUtil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.actxnKilomUtil.Location = New System.Drawing.Point(133, 257)
+        Me.actxnKilomUtil.MaxLength = 12
+        Me.actxnKilomUtil.Name = "actxnKilomUtil"
+        Me.actxnKilomUtil.Size = New System.Drawing.Size(101, 23)
+        Me.actxnKilomUtil.TabIndex = 24
+        Me.actxnKilomUtil.Tag = "EV"
+        Me.actxnKilomUtil.Text = "0.00"
+        Me.actxnKilomUtil.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'actxnPrecio
+        '
+        Me.actxnPrecio.ACEnteros = 9
+        Me.actxnPrecio.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnPrecio.ACFormato = "########0.00"
+        Me.actxnPrecio.ACNegativo = True
+        Me.actxnPrecio.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.actxnPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.actxnPrecio.Location = New System.Drawing.Point(133, 203)
+        Me.actxnPrecio.MaxLength = 12
+        Me.actxnPrecio.Name = "actxnPrecio"
+        Me.actxnPrecio.Size = New System.Drawing.Size(101, 23)
+        Me.actxnPrecio.TabIndex = 18
+        Me.actxnPrecio.Tag = "EV"
+        Me.actxnPrecio.Text = "0.00"
+        Me.actxnPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cmbTipoLlanta
+        '
+        Me.cmbTipoLlanta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTipoLlanta.FormattingEnabled = True
+        Me.cmbTipoLlanta.Location = New System.Drawing.Point(133, 122)
+        Me.cmbTipoLlanta.Name = "cmbTipoLlanta"
+        Me.cmbTipoLlanta.Size = New System.Drawing.Size(322, 23)
+        Me.cmbTipoLlanta.TabIndex = 10
+        Me.cmbTipoLlanta.Tag = "ECO"
+        '
+        'dtpFecGarantia
+        '
+        Me.dtpFecGarantia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecGarantia.Location = New System.Drawing.Point(354, 176)
+        Me.dtpFecGarantia.Name = "dtpFecGarantia"
+        Me.dtpFecGarantia.Size = New System.Drawing.Size(101, 23)
+        Me.dtpFecGarantia.TabIndex = 16
+        Me.dtpFecGarantia.Tag = "E"
+        '
+        'txtModelo
+        '
+        Me.txtModelo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtModelo.Location = New System.Drawing.Point(133, 42)
+        Me.txtModelo.MaxLength = 20
+        Me.txtModelo.Name = "txtModelo"
+        Me.txtModelo.Size = New System.Drawing.Size(322, 23)
+        Me.txtModelo.TabIndex = 3
+        Me.txtModelo.Tag = "EV"
+        '
+        'dtpFecCompra
+        '
+        Me.dtpFecCompra.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecCompra.Location = New System.Drawing.Point(133, 176)
+        Me.dtpFecCompra.Name = "dtpFecCompra"
+        Me.dtpFecCompra.Size = New System.Drawing.Size(101, 23)
+        Me.dtpFecCompra.TabIndex = 14
+        Me.dtpFecCompra.Tag = "E"
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCodigo.Font = New System.Drawing.Font("Courier New", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.txtCodigo.Location = New System.Drawing.Point(133, 15)
+        Me.txtCodigo.MaxLength = 20
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(134, 20)
+        Me.txtCodigo.TabIndex = 1
+        Me.txtCodigo.Tag = "EVO"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(62, 100)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 15)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "&Tamaño :"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(240, 261)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(25, 15)
+        Me.Label11.TabIndex = 25
+        Me.Label11.Text = "KM"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(31, 261)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(88, 15)
+        Me.Label12.TabIndex = 23
+        Me.Label12.Text = "&Kilomtraje Util :"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(18, 234)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(100, 15)
+        Me.Label9.TabIndex = 21
+        Me.Label9.Text = "Tiempo &Vida Util :"
+        '
+        'cmbMoneda
+        '
+        Me.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMoneda.FormattingEnabled = True
+        Me.cmbMoneda.Location = New System.Drawing.Point(319, 203)
+        Me.cmbMoneda.Name = "cmbMoneda"
+        Me.cmbMoneda.Size = New System.Drawing.Size(136, 23)
+        Me.cmbMoneda.TabIndex = 20
+        Me.cmbMoneda.Tag = "EC"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(261, 207)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(57, 15)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Moneda :"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(73, 207)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(46, 15)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "&Precio :"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(47, 126)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(71, 15)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Tipo &Llanta :"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(261, 180)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(91, 15)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "&Fecha Garantia :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(73, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 15)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "M&arca :"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(65, 46)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(54, 15)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "&Modelo :"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(29, 180)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(90, 15)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "&Fecha Compra :"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(67, 19)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(52, 15)
+        Me.Label10.TabIndex = 0
+        Me.Label10.Text = "Codigo :"
+        '
+        'tabBusqueda
+        '
+        Me.tabBusqueda.Controls.Add(Me.c1grdBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.bnavBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.grpBusqueda)
+        Me.tabBusqueda.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Location = New System.Drawing.Point(1, 1)
+        Me.tabBusqueda.Name = "tabBusqueda"
+        Me.tabBusqueda.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Size = New System.Drawing.Size(596, 489)
+        Me.tabBusqueda.StartFocus = Me.txtBusqueda
+        Me.tabBusqueda.TabIndex = 0
+        Me.tabBusqueda.Title = "Busqueda"
+        Me.tabBusqueda.ToolTip = "Busqueda"
+        '
+        'c1grdBusqueda
+        '
+        Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdBusqueda.Location = New System.Drawing.Point(0, 76)
+        Me.c1grdBusqueda.Name = "c1grdBusqueda"
+        Me.c1grdBusqueda.Rows.Count = 2
+        Me.c1grdBusqueda.Rows.DefaultSize = 20
+        Me.c1grdBusqueda.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdBusqueda.Size = New System.Drawing.Size(596, 388)
+        Me.c1grdBusqueda.StyleInfo = resources.GetString("c1grdBusqueda.StyleInfo")
+        Me.c1grdBusqueda.TabIndex = 1
+        '
+        'bnavBusqueda
+        '
+        Me.bnavBusqueda.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.bnavBusqueda.CountItem = Me.BindingNavigatorCountItem
+        Me.bnavBusqueda.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.bnavBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavBusqueda.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.tsbtnExcel})
+        Me.bnavBusqueda.Location = New System.Drawing.Point(0, 464)
+        Me.bnavBusqueda.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.bnavBusqueda.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.bnavBusqueda.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.bnavBusqueda.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.bnavBusqueda.Name = "bnavBusqueda"
+        Me.bnavBusqueda.PositionItem = Me.BindingNavigatorPositionItem
+        Me.bnavBusqueda.Size = New System.Drawing.Size(596, 25)
+        Me.bnavBusqueda.TabIndex = 3
+        Me.bnavBusqueda.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        Me.BindingNavigatorAddNewItem.Visible = False
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorDeleteItem.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem
+        '
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem
+        '
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem
+        '
+        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem.Text = "0"
+        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator1
+        '
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem
+        '
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem
+        '
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Text = "Move last"
+        '
+        'BindingNavigatorSeparator2
+        '
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'tsbtnExcel
+        '
+        Me.tsbtnExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.tsbtnExcel.Image = Global.ACPTransportes.My.Resources.Resources.Excel2_16x16
+        Me.tsbtnExcel.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbtnExcel.Name = "tsbtnExcel"
+        Me.tsbtnExcel.Size = New System.Drawing.Size(98, 22)
+        Me.tsbtnExcel.Text = "Enviar a Excel"
+        '
+        'grpBusqueda
+        '
+        Me.grpBusqueda.Controls.Add(Me.btnConsultar)
+        Me.grpBusqueda.Controls.Add(Me.chkTodos)
+        Me.grpBusqueda.Controls.Add(Me.txtBusqueda)
+        Me.grpBusqueda.Controls.Add(Me.rbtnModelo)
+        Me.grpBusqueda.Controls.Add(Me.rbtnCodigo)
+        Me.grpBusqueda.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpBusqueda.Location = New System.Drawing.Point(0, 0)
+        Me.grpBusqueda.Name = "grpBusqueda"
+        Me.grpBusqueda.Size = New System.Drawing.Size(596, 76)
+        Me.grpBusqueda.TabIndex = 0
+        Me.grpBusqueda.TabStop = False
+        Me.grpBusqueda.Text = "Opciones de Busqueda"
+        '
+        'btnConsultar
+        '
+        Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConsultar.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.btnConsultar.Image = Global.ACPTransportes.My.Resources.Resources.Search_files_32x32
+        Me.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnConsultar.Location = New System.Drawing.Point(494, 16)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(99, 42)
+        Me.btnConsultar.TabIndex = 35
+        Me.btnConsultar.Text = "Consultar"
+        Me.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnConsultar.UseVisualStyleBackColor = True
+        '
+        'chkTodos
+        '
+        Me.chkTodos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkTodos.AutoSize = True
+        Me.chkTodos.Location = New System.Drawing.Point(321, 51)
+        Me.chkTodos.Name = "chkTodos"
+        Me.chkTodos.Size = New System.Drawing.Size(101, 19)
+        Me.chkTodos.TabIndex = 34
+        Me.chkTodos.Text = "Mostrar Todos"
+        Me.chkTodos.UseVisualStyleBackColor = True
+        '
+        'txtBusqueda
+        '
+        Me.txtBusqueda.ACActivarAyudaAuto = False
+        Me.txtBusqueda.ACLongitudAceptada = 0
+        Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.Location = New System.Drawing.Point(6, 27)
+        Me.txtBusqueda.MaxLength = 32767
+        Me.txtBusqueda.Name = "txtBusqueda"
+        Me.txtBusqueda.Size = New System.Drawing.Size(309, 23)
+        Me.txtBusqueda.TabIndex = 0
+        '
+        'rbtnModelo
+        '
+        Me.rbtnModelo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtnModelo.AutoSize = True
+        Me.rbtnModelo.Location = New System.Drawing.Point(401, 22)
+        Me.rbtnModelo.Name = "rbtnModelo"
+        Me.rbtnModelo.Size = New System.Drawing.Size(87, 19)
+        Me.rbtnModelo.TabIndex = 2
+        Me.rbtnModelo.Text = "Por Modelo"
+        Me.rbtnModelo.UseVisualStyleBackColor = True
+        '
+        'rbtnCodigo
+        '
+        Me.rbtnCodigo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtnCodigo.AutoSize = True
+        Me.rbtnCodigo.Checked = True
+        Me.rbtnCodigo.Location = New System.Drawing.Point(319, 22)
+        Me.rbtnCodigo.Name = "rbtnCodigo"
+        Me.rbtnCodigo.Size = New System.Drawing.Size(85, 19)
+        Me.rbtnCodigo.TabIndex = 1
+        Me.rbtnCodigo.TabStop = True
+        Me.rbtnCodigo.Text = "Por Codigo"
+        Me.rbtnCodigo.UseVisualStyleBackColor = True
+        '
+        'acpnlTitulo
+        '
+        Me.acpnlTitulo.ACCaption = "Mantenimiento de Neumaticos"
+        Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
+        Me.acpnlTitulo.Name = "acpnlTitulo"
+        Me.acpnlTitulo.Size = New System.Drawing.Size(688, 30)
+        Me.acpnlTitulo.TabIndex = 1
+        '
+        'eprError
+        '
+        Me.eprError.ContainerControl = Me
+        '
+        'MNeumaticos
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(688, 544)
+        Me.Controls.Add(Me.tabMantenimiento)
+        Me.Controls.Add(Me.acTool)
+        Me.Controls.Add(Me.acpnlTitulo)
+        Me.Name = "MNeumaticos"
+        Me.Text = "Mantenimiento de Neumaticos"
+        Me.tabMantenimiento.ResumeLayout(False)
+        Me.tabDatos.ResumeLayout(False)
+        Me.pnlDatos.ResumeLayout(False)
+        Me.pnlDatos.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.nupPosicion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupParches, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nupReencauches, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabBusqueda.ResumeLayout(False)
+        Me.tabBusqueda.PerformLayout()
+        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.bnavBusqueda.ResumeLayout(False)
+        Me.bnavBusqueda.PerformLayout()
+        Me.grpBusqueda.ResumeLayout(False)
+        Me.grpBusqueda.PerformLayout()
+        CType(Me.eprError, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Private WithEvents acTool As ACControles.ACToolBarMantVertical
+   Private WithEvents tabMantenimiento As Crownwood.DotNetMagic.Controls.TabControl
+   Private WithEvents tabDatos As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents pnlDatos As System.Windows.Forms.Panel
+   Private WithEvents tabBusqueda As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents c1grdBusqueda As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents bnavBusqueda As System.Windows.Forms.BindingNavigator
+   Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMovePreviousItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorPositionItem As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents BindingNavigatorSeparator1 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorMoveNextItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
+   Private WithEvents grpBusqueda As System.Windows.Forms.GroupBox
+   Friend WithEvents txtBusqueda As ACControles.ACTextBoxAyuda
+   Friend WithEvents acpnlTitulo As ACControles.ACPanelCaption
+   Friend WithEvents txtCodigo As System.Windows.Forms.TextBox
+   Friend WithEvents Label10 As System.Windows.Forms.Label
+   Friend WithEvents dtpFecCompra As System.Windows.Forms.DateTimePicker
+   Friend WithEvents Label3 As System.Windows.Forms.Label
+   Friend WithEvents Label5 As System.Windows.Forms.Label
+   Friend WithEvents txtModelo As System.Windows.Forms.TextBox
+   Friend WithEvents Label4 As System.Windows.Forms.Label
+   Friend WithEvents dtpFecGarantia As System.Windows.Forms.DateTimePicker
+   Friend WithEvents Label2 As System.Windows.Forms.Label
+   Friend WithEvents cmbTipoLlanta As System.Windows.Forms.ComboBox
+   Friend WithEvents Label6 As System.Windows.Forms.Label
+   Friend WithEvents cmbMoneda As System.Windows.Forms.ComboBox
+   Friend WithEvents Label8 As System.Windows.Forms.Label
+   Friend WithEvents actxnPrecio As ACControles.ACTextBoxNumerico
+   Friend WithEvents Label7 As System.Windows.Forms.Label
+   Friend WithEvents Label9 As System.Windows.Forms.Label
+   Friend WithEvents Label11 As System.Windows.Forms.Label
+   Friend WithEvents actxnKilomUtil As ACControles.ACTextBoxNumerico
+   Friend WithEvents Label12 As System.Windows.Forms.Label
+   Friend WithEvents cmbMarca As System.Windows.Forms.ComboBox
+   Friend WithEvents dtpVidaUtil As System.Windows.Forms.DateTimePicker
+   Friend WithEvents txtTamano As System.Windows.Forms.TextBox
+   Friend WithEvents Label1 As System.Windows.Forms.Label
+   Friend WithEvents rbtnCodigo As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtnModelo As System.Windows.Forms.RadioButton
+   Friend WithEvents eprError As System.Windows.Forms.ErrorProvider
+   Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+   Friend WithEvents nupPosicion As System.Windows.Forms.NumericUpDown
+   Friend WithEvents nupParches As System.Windows.Forms.NumericUpDown
+   Friend WithEvents Label14 As System.Windows.Forms.Label
+   Friend WithEvents Label16 As System.Windows.Forms.Label
+   Friend WithEvents Label15 As System.Windows.Forms.Label
+   Friend WithEvents nupReencauches As System.Windows.Forms.NumericUpDown
+   Friend WithEvents cmbTipoVehiculo As System.Windows.Forms.ComboBox
+   Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents tsbtnExcel As System.Windows.Forms.ToolStripButton
+    Friend WithEvents btnConsultar As System.Windows.Forms.Button
+    Friend WithEvents chkTodos As System.Windows.Forms.CheckBox
+End Class

@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 54
+ACETransporte.vbproj.user
+ACETransporte.vsdoc
+bin
+obj
+
+END

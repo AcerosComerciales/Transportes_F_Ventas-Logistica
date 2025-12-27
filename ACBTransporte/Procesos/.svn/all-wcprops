@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACBTransporte/Procesos
+END
+BAdministracionNeumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BAdministracionNeumaticos.vb
+END
+BGenerarGuias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2517/trunk/Transportes/ACBTransporte/Procesos/BGenerarGuias.vb
+END
+BMantenimientosVehicular.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BMantenimientosVehicular.vb
+END
+BPlanillasConductor.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BPlanillasConductor.vb
+END
+BReporte.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACBTransporte/Procesos/BReporte.vb
+END
+BMovimientosNeumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BMovimientosNeumaticos.vb
+END
+BGenerarDocsVentaTrans.vb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2456/trunk/Transportes/ACBTransporte/Procesos/BGenerarDocsVentaTrans.vb
+END
+BAdministracionCaja.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2642/trunk/Transportes/ACBTransporte/Procesos/BAdministracionCaja.vb
+END
+BAdministracionInventarios.vb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2172/trunk/Transportes/ACBTransporte/Procesos/BAdministracionInventarios.vb
+END
+BAdministracionVehiculos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BAdministracionVehiculos.vb
+END
+BAdministracionViajes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2642/trunk/Transportes/ACBTransporte/Procesos/BAdministracionViajes.vb
+END
+BCobrosPendientes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BCobrosPendientes.vb
+END
+BGCancelacion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2355/trunk/Transportes/ACBTransporte/Procesos/BGCancelacion.vb
+END
+BRevisionVehicularPostViaje.vb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACBTransporte/Procesos/BRevisionVehicularPostViaje.vb
+END

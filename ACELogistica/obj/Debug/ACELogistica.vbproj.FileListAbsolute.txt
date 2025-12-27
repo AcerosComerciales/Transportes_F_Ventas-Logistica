@@ -1,0 +1,90 @@
+D:\alex compartido\Logistica\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+D:\alex compartido\Logistica\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACELogistica.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACEVentas.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACFramework.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\logistica\ACELogistica\bin\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.dll
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\logistica\ACELogistica\obj\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACELogistica.dll
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACELogistica.pdb
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACELogistica.xml
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACFramework.dll
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACEVentas.pdb
+E:\DESARROLLO\logistica\ACELogistica\bin\Debug\ACEVentas.xml
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.Cache
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.dll
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.xml
+E:\DESARROLLO\logistica\ACELogistica\obj\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.Cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACELogistica\obj\Debug\ACELogistica.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.cache
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.vbproj.CoreCompileInputs.cache
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.dll
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.xml
+D:\Developer\Transportes\ACELogistica\obj\Debug\ACELogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACELogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACELogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACELogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACEVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACEVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACEVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\bin\Debug\ACEVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.vbprojAssemblyReference.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.vbproj.CoreCompileInputs.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.vbproj.CopyComplete
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACELogistica\obj\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACELogistica\obj\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACELogistica\obj\Debug\ACELogistica.pdb

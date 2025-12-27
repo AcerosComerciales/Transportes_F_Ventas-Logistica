@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6759EE9-B758-4F11-A181-1A15993F8CF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ACBVentas</RootNamespace>
+    <AssemblyName>ACBVentas</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ACBVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ACBVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ACBVentas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ACBVentas.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACBTransporte">
+      <HintPath>..\..\Librerias\ACBTransporte.dll</HintPath>
+    </Reference>
+    <Reference Include="ACDLogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Logistica\ACDLogistica\bin\x86\Debug\ACDLogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACELogistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AdministracionWCF\ACPAdministracion\bin\Debug\ACELogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACETransporte, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\ACETransporte.dll</HintPath>
+    </Reference>
+    <Reference Include="ACEVentas, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ACEVentas\bin\x86\Debug\ACEVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.2">
+      <HintPath>D:\ROMARIO FUENTES\SISTEMAS\VentasPC\ACPVentas\bin\x86\Debug\C1.Win.C1FlexGrid.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DAEnterprise, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\DAEnterprise.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BCONT_DocsPercepcion.vb" />
+    <Compile Include="BCONT_DocsPercepcion.Parcial.vb">
+      <DependentUpon>BCONT_DocsPercepcion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BCONT_DocsPercepcionDetalle.vb" />
+    <Compile Include="BCONT_DocsPercepcionDetalle.Parcial.vb">
+      <DependentUpon>BCONT_DocsPercepcionDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_DocsRelacion.Parcial.vb" />
+    <Compile Include="BVENT_DocsRelacion.vb" />
+    <Compile Include="BVENT_DocsVentaPagos.vb" />
+    <Compile Include="BVENT_DocsVentaPagos.Parcial.vb">
+      <DependentUpon>BVENT_DocsVentaPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BABAS_GestionOrdenes.vb" />
+    <Compile Include="Despachos\BABAS_GestionOrdenesDetalle.vb" />
+    <Compile Include="Despachos\BABAS_OrdenesProduccion.vb" />
+    <Compile Include="Despachos\BABAS_OrdenesProduccionDetalle.vb" />
+    <Compile Include="Despachos\BABAS_PedidoTransformacion.vb" />
+    <Compile Include="Despachos\BABAS_PedidoTransformacionDetalle.vb" />
+    <Compile Include="Despachos\BDESP_GuiaRSalidas.vb" />
+    <Compile Include="Despachos\BDESP_GuiaRSalidas.Parcial.vb">
+      <DependentUpon>BDESP_GuiaRSalidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BDESP_Salidas.vb" />
+    <Compile Include="Despachos\BDESP_Salidas.Parcial.vb">
+      <DependentUpon>BDESP_Salidas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BDIST_GuiasRemision.vb" />
+    <Compile Include="Despachos\BDIST_GuiasRemision.Parcial.vb">
+      <DependentUpon>BDIST_GuiasRemision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BDIST_GuiasRemisionDetalle.vb" />
+    <Compile Include="Despachos\BDIST_GuiasRemisionDetalle.Parcial.vb">
+      <DependentUpon>BDIST_GuiasRemisionDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BDIST_Ordenes.vb" />
+    <Compile Include="Despachos\BDIST_Ordenes.Parcial.vb">
+      <DependentUpon>BDIST_Ordenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Despachos\BDIST_OrdenesDetalle.vb" />
+    <Compile Include="Despachos\BDIST_OrdenesDetalle.Parcial.vb">
+      <DependentUpon>BDIST_OrdenesDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BUsuariosPorAlmacen.vb" />
+    <Compile Include="Generales\BUsuariosPorAlmacen.Parcial.vb">
+      <DependentUpon>BUsuariosPorAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BEntidadesPadrones.vb" />
+    <Compile Include="Generales\BEntidadesPadrones.Parcial.vb">
+      <DependentUpon>BEntidadesPadrones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BVerStockPtoVenta.vb" />
+    <Compile Include="Generales\BVerStockPtoVenta.Parcial.vb">
+      <DependentUpon>BVerStockPtoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\BAdminCaja.vb" />
+    <Compile Include="Procesos\BGenerarControl.vb" />
+    <Compile Include="Procesos\BGenerarGestionOrdenes.vb" />
+    <Compile Include="Procesos\BGenerarGuias.vb" />
+    <Compile Include="Procesos\BGenerarOrdenes.vb" />
+    <Compile Include="Procesos\BGenerarOrdenesProduccion.vb" />
+    <Compile Include="Procesos\BGenerarTransformacionPedido.vb" />
+    <Compile Include="Procesos\BReporte.vb" />
+    <Compile Include="Tesoreria\BTESO_CajaChicaIngreso.vb" />
+    <Compile Include="Tesoreria\BTESO_CajaChicaIngreso.Parcial.vb">
+      <DependentUpon>BTESO_CajaChicaIngreso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_CajaChicaPagos.vb" />
+    <Compile Include="Tesoreria\BTESO_CajaChicaPagos.Parcial.vb">
+      <DependentUpon>BTESO_CajaChicaPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_Documentos.vb" />
+    <Compile Include="Tesoreria\BTESO_Documentos.Parcial.vb">
+      <DependentUpon>BTESO_Documentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_DocumentosDetalle.vb" />
+    <Compile Include="Tesoreria\BTESO_DocumentosDetalle.Parcial.vb">
+      <DependentUpon>BTESO_DocumentosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_PendientesCaja.vb" />
+    <Compile Include="Tesoreria\BTESO_PendientesCaja.Parcial.vb">
+      <DependentUpon>BTESO_PendientesCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_PendientesCancelacion.vb" />
+    <Compile Include="Tesoreria\BTESO_PendientesCancelacion.Parcial.vb">
+      <DependentUpon>BTESO_PendientesCancelacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_Recibos.vb" />
+    <Compile Include="Tesoreria\BTESO_Recibos.Parcial.vb">
+      <DependentUpon>BTESO_Recibos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_Sencillo.vb" />
+    <Compile Include="Tesoreria\BTESO_Sencillo.Parcial.vb">
+      <DependentUpon>BTESO_Sencillo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_SIniciales.vb" />
+    <Compile Include="Tesoreria\BTESO_SIniciales.Parcial.vb">
+      <DependentUpon>BTESO_SIniciales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BPrecios.vb" />
+    <Compile Include="Generales\BPrecios.Parcial.vb">
+      <DependentUpon>BPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BCorrelativos.vb" />
+    <Compile Include="Generales\BCorrelativos.Parcial.vb">
+      <DependentUpon>BCorrelativos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BParametros.vb" />
+    <Compile Include="Generales\BParametros.Parcial.vb">
+      <DependentUpon>BParametros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BPeriodos.vb" />
+    <Compile Include="Generales\BPeriodos.Parcial.vb">
+      <DependentUpon>BPeriodos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BClientes.vb" />
+    <Compile Include="Generales\BClientes.Parcial.vb">
+      <DependentUpon>BClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BBancos.vb" />
+    <Compile Include="Generales\BBancos.Parcial.vb">
+      <DependentUpon>BBancos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BConductores.vb" />
+    <Compile Include="Generales\BConductores.Parcial.vb">
+      <DependentUpon>BConductores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BColor.vb" />
+    <Compile Include="Generales\BColor.Parcial.vb">
+      <DependentUpon>BColor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BEntidadesRoles.vb" />
+    <Compile Include="Generales\BEntidadesRoles.Parcial.vb">
+      <DependentUpon>BEntidadesRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BEntidadRelacion.vb" />
+    <Compile Include="Generales\BEntidadRelacion.Parcial.vb">
+      <DependentUpon>BEntidadRelacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BEntidades.vb" />
+    <Compile Include="Generales\BEntidades.Parcial.vb">
+      <DependentUpon>BEntidades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BCuentas.vb" />
+    <Compile Include="Generales\BCuentas.Parcial.vb">
+      <DependentUpon>BCuentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BLineas.vb" />
+    <Compile Include="Generales\BLineas.Parcial.vb">
+      <DependentUpon>BLineas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BDirecciones.vb" />
+    <Compile Include="Generales\BDirecciones.Parcial.vb">
+      <DependentUpon>BDirecciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BAuditoria.vb" />
+    <Compile Include="Generales\BAuditoria.Parcial.vb">
+      <DependentUpon>BAuditoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BTipoCambio.vb" />
+    <Compile Include="Generales\BTipoCambio.Parcial.vb">
+      <DependentUpon>BTipoCambio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BTelefonos.vb" />
+    <Compile Include="Generales\BTelefonos.Parcial.vb">
+      <DependentUpon>BTelefonos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BTipos.vb" />
+    <Compile Include="Generales\BTipos.Parcial.vb">
+      <DependentUpon>BTipos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BZonas.vb" />
+    <Compile Include="Generales\BZonas.Parcial.vb">
+      <DependentUpon>BZonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BUsuariosPorPuntoVenta.vb" />
+    <Compile Include="Generales\BUsuariosPorPuntoVenta.Parcial.vb">
+      <DependentUpon>BUsuariosPorPuntoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BUbigeos.vb" />
+    <Compile Include="Generales\BUbigeos.Parcial.vb">
+      <DependentUpon>BUbigeos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BSucursales.vb" />
+    <Compile Include="Generales\BSucursales.Parcial.vb">
+      <DependentUpon>BSucursales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BAlmacenes.vb" />
+    <Compile Include="Generales\BAlmacenes.Parcial.vb">
+      <DependentUpon>BAlmacenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BProveedores.vb" />
+    <Compile Include="Generales\BProveedores.Parcial.vb">
+      <DependentUpon>BProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BArticulos.vb" />
+    <Compile Include="Generales\BArticulos.Parcial.vb">
+      <DependentUpon>BArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BArticDestinos.vb" />
+    <Compile Include="Generales\BArticDestinos.Parcial.vb">
+      <DependentUpon>BArticDestinos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BRoles.vb" />
+    <Compile Include="Generales\BRoles.Parcial.vb">
+      <DependentUpon>BRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\BPuntoVenta.vb" />
+    <Compile Include="Generales\BPuntoVenta.Parcial.vb">
+      <DependentUpon>BPuntoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_CajaDocsPago.vb" />
+    <Compile Include="Tesoreria\BTESO_CajaDocsPago.Parcial.vb">
+      <DependentUpon>BTESO_CajaDocsPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_DocsPagos.vb" />
+    <Compile Include="Tesoreria\BTESO_DocsPagos.Parcial.vb">
+      <DependentUpon>BTESO_DocsPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tesoreria\BTESO_Caja.vb" />
+    <Compile Include="Tesoreria\BTESO_Caja.Parcial.vb">
+      <DependentUpon>BTESO_Caja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_PedidosDetalle.vb" />
+    <Compile Include="BVENT_PedidosDetalle.Parcial.vb">
+      <DependentUpon>BVENT_PedidosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_ProductoAdicionales.vb" />
+    <Compile Include="BVENT_ProductoAdicionales.Parcial.vb">
+      <DependentUpon>BVENT_ProductoAdicionales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_ListaPrecios.vb" />
+    <Compile Include="BVENT_ListaPrecios.Parcial.vb">
+      <DependentUpon>BVENT_ListaPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_PVentDocumento.vb" />
+    <Compile Include="BVENT_PVentDocumento.Parcial.vb">
+      <DependentUpon>BVENT_PVentDocumento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_DocsVentaDetalle.vb" />
+    <Compile Include="BVENT_DocsVentaDetalle.Parcial.vb">
+      <DependentUpon>BVENT_DocsVentaDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_DocsVenta.vb" />
+    <Compile Include="BVENT_DocsVenta.Parcial.vb">
+      <DependentUpon>BVENT_DocsVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_Pedidos.vb" />
+    <Compile Include="BVENT_Pedidos.Parcial.vb">
+      <DependentUpon>BVENT_Pedidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BVENT_ListaPreciosArticulos.vb" />
+    <Compile Include="BVENT_ListaPreciosArticulos.Parcial.vb">
+      <DependentUpon>BVENT_ListaPreciosArticulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\BConsultaArticulos.vb" />
+    <Compile Include="Procesos\BGenerarCotizacion.vb" />
+    <Compile Include="Procesos\BGenerarDocsVenta.vb" />
+    <Compile Include="Procesos\BGenerarCancelacion.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Tools\BConstantes.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plantillas\RPedidos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACBLogistica\ACBLogistica.vbproj">
+      <Project>{ddd5d88c-7998-4a88-961d-2086e16d4998}</Project>
+      <Name>ACBLogistica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACDVentas\ACDVentas.vbproj">
+      <Project>{f28a3c1f-7923-4a50-8902-3d90f45031a5}</Project>
+      <Name>ACDVentas</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

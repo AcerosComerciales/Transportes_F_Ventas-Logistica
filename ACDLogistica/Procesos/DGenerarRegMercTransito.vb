@@ -1,0 +1,307 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+
+Imports ACFramework
+Imports DAConexion
+Imports ACELogistica
+
+Public Class DGenerarRegMercTransito
+
+#Region " Variables "
+   Private m_formatofecha As String
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+      m_formatofecha = "yyyy-MM-dd HH:mm:ss.fff"
+   End Sub
+#End Region
+
+#Region " Procedimientos Almacenados "
+
+   Public Function cargarDetDif(ByRef x_list As List(Of EABAS_IngresosCompraDetalle), ByVal x_ordco_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelect(x_ordco_codigo), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New EABAS_IngresosCompraDetalle())
+               While reader.Read()
+                  Dim e_abas_ingresoscompradetalle As New EABAS_IngresosCompraDetalle()
+                  _utilitarios.ACCargarEsquemas(reader, e_abas_ingresoscompradetalle)
+                  e_abas_ingresoscompradetalle.Instanciar(ACEInstancia.Consulta)
+                  x_list.Add(e_abas_ingresoscompradetalle)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function cargarDetDifOrden(ByRef x_list As List(Of EABAS_IngresosCompraDetalle), ByVal x_ordco_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelectOrden(x_ordco_codigo), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New EABAS_IngresosCompraDetalle())
+               While reader.Read()
+                  Dim e_abas_ingresoscompradetalle As New EABAS_IngresosCompraDetalle()
+                  _utilitarios.ACCargarEsquemas(reader, e_abas_ingresoscompradetalle)
+                  e_abas_ingresoscompradetalle.Instanciar(ACEInstancia.Consulta)
+                  x_list.Add(e_abas_ingresoscompradetalle)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Datos: LOG_DOCCOSS_ObtenerSaldoEntrega
+   ''' </summary>
+   ''' <param name="x_docco_codigo">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function LOG_DOCCOSS_ObtenerSaldoEntrega(ByVal m_listabas_ingresoscompradetalle As List(Of EABAS_IngresosCompraDetalle), ByVal x_docco_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("LOG_DOCCOSS_ObtenerSaldoEntrega")
+            DAEnterprise.AgregarParametro("@DOCCO_Codigo", x_docco_codigo, DbType.String, 15)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _abas_ingresoscompradetalle As New EABAS_IngresosCompraDetalle()
+                  ACEsquemas.ACCargarEsquema(reader, _abas_ingresoscompradetalle)
+                  _abas_ingresoscompradetalle.Instanciar(ACEInstancia.Consulta)
+                  m_listabas_ingresoscompradetalle.Add(_abas_ingresoscompradetalle)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   ''' <summary> 
+   ''' Capa de Datos: LOG_ORDENSS_ObtenerSaldoEntrega
+   ''' </summary>
+   ''' <param name="x_ordco_codigo">Parametro 1: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function LOG_ORDENSS_ObtenerSaldoEntrega(ByVal m_listabas_ingresoscompradetalle As List(Of EABAS_IngresosCompraDetalle), ByVal x_ordco_codigo As String) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("LOG_ORDENSS_ObtenerSaldoEntrega")
+         DAEnterprise.AgregarParametro("@ORDCO_Codigo", x_ordco_codigo, DbType.String, 12)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _abas_ingresoscompradetalle As New EABAS_IngresosCompraDetalle()
+                  ACEsquemas.ACCargarEsquema(reader, _abas_ingresoscompradetalle)
+                  _abas_ingresoscompradetalle.Instanciar(ACEInstancia.Consulta)
+                  m_listabas_ingresoscompradetalle.Add(_abas_ingresoscompradetalle)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+
+   Public Function BusquedaDocsRegCompra(ByRef listEABAS_DocsCompra As List(Of EABAS_DocsCompra), ByVal Esquema As String, ByVal Tabla As String, ByVal x_join As List(Of ACJoin), ByVal x_where As Hashtable) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelect(Esquema, Tabla, x_join, x_where), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New EABAS_DocsCompra())
+               While reader.Read()
+                  Dim e_abas_docscompra As New EABAS_DocsCompra()
+                  _utilitarios.ACCargarEsquemas(reader, e_abas_docscompra)
+                  e_abas_docscompra.Instanciar(ACEInstancia.Consulta)
+                  listEABAS_DocsCompra.Add(e_abas_docscompra)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function BusquedaDocsRegCompraOrden(ByRef listEABAS_OrdenesCompra As List(Of EABAS_OrdenesCompra), ByVal Esquema As String, ByVal Tabla As String, ByVal x_join As List(Of ACJoin), ByVal x_where As Hashtable) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure(getSelectOrden(Esquema, Tabla, x_join, x_where), CommandType.Text)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               Dim _utilitarios As New ACEsquemas(New EABAS_OrdenesCompra())
+               While reader.Read()
+                  Dim e_abas_docscompra As New EABAS_OrdenesCompra()
+                  _utilitarios.ACCargarEsquemas(reader, e_abas_docscompra)
+                  e_abas_docscompra.Instanciar(ACEInstancia.Consulta)
+                  listEABAS_OrdenesCompra.Add(e_abas_docscompra)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Datos: LOG_INGCOSS_IngresoCompras
+   ''' </summary>
+   ''' <param name="x_cadena">Parametro 1: </param> 
+   ''' <param name="x_opcion">Parametro 2: </param> 
+   ''' <param name="x_todos">Parametro 3: </param> 
+   ''' <param name="x_fecini">Parametro 4: </param> 
+   ''' <param name="x_fecfin">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function LOG_INGCOSS_IngresoCompras(ByVal m_listabas_ordenescompra As List(Of EABAS_OrdenesCompra), ByVal x_cadena As String, ByVal x_opcion As Short, ByVal x_todos As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("LOG_INGCOSS_IngresoCompras")
+         DAEnterprise.AgregarParametro("@Cadena", x_cadena, DbType.String, 50)
+         DAEnterprise.AgregarParametro("@Opcion", x_opcion, DbType.Int16, 2)
+         DAEnterprise.AgregarParametro("@Todos", x_todos, DbType.Boolean, 1)
+         DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+         DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               While reader.Read()
+                  Dim _abas_ordenescompra As New EABAS_OrdenesCompra()
+                  ACEsquemas.ACCargarEsquema(reader, _abas_ordenescompra)
+                  _abas_ordenescompra.Instanciar(ACEInstancia.Consulta)
+                  m_listabas_ordenescompra.Add(_abas_ordenescompra)
+               End While
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+''' <summary> 
+   ''' Capa de Datos: LOG_INGCOSS_ObtenerIngresoCompra
+   ''' </summary>
+   ''' <param name="x_almac_id">Parametro 1: </param> 
+   ''' <param name="x_ingco_id">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function LOG_INGCOSS_ObtenerIngresoCompra(ByRef x_abas_ingresoscompra As EABAS_IngresosCompra, ByVal x_almac_id As Short, ByVal x_ingco_id As Long) As Boolean
+      Try
+         DAEnterprise.AsignarProcedure("LOG_INGCOSS_ObtenerIngresoCompra")
+         DAEnterprise.AgregarParametro("@ALMAC_Id", x_almac_id, DbType.Int16, 2)
+         DAEnterprise.AgregarParametro("@INGCO_Id", x_ingco_id, DbType.Int64, 8)
+         Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+            If reader.HasRows Then
+               reader.Read()
+               ACEsquemas.ACCargarEsquema(reader, x_abas_ingresoscompra)
+               x_abas_ingresoscompra.Instanciar(ACEInstancia.Consulta)
+
+               If reader.NextResult() Then
+                  x_abas_ingresoscompra.ListABAS_IngresosCompraDetalle = New List(Of EABAS_IngresosCompraDetalle)
+                  While reader.Read()
+                     Dim e_detalle As New EABAS_IngresosCompraDetalle()
+                     ACEsquemas.ACCargarEsquema(reader, e_detalle)
+                     e_detalle.Instanciar(ACEInstancia.Consulta)
+                     x_abas_ingresoscompra.ListABAS_IngresosCompraDetalle.Add(e_detalle)
+                  End While
+               End If
+               Return True
+            Else
+               Return False
+            End If
+         End Using
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#Region "Procedimientos Adicionales "
+   Private Function getSelect(ByVal x_ordco_codigo As String) As String
+      Dim sql As String = ""
+      Try
+         App.Inicializar()
+         sql = String.Format(App.Hash("DGenerarRegMercTransito.cargarDetDif").ToString(), x_ordco_codigo)
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getSelectOrden(ByVal x_ordco_codigo As String) As String
+      Dim sql As String = ""
+      Try
+         App.Inicializar()
+         sql = String.Format(App.Hash("DGenerarRegMercTransito.cargarDetDifOrden").ToString(), x_ordco_codigo)
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getSelect(ByVal Esquema As String, ByVal Tabla As String, ByVal x_join As List(Of ACJoin), ByVal x_where As Hashtable) As String
+      Dim sql As String = ""
+      Try
+         Dim _join As New ACGenerador(Of EABAS_DocsCompra)(m_formatofecha)
+         sql &= _join.getJoin(Esquema, Tabla, x_join, x_where)
+
+         App.Inicializar()
+         sql &= String.Format(App.Hash("DGenerarRegMercTransito.BusquedaDocsRegCompra").ToString())
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getSelectOrden(ByVal Esquema As String, ByVal Tabla As String, ByVal x_join As List(Of ACJoin), ByVal x_where As Hashtable) As String
+      Dim sql As String = ""
+      Try
+         Dim _join As New ACGenerador(Of EABAS_OrdenesCompra)(m_formatofecha)
+         sql &= _join.getJoin(Esquema, Tabla, x_join, x_where)
+
+         App.Inicializar()
+         sql &= String.Format(App.Hash("DGenerarRegMercTransito.BusquedaDocsRegCompraOrden").ToString())
+         Return sql
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#End Region
+
+#Region " Metodos "
+
+#End Region
+
+
+End Class
+

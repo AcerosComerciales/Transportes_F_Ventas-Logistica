@@ -1,0 +1,527 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class EABAS_IngresosCompra
+
+#Region " Campos "
+	
+	Private m_almac_id As Short
+	Private m_ingco_id As Long
+	Private m_tipos_codtipodocumento As String
+	Private m_entid_codigoproveedor As String
+	Private m_ordco_codigo As String
+	Private m_docco_codigo As String
+	Private m_ingco_codigo As String
+	Private m_ingco_ocitem As Integer
+	Private m_ingco_dcitem As Integer
+	Private m_ingco_serie As String
+	Private m_ingco_numero As Integer
+	Private m_ingco_fechaingreso As Date
+	Private m_ingco_fechadocumento As Date
+	Private m_ingco_observacion As String
+	Private m_ingco_estado As String
+	Private m_ingco_usrcrea As String
+	Private m_ingco_feccrea As Date
+	Private m_ingco_usrmod As String
+	Private m_ingco_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACELogistica.My.Resources.xmlABAS_IngresosCompra
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property ALMAC_Id() As Short
+		Get
+			return m_almac_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_almac_id) Then
+				If Not m_almac_id.Equals(value) Then
+					m_almac_id = value
+					OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+				End If
+			Else
+				m_almac_id = value
+				OnALMAC_IdChanged(m_almac_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Id() As Long
+		Get
+			return m_ingco_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_ingco_id) Then
+				If Not m_ingco_id.Equals(value) Then
+					m_ingco_id = value
+					OnINGCO_IdChanged(m_ingco_id, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_id = value
+				OnINGCO_IdChanged(m_ingco_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoDocumento() As String
+		Get
+			return m_tipos_codtipodocumento
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipodocumento) Then
+				If Not m_tipos_codtipodocumento.Equals(value) Then
+					m_tipos_codtipodocumento = value
+					OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipodocumento = value
+				OnTIPOS_CodTipoDocumentoChanged(m_tipos_codtipodocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_CodigoProveedor() As String
+		Get
+			return m_entid_codigoproveedor
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigoproveedor) Then
+				If Not m_entid_codigoproveedor.Equals(value) Then
+					m_entid_codigoproveedor = value
+					OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigoproveedor = value
+				OnENTID_CodigoProveedorChanged(m_entid_codigoproveedor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ORDCO_Codigo() As String
+		Get
+			return m_ordco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ordco_codigo) Then
+				If Not m_ordco_codigo.Equals(value) Then
+					m_ordco_codigo = value
+					OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_ordco_codigo = value
+				OnORDCO_CodigoChanged(m_ordco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property DOCCO_Codigo() As String
+		Get
+			return m_docco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_docco_codigo) Then
+				If Not m_docco_codigo.Equals(value) Then
+					m_docco_codigo = value
+					OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_docco_codigo = value
+				OnDOCCO_CodigoChanged(m_docco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Codigo() As String
+		Get
+			return m_ingco_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ingco_codigo) Then
+				If Not m_ingco_codigo.Equals(value) Then
+					m_ingco_codigo = value
+					OnINGCO_CodigoChanged(m_ingco_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_codigo = value
+				OnINGCO_CodigoChanged(m_ingco_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_OCItem() As Integer
+		Get
+			return m_ingco_ocitem
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_ingco_ocitem) Then
+				If Not m_ingco_ocitem.Equals(value) Then
+					m_ingco_ocitem = value
+					OnINGCO_OCItemChanged(m_ingco_ocitem, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_ocitem = value
+				OnINGCO_OCItemChanged(m_ingco_ocitem, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_DCItem() As Integer
+		Get
+			return m_ingco_dcitem
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_ingco_dcitem) Then
+				If Not m_ingco_dcitem.Equals(value) Then
+					m_ingco_dcitem = value
+					OnINGCO_DCItemChanged(m_ingco_dcitem, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_dcitem = value
+				OnINGCO_DCItemChanged(m_ingco_dcitem, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Serie() As String
+		Get
+			return m_ingco_serie
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ingco_serie) Then
+				If Not m_ingco_serie.Equals(value) Then
+					m_ingco_serie = value
+					OnINGCO_SerieChanged(m_ingco_serie, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_serie = value
+				OnINGCO_SerieChanged(m_ingco_serie, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Numero() As Integer
+		Get
+			return m_ingco_numero
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_ingco_numero) Then
+				If Not m_ingco_numero.Equals(value) Then
+					m_ingco_numero = value
+					OnINGCO_NumeroChanged(m_ingco_numero, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_numero = value
+				OnINGCO_NumeroChanged(m_ingco_numero, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_FechaIngreso() As Date
+		Get
+			return m_ingco_fechaingreso
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_ingco_fechaingreso) Then
+				If Not m_ingco_fechaingreso.Equals(value) Then
+					m_ingco_fechaingreso = value
+					OnINGCO_FechaIngresoChanged(m_ingco_fechaingreso, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_fechaingreso = value
+				OnINGCO_FechaIngresoChanged(m_ingco_fechaingreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_FechaDocumento() As Date
+		Get
+			return m_ingco_fechadocumento
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_ingco_fechadocumento) Then
+				If Not m_ingco_fechadocumento.Equals(value) Then
+					m_ingco_fechadocumento = value
+					OnINGCO_FechaDocumentoChanged(m_ingco_fechadocumento, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_fechadocumento = value
+				OnINGCO_FechaDocumentoChanged(m_ingco_fechadocumento, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Observacion() As String
+		Get
+			return m_ingco_observacion
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ingco_observacion) Then
+				If Not m_ingco_observacion.Equals(value) Then
+					m_ingco_observacion = value
+					OnINGCO_ObservacionChanged(m_ingco_observacion, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_observacion = value
+				OnINGCO_ObservacionChanged(m_ingco_observacion, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_Estado() As String
+		Get
+			return m_ingco_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_ingco_estado) Then
+				If Not m_ingco_estado.Equals(value) Then
+					m_ingco_estado = value
+					OnINGCO_EstadoChanged(m_ingco_estado, EventArgs.Empty)
+				End If
+			Else
+				m_ingco_estado = value
+				OnINGCO_EstadoChanged(m_ingco_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property INGCO_UsrCrea() As String
+		Get
+			return m_ingco_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_ingco_usrcrea = value
+		End Set
+	End Property
+
+	Public Property INGCO_FecCrea() As Date
+		Get
+			return m_ingco_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_ingco_feccrea = value
+		End Set
+	End Property
+
+	Public Property INGCO_UsrMod() As String
+		Get
+			return m_ingco_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_ingco_usrmod = value
+		End Set
+	End Property
+
+	Public Property INGCO_FecMod() As Date
+		Get
+			return m_ingco_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_ingco_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "ABAS_IngresosCompra"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Logistica"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event ALMAC_IdChanged As EventHandler
+	Public Event INGCO_IdChanged As EventHandler
+	Public Event TIPOS_CodTipoDocumentoChanged As EventHandler
+	Public Event ENTID_CodigoProveedorChanged As EventHandler
+	Public Event ORDCO_CodigoChanged As EventHandler
+	Public Event DOCCO_CodigoChanged As EventHandler
+	Public Event INGCO_CodigoChanged As EventHandler
+	Public Event INGCO_OCItemChanged As EventHandler
+	Public Event INGCO_DCItemChanged As EventHandler
+	Public Event INGCO_SerieChanged As EventHandler
+	Public Event INGCO_NumeroChanged As EventHandler
+	Public Event INGCO_FechaIngresoChanged As EventHandler
+	Public Event INGCO_FechaDocumentoChanged As EventHandler
+	Public Event INGCO_ObservacionChanged As EventHandler
+	Public Event INGCO_EstadoChanged As EventHandler
+
+	Public Sub OnALMAC_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ALMAC_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoProveedorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoProveedorChanged(sender, e)
+	End Sub
+
+	Public Sub OnORDCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ORDCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnDOCCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent DOCCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_OCItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_OCItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_DCItemChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_DCItemChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_SerieChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_SerieChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_NumeroChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_NumeroChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_FechaIngresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_FechaIngresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_FechaDocumentoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_FechaDocumentoChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_ObservacionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_ObservacionChanged(sender, e)
+	End Sub
+
+	Public Sub OnINGCO_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent INGCO_EstadoChanged(sender, e)
+	End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

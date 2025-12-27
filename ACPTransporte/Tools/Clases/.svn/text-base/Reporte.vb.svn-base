@@ -1,0 +1,411 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+
+
+Imports CrystalDecisions
+
+Imports Microsoft.VisualBasic.PowerPacks.Printing.Compatibility.VB6
+Imports CrystalDecisions.CrystalReports.Engine
+
+Public Class Reporte
+#Region " Variables "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+
+#Region "Cuadre de Caja "
+
+   Public Function CuadreCaja(ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_imprimir As Boolean)
+      Try
+         Dim _btran As New BReporte(GApp.PuntoVenta)
+         Dim m_Path_Plantillas As String = System.IO.Path.Combine(Application.StartupPath, "Plantillas")
+         Dim strReportName As String = "CRCuadreCaja.rpt"
+         Dim strReportPath As String = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+         If _btran.CuadreCajaC(x_fecini, x_fecfin, GApp.PuntoVenta) Then
+            If x_imprimir Then
+
+            Else ' Ver
+               VisualizarCC(_btran, strReportPath, x_fecini, x_fecfin)
+            End If
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function VisualizarCC(ByRef m_reporte As BReporte, ByVal strReportPath As String, _
+                              ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         Dim _dsdatos As New DSCuadreCaja()
+         getDatosCC(m_reporte, _dsdatos, x_fecini, x_fecfin)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+
+
+         Dim reporte As New RReportView(Informe) With {.StartPosition = FormStartPosition.CenterScreen}
+         reporte.Text = String.Format("Reporte de Cuadre de Caja: del {0:dd/MM/yyyy} Al {1:dd/MM/yyyy}", x_fecini, x_fecfin)
+         reporte.Show()
+
+         'Informe.Close()
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getDatosCC(ByVal m_reporte As BReporte, ByRef _dsdatos As DSCuadreCaja, _
+                             ByVal x_fecini As Date, ByVal x_fecfin As Date)
+      Try
+         Dim _dr As DataRow = _dsdatos.DTBase.NewRow()
+         _dr("Codigo") = "0"
+         _dr("SaldoInicial") = m_reporte.SaldoCaja.SaldoInicial
+         _dr("FecIni") = x_fecini.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         _dr("FecFin") = x_fecfin.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         _dr("Ingresos") = m_reporte.SaldoCaja.Ingreso.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+         _dr("Egresos") = m_reporte.SaldoCaja.Egreso.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+         _dr("Saldo") = (m_reporte.SaldoCaja.Saldo).ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+         _dr("Empresa") = GApp.EEmpresa.EMPR_Desc
+         _dr("RUC") = GApp.EmpresaRUC
+         _dsdatos.DTBase.Rows.Add(_dr)
+
+         For Each item As ECuadreCaja In m_reporte.ListCuadreCaja
+            Dim x_dr As DataRow = _dsdatos.DTReporteCuadreCaja.NewRow()
+            x_dr("Codigo") = "0"
+            x_dr("Orden") = item.Orden
+            x_dr("ViajeFlete") = String.Format("CV:{0} / CF:{1}", item.VIAJE_Id, item.FLETE_Id)
+            x_dr("Titulo") = item.Titulo
+            x_dr("Title") = item.Title
+            x_dr("Glosa") = item.Glosa
+            x_dr("Documento") = item.Documento
+            x_dr("Fecha") = item.Fecha.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("FechaFlete") = item.FechaFlete.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("ENTID_RazonSocial") = item.ENTID_RazonSocial
+            x_dr("ENTID_NroDocumento") = item.ENTID_NroDocumento
+            x_dr("Moneda") = item.Moneda
+            x_dr("TipoDocumento") = item.TipoDocumento
+            x_dr("ImpDolares") = item.ImpDolares.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("ImpSoles") = item.ImpSoles.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("TCambioVenta") = item.TCambioVenta.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo3d))
+
+            _dsdatos.DTReporteCuadreCaja.Rows.Add(x_dr)
+         Next
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Cuadre de Pendientes "
+   Public Function CuadrePendientes(ByVal x_fecfin As Date, ByVal x_imprimir As Boolean, ByVal x_listado As Boolean, ByVal x_pvent_id As Long)
+      Try
+         Dim _btran As New BReporte(GApp.PuntoVenta)
+         Dim m_Path_Plantillas As String = System.IO.Path.Combine(Application.StartupPath, "Plantillas")
+         Dim strReportName As String = "CRPendientes.rpt"
+         If x_listado Then
+            strReportName = "CRPendientesListado.rpt"
+         End If
+
+         Dim strReportPath As String = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+         If _btran.CuadrePendientes(x_fecfin, x_pvent_id) Then
+            If x_imprimir Then
+
+            Else ' Ver
+               VisualizarCP(_btran, strReportPath, x_fecfin)
+            End If
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function VisualizarCP(ByRef m_reporte As BReporte, ByVal strReportPath As String, _
+                            ByVal x_fecfin As Date) As Boolean
+      Try
+         Dim _dsdatos As New DSCPendiente()
+         getDatosCP(m_reporte, _dsdatos, x_fecfin)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+
+         Dim reporte As New RReportView(Informe) With {.StartPosition = FormStartPosition.CenterScreen}
+         reporte.Text = String.Format("Reporte de Cuadre de Pendientes: Al {0:dd/MM/yyyy}", x_fecfin)
+         reporte.Show()
+
+         'Informe.Close()
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getDatosCP(ByVal m_reporte As BReporte, ByRef _dsdatos As DSCPendiente, _
+                             ByVal x_fecfin As Date)
+      Try
+         Dim _fletes As Decimal = 0
+         For Each item As ETRAN_Fletes In m_reporte.ListTRAN_Fletes
+            If Not item.ENTID_NroDocumento.Equals("00000000001") Then
+               _fletes += item.ImpSoles
+            End If
+         Next
+
+         Dim _dr As DataRow = _dsdatos.DTCabPendiente.NewRow()
+         _dr("Codigo") = "0"
+         _dr("Fecha") = x_fecfin.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         _dr("TotalGeneral") = _fletes
+         _dr("Empresa") = GApp.EEmpresa.EMPR_Desc
+         _dr("RUC") = GApp.EmpresaRUC
+         _dsdatos.DTCabPendiente.Rows.Add(_dr)
+
+         For Each item As ETRAN_Fletes In m_reporte.ListTRAN_Fletes
+            Dim x_dr As DataRow = _dsdatos.DTCPendientes.NewRow()
+            x_dr("Codigo") = "0"
+            x_dr("Fecha") = item.DOCVE_FechaDocumento.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("FechaFlete") = item.FLETE_Fecha.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("TipoDocumento") = item.TipoDocumento
+            x_dr("NumeroDoc") = item.ENTID_NroDocumento
+            x_dr("Cliente") = item.ENTID_RazonSocial
+            x_dr("Moneda") = item.TIPOS_TipoMoneda
+            x_dr("NroComprobante") = item.Documento
+            x_dr("ViajeFlete") = String.Format("CV:{0} / CF:{1}", item.VIAJE_Id, item.FLETE_Id)
+            x_dr("Glosa") = item.FLETE_Glosa
+            x_dr("PagoFlete") = item.TotalPagado
+            x_dr("TotalCobrado") = item.Pago
+            x_dr("GlosaAgrupada") = item.GlosaAgrupada
+
+            x_dr("SaldoDol") = item.ImpDolares.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("SaldoSol") = item.ImpSoles.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("Cobrado") = item.Pago.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("TipoCambio") = item.TCambioVenta.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo4d))
+
+            _dsdatos.DTCPendientes.Rows.Add(x_dr)
+         Next
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Guias de Cemento "
+   Public Function GuiasCemento(ByVal m_reporte As List(Of ETRAN_GuiasTransportista), ByVal x_fecini As Date, ByVal x_fecfin As Date)
+      Try
+         Dim m_Path_Plantillas As String = System.IO.Path.Combine(Application.StartupPath, "Plantillas")
+         Dim strReportName As String = "CRGuiasCemento.rpt"
+         Dim strReportPath As String = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+
+         Dim _dsdatos As New DSGuiasCemento()
+         getDatosGC(m_reporte, _dsdatos)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+
+
+         Dim reporte As New RReportView(Informe) With {.StartPosition = FormStartPosition.CenterScreen}
+         reporte.Text = String.Format("Reporte de Guias de Cemento: del {0:dd/MM/yyyy} Al {1:dd/MM/yyyy}", x_fecini, x_fecfin)
+         reporte.Show()
+
+         'Informe.Close()
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getDatosGC(ByVal m_reporte As List(Of ETRAN_GuiasTransportista), ByVal _dsdatos As DSGuiasCemento)
+      Try
+         Dim _dr As DataRow = _dsdatos.DTCabecera.NewRow()
+         _dr("Codigo") = "0"
+         _dr("Empresa") = GApp.EEmpresa.EMPR_Desc
+         _dr("RUC") = GApp.EmpresaRUC
+         '_dsdatos.DTBase.Rows.Add(_dr)
+
+         'For Each item As ETRAN_GuiasTransportista In m_reporte
+         '   Dim x_dr As DataRow = _dsdatos.DTDetalle.NewRow()
+         '   x_dr("Codigo") = "0"
+
+         '   x_dr("Documento") = item.Documento
+         '   x_dr("Documento") = item.Documento
+         '   x_dr("Fecha") = item.Fecha.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         '   x_dr("FechaFlete") = item.FechaFlete.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         '   x_dr("ImpDolares") = item.ImpDolares.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+         '   x_dr("ImpSoles") = item.ImpSoles.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+         '   x_dr("TCambioVenta") = item.TCambioVenta.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo3d))
+
+         '   _dsdatos.DTReporteCuadreCaja.Rows.Add(x_dr)
+         'Next
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Reporte de Cuentas Corrientes "
+
+   Public Function RCuentaCorriente(ByVal x_fecIni As Date, ByVal x_fecfin As Date, ByVal x_fecha As Boolean, ByVal x_entid_codigocliente As String)
+      Dim strReportPath As String
+      Dim strReportName As String = "CRCuentasCorrientes.rpt"
+      Try
+         Dim _btran As New BReporte(GApp.PuntoVenta, GApp.Periodo, GApp.Sucursal)
+         Dim m_Path_Plantillas As String = System.IO.Path.Combine(Application.StartupPath, "Plantillas")
+
+         If _btran.REPOSS_CuentasCorrientes(x_fecIni, x_fecfin, x_entid_codigocliente, GApp.PuntoVenta, x_fecha) Then
+            strReportPath = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+            If _btran.VENT_CAJASS_CobranzaPendiente(x_fecIni, x_fecfin, GApp.PuntoVenta, False, Nothing, x_entid_codigocliente) Then
+               strReportPath = System.IO.Path.Combine(m_Path_Plantillas, strReportName)
+            End If
+            VisualizarCuentasCorrientes(_btran, strReportPath, x_fecIni, x_fecfin)
+            Return True
+         End If
+         Return False
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function VisualizarCuentasCorrientes(ByRef m_reporte As BReporte, ByVal strReportPath As String, ByVal x_fecIni As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         Dim _dsdatos As New DSCuentaCorriente()
+         Dim _dsdatosCP As New DSCuadrePendientes()
+         getDatosCuentasCorrientes(m_reporte, _dsdatos, x_fecIni, x_fecfin)
+         getDatosCobranzaPendiente(m_reporte, _dsdatosCP, x_fecIni, x_fecfin)
+
+         Dim Informe As New ReportDocument
+         Informe.Load(strReportPath)
+         Informe.SetDataSource(_dsdatos)
+         Informe.Subreports(0).SetDataSource(_dsdatosCP)
+
+         Dim reporte As New RReportView(Informe) With {.StartPosition = FormStartPosition.CenterScreen}
+         reporte.Text = String.Format("Reporte de Cuentas Corrientes: Del {0:dd/MM/yyyy} Al {1:dd/MM/yyyy}", x_fecIni, x_fecfin)
+         reporte.Show()
+
+         'Informe.Close()
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getDatosCuentasCorrientes(ByVal m_reporte As BReporte, ByRef _dsdatos As DSCuentaCorriente, ByVal x_fecini As Date, ByVal x_fecfin As Date)
+      Try
+         Dim _fletes As Decimal = 0
+         'For Each item As EVCuadrePendientes In m_reporte.ListVCuadrePendientes
+         '   If Not item.ENTID_NroDocumento.Equals("00000000001") Then
+         '      _fletes += item.ImpSoles
+         '   End If
+         'Next
+
+         Dim _dr As DataRow = _dsdatos.DTCabecera.NewRow()
+         _dr("Codigo") = "0"
+         _dr("FecIni") = x_fecini.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         _dr("FecFin") = x_fecfin.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         '_dr("TotalGeneral") = _fletes
+         _dr("Empresa") = GApp.EEmpresa.EMPR_Desc
+         _dr("PuntoVenta") = GApp.EPuntoVenta.PVENT_Descripcion
+         '_dr("RUC") = GApp.RUC_Empresa
+         _dr("ENTID_CodigoCliente") = m_reporte.ListVENT_DocsVenta(0).ENTID_Codigo
+         _dr("ENTID_RazonSocial") = m_reporte.ListVENT_DocsVenta(0).ENTID_RazonSocial
+         _dsdatos.DTCabecera.Rows.Add(_dr)
+
+         For Each item As ACEVentas.EVENT_DocsVenta In m_reporte.ListVENT_DocsVenta
+            Dim x_dr As DataRow = _dsdatos.DTDetalle.NewRow()
+            x_dr("Codigo") = "0"
+            x_dr("DPAGO_Fecha") = item.DPAGO_Fecha.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("Documento") = item.Documento
+            x_dr("DOCVE_FechaDocumento") = item.DOCVE_FechaDocumento.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("DPAGO_Numero") = item.DPAGO_Numero
+            x_dr("CAJA_Fecha") = item.CAJA_Fecha.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("TIPOS_TipoPago") = item.TIPOS_TipoPago
+            x_dr("DOCVE_Codigo") = item.DOCVE_Codigo
+            x_dr("TIPOS_TipoMonedaPago") = item.TIPOS_TipoMonedaPago
+            x_dr("DPAGO_Importe") = item.DPAGO_Importe.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("CAJA_Importe") = item.CAJA_Importe.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("TotalPagado") = item.TotalPagado.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("TotalPagadoDolares") = item.TotalPagadoDolares.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("Glosa") = item.Glosa '& item.DOCVE_TipoCambio.ToString(Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo4d))
+            x_dr("CAJA_Glosa") = item.CAJA_Glosa
+            x_dr("DOCVE_TipoCambio") = item.DOCVE_TipoCambio.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo4d))
+            _dsdatos.DTDetalle.Rows.Add(x_dr)
+         Next
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Function getDatosCobranzaPendiente(ByVal m_reporte As BReporte, ByRef _dsdatos As DSCuadrePendientes, ByVal x_fecini As Date, ByVal x_fecfin As Date)
+      Try
+         Dim _fletes As Decimal = 0
+         'For Each item As EVCuadrePendientes In m_reporte.ListVCuadrePendientes
+         '   If Not item.ENTID_NroDocumento.Equals("00000000001") Then
+         '      _fletes += item.ImpSoles
+         '   End If
+         'Next
+
+         Dim _dr As DataRow = _dsdatos.DTCabecera.NewRow()
+         _dr("Codigo") = "0"
+         _dr("FecIni") = x_fecini.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         _dr("FecFin") = x_fecfin.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+         '_dr("TotalGeneral") = _fletes
+         _dr("Empresa") = GApp.EEmpresa.EMPR_Desc
+         _dr("PuntoVenta") = GApp.EPuntoVenta.PVENT_Descripcion
+         '_dr("RUC") = GApp.RUC_Empresa
+         _dsdatos.DTCabecera.Rows.Add(_dr)
+
+         For Each item As ACEVentas.ECCuadrePendientes In m_reporte.ListCCuadrePendientes
+            Dim x_dr As DataRow = _dsdatos.DTCuadreCaja.NewRow()
+            x_dr("Codigo") = "0"
+            x_dr("DOCVE_FechaDocumento") = item.DOCVE_FechaDocumento.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FormatoFecha))
+            x_dr("Documento") = item.Documento
+            x_dr("ENTID_Codigo") = item.ENTID_Codigo
+            x_dr("TipoDocumento") = item.TipoDocumento
+            x_dr("ENTID_RazonSocial") = " " & item.ENTID_RazonSocial
+            x_dr("TIPOS_TipoMoneda") = item.TIPOS_TipoMoneda
+            x_dr("Pago") = item.Pago '.ToString(Parametros.GetParametro(ACEVentas.EParametros.TipoParametros.pg_FMondo2d))
+            x_dr("PagoDolares") = item.PagoDolares
+            x_dr("ImpSoles") = item.ImpSoles
+            x_dr("ImpDolares") = item.ImpDolares
+            x_dr("PendienteSoles") = item.PendienteSoles
+            x_dr("PendienteDolares") = item.PendienteDolares
+            x_dr("TCambioVenta") = item.TCambioVenta.ToString("##0.000")
+            x_dr("ENTID_RazonSocialVendedor") = item.ENTID_RazonSocialVendedor
+            x_dr("ENTID_CodigoVendedor") = item.ENTID_CodigoVendedor
+            x_dr("Cheque") = item.Cheque
+
+            _dsdatos.DTCuadreCaja.Rows.Add(x_dr)
+         Next
+         Return True
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#End Region
+
+#Region " Metodos de Controles"
+
+#End Region
+End Class

@@ -1,0 +1,491 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACDTransporte
+END
+DTRAN_Neumaticos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Neumaticos.Parcial.vb
+END
+DTRAN_GuiasTransportistaDetalles.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_GuiasTransportistaDetalles.vb
+END
+DTRAN_CombustibleConsumo.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CombustibleConsumo.Parcial.vb
+END
+DTRAN_VehiculosMantenimiento.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimiento.vb
+END
+DTRAN_Documentos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Documentos.Parcial.vb
+END
+DTRAN_ViajesGuiasRemision.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesGuiasRemision.Parcial.vb
+END
+DTRAN_ViajesIngresos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesIngresos.vb
+END
+DTRAN_Rutas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Rutas.vb
+END
+DTRAN_GuiasTransportistaDetalles.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_GuiasTransportistaDetalles.Parcial.vb
+END
+DTRAN_Vehiculos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACDTransporte/DTRAN_Vehiculos.vb
+END
+DTRAN_NeumaticosIncidencias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_NeumaticosIncidencias.vb
+END
+DTRAN_VehiculosMantenimiento.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimiento.Parcial.vb
+END
+DTRAN_ViajesIngresos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesIngresos.Parcial.vb
+END
+DTRAN_Rutas.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Rutas.Parcial.vb
+END
+DTRAN_NeumaticosIncidencias.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_NeumaticosIncidencias.Parcial.vb
+END
+DTRAN_Vehiculos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Vehiculos.Parcial.vb
+END
+ACDTransporte.vbproj
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACDTransporte/ACDTransporte.vbproj
+END
+DTRAN_FletePorRuta.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/AcerosComerciales_ERP/!svn/ver/2197/trunk/Transportes/ACDTransporte/DTRAN_FletePorRuta.vb
+END
+DTRAN_VehiculosMantenimientoDocCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimientoDocCompra.vb
+END
+DTRAN_Fletes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Fletes.vb
+END
+DTRAN_VehiculosMantenimientoDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimientoDetalle.vb
+END
+DTRAN_Recibos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/AcerosComerciales_ERP/!svn/ver/2642/trunk/Transportes/ACDTransporte/DTRAN_Recibos.vb
+END
+DTRAN_FletePorRuta.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2197/trunk/Transportes/ACDTransporte/DTRAN_FletePorRuta.Parcial.vb
+END
+DTRAN_VehiculosNeumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosNeumaticos.vb
+END
+DTRAN_VehiculosMantenimientoDocCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AcerosComerciales_ERP/!svn/ver/2654/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimientoDocCompra.Parcial.vb
+END
+DTRAN_Fletes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Fletes.Parcial.vb
+END
+DTRAN_VehiculosMantenimientoDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosMantenimientoDetalle.Parcial.vb
+END
+DTRAN_VehiculosInventario.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosInventario.vb
+END
+DTRAN_Recibos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Recibos.Parcial.vb
+END
+DTRAN_ViajesVentas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesVentas.vb
+END
+DTRAN_ViajesVehiculos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesVehiculos.vb
+END
+DTRAN_VehiculosNeumaticos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosNeumaticos.Parcial.vb
+END
+DTRAN_GuiasTransportista.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_GuiasTransportista.vb
+END
+DTRAN_VehiculosRanflas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosRanflas.vb
+END
+DTRAN_VehiculosInventario.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2172/trunk/Transportes/ACDTransporte/DTRAN_VehiculosInventario.Parcial.vb
+END
+DTRAN_VehiculosConductores.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosConductores.vb
+END
+DTRAN_DocumentosDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_DocumentosDetalle.vb
+END
+DTRAN_ViajesVentas.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesVentas.Parcial.vb
+END
+DTRAN_ViajesVehiculos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesVehiculos.Parcial.vb
+END
+DTRAN_GuiasTransportista.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_GuiasTransportista.Parcial.vb
+END
+DTRAN_Viajes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/AcerosComerciales_ERP/!svn/ver/2549/trunk/Transportes/ACDTransporte/DTRAN_Viajes.vb
+END
+DTRAN_VehiculosRanflas.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosRanflas.Parcial.vb
+END
+DTRAN_MovimientosAlmacenes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_MovimientosAlmacenes.vb
+END
+DTRAN_VehiculosConductores.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosConductores.Parcial.vb
+END
+DTRAN_DocumentosDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_DocumentosDetalle.Parcial.vb
+END
+DTRAN_Ranflas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Ranflas.vb
+END
+DTRAN_Conductores.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Conductores.vb
+END
+DTRAN_Piezas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACDTransporte/DTRAN_Piezas.vb
+END
+DTRAN_Viajes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Viajes.Parcial.vb
+END
+DTRAN_MovimientosAlmacenes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_MovimientosAlmacenes.Parcial.vb
+END
+DTRAN_Proveedores.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Proveedores.vb
+END
+DTRAN_Ranflas.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Ranflas.Parcial.vb
+END
+DTRAN_MovimientosNeumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_MovimientosNeumaticos.vb
+END
+DTRAN_Conductores.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Conductores.Parcial.vb
+END
+DTRAN_OrdenesTransportes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_OrdenesTransportes.vb
+END
+DTRAN_Piezas.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Piezas.Parcial.vb
+END
+DTRAN_Proveedores.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Proveedores.Parcial.vb
+END
+DTRAN_VehiculosSeguros.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosSeguros.vb
+END
+DTRAN_ViajesNeumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesNeumaticos.vb
+END
+DTRAN_IncidenciasViajes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_IncidenciasViajes.vb
+END
+DTRAN_MovimientosNeumaticos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_MovimientosNeumaticos.Parcial.vb
+END
+DTRAN_OrdenesTransportes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_OrdenesTransportes.Parcial.vb
+END
+DTRAN_ViajesNeumaticos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesNeumaticos.Parcial.vb
+END
+DTRAN_VehiculosSeguros.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosSeguros.Parcial.vb
+END
+DTRAN_CotizacionesDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CotizacionesDetalle.vb
+END
+DTRAN_IncidenciasViajes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_IncidenciasViajes.Parcial.vb
+END
+DTRAN_Cotizaciones.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Cotizaciones.vb
+END
+DTRAN_VehiculosInventarioDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2172/trunk/Transportes/ACDTransporte/DTRAN_VehiculosInventarioDetalle.vb
+END
+DTRAN_VehiculosIncidencias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosIncidencias.vb
+END
+DTRAN_CotizacionesFletes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CotizacionesFletes.vb
+END
+DTRAN_CotizacionesDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CotizacionesDetalle.Parcial.vb
+END
+DTRAN_ViajesGastos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesGastos.vb
+END
+DTRAN_Cotizaciones.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Cotizaciones.Parcial.vb
+END
+DTRAN_VehiculosInventarioDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/AcerosComerciales_ERP/!svn/ver/2172/trunk/Transportes/ACDTransporte/DTRAN_VehiculosInventarioDetalle.Parcial.vb
+END
+DTRAN_VehiculosIncidencias.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_VehiculosIncidencias.Parcial.vb
+END
+DTRAN_CotizacionesFletes.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CotizacionesFletes.Parcial.vb
+END
+DTRAN_Neumaticos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_Neumaticos.vb
+END
+DTRAN_CombustibleConsumo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_CombustibleConsumo.vb
+END
+DTRAN_ViajesGastos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesGastos.Parcial.vb
+END
+DTRAN_Documentos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/AcerosComerciales_ERP/!svn/ver/2648/trunk/Transportes/ACDTransporte/DTRAN_Documentos.vb
+END
+DTRAN_ViajesGuiasRemision.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Transportes/ACDTransporte/DTRAN_ViajesGuiasRemision.vb
+END

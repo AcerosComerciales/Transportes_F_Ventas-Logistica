@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_MovimientosNeumaticos" Esquema="Transportes" Prefijo="MOVNM">
+  <Nombre>TRAN_MovimientosNeumaticos</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="MOVNM_Id">MOVNM_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodOrigen">TIPOS_CodOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodDestino">TIPOS_CodDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCMT_IdOrden">DOCMT_IdOrden</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_Fecha">MOVNM_Fecha</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UbicacionDestino">MOVNM_UbicacionDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_IdDestino">MOVNM_IdDestino</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UbicacionOrigen">MOVNM_UbicacionOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_IdOrigen">MOVNM_IdOrigen</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FecAsignacion">MOVNM_FecAsignacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FecRetiro">MOVNM_FecRetiro</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_Glosa">MOVNM_Glosa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_Motivo">MOVNM_Motivo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_Estado">MOVNM_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UsrCrea">MOVNM_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FecCrea">MOVNM_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UsrMod">MOVNM_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FecMod">MOVNM_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="MOVNM_Id">MOVNM_Id</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_Id">DOCMT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_Id">NEUMA_Id</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

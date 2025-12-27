@@ -1,0 +1,1026 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ETRAN_Viajes
+
+#Region " Campos "
+	
+	Private m_viaje_id As Long
+	Private m_zonas_codigo As String
+	Private m_sucur_id As Short
+	Private m_vhcon_id As Long
+	Private m_vehrn_id As Long
+	Private m_viaje_codigo As String
+	Private m_viaje_origen As String
+	Private m_viaje_destino As String
+	Private m_viaje_fecsalida As Date
+	Private m_viaje_fecllegada As Date
+	Private m_viaje_descripcion As String
+	Private m_viaje_presupuesto As XmlDocument
+	Private m_viaje_nro As String
+	Private m_viaje_idxvehiculo As Long
+	Private m_viaje_idxconductor As Long
+	Private m_viaje_montopresupuesto As Decimal
+	Private m_viaje_kmtotal As Decimal
+	Private m_viaje_consumoestimado As Decimal
+	Private m_viaje_consumorealizado As Decimal
+	Private m_viaje_combconsumido As Decimal
+	Private m_viaje_combustibleinicio As Decimal
+	Private m_viaje_egresos As Decimal
+	Private m_viaje_ingresos As Decimal
+	Private m_viaje_saldo As Decimal
+	Private m_viaje_pagoconductor As Decimal
+	Private m_viaje_gastosconductor As Decimal
+	Private m_viaje_totrecingreso As Decimal
+	Private m_viaje_totrecegreso As Decimal
+	Private m_viaje_saldoconductor As Decimal
+	Private m_viaje_estado As String
+	Private m_viaje_anulado As Boolean
+	Private m_viaje_fecanulado As Date
+	Private m_pvent_id As Long
+	Private m_viaje_scancombustible As Decimal
+	Private m_viaje_scankm As Decimal
+	Private m_viaje_scanfecha As Date
+	Private m_viaje_usrcrea As String
+	Private m_viaje_feccrea As Date
+	Private m_viaje_usrmod As String
+	Private m_viaje_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACETransporte.My.Resources.xmlTRAN_Viajes
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property VIAJE_Id() As Long
+		Get
+			return m_viaje_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_viaje_id) Then
+				If Not m_viaje_id.Equals(value) Then
+					m_viaje_id = value
+					OnVIAJE_IdChanged(m_viaje_id, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_id = value
+				OnVIAJE_IdChanged(m_viaje_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ZONAS_Codigo() As String
+		Get
+			return m_zonas_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_zonas_codigo) Then
+				If Not m_zonas_codigo.Equals(value) Then
+					m_zonas_codigo = value
+					OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_zonas_codigo = value
+				OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property SUCUR_Id() As Short
+		Get
+			return m_sucur_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_sucur_id) Then
+				If Not m_sucur_id.Equals(value) Then
+					m_sucur_id = value
+					OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+				End If
+			Else
+				m_sucur_id = value
+				OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VHCON_Id() As Long
+		Get
+			return m_vhcon_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_vhcon_id) Then
+				If Not m_vhcon_id.Equals(value) Then
+					m_vhcon_id = value
+					OnVHCON_IdChanged(m_vhcon_id, EventArgs.Empty)
+				End If
+			Else
+				m_vhcon_id = value
+				OnVHCON_IdChanged(m_vhcon_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VEHRN_Id() As Long
+		Get
+			return m_vehrn_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_vehrn_id) Then
+				If Not m_vehrn_id.Equals(value) Then
+					m_vehrn_id = value
+					OnVEHRN_IdChanged(m_vehrn_id, EventArgs.Empty)
+				End If
+			Else
+				m_vehrn_id = value
+				OnVEHRN_IdChanged(m_vehrn_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Codigo() As String
+		Get
+			return m_viaje_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_codigo) Then
+				If Not m_viaje_codigo.Equals(value) Then
+					m_viaje_codigo = value
+					OnVIAJE_CodigoChanged(m_viaje_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_codigo = value
+				OnVIAJE_CodigoChanged(m_viaje_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Origen() As String
+		Get
+			return m_viaje_origen
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_origen) Then
+				If Not m_viaje_origen.Equals(value) Then
+					m_viaje_origen = value
+					OnVIAJE_OrigenChanged(m_viaje_origen, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_origen = value
+				OnVIAJE_OrigenChanged(m_viaje_origen, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Destino() As String
+		Get
+			return m_viaje_destino
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_destino) Then
+				If Not m_viaje_destino.Equals(value) Then
+					m_viaje_destino = value
+					OnVIAJE_DestinoChanged(m_viaje_destino, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_destino = value
+				OnVIAJE_DestinoChanged(m_viaje_destino, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_FecSalida() As Date
+		Get
+			return m_viaje_fecsalida
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_viaje_fecsalida) Then
+				If Not m_viaje_fecsalida.Equals(value) Then
+					m_viaje_fecsalida = value
+					OnVIAJE_FecSalidaChanged(m_viaje_fecsalida, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_fecsalida = value
+				OnVIAJE_FecSalidaChanged(m_viaje_fecsalida, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_FecLlegada() As Date
+		Get
+			return m_viaje_fecllegada
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_viaje_fecllegada) Then
+				If Not m_viaje_fecllegada.Equals(value) Then
+					m_viaje_fecllegada = value
+					OnVIAJE_FecLlegadaChanged(m_viaje_fecllegada, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_fecllegada = value
+				OnVIAJE_FecLlegadaChanged(m_viaje_fecllegada, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Descripcion() As String
+		Get
+			return m_viaje_descripcion
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_descripcion) Then
+				If Not m_viaje_descripcion.Equals(value) Then
+					m_viaje_descripcion = value
+					OnVIAJE_DescripcionChanged(m_viaje_descripcion, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_descripcion = value
+				OnVIAJE_DescripcionChanged(m_viaje_descripcion, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Presupuesto() As XmlDocument
+		Get
+			return m_viaje_presupuesto
+		End Get
+		Set(ByVal value As XmlDocument)
+			If Not IsNothing(m_viaje_presupuesto) Then
+				If Not m_viaje_presupuesto.Equals(value) Then
+					m_viaje_presupuesto = value
+					OnVIAJE_PresupuestoChanged(m_viaje_presupuesto, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_presupuesto = value
+				OnVIAJE_PresupuestoChanged(m_viaje_presupuesto, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Nro() As String
+		Get
+			return m_viaje_nro
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_nro) Then
+				If Not m_viaje_nro.Equals(value) Then
+					m_viaje_nro = value
+					OnVIAJE_NroChanged(m_viaje_nro, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_nro = value
+				OnVIAJE_NroChanged(m_viaje_nro, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_IdxVehiculo() As Long
+		Get
+			return m_viaje_idxvehiculo
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_viaje_idxvehiculo) Then
+				If Not m_viaje_idxvehiculo.Equals(value) Then
+					m_viaje_idxvehiculo = value
+					OnVIAJE_IdxVehiculoChanged(m_viaje_idxvehiculo, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_idxvehiculo = value
+				OnVIAJE_IdxVehiculoChanged(m_viaje_idxvehiculo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_IdxConductor() As Long
+		Get
+			return m_viaje_idxconductor
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_viaje_idxconductor) Then
+				If Not m_viaje_idxconductor.Equals(value) Then
+					m_viaje_idxconductor = value
+					OnVIAJE_IdxConductorChanged(m_viaje_idxconductor, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_idxconductor = value
+				OnVIAJE_IdxConductorChanged(m_viaje_idxconductor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_MontoPresupuesto() As Decimal
+		Get
+			return m_viaje_montopresupuesto
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_montopresupuesto) Then
+				If Not m_viaje_montopresupuesto.Equals(value) Then
+					m_viaje_montopresupuesto = value
+					OnVIAJE_MontoPresupuestoChanged(m_viaje_montopresupuesto, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_montopresupuesto = value
+				OnVIAJE_MontoPresupuestoChanged(m_viaje_montopresupuesto, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_KmTotal() As Decimal
+		Get
+			return m_viaje_kmtotal
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_kmtotal) Then
+				If Not m_viaje_kmtotal.Equals(value) Then
+					m_viaje_kmtotal = value
+					OnVIAJE_KmTotalChanged(m_viaje_kmtotal, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_kmtotal = value
+				OnVIAJE_KmTotalChanged(m_viaje_kmtotal, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_ConsumoEstimado() As Decimal
+		Get
+			return m_viaje_consumoestimado
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_consumoestimado) Then
+				If Not m_viaje_consumoestimado.Equals(value) Then
+					m_viaje_consumoestimado = value
+					OnVIAJE_ConsumoEstimadoChanged(m_viaje_consumoestimado, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_consumoestimado = value
+				OnVIAJE_ConsumoEstimadoChanged(m_viaje_consumoestimado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_ConsumoRealizado() As Decimal
+		Get
+			return m_viaje_consumorealizado
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_consumorealizado) Then
+				If Not m_viaje_consumorealizado.Equals(value) Then
+					m_viaje_consumorealizado = value
+					OnVIAJE_ConsumoRealizadoChanged(m_viaje_consumorealizado, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_consumorealizado = value
+				OnVIAJE_ConsumoRealizadoChanged(m_viaje_consumorealizado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_CombConsumido() As Decimal
+		Get
+			return m_viaje_combconsumido
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_combconsumido) Then
+				If Not m_viaje_combconsumido.Equals(value) Then
+					m_viaje_combconsumido = value
+					OnVIAJE_CombConsumidoChanged(m_viaje_combconsumido, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_combconsumido = value
+				OnVIAJE_CombConsumidoChanged(m_viaje_combconsumido, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_CombustibleInicio() As Decimal
+		Get
+			return m_viaje_combustibleinicio
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_combustibleinicio) Then
+				If Not m_viaje_combustibleinicio.Equals(value) Then
+					m_viaje_combustibleinicio = value
+					OnVIAJE_CombustibleInicioChanged(m_viaje_combustibleinicio, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_combustibleinicio = value
+				OnVIAJE_CombustibleInicioChanged(m_viaje_combustibleinicio, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Egresos() As Decimal
+		Get
+			return m_viaje_egresos
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_egresos) Then
+				If Not m_viaje_egresos.Equals(value) Then
+					m_viaje_egresos = value
+					OnVIAJE_EgresosChanged(m_viaje_egresos, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_egresos = value
+				OnVIAJE_EgresosChanged(m_viaje_egresos, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Ingresos() As Decimal
+		Get
+			return m_viaje_ingresos
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_ingresos) Then
+				If Not m_viaje_ingresos.Equals(value) Then
+					m_viaje_ingresos = value
+					OnVIAJE_IngresosChanged(m_viaje_ingresos, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_ingresos = value
+				OnVIAJE_IngresosChanged(m_viaje_ingresos, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Saldo() As Decimal
+		Get
+			return m_viaje_saldo
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_saldo) Then
+				If Not m_viaje_saldo.Equals(value) Then
+					m_viaje_saldo = value
+					OnVIAJE_SaldoChanged(m_viaje_saldo, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_saldo = value
+				OnVIAJE_SaldoChanged(m_viaje_saldo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_PagoConductor() As Decimal
+		Get
+			return m_viaje_pagoconductor
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_pagoconductor) Then
+				If Not m_viaje_pagoconductor.Equals(value) Then
+					m_viaje_pagoconductor = value
+					OnVIAJE_PagoConductorChanged(m_viaje_pagoconductor, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_pagoconductor = value
+				OnVIAJE_PagoConductorChanged(m_viaje_pagoconductor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_GastosConductor() As Decimal
+		Get
+			return m_viaje_gastosconductor
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_gastosconductor) Then
+				If Not m_viaje_gastosconductor.Equals(value) Then
+					m_viaje_gastosconductor = value
+					OnVIAJE_GastosConductorChanged(m_viaje_gastosconductor, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_gastosconductor = value
+				OnVIAJE_GastosConductorChanged(m_viaje_gastosconductor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_TotRecIngreso() As Decimal
+		Get
+			return m_viaje_totrecingreso
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_totrecingreso) Then
+				If Not m_viaje_totrecingreso.Equals(value) Then
+					m_viaje_totrecingreso = value
+					OnVIAJE_TotRecIngresoChanged(m_viaje_totrecingreso, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_totrecingreso = value
+				OnVIAJE_TotRecIngresoChanged(m_viaje_totrecingreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_TotRecEgreso() As Decimal
+		Get
+			return m_viaje_totrecegreso
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_totrecegreso) Then
+				If Not m_viaje_totrecegreso.Equals(value) Then
+					m_viaje_totrecegreso = value
+					OnVIAJE_TotRecEgresoChanged(m_viaje_totrecegreso, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_totrecegreso = value
+				OnVIAJE_TotRecEgresoChanged(m_viaje_totrecegreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_SaldoConductor() As Decimal
+		Get
+			return m_viaje_saldoconductor
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_saldoconductor) Then
+				If Not m_viaje_saldoconductor.Equals(value) Then
+					m_viaje_saldoconductor = value
+					OnVIAJE_SaldoConductorChanged(m_viaje_saldoconductor, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_saldoconductor = value
+				OnVIAJE_SaldoConductorChanged(m_viaje_saldoconductor, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Estado() As String
+		Get
+			return m_viaje_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_viaje_estado) Then
+				If Not m_viaje_estado.Equals(value) Then
+					m_viaje_estado = value
+					OnVIAJE_EstadoChanged(m_viaje_estado, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_estado = value
+				OnVIAJE_EstadoChanged(m_viaje_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_Anulado() As Boolean
+		Get
+			return m_viaje_anulado
+		End Get
+		Set(ByVal value As Boolean)
+			If Not m_viaje_anulado.Equals(value) Then
+				m_viaje_anulado = value
+				OnVIAJE_AnuladoChanged(m_viaje_anulado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_FecAnulado() As Date
+		Get
+			return m_viaje_fecanulado
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_viaje_fecanulado) Then
+				If Not m_viaje_fecanulado.Equals(value) Then
+					m_viaje_fecanulado = value
+					OnVIAJE_FecAnuladoChanged(m_viaje_fecanulado, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_fecanulado = value
+				OnVIAJE_FecAnuladoChanged(m_viaje_fecanulado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PVENT_Id() As Long
+		Get
+			return m_pvent_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_pvent_id) Then
+				If Not m_pvent_id.Equals(value) Then
+					m_pvent_id = value
+					OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+				End If
+			Else
+				m_pvent_id = value
+				OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_ScanCombustible() As Decimal
+		Get
+			return m_viaje_scancombustible
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_scancombustible) Then
+				If Not m_viaje_scancombustible.Equals(value) Then
+					m_viaje_scancombustible = value
+					OnVIAJE_ScanCombustibleChanged(m_viaje_scancombustible, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_scancombustible = value
+				OnVIAJE_ScanCombustibleChanged(m_viaje_scancombustible, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_ScanKm() As Decimal
+		Get
+			return m_viaje_scankm
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_viaje_scankm) Then
+				If Not m_viaje_scankm.Equals(value) Then
+					m_viaje_scankm = value
+					OnVIAJE_ScanKmChanged(m_viaje_scankm, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_scankm = value
+				OnVIAJE_ScanKmChanged(m_viaje_scankm, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_ScanFecha() As Date
+		Get
+			return m_viaje_scanfecha
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_viaje_scanfecha) Then
+				If Not m_viaje_scanfecha.Equals(value) Then
+					m_viaje_scanfecha = value
+					OnVIAJE_ScanFechaChanged(m_viaje_scanfecha, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_scanfecha = value
+				OnVIAJE_ScanFechaChanged(m_viaje_scanfecha, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property VIAJE_UsrCrea() As String
+		Get
+			return m_viaje_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_viaje_usrcrea = value
+		End Set
+	End Property
+
+	Public Property VIAJE_FecCrea() As Date
+		Get
+			return m_viaje_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_viaje_feccrea = value
+		End Set
+	End Property
+
+	Public Property VIAJE_UsrMod() As String
+		Get
+			return m_viaje_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_viaje_usrmod = value
+		End Set
+	End Property
+
+	Public Property VIAJE_FecMod() As Date
+		Get
+			return m_viaje_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_viaje_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "TRAN_Viajes"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Transportes"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event VIAJE_IdChanged As EventHandler
+	Public Event ZONAS_CodigoChanged As EventHandler
+	Public Event SUCUR_IdChanged As EventHandler
+	Public Event VHCON_IdChanged As EventHandler
+	Public Event VEHRN_IdChanged As EventHandler
+	Public Event VIAJE_CodigoChanged As EventHandler
+	Public Event VIAJE_OrigenChanged As EventHandler
+	Public Event VIAJE_DestinoChanged As EventHandler
+	Public Event VIAJE_FecSalidaChanged As EventHandler
+	Public Event VIAJE_FecLlegadaChanged As EventHandler
+	Public Event VIAJE_DescripcionChanged As EventHandler
+	Public Event VIAJE_PresupuestoChanged As EventHandler
+	Public Event VIAJE_NroChanged As EventHandler
+	Public Event VIAJE_IdxVehiculoChanged As EventHandler
+	Public Event VIAJE_IdxConductorChanged As EventHandler
+	Public Event VIAJE_MontoPresupuestoChanged As EventHandler
+	Public Event VIAJE_KmTotalChanged As EventHandler
+	Public Event VIAJE_ConsumoEstimadoChanged As EventHandler
+	Public Event VIAJE_ConsumoRealizadoChanged As EventHandler
+	Public Event VIAJE_CombConsumidoChanged As EventHandler
+	Public Event VIAJE_CombustibleInicioChanged As EventHandler
+	Public Event VIAJE_EgresosChanged As EventHandler
+	Public Event VIAJE_IngresosChanged As EventHandler
+	Public Event VIAJE_SaldoChanged As EventHandler
+	Public Event VIAJE_PagoConductorChanged As EventHandler
+	Public Event VIAJE_GastosConductorChanged As EventHandler
+	Public Event VIAJE_TotRecIngresoChanged As EventHandler
+	Public Event VIAJE_TotRecEgresoChanged As EventHandler
+	Public Event VIAJE_SaldoConductorChanged As EventHandler
+	Public Event VIAJE_EstadoChanged As EventHandler
+	Public Event VIAJE_AnuladoChanged As EventHandler
+	Public Event VIAJE_FecAnuladoChanged As EventHandler
+	Public Event PVENT_IdChanged As EventHandler
+	Public Event VIAJE_ScanCombustibleChanged As EventHandler
+	Public Event VIAJE_ScanKmChanged As EventHandler
+	Public Event VIAJE_ScanFechaChanged As EventHandler
+
+	Public Sub OnVIAJE_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnZONAS_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ZONAS_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnSUCUR_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent SUCUR_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnVHCON_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VHCON_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnVEHRN_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VEHRN_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_OrigenChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_OrigenChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_DestinoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_DestinoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_FecSalidaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_FecSalidaChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_FecLlegadaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_FecLlegadaChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_DescripcionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_DescripcionChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_PresupuestoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_PresupuestoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_NroChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_NroChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_IdxVehiculoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_IdxVehiculoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_IdxConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_IdxConductorChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_MontoPresupuestoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_MontoPresupuestoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_KmTotalChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_KmTotalChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_ConsumoEstimadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_ConsumoEstimadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_ConsumoRealizadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_ConsumoRealizadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_CombConsumidoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_CombConsumidoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_CombustibleInicioChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_CombustibleInicioChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_EgresosChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_EgresosChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_IngresosChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_IngresosChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_SaldoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_SaldoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_PagoConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_PagoConductorChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_GastosConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_GastosConductorChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_TotRecIngresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_TotRecIngresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_TotRecEgresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_TotRecEgresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_SaldoConductorChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_SaldoConductorChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_EstadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_AnuladoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_AnuladoChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_FecAnuladoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_FecAnuladoChanged(sender, e)
+	End Sub
+
+	Public Sub OnPVENT_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PVENT_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_ScanCombustibleChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_ScanCombustibleChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_ScanKmChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_ScanKmChanged(sender, e)
+	End Sub
+
+	Public Sub OnVIAJE_ScanFechaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_ScanFechaChanged(sender, e)
+	End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

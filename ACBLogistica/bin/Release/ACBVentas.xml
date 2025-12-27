@@ -1,0 +1,3923 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACBVentas
+</name>
+</assembly>
+<members>
+<member name="M:ACBVentas.BCorrelativos.GetCorrelativo(System.Int64,ACEVentas.ECorrelativos.NTabla,System.String)">
+	<summary>
+ Obtener correlativos segun la sucursal y el año
+ </summary>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_tablas">codigo de la tabla</param>
+	<param name="x_ano">año</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCorrelativos.GetCorrelativo(System.Int64,ACEVentas.ECorrelativos.NTabla)">
+	<summary>
+ Obtener correlativo segun la sucursal
+ </summary>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_tablas">codigo de la tabla</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCorrelativos.SetCorrelativo(System.String)">
+	<summary>
+ setear el correlativo en la tabla de correlativos
+ </summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PedidosDetalle.VENT_PEDIDSS_ObtDetPedidoReposicion(System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_ObtDetPedidoReposicion
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GetFecha">
+	<summary>
+ Obtener la fecha de servidor de base de datos
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.orden_compra(System.String,System.String)">
+	<summary>
+	</summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.getVendedor(System.String)">
+	<summary>
+ obtener los datos del vendedor
+ </summary>
+	<param name="x_entid_codigo">Codigo del vendedor</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.getTipoCambio">
+	<summary>
+ Obtener el ultimo tipo de cambio, de oficina y el de sunat por separado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.getPercepcion(System.String,System.Decimal)">
+	<summary>
+ Buscar en los padrones si un cliente tiene una calificación especial
+ </summary>
+	<param name="x_entid_codigo">Codigo del cliente</param>
+	<param name="x_parametro">Parametro con el porcentaje de la percepcion que le corresponde</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoCotizacion(System.String,System.String,System.Int64,System.Int64,System.Int16,System.String@,ACEVentas.EVENT_Pedidos.TipoPedido)">
+	<summary>
+ Grabar Un pedido y su respectivo detalle
+ </summary>
+	<param name="x_usuario">Usuario que crea el pedido</param>
+	<param name="x_zonas_codigo">Codigo de la Zona de creacion</param>
+	<param name="x_sucur_id">Sucursal donde se crea</param>
+	<param name="x_pvent_id">Punto de venta que crea el pedido</param>
+	<param name="x_msg">Mensaje devuelto en caso de haber algun error o observacion con respecto al proceso de grabado</param>
+	<returns>True: Cuando culmina el grabado correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoReposicion(System.String,System.String,System.Int64,System.Int64,System.Int16,System.String@)">
+	<summary>
+ Grabar un pedido de reposicioncon su respectivo detalle
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_almac_id">Codigo del almacen</param>
+	<param name="x_msg">Mensaje devuelto en caso de existir algun error o limitacion de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoReposicionAtendida(System.String,System.String,System.Int64,System.Int64,System.Int16,System.String@,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+	<summary>
+ Grabar la atencion de un pedido de reposicion, el cual genera una separacion de stock en el lugar donde es atendido
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_msg">mensaje devuelto en caso de existir algun inconveniente</param>
+	<param name="x_generarvariosdocumentos">Opcion que permite generar varios pedidos al aceptar un solo pedido</param>
+	<param name="x_items">Numero de items que tiene el pendid</param>
+	<param name="x_documentos">Numero de documentos que se esta generando</param>
+	<param name="x_modreposicion"></param>
+	<returns>Devuelve verdadero si se completa la genereacion de documentos</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoSeparacionConfirmado(System.String,System.String,System.Int64,System.Int64,System.Int16,System.Boolean,System.Boolean)">
+	<summary>
+ Grabar el pedido de separación con su respectivo detalle
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_zonas_codigo">Codigo de zonas</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_pconfirmar">Permiso para completar la confirmacion del grabado de stock</param>
+	<param name="x_pmodconfirmado"></param>
+	<returns>Obtener la fe</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoSeparacion(System.String,System.String,System.Int64,System.Int64,System.Int16,System.Boolean)">
+	<summary>
+ Greabar pedido de separacion de mercaderia
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_zonas_codigo">Codigo de la zon</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_confirmar">permiso para confirmar el pedido</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.ConfirmarPedidoSeparacion(System.String,System.String)">
+	<summary>
+ Confirmar el pedido de separacion
+ </summary>
+	<param name="x_pedid_codigo">Codigo del pedido</param>
+	<param name="x_usuario">codigo del usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.DesConfirmarPedidoSeparacion(System.String,System.String)">
+	<summary>
+ Desconfirmar pedido de separacion
+ </summary>
+	<param name="x_pedid_codigo">Codigo del pedido a desconfirmar</param>
+	<param name="x_usuario">Codigo del usuario</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularPedidoSeparacion(System.String,System.Boolean,System.String)">
+	<summary>
+ Anular pedido de separacion de mercaderia
+ </summary>
+	<param name="x_pedid_codigo">Codigo del pedido</param>
+	<param name="x_confirmado">Valor del permiso de confirmacion</param>
+	<param name="x_usuario">Codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabarPedidoSeparacionParaFacturar(System.String)">
+	<summary>
+ Graba rpedido de separación para pasar a facturacion
+ </summary>
+	<param name="x_usuario">Codigo del usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GrabaPedidoCotizacion(System.String,System.String@,ACEVentas.EVENT_Pedidos.TipoPedido)">
+	<summary>
+ Grabar el pedido de la cotizacion de forma rapida.
+ </summary>
+	<param name="x_usuario">Usuario que guarda la cotizacion</param>
+	<param name="x_msg">Mensaje devuelto en caso de falla</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularCotizacion(System.String,System.String)">
+	<summary>
+ Anular cotizacion de ventas
+ </summary>
+	<param name="x_codigo">codigo de pedido a ser anulado</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularPedido(System.String,System.String)">
+	<summary>
+ Anular pedido
+ </summary>
+	<param name="x_codigo">Codigo de pedido a ser anulado</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularPedidoReposicion(System.String,System.String)">
+	<summary>
+ Anular pedido de reposicion, con su respectiva separacion de stocks
+ </summary>
+	<param name="x_codigo">codigo del pedido</param>
+	<param name="x_usuario">codigo del usuario</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularPedidoStock(System.String,System.String,System.Boolean)">
+	<summary>
+ Anular pedido de stocks
+ </summary>
+	<param name="x_codigo">codigo del pedido</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_tran">Opcion para ver si se ejecuta las transacción</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AnularPedidoReposicion(System.String,System.Boolean,System.String,System.Int16,System.String)">
+	<summary>
+ Anular pedido de reposicion de los puntos de venta
+ </summary>
+	<param name="x_codigo">Codigo del pedido</param>
+	<param name="x_pxpedido">permiso de anulacion</param>
+	<param name="x_motivo">motivo de anulación</param>
+	<param name="x_almac_id">codigo de almacen</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.ActivarPedido(System.String,System.String,System.Boolean)">
+	<summary>
+ activacion de pedido de separación
+ </summary>
+	<param name="x_codigo">codigo del pedido</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_tran">opcion para el manejo de transacciones entre funciones</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.cargarPrecios(System.String,System.String)">
+	<summary>
+ Cargar los precios de un producto
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>True: Si existen precios, False: Si no existe precios</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.Busqueda(System.String,System.Int16,System.Boolean,System.Boolean,ACEVentas.EVENT_Pedidos.TipoPedido,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64)">
+	<summary>
+ Busqueda de pedidos
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se hace la busqueda de cadena</param>
+	<param name="x_todos">Mostrar todos</param>
+	<param name="x_rehusados">Mostrar los rehuzados</param>
+	<param name="x_tipo">Tipo de pedido</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.BusquedaReposicion(System.String,System.Int16,System.Boolean,ACEVentas.EVENT_Pedidos.TipoPedido,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64,System.Int64)">
+	<summary>
+ Busqueda de pedidos de reposicion
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se busca la cadena</param>
+	<param name="x_todos">Mostrar todos los pedidos</param>
+	<param name="x_tipo">buscar el tipo de pedideo</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_zonas_codigo">codigo de zonas</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_pvent_iddestino">codigo del punto de venta destino</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.BusquedaSeparacion(System.String,System.Int16,System.Boolean,ACEVentas.EVENT_Pedidos.TipoPedido,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64,System.Int64)">
+	<summary>
+ Busquedade de pedidos de separacion
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se busca la cadena</param>
+	<param name="x_todos">Mostrar todos los pedidos</param>
+	<param name="x_tipo">buscar el tipo de pedideo</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_zonas_codigo">codigo de zonas</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_pvent_iddestino">codigo del punto de venta destino</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.BusquedaGuiaReposicion(System.String,System.Int16,System.Boolean,ACEVentas.EVENT_Pedidos.TipoPedido,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64)">
+	<summary>
+ Busquedas de guias de remoposcion
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se busca la cadena</param>
+	<param name="x_todos">Mostrar todos los pedidos</param>
+	<param name="x_tipo">buscar el tipo de pedideo</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_zonas_codigo">Codigo de zona</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo de pùnto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.Busqueda(System.Boolean,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64)">
+	<summary>
+ busqueda de pedidos
+ </summary>
+	<param name="x_opcion">Opcion de busqueda</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.Busqueda(System.Boolean,System.Boolean,System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary>
+ Busqueda de pedidos
+ </summary>
+	<param name="x_xcliente"></param>
+	<param name="x_fecha"></param>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_tconsulta"></param>
+	<param name="x_cadena"></param>
+	<param name="x_opcion"></param>
+	<param name="x_zonas_codigo"></param>
+	<param name="x_sucur_id"></param>
+	<param name="x_pvent_id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.getCorrelativo(System.Int32@,System.Int64,System.String)">
+	<summary>
+ obtener el correlativo para el pedido
+ </summary>
+	<param name="x_pedid_numero">numero del pedido</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo">tipo de pedido</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.Cargar(System.String,System.Boolean)">
+	<summary>
+ cargar pedido con su detalle
+ </summary>
+	<param name="x_pedid_codigo"></param>
+	<param name="x_detalle"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.Cargar(System.String,System.Int16,System.Boolean)">
+	<summary>
+ Cargar el pedido con su detalle
+ </summary>
+	<param name="x_pedid_codigo">codigo del pedido</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_detalle">opcion para cargar el detalle del pedido</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.GetSeries(System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Obtener la seried de los documentos
+ </summary>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo_documento">tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.AtenderPedido(System.String,System.String,System.String,System.Int64,System.Int16)">
+	<summary>
+ Atender pedido
+ </summary>
+	<param name="x_usuario">codigo del usuario</param>
+	<param name="x_codigo">codigo del pedido</param>
+	<param name="x_codrelacionado">codigo relacionado o de origen</param>
+	<param name="x_pvent_idrelacionado">codigo del punto de venta origen o relacionado</param>
+	<param name="x_almac_idrelacionado">codigo de almacen origen o relacionado</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCotizacion.ModificarPedidosReporte(System.String,System.String,System.String,System.String)">
+	<summary>
+ Modificar si el pedido fue impreso
+ </summary>
+	<param name="x_pedid_codigo">codigo del pedido</param>
+	<param name="x_pedid_condiciones"></param>
+	<param name="x_pedid_condicionentrega"></param>
+	<param name="x_pedid_nota"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.ProductosPrecios(System.String,System.String)">
+	<summary> 
+ Capa de Negocio: ARTICSS_ProductosPrecios
+ </summary>
+	<param name="x_linea_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.Busqueda(System.String)">
+	<summary>
+ busqueda de articulos
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.getCodCorrelativo(System.Int32@,System.String)">
+	<summary>
+ Obtener el correlativo del articulo segun la linea que se selecciones
+ </summary>
+	<param name="x_artcod">correlativo</param>
+	<param name="x_codlin">codigo de la linea</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.Guardar(System.String,System.String,ACEVentas.EArticulos.TipoInicializacion)">
+	<summary>
+  Grabar el registro
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_zonas_codigo">codgio de la zona</param>
+	<param name="x_inicio">tipo de inicializacion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.GuardarListaPrecios(System.String,System.String,System.Boolean)">
+	<summary>
+ Guardar lista de precios
+ </summary>
+	<param name="x_usuario">codigo de usuarios</param>
+	<param name="x_zonas_codigo">Codigo de Zonas</param>
+	<param name="x_tran">Para utilizar la transaccion en la funcion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.GuardarPrecios(System.String,System.Boolean)">
+	<summary>
+ Guardar precios
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_tran">para el uso de transacciones en esta funcion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.CargarArtDest(System.String)">
+	<summary>
+ cargar articulos destino, es decir el destino de un articulo es aquel en el que se puede transformar el articulo
+ </summary>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.CargarStock(System.String)">
+	<summary>
+	</summary>
+	<param name="x_artic_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.CargarListaPrecios(System.String,System.String)">
+	<summary>
+ Cargar la listas de precios de un articulo
+ </summary>
+	<param name="x_artic_codigo">codigo de articulos</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.CargarPrecios(System.String)">
+	<summary>
+ Cargar precios de un articulo
+ </summary>
+	<param name="x_artic_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.UnRegistro(System.String,System.String)">
+	<summary> 
+ Capa de Negocio: ARTICSS_UnRegistro
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticulos.GuardarSQL(System.String)">
+	<summary>
+ generar el codigo SQL para guardar un articulo
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.BuscarOrdenesIngreso(System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_BuscarOrdenesIngreso
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codtipoorden">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.BuscarOrdenesIngresoPtoVenta(System.DateTime,System.DateTime,System.Int64,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_BuscarOrdenesIngresoPtoVenta
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_iddestino">Parametro 3: </param>
+	<param name="x_pvent_idorigen">Parametro 4: </param>
+	<param name="x_tipos_codtipoorden">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.BuscarOrdenesIngresoLocal(System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_BuscarOrdenesIngresoLocal
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_iddestino">Parametro 3: </param>
+	<param name="x_tipos_codtipoorden">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.ObtenerOrden(System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_ObtenerOrden
+ </summary>
+	<param name="x_orden_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.SetPermisoGenGuia(System.String,System.Boolean,System.String)">
+	<summary>
+ asignar permisos a la orden para generar su guia de remision de entrega
+ </summary>
+	<param name="x_docve_codigo"></param>
+	<param name="x_value"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.SetPermisoImpOrden(System.String,System.Boolean,System.String)">
+	<summary>
+ asignar permisos a la orden para imprimir
+ </summary>
+	<param name="x_orden_codigo"></param>
+	<param name="x_value"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.LOG_DIST_ObtenerPendientesOrdenes(System.DateTime,System.Int16,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_ObtenerPendientesOrdenes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_desbloqueo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_Ordenes.ActualizarFechaEntrega(System.String)">
+	<summary>
+ Actualizar la fecha de entrega de la orden
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.RCuadreCaja(System.DateTime,System.DateTime,System.Int64,ACBVentas.BReporte.TRCuadreCaja)">
+	<summary>
+	</summary>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_pvent_id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CuadreCaja_Facturas(System.Collections.Generic.List{ACEVentas.ECCuadreCaja}@,System.DateTime,System.DateTime,System.Int64,ACBVentas.BReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CuadreCaja_Facturas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOS_NotasCre(System.String)">
+	<summary>
+ para buscar ventas facturacion Electronica Notas_Cre _A
+ </summary>
+	<param name="x_pedid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CuadreCaja_Egresos(System.Collections.Generic.List{ACEVentas.ECCuadreCaja}@,System.DateTime,System.DateTime,System.Int64,ACBVentas.BReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CuadreCaja_Egresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CuadreCaja_Ingresos(System.Collections.Generic.List{ACEVentas.ECCuadreCaja}@,System.DateTime,System.DateTime,System.Int64,ACBVentas.BReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CuadreCaja_Ingresos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CuadrePendientes(System.DateTime,System.Int64,System.Int16,ACBVentas.BReporte.TRCuadreCaja)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_orden">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CuadrePendientes(System.DateTime,System.Int64,System.Int16)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CuadrePendientes
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_orden">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJASS_CobranzaPendiente(System.DateTime,System.DateTime,System.Int64,System.Boolean,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_CobranzaPendiente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<param name="x_entid_codigovendedor">Parametro 6: </param>
+	<param name="x_entid_codigocliente">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.reporteVentas(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Reporte de ventas
+ </summary>
+	<param name="x_fecini">fecha hasta donde se muestra las ventas</param>
+	<param name="x_fin">fecha de fin</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.LOG_DIST_CuadrePendientesVentas(System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_CuadrePendientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.LOG_DIST_CuadrePendientesOrdenes(System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_CuadrePendientesOrdenes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.LOG_DIST_CuadrePendientesIntegrado(System.DateTime,System.DateTime,System.Int16,System.Int64,System.String,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_CuadrePendientesIntegrado
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_artic_codigo">Parametro 5: </param>
+	<param name="x_entid_codigo">Parametro 6: </param>
+	<param name="x_fecha">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.LOG_DISTSS_ReporVentXCliente(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_ReporVentXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_usuario">Parametro 3: </param>
+	<param name="x_cliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CCAJASS_Efectivo(System.Collections.Generic.List{ACEVentas.ECCuadreCaja}@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_CCAJASS_Efectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CCAJASS_SaldoInicialEfectivo(ACEVentas.ESaldoCaja@,System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_CCAJASS_SaldoInicialEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_CAJAS_CuadreCaja_Resumen(System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_CAJAS_CuadreCaja_Resumen
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENTSS_VentasXCliente(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_VentasXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_linea">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_CuentasCorrientes(System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: REPOSS_CuentasCorrientes
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.VENT_REPOSS_MovimientoEfectivo(System.DateTime,System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_REPOSS_MovimientoEfectivo
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_MovimientoCaja(System.Data.DataTable@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: REPOSS_MovimientoCaja
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_ReporteCobranza(System.Data.DataTable@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: REPOSS_ReporteCobranza
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_ReporteBancarizacion(System.Data.DataTable@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: REPOSS_ReporteBancarizacion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_ReporteVentasAnuladas(System.Data.DataTable@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: REPOSS_ReporteVentasAnuladas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_GuiasTraslado(System.Data.DataTable@,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: REPOSS_GuiasTraslado
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_CotizacionVenta(System.String)">
+	<summary> 
+ Capa de Negocio: REPOSS_CotizacionVenta
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.ReporteVentas(System.DateTime,System.DateTime,ACBVentas.BReporte.TRVentas,System.String)">
+	<summary>
+ Generar el reporte de ventas
+ </summary>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_treporte">tipo de reporte requerido</param>
+	<param name="x_entid_codigo">codigo de la entidad cliente que se desea el reporte</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_VentasTodos(System.DateTime,System.DateTime,System.Int64,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: REPOSS_VentasTodos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.ReporteEstadoCtaCte(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Reporte de estado de cuenta corriente de los clientes
+ </summary>
+	<param name="x_fecini">fecha de inicio de reporte</param>
+	<param name="x_fecfin">fecha de fin de reporte</param>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.REPOSS_EstadoCuentaCorriente(System.DateTime,System.DateTime,System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: REPOSS_EstadoCuentaCorriente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BReporte.ListaPrecios(System.Int16,System.String,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_ListaPrecios
+ </summary>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BArticDestinos.CargarArtDestin(System.String)">
+	<summary>
+ cargar articulos destinos
+ </summary>
+	<param name="x_artic_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BBancos.Busqueda(System.String)">
+	<summary>
+ busqueda de bancos
+ </summary>
+	<param name="x_cadena"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.Cargar(System.String,ACEVentas.EEntidades.TipoInicializacion)">
+	<summary>
+ carhar la entidad, segun el tipo de inicializacion
+ </summary>
+	<param name="x_entid_codigo">codigo de la entidad</param>
+	<param name="x_inicio">tipo de inicializacion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarDocIden(System.String,ACEVentas.EEntidades.TipoInicializacion)">
+	<summary>
+ cargar la entidad por el numero de documento
+ </summary>
+	<param name="x_entid_nrodocumento">numero del documento de identidad</param>
+	<param name="x_inicio">tipo de inicio para la carga de informacion de la entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.setAdicionales(System.String)">
+	<summary>
+ Cargar Valores adicionales de la entidad
+ </summary>
+	<param name="x_entid_codigo">Codigo de la Entidad</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarDoc(System.String,ACEVentas.EEntidades.TipoInicializacion)">
+	<summary>
+ Cargar la entidad por numero de documento de entidad
+ </summary>
+	<param name="x_entid_nrodocumento">numero de documento de entidad</param>
+	<param name="x_inicio">tipo de inicializacion para la carga de informacion de la entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarDNI(System.String)">
+	<summary>
+ cargar la entidad por numero de documento de la entidad
+ </summary>
+	<param name="x_entid_dni">numero del documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.Busqueda(System.String,System.String,ACEVentas.EEntidades.TipoEntidad)">
+	<summary>
+ busqueda de entidades
+ </summary>
+	<param name="x_cadena"></param>
+	<param name="x_campo"></param>
+	<param name="x_perfil"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.Ayuda(System.Collections.Hashtable,ACEVentas.EEntidades.TipoEntidad)">
+	<summary>
+ ayuda de las entidades
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_tipoentidad">tipo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.AyudaConductores(System.String,System.String,System.String,ACEVentas.EEntidades.TipoEntidad)">
+	<summary>
+ ayuda de entidades conductores
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_tipoentidad">tipo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.AyudaConductores(System.String,System.Int16,ACEVentas.EEntidades.TipoEntidad)">
+	<summary>
+ ayuda de entidades conductores
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_tipoentidad">tipo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.Guardar(System.String,ACEVentas.EEntidades.TipoInicializacion)">
+	<summary>
+ Guaradar la entidad, con todos sus datos adicionales
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_inicio">tipo de inicializacion o datos que trae la entida para se grabados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.verificarCampo(System.String,System.String)">
+	<summary>
+ verificar campo de nro de documento, si existe cargara la entidad a la que le pertenece
+ </summary>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_ruc">numero a buscar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.getUsuarios(System.String,System.Data.DataTable@)">
+	<summary>
+ Obtener los usuarios
+ </summary>
+	<param name="x_baseadmin">base de datos de administracion</param>
+	<param name="x_datos">clase donde se almacenara la informacion cargada</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.getListUsuariosXPuntoVenta(System.Int64)">
+	<summary>
+ Obtener el listado de usuarios por punto de venta
+ </summary>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.getListUsuariosXAlmacen(System.Int16)">
+	<summary>
+ obtener el listado de usuario por almacen
+ </summary>
+	<param name="x_almac_id">codigo del almacen</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.cargarVendedores">
+	<summary>
+ Cargar vendedores
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.ENTISS_ObtenerDireccion(System.String)">
+	<summary> 
+ Capa de Negocio: ENTISS_ObtenerDireccion
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.ENTISS_BuscarClientes(System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: ENTISS_BuscarClientes
+ </summary>
+	<param name="x_cadena">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarCliente">
+	<summary>
+ Cargar clientes
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarCliente(System.String)">
+	<summary>
+ cargar tabla de cleinte
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarProveedor(System.String)">
+	<summary>
+ cargar tabla proveedor
+ </summary>
+	<param name="x_entid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidades.CargarConductor(System.String)">
+	<summary>
+ cargar tabla de conductor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidadRelacion.CargarRelacionados(System.String)">
+	<summary>
+ cargar relacionados
+ </summary>
+	<param name="x_entid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidadRelacion.GetNumero(System.String)">
+	<summary>
+ obtener el numero correltivo de la entidad
+ </summary>
+	<param name="x_entid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCuentas.getCodCorrelativo(System.Int32@)">
+	<summary>
+ obtener el correltivo de la tabla cuentas
+ </summary>
+	<param name="x_cuencod">correlativo que se obtendra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCuentas.Busqueda(System.String,System.Boolean)">
+	<summary>
+ busqueda de cuentas
+ </summary>
+	<param name="x_cadena">cadenas de busqueda</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getUltTipoCambio">
+	<summary>
+ obtener el ultimo tipo de cambio ingresado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getUltTipoCambioOficina">
+	<summary>
+ obtener el ultimo tipo de cambio oficina ingresado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getTipoCambioOficina(System.DateTime)">
+	<summary>
+ Obtener el tipo de cambio oficina de una fecha
+ </summary>
+	<param name="x_fecha">fecha de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getUltTipoCambioSunat">
+	<summary>
+ obtener el ultimo tipo de cambio sunat ingresado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getTipoCambioSunat">
+	<summary>
+ obtener el ultimo tipo de cambio sunat ingresado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipoCambio.getTipoCambioSunat(System.DateTime)">
+	<summary>
+ Obtener el tipo de cambio sunat segun fecha
+ </summary>
+	<param name="x_fecha">fecha de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTelefonos.CargarTodos(System.String)">
+	<summary>
+ cargar los telefonos de una entidad
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Caja.ObtenerDocPagosDetalle(System.Int64)">
+	<summary> 
+ Capa de Negocio: TESO_CAJASS_ObtenerDocPagosDetalle
+ </summary>
+	<param name="x_dpago_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Caja.ModificarImpFec(System.DateTime,System.Decimal,System.String)">
+	<summary>
+ modificar fecha de impresion
+ </summary>
+	<param name="x_fecha">fehca nueva</param>
+	<param name="x_importe">importe</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Caja.ModificarFecha(System.DateTime,System.String)">
+	<summary>
+ modificar fecha
+ </summary>
+	<param name="x_fecha">fecha nueva</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Caja.CambiarEstado(System.Int64,System.Int32,System.DateTime,ACEVentas.ETESO_Caja.Estado,System.String)">
+	<summary>
+ cambiar estado de un registro de caja
+ </summary>
+	<param name="x_caja_id">Id de caja, el id es unico por punto de venta</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_caja_fecha">fecha de caja</param>
+	<param name="x_estado">estado que se desea colocar</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.setJoinWhere(System.Collections.Generic.List{ACFramework.ACJoin}@,System.Collections.Hashtable@,System.Boolean)">
+	<summary>
+ generar los join
+ </summary>
+	<param name="_join"></param>
+	<param name="_where"></param>
+	<param name="x_todos"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.Grabar(System.String,System.Boolean)">
+	<summary>
+ Grabar el documento de percepcion
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.CargarReporte(System.String)">
+	<summary>
+ Cargar reporte del documento de percepcion
+ </summary>
+	<param name="x_docpe_codigo">codigo del documento de percepcion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.Cargar(System.String,System.Boolean)">
+	<summary>
+ cargar documento de percepcion
+ </summary>
+	<param name="x_docpe_codigo"></param>
+	<param name="x_opcion"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.AnularDocumento(System.String,System.String)">
+	<summary>
+ anular documento de percepcion
+ </summary>
+	<param name="x_docpe_codigo">codigo del documento de percepcion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BCONT_DocsPercepcion.AgregarPercepcion(System.String,System.String)">
+	<summary>
+ agregar percepcion a la caja
+ </summary>
+	<param name="x_docpe_codigo">codigo del documento de percepcion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiaVenta(System.String)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+	<param name="x_guiar_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiaTransf(System.String)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+	<param name="x_guiar_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.BuscarGuiasRemision(System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_BuscarFacturasVenta
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_cadena">Parametro 6: </param>
+	<param name="x_todos">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.BuscarGuiasRemisionXNumero(System.String,System.String,System.Int64,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_BuscarFacturasVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GetSaldoArticulo(System.String,System.String,System.Decimal@,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_GetSaldoArticulo
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_artic_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuias(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuias
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasSalida(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasSalida
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasIngresosXNumero(System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasIngresosXNumero
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasSalidaRemoto(System.Int16,System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasSalidaRemoto
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_almac_iddestino">Parametro 2: </param>
+	<param name="x_fecini">Parametro 3: </param>
+	<param name="x_fecfin">Parametro 4: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 5: </param>
+	<param name="x_opcionfecha">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasSalidaXNumero(System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasSalidaXNumero
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasSalidaXNumeroRemoto(System.Int16,System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasSalidaXNumeroRemoto
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_almac_iddestino">Parametro 2: </param>
+	<param name="x_numero">Parametro 3: </param>
+	<param name="x_serie">Parametro 4: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 5: </param>
+	<param name="x_todos">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasIngresos(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasIngresos
+ </summary>
+	<param name="x_almac_iddestino">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasReposicion(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasReposicion
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_fecini">Parametro 2: </param>
+	<param name="x_fecfin">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_opcionfecha">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.ObtenerGuiasReposicionXNumero(System.Int16,System.String,System.String,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_GUIASS_ObtenerGuiasReposicionXNumero
+ </summary>
+	<param name="x_almac_idorigen">Parametro 1: </param>
+	<param name="x_numero">Parametro 2: </param>
+	<param name="x_serie">Parametro 3: </param>
+	<param name="x_tipos_codmotivotraslado">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GUIA_SalidasPendientes(System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_SalidasPendientes" por el Generador 17/11/2011
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GUIA_GuiasPorConductor(System.String,System.Int64,System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_GuiasPorConductor" por el Generador 17/11/2011
+ </summary>
+	<param name="x_condu_id">Parametro 1: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GUIA_GuiasPorConductor(System.String,System.Int64,System.DateTime,System.String)">
+	<summary>
+ obtener las guias por conductor
+ </summary>
+	<param name="x_condu_id">codigo del conductor</param>
+	<param name="x_vehic_id">codigo del vehiculo</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_trans_id">condigo del transportista</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GUIA_GuiasDeSalidas(System.Int64,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_GuiasDeSalidas" por el Generador 18/11/2011
+ </summary>
+	<param name="x_vehic_id">Parametro 1: </param>
+	<param name="x_fecha">Parametro 2: </param>
+	<param name="x_trans_id">Parametro 3: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDIST_GuiasRemision.GUIAR_UnRegActGuiaRemision(ACEVentas.EDIST_GuiasRemision@,System.Boolean,System.String)">
+	<summary>
+ actualizar campos de la guia de remision
+ </summary>
+	<param name="e_Guia_Remision">clase guia de remision que se actualizara</param>
+	<param name="x_opcion">opcion de actualizacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDESP_Salidas.GUIA_Salidas(System.DateTime)">
+	<summary> 
+ Procedimiento "GUIA_Salidas" por el Generador 18/11/2011
+ </summary>
+	<param name="x_fecha">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDESP_Salidas.GUIA_SalidasDetalle(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.DateTime,System.String)">
+	<summary> 
+ Procedimiento "GUIA_SalidasDetalle" por el Generador 14/12/2011
+ </summary>
+	<param name="x_fecha">Parametro 1: </param>
+	<param name="x_csalida">Parametro 2: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDESP_Salidas.DESP_SALIDSU_UnRegActualizarLlegada(ACEVentas.EDESP_Salidas@,System.String)">
+	<summary>
+ Actuializar la guia de salida para confirmar su llegada
+ </summary>
+	<param name="x_desp_salidas"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.SalidasPendientes(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Obtener las guias pendientes de salida/embarque
+ </summary>
+	<param name="x_fecini">Fecha Inicial</param>
+	<param name="x_fecfin">Fecha Final</param>
+	<param name="x_trans_id">Id del transportista</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.GuiasPorConductor(System.String,System.Int64,System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Guias por conductor pendientes de salida/embarque
+ </summary>
+	<param name="x_condu_id">Id del conductor</param>
+	<param name="x_vehic_id">Id del vehiculo</param>
+	<param name="x_fecini">fecha inicial de consulta</param>
+	<param name="x_fecfin">fecha final de consulta</param>
+	<param name="x_trans_id">Id de transportista</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.GuiasPorConductor(System.String,System.Int64,System.DateTime,System.String)">
+	<summary>
+ Obtener las guias por conductor
+ </summary>
+	<param name="x_condu_id">Codifo de conductor</param>
+	<param name="x_vehic_id">Codigo del vehiculo</param>
+	<param name="x_fecini">fecha inicial de consulta</param>
+	<param name="x_trans_id">Codigo del transportista</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.CargarGuiasDeSalidas(System.Int64,System.DateTime,System.String)">
+	<summary>
+ Cargar las guias de salida
+ </summary>
+	<param name="x_vehic_id">Codigo de vehiculos</param>
+	<param name="x_fecha">Fecha de consulta</param>
+	<param name="x_trans_id">condigo del transportista</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.CargarSalidas(System.DateTime)">
+	<summary>
+ Cargar guias de salida
+ </summary>
+	<param name="x_fecha"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.CargarSalidasDetalle(System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision}@,System.DateTime,System.String)">
+	<summary>
+ cargar detalle de las guias pendientes de salida
+ </summary>
+	<param name="m_listGuia_Remision"></param>
+	<param name="x_fecha"></param>
+	<param name="x_csalida"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.GenerarSalida(System.String,System.Int64,ACEVentas.EDIST_GuiasRemision,System.Collections.Generic.List{ACEVentas.EDIST_GuiasRemision})">
+	<summary>
+ Grabar la salida del documento Guia
+ </summary>
+	<param name="x_usuario">Codigo de Usuario</param>
+	<param name="x_pvent_id">Codigo de punto de venta</param>
+	<param name="x_eguia_remision">Clase Guia de remision</param>
+	<param name="x_listGuia_Remision">Listado de guias de remision</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.GrabarSalida(System.String,ACEVentas.EDESP_Salidas)">
+	<summary>
+ Grabar la salida de guias de remision
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="item">Clase DESP_salidas</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.GenerarDestino(System.String,ACEVentas.EDESP_GuiaRSalidas)">
+	<summary>
+ Generar un destino que no figura en las salidas o direcciones de las guias disponibles
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_edesp_guiarsalidas">Clase donde se almacen</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.QuitarDestinoGuia(System.String,ACEVentas.EDESP_GuiaRSalidas)">
+	<summary>
+ Quitar el destino de una guia de remison 
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_edesp_guiarsalidas">Objeto contenedor de la salida</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.QuitarSalida(System.String,ACEVentas.EDESP_Salidas)">
+	<summary>
+ Quitar una salida
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_edesp_salidas">objeto que contiene la salida</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.REPOSS_GuiasXConductor(System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Negocio: REPOSS_GuiasXConductor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_id_conductor">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.REPOSS_GuiasXCliente(System.DateTime,System.DateTime,System.String)">
+	<summary> 
+ Capa de Negocio: REPOSS_GuiasXCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_id_cliente">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarControl.Ayuda(System.String,System.Int16)">
+	<summary>
+ Carga la ayuda de conductores
+ </summary>
+	<param name="x_cadena"></param>
+	<param name="x_opcion"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipos.CargarTodosTrim">
+	<summary>
+ cargar los tipos con todos los campos sin espacios
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipos.Busqueda(System.String,System.String)">
+	<summary>
+ busqueda de tipos
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_tipo_codigo">categoria del tipo que se esta buscando</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTipos.GuardarSP(System.String)">
+	<summary>
+ guardar tipo usando un procedimiento almacenado
+ </summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BSucursales.Busqueda(System.String)">
+	<summary>
+ busqueda de sucursales
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.#ctor(System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Constructor
+ </summary>
+	<param name="x_zona">Codigo de la zona</param>
+	<param name="x_sucursal">Codigo de la sucursal</param>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_periodo">Periodo activo</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.getNroTransaccion(System.Int64,System.String)">
+	<summary>
+ Genera el numero de transacción para la tabla Tesoreria.TESO_Caja
+ </summary>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_serie">Serie de la tabla TESO_Caja</param>
+	<returns>Devuelve el valor encontrado, despues de ejecutar la consulta</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.CargarFacturasXCancelar(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VEN_CAJASS_FacturasXCancelar(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: VEN_CAJASS_FacturasXCancelar
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.getClientes(System.String,System.Int16,System.Boolean)">
+	<summary>
+ Obtener listado de clientes
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se buscara cadena</param>
+	<param name="x_todos">Opcion para poder buscar todos los clientes</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.getPendiente(System.String,System.String,System.Boolean)">
+	<summary>
+ Obtener el listado de clientes
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se busca cadena</param>
+	<param name="x_todos"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.setJoinWhereEntidad(System.Collections.Generic.List{ACFramework.ACJoin}@,System.Collections.Hashtable@,System.Boolean)">
+	<summary>
+ Genera los Join para la consulta de clientes
+ </summary>
+	<param name="_join"></param>
+	<param name="_where"></param>
+	<param name="x_todos"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.Ayuda(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Cargar la ayuda de busqueda de documentos de pago, todos los pago a favor del cliente
+ </summary>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_entid_codigo"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.AyudaNC(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary>
+ Cargar la ayuda de busqueda de documentos de pago, todos los pago a favor del cliente
+ </summary>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_entid_codigo"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.FacturasXCliente(System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_DOCVESS_FacturasXCliente(System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_FacturasXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_DOCRec_SaldosXCliente(System.String,System.Int64,System.Boolean,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: VENT_DOCRec_SaldosXCliente
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<param name="x_todos">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks> 
+ _M
+
+</member><member name="M:ACBVentas.BAdminCaja.getUltimoTipoCambio">
+	<summary>
+ Obtener el ultimo tipo de cambio ingresado, sin tener en cuenta los valores ingresados
+ </summary>
+	<returns>Valor del tipo de cambio, el tipo de cambio sunat.</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.getUltimoTipoCambioOficina">
+	<summary>
+ Obtener el ultimo tipo de cambio de oficina
+ </summary>
+	<returns>Valor del tipo de cambio, tipo de cambio oficina</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.getTipoCambioSunat(System.DateTime)">
+	<summary>
+ Devuelve el ultimo tipo de cambio sunat ingresado
+ </summary>
+	<param name="x_fecha"></param>
+	<returns>devuelve el valor del tipo de cambio encontrado, tipo de cambio sunat</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.CuadreCajaPagos(System.String)">
+	<summary> 
+ Capa de Negocio: TRAN_CAJASS_CuadreCajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_DOCVESS_CajaPagos(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_CajaPagos
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_DOCVESS_CajaPagosXCajaCodigo(System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_CajaPagosXCajaCodigo _M
+ </summary>
+	<param name="x_caja_codigo">Parametro 1: </param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_DOCVESS_CajaPagosNC(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_CajaPagosNC _M
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarCajaDocumento(ACEVentas.EVENT_DocsVenta,System.String@,System.Decimal,System.String)">
+	<summary>
+ Grabar Registro en Caja de un Pago
+ </summary>
+	<param name="x_vent_docsventa">Clase documento de venta cabecera</param>
+	<param name="x_entid_Codigo">Codigo de Entidad</param>
+	<param name="x_tipocambio">Tipo de Cambio</param>
+	<param name="x_usuario">Codigo de usuario (DNI)</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarCajaDocumento(ACEVentas.EVENT_DocsVenta,ACEVentas.ETipos.TipoDePago,System.String,System.Decimal,System.Decimal,System.String,System.String)">
+	<summary>
+ Grabar Registros por Redondeo
+ </summary>
+	<param name="item"></param>
+	<param name="x_codtransaccion"></param>
+	<param name="x_Caja_codigo"></param>
+	<param name="_diferencia"></param>
+	<param name="x_tipocambio"></param>
+	<param name="x_usuario"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarCaja(System.String,ACEVentas.ETipos.TipoDePago,System.String@,System.String@,System.Decimal@,System.String@,System.String,System.DateTime,ACBVentas.BAdminCaja.TRedondeo,System.Decimal)">
+	<summary>
+ Graba el conjunto de registros de caja
+ </summary>
+	<param name="x_usuario">DNI del usuario que realiza la operación</param>
+	<param name="m_tipopago">Tipo de pago</param>
+	<param name="x_caja_codigo">Codigo de Caja</param>
+	<param name="x_entid_Codigo">Codigo de la entidad</param>
+	<param name="x_importe">Importe pagado</param>
+	<param name="x_tipo_moneda">Moneda del importe pagadp</param>
+	<param name="x_serie">Numero de serie para el registro</param>
+	<param name="x_fecha">fecha de cancelación</param>
+	<param name="x_redondeo">Tipo de redondeo</param>
+	<param name="x_tipocambio">Tipo de cambio</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarDeposito(System.String,System.String,System.String,System.Boolean,System.DateTime,System.Decimal,ACEVentas.ETipos)">
+	<summary>
+ Grabar el deposito
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_entid_codigo">Codifo de entidad</param>
+	<param name="x_caja_codigo">Codigo de Caja</param>
+	<param name="x_saldoafavor">Valor que indica si hay saldo a favor, y si puede dar un saldo a favor</param>
+	<param name="x_fecha"></param>
+	<param name="x_importe"></param>
+	<param name="x_tiporecibo">tipo de recibo</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarDetraccion(System.String,System.String,System.String)">
+	<summary>
+ Grabar una detraccion
+ </summary>
+	<param name="x_usuario">DNI de Usuario</param>
+	<param name="x_entid_codigo">Codigo de entidad</param>
+	<param name="x_caja_codigo">Codigo de Caja</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarNotaCredito(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Decimal,System.Decimal,System.DateTime,System.Decimal,ACEVentas.ETipos)">
+	<summary>
+ Grabar nota de credito
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_entid_codigo">Codigo de Entidad</param>
+	<param name="x_caja_codigo">Codigo de Caja</param>
+	<param name="x_tipocambio">Tipo de cambio</param>
+	<param name="x_tipocambiosunat">Tipo de cambio sunat</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarRecInterno(System.String,System.String,System.String)">
+	<summary>
+ Grabar recibo de Ingreso interno, para cancelaciones que no tienen sustento
+ </summary>
+	<param name="x_usuario">Codigo de Usuario</param>
+	<param name="x_entid_codigo">Codigo de Entidad</param>
+	<param name="x_caja_codigo">Codigo de caja</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarEfectivo(System.String,System.String,System.String,System.String,System.Decimal)">
+	<summary>
+ Grabar un pago usando efectivo
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="_entid_codigo"></param>
+	<param name="_caja_codigo"></param>
+	<param name="x_tipo_moneda"></param>
+	<param name="x_importe"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarLetra(System.String,System.String,System.String,System.Decimal,System.Decimal)">
+	<summary>
+ Grabar letra de cambio, esta reemplaza a todas las facturas que cancela
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_entid_codigo">Codigo de entidad</param>
+	<param name="x_caja_codigo">Codigo de caja</param>
+	<param name="x_tipocambio">tipo de cambio</param>
+	<param name="x_tipocambiosunat">Tipo de cambio sunat</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarCheque(System.String,System.String,System.String,System.Boolean,System.DateTime,System.Decimal)">
+	<summary>
+ Grabar Cheque, el cheque solo es una cancelación con un monto cero, para hacer referencia de que existe un cheque asociado a la deuda
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_entid_codigo">Codigo de entidad</param>
+	<param name="x_caja_codigo">codigo de caja</param>
+	<param name="x_saldoafavor">valor que indica si se va a realizar un saldo a favor del sobrante</param>
+	<param name="x_fecha">fecha de cancelacion</param>
+	<param name="x_importe">importe a se cancelado, dado que al final se convierte en cero</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.GrabarPagos(System.String,ACEVentas.ETipos.TipoDePago,System.String,System.DateTime,System.Decimal,System.Decimal,ACBVentas.BAdminCaja.TRedondeo,System.Boolean,System.Boolean,ACEVentas.ETipos)">
+	<summary>
+ Grabar Pagos de Ventas
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="m_tipopago">tipo de pago</param>
+	<param name="x_serie">numero de serie asignado</param>
+	<param name="x_fecha">fecha de cancelacion</param>
+	<param name="x_tipocambio">tipo de cambio</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.AnularPago(System.Int32,System.Int64,System.String,System.String,System.DateTime,System.Boolean)">
+	<summary>
+ Anular pago, esto lleva a anular el registro de caja, dependiendo del tipo de pago, si el pago fue en efectivo se anulan todos los registros generados
+ en el pago del documento, si el pago fue con otro medio esto genera la anulacion de solo el registro de caja, para que el medio de pago utilizado pueda
+ ser rehusado como pago de otra factura o de la misma
+ 
+ Se tiene que tener en cuenta que la anulacion tambien es diferente si es en el mismo dia o en un dia posterior, para cuestiones del cuadre de caja, se
+ genera documentos adicionales
+ </summary>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_caja_id">ID Unico de caja</param>
+	<param name="x_motivo">Motivo de Anulacion del pago</param>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_fecha">Fecha de anulacion</param>
+	<param name="x_tran">Si iinicia transaccion</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.ValidarPendientes(System.DateTime,System.String,System.Int16,System.Int16,System.Int64,System.String)">
+	<summary>
+ Valida si en el dia que se obtiene el cuadre de caja tiene pendientes no canceladas, si existe alguna pendientes se mostrara este listado con todos los
+ pendientes, hasta que no sean retirados no se mostrara el cuadre de caja y el cuadre de pendientes
+ </summary>
+	<param name="x_fecfin">Fecha final del cuadre de caja</param>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_almac_id">Codigo del almacen</param>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_entid_razonsocial">Razon social de la entidad</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.VENT_CAJASS_ValidarPagos(System.DateTime,System.Int64,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_CAJASS_ValidarPagos
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_entid_razonsocial">Parametro 3: </param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAdminCaja.ActualizarFechaPago(System.String)">
+	<summary>
+ Modulo para actualizar la fecha de pago
+ </summary>
+	<param name="x_usuario"></param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.#ctor(System.String)">
+	<summary>
+ constructor
+ </summary>
+	<param name="x_periodo"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GrabarOrdenIngresoActStock(System.String,ACEVentas.EPuntoVenta,ACEVentas.EPuntoVenta,System.String,System.String)">
+	<summary>
+ Generar Orden de Ingreso, Generando Orden de Ingreso Local y Remota, asi como la actualización de los stocks
+ tanto local como remoto
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GrabarOrdenIngreso(System.String)">
+	<summary>
+ Grabar Orden de Ingreso
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GrabarOrdenSalida(System.String,ACEVentas.EPuntoVenta,ACEVentas.EPuntoVenta,System.String,System.String)">
+	<summary>
+ Grabar orden de recojo de salida de mercaderia, tanto el el servidor local como el remoto
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="m_pvremoto">clase punto de venta del servidor remoto, contiene los valores de conexion</param>
+	<param name="x_pvlocal">clase punto de venta del servidor local, contiene los valores de conexion</param>
+	<param name="x_usuario_db">usuario de la base de datos a la cual se conectara, tanto el local como el remoto</param>
+	<param name="x_password_db">contraseña de la base de datos a la cual se conectara, tanto el local como el remoto</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.CargarDocVenta(System.String,System.Int64,System.Int16)">
+	<summary>
+ Cargar el documento de venta
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.Busqueda(System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary>
+ Busqueda de Ordenes
+ </summary>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_tipos_codtipoorden">tipo de orden de recojo</param>
+	<param name="x_opcion">opcion de campo en la busqueda</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">cargar todos los registros</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.BusquedaPtoVenta(System.DateTime,System.DateTime,System.Int64,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary>
+ Busqueda de ordenes por punto de venta
+ </summary>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_pvent_iddestino">codigo de punto de venta destino</param>
+	<param name="x_pvent_idorigen">codigo de punto de venta origen</param>
+	<param name="x_tipos_codtipoorden">tipo de orden de recojo</param>
+	<param name="x_opcion">opcion de busqueda de documento</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">mostrar todos los registros</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.BusquedaLocal(System.DateTime,System.DateTime,System.Int64,System.String,System.Int16,System.String,System.Boolean)">
+	<summary>
+ busqueda de ordenes en el servidor local
+ </summary>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_pvent_iddestino">codigo de punto de venta destino</param>
+	<param name="x_tipos_codtipoorden">tipo de orden de recojo</param>
+	<param name="x_opcion">opcion de busqueda</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">mostrar todos los registros</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.CargarOrden(System.String)">
+	<summary>
+ cargar orden de compra
+ </summary>
+	<param name="x_codigo">codigo de orden de compra</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.CargarOrden(System.String,System.Boolean)">
+	<summary>
+ cargar orden de recojo
+ </summary>
+	<param name="x_codigo">codigo de orden de recojo</param>
+	<param name="x_detalle">opcion para cargar el detalle de la orden de recojo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GetPuntoVenta(System.Int64)">
+	<summary>
+ Obtener y cargar el punto de venta
+ </summary>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.AnularOrdenSalida(System.String,ACEVentas.EPuntoVenta,System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ anular orden de recojo
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_pvlocal">clase punto de venta que contiene los datos de conexion remota</param>
+	<param name="x_usuario_db">usuario de la base de datos</param>
+	<param name="x_password_db">contraseña de la base de datos</param>
+	<param name="x_xordenposterior">permiso para nular orden posterior a la fecha de creación</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.ActualizarImpresion(System.String)">
+	<summary>
+ actualizar el estado de impresion de la orden de compra, solo el usuario normal solo puede imprimir 1 sola vez
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.BusquedaDocVentaXNumero(System.String,System.String,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDocVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.BusquedaDocVenta(System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDocVenta
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.LOG_DIST_GUIASS_ObtDetDocVenta(ACEVentas.EVENT_DocsVenta@,System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDetDocVenta
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.LOG_DIST_GUIASS_ObtDetDocVenta_Artic(ACEVentas.EVENT_DocsVenta@,System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDetDocVenta_articulos_a
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GetCorrelativo(System.String)">
+	<summary>
+ obtener el correlativo de la orden de recojo
+ </summary>
+	<param name="x_orden_serie">serie de la orden de recojo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.GetSerie(System.String,System.String)">
+	<summary>
+ obtener el correlativo de la orden de recojo
+ </summary>
+	<param name="x_tipodoc">serie de la orden de recojo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.OrdenesXDocumento(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_OrdenesXDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarOrdenes.SetPermisoImpOrden(System.String,System.Boolean,System.String)">
+	<summary>
+ Dar permiso al documento para volver a imprimir
+ </summary>
+	<param name="x_codigo">codifo del documento de venta</param>
+	<param name="x_value">valor verdadero o falso para el permiso</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Recibos.ConsultaRecibos(System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TESO_ConsultaRecibos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Recibos.GetSeries(System.String,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Obtener las series de los documentos
+ </summary>
+	<param name="x_app">codigo de aplicacion</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo_documento">tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Recibos.Guardar(System.String,System.Boolean)">
+	<summary>
+ Guardar el recibo
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ACBVentas.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACBVentas.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ACBVentas.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ACBVentas.BTESO_CajaChicaPagos.Guardar(System.String,System.Boolean)">
+	<summary>
+ Guardar pagos de caja chica
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle">detalle de los pago</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_CajaChicaPagos.ConsultaPagosCC(System.Int64,System.Int64)">
+	<summary> 
+ Capa de Negocio: TESO_ConsultaPagosCC
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<param name="x_cajac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAuditoria.AgregarAutorizacion(System.String,System.String,System.Int16,System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Agregar autorizacion para una accion definida
+ </summary>
+	<param name="x_aplic_codigo">codigo de aplicacion</param>
+	<param name="x_zonas_codigo">codig de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_documento">documento al que se le aplica la autorizacion</param>
+	<param name="x_codigo">codigo de referencia para la autorizacion</param>
+	<param name="x_entid_codigo">codigo del la entidad que asigna la autorizacion</param>
+	<param name="x_tipos_codproceso">codigo del proceso que se esta autorizando</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAuditoria.QuitarAutorizacion(System.Int32,System.String,System.Int32,System.String)">
+	<summary>
+ Quitar la autorizacion asignada a un documento
+ </summary>
+	<param name="x_audit_id">codigo de auditoria</param>
+	<param name="x_aplicacion">codigo de aplicacion</param>
+	<param name="x_sucursal">codigo de la sucursal</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAuditoria.ConfirmarAutorizacion(System.Int32,System.String,System.String,System.String,System.String)">
+	<summary>
+ Confirmar autorizacion, es decir se ejecuta el proceso y se graba quien uso el permiso
+ </summary>
+	<param name="x_audit_id">codigo de auditoria</param>
+	<param name="x_entid_codigo">codigo de entidad que usa la autorizacion</param>
+	<param name="x_docautorizado">codigo del documento autorizado</param>
+	<param name="x_tipos_codproceso">tipo de proceso que se autorizo</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAuditoria.VerificarAutorizacion(System.String,System.String,System.Int16,System.String,System.String,System.String)">
+	<summary>
+ Verificar si el documento tiene autorizacion
+ </summary>
+	<param name="x_aplic_codigo">codigo de aplicacion</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_documento">codigo del tipo de documento que se consulta</param>
+	<param name="x_codigo">codigo del documento de referencia</param>
+	<param name="x_tipos_proceso">codigo del tipo de proceso que se verifica la autorizacion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAuditoria.VENT_AUDISS_Autorizaciones(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_AUDISS_Autorizaciones
+ </summary>
+	<param name="x_audit_codigoreferencia">Parametro 1: Codigo de referencia</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.#ctor(System.Int32,System.String,System.String,System.Int32)">
+	<summary>
+ constructor principal
+ </summary>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_periodo">Codigo del periodo</param>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.getTipoCambio">
+	<summary>
+ obtener el tipo de cambio
+ </summary>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.TipoCambio">
+	<summary>
+ obtener el ultimo tipo de cambio ingresado
+ </summary>
+	<returns>devuelve el valor del tipo de cambio</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.getNroTransaccion(System.String)">
+	<summary>
+ Geera el numero de transacción para la tabla Tesoreria.TESO_Caja
+ </summary>
+	<param name="x_serie"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.GetSeries(System.String,System.Int32,System.Int64,System.String)">
+	<summary>
+ Obtiene las series que tiene asignado el punto de venta, las series de documentos de venta
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<param name="x_sucur_id">Codigo de la sucursal</param>
+	<param name="x_pvent_id">Codigo del punto de venta</param>
+	<param name="x_tipo_documento">Tipo de documento que se requiere los numero de serie</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.getPendiente(System.String,System.String,System.Boolean)">
+	<summary>
+ Obtener los clientes que tienen documentos pendientes de pago
+ </summary>
+	<param name="x_cadena">Cadena de Busqueda</param>
+	<param name="x_campo">Campo sobre el cual se realiza la busqueda de la cadena</param>
+	<param name="x_todos"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.setJoinWhereEntidad(System.Collections.Generic.List{ACFramework.ACJoin}@,System.Collections.Hashtable@,System.Boolean)">
+	<summary>
+ Join para obtener los datos de los clientes con pendientes
+ </summary>
+	<param name="_join">Objeto que almacena los join</param>
+	<param name="_where">Condicion para la busqueda</param>
+	<param name="x_todos"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.CargarTodos(System.String)">
+	<summary>
+ Cargar todos los documentos de venta de un cliente
+ </summary>
+	<param name="x_entid_codigo">Codigo del cliente</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.Ayuda(System.Collections.Hashtable)">
+	<summary>
+ Ayuda para los documentos de pago
+ </summary>
+	<param name="x_where">Condicion para la busqueda de los documentos de pago</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.VENT_DOCSS_TodosConSaldo(System.String)">
+	<summary> 
+ Procedimiento "VENT_DOCSS_TodosConSaldo" por el Generador 31/01/2012
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns>Si no hay registros devuelve Falso</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarCancelacion.GrabarPagos(System.String,System.Boolean)">
+	<summary>
+ Grabar un pago en la yabla Tesoreria.TESO_Caja
+ </summary>
+	<param name="x_usuario">Codigo del usuario</param>
+	<param name="x_opcion">Opcion de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_CajaChicaIngreso.ConsultaCajaChica(System.DateTime,System.DateTime,System.String,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: TESO_ConsultaCajaChica
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_cadena">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_todos">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_CajaChicaIngreso.Cargar">
+	<summary>
+ cargar registros de caja
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_CajaChicaIngreso.Guardar(System.String,System.Boolean)">
+	<summary>
+ guardar registro de caja
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle">detalle del regstro</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BPuntoVenta.Busqueda(System.String)">
+	<summary>
+ busqueda de puntos de venta
+ </summary>
+	<param name="x_cadena">cadeba de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.ConsutaNotaCredito(System.String,System.Int64,System.Int16,System.String,System.DateTime,System.DateTime)">
+	<summary> 
+ Capa de Negocio: TESO_DOCPSS_ConsutaNotaCredito
+ </summary>
+	<param name="x_tipodoc">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.CargarDocumento(System.Int64)">
+	<summary>
+ cargar documento de pago
+ </summary>
+	<param name="x_dpago_id">codigo del documento de pago</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.Busqueda(System.String,System.String,System.Int16,System.DateTime,System.DateTime,System.Boolean)">
+	<summary>
+ Busqueda de documentos de pago
+ </summary>
+	<param name="x_cadena"></param>
+	<param name="x_tipdoc"></param>
+	<param name="x_opcion"></param>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<param name="x_todos"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.ObtenerDocPagos(System.DateTime,System.DateTime,System.Int16,System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: TESO_DPAGSS_ObtenerDocPagos
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_optfecha">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.Ayuda(System.Collections.Hashtable)">
+	<summary>
+ Ayuda de los documentos de pago
+ </summary>
+	<param name="x_where">condicion para la consulta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.Ayuda(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Ayuda de documentos de pago
+ </summary>
+	<param name="x_fecini">fecha inicial de buqeuda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_entid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.AyudaNC(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary>
+ Ayuda de documentos de pago
+ </summary>
+	<param name="x_fecini">fecha inicial de buqeuda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_entid_codigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.Guardar(System.String,System.Boolean,ACEVentas.ETipos.TipoDocPago)">
+	<summary>
+ Guardar documento de pago
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_detalle">para grabar el detalle del documento de pago</param>
+	<param name="x_opcion">tipo de documento de pago</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_DocsPagos.GetDocsPago(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_GetDocsPago
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.#ctor(System.Int64,System.Int16,System.String,System.String,System.Int32)">
+	<summary>
+ Contructor
+ </summary>
+	<param name="x_pvent_id">Codigo de Punto de venta</param>
+	<param name="x_almac_id">Codigo del almacen</param>
+	<param name="x_periodo">Codigo del periodo activo</param>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<param name="x_sucur_id">Codigo de sucursal</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.Busqueda(System.String,System.Int16,System.Int32,System.String,System.String,System.DateTime,System.DateTime,System.Boolean)">
+	<summary>
+ Busqueda de guias de remision
+ </summary>
+	<param name="x_cadena">Cadena de busqueda</param>
+	<param name="x_campo">Campo sobre el cual se busca la cadena</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_cfecha"></param>
+	<param name="x_tipos_codmotivo">Motivo de traslado de la Guia</param>
+	<param name="x_fecini">Fecha de inicio de busqueda</param>
+	<param name="x_fecfin">Fecha de Fin de busqueda</param>
+	<param name="x_todos">Buscar todos incluido los anulados</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaSalida(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias de salida de mercaderia
+ </summary>
+	<param name="x_almac_iddestino">codigo de almcen destino</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_tipos_codmotivotraslado">motivo de traslado de la guia</param>
+	<param name="x_opcionfecha">tipo de fecha de emision o traslado</param>
+	<param name="x_opcion">campo sobre el cual se busca la cadena</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">buscar a todos incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaIngreso(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias de ingreso de mercaderia
+ </summary>
+	<param name="x_almac_iddestino">codigo del almacen destino</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_tipos_codmotivotraslado">motivo de traslado de la guia</param>
+	<param name="x_opcionfecha">opcion de busqqueda por fecha de emision o traslado</param>
+	<param name="x_opcion">opcion para busqueda del campo usando la cadena de busqueda</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">buscar todos los registros incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaXNumero(System.String,System.String,System.Int32,System.String,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias por numero
+ </summary>
+	<param name="x_numero">numero de la guia a buscar</param>
+	<param name="x_serie">serie de la guia a buscar</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipos_codmotivo">motivo de traslado de la guia</param>
+	<param name="x_tipos_codtipodocumento">tipo de documento guia</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaSalidaXNumero(System.String,System.String,System.Int32,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias de salida de mercaderia por numero
+ </summary>
+	<param name="x_numero">numero de la guia a buscar</param>
+	<param name="x_serie">serie de la guia a buscar</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_tipos_codmotivo">motivo de traslado de la guia</param>
+	<param name="x_todos">mostrar a todos los registros incluidos los anulado</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaIngresoXNumero(System.String,System.String,System.Int32,System.String,System.Boolean)">
+	<summary>
+ busqueda de guias de ingreso de mercaderia por numero
+ </summary>
+	<param name="x_numero">numero de la guia a buscar</param>
+	<param name="x_serie">serie de la guia a buscar</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_tipos_codmotivo">codigo del motivo de traslado</param>
+	<param name="x_todos">mostrar todos incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaReposicion(System.Int16,System.DateTime,System.DateTime,System.String,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias de reposicion
+ </summary>
+	<param name="x_almac_iddestino">codigo del almacen destino</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<param name="x_tipos_codmotivotraslado">codigo de motivo de traslado de la guia</param>
+	<param name="x_opcionfecha">opcion de busqueda de fecha de emsion o traslado</param>
+	<param name="x_opcion">opcion para el campo de busqueda con la cadena</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaReposicionXNumero(System.String,System.String,System.Int32,System.String,System.Boolean)">
+	<summary>
+ Busqueda de guias de reposicion por numero
+ </summary>
+	<param name="x_numero">numero de la guia</param>
+	<param name="x_serie">serie de la guia</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_tipos_codmotivo">codigo del motivo de traslados de la guia</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.GrabarGuia(System.String,ACEVentas.ETipos.MotivoTraslado,System.Boolean,ACBVentas.BGenerarGuias.m_tguia)">
+	<summary>
+ Grabar guia
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_tipoguia">tipo de guia de remision</param>
+	<param name="x_orden">campo para definir si la guia se genera por un documento de venta o una orden de compra</param>
+	<param name="x_tguia">tipo de guia, de ingreso o salida</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.GrabarGuiaReposicion(System.String,System.String)">
+	<summary>
+ Grabar guia generadas por pedidos de reposicion
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_pedid_codigo">codigo del pedido de reposicion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.AnularGuia(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ Anular guia de remision
+ </summary>
+	<param name="x_codigo">codigo de la guia de remision</param>
+	<param name="x_motivo">motivo de anulacion</param>
+	<param name="x_pgremisionp">permiso para anular guia de remision posteriores a la fecha de creacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.AnularGuiaVenta(System.String,System.String,System.Boolean,System.Boolean,System.String)">
+	<summary>
+ Anular guia de remision generada por un documento de venta u orden de recojo
+ </summary>
+	<param name="x_codigo">codigo de la guia</param>
+	<param name="x_motivo">motivo de anulacion</param>
+	<param name="x_pgremisionp">permiso para anular guia de remision posteriores a la fecha de emision</param>
+	<param name="x_stockdevuelto">campo para saber si la guia mueve stock, y dicho stock sea anulado en el momento de su anulacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.AnularGuiaIngreso(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ Anulacion de guia de remision de ingreso de mercaderia
+ </summary>
+	<param name="x_codigo">codigo de guia de remision</param>
+	<param name="x_motivo">motivo de anulacion de la guia de remision</param>
+	<param name="x_pgremisionp">permiso para anular guia posteriores de la fecha de creación</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.AnularGuiaSalida(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ Anulacion de guias de salida de mercaderia
+ </summary>
+	<param name="x_codigo">codigo de guia de remision</param>
+	<param name="x_motivo">motivo de anulacion</param>
+	<param name="x_pgremisionp">permiso para anular guias pòsteriores a la fecha de creacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.AnularGuiaSalidaReposicion(System.String,System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ Anulacion de guias de remison de los pedidos de reposicion
+ </summary>
+	<param name="x_codigo">codigo de guia de remison</param>
+	<param name="x_pedid_codigo">codigo de pedido de reposicion</param>
+	<param name="x_motivo">motivo de anulacion</param>
+	<param name="x_pgremisionp">permiso para anular guias posteriores a la fecha de creacion</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.CargarGuia(System.String)">
+	<summary>
+ Cargar guia de remision
+ </summary>
+	<param name="x_codigo">codigo de la guia de remision</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.Busqueda(System.String,System.String,System.Int32,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de documentos de venta
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda usando la cadena</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_todos">mostrar todos los registros</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.ObtDocVenta(System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDocVenta
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<param name="x_desbloqueo">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.ObtOrdenes(System.Int16,System.String,System.Int16,System.Int64,System.DateTime,System.DateTime,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtOrdenes
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_almac_id">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_fecini">Parametro 5: </param>
+	<param name="x_fecfin">Parametro 6: </param>
+	<param name="x_desbloqueo">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaXNumero(System.String,System.String,System.String,System.Int16,System.Int64,System.Boolean,System.Boolean,ACBVentas.BGenerarGuias.TDocumento)">
+	<summary>
+ busqueda de documentos de venta usando el numero
+ </summary>
+	<param name="x_numero">numero del documento de venta</param>
+	<param name="x_serie">serie del documento</param>
+	<param name="x_tipos_codtipodocumento">tipo de documento</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_desbloqueo">codigo de desbloqueo de pendientes superiores al la cantidad de meses que tiene configurado</param>
+	<param name="x_pergenguia">permiso para poder cargar una pendiente que fue bloqueada por exceder el tiempo disponible configurado</param>
+	<param name="x_tipodoc">tipo de documento Doc Venta u orden</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.BusquedaDocVentaXNumero(System.String,System.String,System.String,System.Int16,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDocVentaXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.ObtOrdenesXNumero(System.String,System.String,System.String,System.Int16,System.Int64,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtOrdenesXNumero
+ </summary>
+	<param name="x_numero">Parametro 1: </param>
+	<param name="x_serie">Parametro 2: </param>
+	<param name="x_tipos_codtipodocumento">Parametro 3: </param>
+	<param name="x_almac_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.Busqueda(System.String,System.String,System.String,System.Int32,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Busqueda de documentos de venta
+ </summary>
+	<param name="x_doc">tipo de docuento de venta</param>
+	<param name="x_serie">serie del documento de venta</param>
+	<param name="x_numero">numero del documento de venta</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_todos">mostrar todos los registros</param>
+	<param name="x_fecini">fecha de inicio de busqueda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getPendientes(System.String,System.String,System.Int32,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ Obtener el documento pendiente para generar su respectiva guai de remision
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda de la cadena</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_todos">mostrar todos</param>
+	<param name="x_fecini">fecha de inicio de busqeuda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getPendientes(System.String,System.String,System.String,System.Int32,System.Int16,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ busqueda de pendientes de entrega usando el numero del documento
+ </summary>
+	<param name="x_doc">tipo de docuemnto de vent</param>
+	<param name="x_serie">serie del documento de busqueda</param>
+	<param name="x_numero">numero del documento de busqueda</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_todos">mostrar todos</param>
+	<param name="x_fecini">fecha de inicio de busqeuda</param>
+	<param name="x_fecfin">fecha de fin de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getNumero(System.String,System.String)">
+	<summary>
+ Obtener el numero correspondiente a la guia de remision
+ </summary>
+	<param name="x_serie">serie del documento para la busqueda del correlativo</param>
+	<param name="x_tipos_codtipodocumento">tipo de documento de guia</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getNumeropeso(System.String)">
+	<summary>
+ Obtener el peso
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.cargar(System.String,System.Int16,System.Boolean,System.Boolean)">
+	<summary>
+ cargar el documento de venta
+ </summary>
+	<param name="x_codigo">codigo del documento de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_opcion">cargar el detalle del documento de venta</param>
+	<param name="x_ordenes">opcion para saber si son ordenes de documentos de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.cargarSoloorden(System.String,System.Int16,System.Boolean,System.Boolean)">
+	<summary>
+ cargar el documento de ordnes
+ </summary>
+	<param name="x_codigo">codigo del documento de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_opcion">cargar el detalle del documento de venta</param>
+	<param name="x_ordenes">opcion para saber si son ordenes de documentos de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.cargarL(System.String,System.Int16,System.Boolean,System.Boolean)">
+	<summary>
+ cargar el documento de venta
+ </summary>
+	<param name="x_codigo">codigo del documento de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_opcion">cargar el detalle del documento de venta</param>
+	<param name="x_ordenes">opcion para saber si son ordenes de documentos de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.LOG_DIST_GUIASS_ObtDetDocVenta(System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDetDocVenta
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.LOG_DIST_Ordenes_ObtDetguias(System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_Ordenes_ObtDetguias
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.cargarPendiente(System.String,System.Int16,System.Boolean)">
+	<summary>
+ cargar el detalle del documento, solo lo pendiente
+ </summary>
+	<param name="x_docve_codigo">codigo de venta</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_opcion">opcion para cargar el detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.ImpresionGuia(System.String)">
+	<summary>
+ Guardar el campo de confirmacion de impresion de la guia de remision
+ </summary>
+	<param name="x_usuario"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getGuiaVenta(System.String)">
+	<summary>
+ cargar las guia de venta
+ </summary>
+	<param name="x_guiar_codigo">codigo de la guia de remision</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.getGuiaTransf(System.String)">
+	<summary>
+ obtener guias de traslado
+ </summary>
+	<param name="x_guiar_codigo">codigo de la guia de remision</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.ObtDetOrdenes(System.Collections.Generic.List{ACEVentas.EVENT_DocsVentaDetalle}@,System.String,System.Int16)">
+	<summary> 
+ Capa de Negocio: LOG_DIST_GUIASS_ObtDetOrdenes
+ </summary>
+	<param name="x_orden_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.EliminarGuia(System.String,System.String,System.String,System.Boolean)">
+	<summary>
+ elimianr guia de remision
+ </summary>
+	<param name="x_guiar_codigo">codigo de guia de remision</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_tipos_codtipodocumento">tipo de documento guia de remision</param>
+	<param name="x_stockdevuelto">booleano para saber si esta guia mueve stock del kardex</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.GuiasXFacturaOrden(System.String,System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_GuiasXDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.GuiasXDocumento(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_GuiasXDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.LOG_DISTSS_GuiasXDocumentoOrden(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: LOG_DISTSS_GuiasXDocumentoOrden
+ </summary>
+	<param name="x_orden_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarGuias.SetPermisoGenGuia(System.String,System.Boolean,System.String,System.Boolean)">
+	<summary>
+ Dar permiso al documento de venta para poder geenerar guia de remision
+ </summary>
+	<param name="x_codigo">codifo del documento de venta</param>
+	<param name="x_value">valor verdadero o falso para el permiso</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_docventa">clase documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Documentos.GenerarDocumento(System.String,System.String,System.Boolean)">
+	<summary>
+ Generar documento de compra
+ </summary>
+	<param name="x_descripcion"></param>
+	<param name="x_usuario"></param>
+	<param name="x_tran"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_ListaPreciosArticulos.GuardarSQL(System.String)">
+	<summary>
+ Generar scrip SQL para grabar la lista de precios
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_ListaPreciosArticulos.GuardarPASQL(System.String)">
+	<summary>
+ Generar scrip SQl para graba la lista de precios
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getNumero(System.String,System.String)">
+	<summary>
+ Genera el correlativo segun el documento de venta y la serie
+ </summary>
+	<param name="x_docve_serie">Serie del documento</param>
+	<param name="x_tipos_codtipodocumento">Tipo de documento/comprobante de venta</param>
+	<returns>Retorna el numero correspondiente al ultimo generado</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getNumeroNC(System.String,System.String)">
+	<summary>
+ Genera el correlativo segun el documento de venta y la serie NC
+ </summary>
+	<param name="x_docve_serie">Serie del documento</param>
+	<param name="x_tipos_codtipodocumento">Tipo de documento/comprobante de venta</param>
+	<returns>Retorna el numero correspondiente al ultimo generado</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getNroTransaccion(System.Int64,System.String)">
+	<summary>
+ genera el numero de transacción
+ </summary>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_serie">numero de serie</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ActualizarImpresion(System.String)">
+	<summary>
+	</summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ActualizarFechaImpresion(System.String,System.DateTime)">
+	<summary>
+	</summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GrabarDocPagoNC(System.String,System.String,System.String@)">
+	<summary>
+ Grabar documento de pago - Nota de credito
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="_codigo">codigo de caja</param>
+	<param name="x_msg">mensaje a devolver si no se completo el grabado</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GrabarDocPago(System.String,System.String,System.Boolean)">
+	<summary>
+ Grabar documento de pago
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="_codigo">codigo de caja</param>
+	<param name="x_efectivo">verdadero: si el tipo de pago es efectivo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GrabarCaja(System.String,System.Int32,System.String,System.String,System.Int32,System.Decimal,ACEVentas.ETipos.TipoDePago)">
+	<summary>
+ Grabar Pago en Caja al Cancelar una Factura
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_caja_numero"></param>
+	<param name="x_caja_codigo"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_tipocambio"></param>
+	<param name="m_tipopago"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ValidarStock(System.String,System.String@)">
+	<summary>
+ Permite Validar el Stock, y tambien carga la Clase Factura para posteriormente ser grabada en la base de datos
+ </summary>
+	<param name="x_pedid_codigo">Codigo del Pedido</param>
+	<param name="x_msg">Mensaje de error, en caso de que la validacion detecte algun inconveniente</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumento(System.String,System.String,System.String,System.Int32,System.String,ACEVentas.ETipos.TipoDePago,System.Boolean,System.Decimal,System.String@,System.String)">
+	<summary>
+ Generar documento de venta
+ </summary>
+	<param name="x_usuario">Codigo de usuario</param>
+	<param name="x_pedid_codigo">Codigo de pedido</param>
+	<param name="x_docve_serie">serie del documento</param>
+	<param name="x_docve_numero">numero del documento</param>
+	<param name="x_estentrega">estado de entrega del documento de venta</param>
+	<param name="x_tipopago">tipo de pago del documento</param>
+	<param name="x_cancelar">Verdader: se cancelo el documento usando efectivo u otro medio disponible</param>
+	<param name="x_tipocambio">tipo de cambio</param>
+	<param name="x_msg">mensaje devuelto si existe algun error</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumento_trans(System.String,System.DateTime,System.String,System.Int32,System.String,System.String@,System.Boolean@,System.String)">
+	<summary>
+ Para Transportes Generar documento
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_fecfacturacion"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_estentrega"></param>
+	<param name="x_msg"></param>
+	<param name="x_trans"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumentoSimple(System.String,System.DateTime,System.String,System.Int32,System.String,System.String@,System.Boolean@,System.String)">
+	<summary>
+ Para Transportes Generar documento
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_fecfacturacion"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_estentrega"></param>
+	<param name="x_msg"></param>
+	<param name="x_trans"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumento(System.String,System.DateTime,System.String,System.Int32,System.String,System.String@,System.Boolean@,System.String)">
+	<summary>
+ Para Transportes Generar documento
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_fecfacturacion"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_estentrega"></param>
+	<param name="x_msg"></param>
+	<param name="x_trans"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumento_transNC(System.String,System.DateTime,System.String,System.Int32,System.String,System.String@,System.Boolean@,System.String)">
+	<summary>
+ Para Transportes Generar documento
+ </summary>
+	<param name="x_usuario"></param>
+	<param name="x_fecfacturacion"></param>
+	<param name="x_serie"></param>
+	<param name="x_numero"></param>
+	<param name="x_estentrega"></param>
+	<param name="x_msg"></param>
+	<param name="x_trans"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GetSeries(System.String)">
+	<summary>
+ obtener la series del documento
+ </summary>
+	<param name="x_tipo_documento">tipo de documento</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GetSeries(System.String,System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Obtener la serie de un documento
+ </summary>
+	<param name="x_app">codigo de aplicacione</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_sucur_id">codigo de la sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo_documento">tipo de documento</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getTipoCambio">
+	<summary>
+ Obtener el tipo de cambio
+ </summary>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getDocsVenta(System.String)">
+	<summary>
+ obtener el documento de venta
+ </summary>
+	<param name="x_docsventa">codigo del docuemtno de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getDocsVentaVentas(System.String)">
+	<summary>
+ Obtener el docuemtno de venta para la impresion
+ </summary>
+	<param name="x_docsventa">codigo del documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumentoNota(System.String,System.DateTime,System.String,System.Int32,System.String@,ACBVentas.BAuditoria)">
+	<summary>
+ Generar documento nota de credito
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_fecfacturacion">fecha de facturacion</param>
+	<param name="x_serie">numero de serie</param>
+	<param name="x_numero">numero correlativo</param>
+	<param name="x_msg">mensaje devuelto cuando existe un error</param>
+	<param name="x_bauditoria"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.generarDocumentoNotaCredito(System.String,System.DateTime,System.String,System.Int32,System.String@,ACBVentas.BAuditoria)">
+	<summary>
+ Generar documento  de venta
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_fecfacturacion">fecha de facturacion</param>
+	<param name="x_serie">serie</param>
+	<param name="x_numero">numero</param>
+	<param name="x_msg">mensaje devuelto en caso de error</param>
+	<param name="x_bauditoria"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.DocumentosRelacionados(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.DocumentosRelacionadoss(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ObtenerPendientesPago(System.Int64,System.String)">
+	<summary> 
+ Capa de Negocio: CAJASS_ObtenerPendiestesPago
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ObtenerDeuda(System.String,System.Int64)">
+	<summary> 
+ Capa de Negocio: CAJASS_ObtenerDeuda
+ </summary>
+	<param name="x_entid_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.GrabarDocVenta(System.String)">
+	<summary>
+ Grabar documento de venta
+ </summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.CargarSinArticulos(System.String,System.Boolean)">
+	<summary>
+ cargar documento de venta solo cabecera
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<param name="x_detalle">opcion para cargar el detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getCliente(System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime,System.Int64,System.String)">
+	<summary>
+ obtener el cliente
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo sobre el que se busca la cadena</param>
+	<param name="x_todos">mostrar todos</param>
+	<param name="x_fechas">opcion para tomar en cuenta la fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha dinal de busqueda</param>
+	<param name="x_pvent_id">odigo del punto de venta</param>
+	<param name="x_in"></param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getDocumentos(System.String,System.Int32,System.Boolean,System.String)">
+	<summary>
+ Obtener los documentos de venta
+ </summary>
+	<param name="x_serie">numero de serie</param>
+	<param name="x_numero">numero del documento </param>
+	<param name="x_todos">mostrar todos</param>
+	<param name="x_tipo">tipo de documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ValidarStock(System.String,System.String,System.Int16,System.Double,System.String,System.Decimal@)">
+	<summary>
+ Validar el stock
+ </summary>
+	<param name="x_perio_codigo">codigo del periodo</param>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_cantidad">cantidad a validad</param>
+	<param name="x_zonas_codigo">codigo de la zona</param>
+	<param name="x_stockactual">Stock actual</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.ValidarStock(System.String,System.String,System.Int16,System.Double,System.String)">
+	<summary>
+ Validar Stock
+ </summary>
+	<param name="x_perio_codigo">Codigo del perido</param>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<param name="x_almac_id">codigo del almacen</param>
+	<param name="x_cantidad">cantidad a validar</param>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getCabecera(ACBVentas.BVENT_Pedidos,ACEVentas.EVENT_DocsVenta@)">
+	<summary>
+ cargar el pedido de venta y cargarlo a la clase documento de venta
+ </summary>
+	<param name="m_bvent_pedidos">clase pedido de venta</param>
+	<param name="_event_docsventa">clase documento de venta</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.getDetalle(ACEVentas.EVENT_Pedidos,ACEVentas.EVENT_DocsVenta@)">
+	<summary>
+ cargar el detalle del pedido y cargarlo en el detalle del documento de venta
+ </summary>
+	<param name="x_event_pedidos">clase pedido</param>
+	<param name="m_event_docsventa">clase documento de venta</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BGenerarDocsVenta.validarNumeroDocumento(System.String,System.Int32,System.String)">
+	<summary>
+ validade el numero del documento de venta, su disponibilidad
+ </summary>
+	<param name="x_serie">numero de serie</param>
+	<param name="x_numero">numero correlativo</param>
+	<param name="x_documento">tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.VentasxVendedor(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_VentasxVendedor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigovendedor">Parametro 3: </param>
+	<param name="x_entid_codigocliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.VentasPorVendedor(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_VentasPorVendedor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigovendedor">Parametro 3: </param>
+	<param name="x_entid_codigocliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.Ventasxcotizador(System.DateTime,System.DateTime,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_VentasxVendedor
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_entid_codigocotizador">Parametro 3: </param>
+	<param name="x_entid_codigocliente">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.ObtenerUltimaFecha(System.String)">
+	<summary> 
+ Capa de Negocio: VEN_DOCVSS_ObtenerUltimaFecha
+ </summary>
+	<param name="x_tipos_codtipodocumento">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.DocumentosRelacionados(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.ObtenerPendientesPago(System.Int64,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_pvent_id">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.DocumentosRelacionadoss(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_DocumentosXNotaDebito
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.RomperRelacionDocsVentas(System.String,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_VENTSS_RomperRelacionDocsVentas
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<param name="x_pvent_id">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getDocumentos(System.String,System.String,System.Boolean,System.String,System.Boolean,System.DateTime,System.DateTime,System.Int64)">
+	<summary>
+ obtener documento de venta
+ </summary>
+	<param name="x_serie">serie del documento</param>
+	<param name="x_numero">numero del documento</param>
+	<param name="x_todos">cargar todos incluidos los anulados</param>
+	<param name="x_tipo">tipo de documento</param>
+	<param name="x_fechas">opcion para buscar por fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_pvenrt_id">codigo del punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getImpresiones(System.String)">
+	<summary>
+ 'getImpresiones'
+ </summary>
+	<param name="x_docveCodigo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getDocumentos(System.String,System.Int32,System.Boolean,System.String)">
+	<summary>
+ Obtenr documento segun el numero de documento
+ </summary>
+	<param name="x_serie">serie del documento</param>
+	<param name="x_numero">numero del documento</param>
+	<param name="x_todos">cargar todos los documentos incluidos los anulados</param>
+	<param name="x_tipo">tipo de documentos</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getCliente(System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ busqueda de documentos de venta por los datos del cliente o entidad
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo para la busqueda</param>
+	<param name="x_todos">cargar todos incluidos los anulados</param>
+	<param name="x_fechas">opcion de uso de fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fehca final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getCliente(System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime,System.Int64)">
+	<summary>
+ obtener el documento de venta por cliente
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">cargar todos incluidos los anulados</param>
+	<param name="x_fechas">opcion de busqueda por fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.BusDocsVenta(System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_VENTSS_BusDocsVenta
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<param name="x_todos">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getCliente(System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime,System.Int64,System.String)">
+	<summary>
+ Obtener los documento de venta usando los datos de los clientes
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_campo">campo de busqueda</param>
+	<param name="x_todos">mostrar todos los registros incluidos los anulados</param>
+	<param name="x_fechas">opcion de busqu3eda por fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busquedqa</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<param name="x_in">condicion in</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.setJoinWhere(System.Collections.Generic.List{ACFramework.ACJoin}@,System.Collections.Hashtable@,System.Boolean,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ generador de join
+ </summary>
+	<param name="_join"></param>
+	<param name="_where"></param>
+	<param name="x_todos"></param>
+	<param name="x_fechas"></param>
+	<param name="x_fecini"></param>
+	<param name="x_fecfin"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.setJoinWhere(System.Collections.Generic.List{ACFramework.ACJoin}@,System.Collections.Hashtable@,System.Boolean)">
+	<summary>
+ generador de join
+ </summary>
+	<param name="_join"></param>
+	<param name="_where"></param>
+	<param name="x_todos"></param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.AnularDocumentoTransportes(System.String,System.String,System.String)">
+	<summary>
+ Anular Documento de Venta para Transportes
+ </summary>
+	<param name="x_docve_codigo"></param>
+	<param name="x_pedid_codigo"></param>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.AnularDocumentoVentas(System.String,System.DateTime,System.String,System.Boolean,System.String,System.String)">
+	<summary>
+ Anular un documento de Venta, y liberar la cotización correspondiente
+ </summary>
+	<param name="x_docve_codigo">Codigo de Documento de Venta</param>
+	<param name="x_docve_fecha">Fecha del Documento de Venta</param>
+	<param name="x_pedid_codigo">Codigo de Pedido</param>
+	<param name="m_proceso">Permiso de Anulacion</param>
+	<param name="x_usuario">usuario que realiza el proceso</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.AnularDocumentoNC(System.String,System.DateTime,System.String,System.Boolean,System.String,System.String,System.String,System.String)">
+	<summary>
+ Anular un documento de Venta, y liberar la cotización correspondiente
+ </summary>
+	<param name="x_docve_codigo">Codigo de Documento de Venta</param>
+	<param name="x_docve_fecha">Fecha del Documento de Venta</param>
+	<param name="x_docverefer_codigo">Codigo de Pedido</param>
+	<param name="m_proceso">Permiso de Anulacion</param>
+	<param name="x_usuario">usuario que realiza el proceso</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.EliminarDocumentoTransportes(System.String,System.String,System.String)">
+	<summary>
+ Eliminar documentos de ventas, usado por el sistema de transportes
+ </summary>
+	<param name="x_docve_codigo">codigo de documento de venta</param>
+	<param name="x_pedid_codigo">codifo del pedido/cotizacion de venta </param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.EliminarDocumentoVenta(System.String,System.String,System.Boolean,System.String)">
+	<summary>
+ eliminar documentos de venta de area de ventas
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<param name="x_pedid_codigo">codigo del pedido/cotizacion</param>
+	<param name="x_xdocpago">opcion para anular el pago, segun el tipo de pago, efectivo o deposito</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.Cargar(System.String,System.Boolean)">
+	<summary>
+ cargar documento de venta
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<param name="x_detalle">opcion para la carga del detalle del documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.CargarDetalle(System.String)">
+	<summary>
+ cargar detalle del documento de venta
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.CargarUnDocumento(System.String)">
+	<summary> 
+ Capa de Negocio: VENT_DOCVESS_UnDocumento
+ </summary>
+	<param name="x_docve_codigo">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.CargarSinArticulos(System.String,System.Boolean)">
+	<summary>
+ cargar documento de venta solo cabecera
+ </summary>
+	<param name="x_docve_codigo">codigo de venta</param>
+	<param name="x_detalle">opcion para cargar el detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.CargarTodos(System.String)">
+	<summary>
+ cargar documento de venta de un cliente
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.getVendedor(System.String)">
+	<summary>
+ Obtener vendedor
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.ReporteVentas(System.DateTime,System.DateTime)">
+	<summary>
+ obtener el reporte de ventas
+ </summary>
+	<param name="x_fecini">fecha condicion para el reporte</param>
+	<param name="x_fin">fecha final</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.REPOSS_Ventas(System.DateTime,System.DateTime,System.Int32)">
+	<summary> 
+ Capa de Negocio: VENT_REPOSS_Ventas
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.GuardarDocsPago(System.String,ACEVentas.ETESO_DocsPagos)">
+	<summary>
+ guardar documentos de pago
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<param name="x_teso_docspagos">clase documento de pago</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.GetLetras">
+	<summary>
+ obtener letras
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.Busqueda(System.String,System.String,System.Boolean,System.DateTime,System.DateTime)">
+	<summary>
+ buscar documento de ventas
+ </summary>
+	<param name="x_campo">campo de busquedqa</param>
+	<param name="x_valor">cadena de busqueda</param>
+	<param name="x_todos">cargar todos incluido lo anulados</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.Busqueda(System.String,System.Int32,System.Boolean,System.String)">
+	<summary>
+ busqueda de documentos de venta
+ </summary>
+	<param name="x_serie">serie del documento de venta</param>
+	<param name="x_numero">numero del documento de venta</param>
+	<param name="x_todos">cargar todos los registros incluyendo los anulados</param>
+	<param name="x_tipo">tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_DocsVenta.SetPermisoGenGuia(System.String,System.Boolean,System.String)">
+	<summary>
+ dar permiso para que se pueda generar guia de remision y sea despachada
+ </summary>
+	<param name="x_docve_codigo">codigo del documento de venta</param>
+	<param name="x_value">valor del permiso Verdadero o falso</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.VENTSS_ModificarPedidosReporte(System.String,System.String,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_ModificarPedidosReporte
+ </summary>
+	<param name="x_pedid_codigo">Parametro 1: </param>
+	<param name="x_pedid_condiciones">Parametro 2: </param>
+	<param name="x_pedid_condicionentrega">Parametro 3: </param>
+	<param name="x_pedid_nota">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusCotizacion(System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusCotizacion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.VENT_PEDIDSS_ConsPedidoReposicion(System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean,System.Int64,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_ConsPedidoReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<param name="x_pvent_idorigen">Parametro 10: </param>
+	<param name="x_rehusados">Parametro 11: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusPedidoReposicion(System.DateTime,System.DateTime,System.String,System.Int64,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusPedidoReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_pvent_iddestino">Parametro 5: </param>
+	<param name="x_sucur_id">Parametro 6: </param>
+	<param name="x_pedid_tipo">Parametro 7: </param>
+	<param name="x_opcion">Parametro 8: </param>
+	<param name="x_cadena">Parametro 9: </param>
+	<param name="x_todos">Parametro 10: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusPedidoSeparacion(System.DateTime,System.DateTime,System.String,System.Int64,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusPedidoReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_pvent_iddestino">Parametro 5: </param>
+	<param name="x_sucur_id">Parametro 6: </param>
+	<param name="x_pedid_tipo">Parametro 7: </param>
+	<param name="x_opcion">Parametro 8: </param>
+	<param name="x_cadena">Parametro 9: </param>
+	<param name="x_todos">Parametro 10: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusPedidoReposicionParaGuia(System.DateTime,System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String,System.Boolean)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_GuiasParaReposicion
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_pvent_id">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pedid_tipo">Parametro 6: </param>
+	<param name="x_opcion">Parametro 7: </param>
+	<param name="x_cadena">Parametro 8: </param>
+	<param name="x_todos">Parametro 9: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.Busqueda(System.Boolean,System.DateTime,System.DateTime,System.String,System.Int16,System.Int64)">
+	<summary>
+ Busqueda de pedidos para la facturación
+ </summary>
+	<param name="x_opcion">Opcion de busqueda para filtrar a los que tienen la propiedad de facturar</param>
+	<param name="x_fecini">Fecha del Pedido por la cual se realizara la busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.Busqueda(System.Boolean,System.Boolean,System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary>
+ Busqueda General de Pedidos / Cotizaciones
+ </summary>
+	<param name="x_xcliente">opcion para busqueda de cliente</param>
+	<param name="x_fecha">opcion para fecha</param>
+	<param name="x_fecini">fecha inicial de busqueda</param>
+	<param name="x_fecfin">fecha final de busqueda</param>
+	<param name="x_tconsulta">tipo de consulta</param>
+	<param name="x_cadena">cadena de busqueda</param>
+	<param name="x_opcion">opcion de busqueda para la cadena</param>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo de punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusCliente(System.DateTime,System.DateTime,System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusCliente
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<param name="x_fecfin">Parametro 2: </param>
+	<param name="x_tconsulta">Parametro 3: </param>
+	<param name="x_cadena">Parametro 4: </param>
+	<param name="x_opcion">Parametro 5: </param>
+	<param name="x_zonas_codigo">Parametro 6: </param>
+	<param name="x_sucur_id">Parametro 7: </param>
+	<param name="x_pvent_id">Parametro 8: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.BusClienteSF(System.Int16,System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusClienteSF
+ </summary>
+	<param name="x_tconsulta">Parametro 1: </param>
+	<param name="x_cadena">Parametro 2: </param>
+	<param name="x_opcion">Parametro 3: </param>
+	<param name="x_zonas_codigo">Parametro 4: </param>
+	<param name="x_sucur_id">Parametro 5: </param>
+	<param name="x_pvent_id">Parametro 6: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.VENT_PEDIDSS_BusCodigo(System.String,System.Boolean,System.String,System.Int16,System.Int64)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_BusCodigo
+ </summary>
+	<param name="x_codigo">Parametro 1: </param>
+	<param name="x_opcion">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_sucur_id">Parametro 4: </param>
+	<param name="x_pvent_id">Parametro 5: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.Cargar(System.String,System.Boolean)">
+	<summary>
+ Cargar pedido / cotización
+ </summary>
+	<param name="x_pedid_codigo">codigo del pedido</param>
+	<param name="x_detalle">opcion para la carga del detalle</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.VENT_PEDIDSS_ObtenerPedidoReposicion(System.DateTime,System.String,System.Int64,System.Int16,System.String,System.Int16,System.String)">
+	<summary> 
+ Capa de Negocio: VENT_PEDIDSS_ObtenerPedidoReposicion
+ </summary>
+	<param name="x_fecfin">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<param name="x_pvent_id">Parametro 3: </param>
+	<param name="x_sucur_id">Parametro 4: </param>
+	<param name="x_pedid_tipo">Parametro 5: </param>
+	<param name="x_opcion">Parametro 6: </param>
+	<param name="x_cadena">Parametro 7: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_Pedidos.ActualizarFechaEntrega(System.String)">
+	<summary>
+ Actualizar la fecha de entrega del pedido de reposicion, para el control de la mercaderia no entregada
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarProductos">
+	<summary>
+ Cargar Linea y Sub-Linea para ser procesadas en la busqueda de productos
+ </summary>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.getTipoCambio">
+	<summary>
+ Obtener el ultimo tipo de cambio ingresaod
+ </summary>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarPrecios(System.String,System.String)">
+	<summary>
+ Cargar los precios de un producto
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>True: Si existen precios, False: Si no existe precios</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarPrecio(System.String,System.String,System.Int32)">
+	<summary>
+ Cargar los precios de un producto
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>True: Si existen precios, False: Si no existe precios</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarPrecioListaEspecial(System.String,System.String,System.Int32)">
+	<summary>
+ Cargar los precios de un producto
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>True: Si existen precios, False: Si no existe precios</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarPrecioCosto(System.String,System.String,System.Int32)">
+	<summary>
+ Cargar los precios de un producto
+ </summary>
+	<param name="x_zonas_codigo">Codigo de la Zona</param>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>True: Si existen precios, False: Si no existe precios</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.ObtenerPrecios(System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VEN_ARTICSS_ObtenerPrecios
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.ObtenerPrecioLista(System.String,System.String,System.Int32)">
+	<summary> 
+ Capa de Negocio: ARTICSS_ObtenerPrecioLista
+ </summary>
+	<param name="x_artic_codigo">Parametro 1: </param>
+	<param name="x_zonas_codigo">Parametro 2: </param>
+	<param name="x_lprec_id">Parametro 3: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarStocks(System.String,System.String,System.Int16)">
+	<summary>
+ Cargar los stocks de un articulo, y le asigan un orden para que aparezcan al final del listado de Stocks
+ </summary>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<param name="x_almac_id">Codigo del almacen</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarStocks(System.String,System.Int16,System.String)">
+	<summary>
+ Cargar el stock de un articulo
+ </summary>
+	<param name="x_artic_codigo">codigo del articulo</param>
+	<param name="x_almac_id">Codigo del almacen</param>
+	<param name="x_zonas_codigo">Codigo de la zona</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.cargarProducto(System.String)">
+	<summary>
+ Cargar el detalle de un articulo
+ </summary>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.CargarUltimos(System.Int32,System.String)">
+	<summary>
+ Cargar las ultimas compras realizadas de este articulo
+ </summary>
+	<param name="x_top">Cantidad de resultados que se mostraran</param>
+	<param name="x_artic_codigo">Codigo del articulo a consultar</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.GetStocksAlmacenes(System.String,System.String,System.String,System.String,System.Int64)">
+	<summary>
+ Obtener el listado de articulos con su respectivo stock, de cada almacen indicado en la estructura Hash, se obtendra los stock de cada punto de venta.
+ </summary>
+	<param name="x_periodo">Periodo que consultara el stock</param>
+	<param name="x_linea_codigo">Codigo de la linea/sublinea que se desea obtener</param>
+	<param name="x_user">Usuario de la Base de datos</param>
+	<param name="x_password">Contraseña de la base de datos</param>
+	<param name="x_pvent_id">Punto de venta local</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.GetStockAlmacen(System.String,ACEVentas.EPuntoVenta,System.String,System.String,System.Collections.Generic.List{ACELogistica.ELOG_Stocks}@)">
+	<summary>
+ Obtener el stock del almacen seleccionado
+ </summary>
+	<param name="x_artic_codigo">Codigo del articulo</param>
+	<param name="x_puntoventa">Clase punto de venta</param>
+	<param name="x_user">Usuario de la base de datos</param>
+	<param name="x_password">Contraseña de la base de datos</param>
+	<param name="x_liststock">Listado de stocks que se debe obtener</param>
+	<returns>devuelve un valor verdadero si se ejecuta la consulta correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.CargarTodos(System.Collections.Generic.List{ACFramework.ACJoin},System.Collections.Hashtable)">
+	<summary>
+ Cargar el listado de articulos
+ </summary>
+	<param name="x_join">Listado del objeto Join donde encuentra los join que se realizara para la consulta</param>
+	<param name="x_where">Objeto que contiene las condiciones para la consulta generado con el Join anterior</param>
+	<returns>devuelve el valor verdadero si se carga datos de la consulta ejecutada</returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BConsultaArticulos.ObtenerArticulos(System.String,System.Int16,System.String,System.String)">
+	<summary> 
+ Capa de Negocio: VENTSS_ObtenerArticulos
+ </summary>
+	<param name="x_perio_codigo">Parametro 1: </param>
+	<param name="x_almac_id">Parametro 2: </param>
+	<param name="x_zonas_codigo">Parametro 3: </param>
+	<param name="x_linea_codigo">Parametro 4: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDESP_GuiaRSalidas.GUIASU_ActualizarGuiaRSalidas(System.String)">
+	<summary>
+ actuializar las guias que se generaron su salida
+ </summary>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Sencillo.TESO_SENCISS_UnReg(System.DateTime,System.Int64)">
+	<summary> 
+ Capa de Negocio: TESO_SENCISS_UnReg
+ </summary>
+	<param name="x_senci_fecha">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Sencillo.GetFecha">
+	<summary>
+ obtener la fecha del sistema
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BTESO_Sencillo.TESO_SENCISS_VerificarIngreso(System.DateTime)">
+	<summary> 
+ Capa de Negocio: TESO_SENCISS_VerificarIngreso
+ </summary>
+	<param name="x_fecini">Parametro 1: </param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BPrecios.GuardarSQL(System.String)">
+	<summary>
+ genera un scrip SQl para grabar el precio
+ </summary>
+	<param name="x_usuario"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PVentDocumento.GetSeries(System.String,System.Int32,System.Int32,System.String)">
+	<summary>
+ Obtener la series de los documentos
+ </summary>
+	<param name="x_zonas_codigo">codigo de las zonas</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo_documento">codigo del tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PVentDocumento.GetSeries(System.String,System.Int32,System.String)">
+	<summary>
+ obtyener las seried de los documentos
+ </summary>
+	<param name="x_zonas_codigo">codigo de la zonas</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_tipo_documento">codigo del tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PVentDocumento.GetSeries(System.String,System.String)">
+	<summary>
+ obtener la series
+ </summary>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<param name="x_tipo_documento">codigo del tipo de documento</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PVentDocumento.SetPredeterminado(System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+	<summary>
+ Funcion para predeterminar documentos en el momento de su creación
+ </summary>
+	<param name="x_zonas_codigo">codigo de zona</param>
+	<param name="x_sucur_id">codigo de sucursal</param>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<param name="x_tipo_documento">codigo del tipo de documento</param>
+	<param name="x_pvdocu_serie">serie del documento</param>
+	<param name="x_columnas">columna a la cual a a predeterminar</param>
+	<param name="x_usuario">codigo de usuario</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BVENT_PVentDocumento.setBoolean(ACEVentas.EVENT_PVentDocumento@,System.String,System.String,System.String[]@,System.Boolean)">
+	<summary>
+ Prederminar valor booleano
+ </summary>
+	<param name="m_pventdoc">clase donde se encuentra grabado el tipo de documento</param>
+	<param name="x_tipo_documento">tipo de documento</param>
+	<param name="x_columna">columna sobre la cual se afectara el booleno</param>
+	<param name="x_exluir">campos a excluir</param>
+	<param name="x_opcion">valor del booleano</param>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BEntidadesRoles.cargarTodos(System.String)">
+	<summary>
+ cargar roles de usuario
+ </summary>
+	<param name="x_entid_codigo">codigo de entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDirecciones.CargarTodosDirecciones(System.String)">
+	<summary>
+ cargar todas las direcciones de una entidad
+ </summary>
+	<param name="x_entid_codigo">codigo de la entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDirecciones.CargarAyuda(System.String)">
+	<summary>
+ carhar ayuda de las direcciones
+ </summary>
+	<param name="x_entid_codigo">codigo de la entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BDirecciones.getIdDireccion(System.String)">
+	<summary>
+ obtener el ide de la direccion de una entidad
+ </summary>
+	<param name="x_entid_codigo">codigo de la entidad</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAlmacenes.Busqueda(System.String)">
+	<summary>
+ busqueda de almacenes
+ </summary>
+	<param name="x_cadena">cadena de busqueda</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAlmacenes.Ayuda(System.Collections.Hashtable)">
+	<summary>
+ ayuda para buscar almacenes
+ </summary>
+	<param name="x_where">clase condicion</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAlmacenes.Ayuda">
+	<summary>
+ Ayuda para buscar almacenes
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ACBVentas.BAlmacenes.getListAlmacenXPtoVta(System.Int64)">
+	<summary>
+ obtener la lista de almacenes por punto de venta
+ </summary>
+	<param name="x_pvent_id">codigo del punto de venta</param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

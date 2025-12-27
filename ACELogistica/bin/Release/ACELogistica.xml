@@ -1,0 +1,393 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ACELogistica
+</name>
+</assembly>
+<members>
+<member name="P:ACELogistica.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_Costeos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_Costeos" Esquema="Logistica" Prefijo="COSTE"&gt;
+  &lt;Nombre&gt;ABAS_Costeos&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo"&gt;DOCCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor"&gt;ENTID_CodigoProveedor&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCD_Item"&gt;DOCCD_Item&lt;/CCampo&gt;
+    &lt;CCampo  [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_CotizacionesCompra">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_CotizacionesCompra" Esquema="Logistica" Prefijo="COTCO"&gt;
+  &lt;Nombre&gt;ABAS_CotizacionesCompra&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COTCO_Codigo"&gt;COTCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id"&gt;SUCUR_Id&lt;/CCampo&gt;
+    &lt;CCampo  [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_CotizacionesCompraDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_CotizacionesCompraDetalle" Esquema="Logistica" Prefijo="COTCD"&gt;
+  &lt;Nombre&gt;ABAS_CotizacionesCompraDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="COTCO_Codigo"&gt;COTCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="COTCD_Item"&gt;COTCD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCa [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_DocsCompra">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_DocsCompra" Esquema="Logistica" Prefijo="DOCCO"&gt;
+  &lt;Nombre&gt;ABAS_DocsCompra&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCCO_Codigo"&gt;DOCCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ENTID_CodigoProveedor"&gt;ENTID_CodigoProveedor&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+   [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_DocsCompraDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_DocsCompraDetalle" Esquema="Logistica" Prefijo="DOCCD"&gt;
+  &lt;Nombre&gt;ABAS_DocsCompraDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo"&gt;DOCCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCCD_Item"&gt;DOCCD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor"&gt;ENTID_CodigoProveedor&lt;/C [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_IngresosCompra">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_IngresosCompra" Esquema="Logistica" Prefijo="INGCO"&gt;
+  &lt;Nombre&gt;ABAS_IngresosCompra&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ALMAC_Id"&gt;ALMAC_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INGCO_Id"&gt;INGCO_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoDocumento"&gt;TIPOS_CodTipoDocumento&lt;/CCampo&gt;
+    &lt;CCa [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_IngresosCompraDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_IngresosCompraDetalle" Esquema="Logistica" Prefijo="INGCD"&gt;
+  &lt;Nombre&gt;ABAS_IngresosCompraDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ALMAC_Id"&gt;ALMAC_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="INGCO_Id"&gt;INGCO_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INGCD_Item"&gt;INGCD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identi [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_ListaPreciosCompra">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_ListaPreciosCompra" Esquema="Logistica" Prefijo="LPRCO"&gt;
+  &lt;Nombre&gt;ABAS_ListaPreciosCompra&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_Codigo"&gt;ENTID_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CodTipoMoneda"&gt;TIPOS_CodTipoMoneda&lt; [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_OrdenesCompra">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_OrdenesCompra" Esquema="Logistica" Prefijo="ORDCO"&gt;
+  &lt;Nombre&gt;ABAS_OrdenesCompra&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDCO_Codigo"&gt;ORDCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoProveedor"&gt;ENTID_CodigoProveedor&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONA_Codigo"&gt;ZONA_Codigo&lt;/CCampo&gt; [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_OrdenesCompraDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_OrdenesCompraDetalle" Esquema="Logistica" Prefijo="ORDCD"&gt;
+  &lt;Nombre&gt;ABAS_OrdenesCompraDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDCO_Codigo"&gt;ORDCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDCD_Item"&gt;ORDCD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+     [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlABAS_RelDocsCosteo">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ABAS_RelDocsCosteo" Esquema="Logistica" Prefijo="DOCCO"&gt;
+  &lt;Nombre&gt;ABAS_RelDocsCosteo&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCO_Codigo"&gt;DOCCO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCCD_Item"&gt;DOCCD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_CodigoProveedor"&gt;ENTID_CodigoProveedor&lt;/CCampo&gt;
+ [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlArticDestinos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="ArticDestinos" Esquema="dbo" Prefijo="ARTIC"&gt;
+  &lt;Nombre&gt;ArticDestinos&lt;/Nombre&gt;
+  &lt;Esquema&gt;dbo&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_CodigoDestino"&gt;ARTIC_CodigoDestino&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ARTDE_UsrCrea"&gt;ARTDE_UsrCrea&lt;/CCampo&gt;
+    &lt;CCampo Identity [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlArticulos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="Articulos" Esquema="dbo" Prefijo="ARTIC"&gt;
+  &lt;Nombre&gt;Articulos&lt;/Nombre&gt;
+  &lt;Esquema&gt;dbo&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="LINEA_Codigo"&gt;LINEA_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoProducto"&gt;TIPOS_CodTipoProducto&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" F [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlCTRL_Arreglos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="CTRL_Arreglos" Esquema="Logistica" Prefijo="ARREG"&gt;
+  &lt;Nombre&gt;CTRL_Arreglos&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ARREG_Codigo"&gt;ARREG_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoArreglo"&gt;TIPOS_CodTipoArreglo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+    &lt;CCa [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlCTRL_ArreglosDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="CTRL_ArreglosDetalle" Esquema="Logistica" Prefijo="ARRDT"&gt;
+  &lt;Nombre&gt;CTRL_ArreglosDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARREG_Codigo"&gt;ARREG_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ARRDT_Item"&gt;ARRDT_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Id [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlCTRL_InventarioRotativo">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="CTRL_InventarioRotativo" Esquema="Logistica" Prefijo="INROT"&gt;
+  &lt;Nombre&gt;CTRL_InventarioRotativo&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROT_Codigo"&gt;INROT_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoResponsable"&gt;ENTID_CodigoResponsable&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INROT_Serie"&gt;INROT_ [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlCTRL_InventarioRotativoDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="CTRL_InventarioRotativoDetalle" Esquema="Logistica" Prefijo="INROT"&gt;
+  &lt;Nombre&gt;CTRL_InventarioRotativoDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROT_Codigo"&gt;INROT_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INROD_Item"&gt;INROD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCa [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_GuiasRemision">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_GuiasRemision" Esquema="Logistica" Prefijo="GUIAR"&gt;
+  &lt;Nombre&gt;DIST_GuiasRemision&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIAR_Codigo"&gt;GUIAR_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id"&gt;PVENT_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity=" [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_GuiasRemisionDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_GuiasRemisionDetalle" Esquema="Logistica" Prefijo="GUIRD"&gt;
+  &lt;Nombre&gt;DIST_GuiasRemisionDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="GUIAR_Codigo"&gt;GUIAR_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="GUIRD_Item"&gt;GUIRD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+     [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_Ordenes">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_Ordenes" Esquema="Logistica" Prefijo="ORDEN"&gt;
+  &lt;Nombre&gt;DIST_Ordenes&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDEN_Codigo"&gt;ORDEN_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_CodigoCliente"&gt;ENTID_CodigoCliente&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda"&gt;TIPOS_CodTipoMoneda&lt;/CCampo&gt; [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_OrdenesDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_OrdenesDetalle" Esquema="Logistica" Prefijo="ORDET"&gt;
+  &lt;Nombre&gt;DIST_OrdenesDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDEN_Codigo"&gt;ORDEN_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDET_Item"&gt;ORDET_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDET_ItemDocumento"&gt;ORDET_ItemDocumento&lt;/CCampo&gt;
+   [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_OrdenesRecojo">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_OrdenesRecojo" Esquema="Logistica" Prefijo="ORDRE"&gt;
+  &lt;Nombre&gt;DIST_OrdenesRecojo&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDRE_Codigo"&gt;ORDRE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id"&gt;PVENT_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMA_Id"&gt;ALMA_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="1" Foreign [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlDIST_OrdenesRecojoDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="DIST_OrdenesRecojoDetalle" Esquema="Logistica" Prefijo="ORDRE"&gt;
+  &lt;Nombre&gt;DIST_OrdenesRecojoDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ORDRE_Codigo"&gt;ORDRE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="ORDRE_Item"&gt;ORDRE_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+     [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlLOG_StockIniciales">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="LOG_StockIniciales" Esquema="Logistica" Prefijo="STINI"&gt;
+  &lt;Nombre&gt;LOG_StockIniciales&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PERIO_Codigo"&gt;PERIO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="1" ForeignKey="0" PrimaryKey="0" xmlns="STINI_Id"&gt;STINI_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity=" [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlLOG_Stocks">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="LOG_Stocks" Esquema="Logistica" Prefijo="STOCK"&gt;
+  &lt;Nombre&gt;LOG_Stocks&lt;/Nombre&gt;
+  &lt;Esquema&gt;Logistica&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="PERIO_Codigo"&gt;PERIO_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ALMAC_Id"&gt;ALMAC_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0 [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlPrecios">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="Precios" Esquema="dbo" Prefijo="PRECI"&gt;
+  &lt;Nombre&gt;Precios&lt;/Nombre&gt;
+  &lt;Esquema&gt;dbo&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ARTIC_Codigo"&gt;ARTIC_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoMoneda"&gt;TIPOS_CodTipoMoneda&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKe [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlPuntoVenta">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="PuntoVenta" Esquema="dbo" Prefijo="PVENT"&gt;
+  &lt;Nombre&gt;PuntoVenta&lt;/Nombre&gt;
+  &lt;Esquema&gt;dbo&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PVENT_Id"&gt;PVENT_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id"&gt;SUCUR_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xml [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlTipos">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="Tipos" Esquema="dbo" Prefijo="TIPOS"&gt;
+  &lt;Nombre&gt;Tipos&lt;/Nombre&gt;
+  &lt;Esquema&gt;dbo&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="TIPOS_Codigo"&gt;TIPOS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Descripcion"&gt;TIPOS_Descripcion&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_DescLarga"&gt;TIPOS_DescLarga&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey= [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlVENT_DocsRelacion">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="VENT_DocsRelacion" Esquema="Ventas" Prefijo="DOCRE"&gt;
+  &lt;Nombre&gt;VENT_DocsRelacion&lt;/Nombre&gt;
+  &lt;Esquema&gt;Ventas&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_CodReferencia"&gt;DOCVE_CodReferencia&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCRE_NCPorcentaje"&gt;DOCRE_NCPorcentaje&lt;/CCamp [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlVENT_DocsVenta">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="VENT_DocsVenta" Esquema="Ventas" Prefijo="DOCVE"&gt;
+  &lt;Nombre&gt;VENT_DocsVenta&lt;/Nombre&gt;
+  &lt;Esquema&gt;Ventas&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_Id"&gt;SUCUR_Id&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey= [rest of string was truncated]";.
+</summary>
+</member><member name="P:ACELogistica.My.Resources.Resources.xmlVENT_DocsVentaDetalle">
+	<summary>
+  Looks up a localized string similar to &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;Tabla Nombre="VENT_DocsVentaDetalle" Esquema="Ventas" Prefijo="DOCVD"&gt;
+  &lt;Nombre&gt;VENT_DocsVentaDetalle&lt;/Nombre&gt;
+  &lt;Esquema&gt;Ventas&lt;/Esquema&gt;
+  &lt;Campos&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="DOCVE_Codigo"&gt;DOCVE_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="DOCVD_Item"&gt;DOCVD_Item&lt;/CCampo&gt;
+    &lt;CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ZONAS_Codigo"&gt;ZONAS_Codigo&lt;/CCampo&gt;
+    &lt;CCampo Identi [rest of string was truncated]";.
+</summary>
+</member><member name="T:ACELogistica.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:ACELogistica.EVENT_DocsVenta">
+	<summary>
+ '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

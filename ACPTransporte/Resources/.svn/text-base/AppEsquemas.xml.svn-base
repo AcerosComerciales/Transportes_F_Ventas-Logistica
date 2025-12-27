@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<cTablas>
+  <Tabla Nombre="Almacenes" Esquema="dbo" Prefijo="ALMA">
+    <Nombre>Almacenes</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ALMAC_ID">ALMAC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOALMACEN">TIPOS_CODTIPOALMACEN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_DESCRIPCION">ALMAC_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_DIRECCION">ALMAC_DIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMA_UsrCrea">ALMA_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMA_FecCrea">ALMA_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMA_UsrMod">ALMA_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMA_FecMod">ALMA_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ALMAC_ID">ALMAC_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Contactos" Esquema="dbo" Prefijo="CONT">
+    <Nombre>Contactos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONTC_CONTACTO">CONTC_CONTACTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONTC_CARGO">CONTC_CARGO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CODTIPORELACION">TIPOS_CODTIPORELACION</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_IDCONTACTO">ENTID_IDCONTACTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONT_UsrCrea">CONT_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONT_FecCrea">CONT_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONT_UsrMod">CONT_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONT_FecMod">CONT_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_IDCONTACTO">ENTID_IDCONTACTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CODTIPORELACION">TIPOS_CODTIPORELACION</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOS_CODTIPORELACION">TIPOS_CODTIPORELACION</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_IDCONTACTO">ENTID_IDCONTACTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+    </CForaneosPrimarios>
+  </Tabla>
+  <Tabla Nombre="Correlativos" Esquema="dbo" Prefijo="CORR">
+    <Nombre>Correlativos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CORRE_ID">CORRE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORRE_TABLA">CORRE_TABLA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORRE_ANO">CORRE_ANO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORRE_NUMERO">CORRE_NUMERO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORRE_DESCRIPCION">CORRE_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORR_UsrCrea">CORR_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORR_FecCrea">CORR_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORR_UsrMod">CORR_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CORR_FecMod">CORR_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CORRE_ID">CORRE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Direcciones" Esquema="dbo" Prefijo="DIRE">
+    <Nombre>Direcciones</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DIREC_ID">DIREC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIREC_DIRECCION">DIREC_DIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIREC_OBSERVACION">DIREC_OBSERVACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIREC_ESTADO">DIREC_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIRE_UsrCrea">DIRE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIRE_FecCrea">DIRE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIRE_UsrMod">DIRE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DIRE_FecMod">DIRE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DIREC_ID">DIREC_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Documentos" Esquema="dbo" Prefijo="DOCM">
+    <Nombre>Documentos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DOCMT_ID">DOCMT_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPODOCUMENTO">TIPOS_CODTIPODOCUMENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_NRO">DOCMT_NRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_DESCRIPCION">DOCMT_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_DE">DOCMT_DE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_PARA">DOCMT_PARA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_FECHA">DOCMT_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_CONTENIDO">DOCMT_CONTENIDO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_FECDOC">DOCMT_FECDOC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCM_UsrCrea">DOCM_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCM_FecCrea">DOCM_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCM_UsrMod">DOCM_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCM_FecMod">DOCM_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DOCMT_ID">DOCMT_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Entidades" Esquema="dbo" Prefijo="ENTI">
+    <Nombre>Entidades</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODSEXO">TIPOS_CODSEXO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPODOCUMENTO">TIPOS_CODTIPODOCUMENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODESTADOCIVIL">TIPOS_CODESTADOCIVIL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_NOMBRE">ENTID_NOMBRE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_NRODOCUMENTO">ENTID_NRODOCUMENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_TIPOENTIDADPDT">ENTID_TIPOENTIDADPDT</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_RAZONSOCIAL">ENTID_RAZONSOCIAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_RUC">ENTID_RUC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_FECNACIMIENTO">ENTID_FECNACIMIENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PTRAPEMATERNO">ENTID_PTRAPEMATERNO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PTRNOMBRE1">ENTID_PTRNOMBRE1</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_PTRNOMBRE2">ENTID_PTRNOMBRE2</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_EMAIL">ENTID_EMAIL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_FAC">ENTID_FAC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="USUAR_CODIGO">USUAR_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_UsrCrea">ENTI_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_FecCrea">ENTI_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_UsrMod">ENTI_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_FecMod">ENTI_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="EntidadesTipos" Esquema="dbo" Prefijo="ENTI">
+    <Nombre>EntidadesTipos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_UsrCrea">ENTI_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_FecCrea">ENTI_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_UsrMod">ENTI_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTI_FecMod">ENTI_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+    </CForaneosPrimarios>
+  </Tabla>
+  <Tabla Nombre="Parametros" Esquema="dbo" Prefijo="PARM">
+    <Nombre>Parametros</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PARMT_ID">PARMT_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="APLIC_CODIGO">APLIC_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PARMT_VALOR">PARMT_VALOR</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PARMT_DESCRIPCION">PARMT_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PARMT_TIPODATO">PARMT_TIPODATO</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="PARMT_ID">PARMT_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="APLIC_CODIGO">APLIC_CODIGO</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Sucursales" Esquema="dbo" Prefijo="SUCU">
+    <Nombre>Sucursales</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_NOMBRE">SUCUR_NOMBRE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_DIRECCION">SUCUR_DIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_TELEFONO">SUCUR_TELEFONO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="EMPRE_CODIGO">EMPRE_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCU_UsrCrea">SUCU_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCU_FecCrea">SUCU_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCU_UsrMod">SUCU_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCU_FecMod">SUCU_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CPrimarios>
+    <CForaneos />
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Telefonos" Esquema="dbo" Prefijo="TELE">
+    <Nombre>Telefonos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="TELEF_ID">TELEF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELEF_TELEFONO">TELEF_TELEFONO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELEF_OBSERVACION">TELEF_OBSERVACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELE_UsrCrea">TELE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELE_FecCrea">TELE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELE_UsrMod">TELE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TELE_FecMod">TELE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="TELEF_ID">TELEF_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Tipos" Esquema="dbo" Prefijo="TIPO">
+    <Nombre>Tipos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Descripcion">TIPOS_Descripcion</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_DESCC">TIPOS_DESCC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_NUM">TIPOS_NUM</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_ESTADO">TIPOS_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_PROTEGIDO">TIPOS_PROTEGIDO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_UsrCrea">TIPO_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_FecCrea">TIPO_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_UsrMod">TIPO_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_FecMod">TIPO_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CPrimarios>
+    <CForaneos />
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TiposEntidades" Esquema="dbo" Prefijo="TIPO">
+    <Nombre>TiposEntidades</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOE_DESCRIPCION">TIPOE_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_UsrCrea">TIPO_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_FecCrea">TIPO_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_UsrMod">TIPO_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPO_FecMod">TIPO_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="TIPOE_ID">TIPOE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos />
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_AlmacenesPiezas" Esquema="Transportes" Prefijo="ALMP">
+    <Nombre>TRAN_AlmacenesPiezas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ALMPZ_ID">ALMPZ_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMPZ_IDPIEZA">ALMPZ_IDPIEZA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMPZ_TIPOPIEZA">ALMPZ_TIPOPIEZA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMAC_ID">ALMAC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMPZ_FECREGISTRO">ALMPZ_FECREGISTRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMPZ_ESTADO">ALMPZ_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOPIEZA">TIPOS_CODTIPOPIEZA</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ALMPZ_ID">ALMPZ_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_ID">ALMAC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Cajas" Esquema="Transportes" Prefijo="CAJA">
+    <Nombre>TRAN_Cajas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CAJAS_ID">CAJAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJAS_DESCRIPCION">CAJAS_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJAS_NROOPERACION">CAJAS_NROOPERACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJAS_DIRECCION">CAJAS_DIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJAS_ESTADO">CAJAS_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJA_UsrCrea">CAJA_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJA_FecCrea">CAJA_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJA_UsrMod">CAJA_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJA_FecMod">CAJA_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CAJAS_ID">CAJAS_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_CajasOperaciones" Esquema="Transportes" Prefijo="COPE">
+    <Nombre>TRAN_CajasOperaciones</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COPER_ID">COPER_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPER_TIPOOPERACION">COPER_TIPOOPERACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPER_MONTO">COPER_MONTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPER_FECHA">COPER_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="CAJAS_ID">CAJAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPER_GLOSA">COPER_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPER_DOCREFERENCIA">COPER_DOCREFERENCIA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOPAGO">TIPOS_CODTIPOPAGO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMONEDA">TIPOS_CODMONEDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPE_UsrCrea">COPE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPE_FecCrea">COPE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPE_UsrMod">COPE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COPE_FecMod">COPE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COPER_ID">COPER_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CAJAS_ID">CAJAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Clientes" Esquema="Transportes" Prefijo="CLIE">
+    <Nombre>TRAN_Clientes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CLIEN_ID">CLIEN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_ESTADO">CLIEN_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIE_UsrCrea">CLIE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIE_FecCrea">CLIE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIE_UsrMod">CLIE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIE_FecMod">CLIE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CLIEN_ID">CLIEN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_CombustibleConsumo" Esquema="Transportes" Prefijo="COMC">
+    <Nombre>TRAN_CombustibleConsumo</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COMCO_ID">COMCO_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMODOPAGO">TIPOS_CODMODOPAGO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOCOMBUSTIBLE">TIPOS_CODTIPOCOMBUSTIBLE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMCO_FECHA">COMCO_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMCO_PRECIOGALON">COMCO_PRECIOGALON</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMCO_GALONESCONSUMIDOS">COMCO_GALONESCONSUMIDOS</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMC_UsrCrea">COMC_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMC_FecCrea">COMC_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMC_UsrMod">COMC_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COMC_FecMod">COMC_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COMCO_ID">COMCO_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Conductores" Esquema="Transportes" Prefijo="COND">
+    <Nombre>TRAN_Conductores</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CONDU_ID">CONDU_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONDU_LICENCIA">CONDU_LICENCIA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONDU_ESTADO">CONDU_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONDU_NROVIAJE">CONDU_NROVIAJE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COND_UsrCrea">COND_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COND_FecCrea">COND_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COND_UsrMod">COND_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COND_FecMod">COND_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="CONDU_ID">CONDU_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Cotizaciones" Esquema="Transportes" Prefijo="COTI">
+    <Nombre>TRAN_Cotizaciones</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COTIZ_ID">COTIZ_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_CODIGO">COTIZ_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_NOMBRECLIENTE">COTIZ_NOMBRECLIENTE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_FECHAFLETE">COTIZ_FECHAFLETE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_MONTO">COTIZ_MONTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_CARGA">COTIZ_CARGA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_ESTADO">COTIZ_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTI_UsrCrea">COTI_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTI_FecCrea">COTI_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTI_UsrMod">COTI_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTI_FecMod">COTI_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="COTIZ_ID">COTIZ_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_DocPagoGuiasTransportista" Esquema="Transportes" Prefijo="DPGU">
+    <Nombre>TRAN_DocPagoGuiasTransportista</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPGUI_ID">DPGUI_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPGUI_FECHA">DPGUI_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPGU_UsrCrea">DPGU_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPGU_FecCrea">DPGU_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPGU_UsrMod">DPGU_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPGU_FecMod">DPGU_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPGUI_ID">DPGUI_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_DocumentosPagoDetalle" Esquema="Transportes" Prefijo="DPDE">
+    <Nombre>TRAN_DocumentosPagoDetalle</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPDET_ID">DPDET_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_UNIDAD">DPDET_UNIDAD</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_DETALLE">DPDET_DETALLE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_VARLORUNITARIO">DPDET_VARLORUNITARIO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDET_CANTIDAD">DPDET_CANTIDAD</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="GTDET_ID">GTDET_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDE_UsrCrea">DPDE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDE_FecCrea">DPDE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDE_UsrMod">DPDE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DPDE_FecMod">DPDE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DPDET_ID">DPDET_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_ID">GTDET_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_DocumentosPagoFletes" Esquema="Transportes" Prefijo="DOCP">
+    <Nombre>TRAN_DocumentosPagoFletes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_FECHA">DOCPF_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_VALORTOTAL">DOCPF_VALORTOTAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_GLOSA">DOCPF_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="CLIEN_ID">CLIEN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_NRO">DOCPF_NRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_DESCRIPCION">DOCPF_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_CANCELADO">DOCPF_CANCELADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_FECPAGOACORDADO">DOCPF_FECPAGOACORDADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCPF_FECPAGOREALIZADO">DOCPF_FECPAGOREALIZADO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPODOCUMENTO">TIPOS_CODTIPODOCUMENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCP_UsrCrea">DOCP_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCP_FecCrea">DOCP_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCP_UsrMod">DOCP_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCP_FecMod">DOCP_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="DOCPF_ID">DOCPF_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CLIEN_ID">CLIEN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_EstimacionesConsumo" Esquema="Transportes" Prefijo="ESTM">
+    <Nombre>TRAN_EstimacionesConsumo</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ESTMC_ID">ESTMC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ESTMC_ESTIMACION">ESTMC_ESTIMACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ESTMC_UNIDAD">ESTMC_UNIDAD</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOESTIMACION">TIPOS_CODTIPOESTIMACION</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ESTMC_ID">ESTMC_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Fletes" Esquema="Transportes" Prefijo="FLET">
+    <Nombre>TRAN_Fletes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VHCON_ID">VHCON_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_ID">COTIZ_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMODOPAGO">TIPOS_CODMODOPAGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_CODIGO">FLETE_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_FECSALIDA">FLETE_FECSALIDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_FECLLEGADA">FLETE_FECLLEGADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_COMPLETADO">FLETE_COMPLETADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_GLOSA">FLETE_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_TOTINGRESO">FLETE_TOTINGRESO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_TOTGASTO">FLETE_TOTGASTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ESTADO">FLETE_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_FECPROGRAMADA">FLETE_FECPROGRAMADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLET_UsrCrea">FLET_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLET_FecCrea">FLET_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLET_UsrMod">FLET_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLET_FecMod">FLET_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="FLETE_ID">FLETE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCON_ID">VHCON_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_GuiasTransportista" Esquema="Transportes" Prefijo="GTRA">
+    <Nombre>TRAN_GuiasTransportista</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_FECHA">GTRAN_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_REMITENTE">GTRAN_REMITENTE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_RUCREMITENTE">GTRAN_RUCREMITENTE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_DIRECCIONPARTIDA">GTRAN_DIRECCIONPARTIDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_DESTINATARIO">GTRAN_DESTINATARIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_RUCDESTINATARIO">GTRAN_RUCDESTINATARIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_DIRECCIONLLEGADA">GTRAN_DIRECCIONLLEGADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_FECTRANSLADO">GTRAN_FECTRANSLADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_SUBCONTRATO">GTRAN_SUBCONTRATO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_SUBCONTRATORAZONSOCIAL">GTRAN_SUBCONTRATORAZONSOCIAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_SUBCONTRATORUC">GTRAN_SUBCONTRATORUC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_SUBCONTRATODIRECCION">GTRAN_SUBCONTRATODIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_CONTRATAPAGASERVICIO">GTRAN_CONTRATAPAGASERVICIO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_NRO">GTRAN_NRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRA_UsrCrea">GTRA_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRA_FecCrea">GTRA_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRA_UsrMod">GTRA_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRA_FecMod">GTRA_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_GuiasTransportistaDetalles" Esquema="Transportes" Prefijo="GTDE">
+    <Nombre>TRAN_GuiasTransportistaDetalles</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GTDET_ID">GTDET_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_CODIGO">GTDET_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_DESCRIPCION">GTDET_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_PESO">GTDET_PESO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_CANTIDAD">GTDET_CANTIDAD</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODUNIDAD">TIPOS_CODUNIDAD</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDET_ESTADO">GTDET_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDE_UsrCrea">GTDE_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDE_FecCrea">GTDE_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDE_UsrMod">GTDE_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTDE_FecMod">GTDE_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="GTDET_ID">GTDET_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="GTRAN_ID">GTRAN_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_IncidenciasNeumaticos" Esquema="Transportes" Prefijo="INCN">
+    <Nombre>TRAN_IncidenciasNeumaticos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCNU_ID">INCNU_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_DESCRIPCION">INCNU_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_FECHA">INCNU_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_ACCIONREALIZADA">INCNU_ACCIONREALIZADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_TIEMPOVIDAUTILPERDIDA">INCNU_TIEMPOVIDAUTILPERDIDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_KMINICIDENCIA">INCNU_KMINICIDENCIA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCNU_KMVIDAUTIL">INCNU_KMVIDAUTIL</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCN_UsrCrea">INCN_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCN_FecCrea">INCN_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCN_UsrMod">INCN_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCN_FecMod">INCN_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCNU_ID">INCNU_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_IncidenciasVehiculos" Esquema="Transportes" Prefijo="INCV">
+    <Nombre>TRAN_IncidenciasVehiculos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCVE_ID">INCVE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOINCIDENCIA">TIPOS_CODTIPOINCIDENCIA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_DESCRIPCION">INCVE_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_FECHA">INCVE_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCVE_ACCIONREALIZADA">INCVE_ACCIONREALIZADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCV_UsrCrea">INCV_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCV_FecCrea">INCV_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCV_UsrMod">INCV_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCV_FecMod">INCV_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCVE_ID">INCVE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_IncidenciasViajes" Esquema="Transportes" Prefijo="INCI">
+    <Nombre>TRAN_IncidenciasViajes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCIV_ID">INCIV_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCIV_DESCRIPCION">INCIV_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCIV_FECHA">INCIV_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCIV_ACCIONREALIZADA">INCIV_ACCIONREALIZADA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCI_UsrCrea">INCI_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCI_FecCrea">INCI_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCI_UsrMod">INCI_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INCI_FecMod">INCI_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="INCIV_ID">INCIV_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_InformesMantenimientos" Esquema="Transportes" Prefijo="INFM">
+    <Nombre>TRAN_InformesMantenimientos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INFMN_ID">INFMN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_NRO">INFMN_NRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_FECREALIZACION">INFMN_FECREALIZACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_DESCRIPCION">INFMN_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_OBSERVACIONES">INFMN_OBSERVACIONES</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_ACCIONESREALIZADAS">INFMN_ACCIONESREALIZADAS</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFMN_ESTADO">INFMN_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ORDMN_ID">ORDMN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFM_UsrCrea">INFM_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFM_FecCrea">INFM_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFM_UsrMod">INFM_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="INFM_FecMod">INFM_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="INFMN_ID">INFMN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_ID">ORDMN_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_MovimientosAlmacenes" Esquema="Transportes" Prefijo="MOVA">
+    <Nombre>TRAN_MovimientosAlmacenes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="MOVAL_ID">MOVAL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_IDALMACENORIGEN">MOVAL_IDALMACENORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_IDALMACENDESTINO">MOVAL_IDALMACENDESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_TIPOOPERACION">MOVAL_TIPOOPERACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_FECHA">MOVAL_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_GLOSA">MOVAL_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVAL_IDPIEZA">MOVAL_IDPIEZA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOPIEZA">TIPOS_CODTIPOPIEZA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVA_UsrCrea">MOVA_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVA_FecCrea">MOVA_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVA_UsrMod">MOVA_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVA_FecMod">MOVA_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="MOVAL_ID">MOVAL_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_MovimientosNeumaticos" Esquema="Transportes" Prefijo="MOVN">
+    <Nombre>TRAN_MovimientosNeumaticos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="MOVNM_ID">MOVNM_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="DOCMT_IDORDEN">DOCMT_IDORDEN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FECHA">MOVNM_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UBICACIONDESTINO">MOVNM_UBICACIONDESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_IDDESTINO">MOVNM_IDDESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODDESTINO">TIPOS_CODDESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_UBICACIONORIGEN">MOVNM_UBICACIONORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_IDORIGEN">MOVNM_IDORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODORIGEN">TIPOS_CODORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FECASIGNACION">MOVNM_FECASIGNACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_FECRETIRO">MOVNM_FECRETIRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_GLOSA">MOVNM_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_MOTIVO">MOVNM_MOTIVO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_ESTADO">MOVNM_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVN_UsrCrea">MOVN_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVN_FecCrea">MOVN_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVN_UsrMod">MOVN_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVN_FecMod">MOVN_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="MOVNM_ID">MOVNM_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="DOCMT_ID">DOCMT_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Neumaticos" Esquema="Transportes" Prefijo="NEUM">
+    <Nombre>TRAN_Neumaticos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMONEDA">TIPOS_CODMONEDA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMARCA">TIPOS_CODMARCA</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOLLANTA">TIPOS_CODTIPOLLANTA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_CODIGO">NEUMA_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FECCOMPRA">NEUMA_FECCOMPRA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_MODELO">NEUMA_MODELO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_FECHAGARANTIA">NEUMA_FECHAGARANTIA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_PRECIO">NEUMA_PRECIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_TIEMPOVIDAUTIL">NEUMA_TIEMPOVIDAUTIL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_KMVIDAUTIL">NEUMA_KMVIDAUTIL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_TAMANO">NEUMA_TAMANO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ESTADO">NEUMA_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_KM">NEUMA_KM</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_UsrCrea">NEUM_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_FecCrea">NEUM_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_UsrMod">NEUM_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_FecMod">NEUM_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_NeumaticosFletes" Esquema="Transportes" Prefijo="NEUM">
+    <Nombre>TRAN_NeumaticosFletes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMF_ID">NEUMF_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMF_KM">NEUMF_KM</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_UsrCrea">NEUM_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_FecCrea">NEUM_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_UsrMod">NEUM_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUM_FecMod">NEUM_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="NEUMF_ID">NEUMF_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_OrdenesMantenimiento" Esquema="Transportes" Prefijo="ORDM">
+    <Nombre>TRAN_OrdenesMantenimiento</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDMN_ID">ORDMN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FECASIGNACION">ORDMN_FECASIGNACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_FECTERMINO">ORDMN_FECTERMINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_GLOSA">ORDMN_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDMN_ESTADO">ORDMN_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ORDTR_ID">ORDTR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDM_UsrCrea">ORDM_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDM_FecCrea">ORDM_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDM_UsrMod">ORDM_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDM_FecMod">ORDM_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDMN_ID">ORDMN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="FLETE_ID">FLETE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_ID">ORDTR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_OrdenesTransportes" Esquema="Transportes" Prefijo="ORDT">
+    <Nombre>TRAN_OrdenesTransportes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDTR_ID">ORDTR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="COTIZ_ID">COTIZ_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_CODIGO">ORDTR_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_FECHA">ORDTR_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_MONTO">ORDTR_MONTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_CARGA">ORDTR_CARGA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDTR_ESTADO">ORDTR_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDT_UsrCrea">ORDT_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDT_FecCrea">ORDT_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDT_UsrMod">ORDT_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ORDT_FecMod">ORDT_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="ORDTR_ID">ORDTR_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="COTIZ_ID">COTIZ_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Planillas" Esquema="Transportes" Prefijo="PLAN">
+    <Nombre>TRAN_Planillas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PLANI_ID">PLANI_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VGAST_ID">VGAST_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="CONDU_ID">CONDU_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLAN_UsrCrea">PLAN_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLAN_FecCrea">PLAN_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLAN_UsrMod">PLAN_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PLAN_FecMod">PLAN_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PLANI_ID">PLANI_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONDU_ID">CONDU_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAST_ID">VGAST_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Proveedores" Esquema="Transportes" Prefijo="PROV">
+    <Nombre>TRAN_Proveedores</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PROVE_ID">PROVE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_NOMBRE">PROVE_NOMBRE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_DIRECCION">PROVE_DIRECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_RUC">PROVE_RUC</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_SUCURSAL">PROVE_SUCURSAL</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_ESTADO">PROVE_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROV_UsrCrea">PROV_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROV_FecCrea">PROV_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROV_UsrMod">PROV_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROV_FecMod">PROV_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="PROVE_ID">PROVE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Ranflas" Esquema="Transportes" Prefijo="RAMF">
+    <Nombre>TRAN_Ranflas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMARCA">TIPOS_CODMARCA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_CODIGO">RANFL_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_MODELO">RANFL_MODELO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_PLACA">RANFL_PLACA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_CERTIFICADO">RANFL_CERTIFICADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_FECADQUISICION">RANFL_FECADQUISICION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RANFL_ESTADO">RANFL_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMF_UsrCrea">RAMF_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMF_FecCrea">RAMF_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMF_UsrMod">RAMF_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMF_FecMod">RAMF_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Reencauches" Esquema="Transportes" Prefijo="REEN">
+    <Nombre>TRAN_Reencauches</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="REENC_ID">REENC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PROVE_ID">PROVE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REENC_DESCRIPCION">REENC_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REENC_FECHA">REENC_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REENC_GLOSA">REENC_GLOSA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REENC_KMINCREMENTOVU">REENC_KMINCREMENTOVU</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REEN_UsrCrea">REEN_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REEN_FecCrea">REEN_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REEN_UsrMod">REEN_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="REEN_FecMod">REEN_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="REENC_ID">REENC_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PROVE_ID">PROVE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Rutas" Esquema="Transportes" Prefijo="RUTA">
+    <Nombre>TRAN_Rutas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CODORIGEN">UBIGO_CODORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="UBIGO_CODDESTINO">UBIGO_CODDESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_CODIGO">RUTAS_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_NOMBRE">RUTAS_NOMBRE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_FECHA">RUTAS_FECHA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_KM">RUTAS_KM</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_TIEMPO">RUTAS_TIEMPO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTAS_ESTADO">RUTAS_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTA_UsrCrea">RUTA_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTA_FecCrea">RUTA_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTA_UsrMod">RUTA_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RUTA_FecMod">RUTA_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="RUTAS_ID">RUTAS_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_SegurosVehiculos" Esquema="Transportes" Prefijo="SEGV">
+    <Nombre>TRAN_SegurosVehiculos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="SEGVH_ID">SEGVH_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_DESCRIPCION">SEGVH_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_FECINICIO">SEGVH_FECINICIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_FECFIN">SEGVH_FECFIN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_EMPRESAASEGURADORA">SEGVH_EMPRESAASEGURADORA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_FECADQUISICION">SEGVH_FECADQUISICION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGVH_PRECIO">SEGVH_PRECIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGV_UsrCrea">SEGV_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGV_FecCrea">SEGV_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGV_UsrMod">SEGV_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SEGV_FecMod">SEGV_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="SEGVH_ID">SEGVH_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Vehiculos" Esquema="Transportes" Prefijo="VEHI">
+    <Nombre>TRAN_Vehiculos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOVEHICULO">TIPOS_CODTIPOVEHICULO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODMARCA">TIPOS_CODMARCA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_CODIGO">VEHIC_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_MODELO">VEHIC_MODELO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_FECADQUISICION">VEHIC_FECADQUISICION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_PLACA">VEHIC_PLACA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_NRONEUMATICOS">VEHIC_NRONEUMATICOS</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_KMACTUAL">VEHIC_KMACTUAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_KMINICIAL">VEHIC_KMINICIAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_CERTFICADO">VEHIC_CERTFICADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_COMBUSTIBLE">VEHIC_COMBUSTIBLE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ESTADO">VEHIC_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHI_UsrCrea">VEHI_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHI_FecCrea">VEHI_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHI_UsrMod">VEHI_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHI_FecMod">VEHI_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_VehiculosConductores" Esquema="Transportes" Prefijo="VHCO">
+    <Nombre>TRAN_VehiculosConductores</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VHCON_ID">VHCON_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCON_FECDESDE">VHCON_FECDESDE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCON_FECHASTA">VHCON_FECHASTA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCON_ESTADO">VHCON_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCO_UsrCrea">VHCO_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCO_FecCrea">VHCO_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCO_UsrMod">VHCO_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCO_FecMod">VHCO_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VHCON_ID">VHCON_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_VehiculosMantenimiento" Esquema="Transportes" Prefijo="VMAN">
+    <Nombre>TRAN_VehiculosMantenimiento</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VMAN_ID">VMAN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOMANTENIMIENTO">TIPOS_CODTIPOMANTENIMIENTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_FECREALIZACION">VMAN_FECREALIZACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_OBSERVACIONES">VMAN_OBSERVACIONES</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_KM">VMAN_KM</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_UsrCrea">VMAN_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_FecCrea">VMAN_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_UsrMod">VMAN_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VMAN_FecMod">VMAN_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VMAN_ID">VMAN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_ID">ENTID_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_VehiculosNeumaticos" Esquema="Transportes" Prefijo="VNEU">
+    <Nombre>TRAN_VehiculosNeumaticos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VNEUM_ID">VNEUM_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="MOVNM_ID">MOVNM_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_FECASIGNACION">VNEUM_FECASIGNACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_FECRETIRO">VNEUM_FECRETIRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_LADO">VNEUM_LADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_SECCION">VNEUM_SECCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_ORDENPOSICION">VNEUM_ORDENPOSICION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_INTERNOEXTERNO">VNEUM_INTERNOEXTERNO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_REPUESTO">VNEUM_REPUESTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_ESTADO">VNEUM_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_KMINICIO">VNEUM_KMINICIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEUM_KMFIN">VNEUM_KMFIN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEU_UsrCrea">VNEU_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEU_FecCrea">VNEU_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEU_UsrMod">VNEU_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VNEU_FecMod">VNEU_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VNEUM_ID">VNEUM_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="MOVNM_ID">MOVNM_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="NEUMA_ID">NEUMA_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_VehiculosRanflas" Esquema="Transportes" Prefijo="VEHR">
+    <Nombre>TRAN_VehiculosRanflas</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VEHRN_ID">VEHRN_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHRN_FECASIGNACION">VEHRN_FECASIGNACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHRN_FECDESASIGNACION">VEHRN_FECDESASIGNACION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHRN_ESTADO">VEHRN_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHR_UsrCrea">VEHR_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHR_FecCrea">VEHR_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHR_UsrMod">VEHR_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHR_FecMod">VEHR_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VEHRN_ID">VEHRN_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="RAMFL_ID">RAMFL_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_ID">VEHIC_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_Viajes" Esquema="Transportes" Prefijo="VIAJ">
+    <Nombre>TRAN_Viajes</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VHCON_ID">VHCON_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_CODIGO">VIAJE_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ORIGEN">VIAJE_ORIGEN</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_DESTINO">VIAJE_DESTINO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_FECSALIDA">VIAJE_FECSALIDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_FECLLEGADA">VIAJE_FECLLEGADA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_DESCRIPCION">VIAJE_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ESTADO">VIAJE_ESTADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_PRESUPUESTO">VIAJE_PRESUPUESTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_NRO">VIAJE_NRO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_MONTOPRESUPUESTO">VIAJE_MONTOPRESUPUESTO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_KMTOTAL">VIAJE_KMTOTAL</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_CONSUMOESTIMADO">VIAJE_CONSUMOESTIMADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_CONSUMOREALIZADO">VIAJE_CONSUMOREALIZADO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_COMBUSTIBLEINICIO">VIAJE_COMBUSTIBLEINICIO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJ_UsrCrea">VIAJ_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJ_FecCrea">VIAJ_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJ_UsrMod">VIAJ_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJ_FecMod">VIAJ_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="SUCUR_ID">SUCUR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VHCON_ID">VHCON_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_ViajesGastos" Esquema="Transportes" Prefijo="VGAS">
+    <Nombre>TRAN_ViajesGastos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VGAST_ID">VGAST_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAST_DESCRIPCION">VGAST_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAST_MONTO">VGAST_MONTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOGASTO">TIPOS_CODTIPOGASTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOMONEDA">TIPOS_CODTIPOMONEDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAS_UsrCrea">VGAS_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAS_FecCrea">VGAS_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAS_UsrMod">VGAS_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VGAS_FecMod">VGAS_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VGAST_ID">VGAST_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="TRAN_ViajesIngresos" Esquema="Transportes" Prefijo="VING">
+    <Nombre>TRAN_ViajesIngresos</Nombre>
+    <Esquema>Transportes</Esquema>
+    <Campos>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VINGR_ID">VINGR_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VINGR_DESCRIPCION">VINGR_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VINGR_MONTO">VINGR_MONTO</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CODTIPOMONEDA">TIPOS_CODTIPOMONEDA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VING_UsrCrea">VING_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VING_FecCrea">VING_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VING_UsrMod">VING_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VING_FecMod">VING_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="1" ForeignKey="0" PrimaryKey="1" xmlns="VINGR_ID">VINGR_ID</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VIAJE_ID">VIAJE_ID</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios />
+  </Tabla>
+  <Tabla Nombre="Ubigeos" Esquema="dbo" Prefijo="UBIG">
+    <Nombre>Ubigeos</Nombre>
+    <Esquema>dbo</Esquema>
+    <Campos>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_DESCRIPCION">UBIGO_DESCRIPCION</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_CODPADRE">UBIGO_CODPADRE</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_DESCCORTA">UBIGO_DESCCORTA</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_PROTEGIDO">UBIGO_PROTEGIDO</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIG_UsrCrea">UBIG_UsrCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIG_FecCrea">UBIG_FecCrea</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIG_UsrMod">UBIG_UsrMod</CCampo>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIG_FecMod">UBIG_FecMod</CCampo>
+    </Campos>
+    <CPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+    </CPrimarios>
+    <CForaneos>
+      <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+    </CForaneos>
+    <CForaneosPrimarios>
+      <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="UBIGO_CODIGO">UBIGO_CODIGO</CCampo>
+    </CForaneosPrimarios>
+  </Tabla>
+</cTablas>

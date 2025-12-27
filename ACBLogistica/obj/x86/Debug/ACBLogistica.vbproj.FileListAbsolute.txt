@@ -1,0 +1,219 @@
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACBVentas.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACEVentas.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACFramework.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\DAEnterprise.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.Unity.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Developer\AcerosERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\Developer\AcerosERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\Developer\PromasaERP\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Developer\PromasaERP\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\MilagrosMT\DESARROLLO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\alex compartido\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\alex compartido\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\alex compartido\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\ROMARIO FUENTES HAÑARI\CODIGO\Logistica_R\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACEVentas.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACEVentas.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBTransporte.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACETransporte.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDTransporte.dll
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBVentas.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACBVentas.xml
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.pdb
+D:\Proyectos\Ordenes\Logistica\ACBLogistica\bin\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACFramework.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBTransporte.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACETransporte.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBVentas.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBVentas.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACEVentas.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACEVentas.xml
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.xml
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+E:\DESARROLLO\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACBVentas.dll
+E:\DESARROLLO\logistica\ACBLogistica\bin\x86\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACFramework.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBTransporte.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDLogistica.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBVentas.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACBVentas.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\logistica\ACBLogistica\bin\x86\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbprojResolveAssemblyReference.cache
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.Resources.resources
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.vbproj.GenerateResource.Cache
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\logistica\ACBLogistica\obj\x86\Debug\ACBLogistica.pdb

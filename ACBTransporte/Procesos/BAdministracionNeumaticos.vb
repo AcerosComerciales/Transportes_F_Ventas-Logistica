@@ -1,0 +1,218 @@
+Imports ACBVentas
+
+Imports ACDTransporte
+Imports ACETransporte
+Imports ACEVentas
+Imports ACFramework
+
+Imports DAConexion
+Imports System
+
+Public Class BAdministracionNeumaticos
+#Region " Funciones para obtencion de datos "
+    Public Sub setListTRAN_Neumaticos(ByVal _listtran_vehiculosneumaticos As List(Of ETRAN_Neumaticos))
+        m_listTRAN_Neumaticos = _listtran_vehiculosneumaticos
+    End Sub
+#End Region
+
+
+#Region " Variables "
+    Private m_listTRAN_Neumaticos As List(Of ETRAN_Neumaticos)
+    Private m_listTRAN_VehiculosNeumaticos As List(Of ETRAN_VehiculosNeumaticos)
+    Private m_listTRAN_ViajesNeumaticos As List(Of ETRAN_ViajesNeumaticos)
+
+
+    Public Enum Tipo
+        Vehiculo
+        Ranfla
+    End Enum
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+    Public Property ListTRAN_VehiculosNeumaticos() As List(Of ETRAN_VehiculosNeumaticos)
+        Get
+            Return m_listTRAN_VehiculosNeumaticos
+        End Get
+        Set(ByVal value As List(Of ETRAN_VehiculosNeumaticos))
+            m_listTRAN_VehiculosNeumaticos = value
+        End Set
+    End Property
+
+    Public Property ListTRAN_ViajesNeumaticos() As List(Of ETRAN_ViajesNeumaticos)
+        Get
+            Return m_listTRAN_ViajesNeumaticos
+        End Get
+        Set(ByVal value As List(Of ETRAN_ViajesNeumaticos))
+            m_listTRAN_ViajesNeumaticos = value
+        End Set
+    End Property
+
+#End Region
+
+#Region " Metodos "
+    Public Function GuardarAsignados(ByVal x_etran_vehiculo As ETRAN_Vehiculos, ByVal x_documento As EDocumentos, ByVal x_ano As String, ByVal x_usuario As String) As Boolean
+        Try
+            Return Guardar(Tipo.Vehiculo, x_etran_vehiculo.VEHIC_Id, x_documento, x_ano, x_usuario)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function GuardarAsignados(ByVal x_etran_ranflas As ETRAN_Ranflas, ByVal x_documento As EDocumentos, ByVal x_ano As String, ByVal x_usuario As String) As Boolean
+        Try
+            Return Guardar(Tipo.Ranfla, x_etran_ranflas.RANFL_Id, x_documento, x_ano, x_usuario)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Private Function Guardar(ByVal x_tipo As Tipo, ByVal x_id As Long, ByVal x_documento As EDocumentos, ByVal x_ano As String, ByVal x_usuario As String) As Boolean
+        Try
+            Dim d_tran_vehiculosneumaticos As New DTRAN_VehiculosNeumaticos()
+
+            DAEnterprise.BeginTransaction()
+            '' Crear Documento
+            Dim b_documentos As New BDocumentos()
+            Dim b_correlativo As New BCorrelativos()
+            b_correlativo.getCorrelativo(x_documento.SUCUR_Id, ECorrelativos.NTabla.Documentos, x_ano)
+            b_correlativo.Correlativos.ZONAS_Codigo = BConstantes.ZONAS_Codigo
+            x_documento.DOCMT_Nro = b_correlativo.Correlativos.Codigo
+            x_documento.Instanciar(ACEInstancia.Nuevo)
+            b_documentos.setDocumentos(x_documento)
+            b_documentos.Documentos.DOCMT_Id = b_documentos.getCorrelativo()
+            b_documentos.Guardar(x_usuario, New String() {"DOCMT_Fecha"})
+            b_correlativo.SetCorrelativo(x_usuario)
+
+            For Each Item As ETRAN_Neumaticos In m_listTRAN_Neumaticos
+                Dim _vneuma As New ETRAN_VehiculosNeumaticos()
+                Dim _movimiento As New ETRAN_MovimientosNeumaticos()
+                If Item.Nuevo Then
+                    '' Crear el Movimiento
+                    _movimiento.NEUMA_Id = Item.NEUMA_Id
+                    _movimiento.DOCMT_IdOrden = b_documentos.Documentos.DOCMT_Id
+                    _movimiento.MOVNM_UbicacionDestino = BConstantes.getUbicacion()
+                    _movimiento.MOVNM_IdDestino = x_id
+
+                    Select Case x_tipo
+                        Case Tipo.Vehiculo
+                            _movimiento.TIPOS_CodDestino = BConstantes.getOrigenDestino(BConstantes.TipoDestino.Vehiculo)
+                        Case Tipo.Ranfla
+                            _movimiento.TIPOS_CodDestino = BConstantes.getOrigenDestino(BConstantes.TipoDestino.Ranfla)
+                    End Select
+                    _movimiento.MOVNM_UbicacionOrigen = BConstantes.getUbicacion()
+                    _movimiento.MOVNM_IdOrigen = 0
+                    _movimiento.TIPOS_CodOrigen = BConstantes.getOrigenDestino(BConstantes.TipoDestino.Almacen)
+                    _movimiento.MOVNM_Glosa = BConstantes.getGlosa()
+                    _movimiento.MOVNM_Glosa = BConstantes.getMotivo()
+                    _movimiento.MOVNM_Estado = BConstantes.getEstado(BConstantes.EstadoMovimientos.Activo)
+                    _movimiento.Instanciar(ACEInstancia.Nuevo)
+                    Dim b_tran_movimientosneumaticos As New BTRAN_MovimientosNeumaticos()
+                    _movimiento.MOVNM_Id = b_tran_movimientosneumaticos.getCorrelativo()
+                    b_tran_movimientosneumaticos.setTRAN_MovimientosNeumaticos(_movimiento)
+                    b_tran_movimientosneumaticos.GuardarMovimientoInicial(x_usuario)
+                    _vneuma.MOVNM_Id = b_tran_movimientosneumaticos.TRAN_MovimientosNeumaticos.MOVNM_Id
+                    Select Case x_tipo
+                        Case Tipo.Vehiculo
+                            _vneuma.VEHIC_Id = x_id
+                        Case Tipo.Ranfla
+                            _vneuma.RANFL_Id = x_id
+                    End Select
+                    _vneuma.VNEUM_Lado = Item.VNEUM_Lado
+                    _vneuma.VNEUM_Seccion = Item.VNEUM_Seccion
+                    _vneuma.VNEUM_OrdenPosicion = Item.VNEUM_OrdenPosicion
+                    _vneuma.VNEUM_Orden = Item.VNEUM_Orden
+                    _vneuma.VNEUM_InternoExterno = Item.VNEUM_InternoExterno
+                    _vneuma.VNEUM_Estado = BConstantes.getEstado(BConstantes.EstadoRelacionados.Activo)
+                    _vneuma.NEUMA_Id = Item.NEUMA_Id
+                    Dim b_tran_vehiculosneumaticos As New BTRAN_VehiculosNeumaticos()
+                    _vneuma.VNEUM_Id = b_tran_vehiculosneumaticos.getCorrelativo()
+
+                    Dim _btran_vehiculosnew As New BTRAN_VehiculosNeumaticos()
+                    _vneuma.Instanciar(ACEInstancia.Nuevo)
+                    _btran_vehiculosnew.TRAN_VehiculosNeumaticos = _vneuma
+                    Dim _fecha As String() = {"VNEUM_FecRetiro"}
+
+                    _btran_vehiculosnew.Guardar(x_usuario, _fecha)
+                End If
+            Next
+            DAEnterprise.CommitTransaction()
+            Return True
+        Catch ex As Exception
+            DAEnterprise.RollBackTransaction()
+            Throw ex
+        End Try
+    End Function
+
+    Public Function CargarTodosVehiculos(ByVal x_vehic_id As Long) As Boolean
+        Try
+            Dim b_tran_vehiculosneumaticos As New BTRAN_VehiculosNeumaticos()
+            If b_tran_vehiculosneumaticos.CargarTodos(x_vehic_id, "VEHIC_Id") Then
+                m_listTRAN_VehiculosNeumaticos = New List(Of ETRAN_VehiculosNeumaticos)(b_tran_vehiculosneumaticos.ListTRAN_VehiculosNeumaticos)
+                Return True
+            Else
+                m_listTRAN_VehiculosNeumaticos = New List(Of ETRAN_VehiculosNeumaticos)()
+                Return False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Public Function TRAN_Neuma_buscarRepetidos(ByVal x_neuma_id As Integer, ByVal x_vehic_id As Integer, ByVal x_ranfl_id As Integer) As Boolean
+        Try
+            Dim b_tran_vehiculosneumaticosRepetidos As New BTRAN_VehiculosNeumaticos()
+            If b_tran_vehiculosneumaticosRepetidos.TRAN_Neuma_buscarRepetidos(x_neuma_id, x_vehic_id, x_ranfl_id) Then
+                'm_listTRAN_VehiculosNeumaticos = New List(Of ETRAN_VehiculosNeumaticos)(b_tran_vehiculosneumaticos.ListTRAN_VehiculosNeumaticos)
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function CargarTodosRanflas(ByVal x_ranfl_id As Long) As Boolean
+        Try
+            Dim b_tran_vehiculosneumaticos As New BTRAN_VehiculosNeumaticos()
+            If b_tran_vehiculosneumaticos.CargarTodos(x_ranfl_id, "RANFL_Id") Then
+                m_listTRAN_VehiculosNeumaticos = New List(Of ETRAN_VehiculosNeumaticos)(b_tran_vehiculosneumaticos.ListTRAN_VehiculosNeumaticos)
+                Return True
+            Else
+                m_listTRAN_VehiculosNeumaticos = New List(Of ETRAN_VehiculosNeumaticos)()
+                Return False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function CargarHistorialNeumatico(ByVal x_neuma_id As Integer) As Boolean
+        Try
+            Dim _join As New List(Of ACJoin)()
+            _join.Add(New ACJoin(ETRAN_Viajes.Esquema, ETRAN_Viajes.Tabla, ACJoin.TipoJoin.Inner _
+                               , New ACCampos() {New ACCampos("VIAJE_Id", "VIAJE_Id")} _
+                               , New ACCampos() {New ACCampos("VIAJE_Codigo", "VIAJE_Codigo") _
+                                                 , New ACCampos("VIAJE_Descripcion", "VIAJE_Descripcion") _
+                                                 , New ACCampos("VIAJE_FecSalida", "VIAJE_FecSalida") _
+                                                 , New ACCampos("VIAJE_FecLlegada", "VIAJE_FecLlegada")}))
+            Dim _where As New Hashtable()
+            _where.Add("NEUMA_Id", New ACWhere(x_neuma_id, ACWhere.TipoWhere.Igual))
+
+            Dim b_viajesneumaticos As New BTRAN_ViajesNeumaticos()
+            b_viajesneumaticos.CargarTodos(_join, _where)
+            m_listTRAN_ViajesNeumaticos = New List(Of ETRAN_ViajesNeumaticos)(b_viajesneumaticos.ListTRAN_ViajesNeumaticos)
+            Return m_listTRAN_ViajesNeumaticos.Count > 0
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+#End Region
+
+End Class
+

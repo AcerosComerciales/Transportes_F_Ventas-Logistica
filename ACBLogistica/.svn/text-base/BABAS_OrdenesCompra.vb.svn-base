@@ -1,0 +1,171 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+Imports Microsoft.Practices.Unity
+Imports Microsoft.Practices.Unity.Configuration
+Imports System.Configuration
+Imports ACFramework
+Imports ACEVentas
+
+Public Class BABAS_OrdenesCompra
+
+#Region " Variables "
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+
+   ''' <summary>
+   ''' Obtener el correlativo para crear la orden de compra
+   ''' </summary>
+   ''' <param name="x_abas_numero">Numero que contiene el correlativo  y sera devuelto a la siguiente capa</param>
+   ''' <param name="x_almac_id">Codigo del punto de venta</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function getCorrelativo(ByRef x_abas_numero As Integer, ByVal x_almac_id As Long) As String
+      Try
+         x_abas_numero = d_abas_ordenescompra.getCorrelativo() + 1
+         Dim x_codigo As String = EABAS_OrdenesCompra.TipoPedido.OC.ToString() & x_almac_id.ToString().PadLeft(3, "0") & x_abas_numero.ToString().PadLeft(7, "0")
+         Return x_codigo
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: LOG_ORDCOSS_TodosOrdenes
+   ''' </summary>
+   ''' <param name="x_zonas_codigo">Parametro 1: </param> 
+   ''' <param name="x_sucur_id">Parametro 2: </param> 
+   ''' <param name="x_cadena">Parametro 3: </param> 
+   ''' <param name="x_opcion">Parametro 4: </param> 
+   ''' <param name="x_todos">Parametro 5: </param> 
+   ''' <param name="x_fecini">Parametro 6: </param> 
+   ''' <param name="x_fecfin">Parametro 7: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function Busqueda(ByVal x_zonas_codigo As String, ByVal x_sucur_id As Short, ByVal x_cadena As String, ByVal x_opcion As Short, ByVal x_todos As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listABAS_OrdenesCompra = New List(Of EABAS_OrdenesCompra)
+      Try
+         Return d_abas_ordenescompra.LOG_ORDCOSS_TodosOrdenes(m_listABAS_OrdenesCompra, x_zonas_codigo, x_sucur_id, x_cadena, x_opcion, x_todos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ' ''' <summary>
+   ' ''' Busqueda de la orden de compra
+   ' ''' </summary>
+   ' ''' <param name="x_cadena">Cadena de busqueda</param>
+   ' ''' <param name="x_campo">Campor el cual se realiza la busqueda</param>
+   ' ''' <param name="x_todos">opcion para cargar todos los registros ignorando el estado del documento</param>
+   ' ''' <param name="x_fecini">fecha de inicio</param>
+   ' ''' <param name="x_fecfin">fecha de termino</param>
+   ' ''' <returns></returns>
+   ' ''' <remarks></remarks>
+   'Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_todos As Boolean, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+   '   Try
+   '      Dim _join As New List(Of ACJoin)
+   '      _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+   '                         , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+   '                         , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+   '      _join.Add(New ACJoin(EAlmacenes.Esquema, EAlmacenes.Tabla, "Alma", ACJoin.TipoJoin.Inner _
+   '                         , New ACCampos() {New ACCampos("ALMAC_Id", "ALMAC_Id")} _
+   '                         , New ACCampos() {New ACCampos("ALMAC_Descripcion", "ALMAC_Descripcion")}))
+   '      Dim _where As New Hashtable()
+   '      If x_campo.Contains("ENTID") Then
+   '         _where.Add(x_campo, New ACWhere(x_cadena, "Ent", "System.String", ACWhere.TipoWhere._Like))
+   '      Else
+   '         _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+   '      End If
+   '      _where.Add("ORDCO_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+   '      If Not x_todos Then
+   '         _where.Add("ORDCO_Estado", New ACWhere(EABAS_OrdenesCompra.getEstado(EABAS_OrdenesCompra.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+   '      End If
+   '      m_listABAS_OrdenesCompra = New List(Of EABAS_OrdenesCompra)
+   '      Return d_abas_ordenescompra.ABAS_ORDCOSS_Todos(m_listABAS_OrdenesCompra, _join, _where)
+   '   Catch ex As Exception
+   '      Throw ex
+   '   End Try
+   'End Function
+
+   ''' <summary>
+   ''' Cargar una orden de compra con su respectivo detalle
+   ''' </summary>
+   ''' <param name="x_ordco_codigo">codigo de la orden de compra</param>
+   ''' <param name="x_detalle">opciion para cargar el detalle</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Cargar(ByVal x_ordco_codigo As String, ByVal x_detalle As Boolean) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+                            , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor") _
+                                            , New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor") _
+                                            , New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         Dim _where As New Hashtable()
+         _where.Add("ORDCO_Codigo", New ACWhere(x_ordco_codigo, ACWhere.TipoWhere.Igual))
+         If Cargar(_join, _where) Then
+            If x_detalle Then
+               Dim m_babas_ordenescompradetalle As New BABAS_OrdenesCompraDetalle
+               Dim _joinDet As New List(Of ACJoin)
+               _joinDet.Add(New ACJoin(EArticulos.Esquema, EArticulos.Tabla, "Art", ACJoin.TipoJoin.Inner _
+                                  , New ACCampos() {New ACCampos("ARTIC_Codigo", "ARTIC_Codigo")} _
+                                  , New ACCampos() {New ACCampos("ARTIC_Descripcion", "ARTIC_Descripcion") _
+                                                    , New ACCampos("ARTIC_Id", "ARTIC_Id")}))
+               _joinDet.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "Uni", "Art", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodUnidadMedida")} _
+                                 , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_UnidadMedida") _
+                                                   , New ACCampos("TIPOS_DescCorta", "TIPOS_UnidadMedidaCorta")}))
+               Dim _whereDet As New Hashtable()
+               _whereDet.Add("ORDCO_Codigo", New ACWhere(x_ordco_codigo, ACWhere.TipoWhere.Igual))
+               m_babas_ordenescompradetalle.CargarTodos(_joinDet, _whereDet)
+               m_eabas_ordenescompra.ListABAS_OrdenesCompraDetalle = New List(Of EABAS_OrdenesCompraDetalle)(m_babas_ordenescompradetalle.ListABAS_OrdenesCompraDetalle)
+            End If
+            Return True
+         Else
+            Return False
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: LOG_ABASSS_ConsultaOrdenes
+   ''' </summary>
+   ''' <param name="x_cadena">Parametro 1: </param> 
+   ''' <param name="x_opciontc">Parametro 2: </param> 
+   ''' <param name="x_todos">Parametro 3: </param> 
+   ''' <param name="x_fecini">Parametro 4: </param> 
+   ''' <param name="x_fecfin">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function ConsultaOrdenes(ByVal x_cadena As String, ByVal x_opciontc As Short, ByVal x_todos As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listABAS_OrdenesCompra = New List(Of EABAS_OrdenesCompra)
+      Try
+         Return d_abas_ordenescompra.LOG_ABASSS_ConsultaOrdenes(m_listABAS_OrdenesCompra, x_cadena, x_opciontc, x_todos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

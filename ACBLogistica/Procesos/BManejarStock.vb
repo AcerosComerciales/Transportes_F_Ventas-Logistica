@@ -1,0 +1,939 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+Imports Microsoft.Practices.Unity
+Imports Microsoft.Practices.Unity.Configuration
+Imports System.Configuration
+Imports DAConexion
+
+Public Class BManejarStock
+
+#Region " Variables "
+	
+	Private m_dtManejarStock As DataTable
+
+	Private ds_manejarstock As DataSet
+   Private Shared d_manejarstock As DManejarStock = Nothing
+
+   Private m_elog_stocks As ELOG_Stocks
+#End Region
+
+#Region " Constructores "
+	
+	Public Sub New()
+      d_manejarstock = New DManejarStock
+   End Sub
+
+#End Region
+
+#Region " Propiedades "
+
+   Public Property LOG_Stocks() As ELOG_Stocks
+      Get
+         Return m_elog_stocks
+      End Get
+      Set(ByVal value As ELOG_Stocks)
+         m_elog_stocks = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+	
+#End Region
+
+#Region " Metodos "
+
+#Region " Procesos de Devolución de Stock "
+
+   ''' <summary>
+   ''' Proceso para devolucion de stock al kardex
+   ''' </summary>
+   ''' <param name="x_vent_docsventas">clase documento de venta que se devolvera el stock</param>
+   ''' <param name="x_periodo">codigo del periodo</param>
+   ''' <param name="x_almac_id">codigo de almacen</param>
+   ''' <param name="x_fecha">fecha de decolucion</param>
+   ''' <param name="x_usuario">codigo de usuario</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function DevolverStock(ByVal x_vent_docsventas As ACEVentas.EVENT_DocsVenta, ByVal x_periodo As String, _
+                                 ByVal x_almac_id As Short, ByVal x_fecha As DateTime, ByVal x_usuario As String) As Boolean
+      Try
+
+         m_elog_stocks = New ELOG_Stocks
+         m_elog_stocks.DOCVE_Codigo = x_vent_docsventas.DOCVE_Codigo
+         DAEnterprise.BeginTransaction()
+         For Each item As ACEVentas.EVENT_DocsVentaDetalle In x_vent_docsventas.ListVENT_DocsVentaDetalle
+            If item.DOCVD_CantidadDevolver > 0 Then
+               m_elog_stocks.DOCVD_Item = item.DOCVD_Item
+               Ingreso(x_periodo, item.ARTIC_Codigo, item.TIPOS_CodUnidadMedida, x_almac_id, item.DOCVD_CantidadDevolver, x_fecha, _
+                       ACEVentas.ETipos.getTipo(ACEVentas.ETipos.TMovimientoStock.IngresoPendienteDevuelta), x_usuario)
+            End If
+         Next
+         ''
+         Dim _docsventa As New ACBVentas.BVENT_DocsVenta
+         _docsventa.VENT_DocsVenta = New ACEVentas.EVENT_DocsVenta
+         _docsventa.VENT_DocsVenta.DOCVE_Codigo = x_vent_docsventas.DOCVE_Codigo
+         _docsventa.VENT_DocsVenta.DOCVE_StockDevuelto = True
+         _docsventa.VENT_DocsVenta.Instanciar(ACFramework.ACEInstancia.Modificado)
+         If _docsventa.Guardar(x_usuario) Then
+            DAEnterprise.CommitTransaction()
+            Return True
+         Else
+            Throw New Exception("No se puede actualizar el documento de venta")
+         End If
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion de devolucion de stock
+   ''' </summary>
+   ''' <param name="x_vent_docsventas">clase documento de venta que se devolvera el stock</param>
+   ''' <param name="x_periodo">codigo de periodo</param>
+   ''' <param name="x_almac_id">codigo de almacen</param>
+   ''' <param name="x_fecha">fecha de anulacion</param>
+   ''' <param name="x_usuario">codigo de usuario</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnularDevolucionStock(ByVal x_vent_docsventas As ACEVentas.EVENT_DocsVenta, ByVal x_periodo As String, _
+                        ByVal x_almac_id As Short, ByVal x_fecha As DateTime, ByVal x_usuario As String) As Boolean
+      Try
+         m_elog_stocks = New ELOG_Stocks
+         m_elog_stocks.DOCVE_Codigo = x_vent_docsventas.DOCVE_Codigo
+         For Each item As ACEVentas.EVENT_DocsVentaDetalle In x_vent_docsventas.ListVENT_DocsVentaDetalle
+            If item.DOCVD_CantidadDevolver > 0 Then
+               m_elog_stocks.DOCVD_Item = item.DOCVD_Item
+               AnulacionIngresoFactura(x_periodo, item.ARTIC_Codigo, item.ALMAC_Id, item.DOCVE_Codigo, item.DOCVD_Item, item.DOCVD_CantidadDevolver, x_usuario)
+            End If
+         Next
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Ingresos "
+
+   ''' <summary>
+   ''' Ingresos de mercaderia al stock
+   ''' </summary>
+   ''' <param name="x_periodo">Codigo del periodo</param>
+   ''' <param name="x_artic_codigo">codigo del articulo</param>
+   ''' <param name="x_tipos_codtipounidad">Codigo de tipo de unidda</param>
+   ''' <param name="x_almac_id">codigo del almacen</param>
+   ''' <param name="x_cantidad">cantidad a ingresar</param>
+   ''' <param name="x_fecha">fecha</param>
+   ''' <param name="x_tipos_codtipomotivo">motivo del movimiento de stock</param>
+   ''' <param name="x_usuario">codigo de usuario</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Ingreso(ByVal x_periodo As String, ByVal x_artic_codigo As String, ByVal x_tipos_codtipounidad As String, _
+                           ByVal x_almac_id As Short, ByVal x_cantidad As Double, ByVal x_fecha As DateTime, ByVal x_tipos_codtipomotivo As String, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         m_blog_stocks.LOG_Stocks.STOCK_Id = m_blog_stocks.getCorrelativo("STOCK_Id", _where)
+         m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+         m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoUnidad = x_tipos_codtipounidad
+         m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+         m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+         m_blog_stocks.LOG_Stocks.STOCK_CantidadIngreso = x_cantidad
+         m_blog_stocks.LOG_Stocks.STOCK_Fecha = x_fecha
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoMotivo = x_tipos_codtipomotivo
+         m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Nuevo)
+         Return m_blog_stocks.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+     Public Function Ingresopro(ByVal x_periodo As String, ByVal x_artic_codigo As String, ByVal x_tipos_codtipounidad As String, _
+                           ByVal x_almac_id As Short, ByVal x_cantidad As Double, ByVal x_fecha As DateTime, ByVal x_tipos_codtipomotivo As String, _
+                           ByVal x_usuario As String, ByVal x_ordenpro As String, ByVal x_itempro As Integer) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         m_blog_stocks.LOG_Stocks.STOCK_Id = m_blog_stocks.getCorrelativo("STOCK_Id", _where)
+         m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+         m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoUnidad = x_tipos_codtipounidad
+         m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+         m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+         m_blog_stocks.LOG_Stocks.STOCK_CantidadIngreso = x_cantidad
+         m_blog_stocks.LOG_Stocks.STOCK_Fecha = x_fecha
+            m_blog_stocks.LOG_Stocks.ORDEN_CodigoProduccion = x_ordenpro
+            m_blog_stocks.LOG_Stocks.ORDET_ItemProduccion = x_itempro
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoMotivo = x_tipos_codtipomotivo
+         m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Nuevo)
+         Return m_blog_stocks.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+      ''' <summary>
+   ''' Ingresos de mercaderia al stock_anulado
+   ''' </summary>
+   ''' <param name="x_periodo">Codigo del periodo</param>
+   ''' <param name="x_artic_codigo">codigo del articulo</param>
+   ''' <param name="x_tipos_codtipounidad">Codigo de tipo de unidda</param>
+   ''' <param name="x_almac_id">codigo del almacen</param>
+   ''' <param name="x_cantidad">cantidad a ingresar</param>
+   ''' <param name="x_fecha">fecha</param>
+   ''' <param name="x_tipos_codtipomotivo">motivo del movimiento de stock</param>
+   ''' <param name="x_usuario">codigo de usuario</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Ingreso_anulado(ByVal x_periodo As String, ByVal x_artic_codigo As String, ByVal x_tipos_codtipounidad As String, _
+                           ByVal x_almac_id As Short, ByVal x_cantidad As Double, ByVal x_fecha As DateTime, ByVal x_tipos_codtipomotivo As String, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         m_blog_stocks.LOG_Stocks.STOCK_Id = m_blog_stocks.getCorrelativo("STOCK_Id", _where)
+         m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+         m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoUnidad = x_tipos_codtipounidad
+         m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+         m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+         m_blog_stocks.LOG_Stocks.STOCK_CantidadIngreso = x_cantidad
+         m_blog_stocks.LOG_Stocks.STOCK_Fecha = x_fecha
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoMotivo = x_tipos_codtipomotivo
+         m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Nuevo)
+         Return m_blog_stocks.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' activacion de pedido de venta
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_pedid_codigo"></param>
+   ''' <param name="x_pddet_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function ActivacionPedidoVenta(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                     ByVal x_almac_id As Short, ByVal x_pedid_codigo As String, ByVal x_pddet_item As Short, _
+                                     ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("PEDID_Codigo", New ACFramework.ACWhere(x_pedid_codigo))
+         _where.Add("PDDET_Item", New ACFramework.ACWhere(x_pddet_item))
+         _where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Anular Ingresos "
+
+   ''' <summary>
+   ''' Anulacion de guia ingresada
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_guiar_codigo"></param>
+   ''' <param name="x_guird_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionIngresoGuia(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                           ByVal x_almac_id As Short, ByVal x_guiar_codigo As String, ByVal x_guird_item As Short, _
+                                           ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("GUIAR_Codigo", New ACFramework.ACWhere(x_guiar_codigo))
+         _where.Add("GUIRD_Item", New ACFramework.ACWhere(x_guird_item))
+         '_where.Add("STOCK_CantidadIn greso", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' anulacion de ingreso de compra
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_ingco_id"></param>
+   ''' <param name="x_ingcd_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionIngresoCompra(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                        ByVal x_almac_id As Short, ByVal x_ingco_id As Long, ByVal x_ingcd_item As Short, _
+                                        ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("INGCO_Id", New ACFramework.ACWhere(x_ingco_id))
+         _where.Add("INGCD_Item", New ACFramework.ACWhere(x_ingcd_item))
+         _where.Add("STOCK_CantidadIngreso", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' anulacion de de ingreso de orden de recojo
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_orden_codigo"></param>
+   ''' <param name="x_ordet_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionIngresoOrden(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                        ByVal x_almac_id As Short, ByVal x_orden_codigo As String, ByVal x_ordet_item As Short, _
+                                        ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("ORDEN_Codigo", New ACFramework.ACWhere(x_orden_codigo))
+         _where.Add("ORDET_Item", New ACFramework.ACWhere(x_ordet_item))
+         _where.Add("STOCK_CantidadIngreso", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Egresos "
+
+   ''' <summary>
+   ''' egreso de mercaderia
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_tipos_codtipounidad"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_fecha"></param>
+   ''' <param name="x_tipos_codtipomotivo"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Egreso(ByVal x_periodo As String, ByVal x_artic_codigo As String, ByVal x_tipos_codtipounidad As String, _
+                          ByVal x_almac_id As Short, ByVal x_cantidad As Double, ByVal x_fecha As DateTime, ByVal x_tipos_codtipomotivo As String, ByVal x_usuario As String) As Boolean
+      Try
+         'Return d_manejarstock.Egreso(x_artic_codigo, x_almac_id, x_cantidad, x_usuario)
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         m_blog_stocks.LOG_Stocks.STOCK_Id = m_blog_stocks.getCorrelativo("STOCK_Id", _where)
+         m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+         m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoUnidad = x_tipos_codtipounidad
+         m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+         m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+         m_blog_stocks.LOG_Stocks.STOCK_CantidadSalida = x_cantidad
+         m_blog_stocks.LOG_Stocks.STOCK_Fecha = x_fecha
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoMotivo = x_tipos_codtipomotivo
+         m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Nuevo)
+
+         Return m_blog_stocks.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+     Public Function EgresoPro(ByVal x_periodo As String, ByVal x_artic_codigo As String, ByVal x_tipos_codtipounidad As String, _
+                          ByVal x_almac_id As Short, ByVal x_cantidad As Double, ByVal x_fecha As DateTime, _
+                          ByVal x_tipos_codtipomotivo As String, ByVal x_usuario As String,
+                          ByVal x_orden_pro As String, ByVal x_itempro As Integer) As Boolean
+      Try
+         'Return d_manejarstock.Egreso(x_artic_codigo, x_almac_id, x_cantidad, x_usuario)
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         m_blog_stocks.LOG_Stocks.STOCK_Id = m_blog_stocks.getCorrelativo("STOCK_Id", _where)
+         m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+         m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoUnidad = x_tipos_codtipounidad
+         m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+         m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+         m_blog_stocks.LOG_Stocks.STOCK_CantidadSalida = x_cantidad
+         m_blog_stocks.LOG_Stocks.STOCK_Fecha = x_fecha
+         m_blog_stocks.LOG_Stocks.TIPOS_CodTipoMotivo = x_tipos_codtipomotivo
+         m_blog_stocks.LOG_Stocks.ORDEN_CodigoProduccion=x_orden_pro
+            m_blog_stocks.LOG_Stocks.ORDET_ItemProduccion=x_itempro
+         m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Nuevo)
+
+         Return m_blog_stocks.Guardar(x_usuario)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Anular Egresos"
+
+   ''' <summary>
+   ''' anulacion de egreso de facturas
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_docve_codigo"></param>
+   ''' <param name="x_docvd_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionIngresoFactura(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                       ByVal x_almac_id As Short, ByVal x_docve_codigo As String, ByVal x_docvd_item As Short, _
+                                       ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("DOCVE_Codigo", New ACFramework.ACWhere(x_docve_codigo))
+         _where.Add("DOCVD_Item", New ACFramework.ACWhere(x_docvd_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' anulacion de egreso de ffactura
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_docve_codigo"></param>
+   ''' <param name="x_docvd_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionEgresoFactura(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                        ByVal x_almac_id As Short, ByVal x_docve_codigo As String, ByVal x_docvd_item As Short, _
+                                        ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("DOCVE_Codigo", New ACFramework.ACWhere(x_docve_codigo))
+         _where.Add("DOCVD_Item", New ACFramework.ACWhere(x_docvd_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion de egreso de orden
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_orden_codigo"></param>
+   ''' <param name="x_ordet_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionEgresoOrden(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                           ByVal x_almac_id As Short, ByVal x_orden_codigo As String, ByVal x_ordet_item As Short, _
+                                           ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("ORDEN_Codigo", New ACFramework.ACWhere(x_orden_codigo))
+         _where.Add("ORDET_Item", New ACFramework.ACWhere(x_ordet_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion de ingresos por arreglos de control
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_arreg_codigo"></param>
+   ''' <param name="x_arrdt_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionIngresoArreglo(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                       ByVal x_almac_id As Short, ByVal x_arreg_codigo As String, ByVal x_arrdt_item As Short, _
+                                       ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("ARREG_Codigo", New ACFramework.ACWhere(x_arreg_codigo))
+         _where.Add("ARRDT_Item", New ACFramework.ACWhere(x_arrdt_item))
+
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion por egreso de arreglos de control
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_arreg_codigo"></param>
+   ''' <param name="x_arrdt_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionEgresoArreglo(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                        ByVal x_almac_id As Short, ByVal x_arreg_codigo As String, ByVal x_arrdt_item As Short, _
+                                        ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("ARREG_Codigo", New ACFramework.ACWhere(x_arreg_codigo))
+         _where.Add("ARRDT_Item", New ACFramework.ACWhere(x_arrdt_item))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' anulacion de egreso generado por guias de remison que mueven stock, aquellas facturas que son marcadas con devolucion
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_guiar_codigo"></param>
+   ''' <param name="x_guird_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionEgresoGuia(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                       ByVal x_almac_id As Short, ByVal x_guiar_codigo As String, ByVal x_guird_item As Short, _
+                                       ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("GUIAR_Codigo", New ACFramework.ACWhere(x_guiar_codigo))
+         _where.Add("GUIRD_Item", New ACFramework.ACWhere(x_guird_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion de pedido de venta
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_pedid_codigo"></param>
+   ''' <param name="x_pddet_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionPedidoVenta(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                     ByVal x_almac_id As Short, ByVal x_pedid_codigo As String, ByVal x_pddet_item As Short, _
+                                     ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("PEDID_Codigo", New ACFramework.ACWhere(x_pedid_codigo))
+         _where.Add("PDDET_Item", New ACFramework.ACWhere(x_pddet_item))
+         _where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Anulacion de pedidos de separacion de mercaderia aceptados, es decir estos pedidos separan mercaderias cuando son aceptados en los 
+   ''' puntos de venta a donde son enviados
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_pedid_codigo"></param>
+   ''' <param name="x_pddet_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function AnulacionPedidoSeparacion(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                             ByVal x_almac_id As Short, ByVal x_pedid_codigo As String, ByVal x_pddet_item As Short, _
+                                             ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("PEDID_Codigo", New ACFramework.ACWhere(x_pedid_codigo))
+         _where.Add("PDDET_Item", New ACFramework.ACWhere(x_pddet_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Modificado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado)
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Eliminar "
+
+   ''' <summary>
+   ''' Eliminar el egreso de facturas
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_docve_codigo"></param>
+   ''' <param name="x_docvd_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function EliminarEgresoFactura(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                           ByVal x_almac_id As Short, ByVal x_docve_codigo As String, ByVal x_docvd_item As Short, _
+                                           ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("DOCVE_Codigo", New ACFramework.ACWhere(x_docve_codigo))
+         _where.Add("DOCVD_Item", New ACFramework.ACWhere(x_docvd_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Eliminado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Eliminado)
+
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+   ''' <summary>
+   ''' Eliminar el ingreso de mercaderia
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_ingco_id"></param>
+   ''' <param name="x_guird_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function EliminarIngresoMercaderia(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                           ByVal x_almac_id As Short, ByVal x_ingco_id As Long, ByVal x_guird_item As Short, _
+                                           ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("INGCO_Id", New ACFramework.ACWhere(x_ingco_id))
+         _where.Add("INGCD_Item", New ACFramework.ACWhere(x_guird_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Eliminado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Eliminado)
+
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' eiminar el movimientos de guias de traslado
+   ''' </summary>
+   ''' <param name="x_periodo"></param>
+   ''' <param name="x_artic_codigo"></param>
+   ''' <param name="x_almac_id"></param>
+   ''' <param name="x_guiar_codigo"></param>
+   ''' <param name="x_guird_item"></param>
+   ''' <param name="x_cantidad"></param>
+   ''' <param name="x_usuario"></param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function EliminarMovimientoGuia(ByVal x_periodo As String, ByVal x_artic_codigo As String, _
+                                        ByVal x_almac_id As Short, ByVal x_guiar_codigo As String, ByVal x_guird_item As Short, _
+                                        ByVal x_cantidad As Double, ByVal x_usuario As String) As Boolean
+      Try
+         Dim m_blog_stocks As New BLOG_Stocks
+         m_blog_stocks.LOG_Stocks = m_elog_stocks
+         Dim _where As New Hashtable
+         _where.Add("PERIO_Codigo", New ACFramework.ACWhere(x_periodo))
+         _where.Add("ARTIC_Codigo", New ACFramework.ACWhere(x_artic_codigo))
+         _where.Add("ALMAC_Id", New ACFramework.ACWhere(x_almac_id))
+         _where.Add("GUIAR_Codigo", New ACFramework.ACWhere(x_guiar_codigo))
+         _where.Add("GUIRD_Item", New ACFramework.ACWhere(x_guird_item))
+         '_where.Add("STOCK_CantidadSalida", New ACFramework.ACWhere(x_cantidad))
+         '' Verificar Si Existe el Registro
+         If m_blog_stocks.Cargar(_where) Then
+            Dim _stock_id As Long = m_blog_stocks.LOG_Stocks.STOCK_Id
+            m_blog_stocks.LOG_Stocks = New ELOG_Stocks
+            m_blog_stocks.LOG_Stocks.Instanciar(ACFramework.ACEInstancia.Eliminado)
+            m_blog_stocks.LOG_Stocks.PERIO_Codigo = x_periodo
+            m_blog_stocks.LOG_Stocks.ARTIC_Codigo = x_artic_codigo
+            m_blog_stocks.LOG_Stocks.ALMAC_Id = x_almac_id
+            m_blog_stocks.LOG_Stocks.STOCK_Id = _stock_id
+            m_blog_stocks.LOG_Stocks.STOCK_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Eliminado)
+
+            Return m_blog_stocks.Guardar(x_usuario)
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+End Class
+

@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 54
+ACDTransporte.vbproj.user
+ACDTransporte.vsdoc
+bin
+obj
+
+END

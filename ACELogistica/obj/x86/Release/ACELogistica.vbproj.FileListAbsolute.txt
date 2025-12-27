@@ -1,0 +1,2 @@
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Release\ACELogistica.Resources.resources
+D:\alex compartido\Logistica\ACELogistica\obj\x86\Release\ACELogistica.vbproj.GenerateResource.Cache

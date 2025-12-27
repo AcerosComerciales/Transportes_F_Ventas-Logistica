@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="Prueba" Esquema="dbo" Prefijo="PRUEB">
+  <Nombre>Prueba</Nombre>
+  <Esquema>dbo</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_Id">PRUEB_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_Descripcion">PRUEB_Descripcion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_Activo">PRUEB_Activo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUTI_Id">PRUTI_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_UsrCrea">PRUEB_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_FecCrea">PRUEB_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_UsrMod">PRUEB_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PRUEB_FecMod">PRUEB_FecMod</CCampo>
+  </Campos>
+  <CPrimarios />
+  <CForaneos />
+  <CForaneosPrimarios />
+</Tabla>

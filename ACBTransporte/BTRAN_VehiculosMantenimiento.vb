@@ -1,0 +1,317 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACETransporte
+Imports ACDTransporte
+Imports System.Configuration
+
+Imports ACEVentas
+
+Imports DAConexion
+Imports ACFramework
+
+Public Class BTRAN_VehiculosMantenimiento
+
+
+#Region " Variables "
+    Dim m_tran_vehiculos As ETRAN_Vehiculos
+    Private m_listTRAN_VehiculosMantenimientoDetalle As List(Of ETRAN_VehiculosMantenimientoDetalle)
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+    Public Sub setTRAN_VehiculosMantenimientosDetalles(ByVal x_tran_EvehiculosMantenimientoDetalle As List(Of ETRAN_VehiculosMantenimientoDetalle))
+        Me.m_listTRAN_VehiculosMantenimientoDetalle = x_tran_EvehiculosMantenimientoDetalle
+        'm_tran_vehiculosmantenimiento
+    End Sub
+    Public Function getTRAN_VehiculosMantenimientoDetalle() As List(Of ETRAN_VehiculosMantenimientoDetalle)
+        Return Me.m_listTRAN_VehiculosMantenimientoDetalle
+    End Function
+#End Region
+
+#Region " Metodos "
+
+    Public Function Cargar(ByVal x_vmant_id As Integer) As Boolean
+        Try
+            Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "EntPro", ACJoin.TipoJoin.Left _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+            _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "EntRes", ACJoin.TipoJoin.Left _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoResponsable")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Responsable")}))
+            _join.Add(New ACJoin(ETRAN_Vehiculos.Esquema, ETRAN_Vehiculos.Tabla, "Vehi", ACJoin.TipoJoin.Left _
+                             , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")} _
+                             , New ACCampos() {New ACCampos("VEHIC_Placa", "VEHIC_Placa"),
+                                               New ACCampos("VEHIC_Modelo", "VEHIC_Modelo")}))
+            Dim _where As New Hashtable()
+
+            _where.Add("VMAN_Id", New ACWhere(x_vmant_id))
+            m_tran_vehiculosmantenimiento = New ETRAN_VehiculosMantenimiento
+            If Cargar(_join, _where) Then
+                Dim _joinDet As New List(Of ACJoin)
+                _joinDet.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TRep", ACJoin.TipoJoin.Left _
+                                 , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoRepuesto")} _
+                                 , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_TipoRepuesto")}))
+                _joinDet.Add(New ACJoin(ETRAN_Piezas.Esquema, ETRAN_Piezas.Tabla, "Rep", ACJoin.TipoJoin.Left _
+                                 , New ACCampos() {New ACCampos("PIEZA_Id", "PIEZA_Id")} _
+                                 , New ACCampos() {New ACCampos("PIEZA_Codigo", "PIEZA_Codigo"), New ACCampos("PIEZA_Descripcion", "PIEZA_Descripcion")}))
+                Dim _wheredet As New Hashtable()
+                _wheredet.Add("VEHIC_Id", New ACWhere(m_tran_vehiculosmantenimiento.VEHIC_Id))
+                _wheredet.Add("VMAN_Item", New ACWhere(m_tran_vehiculosmantenimiento.VMAN_Item))
+
+                Dim _btran_vehiculosmantenimientodetalle As New BTRAN_VehiculosMantenimientoDetalle
+                If _btran_vehiculosmantenimientodetalle.CargarTodos(_joinDet, _wheredet) Then
+                    m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimientoDetalle = _btran_vehiculosmantenimientodetalle.ListTRAN_VehiculosMantenimientoDetalle
+                Else
+                    Throw New Exception("No se pudo cargar el detalle del mantenimiento")
+                End If
+                If Not ObtenerDocCompraXMantenimiento(m_tran_vehiculosmantenimiento.ListTRAN_Documentos, m_tran_vehiculosmantenimiento.VEHIC_Id, m_tran_vehiculosmantenimiento.VMAN_Item) Then
+                    Throw New Exception("No se pudo cargar los documentos de Compra")
+                End If
+                Return True
+            End If
+            Return False
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Public Function CargarSinDetalle(ByVal x_vmant_id As Integer, ByVal x_vehic_id As Integer) As Boolean
+        Try
+
+            m_tran_vehiculos = New ETRAN_Vehiculos
+            'Dim x_tran_vehiculosmantenimiento As New BTRAN_VehiculosMantenimiento()
+            'Dim m_etran_vehiculos As New ETRAN_Vehiculos()
+            ''' Crear Inner Join Con otras Tablas
+            'Dim _join As New List(Of ACJoin)
+            '_join.Add(New ACJoin("dbo", "Tipos", ACFramework.ACJoin.TipoJoin.Inner _
+            '                      , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMantenimiento")} _
+            '                      , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_TipoMantenimiento")}))
+            ''' 
+            '_join.Add(New ACJoin("dbo", "Entidades", ACJoin.TipoJoin.Inner _
+            '                      , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+            '                      , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_RazonSocial")}))
+
+            'Dim _where As New Hashtable()
+            '_where.Add("VEHIC_Id", New ACFramework.ACWhere(x_vehic_id, ACFramework.ACWhere.TipoWhere.Igual))
+            '_where.Add("VMAN_Estado", New ACWhere("I", ACWhere.TipoWhere.Igual))
+            'Dim m_tran_vehiculosmantenimiento As New ETRAN_VehiculosMantenimiento()
+            ''==================cambio agregadofrank =========================================
+            '' _where.Add("VMAN_Item", New ACFramework.ACWhere(99, ACFramework.ACWhere.TipoWhere.Igual))
+            'If (x_tran_vehiculosmantenimiento.CargarTodos(_join, _where) = True) Then
+            '    m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimiento = New List(Of ETRAN_VehiculosMantenimiento)(x_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimiento)
+            '    m_etran_vehiculos.ListVMantenimiento = m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimiento
+            '    Return True
+
+            'Else
+            '    m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimiento = New List(Of ETRAN_VehiculosMantenimiento)()
+            '    m_etran_vehiculos.ListVMantenimiento = Nothing
+            '    Return False
+            'End If
+            Dim x_tran_vehiculosmantenimiento As New BTRAN_VehiculosMantenimiento()
+            '' Crear Inner Join Con otras Tablas
+            Dim _join As New List(Of ACJoin)
+            _join.Add(New ACJoin("dbo", "Tipos", ACFramework.ACJoin.TipoJoin.Inner _
+                          , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoMantenimiento")} _
+                          , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_TipoMantenimiento")}))
+            '' 
+            _join.Add(New ACJoin("dbo", "Entidades", ACJoin.TipoJoin.Inner _
+                          , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                          , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_RazonSocial")}))
+
+            Dim _where As New Hashtable()
+            _where.Add("VEHIC_Id", New ACFramework.ACWhere(x_vehic_id, ACFramework.ACWhere.TipoWhere.Igual))
+
+            x_tran_vehiculosmantenimiento.CargarTodos(_join, _where)
+
+            m_tran_vehiculos.ListVMantenimiento = New List(Of ETRAN_VehiculosMantenimiento)(x_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimiento)
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+
+    ' <summary> 
+    ' Capa de Negocio: TRAN_ObtenerDocCompraXMantenimiento
+    ' </summary>
+    ' <param name="x_vehic_id">Parametro 1: </param> 
+    ' <param name="x_vman_item">Parametro 2: </param> 
+    ' <returns></returns> 
+    ' <remarks></remarks> 
+    Public Function ObtenerDocCompraXMantenimiento(ByRef m_listtran_documentos As List(Of ETRAN_Documentos), ByVal x_vehic_id As Long, ByVal x_vman_item As Long) As Boolean
+      m_listtran_documentos = New List(Of ETRAN_Documentos)
+      Try
+         Return d_tran_vehiculosmantenimiento.TRAN_ObtenerDocCompraXMantenimiento(m_listtran_documentos, x_vehic_id, x_vman_item)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_entid_codtransportista As String) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "EntPro", ACJoin.TipoJoin.Left _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_Codigo")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "EntRes", ACJoin.TipoJoin.Left _
+                              , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoResponsable")} _
+                              , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Responsable")}))
+         _join.Add(New ACJoin(ETRAN_Vehiculos.Esquema, ETRAN_Vehiculos.Tabla, "Vehi", ACJoin.TipoJoin.Left _
+                             , New ACCampos() {New ACCampos("VEHIC_Id", "VEHIC_Id")} _
+                             , New ACCampos() {New ACCampos("VEHIC_Placa", "VEHIC_Placa")}))
+         Dim _where As New Hashtable()
+         If x_campo.Equals("VEHIC_Placa") Then
+            _where.Add(x_campo, New ACWhere(x_cadena, "Vehi", "System.String", ACWhere.TipoWhere._Like))
+         Else
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         End If
+
+         _where.Add("VMAN_Estado", New ACWhere(ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Anulado), ACWhere.TipoWhere.Diferente))
+         m_listTRAN_VehiculosMantenimiento = New List(Of ETRAN_VehiculosMantenimiento)
+         Return CargarTodos(_join, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+    ' <summary> 
+    ' Capa de Negocio: TRAN_VMAN_ObtenerMantenimientos
+    ' </summary>
+    ' <param name="x_fecini">Parametro 1: </param> 
+    ' <param name="x_fecfin">Parametro 2: </param> 
+    ' <param name="x_opcion">Parametro 3: </param> 
+    ' <param name="x_cadena">Parametro 4: </param> 
+    ' <param name="x_todos">Parametro 5: </param> 
+    ' <returns></returns> 
+    ' <remarks></remarks> 
+    Public Function TRAN_VMAN_ObtenerMantenimientos(ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_opcion As Short, ByVal x_cadena As String, ByVal x_todos As Boolean) As Boolean
+        m_listtran_vehiculosmantenimiento = New List(Of ETRAN_VehiculosMantenimiento)
+        Try
+            Return d_tran_vehiculosmantenimiento.TRAN_VMAN_ObtenerMantenimientos(m_listtran_vehiculosmantenimiento, x_fecini, x_fecfin, x_opcion, x_cadena, x_todos)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    ' <summary> 
+    ' Capa de Negocio: TRAN_REPOSS_VehiculoMantenimientos
+    ' </summary>
+    ' <param name="x_fecini">Parametro 1: </param> 
+    ' <param name="x_fecfin">Parametro 2: </param> 
+    ' <param name="x_opcion">Parametro 3: </param> 
+    ' <param name="x_cadena">Parametro 4: </param> 
+    ' <param name="x_todos">Parametro 5: </param> 
+    ' <returns></returns> 
+    ' <remarks></remarks> 
+    Public Function TRAN_REPOSS_VehiculoMantenimientos(ByVal x_campo As Short, ByVal x_placa As String, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+
+        m_listTRAN_VehiculosMantenimientoDetalle = New List(Of ETRAN_VehiculosMantenimientoDetalle)
+        Try
+            Return d_tran_vehiculosmantenimiento.TRAN_REPOSS_VehiculoMantenimientos(x_campo, x_placa, m_listTRAN_VehiculosMantenimientoDetalle, x_fecini, x_fecfin)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    Public Function Guardar(ByVal x_usuario As String, ByVal x_detalle As Boolean) As Boolean
+      Try
+         If m_tran_vehiculosmantenimiento.Nuevo Then
+            Dim _where As New Hashtable
+            _where.Add("VEHIC_Id", New ACWhere(m_tran_vehiculosmantenimiento.VEHIC_Id))
+            m_tran_vehiculosmantenimiento.VMAN_Item = getCorrelativo("VMAN_Item", _where)
+            m_tran_vehiculosmantenimiento.VMAN_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+            DAEnterprise.BeginTransaction()
+            Dim i As Integer = 1
+            If d_tran_vehiculosmantenimiento.TRAN_VMANSI_UnReg(m_tran_vehiculosmantenimiento, x_usuario) Then
+               For Each item As ETRAN_VehiculosMantenimientoDetalle In m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimientoDetalle
+                  Dim _btran_vehiculosmantenimientodetalle As New BTRAN_VehiculosMantenimientoDetalle
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle = item
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VEHIC_Id = m_tran_vehiculosmantenimiento.VEHIC_Id
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMAN_Item = m_tran_vehiculosmantenimiento.VMAN_Item
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMDET_Item = i
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.Instanciar(ACFramework.ACEInstancia.Nuevo)
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMDET_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+                  _btran_vehiculosmantenimientodetalle.Guardar(x_usuario)
+                  i += 1
+               Next
+               i = 1
+               For Each item As ETRAN_Documentos In m_tran_vehiculosmantenimiento.ListTRAN_Documentos
+                  Dim _btran_docs As New BTRAN_VehiculosMantenimientoDocCompra
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra = New ETRAN_VehiculosMantenimientoDocCompra
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.DOCUS_Codigo = item.DOCUS_Codigo
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.ENTID_Codigo = item.ENTID_Codigo
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VEHIC_Id = m_tran_vehiculosmantenimiento.VEHIC_Id
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VMAN_Item = m_tran_vehiculosmantenimiento.VMAN_Item
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VMDCO_Numero = i : i += 1
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.Instanciar(ACEInstancia.Nuevo)
+                  _btran_docs.Guardar(x_usuario)
+               Next
+
+               DAEnterprise.CommitTransaction()
+            End If
+
+         ElseIf m_tran_vehiculosmantenimiento.Modificado Then
+            DAEnterprise.BeginTransaction()
+            Dim i As Integer = 1
+            Dim _wherecab As New Hashtable
+            _wherecab.Add("VMAN_Id", New ACWhere(m_tran_vehiculosmantenimiento.VMAN_Id))
+
+            If d_tran_vehiculosmantenimiento.TRAN_VMANSU_UnReg(m_tran_vehiculosmantenimiento, _wherecab, x_usuario, New String() {"VMAN_Id"}, New String() {}) Then
+
+               Dim _btran_vehiculosmantenimientodetalle As New BTRAN_VehiculosMantenimientoDetalle
+               Dim _where As New Hashtable
+               _where.Add("VEHIC_Id", New ACWhere(m_tran_vehiculosmantenimiento.VEHIC_Id))
+               _where.Add("VMAN_Item", New ACWhere(m_tran_vehiculosmantenimiento.VMAN_Item))
+               _btran_vehiculosmantenimientodetalle.Eliminar(_where)
+
+               For Each item As ETRAN_VehiculosMantenimientoDetalle In m_tran_vehiculosmantenimiento.ListTRAN_VehiculosMantenimientoDetalle
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle = item
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VEHIC_Id = m_tran_vehiculosmantenimiento.VEHIC_Id
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMAN_Item = m_tran_vehiculosmantenimiento.VMAN_Item
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMDET_Item = i
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.Instanciar(ACFramework.ACEInstancia.Nuevo)
+                  _btran_vehiculosmantenimientodetalle.TRAN_VehiculosMantenimientoDetalle.VMDET_Estado = ACEVentas.Constantes.getEstado(ACEVentas.Constantes.Estado.Ingresado)
+                  _btran_vehiculosmantenimientodetalle.Guardar(x_usuario)
+                  i += 1
+               Next
+
+               Dim _btran_vehiculomantenimientodoccompra As New BTRAN_VehiculosMantenimientoDocCompra
+               _btran_vehiculomantenimientodoccompra.Eliminar(_where)
+               i = 1
+               For Each item As ETRAN_Documentos In m_tran_vehiculosmantenimiento.ListTRAN_Documentos
+                  Dim _btran_docs As New BTRAN_VehiculosMantenimientoDocCompra
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra = New ETRAN_VehiculosMantenimientoDocCompra
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.DOCUS_Codigo = item.DOCUS_Codigo
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.ENTID_Codigo = item.ENTID_Codigo
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VEHIC_Id = m_tran_vehiculosmantenimiento.VEHIC_Id
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VMAN_Item = m_tran_vehiculosmantenimiento.VMAN_Item
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.VMDCO_Numero = i : i += 1
+                  _btran_docs.TRAN_VehiculosMantenimientoDocCompra.Instanciar(ACEInstancia.Nuevo)
+                  _btran_docs.Guardar(x_usuario)
+               Next
+
+               DAEnterprise.CommitTransaction()
+            End If
+
+         ElseIf m_tran_vehiculosmantenimiento.Eliminado Then
+            d_tran_vehiculosmantenimiento.TRAN_VMANSD_UnReg(m_tran_vehiculosmantenimiento)
+         End If
+         Return True
+      Catch ex As Exception
+         DAEnterprise.RollBackTransaction()
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

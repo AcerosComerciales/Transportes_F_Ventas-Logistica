@@ -1,0 +1,178 @@
+Imports System
+Imports System.Data
+Imports System.Collections.Generic
+
+Imports ACELogistica
+Imports ACDLogistica
+Imports Microsoft.Practices.Unity
+Imports Microsoft.Practices.Unity.Configuration
+Imports System.Configuration
+Imports ACFramework
+
+Imports ACEVentas
+
+Public Class BABAS_IngresosCompra
+
+#Region " Variables "
+
+#End Region
+
+#Region " Constructores "
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Funciones para obtencion de datos "
+
+#End Region
+
+#Region " Metodos "
+
+   ''' <summary>
+   ''' Cargar los ingresos de compra incluyendo su detalle
+   ''' </summary>
+   ''' <param name="x_ingco_codigo">Codigo del documento de ingreso</param>
+   ''' <param name="x_detalle">Detalle del documento</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Cargar(ByVal x_ingco_codigo As Long, ByVal x_almac_id As Short, ByVal x_detalle As Boolean) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+                            , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor") _
+                                            , New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor") _
+                                            , New ACCampos("ENTID_NroDocumento", "ENTID_NroDocumento")}))
+         Dim _where As New Hashtable()
+         _where.Add("INGCO_Id", New ACWhere(x_ingco_codigo, ACWhere.TipoWhere.Igual))
+         _where.Add("ALMAC_Id", New ACWhere(x_almac_id, ACWhere.TipoWhere.Igual))
+         If Cargar(_join, _where) Then
+            If x_detalle Then
+               Dim m_abas_ingresoscompradetalle As New BABAS_IngresosCompraDetalle
+               Dim _joinDet As New List(Of ACJoin)
+               _joinDet.Add(New ACJoin(EArticulos.Esquema, EArticulos.Tabla, "Art", ACJoin.TipoJoin.Inner _
+                                  , New ACCampos() {New ACCampos("ARTIC_Codigo", "ARTIC_Codigo")} _
+                                  , New ACCampos() {New ACCampos("ARTIC_Descripcion", "ARTIC_Descripcion") _
+                                                    , New ACCampos("ARTIC_Id", "ARTIC_Id")}))
+               _joinDet.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TUni", "Art", ACJoin.TipoJoin.Inner _
+                                 , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodUnidadMedida")} _
+                                 , New ACCampos() {New ACCampos("TIPOS_Descripcion", "TIPOS_UnidadMedida"), New ACCampos("TIPOS_Codigo", "TIPOS_CodUnidadMedida")}))
+               Dim _whereDet As New Hashtable()
+               _whereDet.Add("INGCO_Id", New ACWhere(x_ingco_codigo, ACWhere.TipoWhere.Igual))
+               _whereDet.Add("ALMAC_Id", New ACWhere(x_almac_id, ACWhere.TipoWhere.Igual))
+               m_abas_ingresoscompradetalle.CargarTodos(_joinDet, _whereDet)
+               m_eabas_ingresoscompra.ListABAS_IngresosCompraDetalle = New List(Of EABAS_IngresosCompraDetalle)(m_abas_ingresoscompradetalle.ListABAS_IngresosCompraDetalle)
+            End If
+            Return True
+         Else
+            Return False
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary>
+   ''' Busqueda de documento de ingreso
+   ''' </summary>
+   ''' <param name="x_cadena">Cadena de busqueda </param>
+   ''' <param name="x_campo">Campor el cual se realiza la busqueda</param>
+   ''' <param name="x_todos">Opcion para cargar todos los registros ignorando el estado del documento</param>
+   ''' <param name="x_fecini">Fecha inicial</param>
+   ''' <param name="x_fecfin">fecha final</param>
+   ''' <returns></returns>
+   ''' <remarks></remarks>
+   Public Function Busqueda(ByVal x_cadena As String, ByVal x_campo As String, ByVal x_todos As Boolean, ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+                            , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+         _join.Add(New ACJoin(EAlmacenes.Esquema, EAlmacenes.Tabla, "Alma", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ALMAC_Id", "ALMAC_Id")} _
+                            , New ACCampos() {New ACCampos("ALMAC_Descripcion", "ALMAC_Descripcion")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                            , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_Documento")}))
+         Dim _where As New Hashtable()
+         If x_campo.Contains("ENTID") Then
+            _where.Add(x_campo, New ACWhere(x_cadena, "Ent", "System.String", ACWhere.TipoWhere._Like))
+         Else
+            _where.Add(x_campo, New ACWhere(x_cadena, ACWhere.TipoWhere._Like))
+         End If
+         _where.Add("INGCO_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         _where.Add(ACWhere.OrderBy, New ACWhere(New ACOrderBy() {New ACOrderBy("DOCCO_Codigo", ACOrderBy.Ordenamiento.Ascendente)}))
+         If Not x_todos Then
+            _where.Add("INGCO_Estado", New ACWhere(EABAS_IngresosCompra.getEstado(EABAS_IngresosCompra.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         End If
+         m_listABAS_IngresosCompra = New List(Of EABAS_IngresosCompra)
+         Return d_abas_ingresoscompra.ABAS_INGCOSS_Todos(m_listABAS_IngresosCompra, _join, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function Busqueda(ByVal x_doc As String, ByVal x_serie As String, ByVal x_numero As String, ByVal x_todos As Boolean _
+                            , ByVal x_fecini As DateTime, ByVal x_fecfin As DateTime, ByVal x_pvent_id As Long) As Boolean
+      Try
+         Dim _join As New List(Of ACJoin)
+         _join.Add(New ACJoin(EEntidades.Esquema, EEntidades.Tabla, "Ent", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ENTID_Codigo", "ENTID_CodigoProveedor")} _
+                            , New ACCampos() {New ACCampos("ENTID_RazonSocial", "ENTID_Proveedor")}))
+         _join.Add(New ACJoin(EAlmacenes.Esquema, EAlmacenes.Tabla, "Alma", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("ALMAC_Id", "ALMAC_Id")} _
+                            , New ACCampos() {New ACCampos("ALMAC_Descripcion", "ALMAC_Descripcion")}))
+         _join.Add(New ACJoin(ETipos.Esquema, ETipos.Tabla, "TDoc", ACJoin.TipoJoin.Inner _
+                            , New ACCampos() {New ACCampos("TIPOS_Codigo", "TIPOS_CodTipoDocumento")} _
+                            , New ACCampos() {New ACCampos("TIPOS_DescCorta", "TIPOS_Documento")}))
+
+         Dim _where As New Hashtable()
+         '_where.Add("TIPOS_CodTipoDocumento", New ACWhere(x_doc, "m_vent_docsventa", "System.String", ACWhere.TipoWhere._Like))
+         _where.Add("INGCO_Serie", New ACWhere(x_serie, ACWhere.TipoWhere._Like))
+         _where.Add("INGCO_Numero", New ACWhere(x_numero, ACWhere.TipoWhere._Like))
+         _where.Add("PVENT_Id", New ACWhere(x_pvent_id))
+         _where.Add("INGCO_FechaDocumento", New ACWhere(x_fecini, x_fecfin, ACWhere.TipoWhere.Between))
+         If Not x_todos Then _where.Add("INGCO_Estado", New ACWhere(EVENT_Pedidos.getEstado(EVENT_Pedidos.Estado.Ingresado), ACWhere.TipoWhere.Igual))
+         _where.Add(ACWhere.OrderBy, New ACWhere(New ACOrderBy() {New ACOrderBy("DOCCO_Codigo", ACOrderBy.Ordenamiento.Ascendente)}))
+         m_listABAS_IngresosCompra = New List(Of EABAS_IngresosCompra)
+         Return d_abas_ingresoscompra.ABAS_INGCOSS_Todos(m_listABAS_IngresosCompra, _join, _where)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Public Function getCodCorrelativo(ByVal x_ordco_codigo As String) As Integer
+      Dim x_numero As String
+      Try
+         x_numero = d_abas_ingresoscompra.getCodCorrelativo(x_ordco_codigo) + 1
+         Return x_numero
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: LOG_INGSS_Consulta
+   ''' </summary>
+   ''' <param name="x_cadena">Parametro 1: </param> 
+   ''' <param name="x_opcion">Parametro 2: </param> 
+   ''' <param name="x_todos">Parametro 3: </param> 
+   ''' <param name="x_fecini">Parametro 4: </param> 
+   ''' <param name="x_fecfin">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function Consulta(ByVal x_cadena As String, ByVal x_opcion As Short, ByVal x_todos As Boolean, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      m_listABAS_IngresosCompra = New List(Of EABAS_IngresosCompra)
+      Try
+         Return d_abas_ingresoscompra.LOG_INGSS_Consulta(m_listABAS_IngresosCompra, x_cadena, x_opcion, x_todos, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+End Class
+

@@ -1,0 +1,169 @@
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACFramework.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\DAEnterprise.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\obj\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACFramework.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\DAEnterprise.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\obj\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica - copia\ACDAppMovil\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACEVentas.dll.config
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Plantillas\RPedidos.rdlc
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACFramework.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\DAEnterprise.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACETransporte.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEVentas.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACELogistica.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACETransporte.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACETransporte.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEVentas.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEVentas.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACEVentas.dll.config
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACELogistica.pdb
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\ACELogistica.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Developer\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbprojAssemblyReference.cache
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.Resources.resources
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.GenerateResource.cache
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CoreCompileInputs.cache
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CopyComplete
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.dll
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.xml
+D:\Developer\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Plantillas\RPedidos.rdlc
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDAppMovil.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACFramework.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\DAEnterprise.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACETransporte.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEVentas.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACELogistica.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACDTransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEAppMovil.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACETransporte.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACETransporte.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEVentas.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEVentas.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACEVentas.dll.config
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACELogistica.pdb
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\ACELogistica.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbprojAssemblyReference.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.Resources.resources
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.GenerateResource.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CoreCompileInputs.cache
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CopyComplete
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.dll
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.xml
+D:\Compartidos-Frank\CODIGO\Transportes\ACDAppMovil\obj\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica\ACDAppMovil\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Plantillas\RPedidos.rdlc
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDTransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACFramework.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\DAEnterprise.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACETransporte.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDTransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACDTransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACETransporte.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACETransporte.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.Resources.resources
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.vbproj.CopyComplete
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.dll
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.xml
+E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACDAppMovil\obj\Debug\ACDAppMovil.pdb

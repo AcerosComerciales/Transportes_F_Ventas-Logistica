@@ -1,0 +1,111 @@
+﻿Imports DAConexion
+Imports ACDLogistica
+Imports ACELogistica
+
+Public Class BReporte
+#Region " Variables "
+   Private d_reporte As DReporte
+
+   Private m_dttable As DataTable
+
+   Private m_ectrl_arreglos As ECTRL_Arreglos
+
+   Private m_almac_id As Integer
+   Private m_periodo As String
+   Private m_sucur_id As Short
+#End Region
+
+#Region " Propiedades "
+
+   Public Property DTTabla() As DataTable
+      Get
+         Return m_dttable
+      End Get
+      Set(ByVal value As DataTable)
+         m_dttable = value
+      End Set
+   End Property
+
+   Public Property CTRL_Arreglos() As ECTRL_Arreglos
+      Get
+         Return m_ectrl_arreglos
+      End Get
+      Set(ByVal value As ECTRL_Arreglos)
+         m_ectrl_arreglos = value
+      End Set
+   End Property
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New(ByVal x_almac_id As Integer, ByVal x_periodo As String, ByVal x_sucur_id As Short)
+      m_almac_id = x_almac_id
+      m_periodo = x_periodo
+      m_sucur_id = x_sucur_id
+
+      d_reporte = New DReporte
+   End Sub
+#End Region
+
+#Region " Metodos "
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRL_STOCKSS_KardexXArticulo
+   ''' </summary> 
+   ''' <param name="x_artic_codigo">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <param name="x_perio_codigo">Parametro 3: </param> 
+   ''' <param name="x_zonas_codigo">Parametro 4: </param> 
+   ''' <param name="x_fecini">Parametro 5: </param> 
+   ''' <param name="x_fecfin">Parametro 6: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function KardexXArticulo(ByVal x_artic_codigo As String, ByVal x_almac_id As Integer, ByVal x_perio_codigo As String, ByVal x_zonas_codigo As String, ByVal x_fecini As Date, ByVal x_fecfin As Date) As Boolean
+      Try
+         m_dttable = New DataTable
+         Return d_reporte.CTRL_STOCKSS_KardexXArticulo(m_dttable, x_artic_codigo, x_almac_id, x_perio_codigo, x_zonas_codigo, x_fecini, x_fecfin)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: REPOSS_ObtenerArreglo
+   ''' </summary>
+   ''' <param name="x_arreg_codigo">Parametro 1: </param> 
+   ''' <param name="x_almac_id">Parametro 2: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function REPOSS_ObtenerArreglo(ByVal x_arreg_codigo As String, ByVal x_almac_id As Integer) As Boolean
+      m_ectrl_arreglos = New ECTRL_Arreglos
+      Try
+         Return d_reporte.REPOSS_ObtenerArreglo(m_ectrl_arreglos, x_arreg_codigo, x_almac_id)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   ''' <summary> 
+   ''' Capa de Negocio: CTRL_MostrarDocumentosCliente
+   ''' </summary> 
+   ''' <param name="x_fecini">Parametro 1: </param> 
+   ''' <param name="x_fecfin">Parametro 2: </param> 
+   ''' <param name="x_entid_codigo">Parametro 4: </param> 
+   ''' <param name="x_fecha">Parametro 5: </param> 
+   ''' <returns></returns> 
+   ''' <remarks></remarks> 
+   Public Function CTRL_MostrarDocumentosCliente(ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_almac_id As Long, ByVal x_entid_codigo As String, ByVal x_fecha As Boolean) As Boolean
+      Try
+         m_dttable = New DataTable
+         Return d_reporte.CTRL_MostrarDocumentosCliente(m_dttable, x_fecini, x_fecfin, x_almac_id, x_entid_codigo, x_fecha)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#End Region
+
+#Region " Metodos de Controles"
+
+#End Region
+End Class

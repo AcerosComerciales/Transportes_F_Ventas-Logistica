@@ -1,0 +1,1825 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class PFacturacionNotas
+   Inherits System.Windows.Forms.Form
+
+   'Form overrides dispose to clean up the component list.
+   <System.Diagnostics.DebuggerNonUserCode()> _
+   Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+      Try
+         If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+         End If
+      Finally
+         MyBase.Dispose(disposing)
+      End Try
+   End Sub
+
+   'Required by the Windows Form Designer
+   Private components As System.ComponentModel.IContainer
+
+   'NOTE: The following procedure is required by the Windows Form Designer
+   'It can be modified using the Windows Form Designer.  
+   'Do not modify it using the code editor.
+   <System.Diagnostics.DebuggerStepThrough()> _
+   Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PFacturacionNotas))
+        Me.tabMantenimiento = New Crownwood.DotNetMagic.Controls.TabControl()
+        Me.tabDatos = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.pnlDatos = New System.Windows.Forms.Panel()
+        Me.pnlDetalle = New System.Windows.Forms.Panel()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.spcCabecera = New System.Windows.Forms.SplitContainer()
+        Me.pnlItem = New System.Windows.Forms.Panel()
+        Me.btnMenos = New System.Windows.Forms.Button()
+        Me.btnMas = New System.Windows.Forms.Button()
+        Me.txtProdUnidad = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.actxnPrecio = New ACControles.ACTextBoxNumerico()
+        Me.txtOpcion = New System.Windows.Forms.TextBox()
+        Me.actxnSubImporte = New ACControles.ACTextBoxNumerico()
+        Me.actxnProdCantidad = New ACControles.ACTextBoxNumerico()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lblCantidad = New System.Windows.Forms.Label()
+        Me.txtProdDescripcion = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.grpCabCuerpo = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtMotivo = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbMotivo = New System.Windows.Forms.ComboBox()
+        Me.chkIlncluidoIGV = New System.Windows.Forms.CheckBox()
+        Me.chkPermiteFecha = New System.Windows.Forms.CheckBox()
+        Me.txtDireccion = New System.Windows.Forms.TextBox()
+        Me.cmbDirecciones = New System.Windows.Forms.ComboBox()
+        Me.dtpFecFacturacion = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.actxnTCVentaSunat = New ACControles.ACTextBoxNumerico()
+        Me.lblVenDolarSunat = New System.Windows.Forms.Label()
+        Me.btnNuevoCliente = New System.Windows.Forms.Button()
+        Me.actxnTipoCambio = New ACControles.ACTextBoxNumerico()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.btnClean = New System.Windows.Forms.Button()
+        Me.actxaCliRazonSocial = New ACControles.ACTextBoxAyuda()
+        Me.lblNroDocumento = New System.Windows.Forms.Label()
+        Me.actxaCliRuc = New ACControles.ACTextBoxAyuda()
+        Me.lblMoneda = New System.Windows.Forms.Label()
+        Me.cmbMoneda = New System.Windows.Forms.ComboBox()
+        Me.pnlFlete = New System.Windows.Forms.Panel()
+        Me.c1grdFacturas = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.bnavFacturas = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.ToolStripLabel10 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator44 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripTextBox10 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripSeparator45 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton27 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton28 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator46 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbtnImprimir = New System.Windows.Forms.ToolStripButton()
+        Me.tstFletes = New System.Windows.Forms.ToolStrip()
+        Me.tsbtnAddFacturas = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbtnQuitarFacturas = New System.Windows.Forms.ToolStripButton()
+        Me.AcPanelCaption1 = New ACControles.ACPanelCaption()
+        Me.c1grdDetalle = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.bnavProductos = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tslblSon = New System.Windows.Forms.ToolStripLabel()
+        Me.tscmbImpresora = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.pnlPie = New System.Windows.Forms.Panel()
+        Me.grpDetPago = New System.Windows.Forms.GroupBox()
+        Me.lblImporte = New System.Windows.Forms.Label()
+        Me.lbligv = New System.Windows.Forms.Label()
+        Me.actxnImporte = New ACControles.ACTextBoxNumerico()
+        Me.actxnIGV = New ACControles.ACTextBoxNumerico()
+        Me.actxnTotalPagar = New ACControles.ACTextBoxNumerico()
+        Me.lblTotalPagar = New System.Windows.Forms.Label()
+        Me.pnlCabecera = New System.Windows.Forms.Panel()
+        Me.pnlCabHeader = New System.Windows.Forms.Panel()
+        Me.grpDocumento = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbDocumentoFacturar = New System.Windows.Forms.ComboBox()
+        Me.actxnNumero = New ACControles.ACTextBoxNumerico()
+        Me.cmbSerie = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.tabBusqueda = New Crownwood.DotNetMagic.Controls.TabPage()
+        Me.c1grdBusqueda = New C1.Win.C1FlexGrid.C1FlexGrid()
+        Me.grpBusqueda = New System.Windows.Forms.GroupBox()
+        Me.btnConsultar = New System.Windows.Forms.Button()
+        Me.rbtnNroCotizacion = New System.Windows.Forms.RadioButton()
+        Me.rbtnCliente = New System.Windows.Forms.RadioButton()
+        Me.grpCliente = New System.Windows.Forms.GroupBox()
+        Me.txtBusqueda = New ACControles.ACTextBoxAyuda()
+        Me.grpDocumentos = New System.Windows.Forms.GroupBox()
+        Me.cmbTipoDocumento = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.txtBusNumero = New ACControles.ACTextBoxAyuda()
+        Me.chkTodos = New System.Windows.Forms.CheckBox()
+        Me.AcFecha = New ACControles.ACFecha(Me.components)
+        Me.bnavBusqueda = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsbtnExcel = New System.Windows.Forms.ToolStripButton()
+        Me.acpnlTitulo = New ACControles.ACPanelCaption()
+        Me.acTool = New ACControles.ACToolBarMantHorizontalNew(Me.components)
+        Me.actsbtnModFecha = New ACControles.ACToolStripButton(Me.components)
+        Me.actsbtnPrevisualizar = New ACControles.ACToolStripButton(Me.components)
+        Me.eprError = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.tabMantenimiento.SuspendLayout
+        Me.tabDatos.SuspendLayout
+        Me.pnlDatos.SuspendLayout
+        Me.pnlDetalle.SuspendLayout
+        CType(Me.SplitContainer2,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer2.Panel1.SuspendLayout
+        Me.SplitContainer2.Panel2.SuspendLayout
+        Me.SplitContainer2.SuspendLayout
+        CType(Me.spcCabecera,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.spcCabecera.Panel1.SuspendLayout
+        Me.spcCabecera.Panel2.SuspendLayout
+        Me.spcCabecera.SuspendLayout
+        Me.pnlItem.SuspendLayout
+        Me.grpCabCuerpo.SuspendLayout
+        Me.pnlFlete.SuspendLayout
+        CType(Me.c1grdFacturas,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.bnavFacturas,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavFacturas.SuspendLayout
+        Me.tstFletes.SuspendLayout
+        CType(Me.c1grdDetalle,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.bnavProductos,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavProductos.SuspendLayout
+        Me.pnlPie.SuspendLayout
+        Me.grpDetPago.SuspendLayout
+        Me.pnlCabecera.SuspendLayout
+        Me.pnlCabHeader.SuspendLayout
+        Me.grpDocumento.SuspendLayout
+        Me.tabBusqueda.SuspendLayout
+        CType(Me.c1grdBusqueda,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.grpBusqueda.SuspendLayout
+        Me.grpCliente.SuspendLayout
+        Me.grpDocumentos.SuspendLayout
+        CType(Me.bnavBusqueda,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavBusqueda.SuspendLayout
+        Me.acTool.SuspendLayout
+        CType(Me.eprError,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
+        '
+        'tabMantenimiento
+        '
+        Me.tabMantenimiento.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.tabMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tabMantenimiento.Location = New System.Drawing.Point(0, 30)
+        Me.tabMantenimiento.MediaPlayerDockSides = false
+        Me.tabMantenimiento.Name = "tabMantenimiento"
+        Me.tabMantenimiento.OfficeDockSides = false
+        Me.tabMantenimiento.SelectedIndex = 1
+        Me.tabMantenimiento.ShowDropSelect = False
+        Me.tabMantenimiento.Size = New System.Drawing.Size(1143, 552)
+        Me.tabMantenimiento.TabIndex = 13
+        Me.tabMantenimiento.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.tabDatos, Me.tabBusqueda})
+        Me.tabMantenimiento.TextTips = True
+        '
+        'tabDatos
+        '
+        Me.tabDatos.Controls.Add(Me.pnlDatos)
+        Me.tabDatos.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Location = New System.Drawing.Point(1, 1)
+        Me.tabDatos.Name = "tabDatos"
+        Me.tabDatos.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.Selected = False
+        Me.tabDatos.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabDatos.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabDatos.Size = New System.Drawing.Size(1141, 527)
+        Me.tabDatos.TabIndex = 4
+        Me.tabDatos.Title = "Datos"
+        Me.tabDatos.ToolTip = "Datos"
+        '
+        'pnlDatos
+        '
+        Me.pnlDatos.Controls.Add(Me.pnlDetalle)
+        Me.pnlDatos.Controls.Add(Me.pnlPie)
+        Me.pnlDatos.Controls.Add(Me.pnlCabecera)
+        Me.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlDatos.Location = New System.Drawing.Point(0, 0)
+        Me.pnlDatos.Name = "pnlDatos"
+        Me.pnlDatos.Size = New System.Drawing.Size(1141, 527)
+        Me.pnlDatos.TabIndex = 1
+        '
+        'pnlDetalle
+        '
+        Me.pnlDetalle.Controls.Add(Me.SplitContainer2)
+        Me.pnlDetalle.Controls.Add(Me.bnavProductos)
+        Me.pnlDetalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlDetalle.Location = New System.Drawing.Point(0, 43)
+        Me.pnlDetalle.Name = "pnlDetalle"
+        Me.pnlDetalle.Size = New System.Drawing.Size(1141, 417)
+        Me.pnlDetalle.TabIndex = 5
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.spcCabecera)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.c1grdDetalle)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1141, 417)
+        Me.SplitContainer2.SplitterDistance = 280
+        Me.SplitContainer2.TabIndex = 3
+        '
+        'spcCabecera
+        '
+        Me.spcCabecera.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.spcCabecera.Location = New System.Drawing.Point(0, 0)
+        Me.spcCabecera.Name = "spcCabecera"
+        '
+        'spcCabecera.Panel1
+        '
+        Me.spcCabecera.Panel1.Controls.Add(Me.pnlItem)
+        Me.spcCabecera.Panel1.Controls.Add(Me.grpCabCuerpo)
+        '
+        'spcCabecera.Panel2
+        '
+        Me.spcCabecera.Panel2.Controls.Add(Me.pnlFlete)
+        Me.spcCabecera.Size = New System.Drawing.Size(1141, 280)
+        Me.spcCabecera.SplitterDistance = 776
+        Me.spcCabecera.TabIndex = 2
+        '
+        'pnlItem
+        '
+        Me.pnlItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.pnlItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlItem.Controls.Add(Me.btnMenos)
+        Me.pnlItem.Controls.Add(Me.btnMas)
+        Me.pnlItem.Controls.Add(Me.txtProdUnidad)
+        Me.pnlItem.Controls.Add(Me.Label2)
+        Me.pnlItem.Controls.Add(Me.actxnPrecio)
+        Me.pnlItem.Controls.Add(Me.txtOpcion)
+        Me.pnlItem.Controls.Add(Me.actxnSubImporte)
+        Me.pnlItem.Controls.Add(Me.actxnProdCantidad)
+        Me.pnlItem.Controls.Add(Me.Label10)
+        Me.pnlItem.Controls.Add(Me.Label9)
+        Me.pnlItem.Controls.Add(Me.lblCantidad)
+        Me.pnlItem.Controls.Add(Me.txtProdDescripcion)
+        Me.pnlItem.Controls.Add(Me.Label17)
+        Me.pnlItem.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlItem.Location = New System.Drawing.Point(0, 174)
+        Me.pnlItem.Name = "pnlItem"
+        Me.pnlItem.Size = New System.Drawing.Size(776, 106)
+        Me.pnlItem.TabIndex = 0
+        '
+        'btnMenos
+        '
+        Me.btnMenos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenos.Location = New System.Drawing.Point(742, 71)
+        Me.btnMenos.Name = "btnMenos"
+        Me.btnMenos.Size = New System.Drawing.Size(26, 23)
+        Me.btnMenos.TabIndex = 16
+        Me.btnMenos.Text = "-"
+        Me.btnMenos.UseVisualStyleBackColor = True
+        '
+        'btnMas
+        '
+        Me.btnMas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMas.Location = New System.Drawing.Point(742, 48)
+        Me.btnMas.Name = "btnMas"
+        Me.btnMas.Size = New System.Drawing.Size(26, 23)
+        Me.btnMas.TabIndex = 15
+        Me.btnMas.Text = "+"
+        Me.btnMas.UseVisualStyleBackColor = True
+        '
+        'txtProdUnidad
+        '
+        Me.txtProdUnidad.Location = New System.Drawing.Point(126, 21)
+        Me.txtProdUnidad.MaxLength = 10
+        Me.txtProdUnidad.Name = "txtProdUnidad"
+        Me.txtProdUnidad.Size = New System.Drawing.Size(138, 23)
+        Me.txtProdUnidad.TabIndex = 3
+        Me.txtProdUnidad.Tag = "EV"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(129, 3)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Unidad"
+        '
+        'actxnPrecio
+        '
+        Me.actxnPrecio.ACDecimales = 4
+        Me.actxnPrecio.ACEnteros = 9
+        Me.actxnPrecio.ACEstandar = ACControles.ACEstandaresFormato.ACGeneral
+        Me.actxnPrecio.ACFormato = "########0.0000"
+        Me.actxnPrecio.ACNegativo = True
+        Me.actxnPrecio.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.actxnPrecio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnPrecio.Location = New System.Drawing.Point(525, 21)
+        Me.actxnPrecio.MaxLength = 12
+        Me.actxnPrecio.Name = "actxnPrecio"
+        Me.actxnPrecio.Size = New System.Drawing.Size(100, 23)
+        Me.actxnPrecio.TabIndex = 7
+        Me.actxnPrecio.Tag = "V"
+        Me.actxnPrecio.Text = "0.0000"
+        Me.actxnPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'txtOpcion
+        '
+        Me.txtOpcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtOpcion.BackColor = System.Drawing.Color.Gainsboro
+        Me.txtOpcion.Location = New System.Drawing.Point(743, 21)
+        Me.txtOpcion.MaxLength = 1
+        Me.txtOpcion.Name = "txtOpcion"
+        Me.txtOpcion.Size = New System.Drawing.Size(25, 23)
+        Me.txtOpcion.TabIndex = 10
+        '
+        'actxnSubImporte
+        '
+        Me.actxnSubImporte.ACEnteros = 9
+        Me.actxnSubImporte.ACEstandar = ACControles.ACEstandaresFormato.ACMoneda
+        Me.actxnSubImporte.ACNegativo = True
+        Me.actxnSubImporte.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnSubImporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnSubImporte.Location = New System.Drawing.Point(637, 21)
+        Me.actxnSubImporte.MaxLength = 12
+        Me.actxnSubImporte.Name = "actxnSubImporte"
+        Me.actxnSubImporte.ReadOnly = True
+        Me.actxnSubImporte.Size = New System.Drawing.Size(100, 23)
+        Me.actxnSubImporte.TabIndex = 9
+        Me.actxnSubImporte.Tag = "V"
+        Me.actxnSubImporte.Text = "0.00"
+        Me.actxnSubImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'actxnProdCantidad
+        '
+        Me.actxnProdCantidad.ACDecimales = 4
+        Me.actxnProdCantidad.ACEnteros = 9
+        Me.actxnProdCantidad.ACFormato = "###,###,##0.0000"
+        Me.actxnProdCantidad.ACNegativo = True
+        Me.actxnProdCantidad.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.actxnProdCantidad.Location = New System.Drawing.Point(10, 21)
+        Me.actxnProdCantidad.MaxLength = 18
+        Me.actxnProdCantidad.Name = "actxnProdCantidad"
+        Me.actxnProdCantidad.Size = New System.Drawing.Size(110, 23)
+        Me.actxnProdCantidad.TabIndex = 1
+        Me.actxnProdCantidad.Tag = "EV"
+        Me.actxnProdCantidad.Text = "0.0000"
+        Me.actxnProdCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(641, 3)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(78, 13)
+        Me.Label10.TabIndex = 8
+        Me.Label10.Text = "Sub Importe"
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(529, 3)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(42, 13)
+        Me.Label9.TabIndex = 6
+        Me.Label9.Text = "Pr&ecio"
+        '
+        'lblCantidad
+        '
+        Me.lblCantidad.AutoSize = True
+        Me.lblCantidad.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.lblCantidad.ForeColor = System.Drawing.Color.White
+        Me.lblCantidad.Location = New System.Drawing.Point(14, 3)
+        Me.lblCantidad.Name = "lblCantidad"
+        Me.lblCantidad.Size = New System.Drawing.Size(57, 13)
+        Me.lblCantidad.TabIndex = 0
+        Me.lblCantidad.Text = "C&antidad"
+        '
+        'txtProdDescripcion
+        '
+        Me.txtProdDescripcion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtProdDescripcion.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProdDescripcion.Location = New System.Drawing.Point(125, 48)
+        Me.txtProdDescripcion.MaxLength = 1024
+        Me.txtProdDescripcion.Multiline = True
+        Me.txtProdDescripcion.Name = "txtProdDescripcion"
+        Me.txtProdDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtProdDescripcion.Size = New System.Drawing.Size(612, 50)
+        Me.txtProdDescripcion.TabIndex = 5
+        Me.txtProdDescripcion.Tag = "V"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(41, 51)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(78, 13)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Descripción :"
+        '
+        'grpCabCuerpo
+        '
+        Me.grpCabCuerpo.Controls.Add(Me.Label8)
+        Me.grpCabCuerpo.Controls.Add(Me.txtMotivo)
+        Me.grpCabCuerpo.Controls.Add(Me.Label6)
+        Me.grpCabCuerpo.Controls.Add(Me.cmbMotivo)
+        Me.grpCabCuerpo.Controls.Add(Me.chkIlncluidoIGV)
+        Me.grpCabCuerpo.Controls.Add(Me.chkPermiteFecha)
+        Me.grpCabCuerpo.Controls.Add(Me.txtDireccion)
+        Me.grpCabCuerpo.Controls.Add(Me.cmbDirecciones)
+        Me.grpCabCuerpo.Controls.Add(Me.dtpFecFacturacion)
+        Me.grpCabCuerpo.Controls.Add(Me.Label1)
+        Me.grpCabCuerpo.Controls.Add(Me.Label7)
+        Me.grpCabCuerpo.Controls.Add(Me.actxnTCVentaSunat)
+        Me.grpCabCuerpo.Controls.Add(Me.lblVenDolarSunat)
+        Me.grpCabCuerpo.Controls.Add(Me.btnNuevoCliente)
+        Me.grpCabCuerpo.Controls.Add(Me.actxnTipoCambio)
+        Me.grpCabCuerpo.Controls.Add(Me.Label31)
+        Me.grpCabCuerpo.Controls.Add(Me.btnClean)
+        Me.grpCabCuerpo.Controls.Add(Me.actxaCliRazonSocial)
+        Me.grpCabCuerpo.Controls.Add(Me.lblNroDocumento)
+        Me.grpCabCuerpo.Controls.Add(Me.actxaCliRuc)
+        Me.grpCabCuerpo.Controls.Add(Me.lblMoneda)
+        Me.grpCabCuerpo.Controls.Add(Me.cmbMoneda)
+        Me.grpCabCuerpo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpCabCuerpo.Location = New System.Drawing.Point(0, 0)
+        Me.grpCabCuerpo.Name = "grpCabCuerpo"
+        Me.grpCabCuerpo.Size = New System.Drawing.Size(776, 174)
+        Me.grpCabCuerpo.TabIndex = 1
+        Me.grpCabCuerpo.TabStop = False
+        Me.grpCabCuerpo.Tag = "EVO"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(41, 130)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(51, 15)
+        Me.Label8.TabIndex = 28
+        Me.Label8.Text = "Motivo :"
+        '
+        'txtMotivo
+        '
+        Me.txtMotivo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtMotivo.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMotivo.Location = New System.Drawing.Point(98, 129)
+        Me.txtMotivo.MaxLength = 250
+        Me.txtMotivo.Multiline = True
+        Me.txtMotivo.Name = "txtMotivo"
+        Me.txtMotivo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtMotivo.Size = New System.Drawing.Size(667, 39)
+        Me.txtMotivo.TabIndex = 29
+        Me.txtMotivo.Tag = "EV"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(244, 75)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(51, 15)
+        Me.Label6.TabIndex = 26
+        Me.Label6.Text = "Motivo :"
+        '
+        'cmbMotivo
+        '
+        Me.cmbMotivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMotivo.DropDownWidth = 250
+        Me.cmbMotivo.FormattingEnabled = True
+        Me.cmbMotivo.Location = New System.Drawing.Point(306, 71)
+        Me.cmbMotivo.Name = "cmbMotivo"
+        Me.cmbMotivo.Size = New System.Drawing.Size(212, 23)
+        Me.cmbMotivo.TabIndex = 27
+        Me.cmbMotivo.Tag = "EO"
+        '
+        'chkIlncluidoIGV
+        '
+        Me.chkIlncluidoIGV.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkIlncluidoIGV.AutoSize = True
+        Me.chkIlncluidoIGV.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkIlncluidoIGV.Location = New System.Drawing.Point(666, 73)
+        Me.chkIlncluidoIGV.Name = "chkIlncluidoIGV"
+        Me.chkIlncluidoIGV.Size = New System.Drawing.Size(99, 19)
+        Me.chkIlncluidoIGV.TabIndex = 17
+        Me.chkIlncluidoIGV.Text = "Incluido I.G.V."
+        Me.chkIlncluidoIGV.UseVisualStyleBackColor = True
+        '
+        'chkPermiteFecha
+        '
+        Me.chkPermiteFecha.Location = New System.Drawing.Point(202, 92)
+        Me.chkPermiteFecha.Name = "chkPermiteFecha"
+        Me.chkPermiteFecha.Size = New System.Drawing.Size(139, 34)
+        Me.chkPermiteFecha.TabIndex = 25
+        Me.chkPermiteFecha.Text = "Permitir un fecha Inferior a la ultima Factura"
+        Me.chkPermiteFecha.UseVisualStyleBackColor = True
+        '
+        'txtDireccion
+        '
+        Me.txtDireccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDireccion.Location = New System.Drawing.Point(98, 42)
+        Me.txtDireccion.Name = "txtDireccion"
+        Me.txtDireccion.ReadOnly = True
+        Me.txtDireccion.Size = New System.Drawing.Size(669, 23)
+        Me.txtDireccion.TabIndex = 21
+        '
+        'cmbDirecciones
+        '
+        Me.cmbDirecciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbDirecciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbDirecciones.DropDownWidth = 250
+        Me.cmbDirecciones.FormattingEnabled = True
+        Me.cmbDirecciones.Location = New System.Drawing.Point(98, 42)
+        Me.cmbDirecciones.Name = "cmbDirecciones"
+        Me.cmbDirecciones.Size = New System.Drawing.Size(669, 23)
+        Me.cmbDirecciones.TabIndex = 20
+        Me.cmbDirecciones.Tag = "EO"
+        '
+        'dtpFecFacturacion
+        '
+        Me.dtpFecFacturacion.Enabled = False
+        Me.dtpFecFacturacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFecFacturacion.Location = New System.Drawing.Point(98, 96)
+        Me.dtpFecFacturacion.Name = "dtpFecFacturacion"
+        Me.dtpFecFacturacion.Size = New System.Drawing.Size(101, 23)
+        Me.dtpFecFacturacion.TabIndex = 14
+        Me.dtpFecFacturacion.Tag = "E"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(4, 100)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(89, 15)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Fecha Emi&sion :"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(30, 46)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(63, 15)
+        Me.Label7.TabIndex = 19
+        Me.Label7.Text = "Direccion :"
+        '
+        'actxnTCVentaSunat
+        '
+        Me.actxnTCVentaSunat.ACEnteros = 9
+        Me.actxnTCVentaSunat.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnTCVentaSunat.ACNegativo = True
+        Me.actxnTCVentaSunat.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnTCVentaSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnTCVentaSunat.Location = New System.Drawing.Point(722, 96)
+        Me.actxnTCVentaSunat.MaxLength = 12
+        Me.actxnTCVentaSunat.Name = "actxnTCVentaSunat"
+        Me.actxnTCVentaSunat.ReadOnly = True
+        Me.actxnTCVentaSunat.Size = New System.Drawing.Size(45, 23)
+        Me.actxnTCVentaSunat.TabIndex = 16
+        Me.actxnTCVentaSunat.Text = "0.00"
+        Me.actxnTCVentaSunat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblVenDolarSunat
+        '
+        Me.lblVenDolarSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblVenDolarSunat.AutoSize = True
+        Me.lblVenDolarSunat.Enabled = False
+        Me.lblVenDolarSunat.Location = New System.Drawing.Point(593, 100)
+        Me.lblVenDolarSunat.Name = "lblVenDolarSunat"
+        Me.lblVenDolarSunat.Size = New System.Drawing.Size(123, 15)
+        Me.lblVenDolarSunat.TabIndex = 15
+        Me.lblVenDolarSunat.Text = "Venta Dolar Sunat : {0}"
+        '
+        'btnNuevoCliente
+        '
+        Me.btnNuevoCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevoCliente.Image = Global.ACPTransportes.My.Resources.Resources.ACNuevo_16x16
+        Me.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevoCliente.Location = New System.Drawing.Point(656, 14)
+        Me.btnNuevoCliente.Name = "btnNuevoCliente"
+        Me.btnNuevoCliente.Size = New System.Drawing.Size(68, 28)
+        Me.btnNuevoCliente.TabIndex = 3
+        Me.btnNuevoCliente.Text = "Nuevo "
+        Me.btnNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNuevoCliente.UseVisualStyleBackColor = True
+        '
+        'actxnTipoCambio
+        '
+        Me.actxnTipoCambio.ACEnteros = 9
+        Me.actxnTipoCambio.ACEstandar = ACControles.ACEstandaresFormato.ACMoneda
+        Me.actxnTipoCambio.ACNegativo = True
+        Me.actxnTipoCambio.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnTipoCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnTipoCambio.Location = New System.Drawing.Point(542, 96)
+        Me.actxnTipoCambio.MaxLength = 12
+        Me.actxnTipoCambio.Name = "actxnTipoCambio"
+        Me.actxnTipoCambio.ReadOnly = True
+        Me.actxnTipoCambio.Size = New System.Drawing.Size(45, 23)
+        Me.actxnTipoCambio.TabIndex = 12
+        Me.actxnTipoCambio.Text = "0.00"
+        Me.actxnTipoCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label31
+        '
+        Me.Label31.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label31.AutoSize = True
+        Me.Label31.Enabled = False
+        Me.Label31.Location = New System.Drawing.Point(454, 100)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(81, 15)
+        Me.Label31.TabIndex = 11
+        Me.Label31.Text = "Tipo Cam&bio :"
+        '
+        'btnClean
+        '
+        Me.btnClean.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClean.Image = Global.ACPTransportes.My.Resources.Resources.Delete_16x16
+        Me.btnClean.Location = New System.Drawing.Point(731, 14)
+        Me.btnClean.Name = "btnClean"
+        Me.btnClean.Size = New System.Drawing.Size(36, 28)
+        Me.btnClean.TabIndex = 4
+        Me.btnClean.UseVisualStyleBackColor = True
+        '
+        'actxaCliRazonSocial
+        '
+        Me.actxaCliRazonSocial.ACActivarAyudaAuto = False
+        Me.actxaCliRazonSocial.ACLongitudAceptada = 0
+        Me.actxaCliRazonSocial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxaCliRazonSocial.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxaCliRazonSocial.Location = New System.Drawing.Point(223, 15)
+        Me.actxaCliRazonSocial.MaxLength = 80
+        Me.actxaCliRazonSocial.Name = "actxaCliRazonSocial"
+        Me.actxaCliRazonSocial.Size = New System.Drawing.Size(419, 24)
+        Me.actxaCliRazonSocial.TabIndex = 2
+        Me.actxaCliRazonSocial.Tag = "EVO"
+        '
+        'lblNroDocumento
+        '
+        Me.lblNroDocumento.AutoSize = True
+        Me.lblNroDocumento.Location = New System.Drawing.Point(43, 20)
+        Me.lblNroDocumento.Name = "lblNroDocumento"
+        Me.lblNroDocumento.Size = New System.Drawing.Size(50, 15)
+        Me.lblNroDocumento.TabIndex = 0
+        Me.lblNroDocumento.Text = "Cliente :"
+        '
+        'actxaCliRuc
+        '
+        Me.actxaCliRuc.ACActivarAyudaAuto = False
+        Me.actxaCliRuc.ACLongitudAceptada = 0
+        Me.actxaCliRuc.Location = New System.Drawing.Point(98, 16)
+        Me.actxaCliRuc.MaxLength = 14
+        Me.actxaCliRuc.Name = "actxaCliRuc"
+        Me.actxaCliRuc.Size = New System.Drawing.Size(111, 23)
+        Me.actxaCliRuc.TabIndex = 1
+        Me.actxaCliRuc.Tag = "EVO"
+        '
+        'lblMoneda
+        '
+        Me.lblMoneda.AutoSize = True
+        Me.lblMoneda.Location = New System.Drawing.Point(36, 73)
+        Me.lblMoneda.Name = "lblMoneda"
+        Me.lblMoneda.Size = New System.Drawing.Size(57, 15)
+        Me.lblMoneda.TabIndex = 7
+        Me.lblMoneda.Text = "&Moneda :"
+        '
+        'cmbMoneda
+        '
+        Me.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbMoneda.DropDownWidth = 250
+        Me.cmbMoneda.FormattingEnabled = True
+        Me.cmbMoneda.Location = New System.Drawing.Point(98, 69)
+        Me.cmbMoneda.Name = "cmbMoneda"
+        Me.cmbMoneda.Size = New System.Drawing.Size(122, 23)
+        Me.cmbMoneda.TabIndex = 8
+        Me.cmbMoneda.Tag = "EO"
+        '
+        'pnlFlete
+        '
+        Me.pnlFlete.Controls.Add(Me.c1grdFacturas)
+        Me.pnlFlete.Controls.Add(Me.bnavFacturas)
+        Me.pnlFlete.Controls.Add(Me.tstFletes)
+        Me.pnlFlete.Controls.Add(Me.AcPanelCaption1)
+        Me.pnlFlete.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlFlete.Location = New System.Drawing.Point(0, 0)
+        Me.pnlFlete.Name = "pnlFlete"
+        Me.pnlFlete.Size = New System.Drawing.Size(361, 280)
+        Me.pnlFlete.TabIndex = 3
+        '
+        'c1grdFacturas
+        '
+        Me.c1grdFacturas.AllowAddNew = True
+        Me.c1grdFacturas.AllowDelete = True
+        Me.c1grdFacturas.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdFacturas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdFacturas.Location = New System.Drawing.Point(0, 28)
+        Me.c1grdFacturas.Name = "c1grdFacturas"
+        Me.c1grdFacturas.Rows.Count = 2
+        Me.c1grdFacturas.Rows.DefaultSize = 20
+        Me.c1grdFacturas.Size = New System.Drawing.Size(361, 252)
+        Me.c1grdFacturas.StyleInfo = resources.GetString("c1grdFacturas.StyleInfo")
+        Me.c1grdFacturas.TabIndex = 18
+        '
+        'bnavFacturas
+        '
+        Me.bnavFacturas.AddNewItem = Nothing
+        Me.bnavFacturas.CountItem = Me.ToolStripLabel10
+        Me.bnavFacturas.DeleteItem = Nothing
+        Me.bnavFacturas.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavFacturas.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripSeparator44, Me.ToolStripTextBox10, Me.ToolStripLabel10, Me.ToolStripSeparator45, Me.ToolStripButton27, Me.ToolStripButton28, Me.ToolStripSeparator46, Me.tsbtnImprimir})
+        Me.bnavFacturas.Location = New System.Drawing.Point(0, 203)
+        Me.bnavFacturas.MoveFirstItem = Me.ToolStripButton7
+        Me.bnavFacturas.MoveLastItem = Me.ToolStripButton28
+        Me.bnavFacturas.MoveNextItem = Me.ToolStripButton27
+        Me.bnavFacturas.MovePreviousItem = Me.ToolStripButton8
+        Me.bnavFacturas.Name = "bnavFacturas"
+        Me.bnavFacturas.PositionItem = Me.ToolStripTextBox10
+        Me.bnavFacturas.Size = New System.Drawing.Size(310, 25)
+        Me.bnavFacturas.TabIndex = 19
+        Me.bnavFacturas.Text = "bnavFletes"
+        Me.bnavFacturas.Visible = False
+        '
+        'ToolStripLabel10
+        '
+        Me.ToolStripLabel10.Name = "ToolStripLabel10"
+        Me.ToolStripLabel10.Size = New System.Drawing.Size(37, 22)
+        Me.ToolStripLabel10.Text = "de {0}"
+        Me.ToolStripLabel10.ToolTipText = "Total number of items"
+        '
+        'ToolStripButton7
+        '
+        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.Name = "ToolStripButton7"
+        Me.ToolStripButton7.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton7.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton7.Text = "Move first"
+        '
+        'ToolStripButton8
+        '
+        Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
+        Me.ToolStripButton8.Name = "ToolStripButton8"
+        Me.ToolStripButton8.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton8.Text = "Move previous"
+        '
+        'ToolStripSeparator44
+        '
+        Me.ToolStripSeparator44.Name = "ToolStripSeparator44"
+        Me.ToolStripSeparator44.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripTextBox10
+        '
+        Me.ToolStripTextBox10.AccessibleName = "Position"
+        Me.ToolStripTextBox10.AutoSize = False
+        Me.ToolStripTextBox10.Name = "ToolStripTextBox10"
+        Me.ToolStripTextBox10.Size = New System.Drawing.Size(50, 21)
+        Me.ToolStripTextBox10.Text = "0"
+        Me.ToolStripTextBox10.ToolTipText = "Current position"
+        '
+        'ToolStripSeparator45
+        '
+        Me.ToolStripSeparator45.Name = "ToolStripSeparator45"
+        Me.ToolStripSeparator45.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton27
+        '
+        Me.ToolStripButton27.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton27.Image = CType(resources.GetObject("ToolStripButton27.Image"), System.Drawing.Image)
+        Me.ToolStripButton27.Name = "ToolStripButton27"
+        Me.ToolStripButton27.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton27.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton27.Text = "Move next"
+        '
+        'ToolStripButton28
+        '
+        Me.ToolStripButton28.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton28.Image = CType(resources.GetObject("ToolStripButton28.Image"), System.Drawing.Image)
+        Me.ToolStripButton28.Name = "ToolStripButton28"
+        Me.ToolStripButton28.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton28.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton28.Text = "Move last"
+        '
+        'ToolStripSeparator46
+        '
+        Me.ToolStripSeparator46.Name = "ToolStripSeparator46"
+        Me.ToolStripSeparator46.Size = New System.Drawing.Size(6, 25)
+        '
+        'tsbtnImprimir
+        '
+        Me.tsbtnImprimir.Image = Global.ACPTransportes.My.Resources.Resources.ACImprimirRed_16x16
+        Me.tsbtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbtnImprimir.Name = "tsbtnImprimir"
+        Me.tsbtnImprimir.Size = New System.Drawing.Size(73, 22)
+        Me.tsbtnImprimir.Text = "Imprimir"
+        '
+        'tstFletes
+        '
+        Me.tstFletes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnAddFacturas, Me.ToolStripSeparator5, Me.tsbtnQuitarFacturas})
+        Me.tstFletes.Location = New System.Drawing.Point(0, 28)
+        Me.tstFletes.Name = "tstFletes"
+        Me.tstFletes.Size = New System.Drawing.Size(310, 25)
+        Me.tstFletes.TabIndex = 20
+        Me.tstFletes.Text = "ToolStrip2"
+        Me.tstFletes.Visible = False
+        '
+        'tsbtnAddFacturas
+        '
+        Me.tsbtnAddFacturas.Image = Global.ACPTransportes.My.Resources.Resources.ACAdd_16x16
+        Me.tsbtnAddFacturas.Name = "tsbtnAddFacturas"
+        Me.tsbtnAddFacturas.RightToLeftAutoMirrorImage = True
+        Me.tsbtnAddFacturas.Size = New System.Drawing.Size(69, 22)
+        Me.tsbtnAddFacturas.Text = "Agregar"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 25)
+        '
+        'tsbtnQuitarFacturas
+        '
+        Me.tsbtnQuitarFacturas.Image = Global.ACPTransportes.My.Resources.Resources.ACAnular_16x16
+        Me.tsbtnQuitarFacturas.Name = "tsbtnQuitarFacturas"
+        Me.tsbtnQuitarFacturas.RightToLeftAutoMirrorImage = True
+        Me.tsbtnQuitarFacturas.Size = New System.Drawing.Size(60, 22)
+        Me.tsbtnQuitarFacturas.Text = "Quitar"
+        '
+        'AcPanelCaption1
+        '
+        Me.AcPanelCaption1.ACCaption = "Facturas"
+        Me.AcPanelCaption1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.AcPanelCaption1.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption1.Location = New System.Drawing.Point(0, 0)
+        Me.AcPanelCaption1.Name = "AcPanelCaption1"
+        Me.AcPanelCaption1.Size = New System.Drawing.Size(361, 28)
+        Me.AcPanelCaption1.TabIndex = 21
+        '
+        'c1grdDetalle
+        '
+        Me.c1grdDetalle.BackColor = System.Drawing.Color.White
+        Me.c1grdDetalle.ColumnInfo = "2,1,0,0,0,105,Columns:0{Width:18;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Width:107;Caption:""Codigo"";}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdDetalle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdDetalle.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.c1grdDetalle.Location = New System.Drawing.Point(0, 0)
+        Me.c1grdDetalle.Name = "c1grdDetalle"
+        Me.c1grdDetalle.Rows.Count = 2
+        Me.c1grdDetalle.Rows.DefaultSize = 21
+        Me.c1grdDetalle.Size = New System.Drawing.Size(1141, 133)
+        Me.c1grdDetalle.StyleInfo = resources.GetString("c1grdDetalle.StyleInfo")
+        Me.c1grdDetalle.TabIndex = 1
+        '
+        'bnavProductos
+        '
+        Me.bnavProductos.AddNewItem = Me.ToolStripButton1
+        Me.bnavProductos.CountItem = Me.ToolStripLabel1
+        Me.bnavProductos.DeleteItem = Me.ToolStripButton2
+        Me.bnavProductos.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavProductos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator1, Me.ToolStripTextBox1, Me.ToolStripLabel1, Me.ToolStripSeparator2, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripSeparator3, Me.ToolStripButton1, Me.ToolStripButton2, Me.tslblSon, Me.tscmbImpresora, Me.ToolStripLabel2, Me.ToolStripSeparator4})
+        Me.bnavProductos.Location = New System.Drawing.Point(0, 392)
+        Me.bnavProductos.MoveFirstItem = Me.ToolStripButton3
+        Me.bnavProductos.MoveLastItem = Me.ToolStripButton6
+        Me.bnavProductos.MoveNextItem = Me.ToolStripButton5
+        Me.bnavProductos.MovePreviousItem = Me.ToolStripButton4
+        Me.bnavProductos.Name = "bnavProductos"
+        Me.bnavProductos.PositionItem = Me.ToolStripTextBox1
+        Me.bnavProductos.Size = New System.Drawing.Size(1141, 25)
+        Me.bnavProductos.TabIndex = 2
+        Me.bnavProductos.Text = "BindingNavigator1"
+        Me.bnavProductos.Visible = False
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Text = "Add new"
+        Me.ToolStripButton1.Visible = False
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(37, 22)
+        Me.ToolStripLabel1.Text = "de {0}"
+        Me.ToolStripLabel1.ToolTipText = "Total number of items"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "Delete"
+        Me.ToolStripButton2.Visible = False
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton3.Text = "Move first"
+        '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton4.Text = "Move previous"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripTextBox1
+        '
+        Me.ToolStripTextBox1.AccessibleName = "Position"
+        Me.ToolStripTextBox1.AutoSize = False
+        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(50, 21)
+        Me.ToolStripTextBox1.Text = "0"
+        Me.ToolStripTextBox1.ToolTipText = "Current position"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton5.Text = "Move next"
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton6.Text = "Move last"
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+        '
+        'tslblSon
+        '
+        Me.tslblSon.Name = "tslblSon"
+        Me.tslblSon.Size = New System.Drawing.Size(47, 22)
+        Me.tslblSon.Text = "Son: {0}"
+        '
+        'tscmbImpresora
+        '
+        Me.tscmbImpresora.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.tscmbImpresora.Name = "tscmbImpresora"
+        Me.tscmbImpresora.Size = New System.Drawing.Size(300, 25)
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(66, 22)
+        Me.ToolStripLabel2.Text = "Impresora :"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
+        'pnlPie
+        '
+        Me.pnlPie.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.pnlPie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPie.Controls.Add(Me.grpDetPago)
+        Me.pnlPie.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlPie.Location = New System.Drawing.Point(0, 460)
+        Me.pnlPie.Name = "pnlPie"
+        Me.pnlPie.Size = New System.Drawing.Size(1141, 67)
+        Me.pnlPie.TabIndex = 0
+        '
+        'grpDetPago
+        '
+        Me.grpDetPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.grpDetPago.Controls.Add(Me.lblImporte)
+        Me.grpDetPago.Controls.Add(Me.lbligv)
+        Me.grpDetPago.Controls.Add(Me.actxnImporte)
+        Me.grpDetPago.Controls.Add(Me.actxnIGV)
+        Me.grpDetPago.Controls.Add(Me.actxnTotalPagar)
+        Me.grpDetPago.Controls.Add(Me.lblTotalPagar)
+        Me.grpDetPago.Dock = System.Windows.Forms.DockStyle.Right
+        Me.grpDetPago.Location = New System.Drawing.Point(560, 0)
+        Me.grpDetPago.Name = "grpDetPago"
+        Me.grpDetPago.Size = New System.Drawing.Size(579, 65)
+        Me.grpDetPago.TabIndex = 2
+        Me.grpDetPago.TabStop = False
+        '
+        'lblImporte
+        '
+        Me.lblImporte.AutoSize = True
+        Me.lblImporte.ForeColor = System.Drawing.Color.White
+        Me.lblImporte.Location = New System.Drawing.Point(5, 28)
+        Me.lblImporte.Name = "lblImporte"
+        Me.lblImporte.Size = New System.Drawing.Size(72, 15)
+        Me.lblImporte.TabIndex = 0
+        Me.lblImporte.Text = "Importe : {0}"
+        '
+        'lbligv
+        '
+        Me.lbligv.AutoSize = True
+        Me.lbligv.ForeColor = System.Drawing.Color.White
+        Me.lbligv.Location = New System.Drawing.Point(193, 28)
+        Me.lbligv.Name = "lbligv"
+        Me.lbligv.Size = New System.Drawing.Size(57, 15)
+        Me.lbligv.TabIndex = 2
+        Me.lbligv.Text = "I.G.V. : {0}"
+        '
+        'actxnImporte
+        '
+        Me.actxnImporte.ACEnteros = 9
+        Me.actxnImporte.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnImporte.ACNegativo = True
+        Me.actxnImporte.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnImporte.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnImporte.Location = New System.Drawing.Point(88, 22)
+        Me.actxnImporte.MaxLength = 12
+        Me.actxnImporte.Name = "actxnImporte"
+        Me.actxnImporte.ReadOnly = True
+        Me.actxnImporte.Size = New System.Drawing.Size(100, 26)
+        Me.actxnImporte.TabIndex = 1
+        Me.actxnImporte.Tag = "EVO"
+        Me.actxnImporte.Text = "0.00"
+        Me.actxnImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'actxnIGV
+        '
+        Me.actxnIGV.ACEnteros = 9
+        Me.actxnIGV.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnIGV.ACNegativo = True
+        Me.actxnIGV.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnIGV.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnIGV.Location = New System.Drawing.Point(262, 22)
+        Me.actxnIGV.MaxLength = 12
+        Me.actxnIGV.Name = "actxnIGV"
+        Me.actxnIGV.ReadOnly = True
+        Me.actxnIGV.Size = New System.Drawing.Size(100, 26)
+        Me.actxnIGV.TabIndex = 3
+        Me.actxnIGV.Tag = "EVO"
+        Me.actxnIGV.Text = "0.00"
+        Me.actxnIGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'actxnTotalPagar
+        '
+        Me.actxnTotalPagar.ACEnteros = 9
+        Me.actxnTotalPagar.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnTotalPagar.ACNegativo = True
+        Me.actxnTotalPagar.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnTotalPagar.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnTotalPagar.Location = New System.Drawing.Point(467, 22)
+        Me.actxnTotalPagar.MaxLength = 12
+        Me.actxnTotalPagar.Name = "actxnTotalPagar"
+        Me.actxnTotalPagar.ReadOnly = True
+        Me.actxnTotalPagar.Size = New System.Drawing.Size(100, 26)
+        Me.actxnTotalPagar.TabIndex = 5
+        Me.actxnTotalPagar.Tag = "EVO"
+        Me.actxnTotalPagar.Text = "0.00"
+        Me.actxnTotalPagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblTotalPagar
+        '
+        Me.lblTotalPagar.AutoSize = True
+        Me.lblTotalPagar.ForeColor = System.Drawing.Color.White
+        Me.lblTotalPagar.Location = New System.Drawing.Point(367, 28)
+        Me.lblTotalPagar.Name = "lblTotalPagar"
+        Me.lblTotalPagar.Size = New System.Drawing.Size(88, 15)
+        Me.lblTotalPagar.TabIndex = 4
+        Me.lblTotalPagar.Text = "Total Pagar : {0}"
+        '
+        'pnlCabecera
+        '
+        Me.pnlCabecera.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.pnlCabecera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlCabecera.Controls.Add(Me.pnlCabHeader)
+        Me.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlCabecera.Location = New System.Drawing.Point(0, 0)
+        Me.pnlCabecera.Name = "pnlCabecera"
+        Me.pnlCabecera.Size = New System.Drawing.Size(1141, 43)
+        Me.pnlCabecera.TabIndex = 2
+        '
+        'pnlCabHeader
+        '
+        Me.pnlCabHeader.BackColor = System.Drawing.Color.MidnightBlue
+        Me.pnlCabHeader.Controls.Add(Me.grpDocumento)
+        Me.pnlCabHeader.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlCabHeader.Location = New System.Drawing.Point(0, 0)
+        Me.pnlCabHeader.Name = "pnlCabHeader"
+        Me.pnlCabHeader.Size = New System.Drawing.Size(1139, 40)
+        Me.pnlCabHeader.TabIndex = 0
+        '
+        'grpDocumento
+        '
+        Me.grpDocumento.BackColor = System.Drawing.Color.MidnightBlue
+        Me.grpDocumento.Controls.Add(Me.Label3)
+        Me.grpDocumento.Controls.Add(Me.cmbDocumentoFacturar)
+        Me.grpDocumento.Controls.Add(Me.actxnNumero)
+        Me.grpDocumento.Controls.Add(Me.cmbSerie)
+        Me.grpDocumento.Controls.Add(Me.Label4)
+        Me.grpDocumento.Controls.Add(Me.Label5)
+        Me.grpDocumento.Dock = System.Windows.Forms.DockStyle.Right
+        Me.grpDocumento.Location = New System.Drawing.Point(529, 0)
+        Me.grpDocumento.Name = "grpDocumento"
+        Me.grpDocumento.Size = New System.Drawing.Size(610, 40)
+        Me.grpDocumento.TabIndex = 2
+        Me.grpDocumento.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(3, 17)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(102, 15)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Tipo Documento :"
+        '
+        'cmbDocumentoFacturar
+        '
+        Me.cmbDocumentoFacturar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbDocumentoFacturar.Enabled = False
+        Me.cmbDocumentoFacturar.FormattingEnabled = True
+        Me.cmbDocumentoFacturar.Items.AddRange(New Object() {"Boleta", "Factura"})
+        Me.cmbDocumentoFacturar.Location = New System.Drawing.Point(108, 13)
+        Me.cmbDocumentoFacturar.Name = "cmbDocumentoFacturar"
+        Me.cmbDocumentoFacturar.Size = New System.Drawing.Size(204, 23)
+        Me.cmbDocumentoFacturar.TabIndex = 1
+        Me.cmbDocumentoFacturar.Tag = "ECO"
+        '
+        'actxnNumero
+        '
+        Me.actxnNumero.ACEnteros = 8
+        Me.actxnNumero.ACFormato = "#######0"
+        Me.actxnNumero.ACNegativo = True
+        Me.actxnNumero.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnNumero.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.actxnNumero.Location = New System.Drawing.Point(492, 12)
+        Me.actxnNumero.MaxLength = 7
+        Me.actxnNumero.Name = "actxnNumero"
+        Me.actxnNumero.Size = New System.Drawing.Size(100, 24)
+        Me.actxnNumero.TabIndex = 5
+        Me.actxnNumero.Tag = "ENO"
+        Me.actxnNumero.Text = "0"
+        Me.actxnNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cmbSerie
+        '
+        Me.cmbSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSerie.FormattingEnabled = True
+        Me.cmbSerie.Location = New System.Drawing.Point(358, 13)
+        Me.cmbSerie.Name = "cmbSerie"
+        Me.cmbSerie.Size = New System.Drawing.Size(69, 23)
+        Me.cmbSerie.TabIndex = 3
+        Me.cmbSerie.Tag = "ECO"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(431, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 15)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Numero :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(316, 17)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(38, 15)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "Serie :"
+        '
+        'tabBusqueda
+        '
+        Me.tabBusqueda.Controls.Add(Me.c1grdBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.grpBusqueda)
+        Me.tabBusqueda.Controls.Add(Me.bnavBusqueda)
+        Me.tabBusqueda.InactiveBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.InactiveTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Location = New System.Drawing.Point(1, 1)
+        Me.tabBusqueda.Name = "tabBusqueda"
+        Me.tabBusqueda.SelectBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.SelectTextBackColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.SelectTextColor = System.Drawing.Color.Empty
+        Me.tabBusqueda.Size = New System.Drawing.Size(1141, 527)
+        Me.tabBusqueda.TabIndex = 5
+        Me.tabBusqueda.Title = "Busqueda"
+        Me.tabBusqueda.ToolTip = "Busqueda"
+        '
+        'c1grdBusqueda
+        '
+        Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.c1grdBusqueda.Location = New System.Drawing.Point(0, 95)
+        Me.c1grdBusqueda.Name = "c1grdBusqueda"
+        Me.c1grdBusqueda.Rows.Count = 2
+        Me.c1grdBusqueda.Rows.DefaultSize = 20
+        Me.c1grdBusqueda.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+        Me.c1grdBusqueda.Size = New System.Drawing.Size(1141, 432)
+        Me.c1grdBusqueda.StyleInfo = resources.GetString("c1grdBusqueda.StyleInfo")
+        Me.c1grdBusqueda.TabIndex = 2
+        '
+        'grpBusqueda
+        '
+        Me.grpBusqueda.Controls.Add(Me.btnConsultar)
+        Me.grpBusqueda.Controls.Add(Me.rbtnNroCotizacion)
+        Me.grpBusqueda.Controls.Add(Me.rbtnCliente)
+        Me.grpBusqueda.Controls.Add(Me.grpCliente)
+        Me.grpBusqueda.Controls.Add(Me.grpDocumentos)
+        Me.grpBusqueda.Controls.Add(Me.chkTodos)
+        Me.grpBusqueda.Controls.Add(Me.AcFecha)
+        Me.grpBusqueda.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpBusqueda.Location = New System.Drawing.Point(0, 0)
+        Me.grpBusqueda.Name = "grpBusqueda"
+        Me.grpBusqueda.Size = New System.Drawing.Size(1141, 95)
+        Me.grpBusqueda.TabIndex = 6
+        Me.grpBusqueda.TabStop = False
+        Me.grpBusqueda.Text = "Opciones de Busqueda"
+        '
+        'btnConsultar
+        '
+        Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConsultar.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.btnConsultar.Image = Global.ACPTransportes.My.Resources.Resources.Search_files_32x32
+        Me.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnConsultar.Location = New System.Drawing.Point(1036, 47)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(99, 42)
+        Me.btnConsultar.TabIndex = 33
+        Me.btnConsultar.Text = "Consultar"
+        Me.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnConsultar.UseVisualStyleBackColor = True
+        '
+        'rbtnNroCotizacion
+        '
+        Me.rbtnNroCotizacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtnNroCotizacion.AutoSize = True
+        Me.rbtnNroCotizacion.Location = New System.Drawing.Point(599, 43)
+        Me.rbtnNroCotizacion.Name = "rbtnNroCotizacion"
+        Me.rbtnNroCotizacion.Size = New System.Drawing.Size(88, 19)
+        Me.rbtnNroCotizacion.TabIndex = 2
+        Me.rbtnNroCotizacion.Text = "Documento"
+        Me.rbtnNroCotizacion.UseVisualStyleBackColor = True
+        '
+        'rbtnCliente
+        '
+        Me.rbtnCliente.AutoSize = True
+        Me.rbtnCliente.Checked = True
+        Me.rbtnCliente.Location = New System.Drawing.Point(19, 43)
+        Me.rbtnCliente.Name = "rbtnCliente"
+        Me.rbtnCliente.Size = New System.Drawing.Size(62, 19)
+        Me.rbtnCliente.TabIndex = 1
+        Me.rbtnCliente.TabStop = True
+        Me.rbtnCliente.Text = "Cliente"
+        Me.rbtnCliente.UseVisualStyleBackColor = True
+        '
+        'grpCliente
+        '
+        Me.grpCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpCliente.Controls.Add(Me.txtBusqueda)
+        Me.grpCliente.Location = New System.Drawing.Point(6, 46)
+        Me.grpCliente.Name = "grpCliente"
+        Me.grpCliente.Size = New System.Drawing.Size(583, 42)
+        Me.grpCliente.TabIndex = 7
+        Me.grpCliente.TabStop = False
+        '
+        'txtBusqueda
+        '
+        Me.txtBusqueda.ACActivarAyudaAuto = False
+        Me.txtBusqueda.ACLongitudAceptada = 0
+        Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.Location = New System.Drawing.Point(9, 16)
+        Me.txtBusqueda.MaxLength = 32767
+        Me.txtBusqueda.Name = "txtBusqueda"
+        Me.txtBusqueda.Size = New System.Drawing.Size(564, 23)
+        Me.txtBusqueda.TabIndex = 0
+        '
+        'grpDocumentos
+        '
+        Me.grpDocumentos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDocumentos.Controls.Add(Me.cmbTipoDocumento)
+        Me.grpDocumentos.Controls.Add(Me.ComboBox2)
+        Me.grpDocumentos.Controls.Add(Me.txtBusNumero)
+        Me.grpDocumentos.Location = New System.Drawing.Point(595, 47)
+        Me.grpDocumentos.Name = "grpDocumentos"
+        Me.grpDocumentos.Size = New System.Drawing.Size(334, 42)
+        Me.grpDocumentos.TabIndex = 5
+        Me.grpDocumentos.TabStop = False
+        '
+        'cmbTipoDocumento
+        '
+        Me.cmbTipoDocumento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTipoDocumento.FormattingEnabled = True
+        Me.cmbTipoDocumento.Location = New System.Drawing.Point(10, 15)
+        Me.cmbTipoDocumento.Name = "cmbTipoDocumento"
+        Me.cmbTipoDocumento.Size = New System.Drawing.Size(151, 23)
+        Me.cmbTipoDocumento.TabIndex = 8
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(167, 15)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(51, 23)
+        Me.ComboBox2.TabIndex = 6
+        '
+        'txtBusNumero
+        '
+        Me.txtBusNumero.ACActivarAyudaAuto = False
+        Me.txtBusNumero.ACLongitudAceptada = 0
+        Me.txtBusNumero.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.Numerico
+        Me.txtBusNumero.Location = New System.Drawing.Point(224, 15)
+        Me.txtBusNumero.MaxLength = 32767
+        Me.txtBusNumero.Name = "txtBusNumero"
+        Me.txtBusNumero.Size = New System.Drawing.Size(100, 23)
+        Me.txtBusNumero.TabIndex = 7
+        '
+        'chkTodos
+        '
+        Me.chkTodos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkTodos.AutoSize = True
+        Me.chkTodos.Location = New System.Drawing.Point(934, 52)
+        Me.chkTodos.Name = "chkTodos"
+        Me.chkTodos.Size = New System.Drawing.Size(101, 19)
+        Me.chkTodos.TabIndex = 4
+        Me.chkTodos.Text = "Mostrar Todos"
+        Me.chkTodos.UseVisualStyleBackColor = True
+        '
+        'AcFecha
+        '
+        Me.AcFecha.ACFecha_A = New Date(2024, 9, 27, 8, 33, 37, 509)
+        Me.AcFecha.ACFecha_De = New Date(2024, 9, 27, 8, 33, 37, 507)
+        Me.AcFecha.ACFechaObligatoria = True
+        Me.AcFecha.ACFormatoControl = ACControles.ACFecha.ACTipoFormatoControl.Horizontal
+        Me.AcFecha.ACHoyChecked = False
+        Me.AcFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AcFecha.Location = New System.Drawing.Point(804, 0)
+        Me.AcFecha.MaximumSize = New System.Drawing.Size(337, 43)
+        Me.AcFecha.MinimumSize = New System.Drawing.Size(337, 43)
+        Me.AcFecha.Name = "AcFecha"
+        Me.AcFecha.Size = New System.Drawing.Size(337, 43)
+        Me.AcFecha.TabIndex = 3
+        Me.AcFecha.TabStop = False
+        '
+        'bnavBusqueda
+        '
+        Me.bnavBusqueda.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.bnavBusqueda.CountItem = Me.BindingNavigatorCountItem
+        Me.bnavBusqueda.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.bnavBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.bnavBusqueda.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.tsbtnExcel})
+        Me.bnavBusqueda.Location = New System.Drawing.Point(0, 494)
+        Me.bnavBusqueda.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.bnavBusqueda.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.bnavBusqueda.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.bnavBusqueda.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.bnavBusqueda.Name = "bnavBusqueda"
+        Me.bnavBusqueda.PositionItem = Me.BindingNavigatorPositionItem
+        Me.bnavBusqueda.Size = New System.Drawing.Size(982, 25)
+        Me.bnavBusqueda.TabIndex = 3
+        Me.bnavBusqueda.Text = "BindingNavigator1"
+        Me.bnavBusqueda.Visible = False
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        Me.BindingNavigatorAddNewItem.Visible = False
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorDeleteItem.Visible = False
+        '
+        'BindingNavigatorMoveFirstItem
+        '
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Text = "Move first"
+        '
+        'BindingNavigatorMovePreviousItem
+        '
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
+        '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem
+        '
+        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 21)
+        Me.BindingNavigatorPositionItem.Text = "0"
+        Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
+        '
+        'BindingNavigatorSeparator1
+        '
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem
+        '
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Text = "Move next"
+        '
+        'BindingNavigatorMoveLastItem
+        '
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Text = "Move last"
+        '
+        'BindingNavigatorSeparator2
+        '
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
+        'tsbtnExcel
+        '
+        Me.tsbtnExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.tsbtnExcel.Image = Global.ACPTransportes.My.Resources.Resources.Excel2_32x32
+        Me.tsbtnExcel.Name = "tsbtnExcel"
+        Me.tsbtnExcel.RightToLeftAutoMirrorImage = True
+        Me.tsbtnExcel.Size = New System.Drawing.Size(98, 22)
+        Me.tsbtnExcel.Text = "Enviar a Excel"
+        '
+        'acpnlTitulo
+        '
+        Me.acpnlTitulo.ACCaption = "Facturación de Notas {0} - División de Transportes"
+        Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 10!, System.Drawing.FontStyle.Bold)
+        Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
+        Me.acpnlTitulo.Name = "acpnlTitulo"
+        Me.acpnlTitulo.Size = New System.Drawing.Size(1143, 30)
+        Me.acpnlTitulo.TabIndex = 12
+        '
+        'acTool
+        '
+        Me.acTool.ACBtnBuscarEnabled = false
+        Me.acTool.ACBtnBuscarText = "Cot&izaciones"
+        Me.acTool.ACBtnBuscarVisible = false
+        Me.acTool.ACBtnCancelarEnabled = false
+        Me.acTool.ACBtnCancelarVisible = false
+        Me.acTool.ACBtnEliminarEnabled = false
+        Me.acTool.ACBtnEliminarVisible = false
+        Me.acTool.ACBtnGrabarEnabled = false
+        Me.acTool.ACBtnGrabarVisible = false
+        Me.acTool.ACBtnRehusarEnabled = false
+        Me.acTool.ACBtnRehusarVisible = false
+        Me.acTool.ACBtnReporteEnabled = false
+        Me.acTool.ACBtnReporteVisible = false
+        Me.acTool.ACBtnSalirText = "&Salir"
+        Me.acTool.ACBtnVolverEnabled = false
+        Me.acTool.ACBtnVolverVisible = false
+        Me.acTool.ACTipoToolBar = ACControles.ACToolBarMantHorizontalNew.tipoToolBar.ToolNuevoGrabarAnularImprimir
+        Me.acTool.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.acTool.Font = New System.Drawing.Font("Tahoma", 9.5!)
+        Me.acTool.ImageScalingSize = New System.Drawing.Size(32, 32)
+        Me.acTool.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.actsbtnModFecha, Me.actsbtnPrevisualizar})
+        Me.acTool.Location = New System.Drawing.Point(0, 582)
+        Me.acTool.Name = "acTool"
+        Me.acTool.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.acTool.Size = New System.Drawing.Size(1143, 56)
+        Me.acTool.TabIndex = 14
+        Me.acTool.Text = "AcToolBarMantHorizontalNew1"
+        '
+        'actsbtnModFecha
+        '
+        Me.actsbtnModFecha.AutoSize = false
+        Me.actsbtnModFecha.Image = Global.ACPTransportes.My.Resources.Resources.EditPaper_32x32
+        Me.actsbtnModFecha.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.actsbtnModFecha.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.actsbtnModFecha.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.actsbtnModFecha.Name = "tsbBoton"
+        Me.actsbtnModFecha.Size = New System.Drawing.Size(102, 53)
+        Me.actsbtnModFecha.Text = "Modificar Fecha"
+        Me.actsbtnModFecha.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.actsbtnModFecha.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
+        Me.actsbtnModFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.actsbtnModFecha.Visible = false
+        '
+        'actsbtnPrevisualizar
+        '
+        Me.actsbtnPrevisualizar.AutoSize = false
+        Me.actsbtnPrevisualizar.Image = Global.ACPTransportes.My.Resources.Resources.Buscar2_32x32
+        Me.actsbtnPrevisualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.actsbtnPrevisualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.actsbtnPrevisualizar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.actsbtnPrevisualizar.Name = "tsbBoton"
+        Me.actsbtnPrevisualizar.Size = New System.Drawing.Size(84, 53)
+        Me.actsbtnPrevisualizar.Text = "Previsualizar"
+        Me.actsbtnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.actsbtnPrevisualizar.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
+        Me.actsbtnPrevisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.actsbtnPrevisualizar.Visible = false
+        '
+        'eprError
+        '
+        Me.eprError.ContainerControl = Me
+        '
+        'PFacturacionNotas
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ClientSize = New System.Drawing.Size(1143, 638)
+        Me.Controls.Add(Me.tabMantenimiento)
+        Me.Controls.Add(Me.acpnlTitulo)
+        Me.Controls.Add(Me.acTool)
+        Me.Name = "PFacturacionNotas"
+        Me.Text = "Facturación de Notas {0} - División de Transportes"
+        Me.tabMantenimiento.ResumeLayout(false)
+        Me.tabDatos.ResumeLayout(false)
+        Me.pnlDatos.ResumeLayout(false)
+        Me.pnlDetalle.ResumeLayout(false)
+        Me.pnlDetalle.PerformLayout
+        Me.SplitContainer2.Panel1.ResumeLayout(false)
+        Me.SplitContainer2.Panel2.ResumeLayout(false)
+        CType(Me.SplitContainer2,System.ComponentModel.ISupportInitialize).EndInit
+        Me.SplitContainer2.ResumeLayout(false)
+        Me.spcCabecera.Panel1.ResumeLayout(false)
+        Me.spcCabecera.Panel2.ResumeLayout(false)
+        CType(Me.spcCabecera,System.ComponentModel.ISupportInitialize).EndInit
+        Me.spcCabecera.ResumeLayout(false)
+        Me.pnlItem.ResumeLayout(false)
+        Me.pnlItem.PerformLayout
+        Me.grpCabCuerpo.ResumeLayout(false)
+        Me.grpCabCuerpo.PerformLayout
+        Me.pnlFlete.ResumeLayout(false)
+        Me.pnlFlete.PerformLayout
+        CType(Me.c1grdFacturas,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.bnavFacturas,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavFacturas.ResumeLayout(false)
+        Me.bnavFacturas.PerformLayout
+        Me.tstFletes.ResumeLayout(false)
+        Me.tstFletes.PerformLayout
+        CType(Me.c1grdDetalle,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.bnavProductos,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavProductos.ResumeLayout(false)
+        Me.bnavProductos.PerformLayout
+        Me.pnlPie.ResumeLayout(false)
+        Me.grpDetPago.ResumeLayout(false)
+        Me.grpDetPago.PerformLayout
+        Me.pnlCabecera.ResumeLayout(false)
+        Me.pnlCabHeader.ResumeLayout(false)
+        Me.grpDocumento.ResumeLayout(false)
+        Me.grpDocumento.PerformLayout
+        Me.tabBusqueda.ResumeLayout(false)
+        Me.tabBusqueda.PerformLayout
+        CType(Me.c1grdBusqueda,System.ComponentModel.ISupportInitialize).EndInit
+        Me.grpBusqueda.ResumeLayout(false)
+        Me.grpBusqueda.PerformLayout
+        Me.grpCliente.ResumeLayout(false)
+        Me.grpCliente.PerformLayout
+        Me.grpDocumentos.ResumeLayout(false)
+        Me.grpDocumentos.PerformLayout
+        CType(Me.bnavBusqueda,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavBusqueda.ResumeLayout(false)
+        Me.bnavBusqueda.PerformLayout
+        Me.acTool.ResumeLayout(false)
+        Me.acTool.PerformLayout
+        CType(Me.eprError,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
+
+End Sub
+   Private WithEvents tabMantenimiento As Crownwood.DotNetMagic.Controls.TabControl
+   Private WithEvents tabDatos As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents pnlDatos As System.Windows.Forms.Panel
+   Private WithEvents tabBusqueda As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents c1grdBusqueda As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents bnavBusqueda As System.Windows.Forms.BindingNavigator
+   Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMovePreviousItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorPositionItem As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents BindingNavigatorSeparator1 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorMoveNextItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents acpnlTitulo As ACControles.ACPanelCaption
+   Friend WithEvents acTool As ACControles.ACToolBarMantHorizontalNew
+   Friend WithEvents pnlDetalle As System.Windows.Forms.Panel
+   Friend WithEvents c1grdDetalle As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents pnlItem As System.Windows.Forms.Panel
+   Friend WithEvents txtOpcion As System.Windows.Forms.TextBox
+   Friend WithEvents actxnSubImporte As ACControles.ACTextBoxNumerico
+   Friend WithEvents actxnProdCantidad As ACControles.ACTextBoxNumerico
+   Friend WithEvents Label10 As System.Windows.Forms.Label
+   Friend WithEvents Label9 As System.Windows.Forms.Label
+   Friend WithEvents lblCantidad As System.Windows.Forms.Label
+   Friend WithEvents txtProdDescripcion As System.Windows.Forms.TextBox
+   Friend WithEvents Label17 As System.Windows.Forms.Label
+   Friend WithEvents bnavProductos As System.Windows.Forms.BindingNavigator
+   Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton6 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents pnlPie As System.Windows.Forms.Panel
+   Friend WithEvents grpDetPago As System.Windows.Forms.GroupBox
+   Friend WithEvents lblImporte As System.Windows.Forms.Label
+   Friend WithEvents lbligv As System.Windows.Forms.Label
+   Friend WithEvents actxnImporte As ACControles.ACTextBoxNumerico
+   Friend WithEvents actxnIGV As ACControles.ACTextBoxNumerico
+   Friend WithEvents actxnTotalPagar As ACControles.ACTextBoxNumerico
+   Friend WithEvents lblTotalPagar As System.Windows.Forms.Label
+   Friend WithEvents pnlCabecera As System.Windows.Forms.Panel
+   Friend WithEvents grpCabCuerpo As System.Windows.Forms.GroupBox
+   Friend WithEvents lblMoneda As System.Windows.Forms.Label
+   Friend WithEvents cmbMoneda As System.Windows.Forms.ComboBox
+   Friend WithEvents pnlCabHeader As System.Windows.Forms.Panel
+   Friend WithEvents lblVenDolarSunat As System.Windows.Forms.Label
+   Friend WithEvents Label31 As System.Windows.Forms.Label
+   Friend WithEvents dtpFecFacturacion As System.Windows.Forms.DateTimePicker
+   Friend WithEvents Label1 As System.Windows.Forms.Label
+   Friend WithEvents actxaCliRazonSocial As ACControles.ACTextBoxAyuda
+   Friend WithEvents lblNroDocumento As System.Windows.Forms.Label
+   Friend WithEvents actxaCliRuc As ACControles.ACTextBoxAyuda
+   Friend WithEvents grpDocumento As System.Windows.Forms.GroupBox
+   Friend WithEvents Label3 As System.Windows.Forms.Label
+   Friend WithEvents cmbDocumentoFacturar As System.Windows.Forms.ComboBox
+   Friend WithEvents actxnNumero As ACControles.ACTextBoxNumerico
+   Friend WithEvents cmbSerie As System.Windows.Forms.ComboBox
+   Friend WithEvents Label4 As System.Windows.Forms.Label
+   Friend WithEvents Label5 As System.Windows.Forms.Label
+   Friend WithEvents actxnPrecio As ACControles.ACTextBoxNumerico
+   Friend WithEvents txtProdUnidad As System.Windows.Forms.TextBox
+   Friend WithEvents Label2 As System.Windows.Forms.Label
+   Friend WithEvents actsbtnPrevisualizar As ACControles.ACToolStripButton
+   Friend WithEvents Label7 As System.Windows.Forms.Label
+   Friend WithEvents eprError As System.Windows.Forms.ErrorProvider
+   Private WithEvents grpBusqueda As System.Windows.Forms.GroupBox
+   Friend WithEvents btnConsultar As System.Windows.Forms.Button
+   Friend WithEvents rbtnNroCotizacion As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtnCliente As System.Windows.Forms.RadioButton
+   Friend WithEvents grpCliente As System.Windows.Forms.GroupBox
+   Friend WithEvents txtBusqueda As ACControles.ACTextBoxAyuda
+   Friend WithEvents grpDocumentos As System.Windows.Forms.GroupBox
+   Friend WithEvents cmbTipoDocumento As System.Windows.Forms.ComboBox
+   Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+   Friend WithEvents txtBusNumero As ACControles.ACTextBoxAyuda
+   Friend WithEvents chkTodos As System.Windows.Forms.CheckBox
+   Friend WithEvents AcFecha As ACControles.ACFecha
+   Friend WithEvents tslblSon As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents tscmbImpresora As System.Windows.Forms.ToolStripComboBox
+   Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+   Private WithEvents actxnTCVentaSunat As ACControles.ACTextBoxNumerico
+   Private WithEvents actxnTipoCambio As ACControles.ACTextBoxNumerico
+   Friend WithEvents cmbDirecciones As System.Windows.Forms.ComboBox
+   Friend WithEvents txtDireccion As System.Windows.Forms.TextBox
+   Friend WithEvents actsbtnModFecha As ACControles.ACToolStripButton
+   Friend WithEvents spcCabecera As System.Windows.Forms.SplitContainer
+   Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
+   Friend WithEvents btnMenos As System.Windows.Forms.Button
+   Friend WithEvents btnMas As System.Windows.Forms.Button
+   Friend WithEvents pnlFlete As System.Windows.Forms.Panel
+   Friend WithEvents c1grdFacturas As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents tstFletes As System.Windows.Forms.ToolStrip
+   Friend WithEvents tsbtnAddFacturas As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents tsbtnQuitarFacturas As System.Windows.Forms.ToolStripButton
+   Friend WithEvents bnavFacturas As System.Windows.Forms.BindingNavigator
+   Friend WithEvents ToolStripLabel10 As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents ToolStripButton7 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton8 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator44 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripTextBox10 As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents ToolStripSeparator45 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton27 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton28 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator46 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents AcPanelCaption1 As ACControles.ACPanelCaption
+   Friend WithEvents tsbtnExcel As System.Windows.Forms.ToolStripButton
+   Friend WithEvents tsbtnImprimir As System.Windows.Forms.ToolStripButton
+   Friend WithEvents chkPermiteFecha As System.Windows.Forms.CheckBox
+   Friend WithEvents chkIlncluidoIGV As System.Windows.Forms.CheckBox
+   Friend WithEvents btnNuevoCliente As System.Windows.Forms.Button
+    Friend WithEvents btnClean As System.Windows.Forms.Button
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cmbMotivo As System.Windows.Forms.ComboBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents txtMotivo As System.Windows.Forms.TextBox
+End Class

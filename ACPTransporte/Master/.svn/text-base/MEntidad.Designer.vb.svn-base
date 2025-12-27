@@ -1,0 +1,1803 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class MEntidad
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+      Me.components = New System.ComponentModel.Container()
+      Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MEntidad))
+      Me.acTool = New ACControles.ACToolBarMantVertical()
+      Me.tabMantenimiento = New Crownwood.DotNetMagic.Controls.TabControl()
+      Me.tabDatos = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.pnlDatos = New System.Windows.Forms.Panel()
+      Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+      Me.pnlDirecciones = New System.Windows.Forms.Panel()
+      Me.c1grdDirecciones = New C1.Win.C1FlexGrid.C1FlexGrid()
+      Me.bnavDirecciones = New System.Windows.Forms.BindingNavigator(Me.components)
+      Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+      Me.tsbtnNueDireccion = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+      Me.tsbtnEliDireccion = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+      Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+      Me.AcPanelCaption3 = New ACControles.ACPanelCaption()
+      Me.pnlDatosGen = New System.Windows.Forms.Panel()
+      Me.actxaNomComercial = New ACControles.ACTextBoxAyuda()
+      Me.Label1 = New System.Windows.Forms.Label()
+      Me.actxaNumDoc = New ACControles.ACTextBoxAyuda()
+      Me.actxaCodigo = New ACControles.ACTextBoxAyuda()
+      Me.grpTipoEntidad = New System.Windows.Forms.GroupBox()
+      Me.rbtNatural = New System.Windows.Forms.RadioButton()
+      Me.rbtJuridica = New System.Windows.Forms.RadioButton()
+      Me.txtEmail = New System.Windows.Forms.TextBox()
+      Me.actxaRazonSocial = New ACControles.ACTextBoxAyuda()
+      Me.txtApePaterno = New System.Windows.Forms.TextBox()
+      Me.txtNombres = New System.Windows.Forms.TextBox()
+      Me.cmbTipoDoc = New System.Windows.Forms.ComboBox()
+      Me.lblEmail = New System.Windows.Forms.Label()
+      Me.lblRazonSoc = New System.Windows.Forms.Label()
+      Me.lblNombres = New System.Windows.Forms.Label()
+      Me.tsBarra = New System.Windows.Forms.ToolStrip()
+      Me.tsbtnRelacionados = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+      Me.lblApePaterno = New System.Windows.Forms.Label()
+      Me.lblApeMaterno = New System.Windows.Forms.Label()
+      Me.txtApeMaterno = New System.Windows.Forms.TextBox()
+      Me.lblTipoDocIden = New System.Windows.Forms.Label()
+      Me.lblNroDocIden = New System.Windows.Forms.Label()
+      Me.AcPanelCaption1 = New ACControles.ACPanelCaption()
+      Me.lblTipoPersona = New System.Windows.Forms.Label()
+      Me.lblCodigo = New System.Windows.Forms.Label()
+      Me.pnlDatosAuxiliares = New System.Windows.Forms.Panel()
+      Me.Label10 = New System.Windows.Forms.Label()
+      Me.txtFax = New System.Windows.Forms.TextBox()
+      Me.Label9 = New System.Windows.Forms.Label()
+      Me.txtTelefono2 = New System.Windows.Forms.TextBox()
+      Me.Label8 = New System.Windows.Forms.Label()
+      Me.txtTelefono1 = New System.Windows.Forms.TextBox()
+      Me.Label7 = New System.Windows.Forms.Label()
+      Me.actxaDescUbigeo = New ACControles.ACTextBoxAyuda()
+      Me.AcPanelCaption10 = New ACControles.ACPanelCaption()
+      Me.actxaCodUbigeo = New ACControles.ACTextBoxAyuda()
+      Me.Label6 = New System.Windows.Forms.Label()
+      Me.txtDireccion = New System.Windows.Forms.TextBox()
+      Me.Label5 = New System.Windows.Forms.Label()
+      Me.pnlTelefonos = New System.Windows.Forms.Panel()
+      Me.c1grdTelefonos = New C1.Win.C1FlexGrid.C1FlexGrid()
+      Me.bnavTelefonos = New System.Windows.Forms.BindingNavigator(Me.components)
+      Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+      Me.tsbtnNueTelefono = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+      Me.tsbtnEliTelefono = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton10 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
+      Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+      Me.ToolStripButton11 = New System.Windows.Forms.ToolStripButton()
+      Me.ToolStripButton12 = New System.Windows.Forms.ToolStripButton()
+      Me.AcPanelCaption4 = New ACControles.ACPanelCaption()
+      Me.tabAdicionales = New Crownwood.DotNetMagic.Controls.TabControl()
+      Me.TabClientes = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.cmbCliVendedor = New System.Windows.Forms.ComboBox()
+      Me.Label13 = New System.Windows.Forms.Label()
+      Me.cmbCliTipoPercepcion = New System.Windows.Forms.ComboBox()
+      Me.Label12 = New System.Windows.Forms.Label()
+      Me.cmbCliListaPrecios = New System.Windows.Forms.ComboBox()
+      Me.Label11 = New System.Windows.Forms.Label()
+      Me.AcPanelCaption8 = New ACControles.ACPanelCaption()
+      Me.TabProveedores = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.Label14 = New System.Windows.Forms.Label()
+      Me.txtProvAtencion = New System.Windows.Forms.TextBox()
+      Me.AcPanelCaption7 = New ACControles.ACPanelCaption()
+      Me.TabConductores = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.txtSigla = New System.Windows.Forms.TextBox()
+      Me.Label16 = New System.Windows.Forms.Label()
+      Me.txtLicencia = New System.Windows.Forms.TextBox()
+      Me.Label15 = New System.Windows.Forms.Label()
+      Me.AcPanelCaption5 = New ACControles.ACPanelCaption()
+      Me.TabContactos = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.AcPanelCaption9 = New ACControles.ACPanelCaption()
+      Me.TabTrabajadores = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.cmbEstCivil = New System.Windows.Forms.ComboBox()
+      Me.Label2 = New System.Windows.Forms.Label()
+      Me.cmbSexo = New System.Windows.Forms.ComboBox()
+      Me.Label4 = New System.Windows.Forms.Label()
+      Me.Label3 = New System.Windows.Forms.Label()
+      Me.dtpFecNacimiento = New System.Windows.Forms.DateTimePicker()
+      Me.tabVendedores = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.AcPanelCaption6 = New ACControles.ACPanelCaption()
+      Me.pnlFuncionEntidad = New System.Windows.Forms.Panel()
+      Me.chkListTipos = New System.Windows.Forms.ListView()
+      Me.AcPanelCaption2 = New ACControles.ACPanelCaption()
+      Me.tabBusqueda = New Crownwood.DotNetMagic.Controls.TabPage()
+      Me.c1grdBusqueda = New C1.Win.C1FlexGrid.C1FlexGrid()
+      Me.bnavBusqueda = New System.Windows.Forms.BindingNavigator(Me.components)
+      Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+      Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+      Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
+      Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+      Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+      Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+      Me.grpBusqueda = New System.Windows.Forms.GroupBox()
+      Me.txtBusqueda = New ACControles.ACTextBoxAyuda()
+      Me.rbtnRazonSocial = New System.Windows.Forms.RadioButton()
+      Me.rbtnDocumento = New System.Windows.Forms.RadioButton()
+      Me.rbtnNombres = New System.Windows.Forms.RadioButton()
+      Me.rbtnCodigo = New System.Windows.Forms.RadioButton()
+      Me.acpnlTitulo = New ACControles.ACPanelCaption()
+      Me.tabMantenimiento.SuspendLayout()
+      Me.tabDatos.SuspendLayout()
+      Me.pnlDatos.SuspendLayout()
+      CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.SplitContainer1.Panel1.SuspendLayout()
+      Me.SplitContainer1.Panel2.SuspendLayout()
+      Me.SplitContainer1.SuspendLayout()
+      Me.pnlDirecciones.SuspendLayout()
+      CType(Me.c1grdDirecciones, System.ComponentModel.ISupportInitialize).BeginInit()
+      CType(Me.bnavDirecciones, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.bnavDirecciones.SuspendLayout()
+      Me.pnlDatosGen.SuspendLayout()
+      Me.grpTipoEntidad.SuspendLayout()
+      Me.tsBarra.SuspendLayout()
+      Me.pnlDatosAuxiliares.SuspendLayout()
+      Me.pnlTelefonos.SuspendLayout()
+      CType(Me.c1grdTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
+      CType(Me.bnavTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.bnavTelefonos.SuspendLayout()
+      Me.tabAdicionales.SuspendLayout()
+      Me.TabClientes.SuspendLayout()
+      Me.TabProveedores.SuspendLayout()
+      Me.TabConductores.SuspendLayout()
+      Me.TabContactos.SuspendLayout()
+      Me.TabTrabajadores.SuspendLayout()
+      Me.pnlFuncionEntidad.SuspendLayout()
+      Me.tabBusqueda.SuspendLayout()
+      CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+      CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+      Me.bnavBusqueda.SuspendLayout()
+      Me.grpBusqueda.SuspendLayout()
+      Me.SuspendLayout()
+      '
+      'acTool
+      '
+      Me.acTool.ACBackColor = System.Drawing.Color.LightSteelBlue
+      Me.acTool.ACBackColorTFin = System.Drawing.Color.LightSteelBlue
+      Me.acTool.ACBackColorTIni = System.Drawing.Color.LightSteelBlue
+      Me.acTool.ACMostrarTabs = Crownwood.DotNetMagic.Controls.HideTabsModes.HideAlways
+      Me.acTool.ACSelectTabInicio = ACControles.ACToolBarMantVertical.Tabs.TabIni
+      Me.acTool.ACVisibleBtnAnular = False
+      Me.acTool.BackColor = System.Drawing.Color.LightSteelBlue
+      Me.acTool.Dock = System.Windows.Forms.DockStyle.Left
+      Me.acTool.Location = New System.Drawing.Point(0, 30)
+      Me.acTool.MinimumSize = New System.Drawing.Size(70, 254)
+      Me.acTool.Name = "acTool"
+      Me.acTool.Size = New System.Drawing.Size(75, 546)
+      Me.acTool.TabIndex = 0
+      '
+      'tabMantenimiento
+      '
+      Me.tabMantenimiento.BackColor = System.Drawing.Color.LightSteelBlue
+      Me.tabMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.tabMantenimiento.Location = New System.Drawing.Point(75, 30)
+      Me.tabMantenimiento.MediaPlayerDockSides = False
+      Me.tabMantenimiento.Name = "tabMantenimiento"
+      Me.tabMantenimiento.OfficeDockSides = False
+      Me.tabMantenimiento.SelectedIndex = 0
+      Me.tabMantenimiento.ShowDropSelect = False
+      Me.tabMantenimiento.Size = New System.Drawing.Size(919, 546)
+      Me.tabMantenimiento.TabIndex = 0
+      Me.tabMantenimiento.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.tabDatos, Me.tabBusqueda})
+      Me.tabMantenimiento.TextTips = True
+      '
+      'tabDatos
+      '
+      Me.tabDatos.Controls.Add(Me.pnlDatos)
+      Me.tabDatos.InactiveBackColor = System.Drawing.Color.Empty
+      Me.tabDatos.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.tabDatos.InactiveTextColor = System.Drawing.Color.Empty
+      Me.tabDatos.Location = New System.Drawing.Point(1, 1)
+      Me.tabDatos.Name = "tabDatos"
+      Me.tabDatos.SelectBackColor = System.Drawing.Color.Empty
+      Me.tabDatos.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.tabDatos.SelectTextColor = System.Drawing.Color.Empty
+      Me.tabDatos.Size = New System.Drawing.Size(917, 521)
+      Me.tabDatos.TabIndex = 4
+      Me.tabDatos.Title = "Datos"
+      Me.tabDatos.ToolTip = "Datos"
+      '
+      'pnlDatos
+      '
+      Me.pnlDatos.Controls.Add(Me.SplitContainer1)
+      Me.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.pnlDatos.Location = New System.Drawing.Point(0, 0)
+      Me.pnlDatos.Name = "pnlDatos"
+      Me.pnlDatos.Size = New System.Drawing.Size(917, 521)
+      Me.pnlDatos.TabIndex = 1
+      '
+      'SplitContainer1
+      '
+      Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+      Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+      Me.SplitContainer1.Name = "SplitContainer1"
+      '
+      'SplitContainer1.Panel1
+      '
+      Me.SplitContainer1.Panel1.Controls.Add(Me.pnlDirecciones)
+      Me.SplitContainer1.Panel1.Controls.Add(Me.pnlDatosGen)
+      Me.SplitContainer1.Panel1.Controls.Add(Me.pnlDatosAuxiliares)
+      '
+      'SplitContainer1.Panel2
+      '
+      Me.SplitContainer1.Panel2.Controls.Add(Me.pnlTelefonos)
+      Me.SplitContainer1.Panel2.Controls.Add(Me.tabAdicionales)
+      Me.SplitContainer1.Panel2.Controls.Add(Me.AcPanelCaption6)
+      Me.SplitContainer1.Panel2.Controls.Add(Me.pnlFuncionEntidad)
+      Me.SplitContainer1.Size = New System.Drawing.Size(917, 521)
+      Me.SplitContainer1.SplitterDistance = 592
+      Me.SplitContainer1.TabIndex = 9
+      '
+      'pnlDirecciones
+      '
+      Me.pnlDirecciones.Controls.Add(Me.c1grdDirecciones)
+      Me.pnlDirecciones.Controls.Add(Me.bnavDirecciones)
+      Me.pnlDirecciones.Controls.Add(Me.AcPanelCaption3)
+      Me.pnlDirecciones.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.pnlDirecciones.Location = New System.Drawing.Point(0, 254)
+      Me.pnlDirecciones.Name = "pnlDirecciones"
+      Me.pnlDirecciones.Size = New System.Drawing.Size(592, 162)
+      Me.pnlDirecciones.TabIndex = 179
+      '
+      'c1grdDirecciones
+      '
+      Me.c1grdDirecciones.AllowAddNew = True
+      Me.c1grdDirecciones.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+      Me.c1grdDirecciones.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.c1grdDirecciones.Location = New System.Drawing.Point(0, 43)
+      Me.c1grdDirecciones.Name = "c1grdDirecciones"
+      Me.c1grdDirecciones.Rows.Count = 2
+      Me.c1grdDirecciones.Rows.DefaultSize = 20
+      Me.c1grdDirecciones.Size = New System.Drawing.Size(592, 119)
+      Me.c1grdDirecciones.StyleInfo = resources.GetString("c1grdDirecciones.StyleInfo")
+      Me.c1grdDirecciones.TabIndex = 178
+      '
+      'bnavDirecciones
+      '
+      Me.bnavDirecciones.AddNewItem = Nothing
+      Me.bnavDirecciones.CountItem = Me.ToolStripLabel1
+      Me.bnavDirecciones.DeleteItem = Nothing
+      Me.bnavDirecciones.Font = New System.Drawing.Font("Tahoma", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.bnavDirecciones.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+      Me.bnavDirecciones.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnNueDireccion, Me.ToolStripSeparator7, Me.tsbtnEliDireccion, Me.ToolStripSeparator5, Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripSeparator2, Me.ToolStripTextBox1, Me.ToolStripLabel1, Me.ToolStripSeparator3, Me.ToolStripButton3, Me.ToolStripButton4})
+      Me.bnavDirecciones.Location = New System.Drawing.Point(0, 18)
+      Me.bnavDirecciones.MoveFirstItem = Me.ToolStripButton1
+      Me.bnavDirecciones.MoveLastItem = Me.ToolStripButton4
+      Me.bnavDirecciones.MoveNextItem = Me.ToolStripButton3
+      Me.bnavDirecciones.MovePreviousItem = Me.ToolStripButton2
+      Me.bnavDirecciones.Name = "bnavDirecciones"
+      Me.bnavDirecciones.PositionItem = Me.ToolStripTextBox1
+      Me.bnavDirecciones.Size = New System.Drawing.Size(592, 25)
+      Me.bnavDirecciones.TabIndex = 179
+      Me.bnavDirecciones.Text = "BindingNavigator1"
+      '
+      'ToolStripLabel1
+      '
+      Me.ToolStripLabel1.Name = "ToolStripLabel1"
+      Me.ToolStripLabel1.Size = New System.Drawing.Size(29, 22)
+      Me.ToolStripLabel1.Text = "of {0}"
+      Me.ToolStripLabel1.ToolTipText = "Total number of items"
+      '
+      'tsbtnNueDireccion
+      '
+      Me.tsbtnNueDireccion.Image = CType(resources.GetObject("tsbtnNueDireccion.Image"), System.Drawing.Image)
+      Me.tsbtnNueDireccion.ImageTransparentColor = System.Drawing.Color.Magenta
+      Me.tsbtnNueDireccion.Name = "tsbtnNueDireccion"
+      Me.tsbtnNueDireccion.Size = New System.Drawing.Size(58, 22)
+      Me.tsbtnNueDireccion.Text = "Agregar"
+      '
+      'ToolStripSeparator7
+      '
+      Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+      Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 25)
+      '
+      'tsbtnEliDireccion
+      '
+      Me.tsbtnEliDireccion.Image = Global.ACPTransportes.My.Resources.Resources.Delete_16x16
+      Me.tsbtnEliDireccion.ImageTransparentColor = System.Drawing.Color.Magenta
+      Me.tsbtnEliDireccion.Name = "tsbtnEliDireccion"
+      Me.tsbtnEliDireccion.Size = New System.Drawing.Size(58, 22)
+      Me.tsbtnEliDireccion.Text = "Eliminar"
+      '
+      'ToolStripSeparator5
+      '
+      Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+      Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripButton1
+      '
+      Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+      Me.ToolStripButton1.Name = "ToolStripButton1"
+      Me.ToolStripButton1.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton1.Text = "Move first"
+      '
+      'ToolStripButton2
+      '
+      Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+      Me.ToolStripButton2.Name = "ToolStripButton2"
+      Me.ToolStripButton2.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton2.Text = "Move previous"
+      '
+      'ToolStripSeparator2
+      '
+      Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+      Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripTextBox1
+      '
+      Me.ToolStripTextBox1.AccessibleName = "Position"
+      Me.ToolStripTextBox1.AutoSize = False
+      Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+      Me.ToolStripTextBox1.Size = New System.Drawing.Size(50, 21)
+      Me.ToolStripTextBox1.Text = "0"
+      Me.ToolStripTextBox1.ToolTipText = "Current position"
+      '
+      'ToolStripSeparator3
+      '
+      Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+      Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripButton3
+      '
+      Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+      Me.ToolStripButton3.Name = "ToolStripButton3"
+      Me.ToolStripButton3.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton3.Text = "Move next"
+      '
+      'ToolStripButton4
+      '
+      Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+      Me.ToolStripButton4.Name = "ToolStripButton4"
+      Me.ToolStripButton4.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton4.Text = "Move last"
+      '
+      'AcPanelCaption3
+      '
+      Me.AcPanelCaption3.ACCaption = "Direcciones"
+      Me.AcPanelCaption3.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption3.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption3.Name = "AcPanelCaption3"
+      Me.AcPanelCaption3.Size = New System.Drawing.Size(592, 18)
+      Me.AcPanelCaption3.TabIndex = 178
+      '
+      'pnlDatosGen
+      '
+      Me.pnlDatosGen.Controls.Add(Me.actxaNomComercial)
+      Me.pnlDatosGen.Controls.Add(Me.actxaNumDoc)
+      Me.pnlDatosGen.Controls.Add(Me.actxaCodigo)
+      Me.pnlDatosGen.Controls.Add(Me.grpTipoEntidad)
+      Me.pnlDatosGen.Controls.Add(Me.txtEmail)
+      Me.pnlDatosGen.Controls.Add(Me.actxaRazonSocial)
+      Me.pnlDatosGen.Controls.Add(Me.txtApePaterno)
+      Me.pnlDatosGen.Controls.Add(Me.txtNombres)
+      Me.pnlDatosGen.Controls.Add(Me.cmbTipoDoc)
+      Me.pnlDatosGen.Controls.Add(Me.tsBarra)
+      Me.pnlDatosGen.Controls.Add(Me.txtApeMaterno)
+      Me.pnlDatosGen.Controls.Add(Me.lblNroDocIden)
+      Me.pnlDatosGen.Controls.Add(Me.AcPanelCaption1)
+      Me.pnlDatosGen.Controls.Add(Me.lblCodigo)
+      Me.pnlDatosGen.Controls.Add(Me.Label1)
+      Me.pnlDatosGen.Controls.Add(Me.lblEmail)
+      Me.pnlDatosGen.Controls.Add(Me.lblRazonSoc)
+      Me.pnlDatosGen.Controls.Add(Me.lblNombres)
+      Me.pnlDatosGen.Controls.Add(Me.lblApePaterno)
+      Me.pnlDatosGen.Controls.Add(Me.lblTipoDocIden)
+      Me.pnlDatosGen.Controls.Add(Me.lblTipoPersona)
+      Me.pnlDatosGen.Controls.Add(Me.lblApeMaterno)
+      Me.pnlDatosGen.Dock = System.Windows.Forms.DockStyle.Top
+      Me.pnlDatosGen.Location = New System.Drawing.Point(0, 0)
+      Me.pnlDatosGen.Name = "pnlDatosGen"
+      Me.pnlDatosGen.Size = New System.Drawing.Size(592, 254)
+      Me.pnlDatosGen.TabIndex = 8
+      '
+      'actxaNomComercial
+      '
+      Me.actxaNomComercial.ACActivarAyudaAuto = False
+      Me.actxaNomComercial.ACLongitudAceptada = 0
+      Me.actxaNomComercial.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaNomComercial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.actxaNomComercial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.actxaNomComercial.Location = New System.Drawing.Point(113, 133)
+      Me.actxaNomComercial.MaxLength = 80
+      Me.actxaNomComercial.Name = "actxaNomComercial"
+      Me.actxaNomComercial.Size = New System.Drawing.Size(468, 23)
+      Me.actxaNomComercial.TabIndex = 17
+      '
+      'Label1
+      '
+      Me.Label1.AutoSize = True
+      Me.Label1.Location = New System.Drawing.Point(-1, 136)
+      Me.Label1.Name = "Label1"
+      Me.Label1.Size = New System.Drawing.Size(114, 15)
+      Me.Label1.TabIndex = 16
+      Me.Label1.Text = "Nombre Comercial :"
+      '
+      'actxaNumDoc
+      '
+      Me.actxaNumDoc.ACActivarAyudaAuto = False
+      Me.actxaNumDoc.ACLongitudAceptada = 0
+      Me.actxaNumDoc.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaNumDoc.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.actxaNumDoc.Location = New System.Drawing.Point(435, 52)
+      Me.actxaNumDoc.MaxLength = 11
+      Me.actxaNumDoc.Name = "actxaNumDoc"
+      Me.actxaNumDoc.Size = New System.Drawing.Size(145, 23)
+      Me.actxaNumDoc.TabIndex = 9
+      Me.actxaNumDoc.Tag = "EV"
+      '
+      'actxaCodigo
+      '
+      Me.actxaCodigo.ACActivarAyudaAuto = False
+      Me.actxaCodigo.ACLongitudAceptada = 0
+      Me.actxaCodigo.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaCodigo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.actxaCodigo.Location = New System.Drawing.Point(435, 23)
+      Me.actxaCodigo.MaxLength = 32767
+      Me.actxaCodigo.Name = "actxaCodigo"
+      Me.actxaCodigo.Size = New System.Drawing.Size(145, 23)
+      Me.actxaCodigo.TabIndex = 3
+      Me.actxaCodigo.Tag = "EV"
+      '
+      'grpTipoEntidad
+      '
+      Me.grpTipoEntidad.Controls.Add(Me.rbtNatural)
+      Me.grpTipoEntidad.Controls.Add(Me.rbtJuridica)
+      Me.grpTipoEntidad.Location = New System.Drawing.Point(114, 18)
+      Me.grpTipoEntidad.Name = "grpTipoEntidad"
+      Me.grpTipoEntidad.Size = New System.Drawing.Size(155, 33)
+      Me.grpTipoEntidad.TabIndex = 1
+      Me.grpTipoEntidad.TabStop = False
+      '
+      'rbtNatural
+      '
+      Me.rbtNatural.AutoSize = True
+      Me.rbtNatural.Checked = True
+      Me.rbtNatural.Location = New System.Drawing.Point(6, 10)
+      Me.rbtNatural.Name = "rbtNatural"
+      Me.rbtNatural.Size = New System.Drawing.Size(64, 19)
+      Me.rbtNatural.TabIndex = 1
+      Me.rbtNatural.TabStop = True
+      Me.rbtNatural.Text = "&Natural"
+      Me.rbtNatural.UseVisualStyleBackColor = True
+      '
+      'rbtJuridica
+      '
+      Me.rbtJuridica.AutoSize = True
+      Me.rbtJuridica.Location = New System.Drawing.Point(71, 10)
+      Me.rbtJuridica.Name = "rbtJuridica"
+      Me.rbtJuridica.Size = New System.Drawing.Size(65, 19)
+      Me.rbtJuridica.TabIndex = 2
+      Me.rbtJuridica.Text = "&Jurídica"
+      Me.rbtJuridica.UseVisualStyleBackColor = True
+      '
+      'txtEmail
+      '
+      Me.txtEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtEmail.Location = New System.Drawing.Point(113, 187)
+      Me.txtEmail.MaxLength = 50
+      Me.txtEmail.Name = "txtEmail"
+      Me.txtEmail.Size = New System.Drawing.Size(468, 23)
+      Me.txtEmail.TabIndex = 21
+      Me.txtEmail.Tag = "EV"
+      '
+      'actxaRazonSocial
+      '
+      Me.actxaRazonSocial.ACActivarAyudaAuto = False
+      Me.actxaRazonSocial.ACLongitudAceptada = 0
+      Me.actxaRazonSocial.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaRazonSocial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.actxaRazonSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.actxaRazonSocial.Location = New System.Drawing.Point(113, 160)
+      Me.actxaRazonSocial.MaxLength = 80
+      Me.actxaRazonSocial.Name = "actxaRazonSocial"
+      Me.actxaRazonSocial.Size = New System.Drawing.Size(468, 23)
+      Me.actxaRazonSocial.TabIndex = 19
+      '
+      'txtApePaterno
+      '
+      Me.txtApePaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.txtApePaterno.Location = New System.Drawing.Point(113, 106)
+      Me.txtApePaterno.MaxLength = 25
+      Me.txtApePaterno.Name = "txtApePaterno"
+      Me.txtApePaterno.Size = New System.Drawing.Size(217, 23)
+      Me.txtApePaterno.TabIndex = 13
+      Me.txtApePaterno.Tag = "EV"
+      '
+      'txtNombres
+      '
+      Me.txtNombres.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.txtNombres.Location = New System.Drawing.Point(113, 79)
+      Me.txtNombres.MaxLength = 30
+      Me.txtNombres.Name = "txtNombres"
+      Me.txtNombres.Size = New System.Drawing.Size(468, 23)
+      Me.txtNombres.TabIndex = 11
+      Me.txtNombres.Tag = "EV"
+      '
+      'cmbTipoDoc
+      '
+      Me.cmbTipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbTipoDoc.FormattingEnabled = True
+      Me.cmbTipoDoc.Location = New System.Drawing.Point(113, 52)
+      Me.cmbTipoDoc.Name = "cmbTipoDoc"
+      Me.cmbTipoDoc.Size = New System.Drawing.Size(219, 23)
+      Me.cmbTipoDoc.TabIndex = 7
+      '
+      'lblEmail
+      '
+      Me.lblEmail.AutoSize = True
+      Me.lblEmail.Location = New System.Drawing.Point(71, 191)
+      Me.lblEmail.Name = "lblEmail"
+      Me.lblEmail.Size = New System.Drawing.Size(42, 15)
+      Me.lblEmail.TabIndex = 20
+      Me.lblEmail.Text = "Email :"
+      '
+      'lblRazonSoc
+      '
+      Me.lblRazonSoc.AutoSize = True
+      Me.lblRazonSoc.Location = New System.Drawing.Point(34, 164)
+      Me.lblRazonSoc.Name = "lblRazonSoc"
+      Me.lblRazonSoc.Size = New System.Drawing.Size(79, 15)
+      Me.lblRazonSoc.TabIndex = 18
+      Me.lblRazonSoc.Text = "Razon Social :"
+      '
+      'lblNombres
+      '
+      Me.lblNombres.AutoSize = True
+      Me.lblNombres.Location = New System.Drawing.Point(40, 81)
+      Me.lblNombres.Name = "lblNombres"
+      Me.lblNombres.Size = New System.Drawing.Size(73, 15)
+      Me.lblNombres.TabIndex = 10
+      Me.lblNombres.Text = "Nombre (s) :"
+      '
+      'tsBarra
+      '
+      Me.tsBarra.Dock = System.Windows.Forms.DockStyle.Bottom
+      Me.tsBarra.ImageScalingSize = New System.Drawing.Size(32, 32)
+      Me.tsBarra.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnRelacionados, Me.ToolStripSeparator1})
+      Me.tsBarra.Location = New System.Drawing.Point(0, 215)
+      Me.tsBarra.Name = "tsBarra"
+      Me.tsBarra.Size = New System.Drawing.Size(592, 39)
+      Me.tsBarra.TabIndex = 22
+      Me.tsBarra.Text = "ToolStrip1"
+      '
+      'tsbtnRelacionados
+      '
+      Me.tsbtnRelacionados.Image = Global.ACPTransportes.My.Resources.Resources.Personas_32x32
+      Me.tsbtnRelacionados.ImageTransparentColor = System.Drawing.Color.Magenta
+      Me.tsbtnRelacionados.Name = "tsbtnRelacionados"
+      Me.tsbtnRelacionados.Size = New System.Drawing.Size(113, 36)
+      Me.tsbtnRelacionados.Text = "Relacionados"
+      '
+      'ToolStripSeparator1
+      '
+      Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+      Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
+      '
+      'lblApePaterno
+      '
+      Me.lblApePaterno.AutoSize = True
+      Me.lblApePaterno.Location = New System.Drawing.Point(12, 110)
+      Me.lblApePaterno.Name = "lblApePaterno"
+      Me.lblApePaterno.Size = New System.Drawing.Size(101, 15)
+      Me.lblApePaterno.TabIndex = 12
+      Me.lblApePaterno.Text = "Apellido Paterno :"
+      '
+      'lblApeMaterno
+      '
+      Me.lblApeMaterno.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.lblApeMaterno.AutoSize = True
+      Me.lblApeMaterno.Location = New System.Drawing.Point(333, 110)
+      Me.lblApeMaterno.Name = "lblApeMaterno"
+      Me.lblApeMaterno.Size = New System.Drawing.Size(105, 15)
+      Me.lblApeMaterno.TabIndex = 14
+      Me.lblApeMaterno.Text = "Apellido Materno :"
+      '
+      'txtApeMaterno
+      '
+      Me.txtApeMaterno.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtApeMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.txtApeMaterno.Location = New System.Drawing.Point(436, 106)
+      Me.txtApeMaterno.MaxLength = 25
+      Me.txtApeMaterno.Name = "txtApeMaterno"
+      Me.txtApeMaterno.Size = New System.Drawing.Size(145, 23)
+      Me.txtApeMaterno.TabIndex = 15
+      Me.txtApeMaterno.Tag = "EV"
+      '
+      'lblTipoDocIden
+      '
+      Me.lblTipoDocIden.AutoSize = True
+      Me.lblTipoDocIden.Location = New System.Drawing.Point(10, 56)
+      Me.lblTipoDocIden.Name = "lblTipoDocIden"
+      Me.lblTipoDocIden.Size = New System.Drawing.Size(103, 15)
+      Me.lblTipoDocIden.TabIndex = 6
+      Me.lblTipoDocIden.Text = "Tipo Documento :"
+      '
+      'lblNroDocIden
+      '
+      Me.lblNroDocIden.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.lblNroDocIden.AutoSize = True
+      Me.lblNroDocIden.Location = New System.Drawing.Point(334, 56)
+      Me.lblNroDocIden.Name = "lblNroDocIden"
+      Me.lblNroDocIden.Size = New System.Drawing.Size(102, 15)
+      Me.lblNroDocIden.TabIndex = 8
+      Me.lblNroDocIden.Text = "Nro. Documento :"
+      '
+      'AcPanelCaption1
+      '
+      Me.AcPanelCaption1.ACCaption = "Datos Generales"
+      Me.AcPanelCaption1.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption1.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption1.Name = "AcPanelCaption1"
+      Me.AcPanelCaption1.Size = New System.Drawing.Size(592, 18)
+      Me.AcPanelCaption1.TabIndex = 9
+      '
+      'lblTipoPersona
+      '
+      Me.lblTipoPersona.AutoSize = True
+      Me.lblTipoPersona.Location = New System.Drawing.Point(76, 31)
+      Me.lblTipoPersona.Name = "lblTipoPersona"
+      Me.lblTipoPersona.Size = New System.Drawing.Size(37, 15)
+      Me.lblTipoPersona.TabIndex = 0
+      Me.lblTipoPersona.Text = "Tipo :"
+      '
+      'lblCodigo
+      '
+      Me.lblCodigo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.lblCodigo.AutoSize = True
+      Me.lblCodigo.Location = New System.Drawing.Point(381, 26)
+      Me.lblCodigo.Name = "lblCodigo"
+      Me.lblCodigo.Size = New System.Drawing.Size(52, 15)
+      Me.lblCodigo.TabIndex = 2
+      Me.lblCodigo.Text = "Codigo :"
+      '
+      'pnlDatosAuxiliares
+      '
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label10)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.txtFax)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label9)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.txtTelefono2)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label8)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.txtTelefono1)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label7)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.actxaDescUbigeo)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.AcPanelCaption10)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.actxaCodUbigeo)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label6)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.txtDireccion)
+      Me.pnlDatosAuxiliares.Controls.Add(Me.Label5)
+      Me.pnlDatosAuxiliares.Dock = System.Windows.Forms.DockStyle.Bottom
+      Me.pnlDatosAuxiliares.Location = New System.Drawing.Point(0, 416)
+      Me.pnlDatosAuxiliares.Name = "pnlDatosAuxiliares"
+      Me.pnlDatosAuxiliares.Size = New System.Drawing.Size(592, 105)
+      Me.pnlDatosAuxiliares.TabIndex = 180
+      '
+      'Label10
+      '
+      Me.Label10.AutoSize = True
+      Me.Label10.Location = New System.Drawing.Point(113, 28)
+      Me.Label10.Name = "Label10"
+      Me.Label10.Size = New System.Drawing.Size(21, 15)
+      Me.Label10.TabIndex = 1
+      Me.Label10.Text = "(1)"
+      '
+      'txtFax
+      '
+      Me.txtFax.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtFax.Location = New System.Drawing.Point(457, 24)
+      Me.txtFax.MaxLength = 50
+      Me.txtFax.Name = "txtFax"
+      Me.txtFax.Size = New System.Drawing.Size(128, 23)
+      Me.txtFax.TabIndex = 6
+      Me.txtFax.Tag = "EV"
+      '
+      'Label9
+      '
+      Me.Label9.AutoSize = True
+      Me.Label9.Location = New System.Drawing.Point(423, 28)
+      Me.Label9.Name = "Label9"
+      Me.Label9.Size = New System.Drawing.Size(30, 15)
+      Me.Label9.TabIndex = 5
+      Me.Label9.Text = "Fax :"
+      '
+      'txtTelefono2
+      '
+      Me.txtTelefono2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtTelefono2.Location = New System.Drawing.Point(289, 24)
+      Me.txtTelefono2.MaxLength = 50
+      Me.txtTelefono2.Name = "txtTelefono2"
+      Me.txtTelefono2.Size = New System.Drawing.Size(128, 23)
+      Me.txtTelefono2.TabIndex = 4
+      Me.txtTelefono2.Tag = "EV"
+      '
+      'Label8
+      '
+      Me.Label8.AutoSize = True
+      Me.Label8.Location = New System.Drawing.Point(266, 28)
+      Me.Label8.Name = "Label8"
+      Me.Label8.Size = New System.Drawing.Size(21, 15)
+      Me.Label8.TabIndex = 3
+      Me.Label8.Text = "(2)"
+      '
+      'txtTelefono1
+      '
+      Me.txtTelefono1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtTelefono1.Location = New System.Drawing.Point(136, 24)
+      Me.txtTelefono1.MaxLength = 50
+      Me.txtTelefono1.Name = "txtTelefono1"
+      Me.txtTelefono1.Size = New System.Drawing.Size(128, 23)
+      Me.txtTelefono1.TabIndex = 2
+      Me.txtTelefono1.Tag = "EV"
+      '
+      'Label7
+      '
+      Me.Label7.AutoSize = True
+      Me.Label7.Location = New System.Drawing.Point(55, 28)
+      Me.Label7.Name = "Label7"
+      Me.Label7.Size = New System.Drawing.Size(60, 15)
+      Me.Label7.TabIndex = 0
+      Me.Label7.Text = "Telefono :"
+      '
+      'actxaDescUbigeo
+      '
+      Me.actxaDescUbigeo.ACActivarAyudaAuto = False
+      Me.actxaDescUbigeo.ACLongitudAceptada = 0
+      Me.actxaDescUbigeo.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaDescUbigeo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.actxaDescUbigeo.Location = New System.Drawing.Point(226, 78)
+      Me.actxaDescUbigeo.MaxLength = 11
+      Me.actxaDescUbigeo.Name = "actxaDescUbigeo"
+      Me.actxaDescUbigeo.Size = New System.Drawing.Size(358, 23)
+      Me.actxaDescUbigeo.TabIndex = 11
+      Me.actxaDescUbigeo.Tag = "EV"
+      '
+      'AcPanelCaption10
+      '
+      Me.AcPanelCaption10.ACCaption = "Datos Adicionales"
+      Me.AcPanelCaption10.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption10.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption10.Name = "AcPanelCaption10"
+      Me.AcPanelCaption10.Size = New System.Drawing.Size(592, 18)
+      Me.AcPanelCaption10.TabIndex = 179
+      '
+      'actxaCodUbigeo
+      '
+      Me.actxaCodUbigeo.ACActivarAyudaAuto = False
+      Me.actxaCodUbigeo.ACLongitudAceptada = 0
+      Me.actxaCodUbigeo.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.actxaCodUbigeo.Location = New System.Drawing.Point(116, 78)
+      Me.actxaCodUbigeo.MaxLength = 11
+      Me.actxaCodUbigeo.Name = "actxaCodUbigeo"
+      Me.actxaCodUbigeo.Size = New System.Drawing.Size(104, 23)
+      Me.actxaCodUbigeo.TabIndex = 10
+      Me.actxaCodUbigeo.Tag = "EV"
+      '
+      'Label6
+      '
+      Me.Label6.AutoSize = True
+      Me.Label6.Location = New System.Drawing.Point(64, 81)
+      Me.Label6.Name = "Label6"
+      Me.Label6.Size = New System.Drawing.Size(51, 15)
+      Me.Label6.TabIndex = 9
+      Me.Label6.Text = "Ubigeo :"
+      '
+      'txtDireccion
+      '
+      Me.txtDireccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtDireccion.Location = New System.Drawing.Point(116, 51)
+      Me.txtDireccion.MaxLength = 150
+      Me.txtDireccion.Name = "txtDireccion"
+      Me.txtDireccion.Size = New System.Drawing.Size(468, 23)
+      Me.txtDireccion.TabIndex = 8
+      Me.txtDireccion.Tag = "EV"
+      '
+      'Label5
+      '
+      Me.Label5.AutoSize = True
+      Me.Label5.Location = New System.Drawing.Point(54, 54)
+      Me.Label5.Name = "Label5"
+      Me.Label5.Size = New System.Drawing.Size(63, 15)
+      Me.Label5.TabIndex = 7
+      Me.Label5.Text = "Direccion :"
+      '
+      'pnlTelefonos
+      '
+      Me.pnlTelefonos.Controls.Add(Me.c1grdTelefonos)
+      Me.pnlTelefonos.Controls.Add(Me.bnavTelefonos)
+      Me.pnlTelefonos.Controls.Add(Me.AcPanelCaption4)
+      Me.pnlTelefonos.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.pnlTelefonos.Location = New System.Drawing.Point(0, 329)
+      Me.pnlTelefonos.Name = "pnlTelefonos"
+      Me.pnlTelefonos.Size = New System.Drawing.Size(321, 192)
+      Me.pnlTelefonos.TabIndex = 29
+      '
+      'c1grdTelefonos
+      '
+      Me.c1grdTelefonos.AllowAddNew = True
+      Me.c1grdTelefonos.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+      Me.c1grdTelefonos.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.c1grdTelefonos.Location = New System.Drawing.Point(0, 43)
+      Me.c1grdTelefonos.Name = "c1grdTelefonos"
+      Me.c1grdTelefonos.Rows.Count = 2
+      Me.c1grdTelefonos.Rows.DefaultSize = 20
+      Me.c1grdTelefonos.Size = New System.Drawing.Size(321, 149)
+      Me.c1grdTelefonos.StyleInfo = resources.GetString("c1grdTelefonos.StyleInfo")
+      Me.c1grdTelefonos.TabIndex = 179
+      '
+      'bnavTelefonos
+      '
+      Me.bnavTelefonos.AddNewItem = Nothing
+      Me.bnavTelefonos.CountItem = Me.ToolStripLabel2
+      Me.bnavTelefonos.DeleteItem = Nothing
+      Me.bnavTelefonos.Font = New System.Drawing.Font("Tahoma", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+      Me.bnavTelefonos.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+      Me.bnavTelefonos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnNueTelefono, Me.ToolStripSeparator6, Me.tsbtnEliTelefono, Me.ToolStripSeparator9, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripSeparator11, Me.ToolStripTextBox2, Me.ToolStripLabel2, Me.ToolStripSeparator12, Me.ToolStripButton11, Me.ToolStripButton12})
+      Me.bnavTelefonos.Location = New System.Drawing.Point(0, 18)
+      Me.bnavTelefonos.MoveFirstItem = Me.ToolStripButton9
+      Me.bnavTelefonos.MoveLastItem = Me.ToolStripButton12
+      Me.bnavTelefonos.MoveNextItem = Me.ToolStripButton11
+      Me.bnavTelefonos.MovePreviousItem = Me.ToolStripButton10
+      Me.bnavTelefonos.Name = "bnavTelefonos"
+      Me.bnavTelefonos.PositionItem = Me.ToolStripTextBox2
+      Me.bnavTelefonos.Size = New System.Drawing.Size(321, 25)
+      Me.bnavTelefonos.TabIndex = 181
+      Me.bnavTelefonos.Text = "BindingNavigator1"
+      '
+      'ToolStripLabel2
+      '
+      Me.ToolStripLabel2.Name = "ToolStripLabel2"
+      Me.ToolStripLabel2.Size = New System.Drawing.Size(29, 22)
+      Me.ToolStripLabel2.Text = "of {0}"
+      Me.ToolStripLabel2.ToolTipText = "Total number of items"
+      '
+      'tsbtnNueTelefono
+      '
+      Me.tsbtnNueTelefono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.tsbtnNueTelefono.Image = CType(resources.GetObject("tsbtnNueTelefono.Image"), System.Drawing.Image)
+      Me.tsbtnNueTelefono.ImageTransparentColor = System.Drawing.Color.Magenta
+      Me.tsbtnNueTelefono.Name = "tsbtnNueTelefono"
+      Me.tsbtnNueTelefono.Size = New System.Drawing.Size(23, 22)
+      Me.tsbtnNueTelefono.Text = "Agregar"
+      '
+      'ToolStripSeparator6
+      '
+      Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+      Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 25)
+      '
+      'tsbtnEliTelefono
+      '
+      Me.tsbtnEliTelefono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.tsbtnEliTelefono.Image = Global.ACPTransportes.My.Resources.Resources.Delete_16x16
+      Me.tsbtnEliTelefono.ImageTransparentColor = System.Drawing.Color.Magenta
+      Me.tsbtnEliTelefono.Name = "tsbtnEliTelefono"
+      Me.tsbtnEliTelefono.Size = New System.Drawing.Size(23, 22)
+      Me.tsbtnEliTelefono.Text = "Eliminar"
+      '
+      'ToolStripSeparator9
+      '
+      Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+      Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripButton9
+      '
+      Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
+      Me.ToolStripButton9.Name = "ToolStripButton9"
+      Me.ToolStripButton9.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton9.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton9.Text = "Move first"
+      '
+      'ToolStripButton10
+      '
+      Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"), System.Drawing.Image)
+      Me.ToolStripButton10.Name = "ToolStripButton10"
+      Me.ToolStripButton10.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton10.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton10.Text = "Move previous"
+      '
+      'ToolStripSeparator11
+      '
+      Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+      Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripTextBox2
+      '
+      Me.ToolStripTextBox2.AccessibleName = "Position"
+      Me.ToolStripTextBox2.AutoSize = False
+      Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
+      Me.ToolStripTextBox2.Size = New System.Drawing.Size(50, 21)
+      Me.ToolStripTextBox2.Text = "0"
+      Me.ToolStripTextBox2.ToolTipText = "Current position"
+      '
+      'ToolStripSeparator12
+      '
+      Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+      Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 25)
+      '
+      'ToolStripButton11
+      '
+      Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
+      Me.ToolStripButton11.Name = "ToolStripButton11"
+      Me.ToolStripButton11.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton11.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton11.Text = "Move next"
+      '
+      'ToolStripButton12
+      '
+      Me.ToolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.ToolStripButton12.Image = CType(resources.GetObject("ToolStripButton12.Image"), System.Drawing.Image)
+      Me.ToolStripButton12.Name = "ToolStripButton12"
+      Me.ToolStripButton12.RightToLeftAutoMirrorImage = True
+      Me.ToolStripButton12.Size = New System.Drawing.Size(23, 22)
+      Me.ToolStripButton12.Text = "Move last"
+      '
+      'AcPanelCaption4
+      '
+      Me.AcPanelCaption4.ACCaption = "Telefonos"
+      Me.AcPanelCaption4.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption4.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption4.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption4.Name = "AcPanelCaption4"
+      Me.AcPanelCaption4.Size = New System.Drawing.Size(321, 18)
+      Me.AcPanelCaption4.TabIndex = 180
+      '
+      'tabAdicionales
+      '
+      Me.tabAdicionales.BackColor = System.Drawing.Color.LightSteelBlue
+      Me.tabAdicionales.BoldSelectedPage = True
+      Me.tabAdicionales.Dock = System.Windows.Forms.DockStyle.Top
+      Me.tabAdicionales.Location = New System.Drawing.Point(0, 165)
+      Me.tabAdicionales.MediaPlayerDockSides = False
+      Me.tabAdicionales.Name = "tabAdicionales"
+      Me.tabAdicionales.OfficeDockSides = False
+      Me.tabAdicionales.PositionTop = True
+      Me.tabAdicionales.SelectedIndex = 2
+      Me.tabAdicionales.ShowDropSelect = False
+      Me.tabAdicionales.Size = New System.Drawing.Size(321, 164)
+      Me.tabAdicionales.TabIndex = 1
+      Me.tabAdicionales.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.TabClientes, Me.TabProveedores, Me.TabConductores, Me.TabContactos, Me.TabTrabajadores, Me.tabVendedores})
+      Me.tabAdicionales.TextTips = True
+      '
+      'TabClientes
+      '
+      Me.TabClientes.AutoScroll = True
+      Me.TabClientes.Controls.Add(Me.cmbCliVendedor)
+      Me.TabClientes.Controls.Add(Me.Label13)
+      Me.TabClientes.Controls.Add(Me.cmbCliTipoPercepcion)
+      Me.TabClientes.Controls.Add(Me.Label12)
+      Me.TabClientes.Controls.Add(Me.cmbCliListaPrecios)
+      Me.TabClientes.Controls.Add(Me.Label11)
+      Me.TabClientes.Controls.Add(Me.AcPanelCaption8)
+      Me.TabClientes.InactiveBackColor = System.Drawing.Color.Empty
+      Me.TabClientes.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.TabClientes.InactiveTextColor = System.Drawing.Color.Empty
+      Me.TabClientes.Location = New System.Drawing.Point(1, 24)
+      Me.TabClientes.Name = "TabClientes"
+      Me.TabClientes.SelectBackColor = System.Drawing.Color.Empty
+      Me.TabClientes.Selected = False
+      Me.TabClientes.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.TabClientes.SelectTextColor = System.Drawing.Color.Empty
+      Me.TabClientes.Size = New System.Drawing.Size(319, 139)
+      Me.TabClientes.TabIndex = 4
+      Me.TabClientes.Title = "Clientes"
+      Me.TabClientes.ToolTip = "Clientes"
+      '
+      'cmbCliVendedor
+      '
+      Me.cmbCliVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbCliVendedor.DropDownWidth = 300
+      Me.cmbCliVendedor.FormattingEnabled = True
+      Me.cmbCliVendedor.Location = New System.Drawing.Point(109, 83)
+      Me.cmbCliVendedor.Name = "cmbCliVendedor"
+      Me.cmbCliVendedor.Size = New System.Drawing.Size(200, 23)
+      Me.cmbCliVendedor.TabIndex = 32
+      '
+      'Label13
+      '
+      Me.Label13.AutoSize = True
+      Me.Label13.Location = New System.Drawing.Point(43, 87)
+      Me.Label13.Name = "Label13"
+      Me.Label13.Size = New System.Drawing.Size(64, 15)
+      Me.Label13.TabIndex = 31
+      Me.Label13.Text = "Vendedor :"
+      '
+      'cmbCliTipoPercepcion
+      '
+      Me.cmbCliTipoPercepcion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbCliTipoPercepcion.FormattingEnabled = True
+      Me.cmbCliTipoPercepcion.Location = New System.Drawing.Point(109, 56)
+      Me.cmbCliTipoPercepcion.Name = "cmbCliTipoPercepcion"
+      Me.cmbCliTipoPercepcion.Size = New System.Drawing.Size(200, 23)
+      Me.cmbCliTipoPercepcion.TabIndex = 30
+      '
+      'Label12
+      '
+      Me.Label12.AutoSize = True
+      Me.Label12.Location = New System.Drawing.Point(37, 59)
+      Me.Label12.Name = "Label12"
+      Me.Label12.Size = New System.Drawing.Size(72, 15)
+      Me.Label12.TabIndex = 29
+      Me.Label12.Text = "Percepción :"
+      '
+      'cmbCliListaPrecios
+      '
+      Me.cmbCliListaPrecios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbCliListaPrecios.FormattingEnabled = True
+      Me.cmbCliListaPrecios.Location = New System.Drawing.Point(109, 29)
+      Me.cmbCliListaPrecios.Name = "cmbCliListaPrecios"
+      Me.cmbCliListaPrecios.Size = New System.Drawing.Size(200, 23)
+      Me.cmbCliListaPrecios.TabIndex = 28
+      '
+      'Label11
+      '
+      Me.Label11.AutoSize = True
+      Me.Label11.Location = New System.Drawing.Point(15, 32)
+      Me.Label11.Name = "Label11"
+      Me.Label11.Size = New System.Drawing.Size(94, 15)
+      Me.Label11.TabIndex = 27
+      Me.Label11.Text = "Lista de Precios :"
+      '
+      'AcPanelCaption8
+      '
+      Me.AcPanelCaption8.ACCaption = "Datos del Cliente"
+      Me.AcPanelCaption8.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption8.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption8.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption8.Name = "AcPanelCaption8"
+      Me.AcPanelCaption8.Size = New System.Drawing.Size(319, 18)
+      Me.AcPanelCaption8.TabIndex = 26
+      '
+      'TabProveedores
+      '
+      Me.TabProveedores.Controls.Add(Me.Label14)
+      Me.TabProveedores.Controls.Add(Me.txtProvAtencion)
+      Me.TabProveedores.Controls.Add(Me.AcPanelCaption7)
+      Me.TabProveedores.InactiveBackColor = System.Drawing.Color.Empty
+      Me.TabProveedores.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.TabProveedores.InactiveTextColor = System.Drawing.Color.Empty
+      Me.TabProveedores.Location = New System.Drawing.Point(1, 24)
+      Me.TabProveedores.Name = "TabProveedores"
+      Me.TabProveedores.SelectBackColor = System.Drawing.Color.Empty
+      Me.TabProveedores.Selected = False
+      Me.TabProveedores.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.TabProveedores.SelectTextColor = System.Drawing.Color.Empty
+      Me.TabProveedores.Size = New System.Drawing.Size(319, 139)
+      Me.TabProveedores.TabIndex = 5
+      Me.TabProveedores.Title = "Proveedores"
+      Me.TabProveedores.ToolTip = "Proveedores"
+      '
+      'Label14
+      '
+      Me.Label14.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.Label14.AutoSize = True
+      Me.Label14.Location = New System.Drawing.Point(19, 33)
+      Me.Label14.Name = "Label14"
+      Me.Label14.Size = New System.Drawing.Size(61, 15)
+      Me.Label14.TabIndex = 32
+      Me.Label14.Text = "Atención :"
+      '
+      'txtProvAtencion
+      '
+      Me.txtProvAtencion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtProvAtencion.Location = New System.Drawing.Point(98, 29)
+      Me.txtProvAtencion.MaxLength = 20
+      Me.txtProvAtencion.Name = "txtProvAtencion"
+      Me.txtProvAtencion.Size = New System.Drawing.Size(145, 23)
+      Me.txtProvAtencion.TabIndex = 33
+      Me.txtProvAtencion.Tag = "EV"
+      '
+      'AcPanelCaption7
+      '
+      Me.AcPanelCaption7.ACCaption = "Datos del Proveedor"
+      Me.AcPanelCaption7.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption7.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption7.Name = "AcPanelCaption7"
+      Me.AcPanelCaption7.Size = New System.Drawing.Size(319, 18)
+      Me.AcPanelCaption7.TabIndex = 31
+      '
+      'TabConductores
+      '
+      Me.TabConductores.Controls.Add(Me.txtSigla)
+      Me.TabConductores.Controls.Add(Me.Label16)
+      Me.TabConductores.Controls.Add(Me.txtLicencia)
+      Me.TabConductores.Controls.Add(Me.Label15)
+      Me.TabConductores.Controls.Add(Me.AcPanelCaption5)
+      Me.TabConductores.InactiveBackColor = System.Drawing.Color.Empty
+      Me.TabConductores.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.TabConductores.InactiveTextColor = System.Drawing.Color.Empty
+      Me.TabConductores.Location = New System.Drawing.Point(1, 24)
+      Me.TabConductores.Name = "TabConductores"
+      Me.TabConductores.SelectBackColor = System.Drawing.Color.Empty
+      Me.TabConductores.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.TabConductores.SelectTextColor = System.Drawing.Color.Empty
+      Me.TabConductores.Size = New System.Drawing.Size(319, 139)
+      Me.TabConductores.TabIndex = 6
+      Me.TabConductores.Title = "Conductores"
+      Me.TabConductores.ToolTip = "Conductores"
+      '
+      'txtSigla
+      '
+      Me.txtSigla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.txtSigla.Location = New System.Drawing.Point(107, 52)
+      Me.txtSigla.MaxLength = 5
+      Me.txtSigla.Name = "txtSigla"
+      Me.txtSigla.Size = New System.Drawing.Size(89, 23)
+      Me.txtSigla.TabIndex = 3
+      Me.txtSigla.Tag = "EV"
+      '
+      'Label16
+      '
+      Me.Label16.AutoSize = True
+      Me.Label16.Location = New System.Drawing.Point(16, 55)
+      Me.Label16.Name = "Label16"
+      Me.Label16.Size = New System.Drawing.Size(85, 15)
+      Me.Label16.TabIndex = 2
+      Me.Label16.Text = "Sigla Nombre :"
+      '
+      'txtLicencia
+      '
+      Me.txtLicencia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+      Me.txtLicencia.Location = New System.Drawing.Point(82, 23)
+      Me.txtLicencia.MaxLength = 20
+      Me.txtLicencia.Name = "txtLicencia"
+      Me.txtLicencia.Size = New System.Drawing.Size(114, 23)
+      Me.txtLicencia.TabIndex = 1
+      Me.txtLicencia.Tag = "EV"
+      '
+      'Label15
+      '
+      Me.Label15.AutoSize = True
+      Me.Label15.Location = New System.Drawing.Point(16, 26)
+      Me.Label15.Name = "Label15"
+      Me.Label15.Size = New System.Drawing.Size(56, 15)
+      Me.Label15.TabIndex = 0
+      Me.Label15.Text = "Licencia :"
+      '
+      'AcPanelCaption5
+      '
+      Me.AcPanelCaption5.ACCaption = "Datos del Conductor"
+      Me.AcPanelCaption5.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption5.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption5.Name = "AcPanelCaption5"
+      Me.AcPanelCaption5.Size = New System.Drawing.Size(319, 18)
+      Me.AcPanelCaption5.TabIndex = 25
+      '
+      'TabContactos
+      '
+      Me.TabContactos.Controls.Add(Me.AcPanelCaption9)
+      Me.TabContactos.InactiveBackColor = System.Drawing.Color.Empty
+      Me.TabContactos.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.TabContactos.InactiveTextColor = System.Drawing.Color.Empty
+      Me.TabContactos.Location = New System.Drawing.Point(1, 24)
+      Me.TabContactos.Name = "TabContactos"
+      Me.TabContactos.SelectBackColor = System.Drawing.Color.Empty
+      Me.TabContactos.Selected = False
+      Me.TabContactos.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.TabContactos.SelectTextColor = System.Drawing.Color.Empty
+      Me.TabContactos.Size = New System.Drawing.Size(319, 139)
+      Me.TabContactos.TabIndex = 7
+      Me.TabContactos.Title = "Contactos"
+      Me.TabContactos.ToolTip = "Contactos"
+      '
+      'AcPanelCaption9
+      '
+      Me.AcPanelCaption9.ACCaption = "Datos del Contacto"
+      Me.AcPanelCaption9.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption9.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption9.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption9.Name = "AcPanelCaption9"
+      Me.AcPanelCaption9.Size = New System.Drawing.Size(319, 18)
+      Me.AcPanelCaption9.TabIndex = 26
+      '
+      'TabTrabajadores
+      '
+      Me.TabTrabajadores.Controls.Add(Me.cmbEstCivil)
+      Me.TabTrabajadores.Controls.Add(Me.Label2)
+      Me.TabTrabajadores.Controls.Add(Me.cmbSexo)
+      Me.TabTrabajadores.Controls.Add(Me.Label4)
+      Me.TabTrabajadores.Controls.Add(Me.Label3)
+      Me.TabTrabajadores.Controls.Add(Me.dtpFecNacimiento)
+      Me.TabTrabajadores.InactiveBackColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.InactiveTextColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.Location = New System.Drawing.Point(1, 24)
+      Me.TabTrabajadores.Name = "TabTrabajadores"
+      Me.TabTrabajadores.SelectBackColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.Selected = False
+      Me.TabTrabajadores.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.SelectTextColor = System.Drawing.Color.Empty
+      Me.TabTrabajadores.Size = New System.Drawing.Size(319, 139)
+      Me.TabTrabajadores.TabIndex = 8
+      Me.TabTrabajadores.Title = "Trabajadores"
+      Me.TabTrabajadores.ToolTip = "Trabajadores"
+      '
+      'cmbEstCivil
+      '
+      Me.cmbEstCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbEstCivil.FormattingEnabled = True
+      Me.cmbEstCivil.Location = New System.Drawing.Point(90, 18)
+      Me.cmbEstCivil.Name = "cmbEstCivil"
+      Me.cmbEstCivil.Size = New System.Drawing.Size(155, 23)
+      Me.cmbEstCivil.TabIndex = 26
+      '
+      'Label2
+      '
+      Me.Label2.AutoSize = True
+      Me.Label2.Location = New System.Drawing.Point(15, 22)
+      Me.Label2.Name = "Label2"
+      Me.Label2.Size = New System.Drawing.Size(74, 15)
+      Me.Label2.TabIndex = 25
+      Me.Label2.Text = "Estado Civil :"
+      '
+      'cmbSexo
+      '
+      Me.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+      Me.cmbSexo.FormattingEnabled = True
+      Me.cmbSexo.Location = New System.Drawing.Point(90, 45)
+      Me.cmbSexo.Name = "cmbSexo"
+      Me.cmbSexo.Size = New System.Drawing.Size(155, 23)
+      Me.cmbSexo.TabIndex = 28
+      '
+      'Label4
+      '
+      Me.Label4.AutoSize = True
+      Me.Label4.Location = New System.Drawing.Point(35, 49)
+      Me.Label4.Name = "Label4"
+      Me.Label4.Size = New System.Drawing.Size(51, 15)
+      Me.Label4.TabIndex = 27
+      Me.Label4.Text = "Genero :"
+      '
+      'Label3
+      '
+      Me.Label3.AutoSize = True
+      Me.Label3.Location = New System.Drawing.Point(16, 76)
+      Me.Label3.Name = "Label3"
+      Me.Label3.Size = New System.Drawing.Size(71, 15)
+      Me.Label3.TabIndex = 23
+      Me.Label3.Text = "&Fecha Nac. :"
+      '
+      'dtpFecNacimiento
+      '
+      Me.dtpFecNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+      Me.dtpFecNacimiento.Location = New System.Drawing.Point(90, 72)
+      Me.dtpFecNacimiento.Name = "dtpFecNacimiento"
+      Me.dtpFecNacimiento.Size = New System.Drawing.Size(97, 23)
+      Me.dtpFecNacimiento.TabIndex = 24
+      Me.dtpFecNacimiento.Tag = "E"
+      '
+      'tabVendedores
+      '
+      Me.tabVendedores.InactiveBackColor = System.Drawing.Color.Empty
+      Me.tabVendedores.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.tabVendedores.InactiveTextColor = System.Drawing.Color.Empty
+      Me.tabVendedores.Location = New System.Drawing.Point(1, 24)
+      Me.tabVendedores.Name = "tabVendedores"
+      Me.tabVendedores.SelectBackColor = System.Drawing.Color.Empty
+      Me.tabVendedores.Selected = False
+      Me.tabVendedores.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.tabVendedores.SelectTextColor = System.Drawing.Color.Empty
+      Me.tabVendedores.Size = New System.Drawing.Size(319, 139)
+      Me.tabVendedores.TabIndex = 9
+      Me.tabVendedores.Title = "Vendedores"
+      Me.tabVendedores.ToolTip = "Vendedores"
+      '
+      'AcPanelCaption6
+      '
+      Me.AcPanelCaption6.ACCaption = "Datos Especificos"
+      Me.AcPanelCaption6.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption6.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption6.Location = New System.Drawing.Point(0, 147)
+      Me.AcPanelCaption6.Name = "AcPanelCaption6"
+      Me.AcPanelCaption6.Size = New System.Drawing.Size(321, 18)
+      Me.AcPanelCaption6.TabIndex = 30
+      '
+      'pnlFuncionEntidad
+      '
+      Me.pnlFuncionEntidad.Controls.Add(Me.chkListTipos)
+      Me.pnlFuncionEntidad.Controls.Add(Me.AcPanelCaption2)
+      Me.pnlFuncionEntidad.Dock = System.Windows.Forms.DockStyle.Top
+      Me.pnlFuncionEntidad.Location = New System.Drawing.Point(0, 0)
+      Me.pnlFuncionEntidad.Name = "pnlFuncionEntidad"
+      Me.pnlFuncionEntidad.Size = New System.Drawing.Size(321, 147)
+      Me.pnlFuncionEntidad.TabIndex = 0
+      '
+      'chkListTipos
+      '
+      Me.chkListTipos.CheckBoxes = True
+      Me.chkListTipos.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.chkListTipos.Location = New System.Drawing.Point(0, 18)
+      Me.chkListTipos.MultiSelect = False
+      Me.chkListTipos.Name = "chkListTipos"
+      Me.chkListTipos.Scrollable = False
+      Me.chkListTipos.Size = New System.Drawing.Size(321, 129)
+      Me.chkListTipos.TabIndex = 11
+      Me.chkListTipos.Tag = "E"
+      Me.chkListTipos.UseCompatibleStateImageBehavior = False
+      Me.chkListTipos.View = System.Windows.Forms.View.List
+      '
+      'AcPanelCaption2
+      '
+      Me.AcPanelCaption2.ACCaption = "Función Entidad"
+      Me.AcPanelCaption2.Dock = System.Windows.Forms.DockStyle.Top
+      Me.AcPanelCaption2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+      Me.AcPanelCaption2.Location = New System.Drawing.Point(0, 0)
+      Me.AcPanelCaption2.Name = "AcPanelCaption2"
+      Me.AcPanelCaption2.Size = New System.Drawing.Size(321, 18)
+      Me.AcPanelCaption2.TabIndex = 10
+      '
+      'tabBusqueda
+      '
+      Me.tabBusqueda.Controls.Add(Me.c1grdBusqueda)
+      Me.tabBusqueda.Controls.Add(Me.bnavBusqueda)
+      Me.tabBusqueda.Controls.Add(Me.grpBusqueda)
+      Me.tabBusqueda.InactiveBackColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.InactiveTextBackColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.InactiveTextColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.Location = New System.Drawing.Point(1, 1)
+      Me.tabBusqueda.Name = "tabBusqueda"
+      Me.tabBusqueda.SelectBackColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.Selected = False
+      Me.tabBusqueda.SelectTextBackColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.SelectTextColor = System.Drawing.Color.Empty
+      Me.tabBusqueda.Size = New System.Drawing.Size(917, 521)
+      Me.tabBusqueda.TabIndex = 0
+      Me.tabBusqueda.Title = "Busqueda"
+      Me.tabBusqueda.ToolTip = "Busqueda"
+      '
+      'c1grdBusqueda
+      '
+      Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+      Me.c1grdBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+      Me.c1grdBusqueda.Location = New System.Drawing.Point(0, 51)
+      Me.c1grdBusqueda.Name = "c1grdBusqueda"
+      Me.c1grdBusqueda.Rows.Count = 2
+      Me.c1grdBusqueda.Rows.DefaultSize = 20
+      Me.c1grdBusqueda.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row
+      Me.c1grdBusqueda.Size = New System.Drawing.Size(917, 445)
+      Me.c1grdBusqueda.StyleInfo = resources.GetString("c1grdBusqueda.StyleInfo")
+      Me.c1grdBusqueda.TabIndex = 2
+      '
+      'bnavBusqueda
+      '
+      Me.bnavBusqueda.AddNewItem = Me.BindingNavigatorAddNewItem
+      Me.bnavBusqueda.CountItem = Me.BindingNavigatorCountItem
+      Me.bnavBusqueda.DeleteItem = Me.BindingNavigatorDeleteItem
+      Me.bnavBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
+      Me.bnavBusqueda.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
+      Me.bnavBusqueda.Location = New System.Drawing.Point(0, 496)
+      Me.bnavBusqueda.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+      Me.bnavBusqueda.MoveLastItem = Me.BindingNavigatorMoveLastItem
+      Me.bnavBusqueda.MoveNextItem = Me.BindingNavigatorMoveNextItem
+      Me.bnavBusqueda.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+      Me.bnavBusqueda.Name = "bnavBusqueda"
+      Me.bnavBusqueda.PositionItem = Me.BindingNavigatorPositionItem
+      Me.bnavBusqueda.Size = New System.Drawing.Size(917, 25)
+      Me.bnavBusqueda.TabIndex = 3
+      Me.bnavBusqueda.Text = "BindingNavigator1"
+      '
+      'BindingNavigatorAddNewItem
+      '
+      Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+      Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorAddNewItem.Text = "Add new"
+      Me.BindingNavigatorAddNewItem.Visible = False
+      '
+      'BindingNavigatorCountItem
+      '
+      Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+      Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+      Me.BindingNavigatorCountItem.Text = "of {0}"
+      Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+      '
+      'BindingNavigatorDeleteItem
+      '
+      Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+      Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorDeleteItem.Text = "Delete"
+      Me.BindingNavigatorDeleteItem.Visible = False
+      '
+      'BindingNavigatorMoveFirstItem
+      '
+      Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+      Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorMoveFirstItem.Text = "Move first"
+      '
+      'BindingNavigatorMovePreviousItem
+      '
+      Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+      Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
+      '
+      'BindingNavigatorSeparator
+      '
+      Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+      Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+      '
+      'BindingNavigatorPositionItem
+      '
+      Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+      Me.BindingNavigatorPositionItem.AutoSize = False
+      Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+      Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 21)
+      Me.BindingNavigatorPositionItem.Text = "0"
+      Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
+      '
+      'BindingNavigatorSeparator1
+      '
+      Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+      Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+      '
+      'BindingNavigatorMoveNextItem
+      '
+      Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+      Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorMoveNextItem.Text = "Move next"
+      '
+      'BindingNavigatorMoveLastItem
+      '
+      Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+      Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+      Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+      Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+      Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+      Me.BindingNavigatorMoveLastItem.Text = "Move last"
+      '
+      'BindingNavigatorSeparator2
+      '
+      Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+      Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+      '
+      'grpBusqueda
+      '
+      Me.grpBusqueda.Controls.Add(Me.txtBusqueda)
+      Me.grpBusqueda.Controls.Add(Me.rbtnRazonSocial)
+      Me.grpBusqueda.Controls.Add(Me.rbtnDocumento)
+      Me.grpBusqueda.Controls.Add(Me.rbtnNombres)
+      Me.grpBusqueda.Controls.Add(Me.rbtnCodigo)
+      Me.grpBusqueda.Dock = System.Windows.Forms.DockStyle.Top
+      Me.grpBusqueda.Location = New System.Drawing.Point(0, 0)
+      Me.grpBusqueda.Name = "grpBusqueda"
+      Me.grpBusqueda.Size = New System.Drawing.Size(917, 51)
+      Me.grpBusqueda.TabIndex = 0
+      Me.grpBusqueda.TabStop = False
+      Me.grpBusqueda.Text = "Opciones de Busqueda"
+      '
+      'txtBusqueda
+      '
+      Me.txtBusqueda.ACActivarAyudaAuto = False
+      Me.txtBusqueda.ACLongitudAceptada = 0
+      Me.txtBusqueda.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.AlfaNumerico
+      Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                  Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.txtBusqueda.Location = New System.Drawing.Point(17, 19)
+      Me.txtBusqueda.MaxLength = 32767
+      Me.txtBusqueda.Name = "txtBusqueda"
+      Me.txtBusqueda.Size = New System.Drawing.Size(545, 23)
+      Me.txtBusqueda.TabIndex = 0
+      '
+      'rbtnRazonSocial
+      '
+      Me.rbtnRazonSocial.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.rbtnRazonSocial.AutoSize = True
+      Me.rbtnRazonSocial.Location = New System.Drawing.Point(815, 20)
+      Me.rbtnRazonSocial.Name = "rbtnRazonSocial"
+      Me.rbtnRazonSocial.Size = New System.Drawing.Size(91, 19)
+      Me.rbtnRazonSocial.TabIndex = 4
+      Me.rbtnRazonSocial.Text = "Razon Social"
+      Me.rbtnRazonSocial.UseVisualStyleBackColor = True
+      '
+      'rbtnDocumento
+      '
+      Me.rbtnDocumento.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.rbtnDocumento.AutoSize = True
+      Me.rbtnDocumento.Location = New System.Drawing.Point(704, 20)
+      Me.rbtnDocumento.Name = "rbtnDocumento"
+      Me.rbtnDocumento.Size = New System.Drawing.Size(111, 19)
+      Me.rbtnDocumento.TabIndex = 3
+      Me.rbtnDocumento.Text = "Nro Documento"
+      Me.rbtnDocumento.UseVisualStyleBackColor = True
+      '
+      'rbtnNombres
+      '
+      Me.rbtnNombres.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.rbtnNombres.AutoSize = True
+      Me.rbtnNombres.Checked = True
+      Me.rbtnNombres.Location = New System.Drawing.Point(636, 20)
+      Me.rbtnNombres.Name = "rbtnNombres"
+      Me.rbtnNombres.Size = New System.Drawing.Size(74, 19)
+      Me.rbtnNombres.TabIndex = 2
+      Me.rbtnNombres.TabStop = True
+      Me.rbtnNombres.Text = "Nombres"
+      Me.rbtnNombres.UseVisualStyleBackColor = True
+      '
+      'rbtnCodigo
+      '
+      Me.rbtnCodigo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+      Me.rbtnCodigo.AutoSize = True
+      Me.rbtnCodigo.Location = New System.Drawing.Point(573, 20)
+      Me.rbtnCodigo.Name = "rbtnCodigo"
+      Me.rbtnCodigo.Size = New System.Drawing.Size(64, 19)
+      Me.rbtnCodigo.TabIndex = 1
+      Me.rbtnCodigo.Text = "Código"
+      Me.rbtnCodigo.UseVisualStyleBackColor = True
+      '
+      'acpnlTitulo
+      '
+      Me.acpnlTitulo.ACCaption = "Mantenimiento de Entidad"
+      Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
+      Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+      Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
+      Me.acpnlTitulo.Name = "acpnlTitulo"
+      Me.acpnlTitulo.Size = New System.Drawing.Size(994, 30)
+      Me.acpnlTitulo.TabIndex = 8
+      '
+      'MEntidad
+      '
+      Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+      Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+      Me.ClientSize = New System.Drawing.Size(994, 576)
+      Me.Controls.Add(Me.tabMantenimiento)
+      Me.Controls.Add(Me.acTool)
+      Me.Controls.Add(Me.acpnlTitulo)
+      Me.Name = "MEntidad"
+      Me.Text = "Mantenimiento de Entidad"
+      Me.tabMantenimiento.ResumeLayout(False)
+      Me.tabDatos.ResumeLayout(False)
+      Me.pnlDatos.ResumeLayout(False)
+      Me.SplitContainer1.Panel1.ResumeLayout(False)
+      Me.SplitContainer1.Panel2.ResumeLayout(False)
+      CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.SplitContainer1.ResumeLayout(False)
+      Me.pnlDirecciones.ResumeLayout(False)
+      Me.pnlDirecciones.PerformLayout()
+      CType(Me.c1grdDirecciones, System.ComponentModel.ISupportInitialize).EndInit()
+      CType(Me.bnavDirecciones, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.bnavDirecciones.ResumeLayout(False)
+      Me.bnavDirecciones.PerformLayout()
+      Me.pnlDatosGen.ResumeLayout(False)
+      Me.pnlDatosGen.PerformLayout()
+      Me.grpTipoEntidad.ResumeLayout(False)
+      Me.grpTipoEntidad.PerformLayout()
+      Me.tsBarra.ResumeLayout(False)
+      Me.tsBarra.PerformLayout()
+      Me.pnlDatosAuxiliares.ResumeLayout(False)
+      Me.pnlDatosAuxiliares.PerformLayout()
+      Me.pnlTelefonos.ResumeLayout(False)
+      Me.pnlTelefonos.PerformLayout()
+      CType(Me.c1grdTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
+      CType(Me.bnavTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.bnavTelefonos.ResumeLayout(False)
+      Me.bnavTelefonos.PerformLayout()
+      Me.tabAdicionales.ResumeLayout(False)
+      Me.TabClientes.ResumeLayout(False)
+      Me.TabClientes.PerformLayout()
+      Me.TabProveedores.ResumeLayout(False)
+      Me.TabProveedores.PerformLayout()
+      Me.TabConductores.ResumeLayout(False)
+      Me.TabConductores.PerformLayout()
+      Me.TabContactos.ResumeLayout(False)
+      Me.TabTrabajadores.ResumeLayout(False)
+      Me.TabTrabajadores.PerformLayout()
+      Me.pnlFuncionEntidad.ResumeLayout(False)
+      Me.tabBusqueda.ResumeLayout(False)
+      Me.tabBusqueda.PerformLayout()
+      CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+      CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+      Me.bnavBusqueda.ResumeLayout(False)
+      Me.bnavBusqueda.PerformLayout()
+      Me.grpBusqueda.ResumeLayout(False)
+      Me.grpBusqueda.PerformLayout()
+      Me.ResumeLayout(False)
+
+   End Sub
+   Private WithEvents acTool As ACControles.ACToolBarMantVertical
+   Private WithEvents tabMantenimiento As Crownwood.DotNetMagic.Controls.TabControl
+   Private WithEvents tabDatos As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents pnlDatos As System.Windows.Forms.Panel
+   Private WithEvents tabBusqueda As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents c1grdBusqueda As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents bnavBusqueda As System.Windows.Forms.BindingNavigator
+   Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
+   Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMovePreviousItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorPositionItem As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents BindingNavigatorSeparator1 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents BindingNavigatorMoveNextItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
+   Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
+   Private WithEvents grpBusqueda As System.Windows.Forms.GroupBox
+   Friend WithEvents txtBusqueda As ACControles.ACTextBoxAyuda
+   Friend WithEvents acpnlTitulo As ACControles.ACPanelCaption
+   Friend WithEvents pnlDatosGen As System.Windows.Forms.Panel
+   Friend WithEvents lblTipoDocIden As System.Windows.Forms.Label
+   Friend WithEvents lblNroDocIden As System.Windows.Forms.Label
+   Friend WithEvents cmbTipoDoc As System.Windows.Forms.ComboBox
+   Friend WithEvents actxaCodigo As ACControles.ACTextBoxAyuda
+   Friend WithEvents AcPanelCaption1 As ACControles.ACPanelCaption
+   Friend WithEvents lblTipoPersona As System.Windows.Forms.Label
+   Friend WithEvents lblCodigo As System.Windows.Forms.Label
+   Friend WithEvents rbtJuridica As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtNatural As System.Windows.Forms.RadioButton
+   Friend WithEvents txtEmail As System.Windows.Forms.TextBox
+   Friend WithEvents lblEmail As System.Windows.Forms.Label
+   Friend WithEvents actxaRazonSocial As ACControles.ACTextBoxAyuda
+   Friend WithEvents lblRazonSoc As System.Windows.Forms.Label
+   Friend WithEvents lblNombres As System.Windows.Forms.Label
+   Friend WithEvents lblApePaterno As System.Windows.Forms.Label
+   Friend WithEvents lblApeMaterno As System.Windows.Forms.Label
+   Friend WithEvents txtApeMaterno As System.Windows.Forms.TextBox
+   Friend WithEvents txtApePaterno As System.Windows.Forms.TextBox
+   Friend WithEvents txtNombres As System.Windows.Forms.TextBox
+   Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
+   Friend WithEvents tabAdicionales As Crownwood.DotNetMagic.Controls.TabControl
+   Friend WithEvents pnlFuncionEntidad As System.Windows.Forms.Panel
+   Friend WithEvents chkListTipos As System.Windows.Forms.ListView
+   Friend WithEvents AcPanelCaption2 As ACControles.ACPanelCaption
+   Friend WithEvents c1grdDirecciones As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents TabClientes As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents TabProveedores As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents TabConductores As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents TabContactos As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents Label2 As System.Windows.Forms.Label
+   Friend WithEvents cmbEstCivil As System.Windows.Forms.ComboBox
+   Friend WithEvents dtpFecNacimiento As System.Windows.Forms.DateTimePicker
+   Friend WithEvents Label3 As System.Windows.Forms.Label
+   Friend WithEvents Label4 As System.Windows.Forms.Label
+   Friend WithEvents cmbSexo As System.Windows.Forms.ComboBox
+   Friend WithEvents pnlDirecciones As System.Windows.Forms.Panel
+   Friend WithEvents bnavDirecciones As System.Windows.Forms.BindingNavigator
+   Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripLabel
+   Private WithEvents tsbtnNueDireccion As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
+   Private WithEvents tsbtnEliDireccion As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents AcPanelCaption3 As ACControles.ACPanelCaption
+   Friend WithEvents pnlDatosAuxiliares As System.Windows.Forms.Panel
+   Friend WithEvents pnlTelefonos As System.Windows.Forms.Panel
+   Friend WithEvents c1grdTelefonos As C1.Win.C1FlexGrid.C1FlexGrid
+   Friend WithEvents AcPanelCaption4 As ACControles.ACPanelCaption
+   Friend WithEvents AcPanelCaption5 As ACControles.ACPanelCaption
+   Friend WithEvents AcPanelCaption6 As ACControles.ACPanelCaption
+   Friend WithEvents AcPanelCaption8 As ACControles.ACPanelCaption
+   Friend WithEvents AcPanelCaption7 As ACControles.ACPanelCaption
+   Friend WithEvents AcPanelCaption9 As ACControles.ACPanelCaption
+   Friend WithEvents grpTipoEntidad As System.Windows.Forms.GroupBox
+   Friend WithEvents bnavTelefonos As System.Windows.Forms.BindingNavigator
+   Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripLabel
+   Private WithEvents tsbtnNueTelefono As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator6 As System.Windows.Forms.ToolStripSeparator
+   Private WithEvents tsbtnEliTelefono As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton9 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton10 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripTextBox2 As System.Windows.Forms.ToolStripTextBox
+   Friend WithEvents ToolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents ToolStripButton11 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripButton12 As System.Windows.Forms.ToolStripButton
+   Friend WithEvents AcPanelCaption10 As ACControles.ACPanelCaption
+   Friend WithEvents TabTrabajadores As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents rbtnDocumento As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtnNombres As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtnCodigo As System.Windows.Forms.RadioButton
+   Friend WithEvents rbtnRazonSocial As System.Windows.Forms.RadioButton
+   Friend WithEvents actxaNumDoc As ACControles.ACTextBoxAyuda
+   Friend WithEvents Label1 As System.Windows.Forms.Label
+   Friend WithEvents actxaDescUbigeo As ACControles.ACTextBoxAyuda
+   Friend WithEvents actxaCodUbigeo As ACControles.ACTextBoxAyuda
+   Friend WithEvents Label6 As System.Windows.Forms.Label
+   Friend WithEvents txtDireccion As System.Windows.Forms.TextBox
+   Friend WithEvents Label5 As System.Windows.Forms.Label
+   Friend WithEvents actxaNomComercial As ACControles.ACTextBoxAyuda
+   Friend WithEvents Label10 As System.Windows.Forms.Label
+   Friend WithEvents txtFax As System.Windows.Forms.TextBox
+   Friend WithEvents Label9 As System.Windows.Forms.Label
+   Friend WithEvents txtTelefono2 As System.Windows.Forms.TextBox
+   Friend WithEvents Label8 As System.Windows.Forms.Label
+   Friend WithEvents txtTelefono1 As System.Windows.Forms.TextBox
+   Friend WithEvents Label7 As System.Windows.Forms.Label
+   Friend WithEvents tabVendedores As Crownwood.DotNetMagic.Controls.TabPage
+   Friend WithEvents cmbCliVendedor As System.Windows.Forms.ComboBox
+   Friend WithEvents Label13 As System.Windows.Forms.Label
+   Friend WithEvents cmbCliTipoPercepcion As System.Windows.Forms.ComboBox
+   Friend WithEvents Label12 As System.Windows.Forms.Label
+   Friend WithEvents cmbCliListaPrecios As System.Windows.Forms.ComboBox
+   Friend WithEvents Label11 As System.Windows.Forms.Label
+   Friend WithEvents Label14 As System.Windows.Forms.Label
+   Friend WithEvents txtProvAtencion As System.Windows.Forms.TextBox
+   Friend WithEvents tsBarra As System.Windows.Forms.ToolStrip
+   Private WithEvents tsbtnRelacionados As System.Windows.Forms.ToolStripButton
+   Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+   Friend WithEvents txtLicencia As System.Windows.Forms.TextBox
+   Friend WithEvents Label15 As System.Windows.Forms.Label
+   Friend WithEvents txtSigla As System.Windows.Forms.TextBox
+   Friend WithEvents Label16 As System.Windows.Forms.Label
+End Class

@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="GENERATOR" content="VSdocman - documentation generator; http://www.helixoft.com" />
+	<title>BGenerarCotizacion.GrabarPedidoReposicionAtendida (Método)</title>
+
+	<link rel="stylesheet" type="text/css" href="msdn10_lightweight/msdn10_lightweight.css"></link>
+	<script src="msdn10_lightweight/msdn10_lightweight.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shCore_helixoft.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushVb.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCSharp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushCpp.js" type="text/javascript"></script>
+	<script src="SyntaxHighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<link href="SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="SyntaxHighlighter/styles/shThemeMsdnLW.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		SyntaxHighlighter.all();
+	</script>				
+
+	<script type="text/javascript">
+<!--
+if (self.name != "vbdocright") {
+	if (location.search != "?toc=no") {
+		var filename = location.pathname.replace(/\\/g, "/");
+		filename = filename.substring(filename.lastIndexOf('/')+1);
+		location.replace("index.html#" + filename);
+	} 
+}
+
+function replaceTitleAndUrl(win, title, url) {
+	if(history.replaceState) {
+		win.history.replaceState(null, title, url);
+	} else {
+		win.document.title = document.title;
+		win.location.replace(url);
+	}
+}
+//-->
+	</script>	
+</head>
+
+<body style="direction: ltr;">
+	<script type="text/javascript">
+		try {
+			if (location.search != "?toc=no") {
+				parent.document.title = document.title;
+				var filename = location.pathname.replace(/\\/g, "/");
+				filename = filename.substring(filename.lastIndexOf('/')+1);
+				if (window.parent.location.search == null || window.parent.location.search != "?" + filename) {
+					if (window.parent.location.hash == null || window.parent.location.hash != "#" + filename) {
+						replaceTitleAndUrl(window.parent, document.title, "index.html#" + filename);
+					}
+				}
+			}
+		} catch (ex) {}
+	</script>
+	<div id="topic">
+<!--HEADER START-->
+  <div id="header">
+  	<div id="runningHeaderText">ACBVentas Reference</div>
+  	<h1 class="title">BGenerarCotizacion.GrabarPedidoReposicionAtendida (Método)</h1>
+  	<div id="headerLinks">
+
+	<a href="#seeAlsoSection">Vea también</a>
+
+		</div>
+		<hr />
+	</div>
+<!--HEADER END-->
+    
+		<div id="mainSection">
+      <div id="mainBody">
+        <p />
+       
+        Grabar la atencion de un pedido de reposicion, el cual genera una separacion de stock en el lugar donde es atendido
+
+
+
+        <br /><strong>Ensamblado:</strong> ACBVentas (in ACBVentas.dll)
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Sintaxis</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="syntaxSection" class="section">	
+	
+	
+	<div id="syntaxCodeBlocks">
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">Public Function GrabarPedidoReposicionAtendida( _&nbsp;<br />   ByVal <i>x_usuario</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_zonas_codigo</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_sucur_id</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">Long</a>, _&nbsp;<br />   ByVal <i>x_pvent_id</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">Long</a>, _&nbsp;<br />   ByVal <i>x_almac_id</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int16.aspx">Short</a>, _&nbsp;<br />   ByRef <i>x_msg</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>, _&nbsp;<br />   ByVal <i>x_generarvariosdocumentos</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a>, _&nbsp;<br />   ByVal <i>x_items</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a>, _&nbsp;<br />   ByVal <i>x_documentos</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">Integer</a>, _&nbsp;<br />   ByVal <i>x_modreposicion</i> As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a> _&nbsp;<br />) As <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">Boolean</a></pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCsharp">
+					<pre xml:space="preserve" class="brush: csharp">public <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> GrabarPedidoReposicionAtendida(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_zonas_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> <i>x_sucur_id</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> <i>x_pvent_id</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int16.aspx">short</a> <i>x_almac_id</i>,&nbsp;<br />   ref <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> <i>x_msg</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_generarvariosdocumentos</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_items</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_documentos</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_modreposicion</i>&nbsp;<br />)</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csLastTab csNaTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeCpp">
+					<pre xml:space="preserve" class="brush: cpp">public: &nbsp;<br /><a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> GrabarPedidoReposicionAtendida(&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_usuario</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^ <i>x_zonas_codigo</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> <i>x_sucur_id</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> <i>x_pvent_id</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int16.aspx">short</a> <i>x_almac_id</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>^&amp; <i>x_msg</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_generarvariosdocumentos</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_items</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> <i>x_documentos</i>,&nbsp;<br />   <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> <i>x_modreposicion</i>&nbsp;<br />) </pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+		<div class="codeSnippetContainer">
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCorner">
+				</div>
+				<div class="codeSnippetTab csFirstTab csNaTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csActiveTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCornerActive">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeJScript">
+					<pre xml:space="preserve" class="brush: js">public function GrabarPedidoReposicionAtendida(&nbsp;<br />    <i>x_usuario</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_zonas_codigo</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_sucur_id</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a>,&nbsp;<br />    <i>x_pvent_id</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a>,&nbsp;<br />    <i>x_almac_id</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int16.aspx">short</a>,&nbsp;<br />    <i>x_msg</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">String</a>,&nbsp;<br />    <i>x_generarvariosdocumentos</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>,&nbsp;<br />    <i>x_items</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>,&nbsp;<br />    <i>x_documentos</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a>,&nbsp;<br />    <i>x_modreposicion</i> : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>&nbsp;<br />) : <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">boolean</a>;</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+<h4 class="subHeading">
+	Parámetros</h4><dl paramName="x_usuario">
+	<dt>
+		<span class="parameter">
+			x_usuario
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de usuario 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_zonas_codigo">
+	<dt>
+		<span class="parameter">
+			x_zonas_codigo
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			Codigo de la Zona 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_sucur_id">
+	<dt>
+		<span class="parameter">
+			x_sucur_id
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> 
+		</p>
+		<p>
+			Codigo de la sucursal 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_pvent_id">
+	<dt>
+		<span class="parameter">
+			x_pvent_id
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int64.aspx">long</a> 
+		</p>
+		<p>
+			codigo del punto de venta 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_almac_id">
+	<dt>
+		<span class="parameter">
+			x_almac_id
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int16.aspx">short</a> 
+		</p>
+		<p>
+			codigo del almacen 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_msg">
+	<dt>
+		<span class="parameter">
+			x_msg
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.string.aspx">string</a> 
+		</p>
+		<p>
+			mensaje devuelto en caso de existir algun inconveniente 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_generarvariosdocumentos">
+	<dt>
+		<span class="parameter">
+			x_generarvariosdocumentos
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> 
+		</p>
+		<p>
+			Opcion que permite generar varios pedidos al aceptar un solo pedido 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_items">
+	<dt>
+		<span class="parameter">
+			x_items
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
+		</p>
+		<p>
+			Numero de items que tiene el pendid 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_documentos">
+	<dt>
+		<span class="parameter">
+			x_documentos
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.int32.aspx">int</a> 
+		</p>
+		<p>
+			Numero de documentos que se esta generando 
+		</p>
+	</dd>
+</dl>
+<dl paramName="x_modreposicion">
+	<dt>
+		<span class="parameter">
+			x_modreposicion
+		</span>
+	</dt>
+	<dd>
+		<p>
+			Tipo: <a target="_top" href="http://msdn2.microsoft.com/en-us/library/system.boolean.aspx">bool</a> 
+		</p>
+		<p>
+			 
+		</p>
+	</dd>
+</dl>
+
+<p />
+<p />
+
+	<h4 class="subHeading">
+		Valor devuelto</h4>
+  Devuelve verdadero si se completa la genereacion de documentos
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Código fuente</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="sourceCodeSection" class="section">	
+		<div class="codeSnippetContainer">		
+			<div class="codeSnippetTabs">
+				<div class="codeSnippetTabLeftCornerActive">
+				</div>
+				<div class="codeSnippetTab csFirstTab csActiveTab codeVB">
+					<a>VB</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCsharp">
+					<a href="javascript: CodeSnippet_SetLanguage('Csharp');">C#</a>
+				</div>
+				<div class="codeSnippetTab csNaTab codeCpp">
+					<a href="javascript: CodeSnippet_SetLanguage('Cpp');">C++</a>
+				</div>
+				<div class="codeSnippetTab csNaTab csLastTab codeJScript">
+					<a href="javascript: CodeSnippet_SetLanguage('JScript');">JScript</a>
+				</div>
+				<div class="codeSnippetTabRightCorner">
+				</div>
+				<div style="clear:both;">
+				</div>
+			</div>
+	
+			<div class="codeSnippetCodeCollection">
+				<div class="codeSnippetToolbar">
+					<a title="Copy to clipboard." href="javascript:void(0)" onclick="CopyCode(this);">Copy</a>
+				</div>
+				
+				<div class="codeSnippetCode codeVB">
+					<pre xml:space="preserve" class="brush: vb">
+Public Function GrabarPedidoReposicionAtendida(ByVal x_usuario As String, ByVal x_zonas_codigo As String, _
+                                                ByVal x_sucur_id As Long, ByVal x_pvent_id As Long, ByVal x_almac_id As Short, ByRef x_msg As String, _
+                                                ByVal x_generarvariosdocumentos As Boolean, ByVal x_items As Integer, ByVal x_documentos As Integer, ByVal x_modreposicion As Boolean) As Boolean
+    Try
+       '' Iniciar transaccion
+       DAEnterprise.BeginTransaction()
+       If x_generarvariosdocumentos Then
+          Dim _listPedidos As New List(Of EVENT_Pedidos)
+          Dim _cont As Integer = 0
+          For index = 1 To x_documentos
+             Dim _pedido As EVENT_Pedidos = m_event_pedidos.Clone()
+             _pedido.ListDetPedidos = New List(Of EVENT_PedidosDetalle)
+             _pedido.Instanciar(ACEInstancia.Nuevo)
+             Dim _where As New Hashtable
+             _where.Add(&quot;PVENT_Id&quot;, New ACWhere(x_pvent_id))
+             _where.Add(&quot;PEDID_Tipo&quot;, New ACWhere(EVENT_Pedidos.TipoPedido.PR.ToString().Substring(1, 1)))
+             Dim m_cotizacion As New BVENT_Pedidos
+             _pedido.PEDID_Numero = m_cotizacion.getCorrelativo(&quot;PEDID_Numero&quot;, _where)
+             _pedido.PEDID_Codigo = String.Format(&quot;{0}{1:000}{2:0000000}&quot;, EVENT_Pedidos.TipoPedido.PR.ToString(), _pedido.PVENT_Id, _pedido.PEDID_Numero)
+             For item = _cont To (x_items + _cont - 1)
+                _pedido.ListDetPedidos.Add(m_event_pedidos.ListDetPedidos(item))
+                If item = m_event_pedidos.ListDetPedidos.Count - 1 Then
+                   Exit For
+                End If
+             Next
+             _cont += x_items
+             '' Grabar El Pedido
+             Dim m_bvent_pedidos As New BVENT_Pedidos() With {.VENT_Pedidos = _pedido}
+             m_bvent_pedidos.VENT_Pedidos.SUCUR_Id = x_sucur_id
+             m_bvent_pedidos.VENT_Pedidos.ZONAS_Codigo = x_zonas_codigo
+             m_bvent_pedidos.VENT_Pedidos.PVENT_Id = x_pvent_id
+             If m_bvent_pedidos.VENT_Pedidos.Nuevo Then m_bvent_pedidos.VENT_Pedidos.PEDID_Id = m_bvent_pedidos.getCorrelativo(&quot;PEDID_Id&quot;)
+             If m_bvent_pedidos.Guardar(x_usuario) Then
+                Dim i As Integer = 1
+                '' Eliminar el Detalle para volverlo a ingresar
+                Dim _whereEli As New Hashtable
+                _whereEli.Add(&quot;PEDID_Codigo&quot;, New ACWhere(m_bvent_pedidos.VENT_Pedidos.PEDID_Codigo))
+                Dim _blog_stock As New ACBLogistica.BLOG_Stocks : _blog_stock.Eliminar(_whereEli)
+                Dim _bvent_pedidosdetalle As New BVENT_PedidosDetalle : _bvent_pedidosdetalle.Eliminar(_whereEli)
+                '' Grabar los detalles
+                For Each Item As EVENT_PedidosDetalle In m_bvent_pedidos.VENT_Pedidos.ListDetPedidos
+                   Item.PEDID_Codigo = m_bvent_pedidos.VENT_Pedidos.PEDID_Codigo
+                   Item.PDDET_Item = i
+                   'Item.ALMAC_Id = x_almac_id
+                   Item.ZONAS_Codigo = m_bvent_pedidos.VENT_Pedidos.ZONAS_Codigo
+                   Item.Instanciar(ACEInstancia.Nuevo)
+                   i += 1
+                   Dim m_bvent_pedidosdetalle As New BVENT_PedidosDetalle() With {.VENT_PedidosDetalle = Item}
+                   m_bvent_pedidosdetalle.Guardar(x_usuario)
+                   If IsNothing(Item.Articulo) Then
+                      Dim _artic As New BArticulos
+                      If _artic.Cargar(Item.ARTIC_Codigo) Then
+                         Item.Articulo = _artic.Articulos
+                      Else
+                         Throw New Exception(&quot;No se puede cargar el articulo&quot;)
+                      End If
+                   End If
+                   '' Descontar Stock del Articulo si es un pedido, de forma directa
+                   Dim m_bmanejarstocks As New BManejarStock()
+                   m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                   m_bmanejarstocks.LOG_Stocks.PEDID_Codigo = Item.PEDID_Codigo
+                   m_bmanejarstocks.LOG_Stocks.PDDET_Item = Item.PDDET_Item
+                   m_bmanejarstocks.Egreso(m_periodo, Item.ARTIC_Codigo, Item.Articulo.TIPOS_CodUnidadMedida, x_almac_id, Item.PDDET_Cantidad, _
+                                           m_bvent_pedidos.VENT_Pedidos.PEDID_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaPedidoReposicion), x_usuario)
+                Next
+                '' Cambiar Estado de Facturar Pedido Anterior
+ 
+             Else
+                DAEnterprise.RollBackTransaction()
+                x_msg &amp;= String.Format(&quot;- No se completo el grabado de la cabecera del pedido{0}&quot;, vbNewLine)
+                Return False
+             End If
+          Next
+ 
+ 
+       Else
+          Dim m_bvent_pedidos As New BVENT_Pedidos() With {.VENT_Pedidos = m_event_pedidos}
+          m_bvent_pedidos.VENT_Pedidos.SUCUR_Id = x_sucur_id
+          m_bvent_pedidos.VENT_Pedidos.ZONAS_Codigo = x_zonas_codigo
+          m_bvent_pedidos.VENT_Pedidos.PVENT_Id = x_pvent_id
+          If m_bvent_pedidos.VENT_Pedidos.Nuevo Then m_bvent_pedidos.VENT_Pedidos.PEDID_Id = m_bvent_pedidos.getCorrelativo(&quot;PEDID_Id&quot;)
+          If m_bvent_pedidos.Guardar(x_usuario) Then
+             Dim i As Integer = 1
+             '' Eliminar el Detalle para volverlo a ingresar
+             Dim _whereEli As New Hashtable
+             _whereEli.Add(&quot;PEDID_Codigo&quot;, New ACWhere(m_bvent_pedidos.VENT_Pedidos.PEDID_Codigo))
+             Dim _blog_stock As New ACBLogistica.BLOG_Stocks : _blog_stock.Eliminar(_whereEli)
+             Dim _bvent_pedidosdetalle As New BVENT_PedidosDetalle : _bvent_pedidosdetalle.Eliminar(_whereEli)
+             '' Grabar los detalles
+             For Each Item As EVENT_PedidosDetalle In m_bvent_pedidos.VENT_Pedidos.ListDetPedidos
+                Item.PEDID_Codigo = m_bvent_pedidos.VENT_Pedidos.PEDID_Codigo
+                Item.PDDET_Item = i
+                'Item.ALMAC_Id = x_almac_id
+                Item.ZONAS_Codigo = m_bvent_pedidos.VENT_Pedidos.ZONAS_Codigo
+                Item.Instanciar(ACEInstancia.Nuevo)
+                i += 1
+                Dim m_bvent_pedidosdetalle As New BVENT_PedidosDetalle() With {.VENT_PedidosDetalle = Item}
+                m_bvent_pedidosdetalle.Guardar(x_usuario)
+                If IsNothing(Item.Articulo) Then
+                   Dim _artic As New BArticulos
+                   If _artic.Cargar(Item.ARTIC_Codigo) Then
+                      Item.Articulo = _artic.Articulos
+                   Else
+                      Throw New Exception(&quot;No se puede cargar el articulo&quot;)
+                   End If
+                End If
+                ' Descontar Stock del Articulo si es un pedido, de forma directa
+                Dim m_bmanejarstocks As New BManejarStock()
+                m_bmanejarstocks.LOG_Stocks = New ACELogistica.ELOG_Stocks
+                m_bmanejarstocks.LOG_Stocks.PEDID_Codigo = Item.PEDID_Codigo
+                m_bmanejarstocks.LOG_Stocks.PDDET_Item = Item.PDDET_Item
+                m_bmanejarstocks.Egreso(m_periodo, Item.ARTIC_Codigo, Item.Articulo.TIPOS_CodUnidadMedida, x_almac_id, Item.PDDET_Cantidad, _
+                                        m_bvent_pedidos.VENT_Pedidos.PEDID_FechaDocumento, ETipos.getTipo(ETipos.TMovimientoStock.SalidaPedidoReposicion), x_usuario)
+             Next
+          Else
+             DAEnterprise.RollBackTransaction()
+             x_msg &amp;= String.Format(&quot;- No se completo el grabado de la cabecera del pedido{0}&quot;, vbNewLine)
+             Return False
+          End If
+          '' Completar Operaciones adicionales con el Pedido/Cotizacion
+       End If
+       '' Culminar la transaccion
+       DAEnterprise.CommitTransaction()
+       Return True
+    Catch ex As Exception
+       DAEnterprise.RollBackTransaction()
+       Throw ex
+    End Try
+ End Function
+					</pre>			
+				</div>
+				<div class="codeSnippetCode codeNA">
+					<pre xml:space="preserve">Este idioma no es compatible o no hay ningún ejemplo de código disponible.</pre>			
+				</div>
+			</div>
+		</div>
+
+	</div>					
+</div>
+
+
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Plataformas</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="platformsSection" class="section">	
+		<p>
+			Windows 8, Windows Server 2012, Windows 7, Windows Vista SP1 or later, Windows XP SP3, Windows XP SP2 x64 Edition, Windows Server 2008 (Server Core not supported), Windows Server 2008 R2 (Server Core supported with SP1 or later), Windows Server 2003 SP2
+		</p>
+		<p>
+			.NET Framework no admite todas las versiones de cada plataforma. Para obtener una lista de las versiones admitidas, vea 
+			<a target="_top" href="http://msdn2.microsoft.com/en-us/library/298275e2-da1d-4618-9f74-6a3567832350.aspx">System Requirements</a>.
+		</p>
+	</div>					
+</div>
+
+
+
+  
+
+	
+
+	
+	
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Información de versión</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="frameworksSection" class="section">	
+  <h4 class="subHeading">.NET Framework</h4>Supported in: 4.5, 4, 3.5, 3.0, 2.0, 1.1, 1.0<br />
+
+	<h4 class="subHeading">.NET Compact Framework</h4>Supported in: 3.5, 2.0, 1.0<br />
+
+	<h4 class="subHeading">XNA Framework</h4>Supported in: 3.0, 2.0, 1.0<br />
+	
+	</div>					
+</div>
+
+<div class="section_container">
+	<div class="section_heading">
+		<span><a href="javascript:void(0)" title="Collapse" onclick="toggleSection(this);">Vea también</a></span>
+		<div><hr /></div>
+	</div>
+
+	<div id="seeAlsoSection" class="section">	
+		<div>
+			<h4 class="subHeading">
+				Referencia</h4>
+			<a href="topic_0000000000000867.html">BGenerarCotizacion (Clase)</a><br />
+<a href="topic_0000000000000867_members--.html">BGenerarCotizacion (Miembros)</a><br />
+
+
+
+
+			
+
+		</div>
+	</div>					
+</div>
+			</div>
+			</div>
+      <div id="footer">
+      	<p><span style="color: #FF0000;">Generated with unregistered version of <a target="_top" href="http://www.helixoft.com/vsdocman/overview.html">VSdocman</a></span>&nbsp;<br />Your own footer text will only be shown in registered version.</p>
+      </div>
+    </div>
+  	<script type="text/javascript">
+<!--
+	try {
+		parent.frames["vbdocswitch"].expandLinkInToc(location.href);
+	} catch (ex) {}
+//-->
+		</script>	
+  </body>
+</html>
+

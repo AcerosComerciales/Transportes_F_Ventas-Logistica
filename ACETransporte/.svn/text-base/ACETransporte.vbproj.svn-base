@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D4A40A6-2947-46F7-896B-369CF6CAF241}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ACETransporte</RootNamespace>
+    <AssemblyName>ACETransporte</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ACETransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ACETransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ACETransporte.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ACETransporte.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACELogistica">
+      <HintPath>..\..\Librerias\ACELogistica.dll</HintPath>
+    </Reference>
+    <Reference Include="ACEVentas">
+      <HintPath>..\..\Librerias\ACEVentas.dll</HintPath>
+    </Reference>
+    <Reference Include="ACFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Librerias\ACFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Esquemas\ECuadreCaja.vb" />
+    <Compile Include="Esquemas\ECuadreCaja.Parcial.vb">
+      <DependentUpon>ECuadreCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_CotizacionesFletes.vb" />
+    <Compile Include="ETRAN_CotizacionesFletes.Parcial.vb">
+      <DependentUpon>ETRAN_CotizacionesFletes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_FletePorRuta.Parcial.vb" />
+    <Compile Include="ETRAN_FletePorRuta.vb" />
+    <Compile Include="ETRAN_Piezas.Parcial.vb" />
+    <Compile Include="ETRAN_Piezas.vb" />
+    <Compile Include="ETRAN_VehiculosMantenimientoDetalle.Parcial.vb" />
+    <Compile Include="ETRAN_VehiculosMantenimientoDetalle.vb" />
+    <Compile Include="ETRAN_VehiculosMantenimientoDocCompra.Parcial.vb" />
+    <Compile Include="ETRAN_VehiculosMantenimientoDocCompra.vb" />
+    <Compile Include="ETRAN_ViajesGuiasRemision.vb" />
+    <Compile Include="ETRAN_ViajesGuiasRemision.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesGuiasRemision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_ViajesVentas.vb" />
+    <Compile Include="ETRAN_ViajesVentas.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\Constantes.vb" />
+    <Compile Include="Generales\EDocumentos.vb" />
+    <Compile Include="Generales\EDocumentos.Parcial.vb">
+      <DependentUpon>EDocumentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_CombustibleConsumo.vb" />
+    <Compile Include="ETRAN_CombustibleConsumo.Parcial.vb">
+      <DependentUpon>ETRAN_CombustibleConsumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Cotizaciones.vb" />
+    <Compile Include="ETRAN_Cotizaciones.Parcial.vb">
+      <DependentUpon>ETRAN_Cotizaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_CotizacionesDetalle.vb" />
+    <Compile Include="ETRAN_CotizacionesDetalle.Parcial.vb">
+      <DependentUpon>ETRAN_CotizacionesDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Documentos.vb" />
+    <Compile Include="ETRAN_Documentos.Parcial.vb">
+      <DependentUpon>ETRAN_Documentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_DocumentosDetalle.vb" />
+    <Compile Include="ETRAN_DocumentosDetalle.Parcial.vb">
+      <DependentUpon>ETRAN_DocumentosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Fletes.vb" />
+    <Compile Include="ETRAN_Fletes.Parcial.vb">
+      <DependentUpon>ETRAN_Fletes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_GuiasTransportista.vb" />
+    <Compile Include="ETRAN_GuiasTransportista.Parcial.vb">
+      <DependentUpon>ETRAN_GuiasTransportista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_GuiasTransportistaDetalles.vb" />
+    <Compile Include="ETRAN_GuiasTransportistaDetalles.Parcial.vb">
+      <DependentUpon>ETRAN_GuiasTransportistaDetalles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_IncidenciasViajes.vb" />
+    <Compile Include="ETRAN_IncidenciasViajes.Parcial.vb">
+      <DependentUpon>ETRAN_IncidenciasViajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_MovimientosAlmacenes.vb" />
+    <Compile Include="ETRAN_MovimientosAlmacenes.Parcial.vb">
+      <DependentUpon>ETRAN_MovimientosAlmacenes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_MovimientosNeumaticos.vb" />
+    <Compile Include="ETRAN_MovimientosNeumaticos.Parcial.vb">
+      <DependentUpon>ETRAN_MovimientosNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Neumaticos.vb" />
+    <Compile Include="ETRAN_Neumaticos.Parcial.vb">
+      <DependentUpon>ETRAN_Neumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_NeumaticosIncidencias.vb" />
+    <Compile Include="ETRAN_NeumaticosIncidencias.Parcial.vb">
+      <DependentUpon>ETRAN_NeumaticosIncidencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_OrdenesTransportes.vb" />
+    <Compile Include="ETRAN_OrdenesTransportes.Parcial.vb">
+      <DependentUpon>ETRAN_OrdenesTransportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Proveedores.vb" />
+    <Compile Include="ETRAN_Proveedores.Parcial.vb">
+      <DependentUpon>ETRAN_Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Ranflas.vb" />
+    <Compile Include="ETRAN_Ranflas.Parcial.vb">
+      <DependentUpon>ETRAN_Ranflas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Recibos.vb" />
+    <Compile Include="ETRAN_Recibos.Parcial.vb">
+      <DependentUpon>ETRAN_Recibos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Rutas.vb" />
+    <Compile Include="ETRAN_Rutas.Parcial.vb">
+      <DependentUpon>ETRAN_Rutas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Vehiculos.vb" />
+    <Compile Include="ETRAN_Vehiculos.Parcial.vb">
+      <DependentUpon>ETRAN_Vehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosConductores.vb" />
+    <Compile Include="ETRAN_VehiculosConductores.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosConductores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosIncidencias.vb" />
+    <Compile Include="ETRAN_VehiculosIncidencias.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosIncidencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosInventario.vb" />
+    <Compile Include="ETRAN_VehiculosInventario.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosInventarioDetalle.vb" />
+    <Compile Include="ETRAN_VehiculosInventarioDetalle.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosInventarioDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosMantenimiento.vb" />
+    <Compile Include="ETRAN_VehiculosMantenimiento.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosMantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosNeumaticos.vb" />
+    <Compile Include="ETRAN_VehiculosNeumaticos.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosRanflas.vb" />
+    <Compile Include="ETRAN_VehiculosRanflas.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosRanflas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_VehiculosSeguros.vb" />
+    <Compile Include="ETRAN_VehiculosSeguros.Parcial.vb">
+      <DependentUpon>ETRAN_VehiculosSeguros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_Viajes.vb" />
+    <Compile Include="ETRAN_Viajes.Parcial.vb">
+      <DependentUpon>ETRAN_Viajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_ViajesGastos.vb" />
+    <Compile Include="ETRAN_ViajesGastos.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_ViajesIngresos.vb" />
+    <Compile Include="ETRAN_ViajesIngresos.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_ViajesNeumaticos.vb" />
+    <Compile Include="ETRAN_ViajesNeumaticos.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesNeumaticos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ETRAN_ViajesVehiculos.vb" />
+    <Compile Include="ETRAN_ViajesVehiculos.Parcial.vb">
+      <DependentUpon>ETRAN_ViajesVehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Tools\EUtilitarios.vb" />
+    <Compile Include="Esquemas\ENeumaticos.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlUbigeos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlAlmacenes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlContactos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlCorrelativos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlDirecciones.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlDocumentos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlEntidades.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlParametros.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlSucursales.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTelefonos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTipos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_AlmacenesPiezas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Cajas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_CajasOperaciones.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Clientes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_CombustibleConsumo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Conductores.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Cotizaciones.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_DocPagoGuiasTransportista.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_DocumentosPagoDetalle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_DocumentosPagoFletes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_EstimacionesConsumo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Fletes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_GuiasTransportista.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_GuiasTransportistaDetalles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_IncidenciasNeumaticos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_IncidenciasVehiculos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_IncidenciasViajes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_InformesMantenimientos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_MovimientosAlmacenes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_MovimientosNeumaticos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Neumaticos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_NeumaticosFletes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_OrdenesMantenimiento.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_OrdenesTransportes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Planillas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Proveedores.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Ranflas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Reencauches.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Rutas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_SegurosVehiculos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Vehiculos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_VehiculosConductores.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_VehiculosMantenimiento.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_VehiculosNeumaticos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_VehiculosRanflas.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_Viajes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_ViajesGastos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_ViajesIngresos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_ViajesNeumaticos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlTRAN_VehiculosMantenimientoDocCompra.xml" />
+    <None Include="Resources\xmlTRAN_VehiculoMantenimientoDocCompra.xml" />
+    <None Include="Resources\xmlTRAN_FletePorRuta.xml" />
+    <None Include="Resources\xmlVENT_DocsRelacion.xml" />
+    <None Include="Resources\xmlTRAN_Piezas.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosMantenimientoDetalle.xml" />
+    <None Include="Resources\xmlTRAN_CotizacionesFletes.xml" />
+    <None Include="Resources\xmlTESO_Caja.xml" />
+    <None Include="Resources\xmlTRAN_ViajesVentas.xml" />
+    <None Include="Resources\xmlTRAN_ViajesGuiasRemision.xml" />
+    <None Include="Resources\xmlTRAN_CotizacionesDetalle.xml" />
+    <None Include="Resources\xmlTRAN_DocsVenta.xml" />
+    <None Include="Resources\xmlTRAN_DocsVentaDetalle.xml" />
+    <None Include="Resources\xmlTRAN_Recibos.xml" />
+    <None Include="Resources\xmlTRAN_ViajesVehiculos.xml" />
+    <None Include="Resources\xmlTRAN_NeumaticosIncidencias.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosInventarioDetalle.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosInventario.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosIncidencias.xml" />
+    <None Include="Resources\xmlTRAN_DocumentosDetalle.xml" />
+    <None Include="Resources\xmlTRAN_Documentos.xml" />
+    <None Include="Resources\xmlTRAN_VehiculosSeguros.xml" />
+    <None Include="Resources\xmlAuditoria.xml" />
+    <Content Include="Resources\xmlCliente.xml" />
+    <None Include="Resources\xmlClientes.xml" />
+    <Content Include="Resources\xmlEntidadesRoles.xml" />
+    <None Include="Resources\xmlEntidadRelacion.xml" />
+    <None Include="Resources\xmlProveedores.xml" />
+    <None Include="Resources\xmlPuntoVenta.xml" />
+    <Content Include="Resources\xmlRoles.xml" />
+    <None Include="Resources\xmlVENT_ListaPrecios.xml" />
+    <None Include="Resources\xmlZonas.xml" />
+    <None Include="Resources\xmlUsuariosPorPuntoVenta.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

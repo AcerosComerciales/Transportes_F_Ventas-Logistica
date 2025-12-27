@@ -1,0 +1,323 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACBVentas
+Imports ACEVentas
+Imports ACFramework
+Imports C1.Win.C1FlexGrid
+
+Public Class MAdministrar
+#Region " Variables "
+   Private managerAuditoria As BAuditoria
+   Private managerTRAN_Cotizaciones As BTRAN_Cotizaciones
+
+   Private bs_cotizaciones As BindingSource
+   Private bs_auditoria As BindingSource
+   Private bs_autorizacion As BindingSource
+
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+    Public Sub New()
+
+      ' This call is required by the Windows Form Designer.
+      InitializeComponent()
+
+      Try
+         managerAuditoria = New BAuditoria()
+         managerTRAN_Cotizaciones = New BTRAN_Cotizaciones()
+
+         formatearGrilla()
+         cargarCombos()
+
+         scnTodo.Panel2Collapsed = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Convert.ToString(Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+#End Region
+
+#Region " Metodos "
+
+   Private Sub bs_autorizacion_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_autorizacion) Then
+            txtDescripcion.Text = CType(bs_autorizacion.Current, ETipos).TIPOS_DescLarga
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError("Error: " & Me.Text, "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+   Private Sub bs_pedidos_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_cotizaciones.Current) Then
+            Dim x_codigo As String = CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).COTIZ_Codigo
+            scnTodo.Panel2Collapsed = Not CargarAutorizaciones(x_codigo)
+            If CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).COTIZ_Estado = ETRAN_Cotizaciones.getEstado(ETRAN_Cotizaciones.Estado.Ingresado) Then
+               pnlProceso.Enabled = True
+               Panel1.Enabled = True
+            Else
+               pnlProceso.Enabled = False
+               Panel1.Enabled = False
+               '   scnTodo.Panel2Collapsed = Not CargarAutorizaciones(x_codigo)
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Propiedades del Cotización/Pedido", ex)
+      End Try
+   End Sub
+
+   Private Function CargarAutorizaciones(ByVal x_pedid_codigo As String) As Boolean
+      bs_auditoria = New BindingSource()
+      Try
+         If Not managerAuditoria.VENT_AUDISS_Autorizaciones(x_pedid_codigo) Then
+            managerAuditoria.ListAuditoria = New List(Of EAuditoria)()
+         End If
+         bs_auditoria.DataSource = managerAuditoria.ListAuditoria
+         c1grdDetalle.DataSource = bs_auditoria
+         bnavBusqueda.BindingSource = bs_auditoria
+         Return managerAuditoria.ListAuditoria.Count > 0
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+#Region " Utilitarios "
+   Private Sub cargarCombos()
+      Try
+         bs_autorizacion = New BindingSource() : bs_autorizacion.DataSource = Colecciones.TiposAutorizacion(ETipos.MyTipos.Auditoria)
+         ACUtilitarios.ACCargaCombo(cmbAutorizacion, bs_autorizacion, "TIPOS_Descripcion", "TIPOS_Codigo")
+         AddHandler bs_autorizacion.CurrentChanged, AddressOf bs_autorizacion_CurrentChanged : bs_autorizacion_CurrentChanged(Nothing, Nothing)
+
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.EntidadAccesos_16x16.GetHicon)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 13, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha", "COTIZ_FechaDocumento", "COTIZ_FechaDocumento", 150, True, False, "System.DateTime") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "COTIZ_Codigo", "COTIZ_Codigo", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Documento", "TIPOS_TipoDocumento", "TIPOS_TipoDocumento", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Nro. Doc. Cli.", "ENTID_NroDocumento", "ENTID_NroDocumento", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cliente", "ENTID_Cliente", "ENTID_Cliente", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Condición", "TIPOS_CondicionPago", "TIPOS_CondicionPago", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Total Pagar", "PEDID_TotalPagar", "PEDID_TotalPagar", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Numero", "COTIZ_Numero", "COTIZ_Numero", 150, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cod. Flete", "FLETE_Id", "FLETE_Id", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "COTIZ_Estado_Text", "COTIZ_Estado_Text", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "COTIZ_Estado", "COTIZ_Estado", 150, False, False, "System.String") : index += 1
+
+         c1grdBusqueda.AllowEditing = False
+         c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+         c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+         'c1grdBusqueda.VisualStyle = VisualStyle.Office2007Blue
+         c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+
+         Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturado")
+         t.BackColor = Color.LightGreen
+         t.ForeColor = Color.DarkBlue
+         t.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturar")
+         u.BackColor = Color.Green
+         u.ForeColor = Color.White
+         u.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Anulado")
+         d.BackColor = Color.Red
+         d.ForeColor = Color.White
+         d.Font = New Font(c1grdBusqueda.Font, FontStyle.Bold)
+         c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdDetalle, 1, 1, 8, 1, 0)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Codigo", "AUDIT_Id", "AUDIT_Id", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Sucursal", "Sucursal", "Sucursal", 160, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Documento", "Documento", "Documento", 160, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Proceso", "TIPOS_Proceso", "TIPOS_Proceso", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Otorgado Por", "ENTID_Otorgado", "ENTID_Otorgado", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Confirmado Por", "ENTID_Confirmado", "ENTID_Confirmado", 110, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdDetalle, index, "Estado", "AUDIT_Estado_Text", "AUDIT_Estado_Text", 140, True, True, "System.String") : index += 1
+         c1grdDetalle.AllowEditing = True
+         c1grdDetalle.AutoResize = True
+         c1grdDetalle.Cols(0).Width = 18
+         c1grdDetalle.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdDetalle.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdDetalle.Styles.Highlight.BackColor = Color.Gray
+         c1grdDetalle.SelectionMode = SelectionModeEnum.Row
+         c1grdDetalle.AllowResizing = AllowResizingEnum.Columns
+         'c1grdDetalle.VisualStyle = VisualStyle.Office2007Blue
+         c1grdDetalle.AutoSizeCols()
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede dar formato a la grilla", ex)
+      End Try
+   End Sub
+
+   Private Function getCampo() As String
+      Try
+         If (rbtnCliente.Checked) Then
+            Return "ENTID_RazonSocial"
+         ElseIf rbtnNroCotizacion.Checked Then
+            Return "AUDIT_CodigoReferencia"
+         Else
+            Return "ENTID_RazonSocial"
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+#End Region
+
+#Region " Procesos "
+
+   ' <summary>
+   ' Ejecutar la busqueda de una cadena en la tabla Neumaticos
+   ' </summary>
+   ' <param name="x_cadena">Cadena objetivo</param>
+   ' <returns></returns>
+   Private Function busqueda(ByVal x_cadena As String) As Boolean
+      Try
+         'If txtBusqueda.ACEstadoAutoAyuda Then
+         If Not managerTRAN_Cotizaciones.Busqueda(x_cadena, getCampo(), chkTodos.Checked, AcFecha.ACDtpFecha_De.Value.Date, AcFecha.ACDtpFecha_A.Value.Date.AddDays(1), GApp.Zona, GApp.Sucursal, GApp.PuntoVenta) Then
+            managerTRAN_Cotizaciones.ListTRAN_Cotizaciones = New List(Of ETRAN_Cotizaciones)
+         End If
+         cargarDatos()
+         'End If
+         Return managerTRAN_Cotizaciones.ListTRAN_Cotizaciones.Count > 0
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+   ' <summary>
+   ' Cargar los datos en el control Visual C1FlexGrid
+   ' </summary>
+   Private Sub cargarDatos()
+      Try
+         bs_cotizaciones = New BindingSource()
+         bs_cotizaciones.DataSource = managerTRAN_Cotizaciones.ListTRAN_Cotizaciones
+         c1grdBusqueda.DataSource = bs_cotizaciones
+         bnavCotizaciones.BindingSource = bs_cotizaciones
+         AddHandler bs_cotizaciones.CurrentChanged, AddressOf bs_pedidos_CurrentChanged
+         bs_pedidos_CurrentChanged(Nothing, Nothing)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+#End Region
+
+#Region " Metodos de Controles"
+   Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+      Try
+         txtBusqueda_ACAyudaClick(Nothing, Nothing)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede realizar la consulta", ex)
+      End Try
+   End Sub
+
+#Region " Grillas "
+   Private Sub c1grdBusqueda_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdBusqueda.OwnerDrawCell
+      Try
+         'If e.Row < c1grdBusqueda.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+         'If c1grdBusqueda.Cols(e.Col).Name = "PEDID_FechaDocumento" Or c1grdBusqueda.Cols(e.Col).Name = "ENTID_Cliente" Or c1grdBusqueda.Cols(e.Col).Name = "PEDID_TotalPagar" Then
+         '   If CType(c1grdBusqueda.Rows(e.Row)("PEDID_ParaFacturar"), Boolean) Then
+         '      e.Style = c1grdBusqueda.Styles("Facturar")
+         '   End If
+         'End If
+         'If c1grdBusqueda.Rows(e.Row)("PEDID_Estado") = EVENT_Pedidos.getEstado(EVENT_Pedidos.Estado.Confirmado) Then
+         '   e.Style = c1grdBusqueda.Styles("Facturado")
+         'End If
+         'If c1grdBusqueda.Rows(e.Row)("PEDID_Estado") = EVENT_Pedidos.getEstado(EVENT_Pedidos.Estado.Anulado) Then
+         '   e.Style = c1grdBusqueda.Styles("Anulado")
+         'End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+#End Region
+
+#Region " Ayuda para el Producto "
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As Object, ByVal e As EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la Busqueda", ex)
+      End Try
+   End Sub
+
+#End Region
+#End Region
+
+   Private Sub btnAutorizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAutorizar.Click
+      Try
+         If Not IsNothing(bs_cotizaciones) Then
+            If Not IsNothing(bs_cotizaciones.Current) Then
+               If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Ingresar Autorización: {0}", Me.Text) _
+                            , String.Format("Desea Agregar la Autorización : {0}, al Documento con codigo: {1}, del Cliente {2} ", cmbAutorizacion.Text, CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).COTIZ_Codigo, CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).ENTID_Cliente) _
+                            , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                  Dim x_codigo As String = CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).COTIZ_Codigo
+                  Dim x_tipo_documento As String = ETipos.getTipoComprobante(ETipos.TipoComprobanteVenta.CotizacionTransporte)
+                  If managerAuditoria.AgregarAutorizacion(GApp.Aplicacion, GApp.Zona, GApp.Sucursal, x_tipo_documento _
+                                                          , x_codigo, GApp.EUsuarioEntidad.ENTID_Codigo, cmbAutorizacion.SelectedValue, GApp.Usuario) Then
+                     ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Agregado satisfactoriamente")
+                     scnTodo.Panel2Collapsed = Not CargarAutorizaciones(x_codigo)
+                  Else
+                     ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede agregar la Autorización")
+                  End If
+               End If
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Procesar la autorización, por que no se ha seleccionado un registro valido ")
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede procesar por que no se ha cargado ningun registro")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Autorizar Documento", ex)
+      End Try
+   End Sub
+
+   Private Sub btnAnularAutorizacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnularAutorizacion.Click
+      Try
+         If Not IsNothing(bs_auditoria) Then
+            If Not IsNothing(bs_auditoria.Current) Then
+               If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Anular Autorización: {0}", Me.Text) _
+                            , String.Format("Desea Anular la Autorización : {0}, del Documento con codigo: {1}, del Cliente {2} " _
+                                            , CType(bs_auditoria.Current, EAuditoria).TIPOS_Proceso, CType(bs_auditoria.Current, EAuditoria).AUDIT_CodigoReferencia _
+                                            , CType(bs_cotizaciones.Current, ETRAN_Cotizaciones).ENTID_Cliente) _
+                            , ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then
+                  Dim x_id As Long = CType(bs_auditoria.Current, EAuditoria).AUDIT_Id
+                  If managerAuditoria.QuitarAutorizacion(x_id, GApp.Aplicacion, GApp.Sucursal, GApp.Usuario) Then
+                     ACControles.ACDialogos.ACMostrarMensajeSatisfactorio(String.Format("Información: {0}", Me.Text), "Anulado Satisfactoriamente")
+                     bs_pedidos_CurrentChanged(Nothing, Nothing)
+                  Else
+                     ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Anular la Autorización")
+                  End If
+               End If
+            Else
+               ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede Procesar la autorización, por que no se ha seleccionado un registro valido ")
+            End If
+         Else
+            ACControles.ACDialogos.ACMostrarMensajeInformacion(String.Format("Información: {0}", Me.Text), "No se puede procesar por que no se ha cargado ningun registro")
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Anular Autorizacion del Documento", ex)
+      End Try
+   End Sub
+
+
+End Class

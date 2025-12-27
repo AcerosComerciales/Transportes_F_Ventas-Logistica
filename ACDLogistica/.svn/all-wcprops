@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACDLogistica
+END
+DABAS_Costeos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_Costeos.vb
+END
+DABAS_RelDocsCosteo.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_RelDocsCosteo.Parcial.vb
+END
+DABAS_DocsCompraDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/AcerosComerciales_ERP/!svn/ver/2134/trunk/Logistica/ACDLogistica/DABAS_DocsCompraDetalle.vb
+END
+DABAS_IngresosCompraDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_IngresosCompraDetalle.vb
+END
+DABAS_CotizacionesCompraDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_CotizacionesCompraDetalle.vb
+END
+ACDLogistica.vbproj
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/AcerosComerciales_ERP/!svn/ver/2676/trunk/Logistica/ACDLogistica/ACDLogistica.vbproj
+END
+DABAS_Costeos.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_Costeos.Parcial.vb
+END
+DABAS_DocsCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/AcerosComerciales_ERP/!svn/ver/2134/trunk/Logistica/ACDLogistica/DABAS_DocsCompra.vb
+END
+DABAS_IngresosCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/AcerosComerciales_ERP/!svn/ver/2093/trunk/Logistica/ACDLogistica/DABAS_IngresosCompra.vb
+END
+DABAS_CotizacionesCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_CotizacionesCompra.vb
+END
+DABAS_OrdenesCompraDetalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_OrdenesCompraDetalle.vb
+END
+DABAS_DocsCompraDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_DocsCompraDetalle.Parcial.vb
+END
+DABAS_IngresosCompraDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_IngresosCompraDetalle.Parcial.vb
+END
+DABAS_OrdenesCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_OrdenesCompra.vb
+END
+DABAS_CotizacionesCompraDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_CotizacionesCompraDetalle.Parcial.vb
+END
+DABAS_ListaPreciosCompra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_ListaPreciosCompra.vb
+END
+DABAS_DocsCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_DocsCompra.Parcial.vb
+END
+DABAS_IngresosCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_IngresosCompra.Parcial.vb
+END
+DABAS_CotizacionesCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_CotizacionesCompra.Parcial.vb
+END
+DABAS_OrdenesCompraDetalle.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/AcerosComerciales_ERP/!svn/ver/2086/trunk/Logistica/ACDLogistica/DABAS_OrdenesCompraDetalle.Parcial.vb
+END
+DABAS_RelDocsCosteo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_RelDocsCosteo.vb
+END
+DABAS_OrdenesCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_OrdenesCompra.Parcial.vb
+END
+DABAS_ListaPreciosCompra.Parcial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/AcerosComerciales_ERP/!svn/ver/2053/trunk/Logistica/ACDLogistica/DABAS_ListaPreciosCompra.Parcial.vb
+END

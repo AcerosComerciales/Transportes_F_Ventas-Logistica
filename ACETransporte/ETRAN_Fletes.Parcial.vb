@@ -1,0 +1,1110 @@
+Imports System
+Imports System.Data
+Imports System.Data.Common
+Imports System.Collections.Generic
+Imports System.Xml
+Imports ACFramework
+
+Partial Public Class ETRAN_Fletes
+
+#Region " Campos "
+	
+	Private m_flete_id As Long
+	Private m_rutas_id As Long
+	Private m_viaje_id As Long
+	Private m_entid_codigo As String
+    Private m_vhcon_id As Long
+    Private m_vehic_certificado As String
+    Private m_zonas_codigo As String
+	Private m_sucur_id As Short
+	Private m_pvent_id As Long
+	Private m_cotiz_codigo As String
+	Private m_tipos_codmodopago As String
+    Private m_tipos_codtipomoneda As String
+
+
+
+
+    Private flete_direccionpunto_origen As String
+    Private flete_direccionpunto_destino As String
+
+
+
+
+    Private m_flete_codigo As String
+	Private m_flete_guiaserie As String
+	Private m_flete_guianumero As Integer
+	Private m_flete_fecsalida As Date
+	Private m_flete_fecllegada As Date
+	Private m_flete_completado As Short
+	Private m_flete_glosa As String
+	Private m_flete_monto As Decimal
+	Private m_flete_totingreso As Decimal
+	Private m_flete_importeigv As Decimal
+	Private m_flete_totgasto As Decimal
+	Private m_flete_montoportm As Decimal
+	Private m_flete_pesoentm As Decimal
+	Private m_flete_estado As String
+	Private m_flete_fecprogramada As Date
+	Private m_flete_fecha As Date
+	Private m_flete_fechatransaccion As Date
+	Private m_flete_razonsocial As String
+	Private m_flete_direccion As String
+	Private m_flete_nombreruta As String
+    Private m_flete_observaciones As String
+
+    Private m_flete_ubigo_origen As String
+    Private m_flete_ubigo_destino As String
+
+    Private m_flete_valorreferencial As Decimal
+    Private m_flete_totalvalorreferencial As Decimal
+
+	Private m_flete_usrcrea As String
+	Private m_flete_feccrea As Date
+	Private m_flete_usrmod As String
+	Private m_flete_fecmod As Date
+	Private m_nuevo As Boolean
+	Private m_modificado As Boolean
+	Private m_eliminado As Boolean
+
+	Private m_hash As Hashtable
+#End Region
+
+#Region" Constructores "
+	
+	Public Sub New()
+
+		Try
+			Dim _obj As Object = ACETransporte.My.Resources.xmlTRAN_Fletes
+			Dim _xml As New XmlDocument
+			_xml.LoadXml(_obj)
+			If IsNothing(m_hash) Then
+				m_hash = New Hashtable()
+				Dim cPlantilla As XmlNodeList = _xml.GetElementsByTagName("Tabla")
+				Dim cCampos As XmlNodeList = CType(cPlantilla(0), XmlElement).GetElementsByTagName("Campos")
+				Dim Campo As XmlNodeList = CType(cCampos(0), XmlElement).GetElementsByTagName("CCampo")
+				For Each Item As XmlElement In Campo
+					m_hash.Add(Item.InnerText.ToString(), New CCampo(Item.GetAttribute("xmlns"), IIf(Item.GetAttribute("Identity") = "1", True, False), IIf(Item.GetAttribute("ForeignKey") = "1", True, False), IIf(Item.GetAttribute("PrimaryKey") = "1", True, False)))
+				Next
+			End If
+		Catch ex As Exception
+			Throw ex
+		End Try
+	End Sub
+
+#End Region
+
+#Region" Propiedades "
+	
+	Public Property FLETE_Id() As Long
+		Get
+			return m_flete_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_flete_id) Then
+				If Not m_flete_id.Equals(value) Then
+					m_flete_id = value
+					OnFLETE_IdChanged(m_flete_id, EventArgs.Empty)
+				End If
+			Else
+				m_flete_id = value
+				OnFLETE_IdChanged(m_flete_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+    Public Property RUTAS_Id() As Long
+        Get
+            Return m_rutas_id
+        End Get
+        Set(ByVal value As Long)
+            If Not IsNothing(m_rutas_id) Then
+                If Not m_rutas_id.Equals(value) Then
+                    m_rutas_id = value
+                    OnRUTAS_IdChanged(m_rutas_id, EventArgs.Empty)
+                End If
+            Else
+                m_rutas_id = value
+                OnRUTAS_IdChanged(m_rutas_id, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+    Public Property Ubigo_CodOrigen() As String
+        Get
+            Return m_flete_ubigo_origen
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_flete_ubigo_origen) Then
+                If Not m_flete_ubigo_origen.Equals(value) Then
+                    m_flete_ubigo_origen = value
+                    OnUbigoOrigenChanged(m_flete_ubigo_origen, EventArgs.Empty)
+                End If
+            Else
+                m_flete_ubigo_origen = value
+                OnUbigoOrigenChanged(m_flete_ubigo_origen, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+    Public Property Ubigo_CodDestino() As String
+        Get
+            Return m_flete_ubigo_destino
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_flete_ubigo_destino) Then
+                If Not m_flete_ubigo_destino.Equals(value) Then
+                    m_flete_ubigo_destino = value
+                    OnUbigoDestinoChanged(m_flete_ubigo_destino, EventArgs.Empty)
+                End If
+            Else
+                m_flete_ubigo_destino = value
+                OnUbigoDestinoChanged(m_flete_ubigo_destino, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+    Public Property FLETE_DireccionPuntoOrigen() As String
+        Get
+            Return flete_direccionpunto_origen
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(flete_direccionpunto_origen) Then
+                If Not flete_direccionpunto_origen.Equals(value) Then
+                    flete_direccionpunto_origen = value
+                    OnUbigoDestinoChanged(flete_direccionpunto_origen, EventArgs.Empty)
+                End If
+            Else
+                flete_direccionpunto_origen = value
+                OnUbigoDestinoChanged(flete_direccionpunto_origen, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+
+    Public Property FLETE_DireccionPuntoDestino() As String
+        Get
+            Return flete_direccionpunto_destino
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(flete_direccionpunto_destino) Then
+                If Not flete_direccionpunto_destino.Equals(value) Then
+                    flete_direccionpunto_destino = value
+                    OnUbigoDestinoChanged(flete_direccionpunto_destino, EventArgs.Empty)
+                End If
+            Else
+                flete_direccionpunto_destino = value
+                OnUbigoDestinoChanged(flete_direccionpunto_destino, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+
+    Public Property VIAJE_Id() As Long
+		Get
+			return m_viaje_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_viaje_id) Then
+				If Not m_viaje_id.Equals(value) Then
+					m_viaje_id = value
+					OnVIAJE_IdChanged(m_viaje_id, EventArgs.Empty)
+				End If
+			Else
+				m_viaje_id = value
+				OnVIAJE_IdChanged(m_viaje_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property ENTID_Codigo() As String
+		Get
+			return m_entid_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_entid_codigo) Then
+				If Not m_entid_codigo.Equals(value) Then
+					m_entid_codigo = value
+					OnENTID_CodigoChanged(m_entid_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_entid_codigo = value
+				OnENTID_CodigoChanged(m_entid_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+    Public Property VHCON_Id() As Long
+        Get
+            Return m_vhcon_id
+        End Get
+        Set(ByVal value As Long)
+            If Not IsNothing(m_vhcon_id) Then
+                If Not m_vhcon_id.Equals(value) Then
+                    m_vhcon_id = value
+                    OnVHCON_IdChanged(m_vhcon_id, EventArgs.Empty)
+                End If
+            Else
+                m_vehic_certificado = value
+                OnVHCON_IdChanged(m_vhcon_id, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+    'VEHIC_Certificado
+
+    Public Property VEHIC_Certificado() As String
+        Get
+            Return m_vehic_certificado
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_vehic_certificado) Then
+                If Not m_vehic_certificado.Equals(value) Then
+                    m_vehic_certificado = value
+                    OnVEHIC_CertificadoChanged(m_vehic_certificado, EventArgs.Empty)
+                End If
+            Else
+                m_vehic_certificado = value
+                OnVEHIC_CertificadoChanged(m_vehic_certificado, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+
+    Public Property ZONAS_Codigo() As String
+		Get
+			return m_zonas_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_zonas_codigo) Then
+				If Not m_zonas_codigo.Equals(value) Then
+					m_zonas_codigo = value
+					OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_zonas_codigo = value
+				OnZONAS_CodigoChanged(m_zonas_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property SUCUR_Id() As Short
+		Get
+			return m_sucur_id
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_sucur_id) Then
+				If Not m_sucur_id.Equals(value) Then
+					m_sucur_id = value
+					OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+				End If
+			Else
+				m_sucur_id = value
+				OnSUCUR_IdChanged(m_sucur_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property PVENT_Id() As Long
+		Get
+			return m_pvent_id
+		End Get
+		Set(ByVal value As Long)
+			If Not IsNothing(m_pvent_id) Then
+				If Not m_pvent_id.Equals(value) Then
+					m_pvent_id = value
+					OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+				End If
+			Else
+				m_pvent_id = value
+				OnPVENT_IdChanged(m_pvent_id, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property COTIZ_Codigo() As String
+		Get
+			return m_cotiz_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_cotiz_codigo) Then
+				If Not m_cotiz_codigo.Equals(value) Then
+					m_cotiz_codigo = value
+					OnCOTIZ_CodigoChanged(m_cotiz_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_cotiz_codigo = value
+				OnCOTIZ_CodigoChanged(m_cotiz_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodModoPago() As String
+		Get
+			return m_tipos_codmodopago
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codmodopago) Then
+				If Not m_tipos_codmodopago.Equals(value) Then
+					m_tipos_codmodopago = value
+					OnTIPOS_CodModoPagoChanged(m_tipos_codmodopago, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codmodopago = value
+				OnTIPOS_CodModoPagoChanged(m_tipos_codmodopago, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property TIPOS_CodTipoMoneda() As String
+		Get
+			return m_tipos_codtipomoneda
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_tipos_codtipomoneda) Then
+				If Not m_tipos_codtipomoneda.Equals(value) Then
+					m_tipos_codtipomoneda = value
+					OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+				End If
+			Else
+				m_tipos_codtipomoneda = value
+				OnTIPOS_CodTipoMonedaChanged(m_tipos_codtipomoneda, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Codigo() As String
+		Get
+			return m_flete_codigo
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_codigo) Then
+				If Not m_flete_codigo.Equals(value) Then
+					m_flete_codigo = value
+					OnFLETE_CodigoChanged(m_flete_codigo, EventArgs.Empty)
+				End If
+			Else
+				m_flete_codigo = value
+				OnFLETE_CodigoChanged(m_flete_codigo, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_GuiaSerie() As String
+		Get
+			return m_flete_guiaserie
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_guiaserie) Then
+				If Not m_flete_guiaserie.Equals(value) Then
+					m_flete_guiaserie = value
+					OnFLETE_GuiaSerieChanged(m_flete_guiaserie, EventArgs.Empty)
+				End If
+			Else
+				m_flete_guiaserie = value
+				OnFLETE_GuiaSerieChanged(m_flete_guiaserie, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_GuiaNumero() As Integer
+		Get
+			return m_flete_guianumero
+		End Get
+		Set(ByVal value As Integer)
+			If Not IsNothing(m_flete_guianumero) Then
+				If Not m_flete_guianumero.Equals(value) Then
+					m_flete_guianumero = value
+					OnFLETE_GuiaNumeroChanged(m_flete_guianumero, EventArgs.Empty)
+				End If
+			Else
+				m_flete_guianumero = value
+				OnFLETE_GuiaNumeroChanged(m_flete_guianumero, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_FecSalida() As Date
+		Get
+			return m_flete_fecsalida
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_flete_fecsalida) Then
+				If Not m_flete_fecsalida.Equals(value) Then
+					m_flete_fecsalida = value
+					OnFLETE_FecSalidaChanged(m_flete_fecsalida, EventArgs.Empty)
+				End If
+			Else
+				m_flete_fecsalida = value
+				OnFLETE_FecSalidaChanged(m_flete_fecsalida, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_FecLlegada() As Date
+		Get
+			return m_flete_fecllegada
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_flete_fecllegada) Then
+				If Not m_flete_fecllegada.Equals(value) Then
+					m_flete_fecllegada = value
+					OnFLETE_FecLlegadaChanged(m_flete_fecllegada, EventArgs.Empty)
+				End If
+			Else
+				m_flete_fecllegada = value
+				OnFLETE_FecLlegadaChanged(m_flete_fecllegada, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Completado() As Short
+		Get
+			return m_flete_completado
+		End Get
+		Set(ByVal value As Short)
+			If Not IsNothing(m_flete_completado) Then
+				If Not m_flete_completado.Equals(value) Then
+					m_flete_completado = value
+					OnFLETE_CompletadoChanged(m_flete_completado, EventArgs.Empty)
+				End If
+			Else
+				m_flete_completado = value
+				OnFLETE_CompletadoChanged(m_flete_completado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Glosa() As String
+		Get
+			return m_flete_glosa
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_glosa) Then
+				If Not m_flete_glosa.Equals(value) Then
+					m_flete_glosa = value
+					OnFLETE_GlosaChanged(m_flete_glosa, EventArgs.Empty)
+				End If
+			Else
+				m_flete_glosa = value
+				OnFLETE_GlosaChanged(m_flete_glosa, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Monto() As Decimal
+		Get
+			return m_flete_monto
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_monto) Then
+				If Not m_flete_monto.Equals(value) Then
+					m_flete_monto = value
+					OnFLETE_MontoChanged(m_flete_monto, EventArgs.Empty)
+				End If
+			Else
+				m_flete_monto = value
+				OnFLETE_MontoChanged(m_flete_monto, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_TotIngreso() As Decimal
+		Get
+			return m_flete_totingreso
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_totingreso) Then
+				If Not m_flete_totingreso.Equals(value) Then
+					m_flete_totingreso = value
+					OnFLETE_TotIngresoChanged(m_flete_totingreso, EventArgs.Empty)
+				End If
+			Else
+				m_flete_totingreso = value
+				OnFLETE_TotIngresoChanged(m_flete_totingreso, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_ImporteIgv() As Decimal
+		Get
+			return m_flete_importeigv
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_importeigv) Then
+				If Not m_flete_importeigv.Equals(value) Then
+					m_flete_importeigv = value
+					OnFLETE_ImporteIgvChanged(m_flete_importeigv, EventArgs.Empty)
+				End If
+			Else
+				m_flete_importeigv = value
+				OnFLETE_ImporteIgvChanged(m_flete_importeigv, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_TotGasto() As Decimal
+		Get
+			return m_flete_totgasto
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_totgasto) Then
+				If Not m_flete_totgasto.Equals(value) Then
+					m_flete_totgasto = value
+					OnFLETE_TotGastoChanged(m_flete_totgasto, EventArgs.Empty)
+				End If
+			Else
+				m_flete_totgasto = value
+				OnFLETE_TotGastoChanged(m_flete_totgasto, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_MontoPorTM() As Decimal
+		Get
+			return m_flete_montoportm
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_montoportm) Then
+				If Not m_flete_montoportm.Equals(value) Then
+					m_flete_montoportm = value
+					OnFLETE_MontoPorTMChanged(m_flete_montoportm, EventArgs.Empty)
+				End If
+			Else
+				m_flete_montoportm = value
+				OnFLETE_MontoPorTMChanged(m_flete_montoportm, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_PesoEnTM() As Decimal
+		Get
+			return m_flete_pesoentm
+		End Get
+		Set(ByVal value As Decimal)
+			If Not IsNothing(m_flete_pesoentm) Then
+				If Not m_flete_pesoentm.Equals(value) Then
+					m_flete_pesoentm = value
+					OnFLETE_PesoEnTMChanged(m_flete_pesoentm, EventArgs.Empty)
+				End If
+			Else
+				m_flete_pesoentm = value
+				OnFLETE_PesoEnTMChanged(m_flete_pesoentm, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Estado() As String
+		Get
+			return m_flete_estado
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_estado) Then
+				If Not m_flete_estado.Equals(value) Then
+					m_flete_estado = value
+					OnFLETE_EstadoChanged(m_flete_estado, EventArgs.Empty)
+				End If
+			Else
+				m_flete_estado = value
+				OnFLETE_EstadoChanged(m_flete_estado, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_FecProgramada() As Date
+		Get
+			return m_flete_fecprogramada
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_flete_fecprogramada) Then
+				If Not m_flete_fecprogramada.Equals(value) Then
+					m_flete_fecprogramada = value
+					OnFLETE_FecProgramadaChanged(m_flete_fecprogramada, EventArgs.Empty)
+				End If
+			Else
+				m_flete_fecprogramada = value
+				OnFLETE_FecProgramadaChanged(m_flete_fecprogramada, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Fecha() As Date
+		Get
+			return m_flete_fecha
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_flete_fecha) Then
+				If Not m_flete_fecha.Equals(value) Then
+					m_flete_fecha = value
+					OnFLETE_FechaChanged(m_flete_fecha, EventArgs.Empty)
+				End If
+			Else
+				m_flete_fecha = value
+				OnFLETE_FechaChanged(m_flete_fecha, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_FechaTransaccion() As Date
+		Get
+			return m_flete_fechatransaccion
+		End Get
+		Set(ByVal value As Date)
+			If Not IsNothing(m_flete_fechatransaccion) Then
+				If Not m_flete_fechatransaccion.Equals(value) Then
+					m_flete_fechatransaccion = value
+					OnFLETE_FechaTransaccionChanged(m_flete_fechatransaccion, EventArgs.Empty)
+				End If
+			Else
+				m_flete_fechatransaccion = value
+				OnFLETE_FechaTransaccionChanged(m_flete_fechatransaccion, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_RazonSocial() As String
+		Get
+			return m_flete_razonsocial
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_razonsocial) Then
+				If Not m_flete_razonsocial.Equals(value) Then
+					m_flete_razonsocial = value
+					OnFLETE_RazonSocialChanged(m_flete_razonsocial, EventArgs.Empty)
+				End If
+			Else
+				m_flete_razonsocial = value
+				OnFLETE_RazonSocialChanged(m_flete_razonsocial, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Direccion() As String
+		Get
+			return m_flete_direccion
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_direccion) Then
+				If Not m_flete_direccion.Equals(value) Then
+					m_flete_direccion = value
+					OnFLETE_DireccionChanged(m_flete_direccion, EventArgs.Empty)
+				End If
+			Else
+				m_flete_direccion = value
+				OnFLETE_DireccionChanged(m_flete_direccion, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_NombreRuta() As String
+		Get
+			return m_flete_nombreruta
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_nombreruta) Then
+				If Not m_flete_nombreruta.Equals(value) Then
+					m_flete_nombreruta = value
+					OnFLETE_NombreRutaChanged(m_flete_nombreruta, EventArgs.Empty)
+				End If
+			Else
+				m_flete_nombreruta = value
+				OnFLETE_NombreRutaChanged(m_flete_nombreruta, EventArgs.Empty)
+			End If
+		End Set
+	End Property
+
+	Public Property FLETE_Observaciones() As String
+		Get
+			return m_flete_observaciones
+		End Get
+		Set(ByVal value As String)
+			If Not IsNothing(m_flete_observaciones) Then
+				If Not m_flete_observaciones.Equals(value) Then
+					m_flete_observaciones = value
+					OnFLETE_ObservacionesChanged(m_flete_observaciones, EventArgs.Empty)
+				End If
+			Else
+				m_flete_observaciones = value
+				OnFLETE_ObservacionesChanged(m_flete_observaciones, EventArgs.Empty)
+			End If
+		End Set
+    End Property
+    Public Property FLETE_ValorReferencial() As Decimal
+        Get
+            Return m_flete_valorreferencial
+        End Get
+        Set(ByVal value As Decimal)
+            If Not IsNothing(m_flete_valorreferencial) Then
+                If Not m_flete_valorreferencial.Equals(value) Then
+                    m_flete_valorreferencial = value
+                    OnFLETE_ValorReferencialChanged(m_flete_valorreferencial, EventArgs.Empty)
+                End If
+            Else
+                m_flete_valorreferencial = value
+                OnFLETE_ValorReferencialChanged(m_flete_valorreferencial, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+    Public Property FLETE_TotalValorReferencial() As Decimal
+        Get
+            Return m_flete_totalvalorreferencial
+        End Get
+        Set(ByVal value As Decimal)
+            If Not IsNothing(m_flete_totalvalorreferencial) Then
+                If Not m_flete_totalvalorreferencial.Equals(value) Then
+                    m_flete_totalvalorreferencial = value
+                    OnFLETE_TotalValorReferencialChanged(m_flete_totalvalorreferencial, EventArgs.Empty)
+                End If
+            Else
+                m_flete_valorreferencial = value
+                OnFLETE_TotalValorReferencialChanged(m_flete_totalvalorreferencial, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+
+	Public Property FLETE_UsrCrea() As String
+		Get
+			return m_flete_usrcrea
+		End Get
+		Set(ByVal value As String)
+			m_flete_usrcrea = value
+		End Set
+	End Property
+
+	Public Property FLETE_FecCrea() As Date
+		Get
+			return m_flete_feccrea
+		End Get
+		Set(ByVal value As Date)
+			m_flete_feccrea = value
+		End Set
+	End Property
+
+	Public Property FLETE_UsrMod() As String
+		Get
+			return m_flete_usrmod
+		End Get
+		Set(ByVal value As String)
+			m_flete_usrmod = value
+		End Set
+	End Property
+
+	Public Property FLETE_FecMod() As Date
+		Get
+			return m_flete_fecmod
+		End Get
+		Set(ByVal value As Date)
+			m_flete_fecmod = value
+		End Set
+	End Property
+
+	#Region " Propiedades de Solo Lectura "
+
+	Public ReadOnly Property Nuevo() As Boolean
+		Get
+			return m_nuevo
+		End Get
+	End Property
+
+	Public ReadOnly Property Modificado() As Boolean
+		Get
+			return m_modificado
+		End Get
+	End Property
+
+	Public ReadOnly Property Eliminado() As Boolean
+		Get
+			return m_eliminado
+		End Get
+	End Property
+
+	Public ReadOnly Property Hash() As Hashtable
+		Get
+			return m_hash
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Tabla() As String
+		Get
+			Return "TRAN_Fletes"
+		End Get
+	End Property
+
+	Public Shared ReadOnly Property Esquema() As String
+		Get
+			Return "Transportes"
+		End Get
+	End Property
+
+	#End Region
+
+#End Region
+
+#Region " Eventos "
+	
+	Public Event FLETE_IdChanged As EventHandler
+    Public Event RUTAS_IdChanged As EventHandler
+    Public Event UBIGO_OrigenChanged As EventHandler
+    Public Event UBIGO_DestinoChanged As EventHandler
+
+
+    Public Event Flete_DireccionPuntoOrigenChanged As EventHandler
+    Public Event Flete_DireccionPuntoDestinoChanged As EventHandler
+    Public Event VIAJE_IdChanged As EventHandler
+	Public Event ENTID_CodigoChanged As EventHandler
+    Public Event VHCON_IdChanged As EventHandler
+    Public Event VEHIC_CertificadoChanged As EventHandler
+    Public Event ZONAS_CodigoChanged As EventHandler
+	Public Event SUCUR_IdChanged As EventHandler
+	Public Event PVENT_IdChanged As EventHandler
+	Public Event COTIZ_CodigoChanged As EventHandler
+	Public Event TIPOS_CodModoPagoChanged As EventHandler
+	Public Event TIPOS_CodTipoMonedaChanged As EventHandler
+	Public Event FLETE_CodigoChanged As EventHandler
+	Public Event FLETE_GuiaSerieChanged As EventHandler
+	Public Event FLETE_GuiaNumeroChanged As EventHandler
+	Public Event FLETE_FecSalidaChanged As EventHandler
+	Public Event FLETE_FecLlegadaChanged As EventHandler
+	Public Event FLETE_CompletadoChanged As EventHandler
+	Public Event FLETE_GlosaChanged As EventHandler
+	Public Event FLETE_MontoChanged As EventHandler
+	Public Event FLETE_TotIngresoChanged As EventHandler
+	Public Event FLETE_ImporteIgvChanged As EventHandler
+	Public Event FLETE_TotGastoChanged As EventHandler
+	Public Event FLETE_MontoPorTMChanged As EventHandler
+	Public Event FLETE_PesoEnTMChanged As EventHandler
+	Public Event FLETE_EstadoChanged As EventHandler
+	Public Event FLETE_FecProgramadaChanged As EventHandler
+	Public Event FLETE_FechaChanged As EventHandler
+	Public Event FLETE_FechaTransaccionChanged As EventHandler
+	Public Event FLETE_RazonSocialChanged As EventHandler
+	Public Event FLETE_DireccionChanged As EventHandler
+	Public Event FLETE_NombreRutaChanged As EventHandler
+    Public Event FLETE_ObservacionesChanged As EventHandler
+
+    Public Event FLETE_ValorReferencialChanged As EventHandler
+    Public Event FLETE_TotalValorReferencialChanged As EventHandler
+
+	Public Sub OnFLETE_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_IdChanged(sender, e)
+	End Sub
+
+    Public Sub OnRUTAS_IdChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent RUTAS_IdChanged(sender, e)
+    End Sub
+    Public Sub OnUbigoOrigenChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent UBIGO_OrigenChanged(sender, e)
+    End Sub
+    Public Sub OnUbigoDestinoChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent UBIGO_DestinoChanged(sender, e)
+    End Sub
+    Public Sub OnFlete_DireccionOrigenChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent Flete_DireccionPuntoOrigenChanged(sender, e)
+    End Sub
+    Public Sub OnFlete_DireccionDestinoChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent Flete_DireccionPuntoDestinoChanged(sender, e)
+    End Sub
+
+    Public Sub OnVIAJE_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent VIAJE_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnENTID_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ENTID_CodigoChanged(sender, e)
+	End Sub
+
+    Public Sub OnVHCON_IdChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent VHCON_IdChanged(sender, e)
+    End Sub
+    Public Sub OnVEHIC_CertificadoChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent VEHIC_CertificadoChanged(sender, e)
+    End Sub
+
+    Public Sub OnZONAS_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent ZONAS_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnSUCUR_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent SUCUR_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnPVENT_IdChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent PVENT_IdChanged(sender, e)
+	End Sub
+
+	Public Sub OnCOTIZ_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent COTIZ_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodModoPagoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodModoPagoChanged(sender, e)
+	End Sub
+
+	Public Sub OnTIPOS_CodTipoMonedaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent TIPOS_CodTipoMonedaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_CodigoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_CodigoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_GuiaSerieChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_GuiaSerieChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_GuiaNumeroChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_GuiaNumeroChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_FecSalidaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_FecSalidaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_FecLlegadaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_FecLlegadaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_CompletadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_CompletadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_GlosaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_GlosaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_MontoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_MontoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_TotIngresoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_TotIngresoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_ImporteIgvChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_ImporteIgvChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_TotGastoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_TotGastoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_MontoPorTMChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_MontoPorTMChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_PesoEnTMChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_PesoEnTMChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_EstadoChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_EstadoChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_FecProgramadaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_FecProgramadaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_FechaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_FechaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_FechaTransaccionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_FechaTransaccionChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_RazonSocialChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_RazonSocialChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_DireccionChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_DireccionChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_NombreRutaChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_NombreRutaChanged(sender, e)
+	End Sub
+
+	Public Sub OnFLETE_ObservacionesChanged(ByVal sender As object, ByVal e As EventArgs)
+		ActualizarInstancia()
+		RaiseEvent FLETE_ObservacionesChanged(sender, e)
+    End Sub
+    Public Sub OnFLETE_ValorReferencialChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent FLETE_ValorReferencialChanged(sender, e)
+    End Sub
+    Public Sub OnFLETE_TotalValorReferencialChanged(ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent FLETE_TotalValorReferencialChanged(sender, e)
+    End Sub
+
+
+#End Region
+
+#Region " Metodos "
+	
+	Public Sub Instanciar(ByVal x_instancia As ACEInstancia)
+		Select Case x_instancia
+			Case ACEInstancia.Consulta
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Nuevo
+				m_nuevo = True
+				m_modificado = False
+				m_eliminado = False
+			Case ACEInstancia.Modificado
+				m_nuevo = False
+				m_modificado = True
+				m_eliminado = False
+			Case ACEInstancia.Eliminado
+				m_nuevo = False
+				m_modificado = False
+				m_eliminado = True
+		End Select
+	End Sub
+
+	Public Sub ActualizarInstancia()
+		If Not Nuevo Then
+			If Not Eliminado Then
+				Instanciar(ACEInstancia.Modificado)
+			End If
+		End If
+	End Sub
+
+#End Region
+
+End Class
+

@@ -1,0 +1,353 @@
+﻿Imports ACBTransporte
+Imports ACETransporte
+Imports ACFramework
+
+Imports ACEVentas
+Imports ACBVentas
+Imports ACELogistica
+
+Imports C1.Win.C1FlexGrid
+Imports EVENT_DocsVenta = ACEVentas.EVENT_DocsVenta 'se agrego esto para que no bote errro de ambiguedad x frank 
+
+Public Class CFacturasGuias
+#Region " Variables "
+   Private managerGenerarGuias As ACBTransporte.BGenerarGuias
+    Private managerVENT_DocsVenta As BVENT_DocsVenta
+    Private managerGenerarDocsVenta As BGenerarDocsVentaTrans
+   Private managerEntidades As BEntidades
+
+   Private bs_eabas_docscompra As BindingSource
+   Private bs_tdocbus As BindingSource
+   Private bs_etran_guiastransportista As BindingSource
+#End Region
+
+#Region " Propiedades "
+
+#End Region
+
+#Region " Constructores "
+   Public Sub New()
+
+      ' This call is required by the designer.
+      InitializeComponent()
+
+      ' Add any initialization after the InitializeComponent() call.
+      Try
+         Inicializacion()
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "No se puede cargar los controles iniciales", ex)
+      End Try
+   End Sub
+
+   Private Sub Inicializacion()
+      Try
+
+         managerEntidades = New BEntidades
+         managerGenerarGuias = New ACBTransporte.BGenerarGuias
+         managerVENT_DocsVenta = New BVENT_DocsVenta
+         managerGenerarDocsVenta = New BGenerarDocsVentaTrans(GApp.PuntoVenta, GApp.Periodo, GApp.Zona, GApp.Sucursal)
+
+         formatearGrilla()
+         cargarCombos()
+
+         rbtnDocVenta.Enabled = False
+
+         Me.Icon = Icon.FromHandle(ACPTransportes.My.Resources.Listado_16x16.GetHicon)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos "
+
+   Private Sub cargarCombos()
+      Try
+
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+
+   Private Sub formatearGrilla()
+      Dim index As Integer = 1
+      Try
+           ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdBusqueda, 1, 1, 12, 1, 1)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Fecha", "DOCCO_FechaDocumento", "DOCCO_FechaDocumento", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Codigo", "DOCCO_Codigo", "DOCCO_Codigo", 150, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Documento", "Documento", "Documento", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Orden", "CodigoOrden", "CodigoOrden", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Cod. Proveedor", "ENTID_CodigoProveedor", "ENTID_CodigoProveedor", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Proveedor", "ENTID_Proveedor", "ENTID_Proveedor", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Moneda", "TIPOS_TipoMoneda", "TIPOS_TipoMoneda", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Total Compra", "DOCCO_TotalCompra", "DOCCO_TotalCompra", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Tipo Pago", "TIPOS_TipoPago", "TIPOS_TipoPago", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "DOCCO_Estado_Text", "DOCCO_Estado_Text", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdBusqueda, index, "Estado", "DOCCO_Estado", "DOCCO_Estado", 150, False, False, "System.String") : index += 1
+
+         c1grdBusqueda.AllowEditing = False
+         c1grdBusqueda.AllowSorting = AllowSortingEnum.SingleColumn
+         c1grdBusqueda.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdBusqueda.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdBusqueda.Styles.Highlight.BackColor = Color.Gray
+         c1grdBusqueda.SelectionMode = SelectionModeEnum.Row
+
+         Dim t As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturado")
+         t.BackColor = Color.LightGreen
+         t.ForeColor = Color.DarkBlue
+         t.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim u As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Facturar")
+         u.BackColor = Color.Green
+         u.ForeColor = Color.White
+         u.Font = New Font(c1grdBusqueda.Font, FontStyle.Regular)
+
+         Dim d As C1.Win.C1FlexGrid.CellStyle = c1grdBusqueda.Styles.Add("Anulado")
+         d.BackColor = Color.Red
+         d.ForeColor = Color.White
+         d.Font = New Font(c1grdBusqueda.Font, FontStyle.Bold)
+         c1grdBusqueda.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+
+         index = 1
+         ACFrameworkC1.ACUtilitarios.ACFormatearGrilla(c1grdGuias, 1, 1, 17, 1, 1)
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Fecha Emisión", "GTRAN_Fecha", "GTRAN_Fecha", 150, True, False, "System.DateTime", Parametros.GetParametro(EParametros.TipoParametros.pg_FormatoFecha)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Codigo", "GTRAN_Codigo", "GTRAN_Codigo", 150, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Nro. Guia", "NroGuia", "NroGuia", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Comprobante", "DocComprobante", "TipoComprobante", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Fecha Traslado", "GTRAN_FechaTraslado", "GTRAN_FechaTraslado", 150, True, False, "System.DateTime") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Direccion Partida", "GTRAN_DireccionProveedor", "GTRAN_DireccionProveedor", 150, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Direccion Llegada", "GTRAN_DireccionDestinatario", "GTRAN_DireccionDestinatario", 150, False, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Doc. Proveedor", "GTRAN_RucProveedor", "GTRAN_RucProveedor", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Proveedor", "GTRAN_DescEntidadProveedor", "GTRAN_DescEntidadProveedor", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Transportista", "ENTID_Transportista", "ENTID_Transportista", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Conductor", "ENTID_Conductor", "ENTID_Conductor", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Vehiculo", "GTRAN_DescripcionVehiculo", "GTRAN_DescripcionVehiculo", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Nro.Pedido", "GTRAN_NroPedido", "GTRAN_NroPedido", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Total Peso", "GTRAN_PesoTotal", "GTRAN_PesoTotal", 150, True, False, "System.Decimal", Parametros.GetParametro(EParametros.TipoParametros.pg_FMondo2d)) : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Estado", "GTRAN_Estado_Text", "GTRAN_Estado_Text", 150, True, False, "System.String") : index += 1
+         ACFrameworkC1.ACUtilitarios.ACAgregarColumna(c1grdGuias, index, "Estado", "GTRAN_Estado", "GTRAN_Estado", 150, False, False, "System.String") : index += 1
+
+         c1grdGuias.AllowEditing = False
+         c1grdGuias.AllowSorting = AllowSortingEnum.SingleColumn
+         c1grdGuias.Styles.Alternate.BackColor = Color.WhiteSmoke
+         c1grdGuias.Styles.Fixed.TextAlign = TextAlignEnum.CenterCenter
+         c1grdGuias.Styles.Highlight.BackColor = Color.Gray
+         c1grdGuias.SelectionMode = SelectionModeEnum.Row
+
+         Dim t1 As C1.Win.C1FlexGrid.CellStyle = c1grdGuias.Styles.Add("Facturado")
+         t1.BackColor = Color.LightGreen
+         t1.ForeColor = Color.DarkBlue
+         t1.Font = New Font(c1grdGuias.Font, FontStyle.Regular)
+
+         Dim u1 As C1.Win.C1FlexGrid.CellStyle = c1grdGuias.Styles.Add("Facturar")
+         u1.BackColor = Color.Green
+         u1.ForeColor = Color.White
+         u1.Font = New Font(c1grdGuias.Font, FontStyle.Regular)
+
+         Dim d1 As C1.Win.C1FlexGrid.CellStyle = c1grdGuias.Styles.Add("Anulado")
+         d1.BackColor = Color.Red
+         d1.ForeColor = Color.White
+         d1.Font = New Font(c1grdGuias.Font, FontStyle.Bold)
+         c1grdGuias.DrawMode = C1.Win.C1FlexGrid.DrawModeEnum.OwnerDraw
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede dar formato a la grilla", ex)
+      End Try
+
+   End Sub
+
+   Private Sub c1grdGuias_OwnerDrawCell(ByVal sender As System.Object, ByVal e As C1.Win.C1FlexGrid.OwnerDrawCellEventArgs) Handles c1grdGuias.OwnerDrawCell
+      Try
+         If e.Row < c1grdGuias.Rows.Fixed OrElse e.Col < c1grdBusqueda.Cols.Fixed Then Return
+         If c1grdGuias.Rows(e.Row)("GTRAN_Estado") = ETRAN_GuiasTransportista.getEstado(ETRAN_GuiasTransportista.Estado.Anulado) Then
+            e.Style = c1grdGuias.Styles("Anulado")
+         End If
+
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso cambia de color", ex)
+      End Try
+   End Sub
+
+   Private Function busqueda(ByVal x_cadena As String, Optional ByVal x_documento As Boolean = False) As Boolean
+      Try
+         If x_documento Then
+            'If managerGenerarGuias.Busqueda(cmbTipoDocumento.SelectedValue, txtCSerie.Text, txtBusNumero.Text, GApp.Sucursal, chkTodos.Checked, acFecha.ACDtpFecha_De.Value.Date, acFecha.ACDtpFecha_A.Value.Date.AddDays(1)) Then
+            '   actool.ACBtnEliminarEnabled = True
+            '   actool.ACBtnModificarEnabled = True
+            'Else
+            '   actool.ACBtnEliminarEnabled = False
+            '   actool.ACBtnModificarEnabled = False
+            'End If
+            'cargarDatos()
+         Else
+            'If txtBusqueda.ACEstadoAutoAyuda Then
+            If Not managerGenerarGuias.FacturasCemento(x_cadena, getCampo(), acFecha.ACDtpFecha_De.Value.Date, acFecha.ACDtpFecha_A.Value.Date) Then
+               managerGenerarGuias.ListABAS_DocsCompra = New List(Of EABAS_DocsCompra)
+            End If
+            cargarDatos()
+            'End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda de los conductores", ex)
+      End Try
+      Return False
+   End Function
+
+   Private Function getCampo() As Integer
+      Try
+         If (rbtnProveedor.Checked) Then
+            'Return "ENTID_RazonSocial"
+            Return 1
+         ElseIf rbtnNroOrdenCompra.Checked Then
+            'Return "ENTID_CodigoProveedor"
+            Return 2
+         Else
+            'Return "ENTID_RazonSocial"
+            Return 1
+         End If
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Function
+
+   Private Sub cargarDatos()
+      Try
+         bs_eabas_docscompra = New BindingSource()
+         bs_eabas_docscompra.DataSource = managerGenerarGuias.ListABAS_DocsCompra
+         c1grdBusqueda.DataSource = bs_eabas_docscompra
+         bnavBusqueda.BindingSource = bs_eabas_docscompra
+         AddHandler bs_eabas_docscompra.CurrentChanged, AddressOf bs_abas_dosccompra_CurrentChanged
+         bs_abas_dosccompra_CurrentChanged(Nothing, Nothing)
+      Catch ex As Exception
+         Throw ex
+      End Try
+   End Sub
+#End Region
+
+#Region " Metodos de Controles"
+   Private Sub bs_abas_dosccompra_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      Try
+         If Not IsNothing(bs_eabas_docscompra) Then
+            If Not IsNothing(bs_eabas_docscompra.Current) Then
+               If Not managerGenerarGuias.CargarGuias(CType(bs_eabas_docscompra.Current, EABAS_DocsCompra).DOCCO_Codigo) Then
+                  managerGenerarGuias.ListTRAN_GuiasTransportista = New List(Of ETRAN_GuiasTransportista)
+               End If
+               'formatearGrilla()
+               bs_etran_guiastransportista = New BindingSource
+               bs_etran_guiastransportista.DataSource = managerGenerarGuias.ListTRAN_GuiasTransportista
+               c1grdGuias.DataSource = bs_etran_guiastransportista
+               bnavPagos.BindingSource = bs_etran_guiastransportista
+
+               If CType(bs_eabas_docscompra.Current, EABAS_DocsCompra).DOCCO_Estado = EABAS_DocsCompra.getEstado(EABAS_DocsCompra.Estado.Ingresado) Then
+
+               Else
+
+               End If
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso Cargar Propiedades del Cotización/Pedido", ex)
+      End Try
+   End Sub
+
+   Private Sub rbtnDatos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbtnDatos.CheckedChanged
+      grpCliente.Enabled = rbtnDatos.Checked
+      grpDocumentos.Enabled = rbtnDocVenta.Checked
+   End Sub
+
+   Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+      Try
+         If rbtnDatos.Checked Then
+            txtBusqueda_ACAyudaClick(Nothing, Nothing)
+         ElseIf rbtnDocVenta.Checked Then
+            txtBusNumero_ACAyudaClick(Nothing, Nothing)
+         End If
+         btnExcel.Enabled = True
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede realizar la consulta", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusqueda_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBusqueda.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda para los registros de compra", ex)
+      End Try
+   End Sub
+
+   Private Sub txtBusNumero_ACAyudaClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBusNumero.ACAyudaClick
+      Try
+         busqueda(txtBusqueda.Text, True)
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Convert.ToString(Text)), "No se puede cargar la ayuda para los registros de compra", ex)
+      End Try
+   End Sub
+
+   Private Sub bs_docsventa_CurrentChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+      bs_etran_guiastransportista = New BindingSource
+      Try
+         If Not IsNothing(bs_eabas_docscompra.Current) Then
+                If Not managerGenerarGuias.CargarGuias(CType(bs_eabas_docscompra.Current, EVENT_DocsVenta).DOCVE_Codigo) Then
+                    'SE APLICO  Imports EVENT_DocsVenta = ACEVentas.EVENT_DocsVenta   para que  (CType(bs_eabas_docscompra.Current, EVENT_DocsVenta).DOCVE_Codigo)   no bote errro de ambiguedad frank 
+                    managerGenerarGuias.ListTRAN_GuiasTransportista = New List(Of ETRAN_GuiasTransportista)
+                End If
+                bs_etran_guiastransportista.DataSource = managerGenerarGuias.ListABAS_DocsCompra
+            c1grdGuias.DataSource = bs_etran_guiastransportista
+            bnavPagos.BindingSource = bs_etran_guiastransportista
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso <Procesos>", ex)
+      End Try
+   End Sub
+
+   Private Sub AcFecha_ACFecIni_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles acFecha.ACFecIni_KeyDown
+      If e.KeyData = Keys.Enter Then
+         AcFecha.ACDtpFecha_A.Focus()
+      End If
+   End Sub
+
+   Private Sub AcFecha_ACFecFin_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles acFecha.ACFecFin_KeyDown
+      If e.KeyData = Keys.Enter Then
+         btnConsultar_Click(Nothing, Nothing)
+      End If
+   End Sub
+#End Region
+
+   Private Sub txtBusqueda_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBusqueda.KeyDown
+      If e.KeyCode = Keys.Enter Then
+         btnConsultar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub txtBusNumero_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBusNumero.KeyDown
+      If e.KeyCode = Keys.Enter Then
+         btnConsultar_Click(Nothing, Nothing)
+      End If
+   End Sub
+
+   Private Sub tsbtnAbrirGuia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsbtnAbrirGuia.Click
+      Try
+         If Not bs_etran_guiastransportista Is Nothing Then
+            If Not bs_etran_guiastransportista.Current Is Nothing Then
+               Dim _frm As New FGuiaRemiRemitente(CType(bs_etran_guiastransportista.Current, ETRAN_GuiasTransportista).GTRAN_Codigo)
+               _frm.MaximizeBox = False
+               _frm.ShowDialog()
+            End If
+         End If
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Text), "No se puede Abrir la Guia de Remision", ex)
+      End Try
+   End Sub
+
+   Private Sub c1grdGuias_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles c1grdGuias.DoubleClick
+      tsbtnAbrirGuia_Click(Nothing, Nothing)
+   End Sub
+
+   Private Sub btnExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExcel.Click
+      Try
+         Utilitarios.ExportarXLS(c1grdBusqueda, "Facturas")
+      Catch ex As Exception
+         ACControles.ACDialogos.ACMostrarMensajeError(String.Format("Error: {0}", Me.Text), "Ocurrio un error en el proceso enviar a excel", ex)
+      End Try
+   End Sub
+End Class
