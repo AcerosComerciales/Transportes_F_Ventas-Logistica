@@ -97,6 +97,8 @@
     <Compile Include="Esquemas\ECuadreCaja.Parcial.vb">
       <DependentUpon>ECuadreCaja.vb</DependentUpon>
     </Compile>
+    <Compile Include="ETRAN_ConstanciaVGuiasDetalle.vb" />
+    <Compile Include="ETRAN_ConstanciaVPesosMedidas.vb" />
     <Compile Include="ETRAN_CotizacionesFletes.vb" />
     <Compile Include="ETRAN_CotizacionesFletes.Parcial.vb">
       <DependentUpon>ETRAN_CotizacionesFletes.vb</DependentUpon>
@@ -269,6 +271,7 @@
     <Compile Include="Procesos\Sunat.vb" />
     <Compile Include="Tools\EUtilitarios.vb" />
     <Compile Include="Esquemas\ENeumaticos.vb" />
+    <Compile Include="ETRAN_ConfigVehicularPesosMedidas.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -440,6 +443,9 @@
     <None Include="Resources\xmlTRAN_ViajesNeumaticos.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\xmlTRAN_ConfigVehicularPesosMedidas.xml" />
+    <Content Include="Resources\xmlTRAN_ConstanciaVGuiasDetalle.xml" />
+    <Content Include="Resources\xmlTRAN_ConstanciaVPesosMedidas.xml" />
     <None Include="Resources\xmlTRAN_VehiculosMantenimientoDocCompra.xml" />
     <None Include="Resources\xmlTRAN_VehiculoMantenimientoDocCompra.xml" />
     <None Include="Resources\xmlTRAN_FletePorRuta.xml" />

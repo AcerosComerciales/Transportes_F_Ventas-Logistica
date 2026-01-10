@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_ConstanciaVPesosMedidas" Esquema="Transportes" Prefijo="CONST">
+  <Nombre>TRAN_ConstanciaVPesosMedidas</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="CONST_Codigo">CONST_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_Serie">CONST_Serie</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_Numero">CONST_Numero</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_FechaEmision">CONST_FechaEmision</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_RucGenerador">CONST_RucGenerador</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoControl">TIPOS_CodTipoControl</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_PlacaTracto">VEHIC_PlacaTracto</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_PlacaCarreta">VEHIC_PlacaCarreta</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PesoBrutoVehicMaxPermitido">CONST_PesoBrutoVehicMaxPermitido</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PesoBrutoTransportado">CONST_PesoBrutoTransportado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PBMaxSinControlEjes">CONST_PBMaxSinControlEjes</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PBMaxConBonificacion">CONST_PBMaxConBonificacion</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_AnchoMt">CONST_AnchoMt</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_LargoMt">CONST_LargoMt</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_AltoMt">CONST_AltoMt</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_Observaciones">CONST_Observaciones</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_Estado">CONST_Estado</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_UsrCrea">CONST_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_FecCrea">CONST_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_UsrMod">CONST_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_FecMod">CONST_FecMod</CCampo>
+    
+    
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="1" xmlns="CONST_Codigo">CONST_Codigo</CCampo>
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ALMAC_Id">ALMAC_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Placa">VEHIC_Placa</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_Placa">VEHIC_Placa</CCampo>
+  </CForaneos>
+  <CForaneosPrimarios />
+</Tabla>

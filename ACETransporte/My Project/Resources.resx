@@ -297,7 +297,7 @@
   </data>
   <data name="xmlZonas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmlZonas.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>xmlTRAN_DocsVenta.xml
+  </data>
   <data name="xmlTRAN_Documentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmlTRAN_Documentos.xml;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -354,5 +354,14 @@
   </data>
   <data name="xmlTRAN_VehiculosMantenimientoDocCompra" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmlTRAN_VehiculosMantenimientoDocCompra.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ConstanciaVPesosMedidas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ConstanciaVPesosMedidas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ConstanciaVGuiasDetalle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ConstanciaVGuiasDetalle.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="xmlTRAN_ConfigVehicularPesosMedidas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xmlTRAN_ConfigVehicularPesosMedidas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

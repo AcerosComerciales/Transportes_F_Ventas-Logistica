@@ -139,3 +139,16 @@ E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEVentas\obj\Debug\A
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEVentas\obj\Debug\ACEVentas.dll
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEVentas\obj\Debug\ACEVentas.xml
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEVentas\obj\Debug\ACEVentas.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\bin\Debug\ACEVentas.dll.config
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\bin\Debug\ACEVentas.dll
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\bin\Debug\ACEVentas.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\bin\Debug\ACEVentas.xml
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\Interop.SHDocVw.dll
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.vbproj.ResolveComReference.cache
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.Resources.resources
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.vbproj.GenerateResource.cache
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.vbproj.CoreCompileInputs.cache
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.vbproj.CopyComplete
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.dll
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.xml
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.pdb
