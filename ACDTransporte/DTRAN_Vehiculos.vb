@@ -62,6 +62,7 @@ Partial Public Class DTRAN_Vehiculos
                   listETRAN_Vehiculos.Add(e_tran_vehiculos)
                End While
                Return True
+                    'consulta select --> 
             Else
                Return False
             End If
