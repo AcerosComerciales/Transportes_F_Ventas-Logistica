@@ -95,6 +95,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTRAN_ConfigVehicularPesosMedidas.vb" />
+    <Compile Include="DTRAN_ConstanciaVGuiasDetalle.vb" />
+    <Compile Include="DTRAN_ConstanciaVPesosMedidas.vb" />
     <Compile Include="DTRAN_CotizacionesFletes.vb" />
     <Compile Include="DTRAN_CotizacionesFletes.Parcial.vb">
       <DependentUpon>DTRAN_CotizacionesFletes.vb</DependentUpon>

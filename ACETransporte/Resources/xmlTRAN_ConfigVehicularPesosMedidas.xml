@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Tabla Nombre="TRAN_ConfigVehicularPesosMedidas" Esquema="Transportes" Prefijo="CVEHIC">
+  <Nombre>TRAN_ConfigVehicularPesosMedidas</Nombre>
+  <Esquema>Transportes</Esquema>
+  <Campos>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="CVEHIC_Codigo">CVEHIC_Codigo</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoCVehic">TIPOS_CodTipoCVehic</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_LongitudMaxima">CVEHIC_LongitudMaxima</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_EjeDelanteroMax">CVEHIC_EjeDelanteroMax</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_EjePosterior1Max">CVEHIC_EjePosterior1Max</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_EjePosterior2Max">CVEHIC_EjePosterior2Max</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_EjePosterior3Max">CVEHIC_EjePosterior3Max</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_EjePosterior4Max">CVEHIC_EjePosterior4Max</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_PesoBrutoMax">CVEHIC_PesoBrutoMax</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_UsrCrea">CVEHIC_UsrCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_FecCrea">CVEHIC_FecCrea</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_UsrMod">CVEHIC_UsrMod</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CVEHIC_FecMod">CVEHIC_FecMod</CCampo>
+  </Campos>
+  <CPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="CVEHIC_Codigo">CVEHIC_Codigo</CCampo>
+    
+  </CPrimarios>
+  <CForaneos>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_CodTipoCVehic">TIPOS_CodTipoCVehic</CCampo>
+    
+  </CForaneos>
+  <CForaneosPrimarios>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="1" xmlns="CVEHIC_Codigo">CVEHIC_Codigo</CCampo>
+  </CForaneosPrimarios>
+</Tabla>

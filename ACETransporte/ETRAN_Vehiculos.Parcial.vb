@@ -12,6 +12,7 @@ Partial Public Class ETRAN_Vehiculos
 	Private m_vehic_id As Long
 	Private m_pvent_id As Long
 	Private m_tipos_codtipocombustible As String
+    Private m_tipos_codtipoconfigVehicular As String
 	Private m_tipos_codtipovehiculo As String
 	Private m_tipos_codmarca As String
 	Private m_entid_codigotransportista As String
@@ -32,6 +33,8 @@ Partial Public Class ETRAN_Vehiculos
 	Private m_vehic_placaadic As String
 	Private m_vehic_certificadoadic As String
 	Private m_vehic_codbusqueda As Integer
+    Private m_vehic_bonificacion As Boolean
+    Private m_vehic_pesobruto As Decimal
 	Private m_vehic_usrcrea As String
 	Private m_vehic_feccrea As Date
 	Private m_vehic_usrmod As String
@@ -119,6 +122,22 @@ Partial Public Class ETRAN_Vehiculos
 			End If
 		End Set
 	End Property
+    Public Property TIPOS_CodTipoConfigVehicular() As String
+        Get
+            return m_tipos_codtipoconfigVehicular
+        End Get
+        Set(ByVal value As String)
+            If Not IsNothing(m_tipos_codtipoconfigVehicular) Then
+                If Not m_tipos_codtipoconfigVehicular.Equals(value) Then
+                    m_tipos_codtipoconfigVehicular = value
+                    OnTIPOS_CodTipoConfigVehicularChanged(m_tipos_codtipoconfigVehicular, EventArgs.Empty)
+                End If
+            Else
+                m_tipos_codtipoconfigVehicular = value
+                OnTIPOS_CodTipoConfigVehicularChanged(m_tipos_codtipoconfigVehicular, EventArgs.Empty)
+            End If
+        End Set
+    End Property
 
 	Public Property TIPOS_CodTipoVehiculo() As String
 		Get
@@ -454,6 +473,34 @@ Partial Public Class ETRAN_Vehiculos
 			End If
 		End Set
 	End Property
+    
+    Public Property VEHIC_Bonificacion() As Boolean
+        Get
+            return m_vehic_bonificacion
+        End Get
+        Set(ByVal value As Boolean)
+            If Not m_vehic_bonificacion.Equals(value) Then
+                m_vehic_bonificacion = value
+                OnVEHIC_BonificacionChanged(m_vehic_bonificacion, EventArgs.Empty)
+            End If
+        End Set
+    End Property
+    Public Property VEHIC_PesoBruto() As Decimal
+        Get
+            return m_vehic_pesobruto
+        End Get
+        Set(ByVal value As Decimal)
+            If Not IsNothing(m_vehic_pesobruto) Then
+                If Not m_vehic_pesobruto.Equals(value) Then
+                    m_vehic_pesobruto = value
+                    OnVEHIC_PesoBrutoChanged(m_vehic_pesobruto, EventArgs.Empty)
+                End If
+            Else
+                m_vehic_pesobruto = value
+                OnVEHIC_PesoBrutoChanged(m_vehic_pesobruto, EventArgs.Empty)
+            End If
+        End Set
+    End Property
 
 	Public Property VEHIC_UsrCrea() As String
 		Get
@@ -558,6 +605,9 @@ Partial Public Class ETRAN_Vehiculos
 	Public Event VEHIC_PlacaAdicChanged As EventHandler
 	Public Event VEHIC_CertificadoAdicChanged As EventHandler
 	Public Event VEHIC_CodBusquedaChanged As EventHandler
+    Public Event TIPOS_CodTipoConfigVehicularChanged as EventHandler
+    Public Event VEHIC_BonificacionChanged as EventHandler
+    Public Event VEHIC_PesoBrutoChanged as EventHandler
 
 	Public Sub OnVEHIC_IdChanged(ByVal sender As object, ByVal e As EventArgs)
 		ActualizarInstancia()
@@ -673,7 +723,18 @@ Partial Public Class ETRAN_Vehiculos
 		ActualizarInstancia()
 		RaiseEvent VEHIC_CodBusquedaChanged(sender, e)
 	End Sub
-
+    public sub OnTIPOS_CodTipoConfigVehicularChanged (ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent TIPOS_CodTipoConfigVehicularChanged(sender,e)
+    End sub
+    public sub OnVEHIC_BonificacionChanged (ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent VEHIC_BonificacionChanged(sender,e)
+    End sub
+    public sub OnVEHIC_PesoBrutoChanged (ByVal sender As Object, ByVal e As EventArgs)
+        ActualizarInstancia()
+        RaiseEvent VEHIC_PesoBrutoChanged(sender,e)
+    End sub
 
 #End Region
 

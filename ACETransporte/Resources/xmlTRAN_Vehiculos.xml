@@ -26,6 +26,9 @@
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_PlacaAdic">VEHIC_PlacaAdic</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_CertificadoAdic">VEHIC_CertificadoAdic</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_CodBusqueda">VEHIC_CodBusqueda</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoConfigVehicular">TIPOS_CodTipoConfigVehicular</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_Bonificacion">VEHIC_Bonificacion</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="VEHIC_PesoBruto">VEHIC_PesoBruto</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_UsrCrea">VEHIC_UsrCrea</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_FecCrea">VEHIC_FecCrea</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="VEHIC_UsrMod">VEHIC_UsrMod</CCampo>
@@ -37,6 +40,7 @@
   <CForaneos>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="ENTID_Codigo">ENTID_Codigo</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="PVENT_Id">PVENT_Id</CCampo>
+    <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="TIPOS_Codigo">TIPOS_Codigo</CCampo>
