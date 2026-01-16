@@ -152,3 +152,4 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEV
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.dll
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACEVentas\obj\Debug\ACEVentas.vbprojAssemblyReference.cache

@@ -58,8 +58,8 @@ Public Class DTRAN_ConstanciaVGuiasDetalle
         Dim sql As String = ""
         Try
             Dim _fecha As DateTime = getDateTime()
-            x_tran_constanciavguiasdetalle.CONSVG_UsrCrea = x_usuario
-            x_tran_constanciavguiasdetalle.CONSVG_FecCrea = _fecha
+            x_tran_constanciavguiasdetalle.CONSGD_UsrCrea = x_usuario
+            x_tran_constanciavguiasdetalle.CONSGD_FecCrea = _fecha
 
             Dim _insert As New ACFramework.ACGenerador(Of ETRAN_ConstanciaVGuiasDetalle)(_fecha, m_formatofecha)
             sql = _insert.getInsert(Esquema, Tabla, x_tran_constanciavguiasdetalle, x_tran_constanciavguiasdetalle.Hash, New String() {})
@@ -74,8 +74,8 @@ Public Class DTRAN_ConstanciaVGuiasDetalle
         Dim sql As String = ""
         Try
             Dim _fecha As DateTime = getDateTime()
-            x_tran_constanciavguiasdetalle.CONSVG_UsrMod = x_usuario
-            x_tran_constanciavguiasdetalle.CONSVG_FecMod = _fecha
+            x_tran_constanciavguiasdetalle.CONSGD_UsrMod = x_usuario
+            x_tran_constanciavguiasdetalle.CONSGD_FecMod = _fecha
 
             Dim _update As New ACFramework.ACGenerador(Of ETRAN_ConstanciaVGuiasDetalle)(_fecha, m_formatofecha)
             Dim _where As New Hashtable()

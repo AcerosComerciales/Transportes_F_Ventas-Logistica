@@ -8,9 +8,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
     Private m_guiar_codigo As String
     Private m_consgd_descripcionmercaderia as String
     Private m_consgd_pesoguia As Decimal
-    Private m_tipos_doccorta As String
-    Private m_guiar_serie As String
-    Private m_guiar_numero As Integer
+
     Private m_consgd_usrcrea As String
     Private m_consgd_feccrea As Date
     Private m_consgd_usrmod As String
@@ -98,7 +96,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             End If
         End Set
     End Property
-    Public Property CONSVG_DescripcionMercaderia() As String
+    Public Property CONSGD_DescripcionMercaderia() As String
         Get
             return m_consgd_descripcionmercaderia
         End Get
@@ -114,7 +112,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             End If
         End Set
     End Property
-    Public Property CONSVG_PesoGuia() As Decimal
+    Public Property CONSGD_PesoGuia() As Decimal
         Get
             return m_consgd_pesoguia
         End Get
@@ -130,56 +128,11 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             End If
         End Set
     End Property
-    Public Property GUIAR_Serie() As String
-        Get
-            return m_guiar_serie
-        End Get
-        Set(ByVal value As String)
-            If Not IsNothing(m_guiar_serie) Then
-                If Not m_guiar_serie.Equals(value) Then
-                    m_guiar_serie = value
-                  
-                End If
-            Else
-                m_guiar_serie = value
-                
-            End If
-        End Set
-    End Property
-    Public Property GUIAR_Numero() As Integer
-        Get
-            return m_guiar_numero
-        End Get
-        Set(ByVal value As Integer)
-            If Not IsNothing(m_guiar_numero) Then
-                If Not m_guiar_numero.Equals(value) Then
-                    m_guiar_numero = value
-                   
-                End If
-            Else
-                m_guiar_numero = value
-               
-            End If
-        End Set
-    End Property
-    Public Property TIPOS_TipoDocCorta() As String
-        Get
-            Return m_tipos_doccorta
-        End Get
-        Set(ByVal value As String)
-            If Not IsNothing(m_tipos_doccorta) Then
-                If Not m_tipos_doccorta.Equals(value) Then
-                    m_tipos_doccorta = value
-                End If
-            Else
-                m_tipos_doccorta = value
-            End If
-        End Set
-    End Property
+  
     Public Property Documento() As String
         Get
 
-            Return String.Format("{0} {1}-{2}", m_tipos_doccorta, m_guiar_serie, m_guiar_numero.ToString().PadLeft(7, "0"))
+            Return String.Format("{0} {1}-{2}", "GR", m_guiar_codigo.Substring(2,4), m_guiar_codigo.Substring(6, 7))
 
         End Get
         Set(ByVal value As String)
@@ -203,7 +156,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             m_cliente = value
         End Set
     End Property
-    Public Property CONSVG_UsrCrea() As String
+    Public Property CONSGD_UsrCrea() As String
         Get
             return m_consgd_usrcrea
         End Get
@@ -211,7 +164,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             m_consgd_usrcrea = value
         End Set
     End Property
-    Public Property CONSVG_FecCrea() As Date
+    Public Property CONSGD_FecCrea() As Date
         Get
             return m_consgd_feccrea
         End Get
@@ -219,7 +172,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             m_consgd_feccrea = value
         End Set
     End Property
-    Public Property CONSVG_UsrMod() As String
+    Public Property CONSGD_UsrMod() As String
         Get
             return m_consgd_usrmod
         End Get
@@ -227,7 +180,7 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             m_consgd_usrmod = value
         End Set
     End Property
-    Public Property CONSVG_FecMod() As Date
+    Public Property CONSGD_FecMod() As Date
         Get
             return m_consgd_fecmod
         End Get

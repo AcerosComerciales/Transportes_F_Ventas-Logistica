@@ -205,3 +205,4 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBAppMovil\obj\Debug\AC
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBAppMovil\obj\Debug\ACBAppMovil.dll
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBAppMovil\obj\Debug\ACBAppMovil.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBAppMovil\obj\Debug\ACBAppMovil.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBAppMovil\bin\Debug\Plantillas\RPedidos.rdlc

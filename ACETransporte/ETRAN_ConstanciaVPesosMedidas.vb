@@ -31,7 +31,7 @@ Public Class ETRAN_ConstanciaVPesosMedidas
     Private m_vehic_placacarreta As String
     Private m_const_pesobrutovehicmaxpermitido as String
     Private m_const_pesobrutotransportado As Decimal
-    Private m_const_pbmaxsoncontrolejes As Decimal
+    Private m_const_pbmaxsincontrolejes As Decimal
     Private m_const_pbmaxconbonificacion As Decimal
     Private m_const_anchomt As Decimal
     Private m_const_largomt As Decimal
@@ -42,6 +42,17 @@ Public Class ETRAN_ConstanciaVPesosMedidas
     Private m_const_feccrea As Date
     Private m_const_usrmod As String
     Private m_const_fecmod As Date
+
+    Private m_empresa as String
+    Private m_empr_direccion as String
+    Private m_empr_telefono as String
+    Private m_empr_distrito as String
+    Private m_empr_provincia as String
+    Private m_empr_departamento as String
+    Private m_puntoventa as string
+    Private m_almacen as string
+    Private m_documento as string
+    Private m_pesovehiculo as Decimal
 
     Private m_nuevo As Boolean
     Private m_modificado As Boolean
@@ -293,19 +304,19 @@ Public Class ETRAN_ConstanciaVPesosMedidas
             End If
         End Set
     End Property
-    Public Property CONST_PBMaxSinControEjes() As Decimal
+    Public Property CONST_PBMaxSinControlEjes() As Decimal
         Get
-            return m_const_pbmaxsoncontrolejes
+            return m_const_pbmaxsincontrolejes
         End Get
         Set(ByVal value As Decimal)
-            If Not IsNothing(m_const_pbmaxsoncontrolejes) Then
-                If Not m_const_pbmaxsoncontrolejes.Equals(value) Then
-                    m_const_pbmaxsoncontrolejes = value
-                    OnCONST_PBMaxSinControEjesChanged(m_const_pbmaxsoncontrolejes, EventArgs.Empty)
+            If Not IsNothing(m_const_pbmaxsincontrolejes) Then
+                If Not m_const_pbmaxsincontrolejes.Equals(value) Then
+                    m_const_pbmaxsincontrolejes = value
+                    OnCONST_PBMaxSinControlEjesChanged(m_const_pbmaxsincontrolejes, EventArgs.Empty)
                 End If
             Else
-                m_const_pbmaxsoncontrolejes = value
-                OnCONST_PBMaxSinControEjesChanged(m_const_pbmaxsoncontrolejes, EventArgs.Empty)
+                m_const_pbmaxsincontrolejes = value
+                OnCONST_PBMaxSinControlEjesChanged(m_const_pbmaxsincontrolejes, EventArgs.Empty)
             End If
         End Set
     End Property
@@ -464,7 +475,7 @@ Public Class ETRAN_ConstanciaVPesosMedidas
     Public Event VEHIC_PlacaCarretaChanged as EventHandler
     Public Event CONST_PesoBrutoVehicMaxPermitidoChanged as EventHandler
     Public Event CONST_PesoBrutoTransportadoChanged as EventHandler
-    Public Event CONST_PBMaxSinControEjesChanged as EventHandler
+    Public Event CONST_PBMaxSinControlEjesChanged as EventHandler
     Public Event CONST_PBMaxConBonificacionChanged as EventHandler
     Public Event CONST_AnchoMtChanged as EventHandler
     Public Event CONST_LargoMtChanged as EventHandler
@@ -524,9 +535,9 @@ Public Class ETRAN_ConstanciaVPesosMedidas
         ActualizarInstancia()
         RaiseEvent CONST_PesoBrutoTransportadoChanged(sender,e)
     End Sub
-    Public Sub OnCONST_PBMaxSinControEjesChanged(ByVal sender As Object, ByVal e As EventArgs)
+    Public Sub OnCONST_PBMaxSinControlEjesChanged(ByVal sender As Object, ByVal e As EventArgs)
         ActualizarInstancia()
-        RaiseEvent CONST_PBMaxSinControEjesChanged(sender,e)
+        RaiseEvent CONST_PBMaxSinControlEjesChanged(sender,e)
     End Sub
     Public Sub OnCONST_PBMaxConBonificacionChanged(ByVal sender As Object, ByVal e As EventArgs)
         ActualizarInstancia()
@@ -552,7 +563,86 @@ Public Class ETRAN_ConstanciaVPesosMedidas
         ActualizarInstancia()
         RaiseEvent CONST_EstadoChanged(sender,e)
     End Sub
-
+    Public Property Empresa() As String
+        Get
+            Return m_empresa
+        End Get
+        Set(ByVal value As String)
+            m_empresa = value
+        End Set
+    End Property
+    Public Property Empr_Telefono() As String
+        Get
+            Return m_empr_telefono
+        End Get
+        Set(ByVal value As String)
+            m_empr_telefono = value
+        End Set
+    End Property
+    Public Property Empr_Direccion() As String
+        Get
+            Return m_empr_direccion
+        End Get
+        Set(ByVal value As String)
+            m_empr_direccion = value
+        End Set
+    End Property
+    Public Property Empr_Distrito() As String
+        Get
+            Return m_empr_distrito
+        End Get
+        Set(ByVal value As String)
+            m_empr_distrito = value
+        End Set
+    End Property
+    Public Property Empr_Provincia() As String
+        Get
+            Return m_empr_provincia
+        End Get
+        Set(ByVal value As String)
+            m_empr_provincia = value
+        End Set
+    End Property
+    Public Property Empr_Departamento() As String
+        Get
+            Return m_empr_departamento
+        End Get
+        Set(ByVal value As String)
+            m_empr_departamento = value
+        End Set
+    End Property
+    Public Property PuntoVenta() As String
+        Get
+            Return m_puntoventa
+        End Get
+        Set(ByVal value As String)
+            m_puntoventa = value
+        End Set
+    End Property
+    Public Property Documento() As String
+        Get
+            Return m_documento
+        End Get
+        Set(ByVal value As String)
+            m_documento = value
+        End Set
+    End Property
+    Public Property Almacen() As String
+        Get
+            Return m_almacen
+        End Get
+        Set(ByVal value As String)
+            m_almacen = value
+        End Set
+    End Property
+    Public Property PesoVehiculo() As Decimal
+        Get
+            Return m_pesovehiculo
+        End Get
+        Set(ByVal value As Decimal)
+            m_pesovehiculo = value
+        End Set
+    End Property
     
 
     Public Property CONST_UsrCrea() As String

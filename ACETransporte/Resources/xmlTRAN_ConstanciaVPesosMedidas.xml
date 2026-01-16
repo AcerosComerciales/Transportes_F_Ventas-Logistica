@@ -17,6 +17,7 @@
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PesoBrutoTransportado">CONST_PesoBrutoTransportado</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PBMaxSinControlEjes">CONST_PBMaxSinControlEjes</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_PBMaxConBonificacion">CONST_PBMaxConBonificacion</CCampo>
+    <CCampo Identity="0" ForeignKey="1" PrimaryKey="0" xmlns="TIPOS_CodTipoConfigVehicular">TIPOS_CodTipoConfigVehicular</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_AnchoMt">CONST_AnchoMt</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_LargoMt">CONST_LargoMt</CCampo>
     <CCampo Identity="0" ForeignKey="0" PrimaryKey="0" xmlns="CONST_AltoMt">CONST_AltoMt</CCampo>

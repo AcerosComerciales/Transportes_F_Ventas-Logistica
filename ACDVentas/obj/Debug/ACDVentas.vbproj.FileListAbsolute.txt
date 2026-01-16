@@ -419,3 +419,4 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDV
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.dll
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
