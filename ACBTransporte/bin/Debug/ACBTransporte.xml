@@ -14,5 +14,13 @@ ACBTransporte
  <returns></returns>
  <remarks></remarks>
 </member>
+<member name="M:ACBTransporte.BTRAN_ConstanciaVPesosMedidas.GetConstanciaVPesosMedidas(System.String)">
+ <summary> 
+ Capa de Negocio: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+ <param name="x_guiar_codigo">Parametro 1: </param> 
+ <returns></returns> 
+ <remarks></remarks> 
+</member>
 </members>
 </doc>

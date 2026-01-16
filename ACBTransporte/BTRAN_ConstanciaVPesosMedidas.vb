@@ -2,6 +2,7 @@
 Imports ACDTransporte
 Imports ACETransporte
 Imports ACEVentas
+Imports ACFramework
 Imports DAConexion
 
 Public Class BTRAN_ConstanciaVPesosMedidas
@@ -19,7 +20,14 @@ Public Class BTRAN_ConstanciaVPesosMedidas
 
 #End Region
 #Region "Metodos"
-    
+    Public Function REPOS_ConstanciasVPesosMedidas(ByVal x_const_codigo As String) As Boolean
+        m_tran_constanciasvpesosmedidas = New ETRAN_ConstanciaVPesosMedidas
+        Try
+            Return d_tran_constanciasvpesosmedidas.REPOSS_ConstanciaVPesosMedidas(m_tran_constanciasvpesosmedidas, x_const_codigo)
+        Catch ex As Exception
+            Throw ex
+        End Try
+        End Function
     ''' <summary>
     ''' Obtener el numero correspondiente a la guia de remision
     ''' </summary>
@@ -35,6 +43,21 @@ Public Class BTRAN_ConstanciaVPesosMedidas
             Throw ex
         End Try
     End Function
+    ''' <summary> 
+    ''' Capa de Negocio: LOG_DISTSS_ObtenerGuiaVenta
+    ''' </summary>
+    ''' <param name="x_guiar_codigo">Parametro 1: </param> 
+    ''' <returns></returns> 
+    ''' <remarks></remarks> 
+    Public Function GetConstanciaVPesosMedidas(ByVal x_const_codigo As String) As Boolean
+        m_tran_constanciasvpesosmedidas = New ETRAN_ConstanciaVPesosMedidas
+        Try
+            Return d_tran_constanciasvpesosmedidas.TRAN_ConstanciaVPesosMedidas(m_tran_constanciasvpesosmedidas,x_const_codigo)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
 
     Public Function Guardar(ByVal x_usuario As String, ByVal x_detalle As Boolean, Optional ByVal x_transaccion As Boolean = True) As Boolean
         Dim i As Integer = 1
@@ -83,6 +106,44 @@ Public Class BTRAN_ConstanciaVPesosMedidas
                 d_tran_constanciasvpesosmedidas.TRAN_CONSTVPesosMedidasSD_UnReg(m_tran_constanciasvpesosmedidas)
             End If
             Return True
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    
+    
+    Public Function Busqueda(ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_pvent_id As Long,   ByVal x_cadena As String, ByVal x_todos As Boolean) As Boolean
+        m_listTRAN_ConstanciaVPesosMedidas = New List(Of ETRAN_ConstanciaVPesosMedidas)
+        Try
+            Return d_tran_constanciasvpesosmedidas.TRAN_BuscarConstanciasVPesosMedidas(m_listTRAN_ConstanciaVPesosMedidas, x_fecini, x_fecfin, x_pvent_id,   x_cadena, x_todos)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Public Function CargarConstancia(ByVal x_codigo As String) As Boolean
+        Try
+           
+            If Cargar(x_codigo) Then
+                m_tran_constanciasvpesosmedidas = TRAN_ConstanciaVPesosMedidas
+                Dim _where As New Hashtable()
+                _where.Add("CONST_Codigo", New ACWhere(x_codigo))
+                Dim m_bdist_docsvguiasdetalle As New BTRAN_ConstanciaVGuiasDetalle()
+          
+               
+                If m_bdist_docsvguiasdetalle.CargarTodos( _where) Then
+                    m_tran_constanciasvpesosmedidas.ListETRAN_ConstanciaVGuiasDetalle = New List(Of ETRAN_ConstanciaVGuiasDetalle)(m_bdist_docsvguiasdetalle.ListTRAN_ConstanciaVGuiasDetalle)
+                    Return True
+                End If
+            End If
+            Return False
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Public Function Cargar(ByVal x_const_codigo As String) As Boolean
+        Try
+            m_tran_constanciasvpesosmedidas = New ETRAN_ConstanciaVPesosMedidas()
+            Return d_tran_constanciasvpesosmedidas.TRAN_CONSTANCIASVPM_UnReg(m_tran_constanciasvpesosmedidas, x_const_codigo)
         Catch ex As Exception
             Throw ex
         End Try

@@ -199,3 +199,4 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDAppMovil\obj\Debug\AC
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDAppMovil\obj\Debug\ACDAppMovil.dll
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDAppMovil\obj\Debug\ACDAppMovil.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDAppMovil\obj\Debug\ACDAppMovil.pdb
+D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDAppMovil\bin\Debug\Plantillas\RPedidos.rdlc

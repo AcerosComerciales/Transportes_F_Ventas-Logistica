@@ -1,4 +1,5 @@
-﻿Imports ACETransporte
+﻿Imports System.Data.Common
+Imports ACETransporte
 Imports ACFramework
 Imports DAConexion
 
@@ -25,7 +26,99 @@ Public Class DTRAN_ConstanciaVPesosMedidas
     End Sub
 #End Region
 #Region " Procedimientos Almacenados "
-    
+    Public Function REPOSS_ConstanciaVPesosMedidas(ByRef m_tran_constanciavpesosmedidas As ETRAN_ConstanciaVPesosMedidas, ByVal x_const_codigo As String) As Boolean
+        Try
+            DAEnterprise.AsignarProcedure("TRAN_ObtenerConstanciaVPesosMedidas")
+            DAEnterprise.AgregarParametro("@const_codigo", x_const_codigo, DbType.String, 15)
+            Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+                If reader.HasRows Then
+                    If reader.Read() Then
+                        m_tran_constanciavpesosmedidas = New ETRAN_ConstanciaVPesosMedidas()
+                        ACEsquemas.ACCargarEsquema(reader, m_tran_constanciavpesosmedidas)
+                        m_tran_constanciavpesosmedidas.Instanciar(ACEInstancia.Consulta)
+                    End If
+                    If reader.NextResult() Then
+                        m_tran_constanciavpesosmedidas.ListETRAN_ConstanciaVGuiasDetalle = New List(Of ETRAN_ConstanciaVGuiasDetalle)
+                        While reader.Read()
+                            Dim _tran_vguiasdetalle As New ETRAN_ConstanciaVGuiasDetalle()
+                            ACEsquemas.ACCargarEsquema(reader, _tran_vguiasdetalle)
+                            _tran_vguiasdetalle.Instanciar(ACEInstancia.Consulta)
+                            m_tran_constanciavpesosmedidas.ListETRAN_ConstanciaVGuiasDetalle.Add(_tran_vguiasdetalle)
+                        End While
+                    End If
+                    Return True
+                Else
+                    Return False
+                End If
+            End Using
+            Return True
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Public Function TRAN_BuscarConstanciasVPesosMedidas(ByVal m_listdist_constanciavpesosmedidas As List(Of ETRAN_ConstanciaVPesosMedidas), ByVal x_fecini As Date, ByVal x_fecfin As Date, ByVal x_pvent_id As Long, ByVal x_cadena As String, ByVal x_todos As Boolean) As Boolean
+        Try
+            DAEnterprise.AsignarProcedure("TRAN_BuscarConstanciasVPesosMedidas")
+            DAEnterprise.AgregarParametro("@FecIni", x_fecini, DbType.DateTime, 8)
+            DAEnterprise.AgregarParametro("@FecFin", x_fecfin, DbType.DateTime, 8)
+            DAEnterprise.AgregarParametro("@PVENT_Id", x_pvent_id, DbType.Int64, 8)
+            
+            DAEnterprise.AgregarParametro("@Cadena", x_cadena, DbType.String, 50)
+            DAEnterprise.AgregarParametro("@Todos", x_todos, DbType.Boolean, 1)
+            Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+                If reader.HasRows Then
+                    While reader.Read()
+                        Dim _tran_constanciasvpesosmedidas As New ETRAN_ConstanciaVPesosMedidas()
+                        ACEsquemas.ACCargarEsquema(reader, _tran_constanciasvpesosmedidas)
+                        _tran_constanciasvpesosmedidas.Instanciar(ACEInstancia.Consulta)
+                        m_listdist_constanciavpesosmedidas.Add(_tran_constanciasvpesosmedidas)
+                    End While
+                    Return True
+                Else
+                    Return False
+                End If
+            End Using
+            Return True
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    ''' <summary> 
+    ''' Capa de Datos: LOG_DISTSS_ObtenerGuiaVenta
+    ''' </summary>
+    ''' <param name="x_guiar_codigo">Parametro 1: </param> 
+    ''' <returns></returns> 
+    ''' <remarks></remarks> 
+    Public Function TRAN_ConstanciaVPesosMedidas(ByVal x_tran_constanciasvpesosmedidas As ETRAN_ConstanciaVPesosMedidas, ByVal x_const_codigo As String) As Boolean
+        Try
+            DAEnterprise.AsignarProcedure("TRAN_ObtenerConstanciaVPesosMedidas")
+            DAEnterprise.AgregarParametro("@CONST_Codigo", x_const_codigo, DbType.String, 14)
+            Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+                If reader.HasRows Then
+                    reader.Read()
+                    ACEsquemas.ACCargarEsquema(reader, x_tran_constanciasvpesosmedidas)
+                    x_tran_constanciasvpesosmedidas.Instanciar(ACEInstancia.Consulta)
+                    x_tran_constanciasvpesosmedidas.ListETRAN_ConstanciaVGuiasDetalle = New List(Of ETRAN_ConstanciaVGuiasDetalle)
+
+                    If reader.NextResult() Then
+                        While reader.Read()
+                            Dim e_guiadetalle As New ETRAN_ConstanciaVGuiasDetalle()
+                            ACEsquemas.ACCargarEsquema(reader, e_guiadetalle)
+                            e_guiadetalle.Instanciar(ACEInstancia.Consulta)
+                            x_tran_constanciasvpesosmedidas.ListETRAN_ConstanciaVGuiasDetalle.Add(e_guiadetalle)
+                        End While
+                    End If
+
+                    Return True
+                Else
+                    Return False
+                End If
+            End Using
+            Return True
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
     Public Function getNumero(ByVal x_serie As String) As Integer
         Try
             DAEnterprise.AsignarProcedure(getSelectAll(x_serie), CommandType.Text)
@@ -44,6 +137,24 @@ Public Class DTRAN_ConstanciaVPesosMedidas
             DAEnterprise.AsignarProcedure(getSelectId(x_campo), CommandType.Text)
             Dim m_data As DataSet = DAEnterprise.ExecuteDataSet()
             Return CType(m_data.Tables(0).Rows(0)("Id"), Integer)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    
+    Public Function TRAN_CONSTANCIASVPM_UnReg(ByRef x_tran_constanciasvpm As ETRAN_ConstanciaVPesosMedidas, ByVal x_const_codigo As String) As Boolean
+        Try
+            DAEnterprise.AsignarProcedure(getSelectBy(x_const_codigo), CommandType.Text)
+            Using reader As DbDataReader = DAEnterprise.ExecuteDataReader()
+                If reader.HasRows Then
+                    reader.Read()
+                    ACEsquemas.ACCargarEsquema(reader, x_tran_constanciasvpm)
+                    x_tran_constanciasvpm.Instanciar(ACEInstancia.Consulta)
+                    return True
+                Else
+                    Return False
+                End If
+            End Using
         Catch ex As Exception
             Throw ex
         End Try
@@ -171,6 +282,21 @@ Public Class DTRAN_ConstanciaVPesosMedidas
         Try
 
             sql  = String.Format(" SELECT IsNull(Max({0}), 0) As Id From Transportes.TRAN_ConstanciaVPesosMedidas", x_campo)
+
+            Return sql
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    Private Function getSelectBy(ByVal x_const_codigo As String) As String
+        Dim sql As String = ""
+        Try
+            sql = " SELECT constancia.*,Entm.ENTID_RazonSocial AS Usuario_Modificador " & vbNewLine
+            sql &= " FROM Transportes.TRAN_ConstanciaVPesosMedidas constancia" & vbNewLine
+            sql &= " left Join Entidades As Entm On EntM.ENTID_Codigo = constancia.CONST_UsrMod " & vbNewLine
+            sql &= " WHERE " & vbNewLine
+            sql &= "CONST_Codigo = " + IIf(IsNothing(x_const_codigo), "Null", "'" & x_const_codigo & "'") & vbNewLine
+
 
             Return sql
         Catch ex As Exception

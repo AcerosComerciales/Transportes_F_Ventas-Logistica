@@ -42,5 +42,13 @@ ACDTransporte
 				Inner Join dbo.Ubigeos As UOri On UOri.UBIGO_Codigo = Rut [resto de la cadena truncado]&quot;;.
 </summary>
 </member>
+<member name="M:ACDTransporte.DTRAN_ConstanciaVPesosMedidas.TRAN_ConstanciaVPesosMedidas(ACETransporte.ETRAN_ConstanciaVPesosMedidas,System.String)">
+ <summary> 
+ Capa de Datos: LOG_DISTSS_ObtenerGuiaVenta
+ </summary>
+ <param name="x_guiar_codigo">Parametro 1: </param> 
+ <returns></returns> 
+ <remarks></remarks> 
+</member>
 </members>
 </doc>
