@@ -157,9 +157,11 @@ Public Class BReporte
 
             End Select
          Next
+           '306976.02 = '281476.72   +  2625   +22874.30
          m_saldocaja.Ingreso = m_saldocaja.SaldoInicial + _importe_fcfac + _importe_oi
-         m_saldocaja.Egreso = _importe_re
+         m_saldocaja.Egreso = _importe_re ' 31935.70
          m_saldocaja.Saldo = m_saldocaja.Ingreso - m_saldocaja.Egreso
+            '275040.32 =  306976.02  - 31935.70
          Return True
       Catch ex As Exception
          Throw ex

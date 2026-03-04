@@ -167,7 +167,7 @@ Public Class Reporte
       Try
          Dim _fletes As Decimal = 0
          For Each item As ETRAN_Fletes In m_reporte.ListTRAN_Fletes
-            If Not item.ENTID_NroDocumento.Equals("00000000001") Then
+            If Not item.ENTID_NroDocumento.Equals("00000000001") Then 'exceptuamos los 00001
                _fletes += item.ImpSoles
             End If
          Next

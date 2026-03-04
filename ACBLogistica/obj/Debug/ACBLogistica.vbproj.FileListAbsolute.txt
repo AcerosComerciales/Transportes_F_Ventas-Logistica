@@ -209,3 +209,27 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\A
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.dll
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACDLogistica.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACELogistica.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACDLogistica.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACDLogistica.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACELogistica.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACELogistica.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACEVentas.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.Resources.resources
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACBLogistica\obj\Debug\ACBLogistica.vbproj.CopyComplete

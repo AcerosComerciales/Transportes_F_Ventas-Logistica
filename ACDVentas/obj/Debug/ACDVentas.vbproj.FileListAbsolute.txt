@@ -420,3 +420,44 @@ D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDV
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.xml
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.pdb
 D:\Developer\Transportes\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACDVentas.dll.config
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACEVentas.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.IO.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.Extensions.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.Primitives.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.WebRequest.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Runtime.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Threading.Tasks.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACEVentas.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\ACEVentas.dll.config
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.IO.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.Extensions.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.Primitives.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Net.Http.WebRequest.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Runtime.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\System.Threading.Tasks.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbproj.App.config
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.Resources.resources
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACDVentas\obj\Debug\ACDVentas.vbproj.CopyComplete

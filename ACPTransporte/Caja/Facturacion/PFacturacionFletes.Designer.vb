@@ -269,86 +269,86 @@ Partial Class PFacturacionFletes
         Me.txtphantom_rutas_nombre = New System.Windows.Forms.TextBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.txtVEHIC_Certificado = New System.Windows.Forms.TextBox()
-        Me.tabMantenimiento.SuspendLayout()
-        Me.tabDatos.SuspendLayout()
-        Me.pnlDatos.SuspendLayout()
-        Me.pnlDetalle.SuspendLayout()
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
-        CType(Me.spcCabecera, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.spcCabecera.Panel1.SuspendLayout()
-        Me.spcCabecera.Panel2.SuspendLayout()
-        Me.spcCabecera.SuspendLayout()
-        Me.pnlItem.SuspendLayout()
-        Me.grpCabCuerpo.SuspendLayout()
-        Me.grpFlete.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.tpgFletes.SuspendLayout()
-        CType(Me.c1grdFletes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bnavFletes, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.bnavFletes.SuspendLayout()
-        Me.tstFletes.SuspendLayout()
-        Me.tpgNotasCredito.SuspendLayout()
-        CType(Me.c1grdNCreditos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator1.SuspendLayout()
-        Me.ToolStrip2.SuspendLayout()
-        Me.tpgPagos.SuspendLayout()
-        CType(Me.c1grdPagos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.BindingNavigator2.SuspendLayout()
-        Me.ToolStrip3.SuspendLayout()
-        CType(Me.spcDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.spcDetalle.Panel1.SuspendLayout()
-        Me.spcDetalle.Panel2.SuspendLayout()
-        Me.spcDetalle.SuspendLayout()
-        CType(Me.c1grdDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer3.Panel1.SuspendLayout()
-        Me.SplitContainer3.Panel2.SuspendLayout()
-        Me.SplitContainer3.SuspendLayout()
-        CType(Me.c1grdEmpresas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.c1grdGuias, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bnavGuias, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.bnavGuias.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
-        CType(Me.bnavProductos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.bnavProductos.SuspendLayout()
-        Me.pnlPie.SuspendLayout()
-        Me.grpDetPago.SuspendLayout()
-        Me.pnlCabecera.SuspendLayout()
-        Me.tabBusqueda.SuspendLayout()
-        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpBusqueda.SuspendLayout()
-        Me.grpCliente.SuspendLayout()
-        Me.grpDocumentos.SuspendLayout()
-        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.bnavBusqueda.SuspendLayout()
-        Me.acTool.SuspendLayout()
-        CType(Me.eprError, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.bnavConsumoAdBlue, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel6.SuspendLayout()
-        CType(Me.c1grdIngresoCompra, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.c1grGuiasCompraDet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.tabMantenimiento.SuspendLayout
+        Me.tabDatos.SuspendLayout
+        Me.pnlDatos.SuspendLayout
+        Me.pnlDetalle.SuspendLayout
+        CType(Me.SplitContainer2,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer2.Panel1.SuspendLayout
+        Me.SplitContainer2.Panel2.SuspendLayout
+        Me.SplitContainer2.SuspendLayout
+        CType(Me.spcCabecera,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.spcCabecera.Panel1.SuspendLayout
+        Me.spcCabecera.Panel2.SuspendLayout
+        Me.spcCabecera.SuspendLayout
+        Me.pnlItem.SuspendLayout
+        Me.grpCabCuerpo.SuspendLayout
+        Me.grpFlete.SuspendLayout
+        Me.TabControl1.SuspendLayout
+        Me.tpgFletes.SuspendLayout
+        CType(Me.c1grdFletes,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.bnavFletes,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavFletes.SuspendLayout
+        Me.tstFletes.SuspendLayout
+        Me.tpgNotasCredito.SuspendLayout
+        CType(Me.c1grdNCreditos,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.BindingNavigator1,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.BindingNavigator1.SuspendLayout
+        Me.ToolStrip2.SuspendLayout
+        Me.tpgPagos.SuspendLayout
+        CType(Me.c1grdPagos,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.BindingNavigator2,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.BindingNavigator2.SuspendLayout
+        Me.ToolStrip3.SuspendLayout
+        CType(Me.spcDetalle,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.spcDetalle.Panel1.SuspendLayout
+        Me.spcDetalle.Panel2.SuspendLayout
+        Me.spcDetalle.SuspendLayout
+        CType(Me.c1grdDetalle,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.SplitContainer3,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer3.Panel1.SuspendLayout
+        Me.SplitContainer3.Panel2.SuspendLayout
+        Me.SplitContainer3.SuspendLayout
+        CType(Me.c1grdEmpresas,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.c1grdGuias,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.bnavGuias,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavGuias.SuspendLayout
+        Me.Panel2.SuspendLayout
+        Me.ToolStrip1.SuspendLayout
+        CType(Me.bnavProductos,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavProductos.SuspendLayout
+        Me.pnlPie.SuspendLayout
+        Me.grpDetPago.SuspendLayout
+        Me.pnlCabecera.SuspendLayout
+        Me.tabBusqueda.SuspendLayout
+        CType(Me.c1grdBusqueda,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.grpBusqueda.SuspendLayout
+        Me.grpCliente.SuspendLayout
+        Me.grpDocumentos.SuspendLayout
+        CType(Me.bnavBusqueda,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.bnavBusqueda.SuspendLayout
+        Me.acTool.SuspendLayout
+        CType(Me.eprError,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.bnavConsumoAdBlue,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.Panel6.SuspendLayout
+        CType(Me.c1grdIngresoCompra,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.c1grGuiasCompraDet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'tabMantenimiento
         '
         Me.tabMantenimiento.BackColor = System.Drawing.Color.LightSteelBlue
         Me.tabMantenimiento.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabMantenimiento.Location = New System.Drawing.Point(0, 25)
-        Me.tabMantenimiento.MediaPlayerDockSides = False
+        Me.tabMantenimiento.MediaPlayerDockSides = false
         Me.tabMantenimiento.Name = "tabMantenimiento"
-        Me.tabMantenimiento.OfficeDockSides = False
+        Me.tabMantenimiento.OfficeDockSides = false
         Me.tabMantenimiento.SelectedIndex = 0
-        Me.tabMantenimiento.ShowDropSelect = False
+        Me.tabMantenimiento.ShowDropSelect = false
         Me.tabMantenimiento.Size = New System.Drawing.Size(1377, 797)
         Me.tabMantenimiento.TabIndex = 1
         Me.tabMantenimiento.TabPages.AddRange(New Crownwood.DotNetMagic.Controls.TabPage() {Me.tabDatos, Me.tabBusqueda})
-        Me.tabMantenimiento.TextTips = True
+        Me.tabMantenimiento.TextTips = true
         '
         'tabDatos
         '
@@ -426,7 +426,7 @@ Partial Class PFacturacionFletes
         '
         'pnlItem
         '
-        Me.pnlItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.pnlItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(3,Byte),Integer), CType(CType(55,Byte),Integer), CType(CType(145,Byte),Integer))
         Me.pnlItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pnlItem.Controls.Add(Me.cmbProdUnidad)
         Me.pnlItem.Controls.Add(Me.Label19)
@@ -452,7 +452,7 @@ Partial Class PFacturacionFletes
         '
         'cmbProdUnidad
         '
-        Me.cmbProdUnidad.FormattingEnabled = True
+        Me.cmbProdUnidad.FormattingEnabled = true
         Me.cmbProdUnidad.Location = New System.Drawing.Point(132, 12)
         Me.cmbProdUnidad.Name = "cmbProdUnidad"
         Me.cmbProdUnidad.Size = New System.Drawing.Size(151, 23)
@@ -460,9 +460,9 @@ Partial Class PFacturacionFletes
         '
         'Label19
         '
-        Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label19.AutoSize = true
+        Me.Label19.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label19.ForeColor = System.Drawing.Color.White
         Me.Label19.Location = New System.Drawing.Point(613, -1)
         Me.Label19.Name = "Label19"
@@ -476,9 +476,9 @@ Partial Class PFacturacionFletes
         Me.actxnValorReferencial.ACEnteros = 9
         Me.actxnValorReferencial.ACEstandar = ACControles.ACEstandaresFormato.ACGeneral
         Me.actxnValorReferencial.ACFormato = "########0.00"
-        Me.actxnValorReferencial.ACNegativo = True
+        Me.actxnValorReferencial.ACNegativo = true
         Me.actxnValorReferencial.ACValue = New Decimal(New Integer() {0, 0, 0, 524288})
-        Me.actxnValorReferencial.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnValorReferencial.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnValorReferencial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnValorReferencial.Location = New System.Drawing.Point(615, 12)
         Me.actxnValorReferencial.MaxLength = 12
@@ -491,23 +491,23 @@ Partial Class PFacturacionFletes
         '
         'btnMenos
         '
-        Me.btnMenos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnMenos.Location = New System.Drawing.Point(938, 60)
         Me.btnMenos.Name = "btnMenos"
         Me.btnMenos.Size = New System.Drawing.Size(26, 23)
         Me.btnMenos.TabIndex = 16
         Me.btnMenos.Text = "-"
-        Me.btnMenos.UseVisualStyleBackColor = True
+        Me.btnMenos.UseVisualStyleBackColor = true
         '
         'btnMas
         '
-        Me.btnMas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMas.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnMas.Location = New System.Drawing.Point(938, 37)
         Me.btnMas.Name = "btnMas"
         Me.btnMas.Size = New System.Drawing.Size(26, 23)
         Me.btnMas.TabIndex = 15
         Me.btnMas.Text = "+"
-        Me.btnMas.UseVisualStyleBackColor = True
+        Me.btnMas.UseVisualStyleBackColor = true
         '
         'txtProdUnidad
         '
@@ -519,12 +519,12 @@ Partial Class PFacturacionFletes
         Me.txtProdUnidad.TabIndex = 3
         Me.txtProdUnidad.Tag = "EV"
         Me.txtProdUnidad.Text = "NO SE USA "
-        Me.txtProdUnidad.Visible = False
+        Me.txtProdUnidad.Visible = false
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label2.AutoSize = true
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(129, -1)
         Me.Label2.Name = "Label2"
@@ -538,9 +538,9 @@ Partial Class PFacturacionFletes
         Me.actxnPrecio.ACEnteros = 9
         Me.actxnPrecio.ACEstandar = ACControles.ACEstandaresFormato.ACGeneral
         Me.actxnPrecio.ACFormato = "########0.00000000"
-        Me.actxnPrecio.ACNegativo = True
+        Me.actxnPrecio.ACNegativo = true
         Me.actxnPrecio.ACValue = New Decimal(New Integer() {0, 0, 0, 262144})
-        Me.actxnPrecio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnPrecio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnPrecio.Location = New System.Drawing.Point(721, 12)
         Me.actxnPrecio.MaxLength = 12
@@ -553,7 +553,7 @@ Partial Class PFacturacionFletes
         '
         'txtOpcion
         '
-        Me.txtOpcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtOpcion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtOpcion.BackColor = System.Drawing.Color.Gainsboro
         Me.txtOpcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtOpcion.Location = New System.Drawing.Point(939, 12)
@@ -566,14 +566,14 @@ Partial Class PFacturacionFletes
         '
         Me.actxnSubImporte.ACEnteros = 9
         Me.actxnSubImporte.ACEstandar = ACControles.ACEstandaresFormato.ACMoneda
-        Me.actxnSubImporte.ACNegativo = True
+        Me.actxnSubImporte.ACNegativo = true
         Me.actxnSubImporte.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnSubImporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnSubImporte.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnSubImporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnSubImporte.Location = New System.Drawing.Point(833, 12)
         Me.actxnSubImporte.MaxLength = 12
         Me.actxnSubImporte.Name = "actxnSubImporte"
-        Me.actxnSubImporte.ReadOnly = True
+        Me.actxnSubImporte.ReadOnly = true
         Me.actxnSubImporte.Size = New System.Drawing.Size(100, 23)
         Me.actxnSubImporte.TabIndex = 9
         Me.actxnSubImporte.Tag = "V"
@@ -585,7 +585,7 @@ Partial Class PFacturacionFletes
         Me.actxnProdCantidad.ACDecimales = 4
         Me.actxnProdCantidad.ACEnteros = 9
         Me.actxnProdCantidad.ACFormato = "###,###,##0.0000"
-        Me.actxnProdCantidad.ACNegativo = True
+        Me.actxnProdCantidad.ACNegativo = true
         Me.actxnProdCantidad.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.actxnProdCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnProdCantidad.Location = New System.Drawing.Point(5, 12)
@@ -599,9 +599,9 @@ Partial Class PFacturacionFletes
         '
         'Label10
         '
-        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = true
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(837, -1)
         Me.Label10.Name = "Label10"
@@ -611,9 +611,9 @@ Partial Class PFacturacionFletes
         '
         'Label9
         '
-        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = true
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(725, -1)
         Me.Label9.Name = "Label9"
@@ -623,8 +623,8 @@ Partial Class PFacturacionFletes
         '
         'lblCantidad
         '
-        Me.lblCantidad.AutoSize = True
-        Me.lblCantidad.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.lblCantidad.AutoSize = true
+        Me.lblCantidad.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.lblCantidad.ForeColor = System.Drawing.Color.White
         Me.lblCantidad.Location = New System.Drawing.Point(14, -1)
         Me.lblCantidad.Name = "lblCantidad"
@@ -634,14 +634,14 @@ Partial Class PFacturacionFletes
         '
         'txtProdDescripcion
         '
-        Me.txtProdDescripcion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtProdDescripcion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
+            Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtProdDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtProdDescripcion.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProdDescripcion.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.txtProdDescripcion.Location = New System.Drawing.Point(125, 41)
         Me.txtProdDescripcion.MaxLength = 2000
-        Me.txtProdDescripcion.Multiline = True
+        Me.txtProdDescripcion.Multiline = true
         Me.txtProdDescripcion.Name = "txtProdDescripcion"
         Me.txtProdDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtProdDescripcion.Size = New System.Drawing.Size(808, 115)
@@ -650,8 +650,8 @@ Partial Class PFacturacionFletes
         '
         'Label17
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label17.AutoSize = true
+        Me.Label17.Font = New System.Drawing.Font("Tahoma", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label17.ForeColor = System.Drawing.Color.White
         Me.Label17.Location = New System.Drawing.Point(41, 51)
         Me.Label17.Name = "Label17"
@@ -692,38 +692,38 @@ Partial Class PFacturacionFletes
         Me.grpCabCuerpo.Name = "grpCabCuerpo"
         Me.grpCabCuerpo.Size = New System.Drawing.Size(972, 155)
         Me.grpCabCuerpo.TabIndex = 1
-        Me.grpCabCuerpo.TabStop = False
+        Me.grpCabCuerpo.TabStop = false
         Me.grpCabCuerpo.Tag = "EVO"
         '
         'chkEditarFactura
         '
-        Me.chkEditarFactura.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkEditarFactura.AutoSize = True
+        Me.chkEditarFactura.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkEditarFactura.AutoSize = true
         Me.chkEditarFactura.Location = New System.Drawing.Point(658, 128)
         Me.chkEditarFactura.Name = "chkEditarFactura"
         Me.chkEditarFactura.Size = New System.Drawing.Size(107, 19)
         Me.chkEditarFactura.TabIndex = 66
         Me.chkEditarFactura.Text = "Direccion Mod."
-        Me.chkEditarFactura.UseVisualStyleBackColor = True
+        Me.chkEditarFactura.UseVisualStyleBackColor = true
         '
         'chkValorReferencialEnFactura
         '
-        Me.chkValorReferencialEnFactura.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkValorReferencialEnFactura.AutoSize = True
+        Me.chkValorReferencialEnFactura.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkValorReferencialEnFactura.AutoSize = true
         Me.chkValorReferencialEnFactura.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkValorReferencialEnFactura.Enabled = False
+        Me.chkValorReferencialEnFactura.Enabled = false
         Me.chkValorReferencialEnFactura.Location = New System.Drawing.Point(849, 125)
         Me.chkValorReferencialEnFactura.Name = "chkValorReferencialEnFactura"
         Me.chkValorReferencialEnFactura.Size = New System.Drawing.Size(117, 19)
         Me.chkValorReferencialEnFactura.TabIndex = 37
         Me.chkValorReferencialEnFactura.Text = "V. Ref. en Factura"
-        Me.chkValorReferencialEnFactura.UseVisualStyleBackColor = True
+        Me.chkValorReferencialEnFactura.UseVisualStyleBackColor = true
         '
         'dtpFecPlazo
         '
-        Me.dtpFecPlazo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtpFecPlazo.Enabled = False
+        Me.dtpFecPlazo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.dtpFecPlazo.Enabled = false
         Me.dtpFecPlazo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecPlazo.Location = New System.Drawing.Point(519, 124)
         Me.dtpFecPlazo.Name = "dtpFecPlazo"
@@ -733,8 +733,8 @@ Partial Class PFacturacionFletes
         '
         'Label15
         '
-        Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label15.AutoSize = True
+        Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label15.AutoSize = true
         Me.Label15.Location = New System.Drawing.Point(469, 128)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(44, 15)
@@ -743,9 +743,9 @@ Partial Class PFacturacionFletes
         '
         'Label18
         '
-        Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label18.AutoSize = True
-        Me.Label18.Enabled = False
+        Me.Label18.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label18.AutoSize = true
+        Me.Label18.Enabled = false
         Me.Label18.Location = New System.Drawing.Point(394, 128)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(41, 15)
@@ -757,15 +757,15 @@ Partial Class PFacturacionFletes
         Me.actxnPlazo.ACDecimales = 0
         Me.actxnPlazo.ACEnteros = 9
         Me.actxnPlazo.ACFormato = "########0"
-        Me.actxnPlazo.ACNegativo = True
+        Me.actxnPlazo.ACNegativo = true
         Me.actxnPlazo.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.actxnPlazo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnPlazo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnPlazo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.actxnPlazo.Enabled = False
+        Me.actxnPlazo.Enabled = false
         Me.actxnPlazo.Location = New System.Drawing.Point(439, 124)
         Me.actxnPlazo.MaxLength = 12
         Me.actxnPlazo.Name = "actxnPlazo"
-        Me.actxnPlazo.ReadOnly = True
+        Me.actxnPlazo.ReadOnly = true
         Me.actxnPlazo.Size = New System.Drawing.Size(26, 23)
         Me.actxnPlazo.TabIndex = 34
         Me.actxnPlazo.Text = "0"
@@ -773,7 +773,7 @@ Partial Class PFacturacionFletes
         '
         'Label13
         '
-        Me.Label13.AutoSize = True
+        Me.Label13.AutoSize = true
         Me.Label13.Location = New System.Drawing.Point(8, 130)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(72, 15)
@@ -783,8 +783,8 @@ Partial Class PFacturacionFletes
         'cmbCondicionPago
         '
         Me.cmbCondicionPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCondicionPago.Enabled = False
-        Me.cmbCondicionPago.FormattingEnabled = True
+        Me.cmbCondicionPago.Enabled = false
+        Me.cmbCondicionPago.FormattingEnabled = true
         Me.cmbCondicionPago.Location = New System.Drawing.Point(86, 125)
         Me.cmbCondicionPago.Name = "cmbCondicionPago"
         Me.cmbCondicionPago.Size = New System.Drawing.Size(198, 23)
@@ -793,17 +793,17 @@ Partial Class PFacturacionFletes
         '
         'chkDetraccion
         '
-        Me.chkDetraccion.AutoSize = True
+        Me.chkDetraccion.AutoSize = true
         Me.chkDetraccion.Location = New System.Drawing.Point(512, 100)
         Me.chkDetraccion.Name = "chkDetraccion"
         Me.chkDetraccion.Size = New System.Drawing.Size(89, 19)
         Me.chkDetraccion.TabIndex = 30
         Me.chkDetraccion.Text = "Detracción: "
-        Me.chkDetraccion.UseVisualStyleBackColor = True
+        Me.chkDetraccion.UseVisualStyleBackColor = true
         '
         'Label16
         '
-        Me.Label16.AutoSize = True
+        Me.Label16.AutoSize = true
         Me.Label16.Location = New System.Drawing.Point(661, 162)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(17, 15)
@@ -813,8 +813,8 @@ Partial Class PFacturacionFletes
         'cmbDetraccion
         '
         Me.cmbDetraccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbDetraccion.Enabled = False
-        Me.cmbDetraccion.FormattingEnabled = True
+        Me.cmbDetraccion.Enabled = false
+        Me.cmbDetraccion.FormattingEnabled = true
         Me.cmbDetraccion.Items.AddRange(New Object() {"0", "4", "10", "12"})
         Me.cmbDetraccion.Location = New System.Drawing.Point(603, 97)
         Me.cmbDetraccion.Name = "cmbDetraccion"
@@ -824,36 +824,36 @@ Partial Class PFacturacionFletes
         '
         'chkspot
         '
-        Me.chkspot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkspot.AutoSize = True
+        Me.chkspot.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkspot.AutoSize = true
         Me.chkspot.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkspot.Checked = True
+        Me.chkspot.Checked = true
         Me.chkspot.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkspot.Location = New System.Drawing.Point(775, 100)
         Me.chkspot.Name = "chkspot"
         Me.chkspot.Size = New System.Drawing.Size(95, 19)
         Me.chkspot.TabIndex = 26
         Me.chkspot.Text = "Agregar Spot"
-        Me.chkspot.UseVisualStyleBackColor = True
+        Me.chkspot.UseVisualStyleBackColor = true
         '
         'chkIlncluidoIGV
         '
-        Me.chkIlncluidoIGV.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkIlncluidoIGV.AutoSize = True
+        Me.chkIlncluidoIGV.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkIlncluidoIGV.AutoSize = true
         Me.chkIlncluidoIGV.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkIlncluidoIGV.Enabled = False
+        Me.chkIlncluidoIGV.Enabled = false
         Me.chkIlncluidoIGV.Location = New System.Drawing.Point(869, 101)
         Me.chkIlncluidoIGV.Name = "chkIlncluidoIGV"
         Me.chkIlncluidoIGV.Size = New System.Drawing.Size(99, 19)
         Me.chkIlncluidoIGV.TabIndex = 17
         Me.chkIlncluidoIGV.Text = "Incluido I.G.V."
-        Me.chkIlncluidoIGV.UseVisualStyleBackColor = True
+        Me.chkIlncluidoIGV.UseVisualStyleBackColor = true
         '
         'grpFlete
         '
-        Me.grpFlete.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grpFlete.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.grpFlete.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.grpFlete.BackColor = System.Drawing.Color.FromArgb(CType(CType(3,Byte),Integer), CType(CType(55,Byte),Integer), CType(CType(145,Byte),Integer))
         Me.grpFlete.Controls.Add(Me.actxaFlete)
         Me.grpFlete.Controls.Add(Me.Label14)
         Me.grpFlete.Controls.Add(Me.dtpFecFacturacion)
@@ -863,11 +863,11 @@ Partial Class PFacturacionFletes
         Me.grpFlete.Name = "grpFlete"
         Me.grpFlete.Size = New System.Drawing.Size(973, 48)
         Me.grpFlete.TabIndex = 24
-        Me.grpFlete.TabStop = False
+        Me.grpFlete.TabStop = false
         '
         'actxaFlete
         '
-        Me.actxaFlete.ACActivarAyudaAuto = False
+        Me.actxaFlete.ACActivarAyudaAuto = false
         Me.actxaFlete.ACLongitudAceptada = 0
         Me.actxaFlete.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxaFlete.Location = New System.Drawing.Point(89, 20)
@@ -879,8 +879,8 @@ Partial Class PFacturacionFletes
         '
         'Label14
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label14.AutoSize = true
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 13!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label14.ForeColor = System.Drawing.Color.White
         Me.Label14.Location = New System.Drawing.Point(33, 23)
         Me.Label14.Name = "Label14"
@@ -890,9 +890,9 @@ Partial Class PFacturacionFletes
         '
         'dtpFecFacturacion
         '
-        Me.dtpFecFacturacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtpFecFacturacion.Enabled = False
-        Me.dtpFecFacturacion.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.dtpFecFacturacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.dtpFecFacturacion.Enabled = false
+        Me.dtpFecFacturacion.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.dtpFecFacturacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFecFacturacion.Location = New System.Drawing.Point(723, 15)
         Me.dtpFecFacturacion.Name = "dtpFecFacturacion"
@@ -902,9 +902,9 @@ Partial Class PFacturacionFletes
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = true
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(607, 19)
         Me.Label1.Name = "Label1"
@@ -914,33 +914,33 @@ Partial Class PFacturacionFletes
         '
         'chkPermiteFecha
         '
-        Me.chkPermiteFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkPermiteFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.chkPermiteFecha.ForeColor = System.Drawing.Color.White
         Me.chkPermiteFecha.Location = New System.Drawing.Point(844, 11)
         Me.chkPermiteFecha.Name = "chkPermiteFecha"
         Me.chkPermiteFecha.Size = New System.Drawing.Size(122, 34)
         Me.chkPermiteFecha.TabIndex = 25
         Me.chkPermiteFecha.Text = "Permitir un fecha Inferior a la ultima Factura"
-        Me.chkPermiteFecha.UseVisualStyleBackColor = True
+        Me.chkPermiteFecha.UseVisualStyleBackColor = true
         '
         'txtDireccion
         '
-        Me.txtDireccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtDireccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDireccion.Location = New System.Drawing.Point(89, 72)
         Me.txtDireccion.Name = "txtDireccion"
-        Me.txtDireccion.ReadOnly = True
+        Me.txtDireccion.ReadOnly = true
         Me.txtDireccion.Size = New System.Drawing.Size(874, 23)
         Me.txtDireccion.TabIndex = 21
         '
         'cmbDirecciones
         '
-        Me.cmbDirecciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbDirecciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cmbDirecciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbDirecciones.DropDownWidth = 250
-        Me.cmbDirecciones.FormattingEnabled = True
+        Me.cmbDirecciones.FormattingEnabled = true
         Me.cmbDirecciones.Location = New System.Drawing.Point(89, 71)
         Me.cmbDirecciones.Name = "cmbDirecciones"
         Me.cmbDirecciones.Size = New System.Drawing.Size(874, 23)
@@ -949,7 +949,7 @@ Partial Class PFacturacionFletes
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
+        Me.Label7.AutoSize = true
         Me.Label7.Location = New System.Drawing.Point(16, 79)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(63, 15)
@@ -958,7 +958,7 @@ Partial Class PFacturacionFletes
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
+        Me.Label6.AutoSize = true
         Me.Label6.Location = New System.Drawing.Point(216, 103)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 15)
@@ -967,7 +967,7 @@ Partial Class PFacturacionFletes
         '
         'btnNuevoCliente
         '
-        Me.btnNuevoCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevoCliente.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnNuevoCliente.Image = Global.ACPTransportes.My.Resources.Resources.ACNuevo_16x16
         Me.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnNuevoCliente.Location = New System.Drawing.Point(852, 43)
@@ -976,12 +976,12 @@ Partial Class PFacturacionFletes
         Me.btnNuevoCliente.TabIndex = 3
         Me.btnNuevoCliente.Text = "Nuevo "
         Me.btnNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNuevoCliente.UseVisualStyleBackColor = True
+        Me.btnNuevoCliente.UseVisualStyleBackColor = true
         '
         'cmbEntrega
         '
         Me.cmbEntrega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbEntrega.FormattingEnabled = True
+        Me.cmbEntrega.FormattingEnabled = true
         Me.cmbEntrega.Location = New System.Drawing.Point(290, 99)
         Me.cmbEntrega.Name = "cmbEntrega"
         Me.cmbEntrega.Size = New System.Drawing.Size(145, 23)
@@ -990,22 +990,22 @@ Partial Class PFacturacionFletes
         '
         'btnClean
         '
-        Me.btnClean.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClean.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClean.Image = Global.ACPTransportes.My.Resources.Resources.Delete_16x16
         Me.btnClean.Location = New System.Drawing.Point(927, 43)
         Me.btnClean.Name = "btnClean"
         Me.btnClean.Size = New System.Drawing.Size(36, 28)
         Me.btnClean.TabIndex = 4
-        Me.btnClean.UseVisualStyleBackColor = True
+        Me.btnClean.UseVisualStyleBackColor = true
         '
         'actxaCliRazonSocial
         '
-        Me.actxaCliRazonSocial.ACActivarAyudaAuto = False
+        Me.actxaCliRazonSocial.ACActivarAyudaAuto = false
         Me.actxaCliRazonSocial.ACLongitudAceptada = 0
-        Me.actxaCliRazonSocial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxaCliRazonSocial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxaCliRazonSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.actxaCliRazonSocial.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxaCliRazonSocial.Font = New System.Drawing.Font("Tahoma", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.actxaCliRazonSocial.Location = New System.Drawing.Point(226, 46)
         Me.actxaCliRazonSocial.MaxLength = 80
         Me.actxaCliRazonSocial.Name = "actxaCliRazonSocial"
@@ -1015,7 +1015,7 @@ Partial Class PFacturacionFletes
         '
         'lblNroDocumento
         '
-        Me.lblNroDocumento.AutoSize = True
+        Me.lblNroDocumento.AutoSize = true
         Me.lblNroDocumento.Location = New System.Drawing.Point(29, 53)
         Me.lblNroDocumento.Name = "lblNroDocumento"
         Me.lblNroDocumento.Size = New System.Drawing.Size(50, 15)
@@ -1024,7 +1024,7 @@ Partial Class PFacturacionFletes
         '
         'actxaCliRuc
         '
-        Me.actxaCliRuc.ACActivarAyudaAuto = False
+        Me.actxaCliRuc.ACActivarAyudaAuto = false
         Me.actxaCliRuc.ACLongitudAceptada = 0
         Me.actxaCliRuc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxaCliRuc.Location = New System.Drawing.Point(89, 45)
@@ -1036,7 +1036,7 @@ Partial Class PFacturacionFletes
         '
         'lblMoneda
         '
-        Me.lblMoneda.AutoSize = True
+        Me.lblMoneda.AutoSize = true
         Me.lblMoneda.Location = New System.Drawing.Point(21, 104)
         Me.lblMoneda.Name = "lblMoneda"
         Me.lblMoneda.Size = New System.Drawing.Size(57, 15)
@@ -1047,7 +1047,7 @@ Partial Class PFacturacionFletes
         '
         Me.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMoneda.DropDownWidth = 250
-        Me.cmbMoneda.FormattingEnabled = True
+        Me.cmbMoneda.FormattingEnabled = true
         Me.cmbMoneda.Location = New System.Drawing.Point(86, 99)
         Me.cmbMoneda.Name = "cmbMoneda"
         Me.cmbMoneda.Size = New System.Drawing.Size(114, 23)
@@ -1078,13 +1078,13 @@ Partial Class PFacturacionFletes
         Me.tpgFletes.Size = New System.Drawing.Size(391, 291)
         Me.tpgFletes.TabIndex = 0
         Me.tpgFletes.Text = "Fletes"
-        Me.tpgFletes.UseVisualStyleBackColor = True
+        Me.tpgFletes.UseVisualStyleBackColor = true
         '
         'c1grdFletes
         '
-        Me.c1grdFletes.AllowAddNew = True
-        Me.c1grdFletes.AllowDelete = True
-        Me.c1grdFletes.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdFletes.AllowAddNew = true
+        Me.c1grdFletes.AllowDelete = true
+        Me.c1grdFletes.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdFletes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grdFletes.Location = New System.Drawing.Point(3, 53)
         Me.c1grdFletes.Name = "c1grdFletes"
@@ -1100,7 +1100,7 @@ Partial Class PFacturacionFletes
         Me.bnavFletes.CountItem = Me.ToolStripLabel10
         Me.bnavFletes.DeleteItem = Nothing
         Me.bnavFletes.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.bnavFletes.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.bnavFletes.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.bnavFletes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripSeparator44, Me.ToolStripTextBox10, Me.ToolStripLabel10, Me.ToolStripSeparator45, Me.ToolStripButton27, Me.ToolStripButton28, Me.ToolStripSeparator46, Me.tsbtnImprimir})
         Me.bnavFletes.Location = New System.Drawing.Point(3, 263)
         Me.bnavFletes.MoveFirstItem = Me.ToolStripButton7
@@ -1123,18 +1123,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton7
         '
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"),System.Drawing.Image)
         Me.ToolStripButton7.Name = "ToolStripButton7"
-        Me.ToolStripButton7.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton7.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton7.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton7.Text = "Move first"
         '
         'ToolStripButton8
         '
         Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
+        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"),System.Drawing.Image)
         Me.ToolStripButton8.Name = "ToolStripButton8"
-        Me.ToolStripButton8.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton8.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton8.Text = "Move previous"
         '
@@ -1146,7 +1146,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox10
         '
         Me.ToolStripTextBox10.AccessibleName = "Position"
-        Me.ToolStripTextBox10.AutoSize = False
+        Me.ToolStripTextBox10.AutoSize = false
         Me.ToolStripTextBox10.Name = "ToolStripTextBox10"
         Me.ToolStripTextBox10.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox10.Text = "0"
@@ -1160,18 +1160,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton27
         '
         Me.ToolStripButton27.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton27.Image = CType(resources.GetObject("ToolStripButton27.Image"), System.Drawing.Image)
+        Me.ToolStripButton27.Image = CType(resources.GetObject("ToolStripButton27.Image"),System.Drawing.Image)
         Me.ToolStripButton27.Name = "ToolStripButton27"
-        Me.ToolStripButton27.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton27.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton27.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton27.Text = "Move next"
         '
         'ToolStripButton28
         '
         Me.ToolStripButton28.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton28.Image = CType(resources.GetObject("ToolStripButton28.Image"), System.Drawing.Image)
+        Me.ToolStripButton28.Image = CType(resources.GetObject("ToolStripButton28.Image"),System.Drawing.Image)
         Me.ToolStripButton28.Name = "ToolStripButton28"
-        Me.ToolStripButton28.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton28.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton28.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton28.Text = "Move last"
         '
@@ -1190,7 +1190,7 @@ Partial Class PFacturacionFletes
         '
         'tstFletes
         '
-        Me.tstFletes.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.tstFletes.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.tstFletes.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnAddFletes, Me.ToolStripSeparator5, Me.tsbtnQuitarFletes})
         Me.tstFletes.Location = New System.Drawing.Point(3, 28)
         Me.tstFletes.Name = "tstFletes"
@@ -1202,7 +1202,7 @@ Partial Class PFacturacionFletes
         '
         Me.tsbtnAddFletes.Image = Global.ACPTransportes.My.Resources.Resources.ACAdd_16x16
         Me.tsbtnAddFletes.Name = "tsbtnAddFletes"
-        Me.tsbtnAddFletes.RightToLeftAutoMirrorImage = True
+        Me.tsbtnAddFletes.RightToLeftAutoMirrorImage = true
         Me.tsbtnAddFletes.Size = New System.Drawing.Size(69, 22)
         Me.tsbtnAddFletes.Text = "Agregar"
         '
@@ -1215,7 +1215,7 @@ Partial Class PFacturacionFletes
         '
         Me.tsbtnQuitarFletes.Image = Global.ACPTransportes.My.Resources.Resources.ACAnular_16x16
         Me.tsbtnQuitarFletes.Name = "tsbtnQuitarFletes"
-        Me.tsbtnQuitarFletes.RightToLeftAutoMirrorImage = True
+        Me.tsbtnQuitarFletes.RightToLeftAutoMirrorImage = true
         Me.tsbtnQuitarFletes.Size = New System.Drawing.Size(60, 22)
         Me.tsbtnQuitarFletes.Text = "Quitar"
         '
@@ -1223,7 +1223,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption1.ACCaption = "Fletes"
         Me.AcPanelCaption1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption1.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption1.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption1.Location = New System.Drawing.Point(3, 3)
         Me.AcPanelCaption1.Name = "AcPanelCaption1"
         Me.AcPanelCaption1.Size = New System.Drawing.Size(385, 25)
@@ -1241,13 +1241,13 @@ Partial Class PFacturacionFletes
         Me.tpgNotasCredito.Size = New System.Drawing.Size(391, 291)
         Me.tpgNotasCredito.TabIndex = 1
         Me.tpgNotasCredito.Text = "Notas de Credito"
-        Me.tpgNotasCredito.UseVisualStyleBackColor = True
+        Me.tpgNotasCredito.UseVisualStyleBackColor = true
         '
         'c1grdNCreditos
         '
-        Me.c1grdNCreditos.AllowAddNew = True
-        Me.c1grdNCreditos.AllowDelete = True
-        Me.c1grdNCreditos.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdNCreditos.AllowAddNew = true
+        Me.c1grdNCreditos.AllowDelete = true
+        Me.c1grdNCreditos.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdNCreditos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grdNCreditos.Location = New System.Drawing.Point(3, 53)
         Me.c1grdNCreditos.Name = "c1grdNCreditos"
@@ -1263,7 +1263,7 @@ Partial Class PFacturacionFletes
         Me.BindingNavigator1.CountItem = Me.ToolStripLabel3
         Me.BindingNavigator1.DeleteItem = Nothing
         Me.BindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BindingNavigator1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BindingNavigator1.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripSeparator6, Me.ToolStripTextBox2, Me.ToolStripLabel3, Me.ToolStripSeparator7, Me.ToolStripButton11, Me.ToolStripButton12, Me.ToolStripSeparator8, Me.ToolStripButton13})
         Me.BindingNavigator1.Location = New System.Drawing.Point(3, 263)
         Me.BindingNavigator1.MoveFirstItem = Me.ToolStripButton9
@@ -1286,18 +1286,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton9
         '
         Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
+        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"),System.Drawing.Image)
         Me.ToolStripButton9.Name = "ToolStripButton9"
-        Me.ToolStripButton9.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton9.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton9.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton9.Text = "Move first"
         '
         'ToolStripButton10
         '
         Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"), System.Drawing.Image)
+        Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"),System.Drawing.Image)
         Me.ToolStripButton10.Name = "ToolStripButton10"
-        Me.ToolStripButton10.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton10.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton10.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton10.Text = "Move previous"
         '
@@ -1309,7 +1309,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox2
         '
         Me.ToolStripTextBox2.AccessibleName = "Position"
-        Me.ToolStripTextBox2.AutoSize = False
+        Me.ToolStripTextBox2.AutoSize = false
         Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
         Me.ToolStripTextBox2.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox2.Text = "0"
@@ -1323,18 +1323,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton11
         '
         Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
+        Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"),System.Drawing.Image)
         Me.ToolStripButton11.Name = "ToolStripButton11"
-        Me.ToolStripButton11.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton11.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton11.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton11.Text = "Move next"
         '
         'ToolStripButton12
         '
         Me.ToolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton12.Image = CType(resources.GetObject("ToolStripButton12.Image"), System.Drawing.Image)
+        Me.ToolStripButton12.Image = CType(resources.GetObject("ToolStripButton12.Image"),System.Drawing.Image)
         Me.ToolStripButton12.Name = "ToolStripButton12"
-        Me.ToolStripButton12.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton12.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton12.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton12.Text = "Move last"
         '
@@ -1353,7 +1353,7 @@ Partial Class PFacturacionFletes
         '
         'ToolStrip2
         '
-        Me.ToolStrip2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ToolStrip2.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton14, Me.ToolStripSeparator12, Me.ToolStripButton19})
         Me.ToolStrip2.Location = New System.Drawing.Point(3, 28)
         Me.ToolStrip2.Name = "ToolStrip2"
@@ -1365,7 +1365,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripButton14.Image = Global.ACPTransportes.My.Resources.Resources.ACAdd_16x16
         Me.ToolStripButton14.Name = "ToolStripButton14"
-        Me.ToolStripButton14.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton14.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton14.Size = New System.Drawing.Size(69, 22)
         Me.ToolStripButton14.Text = "Agregar"
         '
@@ -1378,7 +1378,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripButton19.Image = Global.ACPTransportes.My.Resources.Resources.ACAnular_16x16
         Me.ToolStripButton19.Name = "ToolStripButton19"
-        Me.ToolStripButton19.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton19.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton19.Size = New System.Drawing.Size(60, 22)
         Me.ToolStripButton19.Text = "Quitar"
         '
@@ -1386,7 +1386,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption5.ACCaption = "Notas de Credito"
         Me.AcPanelCaption5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption5.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption5.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption5.Location = New System.Drawing.Point(3, 3)
         Me.AcPanelCaption5.Name = "AcPanelCaption5"
         Me.AcPanelCaption5.Size = New System.Drawing.Size(385, 25)
@@ -1403,13 +1403,13 @@ Partial Class PFacturacionFletes
         Me.tpgPagos.Size = New System.Drawing.Size(391, 291)
         Me.tpgPagos.TabIndex = 2
         Me.tpgPagos.Text = "Pagos"
-        Me.tpgPagos.UseVisualStyleBackColor = True
+        Me.tpgPagos.UseVisualStyleBackColor = true
         '
         'c1grdPagos
         '
-        Me.c1grdPagos.AllowAddNew = True
-        Me.c1grdPagos.AllowDelete = True
-        Me.c1grdPagos.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdPagos.AllowAddNew = true
+        Me.c1grdPagos.AllowDelete = true
+        Me.c1grdPagos.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdPagos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grdPagos.Location = New System.Drawing.Point(0, 50)
         Me.c1grdPagos.Name = "c1grdPagos"
@@ -1425,7 +1425,7 @@ Partial Class PFacturacionFletes
         Me.BindingNavigator2.CountItem = Me.ToolStripLabel5
         Me.BindingNavigator2.DeleteItem = Nothing
         Me.BindingNavigator2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BindingNavigator2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BindingNavigator2.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.BindingNavigator2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton20, Me.ToolStripButton21, Me.ToolStripSeparator13, Me.ToolStripTextBox4, Me.ToolStripLabel5, Me.ToolStripSeparator14, Me.ToolStripButton22, Me.ToolStripButton23, Me.ToolStripSeparator15, Me.ToolStripButton24})
         Me.BindingNavigator2.Location = New System.Drawing.Point(0, 266)
         Me.BindingNavigator2.MoveFirstItem = Me.ToolStripButton20
@@ -1448,18 +1448,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton20
         '
         Me.ToolStripButton20.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton20.Image = CType(resources.GetObject("ToolStripButton20.Image"), System.Drawing.Image)
+        Me.ToolStripButton20.Image = CType(resources.GetObject("ToolStripButton20.Image"),System.Drawing.Image)
         Me.ToolStripButton20.Name = "ToolStripButton20"
-        Me.ToolStripButton20.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton20.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton20.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton20.Text = "Move first"
         '
         'ToolStripButton21
         '
         Me.ToolStripButton21.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton21.Image = CType(resources.GetObject("ToolStripButton21.Image"), System.Drawing.Image)
+        Me.ToolStripButton21.Image = CType(resources.GetObject("ToolStripButton21.Image"),System.Drawing.Image)
         Me.ToolStripButton21.Name = "ToolStripButton21"
-        Me.ToolStripButton21.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton21.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton21.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton21.Text = "Move previous"
         '
@@ -1471,7 +1471,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox4
         '
         Me.ToolStripTextBox4.AccessibleName = "Position"
-        Me.ToolStripTextBox4.AutoSize = False
+        Me.ToolStripTextBox4.AutoSize = false
         Me.ToolStripTextBox4.Name = "ToolStripTextBox4"
         Me.ToolStripTextBox4.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox4.Text = "0"
@@ -1485,18 +1485,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton22
         '
         Me.ToolStripButton22.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton22.Image = CType(resources.GetObject("ToolStripButton22.Image"), System.Drawing.Image)
+        Me.ToolStripButton22.Image = CType(resources.GetObject("ToolStripButton22.Image"),System.Drawing.Image)
         Me.ToolStripButton22.Name = "ToolStripButton22"
-        Me.ToolStripButton22.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton22.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton22.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton22.Text = "Move next"
         '
         'ToolStripButton23
         '
         Me.ToolStripButton23.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton23.Image = CType(resources.GetObject("ToolStripButton23.Image"), System.Drawing.Image)
+        Me.ToolStripButton23.Image = CType(resources.GetObject("ToolStripButton23.Image"),System.Drawing.Image)
         Me.ToolStripButton23.Name = "ToolStripButton23"
-        Me.ToolStripButton23.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton23.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton23.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton23.Text = "Move last"
         '
@@ -1515,7 +1515,7 @@ Partial Class PFacturacionFletes
         '
         'ToolStrip3
         '
-        Me.ToolStrip3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ToolStrip3.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton25, Me.ToolStripSeparator17, Me.ToolStripButton26})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip3.Name = "ToolStrip3"
@@ -1527,7 +1527,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripButton25.Image = Global.ACPTransportes.My.Resources.Resources.ACAdd_16x16
         Me.ToolStripButton25.Name = "ToolStripButton25"
-        Me.ToolStripButton25.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton25.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton25.Size = New System.Drawing.Size(69, 22)
         Me.ToolStripButton25.Text = "Agregar"
         '
@@ -1540,7 +1540,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripButton26.Image = Global.ACPTransportes.My.Resources.Resources.ACAnular_16x16
         Me.ToolStripButton26.Name = "ToolStripButton26"
-        Me.ToolStripButton26.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton26.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton26.Size = New System.Drawing.Size(60, 22)
         Me.ToolStripButton26.Text = "Quitar"
         '
@@ -1548,7 +1548,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption6.ACCaption = "Pagos"
         Me.AcPanelCaption6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption6.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption6.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption6.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption6.Name = "AcPanelCaption6"
         Me.AcPanelCaption6.Size = New System.Drawing.Size(391, 25)
@@ -1575,11 +1575,11 @@ Partial Class PFacturacionFletes
         '
         'c1grdDetalle
         '
-        Me.c1grdDetalle.AutoClipboard = True
+        Me.c1grdDetalle.AutoClipboard = true
         Me.c1grdDetalle.BackColor = System.Drawing.Color.White
-        Me.c1grdDetalle.ColumnInfo = "2,1,0,0,0,105,Columns:0{Width:18;}" & Global.Microsoft.VisualBasic.ChrW(9) & "1{Width:107;Caption:""Codigo"";}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdDetalle.ColumnInfo = "2,1,0,0,0,105,Columns:0{Width:18;}"&Global.Microsoft.VisualBasic.ChrW(9)&"1{Width:107;Caption:""Codigo"";}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdDetalle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.c1grdDetalle.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.c1grdDetalle.Font = New System.Drawing.Font("Tahoma", 14!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.c1grdDetalle.Location = New System.Drawing.Point(0, 0)
         Me.c1grdDetalle.Name = "c1grdDetalle"
         Me.c1grdDetalle.Rows.Count = 2
@@ -1611,11 +1611,11 @@ Partial Class PFacturacionFletes
         '
         'c1grdEmpresas
         '
-        Me.c1grdEmpresas.AllowAddNew = True
-        Me.c1grdEmpresas.AllowDelete = True
-        Me.c1grdEmpresas.ColumnInfo = "2,1,0,0,0,90,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdEmpresas.AllowAddNew = true
+        Me.c1grdEmpresas.AllowDelete = true
+        Me.c1grdEmpresas.ColumnInfo = "2,1,0,0,0,90,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdEmpresas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.c1grdEmpresas.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.c1grdEmpresas.Font = New System.Drawing.Font("Segoe UI", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.c1grdEmpresas.Location = New System.Drawing.Point(0, 18)
         Me.c1grdEmpresas.Name = "c1grdEmpresas"
         Me.c1grdEmpresas.Rows.Count = 2
@@ -1628,7 +1628,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption2.ACCaption = "Empresas"
         Me.AcPanelCaption2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption2.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption2.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption2.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption2.Name = "AcPanelCaption2"
         Me.AcPanelCaption2.Size = New System.Drawing.Size(274, 18)
@@ -1636,11 +1636,11 @@ Partial Class PFacturacionFletes
         '
         'c1grdGuias
         '
-        Me.c1grdGuias.AllowAddNew = True
-        Me.c1grdGuias.AllowDelete = True
-        Me.c1grdGuias.ColumnInfo = "2,1,0,0,0,90,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdGuias.AllowAddNew = true
+        Me.c1grdGuias.AllowDelete = true
+        Me.c1grdGuias.ColumnInfo = "2,1,0,0,0,90,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdGuias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.c1grdGuias.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.c1grdGuias.Font = New System.Drawing.Font("Segoe UI", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.c1grdGuias.Location = New System.Drawing.Point(0, 18)
         Me.c1grdGuias.Name = "c1grdGuias"
         Me.c1grdGuias.Rows.Count = 2
@@ -1655,7 +1655,7 @@ Partial Class PFacturacionFletes
         Me.bnavGuias.CountItem = Me.ToolStripLabel4
         Me.bnavGuias.DeleteItem = Nothing
         Me.bnavGuias.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.bnavGuias.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.bnavGuias.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.bnavGuias.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton15, Me.ToolStripButton16, Me.ToolStripSeparator9, Me.ToolStripTextBox3, Me.ToolStripLabel4, Me.ToolStripSeparator10, Me.ToolStripButton17, Me.ToolStripButton18, Me.ToolStripSeparator11})
         Me.bnavGuias.Location = New System.Drawing.Point(0, 131)
         Me.bnavGuias.MoveFirstItem = Me.ToolStripButton15
@@ -1678,18 +1678,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton15
         '
         Me.ToolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton15.Image = CType(resources.GetObject("ToolStripButton15.Image"), System.Drawing.Image)
+        Me.ToolStripButton15.Image = CType(resources.GetObject("ToolStripButton15.Image"),System.Drawing.Image)
         Me.ToolStripButton15.Name = "ToolStripButton15"
-        Me.ToolStripButton15.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton15.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton15.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton15.Text = "Move first"
         '
         'ToolStripButton16
         '
         Me.ToolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton16.Image = CType(resources.GetObject("ToolStripButton16.Image"), System.Drawing.Image)
+        Me.ToolStripButton16.Image = CType(resources.GetObject("ToolStripButton16.Image"),System.Drawing.Image)
         Me.ToolStripButton16.Name = "ToolStripButton16"
-        Me.ToolStripButton16.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton16.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton16.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton16.Text = "Move previous"
         '
@@ -1701,7 +1701,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox3
         '
         Me.ToolStripTextBox3.AccessibleName = "Position"
-        Me.ToolStripTextBox3.AutoSize = False
+        Me.ToolStripTextBox3.AutoSize = false
         Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
         Me.ToolStripTextBox3.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox3.Text = "0"
@@ -1715,18 +1715,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton17
         '
         Me.ToolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton17.Image = CType(resources.GetObject("ToolStripButton17.Image"), System.Drawing.Image)
+        Me.ToolStripButton17.Image = CType(resources.GetObject("ToolStripButton17.Image"),System.Drawing.Image)
         Me.ToolStripButton17.Name = "ToolStripButton17"
-        Me.ToolStripButton17.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton17.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton17.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton17.Text = "Move next"
         '
         'ToolStripButton18
         '
         Me.ToolStripButton18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton18.Image = CType(resources.GetObject("ToolStripButton18.Image"), System.Drawing.Image)
+        Me.ToolStripButton18.Image = CType(resources.GetObject("ToolStripButton18.Image"),System.Drawing.Image)
         Me.ToolStripButton18.Name = "ToolStripButton18"
-        Me.ToolStripButton18.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton18.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton18.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton18.Text = "Move last"
         '
@@ -1739,7 +1739,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption4.ACCaption = "Guias de Fletes"
         Me.AcPanelCaption4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption4.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption4.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption4.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption4.Name = "AcPanelCaption4"
         Me.AcPanelCaption4.Size = New System.Drawing.Size(274, 18)
@@ -1759,10 +1759,10 @@ Partial Class PFacturacionFletes
         'txtTexto
         '
         Me.txtTexto.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtTexto.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTexto.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.txtTexto.Location = New System.Drawing.Point(0, 18)
         Me.txtTexto.MaxLength = 250
-        Me.txtTexto.Multiline = True
+        Me.txtTexto.Multiline = true
         Me.txtTexto.Name = "txtTexto"
         Me.txtTexto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtTexto.Size = New System.Drawing.Size(200, 248)
@@ -1772,7 +1772,7 @@ Partial Class PFacturacionFletes
         'ToolStrip1
         '
         Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ToolStrip1.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbtnGenerar})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 266)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -1792,7 +1792,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption3.ACCaption = "Texto"
         Me.AcPanelCaption3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption3.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption3.Font = New System.Drawing.Font("Tahoma", 8!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption3.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption3.Name = "AcPanelCaption3"
         Me.AcPanelCaption3.Size = New System.Drawing.Size(200, 18)
@@ -1804,7 +1804,7 @@ Partial Class PFacturacionFletes
         Me.bnavProductos.CountItem = Me.ToolStripLabel1
         Me.bnavProductos.DeleteItem = Me.ToolStripButton2
         Me.bnavProductos.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.bnavProductos.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.bnavProductos.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.bnavProductos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripSeparator1, Me.ToolStripTextBox1, Me.ToolStripLabel1, Me.ToolStripSeparator2, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripSeparator3, Me.ToolStripButton1, Me.ToolStripButton2, Me.tslblSon, Me.tscmbImpresora, Me.ToolStripLabel2, Me.ToolStripSeparator4})
         Me.bnavProductos.Location = New System.Drawing.Point(0, 614)
         Me.bnavProductos.MoveFirstItem = Me.ToolStripButton3
@@ -1820,12 +1820,12 @@ Partial Class PFacturacionFletes
         'ToolStripButton1
         '
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"),System.Drawing.Image)
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton1.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Add new"
-        Me.ToolStripButton1.Visible = False
+        Me.ToolStripButton1.Visible = false
         '
         'ToolStripLabel1
         '
@@ -1837,28 +1837,28 @@ Partial Class PFacturacionFletes
         'ToolStripButton2
         '
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"),System.Drawing.Image)
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton2.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton2.Text = "Delete"
-        Me.ToolStripButton2.Visible = False
+        Me.ToolStripButton2.Visible = false
         '
         'ToolStripButton3
         '
         Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"),System.Drawing.Image)
         Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton3.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton3.Text = "Move first"
         '
         'ToolStripButton4
         '
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"),System.Drawing.Image)
         Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton4.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton4.Text = "Move previous"
         '
@@ -1870,7 +1870,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox1
         '
         Me.ToolStripTextBox1.AccessibleName = "Position"
-        Me.ToolStripTextBox1.AutoSize = False
+        Me.ToolStripTextBox1.AutoSize = false
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
         Me.ToolStripTextBox1.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox1.Text = "0"
@@ -1884,18 +1884,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton5
         '
         Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"),System.Drawing.Image)
         Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton5.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton5.Text = "Move next"
         '
         'ToolStripButton6
         '
         Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"),System.Drawing.Image)
         Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton6.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton6.Text = "Move last"
         '
@@ -1952,8 +1952,8 @@ Partial Class PFacturacionFletes
         '
         'txtobservacionanulacion
         '
-        Me.txtobservacionanulacion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtobservacionanulacion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtobservacionanulacion.Location = New System.Drawing.Point(125, 63)
         Me.txtobservacionanulacion.MaxLength = 50
         Me.txtobservacionanulacion.Name = "txtobservacionanulacion"
@@ -1963,7 +1963,7 @@ Partial Class PFacturacionFletes
         '
         'Label20
         '
-        Me.Label20.AutoSize = True
+        Me.Label20.AutoSize = true
         Me.Label20.Location = New System.Drawing.Point(10, 66)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(111, 15)
@@ -1972,7 +1972,7 @@ Partial Class PFacturacionFletes
         '
         'Label12
         '
-        Me.Label12.AutoSize = True
+        Me.Label12.AutoSize = true
         Me.Label12.Location = New System.Drawing.Point(10, 34)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(65, 15)
@@ -1981,8 +1981,8 @@ Partial Class PFacturacionFletes
         '
         'txtObservaciones
         '
-        Me.txtObservaciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtObservaciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtObservaciones.Location = New System.Drawing.Point(78, 34)
         Me.txtObservaciones.MaxLength = 50
@@ -1993,7 +1993,7 @@ Partial Class PFacturacionFletes
         '
         'Label11
         '
-        Me.Label11.AutoSize = True
+        Me.Label11.AutoSize = true
         Me.Label11.Location = New System.Drawing.Point(7, 6)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(70, 15)
@@ -2002,8 +2002,8 @@ Partial Class PFacturacionFletes
         '
         'txtNotaPie
         '
-        Me.txtNotaPie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNotaPie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtNotaPie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNotaPie.Location = New System.Drawing.Point(78, 2)
         Me.txtNotaPie.MaxLength = 50
@@ -2014,7 +2014,7 @@ Partial Class PFacturacionFletes
         '
         'grpDetPago
         '
-        Me.grpDetPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(3, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.grpDetPago.BackColor = System.Drawing.Color.FromArgb(CType(CType(3,Byte),Integer), CType(CType(55,Byte),Integer), CType(CType(145,Byte),Integer))
         Me.grpDetPago.Controls.Add(Me.actxnTotalDetraccion)
         Me.grpDetPago.Controls.Add(Me.txtphantom_RUTAS_ID)
         Me.grpDetPago.Controls.Add(Me.lblTotalDetraccion)
@@ -2029,19 +2029,19 @@ Partial Class PFacturacionFletes
         Me.grpDetPago.Name = "grpDetPago"
         Me.grpDetPago.Size = New System.Drawing.Size(665, 97)
         Me.grpDetPago.TabIndex = 2
-        Me.grpDetPago.TabStop = False
+        Me.grpDetPago.TabStop = false
         '
         'actxnTotalDetraccion
         '
         Me.actxnTotalDetraccion.ACEnteros = 9
         Me.actxnTotalDetraccion.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnTotalDetraccion.ACNegativo = True
+        Me.actxnTotalDetraccion.ACNegativo = true
         Me.actxnTotalDetraccion.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnTotalDetraccion.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnTotalDetraccion.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.actxnTotalDetraccion.Location = New System.Drawing.Point(81, 18)
         Me.actxnTotalDetraccion.MaxLength = 12
         Me.actxnTotalDetraccion.Name = "actxnTotalDetraccion"
-        Me.actxnTotalDetraccion.ReadOnly = True
+        Me.actxnTotalDetraccion.ReadOnly = true
         Me.actxnTotalDetraccion.Size = New System.Drawing.Size(92, 26)
         Me.actxnTotalDetraccion.TabIndex = 7
         Me.actxnTotalDetraccion.Tag = "EVO"
@@ -2050,16 +2050,16 @@ Partial Class PFacturacionFletes
         '
         'txtphantom_RUTAS_ID
         '
-        Me.txtphantom_RUTAS_ID.Enabled = False
+        Me.txtphantom_RUTAS_ID.Enabled = false
         Me.txtphantom_RUTAS_ID.Location = New System.Drawing.Point(429, 2)
         Me.txtphantom_RUTAS_ID.Name = "txtphantom_RUTAS_ID"
         Me.txtphantom_RUTAS_ID.Size = New System.Drawing.Size(100, 23)
         Me.txtphantom_RUTAS_ID.TabIndex = 18
-        Me.txtphantom_RUTAS_ID.Visible = False
+        Me.txtphantom_RUTAS_ID.Visible = false
         '
         'lblTotalDetraccion
         '
-        Me.lblTotalDetraccion.AutoSize = True
+        Me.lblTotalDetraccion.AutoSize = true
         Me.lblTotalDetraccion.ForeColor = System.Drawing.Color.White
         Me.lblTotalDetraccion.Location = New System.Drawing.Point(1, 24)
         Me.lblTotalDetraccion.Name = "lblTotalDetraccion"
@@ -2069,7 +2069,7 @@ Partial Class PFacturacionFletes
         '
         'lblImporte
         '
-        Me.lblImporte.AutoSize = True
+        Me.lblImporte.AutoSize = true
         Me.lblImporte.ForeColor = System.Drawing.Color.White
         Me.lblImporte.Location = New System.Drawing.Point(176, 24)
         Me.lblImporte.Name = "lblImporte"
@@ -2079,7 +2079,7 @@ Partial Class PFacturacionFletes
         '
         'lbligv
         '
-        Me.lbligv.AutoSize = True
+        Me.lbligv.AutoSize = true
         Me.lbligv.ForeColor = System.Drawing.Color.White
         Me.lbligv.Location = New System.Drawing.Point(339, 24)
         Me.lbligv.Name = "lbligv"
@@ -2091,13 +2091,13 @@ Partial Class PFacturacionFletes
         '
         Me.actxnImporte.ACEnteros = 9
         Me.actxnImporte.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnImporte.ACNegativo = True
+        Me.actxnImporte.ACNegativo = true
         Me.actxnImporte.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnImporte.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnImporte.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.actxnImporte.Location = New System.Drawing.Point(247, 18)
         Me.actxnImporte.MaxLength = 12
         Me.actxnImporte.Name = "actxnImporte"
-        Me.actxnImporte.ReadOnly = True
+        Me.actxnImporte.ReadOnly = true
         Me.actxnImporte.Size = New System.Drawing.Size(92, 26)
         Me.actxnImporte.TabIndex = 1
         Me.actxnImporte.Tag = "EVO"
@@ -2108,13 +2108,13 @@ Partial Class PFacturacionFletes
         '
         Me.actxnIGV.ACEnteros = 9
         Me.actxnIGV.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnIGV.ACNegativo = True
+        Me.actxnIGV.ACNegativo = true
         Me.actxnIGV.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnIGV.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnIGV.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.actxnIGV.Location = New System.Drawing.Point(395, 18)
         Me.actxnIGV.MaxLength = 12
         Me.actxnIGV.Name = "actxnIGV"
-        Me.actxnIGV.ReadOnly = True
+        Me.actxnIGV.ReadOnly = true
         Me.actxnIGV.Size = New System.Drawing.Size(92, 26)
         Me.actxnIGV.TabIndex = 3
         Me.actxnIGV.Tag = "EVO"
@@ -2125,13 +2125,13 @@ Partial Class PFacturacionFletes
         '
         Me.actxnTotalPagar.ACEnteros = 9
         Me.actxnTotalPagar.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnTotalPagar.ACNegativo = True
+        Me.actxnTotalPagar.ACNegativo = true
         Me.actxnTotalPagar.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnTotalPagar.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.actxnTotalPagar.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.actxnTotalPagar.Location = New System.Drawing.Point(571, 18)
         Me.actxnTotalPagar.MaxLength = 12
         Me.actxnTotalPagar.Name = "actxnTotalPagar"
-        Me.actxnTotalPagar.ReadOnly = True
+        Me.actxnTotalPagar.ReadOnly = true
         Me.actxnTotalPagar.Size = New System.Drawing.Size(92, 26)
         Me.actxnTotalPagar.TabIndex = 5
         Me.actxnTotalPagar.Tag = "EVO"
@@ -2140,7 +2140,7 @@ Partial Class PFacturacionFletes
         '
         'lblTotalPagar
         '
-        Me.lblTotalPagar.AutoSize = True
+        Me.lblTotalPagar.AutoSize = true
         Me.lblTotalPagar.ForeColor = System.Drawing.Color.White
         Me.lblTotalPagar.Location = New System.Drawing.Point(486, 24)
         Me.lblTotalPagar.Name = "lblTotalPagar"
@@ -2152,14 +2152,14 @@ Partial Class PFacturacionFletes
         '
         Me.actxnTCVentaSunat.ACEnteros = 9
         Me.actxnTCVentaSunat.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnTCVentaSunat.ACNegativo = True
+        Me.actxnTCVentaSunat.ACNegativo = true
         Me.actxnTCVentaSunat.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnTCVentaSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnTCVentaSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnTCVentaSunat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnTCVentaSunat.Location = New System.Drawing.Point(662, 30)
         Me.actxnTCVentaSunat.MaxLength = 12
         Me.actxnTCVentaSunat.Name = "actxnTCVentaSunat"
-        Me.actxnTCVentaSunat.ReadOnly = True
+        Me.actxnTCVentaSunat.ReadOnly = true
         Me.actxnTCVentaSunat.Size = New System.Drawing.Size(45, 23)
         Me.actxnTCVentaSunat.TabIndex = 16
         Me.actxnTCVentaSunat.Text = "0.00"
@@ -2167,9 +2167,9 @@ Partial Class PFacturacionFletes
         '
         'lblVenDolarSunat
         '
-        Me.lblVenDolarSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblVenDolarSunat.AutoSize = True
-        Me.lblVenDolarSunat.Enabled = False
+        Me.lblVenDolarSunat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lblVenDolarSunat.AutoSize = true
+        Me.lblVenDolarSunat.Enabled = false
         Me.lblVenDolarSunat.Location = New System.Drawing.Point(533, 34)
         Me.lblVenDolarSunat.Name = "lblVenDolarSunat"
         Me.lblVenDolarSunat.Size = New System.Drawing.Size(123, 15)
@@ -2180,14 +2180,14 @@ Partial Class PFacturacionFletes
         '
         Me.actxnTipoCambio.ACEnteros = 9
         Me.actxnTipoCambio.ACEstandar = ACControles.ACEstandaresFormato.ACMoneda
-        Me.actxnTipoCambio.ACNegativo = True
+        Me.actxnTipoCambio.ACNegativo = true
         Me.actxnTipoCambio.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnTipoCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.actxnTipoCambio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.actxnTipoCambio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxnTipoCambio.Location = New System.Drawing.Point(662, 3)
         Me.actxnTipoCambio.MaxLength = 12
         Me.actxnTipoCambio.Name = "actxnTipoCambio"
-        Me.actxnTipoCambio.ReadOnly = True
+        Me.actxnTipoCambio.ReadOnly = true
         Me.actxnTipoCambio.Size = New System.Drawing.Size(45, 23)
         Me.actxnTipoCambio.TabIndex = 12
         Me.actxnTipoCambio.Text = "0.00"
@@ -2195,9 +2195,9 @@ Partial Class PFacturacionFletes
         '
         'Label31
         '
-        Me.Label31.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label31.AutoSize = True
-        Me.Label31.Enabled = False
+        Me.Label31.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label31.AutoSize = true
+        Me.Label31.Enabled = false
         Me.Label31.Location = New System.Drawing.Point(574, 7)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(81, 15)
@@ -2224,9 +2224,9 @@ Partial Class PFacturacionFletes
         '
         'Label3
         '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = true
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(711, 7)
         Me.Label3.Name = "Label3"
@@ -2236,11 +2236,11 @@ Partial Class PFacturacionFletes
         '
         'cmbDocumentoFacturar
         '
-        Me.cmbDocumentoFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbDocumentoFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cmbDocumentoFacturar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbDocumentoFacturar.Enabled = False
-        Me.cmbDocumentoFacturar.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
-        Me.cmbDocumentoFacturar.FormattingEnabled = True
+        Me.cmbDocumentoFacturar.Enabled = false
+        Me.cmbDocumentoFacturar.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.cmbDocumentoFacturar.FormattingEnabled = true
         Me.cmbDocumentoFacturar.Items.AddRange(New Object() {"Boleta", "Factura"})
         Me.cmbDocumentoFacturar.Location = New System.Drawing.Point(844, 3)
         Me.cmbDocumentoFacturar.Name = "cmbDocumentoFacturar"
@@ -2250,7 +2250,7 @@ Partial Class PFacturacionFletes
         '
         'actxaCotiz
         '
-        Me.actxaCotiz.ACActivarAyudaAuto = False
+        Me.actxaCotiz.ACActivarAyudaAuto = false
         Me.actxaCotiz.ACLongitudAceptada = 0
         Me.actxaCotiz.Location = New System.Drawing.Point(88, 3)
         Me.actxaCotiz.MaxLength = 32767
@@ -2261,8 +2261,8 @@ Partial Class PFacturacionFletes
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Tahoma", 13.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label8.AutoSize = true
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 13!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(2, 8)
         Me.Label8.Name = "Label8"
@@ -2272,9 +2272,9 @@ Partial Class PFacturacionFletes
         '
         'Label5
         '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = true
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(1064, 7)
         Me.Label5.Name = "Label5"
@@ -2286,10 +2286,10 @@ Partial Class PFacturacionFletes
         '
         Me.actxnNumeroFacturar.ACEnteros = 8
         Me.actxnNumeroFacturar.ACFormato = "#######0"
-        Me.actxnNumeroFacturar.ACNegativo = True
+        Me.actxnNumeroFacturar.ACNegativo = true
         Me.actxnNumeroFacturar.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnNumeroFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.actxnNumeroFacturar.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.actxnNumeroFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.actxnNumeroFacturar.Font = New System.Drawing.Font("Tahoma", 14!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.actxnNumeroFacturar.Location = New System.Drawing.Point(1266, 4)
         Me.actxnNumeroFacturar.MaxLength = 7
         Me.actxnNumeroFacturar.Name = "actxnNumeroFacturar"
@@ -2301,9 +2301,9 @@ Partial Class PFacturacionFletes
         '
         'Label4
         '
-        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
+        Me.Label4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = true
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World)
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(1190, 7)
         Me.Label4.Name = "Label4"
@@ -2313,10 +2313,10 @@ Partial Class PFacturacionFletes
         '
         'cmbSerieFacturar
         '
-        Me.cmbSerieFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbSerieFacturar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cmbSerieFacturar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSerieFacturar.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
-        Me.cmbSerieFacturar.FormattingEnabled = True
+        Me.cmbSerieFacturar.Font = New System.Drawing.Font("Segoe UI", 14!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.cmbSerieFacturar.FormattingEnabled = true
         Me.cmbSerieFacturar.Location = New System.Drawing.Point(1120, 3)
         Me.cmbSerieFacturar.Name = "cmbSerieFacturar"
         Me.cmbSerieFacturar.Size = New System.Drawing.Size(69, 27)
@@ -2334,7 +2334,7 @@ Partial Class PFacturacionFletes
         Me.tabBusqueda.Location = New System.Drawing.Point(1, 1)
         Me.tabBusqueda.Name = "tabBusqueda"
         Me.tabBusqueda.SelectBackColor = System.Drawing.Color.Empty
-        Me.tabBusqueda.Selected = False
+        Me.tabBusqueda.Selected = false
         Me.tabBusqueda.SelectTextBackColor = System.Drawing.Color.Empty
         Me.tabBusqueda.SelectTextColor = System.Drawing.Color.Empty
         Me.tabBusqueda.Size = New System.Drawing.Size(1375, 772)
@@ -2344,7 +2344,7 @@ Partial Class PFacturacionFletes
         '
         'c1grdBusqueda
         '
-        Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdBusqueda.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grdBusqueda.Location = New System.Drawing.Point(0, 95)
         Me.c1grdBusqueda.Name = "c1grdBusqueda"
@@ -2369,13 +2369,13 @@ Partial Class PFacturacionFletes
         Me.grpBusqueda.Name = "grpBusqueda"
         Me.grpBusqueda.Size = New System.Drawing.Size(1375, 95)
         Me.grpBusqueda.TabIndex = 6
-        Me.grpBusqueda.TabStop = False
+        Me.grpBusqueda.TabStop = false
         Me.grpBusqueda.Text = "Opciones de Busqueda"
         '
         'btnConsultar
         '
-        Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnConsultar.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
+        Me.btnConsultar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.btnConsultar.Font = New System.Drawing.Font("Tahoma", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World)
         Me.btnConsultar.Image = Global.ACPTransportes.My.Resources.Resources.Search_files_32x32
         Me.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnConsultar.Location = New System.Drawing.Point(1270, 47)
@@ -2384,48 +2384,48 @@ Partial Class PFacturacionFletes
         Me.btnConsultar.TabIndex = 33
         Me.btnConsultar.Text = "Consultar"
         Me.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnConsultar.UseVisualStyleBackColor = True
+        Me.btnConsultar.UseVisualStyleBackColor = true
         '
         'rbtnNroCotizacion
         '
-        Me.rbtnNroCotizacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rbtnNroCotizacion.AutoSize = True
+        Me.rbtnNroCotizacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.rbtnNroCotizacion.AutoSize = true
         Me.rbtnNroCotizacion.Location = New System.Drawing.Point(833, 43)
         Me.rbtnNroCotizacion.Name = "rbtnNroCotizacion"
         Me.rbtnNroCotizacion.Size = New System.Drawing.Size(88, 19)
         Me.rbtnNroCotizacion.TabIndex = 2
         Me.rbtnNroCotizacion.Text = "Documento"
-        Me.rbtnNroCotizacion.UseVisualStyleBackColor = True
+        Me.rbtnNroCotizacion.UseVisualStyleBackColor = true
         '
         'rbtnCliente
         '
-        Me.rbtnCliente.AutoSize = True
-        Me.rbtnCliente.Checked = True
+        Me.rbtnCliente.AutoSize = true
+        Me.rbtnCliente.Checked = true
         Me.rbtnCliente.Location = New System.Drawing.Point(19, 43)
         Me.rbtnCliente.Name = "rbtnCliente"
         Me.rbtnCliente.Size = New System.Drawing.Size(62, 19)
         Me.rbtnCliente.TabIndex = 1
-        Me.rbtnCliente.TabStop = True
+        Me.rbtnCliente.TabStop = true
         Me.rbtnCliente.Text = "Cliente"
-        Me.rbtnCliente.UseVisualStyleBackColor = True
+        Me.rbtnCliente.UseVisualStyleBackColor = true
         '
         'grpCliente
         '
-        Me.grpCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpCliente.Controls.Add(Me.txtBusqueda)
         Me.grpCliente.Location = New System.Drawing.Point(6, 46)
         Me.grpCliente.Name = "grpCliente"
         Me.grpCliente.Size = New System.Drawing.Size(817, 42)
         Me.grpCliente.TabIndex = 7
-        Me.grpCliente.TabStop = False
+        Me.grpCliente.TabStop = false
         '
         'txtBusqueda
         '
-        Me.txtBusqueda.ACActivarAyudaAuto = False
+        Me.txtBusqueda.ACActivarAyudaAuto = false
         Me.txtBusqueda.ACLongitudAceptada = 0
-        Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.txtBusqueda.Location = New System.Drawing.Point(9, 16)
         Me.txtBusqueda.MaxLength = 32767
         Me.txtBusqueda.Name = "txtBusqueda"
@@ -2434,7 +2434,7 @@ Partial Class PFacturacionFletes
         '
         'grpDocumentos
         '
-        Me.grpDocumentos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDocumentos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.grpDocumentos.Controls.Add(Me.cmbTipoDocumento)
         Me.grpDocumentos.Controls.Add(Me.ComboBox2)
         Me.grpDocumentos.Controls.Add(Me.txtBusNumero)
@@ -2442,14 +2442,14 @@ Partial Class PFacturacionFletes
         Me.grpDocumentos.Name = "grpDocumentos"
         Me.grpDocumentos.Size = New System.Drawing.Size(334, 42)
         Me.grpDocumentos.TabIndex = 5
-        Me.grpDocumentos.TabStop = False
+        Me.grpDocumentos.TabStop = false
         '
         'cmbTipoDocumento
         '
-        Me.cmbTipoDocumento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbTipoDocumento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cmbTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbTipoDocumento.FormattingEnabled = True
+        Me.cmbTipoDocumento.FormattingEnabled = true
         Me.cmbTipoDocumento.Location = New System.Drawing.Point(10, 15)
         Me.cmbTipoDocumento.Name = "cmbTipoDocumento"
         Me.cmbTipoDocumento.Size = New System.Drawing.Size(151, 23)
@@ -2458,7 +2458,7 @@ Partial Class PFacturacionFletes
         'ComboBox2
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.FormattingEnabled = true
         Me.ComboBox2.Location = New System.Drawing.Point(167, 15)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(51, 23)
@@ -2466,7 +2466,7 @@ Partial Class PFacturacionFletes
         '
         'txtBusNumero
         '
-        Me.txtBusNumero.ACActivarAyudaAuto = False
+        Me.txtBusNumero.ACActivarAyudaAuto = false
         Me.txtBusNumero.ACLongitudAceptada = 0
         Me.txtBusNumero.ACTipo = ACControles.ACTextBoxAyuda.TipoTextBoxAyuda.Numerico
         Me.txtBusNumero.Location = New System.Drawing.Point(224, 15)
@@ -2477,30 +2477,30 @@ Partial Class PFacturacionFletes
         '
         'chkTodos
         '
-        Me.chkTodos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.chkTodos.AutoSize = True
+        Me.chkTodos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.chkTodos.AutoSize = true
         Me.chkTodos.Location = New System.Drawing.Point(1168, 52)
         Me.chkTodos.Name = "chkTodos"
         Me.chkTodos.Size = New System.Drawing.Size(101, 19)
         Me.chkTodos.TabIndex = 4
         Me.chkTodos.Text = "Mostrar Todos"
-        Me.chkTodos.UseVisualStyleBackColor = True
+        Me.chkTodos.UseVisualStyleBackColor = true
         '
         'AcFecha
         '
-        Me.AcFecha.ACFecha_A = New Date(2025, 9, 30, 15, 25, 58, 206)
-        Me.AcFecha.ACFecha_De = New Date(2025, 9, 30, 15, 25, 58, 199)
-        Me.AcFecha.ACFechaObligatoria = True
+        Me.AcFecha.ACFecha_A = New Date(2026, 2, 23, 16, 21, 5, 119)
+        Me.AcFecha.ACFecha_De = New Date(2026, 2, 23, 16, 21, 5, 117)
+        Me.AcFecha.ACFechaObligatoria = true
         Me.AcFecha.ACFormatoControl = ACControles.ACFecha.ACTipoFormatoControl.Horizontal
-        Me.AcFecha.ACHoyChecked = False
-        Me.AcFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AcFecha.ACHoyChecked = false
+        Me.AcFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.AcFecha.Location = New System.Drawing.Point(1038, 0)
         Me.AcFecha.MaximumSize = New System.Drawing.Size(337, 43)
         Me.AcFecha.MinimumSize = New System.Drawing.Size(337, 43)
         Me.AcFecha.Name = "AcFecha"
         Me.AcFecha.Size = New System.Drawing.Size(337, 43)
         Me.AcFecha.TabIndex = 3
-        Me.AcFecha.TabStop = False
+        Me.AcFecha.TabStop = false
         '
         'bnavBusqueda
         '
@@ -2519,17 +2519,17 @@ Partial Class PFacturacionFletes
         Me.bnavBusqueda.Size = New System.Drawing.Size(982, 25)
         Me.bnavBusqueda.TabIndex = 3
         Me.bnavBusqueda.Text = "BindingNavigator1"
-        Me.bnavBusqueda.Visible = False
+        Me.bnavBusqueda.Visible = false
         '
         'BindingNavigatorAddNewItem
         '
         Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
-        Me.BindingNavigatorAddNewItem.Visible = False
+        Me.BindingNavigatorAddNewItem.Visible = false
         '
         'BindingNavigatorCountItem
         '
@@ -2541,28 +2541,28 @@ Partial Class PFacturacionFletes
         'BindingNavigatorDeleteItem
         '
         Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorDeleteItem.Text = "Delete"
-        Me.BindingNavigatorDeleteItem.Visible = False
+        Me.BindingNavigatorDeleteItem.Visible = false
         '
         'BindingNavigatorMoveFirstItem
         '
         Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
-        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
         '
         Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
-        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
@@ -2574,7 +2574,7 @@ Partial Class PFacturacionFletes
         'BindingNavigatorPositionItem
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
-        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.AutoSize = false
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 21)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -2588,18 +2588,18 @@ Partial Class PFacturacionFletes
         'BindingNavigatorMoveNextItem
         '
         Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
-        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
         '
         Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"),System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
-        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true
         Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
@@ -2613,7 +2613,7 @@ Partial Class PFacturacionFletes
         Me.tsbtnExcel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.tsbtnExcel.Image = Global.ACPTransportes.My.Resources.Resources.Excel2_32x32
         Me.tsbtnExcel.Name = "tsbtnExcel"
-        Me.tsbtnExcel.RightToLeftAutoMirrorImage = True
+        Me.tsbtnExcel.RightToLeftAutoMirrorImage = true
         Me.tsbtnExcel.Size = New System.Drawing.Size(98, 22)
         Me.tsbtnExcel.Text = "Enviar a Excel"
         '
@@ -2624,7 +2624,7 @@ Partial Class PFacturacionFletes
         Me.actxtDireccionDestino.Size = New System.Drawing.Size(10, 20)
         Me.actxtDireccionDestino.TabIndex = 65
         Me.actxtDireccionDestino.Text = "se hizo invisible ojo"
-        Me.actxtDireccionDestino.Visible = False
+        Me.actxtDireccionDestino.Visible = false
         '
         'actxtDireccionOrigen
         '
@@ -2633,13 +2633,13 @@ Partial Class PFacturacionFletes
         Me.actxtDireccionOrigen.Size = New System.Drawing.Size(10, 20)
         Me.actxtDireccionOrigen.TabIndex = 64
         Me.actxtDireccionOrigen.Text = "se hizo invisible ojo"
-        Me.actxtDireccionOrigen.Visible = False
+        Me.actxtDireccionOrigen.Visible = false
         '
         'acpnlTitulo
         '
         Me.acpnlTitulo.ACCaption = "Facturación - División de Transportes"
         Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 12!, System.Drawing.FontStyle.Bold)
         Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
         Me.acpnlTitulo.Name = "acpnlTitulo"
         Me.acpnlTitulo.Size = New System.Drawing.Size(1377, 25)
@@ -2647,22 +2647,22 @@ Partial Class PFacturacionFletes
         '
         'acTool
         '
-        Me.acTool.ACBtnAnularEnabled = False
-        Me.acTool.ACBtnAnularVisible = False
+        Me.acTool.ACBtnAnularEnabled = false
+        Me.acTool.ACBtnAnularVisible = false
         Me.acTool.ACBtnBuscarText = "Cot&izaciones"
-        Me.acTool.ACBtnCancelarEnabled = False
-        Me.acTool.ACBtnCancelarVisible = False
-        Me.acTool.ACBtnGrabarEnabled = False
-        Me.acTool.ACBtnGrabarVisible = False
-        Me.acTool.ACBtnImprimirEnabled = False
-        Me.acTool.ACBtnImprimirVisible = False
-        Me.acTool.ACBtnReporteEnabled = False
-        Me.acTool.ACBtnReporteVisible = False
-        Me.acTool.ACBtnSalirEnabled = False
+        Me.acTool.ACBtnCancelarEnabled = false
+        Me.acTool.ACBtnCancelarVisible = false
+        Me.acTool.ACBtnGrabarEnabled = false
+        Me.acTool.ACBtnGrabarVisible = false
+        Me.acTool.ACBtnImprimirEnabled = false
+        Me.acTool.ACBtnImprimirVisible = false
+        Me.acTool.ACBtnReporteEnabled = false
+        Me.acTool.ACBtnReporteVisible = false
+        Me.acTool.ACBtnSalirEnabled = false
         Me.acTool.ACBtnSalirText = "&Salir"
-        Me.acTool.ACBtnSalirVisible = False
-        Me.acTool.ACBtnVolverEnabled = False
-        Me.acTool.ACBtnVolverVisible = False
+        Me.acTool.ACBtnSalirVisible = false
+        Me.acTool.ACBtnVolverEnabled = false
+        Me.acTool.ACBtnVolverVisible = false
         Me.acTool.ACTipoToolBar = ACControles.ACToolBarMantHorizontalNew.tipoToolBar.ToolNuevoGrabarEliminarBuscarRehusar
         Me.acTool.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.acTool.Font = New System.Drawing.Font("Tahoma", 9.5!)
@@ -2677,7 +2677,7 @@ Partial Class PFacturacionFletes
         '
         'actsbtnModFecha
         '
-        Me.actsbtnModFecha.AutoSize = False
+        Me.actsbtnModFecha.AutoSize = false
         Me.actsbtnModFecha.Image = Global.ACPTransportes.My.Resources.Resources.EditPaper_32x32
         Me.actsbtnModFecha.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.actsbtnModFecha.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -2688,12 +2688,12 @@ Partial Class PFacturacionFletes
         Me.actsbtnModFecha.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.actsbtnModFecha.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
         Me.actsbtnModFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.actsbtnModFecha.Visible = False
+        Me.actsbtnModFecha.Visible = false
         '
         'acbtnCreaAnulado
         '
-        Me.acbtnCreaAnulado.AutoSize = False
-        Me.acbtnCreaAnulado.Enabled = False
+        Me.acbtnCreaAnulado.AutoSize = false
+        Me.acbtnCreaAnulado.Enabled = false
         Me.acbtnCreaAnulado.Image = Global.ACPTransportes.My.Resources.Resources.ACAnular_32x32
         Me.acbtnCreaAnulado.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.acbtnCreaAnulado.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -2704,11 +2704,11 @@ Partial Class PFacturacionFletes
         Me.acbtnCreaAnulado.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.acbtnCreaAnulado.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
         Me.acbtnCreaAnulado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.acbtnCreaAnulado.Visible = False
+        Me.acbtnCreaAnulado.Visible = false
         '
         'acbtnSeleccionar
         '
-        Me.acbtnSeleccionar.AutoSize = False
+        Me.acbtnSeleccionar.AutoSize = false
         Me.acbtnSeleccionar.Image = Global.ACPTransportes.My.Resources.Resources.aceptar_32x32
         Me.acbtnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.acbtnSeleccionar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -2719,11 +2719,11 @@ Partial Class PFacturacionFletes
         Me.acbtnSeleccionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.acbtnSeleccionar.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
         Me.acbtnSeleccionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.acbtnSeleccionar.Visible = False
+        Me.acbtnSeleccionar.Visible = false
         '
         'actsbtnPrevisualizar
         '
-        Me.actsbtnPrevisualizar.AutoSize = False
+        Me.actsbtnPrevisualizar.AutoSize = false
         Me.actsbtnPrevisualizar.Image = Global.ACPTransportes.My.Resources.Resources.Buscar2_32x32
         Me.actsbtnPrevisualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.actsbtnPrevisualizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -2734,7 +2734,7 @@ Partial Class PFacturacionFletes
         Me.actsbtnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.actsbtnPrevisualizar.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
         Me.actsbtnPrevisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.actsbtnPrevisualizar.Visible = False
+        Me.actsbtnPrevisualizar.Visible = false
         '
         'actsbtn_CapturaPantalla
         '
@@ -2766,23 +2766,23 @@ Partial Class PFacturacionFletes
         Me.bnavConsumoAdBlue.Size = New System.Drawing.Size(1273, 25)
         Me.bnavConsumoAdBlue.TabIndex = 17
         Me.bnavConsumoAdBlue.Text = "bnavFletes"
-        Me.bnavConsumoAdBlue.Visible = False
+        Me.bnavConsumoAdBlue.Visible = false
         '
         'ToolStripButton29
         '
         Me.ToolStripButton29.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton29.Image = CType(resources.GetObject("ToolStripButton29.Image"), System.Drawing.Image)
+        Me.ToolStripButton29.Image = CType(resources.GetObject("ToolStripButton29.Image"),System.Drawing.Image)
         Me.ToolStripButton29.Name = "ToolStripButton29"
-        Me.ToolStripButton29.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton29.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton29.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton29.Text = "Move first"
         '
         'ToolStripButton34
         '
         Me.ToolStripButton34.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton34.Image = CType(resources.GetObject("ToolStripButton34.Image"), System.Drawing.Image)
+        Me.ToolStripButton34.Image = CType(resources.GetObject("ToolStripButton34.Image"),System.Drawing.Image)
         Me.ToolStripButton34.Name = "ToolStripButton34"
-        Me.ToolStripButton34.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton34.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton34.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton34.Text = "Move previous"
         '
@@ -2794,7 +2794,7 @@ Partial Class PFacturacionFletes
         'ToolStripTextBox12
         '
         Me.ToolStripTextBox12.AccessibleName = "Position"
-        Me.ToolStripTextBox12.AutoSize = False
+        Me.ToolStripTextBox12.AutoSize = false
         Me.ToolStripTextBox12.Name = "ToolStripTextBox12"
         Me.ToolStripTextBox12.Size = New System.Drawing.Size(50, 21)
         Me.ToolStripTextBox12.Text = "0"
@@ -2815,18 +2815,18 @@ Partial Class PFacturacionFletes
         'ToolStripButton41
         '
         Me.ToolStripButton41.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton41.Image = CType(resources.GetObject("ToolStripButton41.Image"), System.Drawing.Image)
+        Me.ToolStripButton41.Image = CType(resources.GetObject("ToolStripButton41.Image"),System.Drawing.Image)
         Me.ToolStripButton41.Name = "ToolStripButton41"
-        Me.ToolStripButton41.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton41.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton41.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton41.Text = "Move next"
         '
         'ToolStripButton42
         '
         Me.ToolStripButton42.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton42.Image = CType(resources.GetObject("ToolStripButton42.Image"), System.Drawing.Image)
+        Me.ToolStripButton42.Image = CType(resources.GetObject("ToolStripButton42.Image"),System.Drawing.Image)
         Me.ToolStripButton42.Name = "ToolStripButton42"
-        Me.ToolStripButton42.RightToLeftAutoMirrorImage = True
+        Me.ToolStripButton42.RightToLeftAutoMirrorImage = true
         Me.ToolStripButton42.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton42.Text = "Move last"
         '
@@ -2837,9 +2837,9 @@ Partial Class PFacturacionFletes
         '
         'tsbtnCABAgregar
         '
-        Me.tsbtnCABAgregar.Image = CType(resources.GetObject("tsbtnCABAgregar.Image"), System.Drawing.Image)
+        Me.tsbtnCABAgregar.Image = CType(resources.GetObject("tsbtnCABAgregar.Image"),System.Drawing.Image)
         Me.tsbtnCABAgregar.Name = "tsbtnCABAgregar"
-        Me.tsbtnCABAgregar.RightToLeftAutoMirrorImage = True
+        Me.tsbtnCABAgregar.RightToLeftAutoMirrorImage = true
         Me.tsbtnCABAgregar.Size = New System.Drawing.Size(165, 22)
         Me.tsbtnCABAgregar.Text = "&Agregar Consumo AdBlue"
         '
@@ -2847,7 +2847,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripSeparator48.Name = "ToolStripSeparator48"
         Me.ToolStripSeparator48.Size = New System.Drawing.Size(6, 25)
-        Me.ToolStripSeparator48.Visible = False
+        Me.ToolStripSeparator48.Visible = false
         '
         'tsbtnCABModificar
         '
@@ -2860,7 +2860,7 @@ Partial Class PFacturacionFletes
         '
         Me.ToolStripSeparator51.Name = "ToolStripSeparator51"
         Me.ToolStripSeparator51.Size = New System.Drawing.Size(6, 25)
-        Me.ToolStripSeparator51.Visible = False
+        Me.ToolStripSeparator51.Visible = false
         '
         'ToolStripButton48
         '
@@ -2868,13 +2868,13 @@ Partial Class PFacturacionFletes
         Me.ToolStripButton48.Name = "ToolStripButton48"
         Me.ToolStripButton48.Size = New System.Drawing.Size(96, 22)
         Me.ToolStripButton48.Text = "Modificar Fecha"
-        Me.ToolStripButton48.Visible = False
+        Me.ToolStripButton48.Visible = false
         '
         'tsbtnCABQuitar
         '
-        Me.tsbtnCABQuitar.Image = CType(resources.GetObject("tsbtnCABQuitar.Image"), System.Drawing.Image)
+        Me.tsbtnCABQuitar.Image = CType(resources.GetObject("tsbtnCABQuitar.Image"),System.Drawing.Image)
         Me.tsbtnCABQuitar.Name = "tsbtnCABQuitar"
-        Me.tsbtnCABQuitar.RightToLeftAutoMirrorImage = True
+        Me.tsbtnCABQuitar.RightToLeftAutoMirrorImage = true
         Me.tsbtnCABQuitar.Size = New System.Drawing.Size(115, 22)
         Me.tsbtnCABQuitar.Text = "&Quitar Consumo"
         '
@@ -2884,7 +2884,7 @@ Partial Class PFacturacionFletes
         Me.ToolStripLabel15.Name = "ToolStripLabel15"
         Me.ToolStripLabel15.Size = New System.Drawing.Size(105, 22)
         Me.ToolStripLabel15.Text = "Eliminar Consumo"
-        Me.ToolStripLabel15.Visible = False
+        Me.ToolStripLabel15.Visible = false
         '
         'Panel6
         '
@@ -2898,7 +2898,7 @@ Partial Class PFacturacionFletes
         '
         'c1grdIngresoCompra
         '
-        Me.c1grdIngresoCompra.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grdIngresoCompra.ColumnInfo = "2,1,0,0,0,100,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grdIngresoCompra.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grdIngresoCompra.Location = New System.Drawing.Point(0, 20)
         Me.c1grdIngresoCompra.Name = "c1grdIngresoCompra"
@@ -2912,7 +2912,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption12.ACCaption = "Ingreso Compra "
         Me.AcPanelCaption12.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption12.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption12.Font = New System.Drawing.Font("Tahoma", 9!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption12.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption12.Name = "AcPanelCaption12"
         Me.AcPanelCaption12.Size = New System.Drawing.Size(607, 20)
@@ -2938,7 +2938,7 @@ Partial Class PFacturacionFletes
         '
         Me.AcPanelCaption10.ACCaption = "Guias Registradas"
         Me.AcPanelCaption10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.AcPanelCaption10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.AcPanelCaption10.Font = New System.Drawing.Font("Tahoma", 9!, System.Drawing.FontStyle.Bold)
         Me.AcPanelCaption10.Location = New System.Drawing.Point(0, 0)
         Me.AcPanelCaption10.Name = "AcPanelCaption10"
         Me.AcPanelCaption10.Size = New System.Drawing.Size(607, 20)
@@ -2946,7 +2946,7 @@ Partial Class PFacturacionFletes
         '
         'c1grGuiasCompraDet
         '
-        Me.c1grGuiasCompraDet.ColumnInfo = "2,1,0,0,0,85,Columns:0{Width:25;}" & Global.Microsoft.VisualBasic.ChrW(9)
+        Me.c1grGuiasCompraDet.ColumnInfo = "2,1,0,0,0,85,Columns:0{Width:25;}"&Global.Microsoft.VisualBasic.ChrW(9)
         Me.c1grGuiasCompraDet.Dock = System.Windows.Forms.DockStyle.Fill
         Me.c1grGuiasCompraDet.Location = New System.Drawing.Point(0, 20)
         Me.c1grGuiasCompraDet.Name = "c1grGuiasCompraDet"
@@ -2957,30 +2957,30 @@ Partial Class PFacturacionFletes
         '
         'txtphantom_ubigo_origen
         '
-        Me.txtphantom_ubigo_origen.Enabled = False
+        Me.txtphantom_ubigo_origen.Enabled = false
         Me.txtphantom_ubigo_origen.Location = New System.Drawing.Point(1144, 704)
         Me.txtphantom_ubigo_origen.Name = "txtphantom_ubigo_origen"
         Me.txtphantom_ubigo_origen.Size = New System.Drawing.Size(100, 20)
         Me.txtphantom_ubigo_origen.TabIndex = 15
-        Me.txtphantom_ubigo_origen.Visible = False
+        Me.txtphantom_ubigo_origen.Visible = false
         '
         'txtphantom_ubigo_destino
         '
-        Me.txtphantom_ubigo_destino.Enabled = False
+        Me.txtphantom_ubigo_destino.Enabled = false
         Me.txtphantom_ubigo_destino.Location = New System.Drawing.Point(1140, 706)
         Me.txtphantom_ubigo_destino.Name = "txtphantom_ubigo_destino"
         Me.txtphantom_ubigo_destino.Size = New System.Drawing.Size(100, 20)
         Me.txtphantom_ubigo_destino.TabIndex = 16
-        Me.txtphantom_ubigo_destino.Visible = False
+        Me.txtphantom_ubigo_destino.Visible = false
         '
         'txtphantom_rutas_nombre
         '
-        Me.txtphantom_rutas_nombre.Enabled = False
+        Me.txtphantom_rutas_nombre.Enabled = false
         Me.txtphantom_rutas_nombre.Location = New System.Drawing.Point(1139, 704)
         Me.txtphantom_rutas_nombre.Name = "txtphantom_rutas_nombre"
         Me.txtphantom_rutas_nombre.Size = New System.Drawing.Size(100, 20)
         Me.txtphantom_rutas_nombre.TabIndex = 17
-        Me.txtphantom_rutas_nombre.Visible = False
+        Me.txtphantom_rutas_nombre.Visible = false
         '
         'ContextMenuStrip1
         '
@@ -2989,16 +2989,16 @@ Partial Class PFacturacionFletes
         '
         'txtVEHIC_Certificado
         '
-        Me.txtVEHIC_Certificado.Enabled = False
+        Me.txtVEHIC_Certificado.Enabled = false
         Me.txtVEHIC_Certificado.Location = New System.Drawing.Point(1164, 846)
         Me.txtVEHIC_Certificado.Name = "txtVEHIC_Certificado"
         Me.txtVEHIC_Certificado.Size = New System.Drawing.Size(100, 20)
         Me.txtVEHIC_Certificado.TabIndex = 18
-        Me.txtVEHIC_Certificado.Visible = False
+        Me.txtVEHIC_Certificado.Visible = false
         '
         'PFacturacionFletes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(1377, 878)
@@ -3013,101 +3013,101 @@ Partial Class PFacturacionFletes
         Me.Controls.Add(Me.acTool)
         Me.Name = "PFacturacionFletes"
         Me.Text = "ToolNuevoGrabarAnularImprimir"
-        Me.tabMantenimiento.ResumeLayout(False)
-        Me.tabDatos.ResumeLayout(False)
-        Me.pnlDatos.ResumeLayout(False)
-        Me.pnlDetalle.ResumeLayout(False)
-        Me.pnlDetalle.PerformLayout()
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer2.ResumeLayout(False)
-        Me.spcCabecera.Panel1.ResumeLayout(False)
-        Me.spcCabecera.Panel2.ResumeLayout(False)
-        CType(Me.spcCabecera, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.spcCabecera.ResumeLayout(False)
-        Me.pnlItem.ResumeLayout(False)
-        Me.pnlItem.PerformLayout()
-        Me.grpCabCuerpo.ResumeLayout(False)
-        Me.grpCabCuerpo.PerformLayout()
-        Me.grpFlete.ResumeLayout(False)
-        Me.grpFlete.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
-        Me.tpgFletes.ResumeLayout(False)
-        Me.tpgFletes.PerformLayout()
-        CType(Me.c1grdFletes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bnavFletes, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.bnavFletes.ResumeLayout(False)
-        Me.bnavFletes.PerformLayout()
-        Me.tstFletes.ResumeLayout(False)
-        Me.tstFletes.PerformLayout()
-        Me.tpgNotasCredito.ResumeLayout(False)
-        Me.tpgNotasCredito.PerformLayout()
-        CType(Me.c1grdNCreditos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator1.ResumeLayout(False)
-        Me.BindingNavigator1.PerformLayout()
-        Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
-        Me.tpgPagos.ResumeLayout(False)
-        Me.tpgPagos.PerformLayout()
-        CType(Me.c1grdPagos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingNavigator2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.BindingNavigator2.ResumeLayout(False)
-        Me.BindingNavigator2.PerformLayout()
-        Me.ToolStrip3.ResumeLayout(False)
-        Me.ToolStrip3.PerformLayout()
-        Me.spcDetalle.Panel1.ResumeLayout(False)
-        Me.spcDetalle.Panel2.ResumeLayout(False)
-        CType(Me.spcDetalle, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.spcDetalle.ResumeLayout(False)
-        CType(Me.c1grdDetalle, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer3.Panel1.ResumeLayout(False)
-        Me.SplitContainer3.Panel2.ResumeLayout(False)
-        Me.SplitContainer3.Panel2.PerformLayout()
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer3.ResumeLayout(False)
-        CType(Me.c1grdEmpresas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.c1grdGuias, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bnavGuias, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.bnavGuias.ResumeLayout(False)
-        Me.bnavGuias.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
-        CType(Me.bnavProductos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.bnavProductos.ResumeLayout(False)
-        Me.bnavProductos.PerformLayout()
-        Me.pnlPie.ResumeLayout(False)
-        Me.pnlPie.PerformLayout()
-        Me.grpDetPago.ResumeLayout(False)
-        Me.grpDetPago.PerformLayout()
-        Me.pnlCabecera.ResumeLayout(False)
-        Me.pnlCabecera.PerformLayout()
-        Me.tabBusqueda.ResumeLayout(False)
-        Me.tabBusqueda.PerformLayout()
-        CType(Me.c1grdBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpBusqueda.ResumeLayout(False)
-        Me.grpBusqueda.PerformLayout()
-        Me.grpCliente.ResumeLayout(False)
-        Me.grpCliente.PerformLayout()
-        Me.grpDocumentos.ResumeLayout(False)
-        Me.grpDocumentos.PerformLayout()
-        CType(Me.bnavBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.bnavBusqueda.ResumeLayout(False)
-        Me.bnavBusqueda.PerformLayout()
-        Me.acTool.ResumeLayout(False)
-        Me.acTool.PerformLayout()
-        CType(Me.eprError, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.bnavConsumoAdBlue, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel6.ResumeLayout(False)
-        CType(Me.c1grdIngresoCompra, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.c1grGuiasCompraDet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.tabMantenimiento.ResumeLayout(false)
+        Me.tabDatos.ResumeLayout(false)
+        Me.pnlDatos.ResumeLayout(false)
+        Me.pnlDetalle.ResumeLayout(false)
+        Me.pnlDetalle.PerformLayout
+        Me.SplitContainer2.Panel1.ResumeLayout(false)
+        Me.SplitContainer2.Panel2.ResumeLayout(false)
+        CType(Me.SplitContainer2,System.ComponentModel.ISupportInitialize).EndInit
+        Me.SplitContainer2.ResumeLayout(false)
+        Me.spcCabecera.Panel1.ResumeLayout(false)
+        Me.spcCabecera.Panel2.ResumeLayout(false)
+        CType(Me.spcCabecera,System.ComponentModel.ISupportInitialize).EndInit
+        Me.spcCabecera.ResumeLayout(false)
+        Me.pnlItem.ResumeLayout(false)
+        Me.pnlItem.PerformLayout
+        Me.grpCabCuerpo.ResumeLayout(false)
+        Me.grpCabCuerpo.PerformLayout
+        Me.grpFlete.ResumeLayout(false)
+        Me.grpFlete.PerformLayout
+        Me.TabControl1.ResumeLayout(false)
+        Me.tpgFletes.ResumeLayout(false)
+        Me.tpgFletes.PerformLayout
+        CType(Me.c1grdFletes,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.bnavFletes,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavFletes.ResumeLayout(false)
+        Me.bnavFletes.PerformLayout
+        Me.tstFletes.ResumeLayout(false)
+        Me.tstFletes.PerformLayout
+        Me.tpgNotasCredito.ResumeLayout(false)
+        Me.tpgNotasCredito.PerformLayout
+        CType(Me.c1grdNCreditos,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.BindingNavigator1,System.ComponentModel.ISupportInitialize).EndInit
+        Me.BindingNavigator1.ResumeLayout(false)
+        Me.BindingNavigator1.PerformLayout
+        Me.ToolStrip2.ResumeLayout(false)
+        Me.ToolStrip2.PerformLayout
+        Me.tpgPagos.ResumeLayout(false)
+        Me.tpgPagos.PerformLayout
+        CType(Me.c1grdPagos,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.BindingNavigator2,System.ComponentModel.ISupportInitialize).EndInit
+        Me.BindingNavigator2.ResumeLayout(false)
+        Me.BindingNavigator2.PerformLayout
+        Me.ToolStrip3.ResumeLayout(false)
+        Me.ToolStrip3.PerformLayout
+        Me.spcDetalle.Panel1.ResumeLayout(false)
+        Me.spcDetalle.Panel2.ResumeLayout(false)
+        CType(Me.spcDetalle,System.ComponentModel.ISupportInitialize).EndInit
+        Me.spcDetalle.ResumeLayout(false)
+        CType(Me.c1grdDetalle,System.ComponentModel.ISupportInitialize).EndInit
+        Me.SplitContainer3.Panel1.ResumeLayout(false)
+        Me.SplitContainer3.Panel2.ResumeLayout(false)
+        Me.SplitContainer3.Panel2.PerformLayout
+        CType(Me.SplitContainer3,System.ComponentModel.ISupportInitialize).EndInit
+        Me.SplitContainer3.ResumeLayout(false)
+        CType(Me.c1grdEmpresas,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.c1grdGuias,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.bnavGuias,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavGuias.ResumeLayout(false)
+        Me.bnavGuias.PerformLayout
+        Me.Panel2.ResumeLayout(false)
+        Me.Panel2.PerformLayout
+        Me.ToolStrip1.ResumeLayout(false)
+        Me.ToolStrip1.PerformLayout
+        CType(Me.bnavProductos,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavProductos.ResumeLayout(false)
+        Me.bnavProductos.PerformLayout
+        Me.pnlPie.ResumeLayout(false)
+        Me.pnlPie.PerformLayout
+        Me.grpDetPago.ResumeLayout(false)
+        Me.grpDetPago.PerformLayout
+        Me.pnlCabecera.ResumeLayout(false)
+        Me.pnlCabecera.PerformLayout
+        Me.tabBusqueda.ResumeLayout(false)
+        Me.tabBusqueda.PerformLayout
+        CType(Me.c1grdBusqueda,System.ComponentModel.ISupportInitialize).EndInit
+        Me.grpBusqueda.ResumeLayout(false)
+        Me.grpBusqueda.PerformLayout
+        Me.grpCliente.ResumeLayout(false)
+        Me.grpCliente.PerformLayout
+        Me.grpDocumentos.ResumeLayout(false)
+        Me.grpDocumentos.PerformLayout
+        CType(Me.bnavBusqueda,System.ComponentModel.ISupportInitialize).EndInit
+        Me.bnavBusqueda.ResumeLayout(false)
+        Me.bnavBusqueda.PerformLayout
+        Me.acTool.ResumeLayout(false)
+        Me.acTool.PerformLayout
+        CType(Me.eprError,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.bnavConsumoAdBlue,System.ComponentModel.ISupportInitialize).EndInit
+        Me.Panel6.ResumeLayout(false)
+        CType(Me.c1grdIngresoCompra,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.c1grGuiasCompraDet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Private WithEvents tabMantenimiento As Crownwood.DotNetMagic.Controls.TabControl
     Private WithEvents tabDatos As Crownwood.DotNetMagic.Controls.TabPage
     Friend WithEvents pnlDatos As System.Windows.Forms.Panel

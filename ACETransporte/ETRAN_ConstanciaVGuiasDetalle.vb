@@ -128,18 +128,54 @@ Public Class ETRAN_ConstanciaVGuiasDetalle
             End If
         End Set
     End Property
-  
+
+
     Public Property Documento() As String
         Get
+            If String.IsNullOrEmpty(m_documento) Then
+                Return String.Empty
 
-            Return String.Format("{0} {1}-{2}", "GR", m_guiar_codigo.Substring(2,4), m_guiar_codigo.Substring(6, 7))
 
+
+            End If
+            Dim s As String = m_documento.Trim()
+
+
+            If s.Length >= 13 Then
+                Try
+                    Dim parte1Tamanio As Integer = Math.Min(4, Math.Max(0, s.Length - 2))
+                    Dim parte2Tamanio As Integer = Math.Min(7, Math.Max(0, s.Length - 6))
+                    Dim part1 As String = s.Substring(2, parte1Tamanio)
+                    Dim part2 As String = s.Substring(6, parte2Tamanio)
+
+                    Return String.Format("{0}{0}-{1}", part1, part2)
+
+
+
+                Catch ex As Exception
+                    'para evitar errores si el formato no es el esperado
+                    Return s
+                End Try
+            End If
+
+            Return s
         End Get
         Set(ByVal value As String)
-            m_documento = value
+            m_documento = If(value, String.Empty).Trim()
         End Set
-
     End Property
+
+    'Public Property Documento() As String
+    '    'Get
+
+    '    '    Return String.Format("{0} {1}-{2}", "GR", m_guiar_codigo.Substring(2,4), m_guiar_codigo.Substring(6, 7))
+
+    '    'End Get
+    '    'Set(ByVal value As String)
+    '    '    m_documento = value
+    '    'End Set
+
+    'End Property
     Public Property DocVenta() As String
         Get
             Return m_docventa

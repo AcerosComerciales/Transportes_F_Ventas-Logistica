@@ -58,3 +58,15 @@ E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEAppMovil\obj\Debug
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEAppMovil\obj\Debug\ACEAppMovil.dll
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEAppMovil\obj\Debug\ACEAppMovil.xml
 E:\ProyectosVB_2012\Transportes_F_VentasLogistica_gitfrank\ACEAppMovil\obj\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\bin\Debug\ACEAppMovil.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\bin\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\bin\Debug\ACEAppMovil.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\bin\Debug\ACFramework.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.Resources.resources
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.vbproj.GenerateResource.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.vbproj.CoreCompileInputs.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.dll
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.xml
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.pdb
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.vbprojAssemblyReference.cache
+E:\ProyectosVB_2012\Transportes  - Conjunto\Transportes_F_Ventas_Logistica_git_\Transportes_F_Ventas-Logistica\ACEAppMovil\obj\Debug\ACEAppMovil.vbproj.CopyComplete
