@@ -1290,20 +1290,13 @@ Public Class TCancelacion
         Dim _redondeo As BAdminCaja.TRedondeo
         Dim NroDocumentoCliente As String = txtDocumento.Text
         Try
-
             If m_bandera_detraccion_Aviso = True Then
                 ' ESTO SOLO ES UN AVISO — NO AFECTA EL GUARDADO
-
-                If Not ComprobacionMontosDetraccion(
-                    CType(bs_facturas.Current, EVENT_DocsVenta).DOCVE_ImporteDetraccion,
-                    globales_.x_MontoDetraccionAGrabar) Then
-
+                If Not ComprobacionMontosDetraccion( CType(bs_facturas.Current, EVENT_DocsVenta).DOCVE_ImporteDetraccion, globales_.x_MontoDetraccionAGrabar) Then
                     ' Solo mostrar advertencia
                     MostrarMensajeAdvertencia()
-
                 End If
             End If
-
             If Validar(_msg, _redondeo) Then
                 Dim _cadena As String = ""
                 Dim _cad As String = String.Format("Documentos a ser Cancelados:{0}", vbNewLine)
@@ -1314,10 +1307,7 @@ Public Class TCancelacion
                     End If
                 Next
                 _cadena = _cadena.Substring(0, _cadena.Length - 1)
-
-
                 If _cadena.Length > 20 Then _cadena = ""
-
                 If ACControles.ACDialogos.ACMostrarMensajePregunta(String.Format("Generar Cancelación: {0}", Me.Text) _
                                             , String.Format("¿Generar la Cancelación de los Documentos Seleccionados: {0}. Con un total de: {1} {2}?", _cadena, CType(bs_moneda.Current, ETipos).TIPOS_DescCorta, tstxnTotalPagar.Text) _
                                             , _cad, ACControles.ACDialogos.LabelBotom.Si_No) = DialogResult.Yes Then

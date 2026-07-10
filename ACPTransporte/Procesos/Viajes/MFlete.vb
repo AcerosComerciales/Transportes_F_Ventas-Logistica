@@ -96,7 +96,7 @@ Public Class MFlete
          GApp.DataUsuario.PROC_Codigo = Procesos.getProceso(Procesos.TipoProcesos.ModificarImporteFlete)
          Dim _validate As New ACValidarUsuario(GApp.DataConexion, GApp.DataUsuario, ACValidarUsuario.Operacion.ValidarProceso)
          actxnMonto.Enabled = _validate.ACProceso
-         actxnMontoXTm.Enabled = _validate.ACProceso
+         actxnMontoXTm.Enabled = _validate.ACProceso = True 
          actxnPeso.Enabled = _validate.ACProceso
          chkIGV.Enabled = _validate.ACProceso
          actxnIGV.Enabled = _validate.ACProceso

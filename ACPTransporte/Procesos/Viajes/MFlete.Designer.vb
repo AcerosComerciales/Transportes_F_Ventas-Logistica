@@ -33,6 +33,11 @@ Partial Class MFlete
         Me.actxaCliente = New ACControles.ACTextBoxAyuda()
         Me.actxaCliRuc = New ACControles.ACTextBoxAyuda()
         Me.pnlDatos = New System.Windows.Forms.Panel()
+        Me.actxnTotalValorReferencial = New ACControles.ACTextBoxNumerico()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.actxnValorReferencialXTm = New ACControles.ACTextBoxNumerico()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.actxnIGV = New ACControles.ACTextBoxNumerico()
         Me.chkIGV = New System.Windows.Forms.CheckBox()
         Me.actxnMontoXTm = New ACControles.ACTextBoxNumerico()
@@ -81,22 +86,17 @@ Partial Class MFlete
         Me.txtViaje = New System.Windows.Forms.TextBox()
         Me.txtIdConductor = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.actxnTotalValorReferencial = New ACControles.ACTextBoxNumerico()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.actxnValorReferencialXTm = New ACControles.ACTextBoxNumerico()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.pnlDatos.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.SuspendLayout()
+        Me.pnlDatos.SuspendLayout
+        Me.GroupBox2.SuspendLayout
+        Me.GroupBox3.SuspendLayout
+        Me.GroupBox4.SuspendLayout
+        Me.SuspendLayout
         '
         'actxaDescRuta
         '
-        Me.actxaDescRuta.ACActivarAyudaAuto = False
+        Me.actxaDescRuta.ACActivarAyudaAuto = false
         Me.actxaDescRuta.ACLongitudAceptada = 0
-        Me.actxaDescRuta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.actxaDescRuta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.actxaDescRuta.Location = New System.Drawing.Point(201, 16)
         Me.actxaDescRuta.MaxLength = 32767
         Me.actxaDescRuta.Name = "actxaDescRuta"
@@ -106,7 +106,7 @@ Partial Class MFlete
         '
         'actxaCodRuta
         '
-        Me.actxaCodRuta.ACActivarAyudaAuto = False
+        Me.actxaCodRuta.ACActivarAyudaAuto = false
         Me.actxaCodRuta.ACLongitudAceptada = 0
         Me.actxaCodRuta.Location = New System.Drawing.Point(132, 17)
         Me.actxaCodRuta.MaxLength = 32767
@@ -117,27 +117,27 @@ Partial Class MFlete
         '
         'acTool
         '
-        Me.acTool.ACBtnAnularEnabled = False
-        Me.acTool.ACBtnAnularVisible = False
-        Me.acTool.ACBtnBuscarEnabled = False
-        Me.acTool.ACBtnBuscarVisible = False
-        Me.acTool.ACBtnCancelarEnabled = False
-        Me.acTool.ACBtnCancelarVisible = False
-        Me.acTool.ACBtnEliminarEnabled = False
-        Me.acTool.ACBtnEliminarVisible = False
-        Me.acTool.ACBtnGrabarEnabled = False
-        Me.acTool.ACBtnGrabarVisible = False
-        Me.acTool.ACBtnImprimirEnabled = False
-        Me.acTool.ACBtnImprimirVisible = False
-        Me.acTool.ACBtnNuevoEnabled = False
-        Me.acTool.ACBtnNuevoVisible = False
-        Me.acTool.ACBtnRehusarEnabled = False
-        Me.acTool.ACBtnRehusarVisible = False
-        Me.acTool.ACBtnReporteEnabled = False
-        Me.acTool.ACBtnReporteVisible = False
+        Me.acTool.ACBtnAnularEnabled = false
+        Me.acTool.ACBtnAnularVisible = false
+        Me.acTool.ACBtnBuscarEnabled = false
+        Me.acTool.ACBtnBuscarVisible = false
+        Me.acTool.ACBtnCancelarEnabled = false
+        Me.acTool.ACBtnCancelarVisible = false
+        Me.acTool.ACBtnEliminarEnabled = false
+        Me.acTool.ACBtnEliminarVisible = false
+        Me.acTool.ACBtnGrabarEnabled = false
+        Me.acTool.ACBtnGrabarVisible = false
+        Me.acTool.ACBtnImprimirEnabled = false
+        Me.acTool.ACBtnImprimirVisible = false
+        Me.acTool.ACBtnNuevoEnabled = false
+        Me.acTool.ACBtnNuevoVisible = false
+        Me.acTool.ACBtnRehusarEnabled = false
+        Me.acTool.ACBtnRehusarVisible = false
+        Me.acTool.ACBtnReporteEnabled = false
+        Me.acTool.ACBtnReporteVisible = false
         Me.acTool.ACBtnSalirText = "&Salir"
-        Me.acTool.ACBtnVolverEnabled = False
-        Me.acTool.ACBtnVolverVisible = False
+        Me.acTool.ACBtnVolverEnabled = false
+        Me.acTool.ACBtnVolverVisible = false
         Me.acTool.ACTipoToolBar = ACControles.ACToolBarMantHorizontalNew.tipoToolBar.ToolGrabar
         Me.acTool.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.acTool.Font = New System.Drawing.Font("Tahoma", 9.5!)
@@ -153,7 +153,7 @@ Partial Class MFlete
         '
         Me.acpnlTitulo.ACCaption = "Mantenimiento de Fletes"
         Me.acpnlTitulo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.acpnlTitulo.Font = New System.Drawing.Font("Tahoma", 10!, System.Drawing.FontStyle.Bold)
         Me.acpnlTitulo.Location = New System.Drawing.Point(0, 0)
         Me.acpnlTitulo.Name = "acpnlTitulo"
         Me.acpnlTitulo.Size = New System.Drawing.Size(646, 30)
@@ -161,28 +161,28 @@ Partial Class MFlete
         '
         'btnClean
         '
-        Me.btnClean.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClean.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClean.Image = Global.ACPTransportes.My.Resources.Resources.Delete_16x16
         Me.btnClean.Location = New System.Drawing.Point(592, 98)
         Me.btnClean.Name = "btnClean"
         Me.btnClean.Size = New System.Drawing.Size(30, 24)
         Me.btnClean.TabIndex = 5
-        Me.btnClean.UseVisualStyleBackColor = True
+        Me.btnClean.UseVisualStyleBackColor = true
         '
         'btnEditar
         '
-        Me.btnEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnEditar.Image = Global.ACPTransportes.My.Resources.Resources.ACEdit_16x16
         Me.btnEditar.Location = New System.Drawing.Point(562, 98)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(30, 24)
         Me.btnEditar.TabIndex = 4
         Me.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEditar.UseVisualStyleBackColor = True
+        Me.btnEditar.UseVisualStyleBackColor = true
         '
         'btnNuevo
         '
-        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNuevo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnNuevo.Image = Global.ACPTransportes.My.Resources.Resources.ACNuevo_16x16
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnNuevo.Location = New System.Drawing.Point(536, 98)
@@ -190,15 +190,15 @@ Partial Class MFlete
         Me.btnNuevo.Size = New System.Drawing.Size(26, 24)
         Me.btnNuevo.TabIndex = 3
         Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNuevo.UseVisualStyleBackColor = True
+        Me.btnNuevo.UseVisualStyleBackColor = true
         '
         'actxaCliente
         '
-        Me.actxaCliente.ACActivarAyudaAuto = False
+        Me.actxaCliente.ACActivarAyudaAuto = false
         Me.actxaCliente.ACLongitudAceptada = 0
-        Me.actxaCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.actxaCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.actxaCliente.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.actxaCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.actxaCliente.Location = New System.Drawing.Point(258, 99)
         Me.actxaCliente.MaxLength = 50
         Me.actxaCliente.Name = "actxaCliente"
@@ -208,7 +208,7 @@ Partial Class MFlete
         '
         'actxaCliRuc
         '
-        Me.actxaCliRuc.ACActivarAyudaAuto = False
+        Me.actxaCliRuc.ACActivarAyudaAuto = false
         Me.actxaCliRuc.ACLongitudAceptada = 0
         Me.actxaCliRuc.Location = New System.Drawing.Point(133, 100)
         Me.actxaCliRuc.MaxLength = 32767
@@ -263,52 +263,113 @@ Partial Class MFlete
         Me.pnlDatos.Size = New System.Drawing.Size(646, 447)
         Me.pnlDatos.TabIndex = 57
         '
+        'actxnTotalValorReferencial
+        '
+        Me.actxnTotalValorReferencial.ACEnteros = 9
+        Me.actxnTotalValorReferencial.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
+        Me.actxnTotalValorReferencial.ACFormato = "###,###,##0.00000"
+        Me.actxnTotalValorReferencial.ACNegativo = true
+        Me.actxnTotalValorReferencial.ACValue = New Decimal(New Integer() {0, 0, 0, 262144})
+        Me.actxnTotalValorReferencial.Enabled = false
+        Me.actxnTotalValorReferencial.Location = New System.Drawing.Point(457, 225)
+        Me.actxnTotalValorReferencial.MaxLength = 12
+        Me.actxnTotalValorReferencial.Name = "actxnTotalValorReferencial"
+        Me.actxnTotalValorReferencial.Size = New System.Drawing.Size(117, 20)
+        Me.actxnTotalValorReferencial.TabIndex = 43
+        Me.actxnTotalValorReferencial.Tag = "EV"
+        Me.actxnTotalValorReferencial.Text = "0.00000"
+        Me.actxnTotalValorReferencial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = true
+        Me.Label11.Location = New System.Drawing.Point(390, 229)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(61, 13)
+        Me.Label11.TabIndex = 42
+        Me.Label11.Text = "Total V.R. :"
+        '
+        'actxnValorReferencialXTm
+        '
+        Me.actxnValorReferencialXTm.ACDecimales = 4
+        Me.actxnValorReferencialXTm.ACEnteros = 9
+        Me.actxnValorReferencialXTm.ACFormato = "###,###,##0.000000"
+        Me.actxnValorReferencialXTm.ACNegativo = true
+        Me.actxnValorReferencialXTm.ACValue = New Decimal(New Integer() {0, 0, 0, 262144})
+        Me.actxnValorReferencialXTm.Enabled = false
+        Me.actxnValorReferencialXTm.Location = New System.Drawing.Point(457, 196)
+        Me.actxnValorReferencialXTm.MaxLength = 12
+        Me.actxnValorReferencialXTm.Name = "actxnValorReferencialXTm"
+        Me.actxnValorReferencialXTm.Size = New System.Drawing.Size(117, 20)
+        Me.actxnValorReferencialXTm.TabIndex = 40
+        Me.actxnValorReferencialXTm.Tag = "EV"
+        Me.actxnValorReferencialXTm.Text = "0.000000"
+        Me.actxnValorReferencialXTm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = true
+        Me.Label3.Location = New System.Drawing.Point(586, 200)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(48, 13)
+        Me.Label3.TabIndex = 41
+        Me.Label3.Text = "Por T.M."
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = true
+        Me.Label5.Location = New System.Drawing.Point(351, 200)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(94, 13)
+        Me.Label5.TabIndex = 39
+        Me.Label5.Text = "Valor Referencial :"
+        '
         'actxnIGV
         '
-        Me.actxnIGV.ACDecimales = 4
+        Me.actxnIGV.ACDecimales = 6
         Me.actxnIGV.ACEnteros = 9
-        Me.actxnIGV.ACFormato = "###,###,##0.0000"
-        Me.actxnIGV.ACNegativo = True
-        Me.actxnIGV.ACValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.actxnIGV.ACFormato = "###,###,##0.000000"
+        Me.actxnIGV.ACNegativo = true
+        Me.actxnIGV.ACValue = New Decimal(New Integer() {0, 0, 0, 393216})
         Me.actxnIGV.Location = New System.Drawing.Point(133, 219)
         Me.actxnIGV.MaxLength = 12
         Me.actxnIGV.Name = "actxnIGV"
         Me.actxnIGV.Size = New System.Drawing.Size(82, 20)
         Me.actxnIGV.TabIndex = 23
         Me.actxnIGV.Tag = "EV"
-        Me.actxnIGV.Text = "0.0000"
+        Me.actxnIGV.Text = "0.000000"
         Me.actxnIGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'chkIGV
         '
-        Me.chkIGV.AutoSize = True
+        Me.chkIGV.AutoSize = true
         Me.chkIGV.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.chkIGV.Location = New System.Drawing.Point(40, 221)
         Me.chkIGV.Name = "chkIGV"
         Me.chkIGV.Size = New System.Drawing.Size(81, 17)
         Me.chkIGV.TabIndex = 22
         Me.chkIGV.Text = "Con I.G.V. :"
-        Me.chkIGV.UseVisualStyleBackColor = True
+        Me.chkIGV.UseVisualStyleBackColor = true
         '
         'actxnMontoXTm
         '
-        Me.actxnMontoXTm.ACDecimales = 4
+        Me.actxnMontoXTm.ACDecimales = 6
         Me.actxnMontoXTm.ACEnteros = 9
-        Me.actxnMontoXTm.ACFormato = "###,###,##0.0000"
-        Me.actxnMontoXTm.ACNegativo = True
-        Me.actxnMontoXTm.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnMontoXTm.ACFormato = "###,###,##0.0000000"
+        Me.actxnMontoXTm.ACNegativo = true
+        Me.actxnMontoXTm.ACValue = New Decimal(New Integer() {0, 0, 0, 458752})
         Me.actxnMontoXTm.Location = New System.Drawing.Point(133, 195)
         Me.actxnMontoXTm.MaxLength = 12
         Me.actxnMontoXTm.Name = "actxnMontoXTm"
         Me.actxnMontoXTm.Size = New System.Drawing.Size(82, 20)
         Me.actxnMontoXTm.TabIndex = 20
         Me.actxnMontoXTm.Tag = "EV"
-        Me.actxnMontoXTm.Text = "0.0000"
+        Me.actxnMontoXTm.Text = "0.0000000"
         Me.actxnMontoXTm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
         '
-        Me.Label10.AutoSize = True
+        Me.Label10.AutoSize = true
         Me.Label10.Location = New System.Drawing.Point(218, 199)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(48, 13)
@@ -317,7 +378,7 @@ Partial Class MFlete
         '
         'Label9
         '
-        Me.Label9.AutoSize = True
+        Me.Label9.AutoSize = true
         Me.Label9.Location = New System.Drawing.Point(221, 247)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(29, 13)
@@ -326,23 +387,23 @@ Partial Class MFlete
         '
         'actxnPeso
         '
-        Me.actxnPeso.ACDecimales = 4
+        Me.actxnPeso.ACDecimales = 6
         Me.actxnPeso.ACEnteros = 9
-        Me.actxnPeso.ACFormato = "###,###,##0.0000"
-        Me.actxnPeso.ACNegativo = True
-        Me.actxnPeso.ACValue = New Decimal(New Integer() {0, 0, 0, 262144})
+        Me.actxnPeso.ACFormato = "###,###,##0.000000"
+        Me.actxnPeso.ACNegativo = true
+        Me.actxnPeso.ACValue = New Decimal(New Integer() {0, 0, 0, 393216})
         Me.actxnPeso.Location = New System.Drawing.Point(133, 243)
         Me.actxnPeso.MaxLength = 12
         Me.actxnPeso.Name = "actxnPeso"
         Me.actxnPeso.Size = New System.Drawing.Size(84, 20)
         Me.actxnPeso.TabIndex = 25
         Me.actxnPeso.Tag = "EV"
-        Me.actxnPeso.Text = "0.0000"
+        Me.actxnPeso.Text = "0.000000"
         Me.actxnPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
+        Me.Label8.AutoSize = true
         Me.Label8.Location = New System.Drawing.Point(59, 247)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(64, 13)
@@ -351,7 +412,7 @@ Partial Class MFlete
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
+        Me.Label2.AutoSize = true
         Me.Label2.Location = New System.Drawing.Point(80, 199)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
@@ -360,12 +421,12 @@ Partial Class MFlete
         '
         'txtCarga
         '
-        Me.txtCarga.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCarga.Font = New System.Drawing.Font("Courier New", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCarga.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.txtCarga.Font = New System.Drawing.Font("Courier New", 9!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.txtCarga.Location = New System.Drawing.Point(133, 289)
         Me.txtCarga.MaxLength = 200
-        Me.txtCarga.Multiline = True
+        Me.txtCarga.Multiline = true
         Me.txtCarga.Name = "txtCarga"
         Me.txtCarga.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.txtCarga.Size = New System.Drawing.Size(489, 43)
@@ -383,7 +444,7 @@ Partial Class MFlete
         '
         'Label15
         '
-        Me.Label15.AutoSize = True
+        Me.Label15.AutoSize = true
         Me.Label15.Location = New System.Drawing.Point(87, 270)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(36, 13)
@@ -394,21 +455,22 @@ Partial Class MFlete
         '
         Me.actxnMonto.ACEnteros = 9
         Me.actxnMonto.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnMonto.ACNegativo = True
-        Me.actxnMonto.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.actxnMonto.ACFormato = "###,###,##0.0000"
+        Me.actxnMonto.ACNegativo = true
+        Me.actxnMonto.ACValue = New Decimal(New Integer() {0, 0, 0, 393216})
         Me.actxnMonto.Location = New System.Drawing.Point(133, 266)
         Me.actxnMonto.MaxLength = 12
         Me.actxnMonto.Name = "actxnMonto"
         Me.actxnMonto.Size = New System.Drawing.Size(96, 20)
         Me.actxnMonto.TabIndex = 28
         Me.actxnMonto.Tag = "EV"
-        Me.actxnMonto.Text = "0.00"
+        Me.actxnMonto.Text = "0.0000"
         Me.actxnMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'cmbMoneda
         '
         Me.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbMoneda.FormattingEnabled = True
+        Me.cmbMoneda.FormattingEnabled = true
         Me.cmbMoneda.Location = New System.Drawing.Point(133, 171)
         Me.cmbMoneda.Name = "cmbMoneda"
         Me.cmbMoneda.Size = New System.Drawing.Size(319, 21)
@@ -417,7 +479,7 @@ Partial Class MFlete
         '
         'Label16
         '
-        Me.Label16.AutoSize = True
+        Me.Label16.AutoSize = true
         Me.Label16.Location = New System.Drawing.Point(71, 174)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(52, 13)
@@ -441,7 +503,7 @@ Partial Class MFlete
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(646, 94)
         Me.GroupBox2.TabIndex = 0
-        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.TabStop = false
         Me.GroupBox2.Text = "Ruta del Flete"
         '
         'txtUbiDestino
@@ -449,7 +511,7 @@ Partial Class MFlete
         Me.txtUbiDestino.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUbiDestino.Location = New System.Drawing.Point(132, 68)
         Me.txtUbiDestino.Name = "txtUbiDestino"
-        Me.txtUbiDestino.ReadOnly = True
+        Me.txtUbiDestino.ReadOnly = true
         Me.txtUbiDestino.Size = New System.Drawing.Size(63, 20)
         Me.txtUbiDestino.TabIndex = 7
         '
@@ -458,13 +520,13 @@ Partial Class MFlete
         Me.txtUbiOrigen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUbiOrigen.Location = New System.Drawing.Point(132, 42)
         Me.txtUbiOrigen.Name = "txtUbiOrigen"
-        Me.txtUbiOrigen.ReadOnly = True
+        Me.txtUbiOrigen.ReadOnly = true
         Me.txtUbiOrigen.Size = New System.Drawing.Size(63, 20)
         Me.txtUbiOrigen.TabIndex = 4
         '
         'Label17
         '
-        Me.Label17.AutoSize = True
+        Me.Label17.AutoSize = true
         Me.Label17.Location = New System.Drawing.Point(81, 46)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(44, 13)
@@ -476,7 +538,7 @@ Partial Class MFlete
         Me.txtDestino.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtDestino.Location = New System.Drawing.Point(202, 68)
         Me.txtDestino.Name = "txtDestino"
-        Me.txtDestino.ReadOnly = True
+        Me.txtDestino.ReadOnly = true
         Me.txtDestino.Size = New System.Drawing.Size(250, 20)
         Me.txtDestino.TabIndex = 8
         '
@@ -485,13 +547,13 @@ Partial Class MFlete
         Me.txtOrigen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtOrigen.Location = New System.Drawing.Point(202, 42)
         Me.txtOrigen.Name = "txtOrigen"
-        Me.txtOrigen.ReadOnly = True
+        Me.txtOrigen.ReadOnly = true
         Me.txtOrigen.Size = New System.Drawing.Size(250, 20)
         Me.txtOrigen.TabIndex = 5
         '
         'Label18
         '
-        Me.Label18.AutoSize = True
+        Me.Label18.AutoSize = true
         Me.Label18.Location = New System.Drawing.Point(77, 72)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(49, 13)
@@ -500,7 +562,7 @@ Partial Class MFlete
         '
         'Label19
         '
-        Me.Label19.AutoSize = True
+        Me.Label19.AutoSize = true
         Me.Label19.Location = New System.Drawing.Point(93, 21)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(36, 13)
@@ -513,7 +575,7 @@ Partial Class MFlete
         Me.dtpHoraProgramada.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpHoraProgramada.Location = New System.Drawing.Point(245, 124)
         Me.dtpHoraProgramada.Name = "dtpHoraProgramada"
-        Me.dtpHoraProgramada.ShowUpDown = True
+        Me.dtpHoraProgramada.ShowUpDown = true
         Me.dtpHoraProgramada.Size = New System.Drawing.Size(81, 20)
         Me.dtpHoraProgramada.TabIndex = 10
         '
@@ -523,7 +585,7 @@ Partial Class MFlete
         Me.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpHoraSalida.Location = New System.Drawing.Point(246, 147)
         Me.dtpHoraSalida.Name = "dtpHoraSalida"
-        Me.dtpHoraSalida.ShowUpDown = True
+        Me.dtpHoraSalida.ShowUpDown = true
         Me.dtpHoraSalida.Size = New System.Drawing.Size(81, 20)
         Me.dtpHoraSalida.TabIndex = 13
         '
@@ -533,7 +595,7 @@ Partial Class MFlete
         Me.dtpHoraLlegada.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpHoraLlegada.Location = New System.Drawing.Point(541, 147)
         Me.dtpHoraLlegada.Name = "dtpHoraLlegada"
-        Me.dtpHoraLlegada.ShowUpDown = True
+        Me.dtpHoraLlegada.ShowUpDown = true
         Me.dtpHoraLlegada.Size = New System.Drawing.Size(81, 20)
         Me.dtpHoraLlegada.TabIndex = 16
         '
@@ -577,7 +639,7 @@ Partial Class MFlete
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(646, 60)
         Me.GroupBox3.TabIndex = 29
-        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.TabStop = false
         Me.GroupBox3.Text = "Vehiculo"
         '
         'txtSigla
@@ -585,7 +647,7 @@ Partial Class MFlete
         Me.txtSigla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSigla.Location = New System.Drawing.Point(556, 35)
         Me.txtSigla.Name = "txtSigla"
-        Me.txtSigla.ReadOnly = True
+        Me.txtSigla.ReadOnly = true
         Me.txtSigla.Size = New System.Drawing.Size(66, 20)
         Me.txtSigla.TabIndex = 10
         '
@@ -594,7 +656,7 @@ Partial Class MFlete
         Me.txtConductor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtConductor.Location = New System.Drawing.Point(235, 35)
         Me.txtConductor.Name = "txtConductor"
-        Me.txtConductor.ReadOnly = True
+        Me.txtConductor.ReadOnly = true
         Me.txtConductor.Size = New System.Drawing.Size(315, 20)
         Me.txtConductor.TabIndex = 9
         '
@@ -603,13 +665,13 @@ Partial Class MFlete
         Me.txtCodConductor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCodConductor.Location = New System.Drawing.Point(132, 35)
         Me.txtCodConductor.Name = "txtCodConductor"
-        Me.txtCodConductor.ReadOnly = True
+        Me.txtCodConductor.ReadOnly = true
         Me.txtCodConductor.Size = New System.Drawing.Size(97, 20)
         Me.txtCodConductor.TabIndex = 8
         '
         'Label20
         '
-        Me.Label20.AutoSize = True
+        Me.Label20.AutoSize = true
         Me.Label20.Location = New System.Drawing.Point(58, 37)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(62, 13)
@@ -618,7 +680,7 @@ Partial Class MFlete
         '
         'actxaPlaca
         '
-        Me.actxaPlaca.ACActivarAyudaAuto = False
+        Me.actxaPlaca.ACActivarAyudaAuto = false
         Me.actxaPlaca.ACLongitudAceptada = 0
         Me.actxaPlaca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxaPlaca.Location = New System.Drawing.Point(285, 11)
@@ -630,7 +692,7 @@ Partial Class MFlete
         '
         'actxaCodVehiculo
         '
-        Me.actxaCodVehiculo.ACActivarAyudaAuto = False
+        Me.actxaCodVehiculo.ACActivarAyudaAuto = false
         Me.actxaCodVehiculo.ACLongitudAceptada = 0
         Me.actxaCodVehiculo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.actxaCodVehiculo.Location = New System.Drawing.Point(132, 11)
@@ -642,7 +704,7 @@ Partial Class MFlete
         '
         'Label21
         '
-        Me.Label21.AutoSize = True
+        Me.Label21.AutoSize = true
         Me.Label21.Location = New System.Drawing.Point(239, 15)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(40, 13)
@@ -651,7 +713,7 @@ Partial Class MFlete
         '
         'Label22
         '
-        Me.Label22.AutoSize = True
+        Me.Label22.AutoSize = true
         Me.Label22.Location = New System.Drawing.Point(75, 15)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(46, 13)
@@ -660,7 +722,7 @@ Partial Class MFlete
         '
         'Label23
         '
-        Me.Label23.AutoSize = True
+        Me.Label23.AutoSize = true
         Me.Label23.Location = New System.Drawing.Point(21, 128)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(103, 13)
@@ -669,7 +731,7 @@ Partial Class MFlete
         '
         'Label24
         '
-        Me.Label24.AutoSize = True
+        Me.Label24.AutoSize = true
         Me.Label24.Location = New System.Drawing.Point(48, 151)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(75, 13)
@@ -678,7 +740,7 @@ Partial Class MFlete
         '
         'Label25
         '
-        Me.Label25.AutoSize = True
+        Me.Label25.AutoSize = true
         Me.Label25.Location = New System.Drawing.Point(334, 151)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(88, 13)
@@ -687,7 +749,7 @@ Partial Class MFlete
         '
         'Label26
         '
-        Me.Label26.AutoSize = True
+        Me.Label26.AutoSize = true
         Me.Label26.Location = New System.Drawing.Point(78, 104)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(45, 13)
@@ -709,7 +771,7 @@ Partial Class MFlete
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(646, 48)
         Me.GroupBox4.TabIndex = 28
-        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.TabStop = false
         Me.GroupBox4.Text = "Viaje Generado"
         '
         'txtGlosa
@@ -717,13 +779,13 @@ Partial Class MFlete
         Me.txtGlosa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtGlosa.Location = New System.Drawing.Point(335, 17)
         Me.txtGlosa.Name = "txtGlosa"
-        Me.txtGlosa.ReadOnly = True
+        Me.txtGlosa.ReadOnly = true
         Me.txtGlosa.Size = New System.Drawing.Size(292, 20)
         Me.txtGlosa.TabIndex = 11
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
+        Me.Label7.AutoSize = true
         Me.Label7.Location = New System.Drawing.Point(284, 21)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(40, 13)
@@ -732,7 +794,7 @@ Partial Class MFlete
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
+        Me.Label6.AutoSize = true
         Me.Label6.Location = New System.Drawing.Point(19, 21)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(36, 13)
@@ -744,7 +806,7 @@ Partial Class MFlete
         Me.txtViaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtViaje.Location = New System.Drawing.Point(66, 17)
         Me.txtViaje.Name = "txtViaje"
-        Me.txtViaje.ReadOnly = True
+        Me.txtViaje.ReadOnly = true
         Me.txtViaje.Size = New System.Drawing.Size(44, 20)
         Me.txtViaje.TabIndex = 7
         '
@@ -753,82 +815,22 @@ Partial Class MFlete
         Me.txtIdConductor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtIdConductor.Location = New System.Drawing.Point(234, 17)
         Me.txtIdConductor.Name = "txtIdConductor"
-        Me.txtIdConductor.ReadOnly = True
+        Me.txtIdConductor.ReadOnly = true
         Me.txtIdConductor.Size = New System.Drawing.Size(41, 20)
         Me.txtIdConductor.TabIndex = 9
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
+        Me.Label4.AutoSize = true
         Me.Label4.Location = New System.Drawing.Point(119, 21)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Viaje x Conductor :"
         '
-        'actxnTotalValorReferencial
-        '
-        Me.actxnTotalValorReferencial.ACEnteros = 9
-        Me.actxnTotalValorReferencial.ACEstandar = ACControles.ACEstandaresFormato.ACDecimal
-        Me.actxnTotalValorReferencial.ACNegativo = True
-        Me.actxnTotalValorReferencial.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnTotalValorReferencial.Enabled = False
-        Me.actxnTotalValorReferencial.Location = New System.Drawing.Point(457, 225)
-        Me.actxnTotalValorReferencial.MaxLength = 12
-        Me.actxnTotalValorReferencial.Name = "actxnTotalValorReferencial"
-        Me.actxnTotalValorReferencial.Size = New System.Drawing.Size(117, 20)
-        Me.actxnTotalValorReferencial.TabIndex = 43
-        Me.actxnTotalValorReferencial.Tag = "EV"
-        Me.actxnTotalValorReferencial.Text = "0.00"
-        Me.actxnTotalValorReferencial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(390, 229)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(61, 13)
-        Me.Label11.TabIndex = 42
-        Me.Label11.Text = "Total V.R. :"
-        '
-        'actxnValorReferencialXTm
-        '
-        Me.actxnValorReferencialXTm.ACDecimales = 4
-        Me.actxnValorReferencialXTm.ACEnteros = 9
-        Me.actxnValorReferencialXTm.ACFormato = "###,###,##0.0000"
-        Me.actxnValorReferencialXTm.ACNegativo = True
-        Me.actxnValorReferencialXTm.ACValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.actxnValorReferencialXTm.Enabled = False
-        Me.actxnValorReferencialXTm.Location = New System.Drawing.Point(457, 196)
-        Me.actxnValorReferencialXTm.MaxLength = 12
-        Me.actxnValorReferencialXTm.Name = "actxnValorReferencialXTm"
-        Me.actxnValorReferencialXTm.Size = New System.Drawing.Size(117, 20)
-        Me.actxnValorReferencialXTm.TabIndex = 40
-        Me.actxnValorReferencialXTm.Tag = "EV"
-        Me.actxnValorReferencialXTm.Text = "0.0000"
-        Me.actxnValorReferencialXTm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(586, 200)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(48, 13)
-        Me.Label3.TabIndex = 41
-        Me.Label3.Text = "Por T.M."
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(351, 200)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(94, 13)
-        Me.Label5.TabIndex = 39
-        Me.Label5.Text = "Valor Referencial :"
-        '
         'MFlete
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ClientSize = New System.Drawing.Size(646, 533)
@@ -837,18 +839,18 @@ Partial Class MFlete
         Me.Controls.Add(Me.acTool)
         Me.Name = "MFlete"
         Me.Text = "Mantenimiento de Fletes"
-        Me.pnlDatos.ResumeLayout(False)
-        Me.pnlDatos.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.pnlDatos.ResumeLayout(false)
+        Me.pnlDatos.PerformLayout
+        Me.GroupBox2.ResumeLayout(false)
+        Me.GroupBox2.PerformLayout
+        Me.GroupBox3.ResumeLayout(false)
+        Me.GroupBox3.PerformLayout
+        Me.GroupBox4.ResumeLayout(false)
+        Me.GroupBox4.PerformLayout
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
    Friend WithEvents acTool As ACControles.ACToolBarMantHorizontalNew
    Friend WithEvents actxaDescRuta As ACControles.ACTextBoxAyuda
    Friend WithEvents actxaCodRuta As ACControles.ACTextBoxAyuda
